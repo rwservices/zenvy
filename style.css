@@ -1106,7 +1106,7 @@ iframe, video {
 
 .site-header .header-search-section form input[type="submit"] {
 	font-size: 0;
-	background-image: url(assets/images/search-icon.png);
+	background-image: url(assets/build/images/search-icon.png);
 	background-repeat: no-repeat;
 	background-position: center;
 	border-radius: 0;
@@ -2896,7 +2896,7 @@ ol.wp-block-latest-comments {
 }
 
 .widget_search .search-submit {
-	background: url("assets/images/search-icon.png") no-repeat scroll center center / 30px auto;
+	background: url("assets/build/images/search-icon.png") no-repeat scroll center center / 30px auto;
 	border-radius: 0;
 	border: medium none;
 	-webkit-box-shadow: inherit;
@@ -2912,7 +2912,7 @@ ol.wp-block-latest-comments {
 }
 
 .widget_search .search-submit:hover {
-	background: url("assets/images/search-icon.png") no-repeat scroll center center / 30px auto;
+	background: url("assets/build/images/search-icon.png") no-repeat scroll center center / 30px auto;
 }
 
 .widget_search input[type="search"], .error-content-wrap input[type="search"] {
@@ -4366,7 +4366,7 @@ form label {
 
 .widget_search .search-submit,
 .wp-block-search .wp-block-search__button{
-	background: url("assets/images/search-icon.png") no-repeat scroll center center / 20px auto;
+	background: url("assets/build/images/search-icon.png") no-repeat scroll center center / 20px auto;
 	background-color: var(--color-bg-3);
 	border-radius: 0;
 	border: medium none;
@@ -4384,7 +4384,7 @@ form label {
 }
 
 .widget_search .search-submit:hover, .wp-block-search .wp-block-search__button:hover{
-	background: url("assets/images/search-icon.png") no-repeat scroll center center / 20px auto;
+	background: url("assets/build/images/search-icon.png") no-repeat scroll center center / 20px auto;
 	background-color: var(--color-accent);
 	border: none;
 	border-radius: 0;
@@ -5186,7 +5186,7 @@ form label {
 	top: 0;
 	right: 0;
 	padding: 0;
-	background: url("assets/images/search-icon.png") no-repeat scroll center center;
+	background: url("assets/build/images/search-icon.png") no-repeat scroll center center;
 	background-size: auto auto;
 	background-size: 21px;
 	height: 100%;
@@ -5197,7 +5197,7 @@ form label {
 }
 .error-404 .search-form .search-submit:hover{
 	background-color: var(--color-bg-3)
-	background: url("assets/images/search-icon.png") no-repeat scroll center center;
+	background: url("assets/build/images/search-icon.png") no-repeat scroll center center;
 	background-size: 21px;
 }
 .error-404 .search-form input,
@@ -5544,7 +5544,7 @@ form label {
 	top: 0;
 	right: 0;
 	padding: 0;
-	background: url("assets/images/search-icon.png") no-repeat scroll center center;
+	background: url("assets/build/images/search-icon.png") no-repeat scroll center center;
 	background-size: auto auto;
 	background-size: 16px;
 	height: 100%;

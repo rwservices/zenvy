@@ -24,9 +24,9 @@ class Zenvy_Customize_Blog_Sidebar_Fields extends Zenvy_Customize_Base_Field {
 				'section'           => 'zenvy_blog_sidebar_section',
 				'priority'          => 15,
 				'choices'           => [
-					'left'  => ZENVY_THEME_URI . 'assets/images/left.svg',
-					'right' => ZENVY_THEME_URI . 'assets/images/right.svg',
-					'none'  => ZENVY_THEME_URI . 'assets/images/none.svg',
+					'left'  => ZENVY_THEME_URI . 'assets/build/images/left.svg',
+					'right' => ZENVY_THEME_URI . 'assets/build/images/right.svg',
+					'none'  => ZENVY_THEME_URI . 'assets/build/images/none.svg',
 				],
 				'l10n'              => [
 					'left'  => esc_html__( 'Left', 'zenvy' ),

@@ -101,7 +101,7 @@ License: pxhere provides images under CC0 license - https://creativecommons.org/
 Source: https://pxhere.com/en/photo/1364746
 
 
-All assets in assets/images
+All assets in assets/build/images
 left.svg:
 none.svg:
 right.svg:
