@@ -16,37 +16,34 @@
 <?php
 /**
  * Functions hooked into zenvy_footer_before action
- *
  */
 do_action( 'zenvy_footer_before' );
 ?>
 
 <footer id="colophon" class="site-footer">
 
-    <?php
-    /**
-     * Functions hooked into zenvy_footer_before action
-     *
-     */
-    do_action( 'zenvy_footer_top' );
-    ?>
+	<?php
+	/**
+	 * Functions hooked into zenvy_footer_before action
+	 */
+	do_action( 'zenvy_footer_top' );
+	?>
 
-    <?php
-    /**
-     * Functions hooked into zenvy_footer action
-     *
-     * @hooked zenvy_footer_site_info - 10
-     */
-    do_action( 'zenvy_footer' );
-    ?>
+	<?php
+	/**
+	 * Functions hooked into zenvy_footer action
+	 *
+	 * @hooked zenvy_footer_site_info - 10
+	 */
+	do_action( 'zenvy_footer' );
+	?>
 
-    <?php
-    /**
-     * Functions hooked into zenvy_footer_before action
-     *
-     */
-    do_action( 'zenvy_footer_bottom' );
-    ?>
+	<?php
+	/**
+	 * Functions hooked into zenvy_footer_before action
+	 */
+	do_action( 'zenvy_footer_bottom' );
+	?>
 
 </footer><!-- #colophon -->
 
@@ -65,7 +62,6 @@ do_action( 'zenvy_footer_after' );
 <?php
 /**
  * Functions hooked into zenvy_body_bottom action
- *
  */
 do_action( 'zenvy_body_bottom' );
 ?>

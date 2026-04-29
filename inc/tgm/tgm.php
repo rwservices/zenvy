@@ -16,22 +16,22 @@ if ( ! function_exists( 'zenvy_recommended_plugins' ) ) :
 	 * @since 1.0.0
 	 */
 	function zenvy_recommended_plugins() {
-        $plugins = array(
-            array(
-                'name'     => esc_html__( 'Aarambha Demo Sites', 'zenvy' ),
-                'slug'     => 'aarambha-demo-sites',
-                'required' => false,
-            ),
-			array(
+		$plugins = [
+			[
+				'name'     => esc_html__( 'Aarambha Demo Sites', 'zenvy' ),
+				'slug'     => 'aarambha-demo-sites',
+				'required' => false,
+			],
+			[
 				'name'     => esc_html__( 'Crucial Real Estate', 'zenvy' ),
 				'slug'     => 'crucial-real-estate',
 				'required' => false,
-			)
-        );
+			],
+		];
 
-        $config = array();
+		$config = [];
 
-        tgmpa( $plugins, $config );
+		tgmpa( $plugins, $config );
 	}
 
 endif;

@@ -16,7 +16,6 @@
 <?php
 /**
  * Functions hooked into zenvy_html_before action
- *
  */
 do_action( 'zenvy_html_before' );
 ?>
@@ -25,32 +24,30 @@ do_action( 'zenvy_html_before' );
 
 <head>
 
-    <?php
-    /**
-     * Functions hooked into zenvy_head_top action
-     *
-     */
-    do_action( 'zenvy_head_top' );
-    ?>
+	<?php
+	/**
+	 * Functions hooked into zenvy_head_top action
+	 */
+	do_action( 'zenvy_head_top' );
+	?>
 
-    <?php
-    /**
-     * Functions hooked into zenvy_head action
-     *
-     * @hooked zenvy_head_meta - 10
-     */
-    do_action( 'zenvy_head' );
-    ?>
+	<?php
+	/**
+	 * Functions hooked into zenvy_head action
+	 *
+	 * @hooked zenvy_head_meta - 10
+	 */
+	do_action( 'zenvy_head' );
+	?>
 
-    <?php
-    /**
-     * Functions hooked into zenvy_head_bottom action
-     *
-     */
-    do_action( 'zenvy_head_bottom' );
-    ?>
+	<?php
+	/**
+	 * Functions hooked into zenvy_head_bottom action
+	 */
+	do_action( 'zenvy_head_bottom' );
+	?>
 
-    <?php wp_head(); ?>
+	<?php wp_head(); ?>
 
 </head>
 
@@ -59,7 +56,6 @@ do_action( 'zenvy_html_before' );
 <?php
 /**
  * Functions hooked into zenvy_body_top action
- *
  */
 do_action( 'zenvy_body_top' );
 ?>
@@ -68,51 +64,47 @@ do_action( 'zenvy_body_top' );
 
 <div id="page" <?php Zenvy_Helper::site_class(); ?>>
 
-    <a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'zenvy' ); ?></a>
+	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'zenvy' ); ?></a>
 
-    <?php
-    /**
-     * Functions hooked into zenvy_header_before action
-     *
-     */
-    do_action( 'zenvy_header_before' );
-    ?>
+	<?php
+	/**
+	 * Functions hooked into zenvy_header_before action
+	 */
+	do_action( 'zenvy_header_before' );
+	?>
 
-    <header id="masthead" class="site-header">
+	<header id="masthead" class="site-header">
 
-        <?php
-        /**
-         * Functions hooked into zenvy_header_top action
-         *
-         */
-        do_action( 'zenvy_header_top' );
-        ?>
+		<?php
+		/**
+		 * Functions hooked into zenvy_header_top action
+		 */
+		do_action( 'zenvy_header_top' );
+		?>
 
-        <?php
-        /**
-         * Functions hooked into zenvy_header action
-         *
-         * @hooked zenvy_header_main - 10
-         */
-        do_action( 'zenvy_header' );
+		<?php
+		/**
+		 * Functions hooked into zenvy_header action
+		 *
+		 * @hooked zenvy_header_main - 10
+		 */
+		do_action( 'zenvy_header' );
 
-        ?>
+		?>
 
-        <?php
-        /**
-         * Functions hooked into zenvy_header_bottom action
-         *
-         */
-        do_action( 'zenvy_header_bottom' );
-        ?>
+		<?php
+		/**
+		 * Functions hooked into zenvy_header_bottom action
+		 */
+		do_action( 'zenvy_header_bottom' );
+		?>
 
-    </header><!-- #masthead -->
+	</header><!-- #masthead -->
 
-    <?php
-    /**
-     * Functions hooked into zenvy_header_after action
-     *
-     */
-    do_action( 'zenvy_header_after' );
-    ?>
-    <div id="content" <?php Zenvy_Helper::site_content_class(); ?>>
+	<?php
+	/**
+	 * Functions hooked into zenvy_header_after action
+	 */
+	do_action( 'zenvy_header_after' );
+	?>
+	<div id="content" <?php Zenvy_Helper::site_content_class(); ?>>

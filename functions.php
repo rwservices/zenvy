@@ -30,6 +30,7 @@ if ( ! defined( 'ZENVY_THEME_URI' ) ) {
 }
 
 if ( ! function_exists( 'zenvy_setup' ) ) :
+
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -66,11 +67,11 @@ if ( ! function_exists( 'zenvy_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
-			array(
-				'primary-menu'  => esc_html__( 'Primary Menu', 'zenvy' ),
-				'mobile-menu'   => esc_html__( 'Mobile Menu', 'zenvy' ),
-				'footer-menu'   => esc_html__( 'Footer Menu', 'zenvy' )
-			)
+			[
+				'primary-menu' => esc_html__( 'Primary Menu', 'zenvy' ),
+				'mobile-menu'  => esc_html__( 'Mobile Menu', 'zenvy' ),
+				'footer-menu'  => esc_html__( 'Footer Menu', 'zenvy' ),
+			]
 		);
 
 		/*
@@ -79,7 +80,7 @@ if ( ! function_exists( 'zenvy_setup' ) ) :
 		 */
 		add_theme_support(
 			'html5',
-			array(
+			[
 				'search-form',
 				'comment-form',
 				'comment-list',
@@ -87,7 +88,7 @@ if ( ! function_exists( 'zenvy_setup' ) ) :
 				'caption',
 				'style',
 				'script',
-			)
+			]
 		);
 
 		// Add theme support for selective refresh for widgets.
@@ -100,14 +101,15 @@ if ( ! function_exists( 'zenvy_setup' ) ) :
 		 */
 		add_theme_support(
 			'custom-logo',
-			array(
+			[
 				'height'      => 250,
 				'width'       => 250,
 				'flex-width'  => true,
 				'flex-height' => true,
-			)
+			]
 		);
 	}
+
 endif;
 add_action( 'after_setup_theme', 'zenvy_setup' );
 
@@ -121,6 +123,7 @@ add_action( 'after_setup_theme', 'zenvy_setup' );
 function zenvy_content_width() {
 	$GLOBALS['content_width'] = apply_filters( 'zenvy_content_width', 640 );
 }
+
 add_action( 'after_setup_theme', 'zenvy_content_width', 0 );
 
 /**
@@ -130,7 +133,7 @@ add_action( 'after_setup_theme', 'zenvy_content_width', 0 );
  */
 function zenvy_widgets_init() {
 	register_sidebar(
-		array(
+		[
 			'name'          => esc_html__( 'Sidebar', 'zenvy' ),
 			'id'            => 'sidebar-1',
 			'description'   => esc_html__( 'Add widgets here.', 'zenvy' ),
@@ -138,12 +141,12 @@ function zenvy_widgets_init() {
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
 			'after_title'   => '</h2>',
-		)
+		]
 	);
 
 	// Subscribe Form
 	register_sidebar(
-		array(
+		[
 			'name'          => esc_html__( 'Front Page: Subscribe Form', 'zenvy' ),
 			'id'            => 'subscribe-form',
 			'description'   => esc_html__( 'Add widgets here.', 'zenvy' ),
@@ -151,23 +154,24 @@ function zenvy_widgets_init() {
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
 			'after_title'   => '</h2>',
-		)
+		]
 	);
 
 	for ( $sidebar = 1; $sidebar <= 6; $sidebar++ ) {
 		register_sidebar(
-			array(
-				'name'          => sprintf( esc_html__( 'Footer Sidebar %d ', 'zenvy' ), absint($sidebar) ),
-				'id'            => 'footer-sidebar-' . absint($sidebar),
+			[
+				'name'          => sprintf( esc_html__( 'Footer Sidebar %d ', 'zenvy' ), absint( $sidebar ) ),
+				'id'            => 'footer-sidebar-' . absint( $sidebar ),
 				'description'   => esc_html__( 'Display widgets footer section of the site.', 'zenvy' ),
 				'before_widget' => '<section id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</section>',
 				'before_title'  => '<h2 class="widget-title">',
 				'after_title'   => '</h2>',
-			)
+			]
 		);
 	}
 }
+
 add_action( 'widgets_init', 'zenvy_widgets_init' );
 
 /**
@@ -176,13 +180,13 @@ add_action( 'widgets_init', 'zenvy_widgets_init' );
 function zenvy_scripts() {
 
 	// Font Awesome Style
-	wp_enqueue_style( 'font-awesome', ZENVY_THEME_URI .'assets/build/library/font-awesome.css', array(), '4.7.0' );
+	wp_enqueue_style( 'font-awesome', ZENVY_THEME_URI . 'assets/build/library/font-awesome.css', [], '4.7.0' );
 
 	// MeanMenu Style
-	wp_enqueue_style( 'meanmenu', ZENVY_THEME_URI .'assets/build/library/meanmenu.css', array(), '2.0.7' );
+	wp_enqueue_style( 'meanmenu', ZENVY_THEME_URI . 'assets/build/library/meanmenu.css', [], '2.0.7' );
 
 	// Theme Style
-	wp_enqueue_style( 'zenvy-style', get_stylesheet_uri(), array(), ZENVY_THEME_VERSION );
+	wp_enqueue_style( 'zenvy-style', get_stylesheet_uri(), [], ZENVY_THEME_VERSION );
 
 	// Main Style
 	wp_enqueue_style( 'zenvy-main-style', ZENVY_THEME_URI . 'assets/build/css/main.css', null, ZENVY_THEME_VERSION, 'all' );
@@ -206,20 +210,23 @@ function zenvy_scripts() {
 	}
 
 	// Main scripts.
-	wp_enqueue_script( 'zenvy', ZENVY_THEME_URI . 'assets/build/js/main.js', array( 'jquery' ), ZENVY_THEME_VERSION, true );
+	wp_enqueue_script( 'zenvy', ZENVY_THEME_URI . 'assets/build/js/main.js', [ 'jquery' ], ZENVY_THEME_VERSION, true );
 
 	// Localized Scripts for the load more posts.
 	$locale = [
 		'sticky_sidebar' => $sticky_sidebar ? true : false,
 	];
 	$locale = apply_filters( 'zenvy_localize_var', $locale );
-	wp_localize_script( 'zenvy','ZENVY', $locale );
+	wp_localize_script( 'zenvy', 'ZENVY', $locale );
 
 	// Comment Reply
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
+	if ( ! is_singular() || ! comments_open() || ! get_option( 'thread_comments' ) ) {
+		return;
 	}
+
+	wp_enqueue_script( 'comment-reply' );
 }
+
 add_action( 'wp_enqueue_scripts', 'zenvy_scripts' );
 
 /**
@@ -259,8 +266,8 @@ require ZENVY_THEME_DIR . 'inc/customizer/Zenvy_Customizer.php';
 
 // Builder
 require ZENVY_THEME_DIR . 'inc/customizer/builder/Zenvy_Customizer_Builder.php';
-require ZENVY_THEME_DIR. 'inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php';
-require ZENVY_THEME_DIR. 'inc/customizer/builder/footer/Zenvy_Customizer_Footer_Builder.php';
+require ZENVY_THEME_DIR . 'inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php';
+require ZENVY_THEME_DIR . 'inc/customizer/builder/footer/Zenvy_Customizer_Footer_Builder.php';
 
 /**
  * Load Jetpack compatibility file.

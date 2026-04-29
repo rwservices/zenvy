@@ -24,8 +24,8 @@ if ( $clients_logo ) :
 			<div class="partner-item-wrapper">
 				<?php
 				foreach ( $clients_logo as $logo ) :
-					if ( !empty( $logo['client_logo'] ) ) :
-						$img_url = wp_get_attachment_image_src( absint($logo['client_logo']), 'full' );
+					if ( ! empty( $logo['client_logo'] ) ) :
+						$img_url = wp_get_attachment_image_src( absint( $logo['client_logo'] ), 'full' );
 						$img_url = $img_url[0];
 						?>
 						<div class="partner-item">
@@ -33,10 +33,12 @@ if ( $clients_logo ) :
 								<img src="<?php echo esc_url( $img_url ); ?>" alt="<?php esc_attr_e( 'Clients Logo', 'zenvy' ); ?>">
 							</figure>
 						</div>
-					<?php
+						<?php
 					endif;
-				endforeach; ?>
+				endforeach;
+				?>
 			</div>
 		</div>
 	</section><!-- .why-choose-us-section -->
-<?php endif;
+	<?php
+endif;

@@ -11,35 +11,34 @@ $featured_cats = get_theme_mod(
 	'zenvy_front_page_news_blog_posts_by_cat',
 	''
 );
-$posts_limit = get_theme_mod(
+$posts_limit   = get_theme_mod(
 	'zenvy_front_page_news_blog_posts_limit',
-	['desktop' => 3 ]
+	[ 'desktop' => 3 ]
 );
 // Arguments
 $args = [
-	'post_type'             => 'post',
-	'posts_per_page'        => absint($posts_limit['desktop']),
-	'no_found_rows'         => true,
-	'ignore_sticky_posts'   => true
+	'post_type'           => 'post',
+	'posts_per_page'      => absint( $posts_limit['desktop'] ),
+	'no_found_rows'       => true,
+	'ignore_sticky_posts' => true,
 ];
 if ( $featured_cats ) {
-	$args['category__in'] = absint($featured_cats);
+	$args['category__in'] = absint( $featured_cats );
 }
 $the_query = new WP_Query( $args );
 if ( $the_query->have_posts() ) :
-
 	$section_heading = get_theme_mod(
 		'zenvy_front_page_news_blog_section_heading',
 		esc_html__( 'latest news and blog', 'zenvy' )
 	);
-	$col_per_row = [
-		'desktop'           => '3',
-		'tablet'            => '2',
-		'mobile'            => '1'
+	$col_per_row     = [
+		'desktop' => '3',
+		'tablet'  => '2',
+		'mobile'  => '1',
 	];
-	$posts_elements = get_theme_mod(
+	$posts_elements  = get_theme_mod(
 		'zenvy_front_page_news_blog_post_elements',
-		['post-meta','post-title','post-excerpt']
+		[ 'post-meta','post-title','post-excerpt' ]
 	);
 	?>
 	<section class="latest-news-section">
@@ -52,8 +51,11 @@ if ( $the_query->have_posts() ) :
 				</header>
 			<?php endif; ?>
 
-			<div class="row columns"<?php Zenvy_Helper::get_data_columns( $col_per_row );?>>
-				<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+			<div class="row columns"<?php Zenvy_Helper::get_data_columns( $col_per_row ); ?>>
+				<?php
+				while ( $the_query->have_posts() ) :
+					$the_query->the_post();
+					?>
 					<div class="column">
 
 						<div class="post">
@@ -65,11 +67,10 @@ if ( $the_query->have_posts() ) :
 
 									<?php zenvy_posted_on(); ?>
 
-									<?php foreach ( $posts_elements as $post_element ) :
-
+									<?php
+									foreach ( $posts_elements as $post_element ) :
 										switch ( $post_element ) :
-
-											case 'post-title' :
+											case 'post-title':
 												?>
 												<header class="entry-header">
 													<?php the_title( sprintf( '<h3 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' ); ?>
@@ -77,7 +78,7 @@ if ( $the_query->have_posts() ) :
 												<?php
 												break;
 
-											case 'post-excerpt' :
+											case 'post-excerpt':
 												?>
 												<div class="entry-content">
 													<?php Zenvy_Helper::post_excerpt(); ?>
@@ -85,7 +86,7 @@ if ( $the_query->have_posts() ) :
 												<?php
 												break;
 
-											case 'post-meta' :
+											case 'post-meta':
 												?>
 												<div class="entry-meta">
 													<?php zenvy_posted_cats(); ?>
@@ -93,10 +94,9 @@ if ( $the_query->have_posts() ) :
 												</div><!-- .entry-meta -->
 												<?php
 												break;
-
 										endswitch;
-
-									endforeach;?>
+									endforeach;
+									?>
 
 								</div>
 							<?php endif; ?>
@@ -108,4 +108,5 @@ if ( $the_query->have_posts() ) :
 
 		</div>
 	</section>
-<?php endif;
+	<?php
+endif;

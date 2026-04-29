@@ -9,9 +9,9 @@
 
 $service_page = get_theme_mod( 'zenvy_front_page_services_page', '' );
 if ( $service_page && $service_page !== '' ) :
-	$args = [
-		'post_type' 			=> 'page',
-		'p'						=> absint($service_page)
+	$args      = [
+		'post_type' => 'page',
+		'p'         => absint( $service_page ),
 	];
 	$the_query = new WP_Query( $args );
 	if ( $the_query->have_posts() ) :
@@ -27,7 +27,10 @@ if ( $service_page && $service_page !== '' ) :
 						<h2 class="entry-title"><?php echo esc_html( $section_heading ); ?></h2>
 					</header>
 				<?php endif; ?>
-				<?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+				<?php
+				while ( $the_query->have_posts() ) :
+					$the_query->the_post();
+					?>
 					<div class="post block-content">
 						<div class="entry-content">
 							<?php the_content(); ?>

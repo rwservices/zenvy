@@ -22,13 +22,12 @@ if ( post_password_required() ) {
 
 <div id="comments" class="comments-area">
 
-    <?php
-    /**
-     * Functions hooked into zenvy_comments_before action
-     *
-     */
-    do_action( 'zenvy_comments_before' );
-    ?>
+	<?php
+	/**
+	 * Functions hooked into zenvy_comments_before action
+	 */
+	do_action( 'zenvy_comments_before' );
+	?>
 
 	<?php
 	// You can start editing here -- including this comment!
@@ -44,7 +43,7 @@ if ( post_password_required() ) {
 					'<span>' . wp_kses_post( get_the_title() ) . '</span>'
 				);
 			} else {
-				printf( 
+				printf(
 					/* translators: 1: comment count number, 2: title. */
 					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $zenvy_comment_count, 'comments title', 'zenvy' ) ),
 					number_format_i18n( $zenvy_comment_count ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -59,10 +58,10 @@ if ( post_password_required() ) {
 		<ol class="comment-list">
 			<?php
 			wp_list_comments(
-				array(
+				[
 					'style'      => 'ol',
 					'short_ping' => true,
-				)
+				]
 			);
 			?>
 		</ol><!-- .comment-list -->
@@ -76,18 +75,16 @@ if ( post_password_required() ) {
 			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'zenvy' ); ?></p>
 			<?php
 		endif;
-
 	endif; // Check for have_comments().
 
 	comment_form();
 	?>
 
-    <?php
-    /**
-     * Functions hooked into zenvy_comments_after action
-     *
-     */
-    do_action( 'zenvy_comments_after' );
-    ?>
+	<?php
+	/**
+	 * Functions hooked into zenvy_comments_after action
+	 */
+	do_action( 'zenvy_comments_after' );
+	?>
 
 </div><!-- #comments -->

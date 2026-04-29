@@ -8,6 +8,7 @@
  */
 
 if ( ! function_exists( 'zenvy_posted_on' ) ) :
+
 	/**
 	 * Prints HTML with meta information for the current post-date/time.
 	 */
@@ -22,9 +23,11 @@ if ( ! function_exists( 'zenvy_posted_on' ) ) :
 
 		printf( '<div class="posted-on"><a href="%1$s" rel="bookmark">%2$s</a></div>', esc_url( get_permalink() ), $time_string ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
+
 endif;
 
 if ( ! function_exists( 'zenvy_posted_by' ) ) :
+
 	/**
 	 * Prints HTML with meta information for the current author.
 	 */
@@ -36,49 +39,61 @@ if ( ! function_exists( 'zenvy_posted_by' ) ) :
 		);
 		printf( '<div class="byline">%1$s</div>', $byline ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
+
 endif;
 
 if ( ! function_exists( 'zenvy_posted_cats' ) ) :
+
 	/**
 	 * Prints HTML with meta information for the current categories.
 	 */
 	function zenvy_posted_cats() {
 		// Hide category and tag text for pages.
-		if ( 'post' === get_post_type() ) {
-			/* translators: used between list items, there is a space after the comma */
-			$categories_list = get_the_category_list( ' ' );
-			if ( $categories_list ) {
-				/* translators: 1: list of categories. */
-				printf( '<div class="post-cat-list"><span class="cat-links">%1$s</span></div>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-			}
+		if ( 'post' !== get_post_type() ) {
+			return;
 		}
+
+		/* translators: used between list items, there is a space after the comma */
+		$categories_list = get_the_category_list( ' ' );
+		if ( ! $categories_list ) {
+			return;
+		}
+
+		/* translators: 1: list of categories. */
+		printf( '<div class="post-cat-list"><span class="cat-links">%1$s</span></div>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
+
 endif;
 
 if ( ! function_exists( 'zenvy_posted_tags' ) ) :
+
 	/**
 	 * Prints HTML with meta information for the current tags.
 	 */
 	function zenvy_posted_tags() {
 		// Hide category and tag text for pages.
-		if ( 'post' === get_post_type() ) {
+		if ( 'post' !== get_post_type() ) {
+			return;
+		}
 
-			/* translators: used between list items, there is a space after the comma */
-			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'zenvy' ) );
-			if ( $tags_list ) {
-				/* translators: 1: list of tags. */
-				if ( is_singular() ) {
-					printf( '<div class="inner-post-tags-wrap"><label class="post-tags">%1$s</label></div>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-				}
-				else {
-					printf( '<div class="post-tag-list"><span class="tag-links">%1$s</span></div>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-				}
-			}
+		/* translators: used between list items, there is a space after the comma */
+		$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'zenvy' ) );
+		if ( ! $tags_list ) {
+			return;
+		}
+
+		/* translators: 1: list of tags. */
+		if ( is_singular() ) {
+			printf( '<div class="inner-post-tags-wrap"><label class="post-tags">%1$s</label></div>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		} else {
+			printf( '<div class="post-tag-list"><span class="tag-links">%1$s</span></div>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 	}
+
 endif;
 
 if ( ! function_exists( 'zenvy_entry_footer' ) ) :
+
 	/**
 	 * Footer edit post content
 	 */
@@ -89,11 +104,11 @@ if ( ! function_exists( 'zenvy_entry_footer' ) ) :
 				wp_kses(
 				/* translators: %s: Name of current post. Only visible to screen readers */
 					__( 'Edit <span class="screen-reader-text">%s</span>', 'zenvy' ),
-					array(
-						'span' => array(
-							'class' => array(),
-						),
-					)
+					[
+						'span' => [
+							'class' => [],
+						],
+					]
 				),
 				wp_kses_post( get_the_title() )
 			),
@@ -101,9 +116,11 @@ if ( ! function_exists( 'zenvy_entry_footer' ) ) :
 			'</span>'
 		);
 	}
+
 endif;
 
 if ( ! function_exists( 'zenvy_singular_post_thumbnail' ) ) :
+
 	/**
 	 * Displays singular an optional post thumbnail.
 	 *
@@ -121,22 +138,25 @@ if ( ! function_exists( 'zenvy_singular_post_thumbnail' ) ) :
 			<figure class="featured-image" data-ratio="<?php echo esc_attr( $ratio ); ?>">
 				<?php
 				the_post_thumbnail(
-					esc_html($size),
-					array(
+					esc_html( $size ),
+					[
 						'alt' => the_title_attribute(
-							array(
+							[
 								'echo' => false,
-							)
+							]
 						),
-					)
+					]
 				);
 				?>
 			</figure>
-		<?php endif;
+			<?php
+		endif;
 	}
+
 endif;
 
 if ( ! function_exists( 'zenvy_post_thumbnail' ) ) :
+
 	/**
 	 * Displays an optional post thumbnail.
 	 *
@@ -157,19 +177,20 @@ if ( ! function_exists( 'zenvy_post_thumbnail' ) ) :
 			return;
 		}
 
-		if ( has_post_thumbnail() ) : ?>
+		if ( has_post_thumbnail() ) :
+			?>
 			<figure class="featured-image" data-ratio="<?php echo esc_attr( $ratio ); ?>">
 				<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
 					<?php
 					the_post_thumbnail(
-						esc_html($size),
-						array(
+						esc_html( $size ),
+						[
 							'alt' => the_title_attribute(
-								array(
+								[
 									'echo' => false,
-								)
+								]
 							),
-						)
+						]
 					);
 					?>
 				</a>
@@ -177,18 +198,21 @@ if ( ! function_exists( 'zenvy_post_thumbnail' ) ) :
 		<?php else : ?>
 			<figure class="featured-image" data-ratio="<?php echo esc_attr( $ratio ); ?>">
 				<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
-					<?php if ( $placeholder_image && $placeholder_image != '' ) : ?>
+					<?php if ( $placeholder_image && $placeholder_image !== '' ) : ?>
 						<img src="<?php echo esc_url( $placeholder_image ); ?>" alt="<?php esc_attr_e( 'Placeholder Image', 'zenvy' ); ?>" />
-					<?php else: ?>
+					<?php else : ?>
 						<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt="<?php esc_attr_e( 'Placeholder Image', 'zenvy' ); ?>" />
 					<?php endif; ?>
 				</a>
 			</figure>
-		<?php endif;
+			<?php
+		endif;
 	}
+
 endif;
 
 if ( ! function_exists( 'wp_body_open' ) ) :
+
 	/**
 	 * Shim for sites older than 5.2.
 	 *
@@ -197,4 +221,5 @@ if ( ! function_exists( 'wp_body_open' ) ) :
 	function wp_body_open() {
 		do_action( 'wp_body_open' );
 	}
+
 endif;

@@ -9,7 +9,7 @@
 
 
 if ( is_active_sidebar( 'footer-sidebar-2' ) ) : ?>
-    <div class="footer-sidebar-wrap footer-sidebar-2">
-        <?php dynamic_sidebar( 'footer-sidebar-2' ); ?>
-    </div><!-- .footer-sidebar-wrap -->
+	<div class="footer-sidebar-wrap footer-sidebar-2">
+		<?php dynamic_sidebar( 'footer-sidebar-2' ); ?>
+	</div><!-- .footer-sidebar-wrap -->
 <?php endif; ?>

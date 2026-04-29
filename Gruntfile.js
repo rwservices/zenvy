@@ -2,18 +2,30 @@ module.exports = function (grunt) {
 	require("load-grunt-tasks")(grunt);
 
 	const copyFiles = [
-		'assets/**',            // include everything in assets
-		'!assets/src/**',  		// exclude everything in assets/src
-		'inc/**',
-		'languages/**',
-		'uninstall.php',
-		'zenvy.php',
-		'LICENSE.txt',
-		'readme.txt',
-		'index.php',
-		'!**/*.map',       // Exclude source maps
-		'!**/.DS_Store',   // Exclude macOS metadata
-		'!**/*.tmp',       // Exclude temporary files
+		'**',                   // include everything
+		'!node_modules/**',     // exclude node_modules
+		'!vendor/**',           // exclude vendor directory
+		'!assets/src/**',       // exclude source assets
+		'!cypress/**',          // exclude Cypress tests
+		'!tests/**',            // exclude unit tests
+		'!build/**',            // exclude build output
+		'!.git/**',             // exclude git directory
+		'!.gitignore',          // exclude git config
+		'!package-lock.json',   // exclude lock files
+		'!composer.lock',
+		'!*.config.js',         // exclude config files used only for development
+		'!Gruntfile.js',        // exclude this build file
+		'!webpack.config.js',
+		'!babel.config.js',
+		'!postcss.config.js',
+		'!tailwind.config.js',
+		'!cypress.config.js',
+		'!phpcs.xml.dist',      // exclude linting configs
+		'!phpstan.neon.dist',
+		'!phpunit.xml.dist',
+		'!**/*.map',            // exclude source maps
+		'!**/.DS_Store',        // exclude macOS metadata
+		'!**/*.tmp',            // exclude temporary files
 	];
 	
 	const excludeCopyFilesPro = copyFiles.slice(0).concat(['!changelog.txt']);

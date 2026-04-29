@@ -7,41 +7,45 @@
 
 class Zenvy_Customize_Global_Page_Header_Fields extends Zenvy_Customize_Base_Field {
 
-    /**
-     * Arguments for fields.
-     *
-     * @return void
-     */
-    public function init() {
-        $this->args = [
+	/**
+	 * Arguments for fields.
+	 *
+	 * @return void
+	 */
+	public function init() {
+		$this->args = [
 			// Background Image
-			'zenvy_page_header_background' => [
+			'zenvy_page_header_background'         => [
 				'type'              => 'background',
 				'default'           => '',
-				'sanitize_callback' => ['Zenvy_Customizer_Sanitize_Callback', 'sanitize_background' ],
+				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_background' ],
 				'label'             => esc_html__( 'Background Image', 'zenvy' ),
 				'description'       => esc_html__( 'To set the background image for the page header container.', 'zenvy' ),
 				'section'           => 'zenvy_page_header_section',
 				'priority'          => 5,
-				'fields'            => ['image' => true, 'position' => true, 'attachment' => true, 'repeat' => true, 'size' => true ],
+				'fields'            => [
+					'image'      => true,
+					'position'   => true,
+					'attachment' => true,
+					'repeat'     => true,
+					'size'       => true,
+				],
 			],
 			// Background Overlay
 			'zenvy_page_header_background_overlay' => [
 				'type'              => 'background',
 				'default'           => '',
-				'sanitize_callback' => ['Zenvy_Customizer_Sanitize_Callback', 'sanitize_background' ],
+				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_background' ],
 				'label'             => esc_html__( 'Background Overlay', 'zenvy' ),
 				'description'       => esc_html__( 'Set Background overlay color on page header container.', 'zenvy' ),
 				'section'           => 'zenvy_page_header_section',
 				'priority'          => 5,
 				'inherits'          => [
-					'color_1'           => 'var(--color-bg-2)'
+					'color_1' => 'var(--color-bg-2)',
 				],
-				'fields'            => ['colors' => true],
-			]
-        ];
-
-    }
-
+				'fields'            => [ 'colors' => true ],
+			],
+		];
+	}
 }
 new Zenvy_Customize_Global_Page_Header_Fields();

@@ -65,7 +65,6 @@
 	"scripts": {
 		"clean": "rimraf assets/build",
 		"update": "wp-scripts packages-update",
-		"rename": "bin/init.js",
 		"cypress:open": "node_modules/.bin/cypress open",
 		"build:dev": "cross-env NODE_ENV=development npm-run-all 'build:!(dev|prod)'",
 		"build:js": "wp-scripts build --config ./webpack.config.js",

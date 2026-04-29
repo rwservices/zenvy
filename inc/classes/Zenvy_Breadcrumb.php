@@ -12,60 +12,57 @@
  */
 class Zenvy_Breadcrumb {
 
-    /**
-     * Instance
-     *
-     * @access private
-     * @var object
-     */
-    private static $instance;
+	/**
+	 * Instance
+	 *
+	 * @access private
+	 * @var object
+	 */
+	private static $instance;
 
-    /**
-     * Returns the instance.
-     *
-     * @access public
-     * @return object
-     */
-    public static function get_instance() {
-        if ( ! isset( self::$instance ) ) {
-            self::$instance = new self();
-        }
+	/**
+	 * Returns the instance.
+	 *
+	 * @access public
+	 * @return object
+	 */
+	public static function get_instance() {
+		if ( ! isset( self::$instance ) ) {
+			self::$instance = new self();
+		}
 
-        return self::$instance;
-    }
+		return self::$instance;
+	}
 
-    /**
-     * Constructor method.
-     *
-     * @access private
-     * @return void
-     */
-    private function __construct() {
+	/**
+	 * Constructor method.
+	 *
+	 * @access private
+	 * @return void
+	 */
+	private function __construct() {
 
-        // Include trial breadcrumb
-        require ZENVY_THEME_DIR . 'inc/classes/Zenvy_Breadcrumb_Trail.php';
+		// Include trial breadcrumb
+		require ZENVY_THEME_DIR . 'inc/classes/Zenvy_Breadcrumb_Trail.php';
+	}
 
-    }
+	public static function get_breadcrumb() {
 
-    public static function get_breadcrumb() {
+		$defaults = [
+			'show_browse' => false,
+			'echo'        => true,
+		];
 
-        $defaults = array(
-            'show_browse' => false,
-            'echo'        => true,
-        );
+		$args = apply_filters( 'breadcrumb_trail_args', $defaults );
 
-        $args = apply_filters( 'breadcrumb_trail_args', $defaults );
+		$breadcrumb = apply_filters( 'breadcrumb_trail_object', null, $args );
 
-        $breadcrumb = apply_filters( 'breadcrumb_trail_object', null, $args );
+		if ( ! is_object( $breadcrumb ) ) {
+			$breadcrumb = new Zenvy_Breadcrumb_Trail( $args );
+		}
 
-        if ( ! is_object( $breadcrumb ) )
-
-            $breadcrumb = new Zenvy_Breadcrumb_Trail( $args );
-
-        return $breadcrumb->trail();
-
-    }
-
+		return $breadcrumb->trail();
+	}
 }
 
 Zenvy_Breadcrumb::get_instance();

@@ -8,45 +8,40 @@
  */
 
 
-$sortable_default = Zenvy_Helper::crucial_real_state_plugin()
-    ? ['featured','why-us','location','property-types','blog','clients']
-    : ['why-us','blog','clients'];
+$sortable_default  = Zenvy_Helper::crucial_real_state_plugin()
+	? [ 'featured', 'why-us', 'location', 'property-types', 'blog', 'clients' ]
+	: [ 'why-us', 'blog', 'clients' ];
 $sortable_elements = get_theme_mod(
-  'zenvy_front_page_elements',
-    $sortable_default
+	'zenvy_front_page_elements',
+	$sortable_default
 );
 
 if ( $sortable_elements ) {
+	foreach ( $sortable_elements as $element ) :
+		switch ( $element ) :
+			case 'blog':
+				get_template_part( 'template-parts/front-page/content', 'news' );
+				break;
 
-    foreach ( $sortable_elements as $element ) :
+			case 'featured':
+				get_template_part( 'template-parts/front-page/content', 'featured' );
+				break;
 
-        switch ( $element ) :
+			case 'why-us':
+				get_template_part( 'template-parts/front-page/content', 'why-us' );
+				break;
 
-            case 'blog' :
-                get_template_part( 'template-parts/front-page/content', 'news' );
-                break;
+			case 'location':
+				get_template_part( 'template-parts/front-page/content-property', 'location' );
+				break;
 
-            case 'featured' :
-                get_template_part( 'template-parts/front-page/content', 'featured' );
-                break;
+			case 'property-types':
+				get_template_part( 'template-parts/front-page/content-property', 'types' );
+				break;
 
-            case 'why-us' :
-                get_template_part( 'template-parts/front-page/content', 'why-us' );
-                break;
-
-            case 'location' :
-                get_template_part( 'template-parts/front-page/content-property', 'location' );
-                break;
-
-            case 'property-types' :
-                get_template_part( 'template-parts/front-page/content-property', 'types' );
-                break;
-
-            case 'clients' :
-                get_template_part( 'template-parts/front-page/content', 'clients' );
-                break;
-
-        endswitch;
-
-    endforeach;
+			case 'clients':
+				get_template_part( 'template-parts/front-page/content', 'clients' );
+				break;
+		endswitch;
+	endforeach;
 }

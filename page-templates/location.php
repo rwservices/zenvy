@@ -27,42 +27,38 @@ get_header();
 do_action( 'zenvy_content_before' );
 ?>
 
-<div id="primary" <?php Zenvy_Helper::primary_class();?>>
-    <main id="main" class="site-main">
+<div id="primary" <?php Zenvy_Helper::primary_class(); ?>>
+	<main id="main" class="site-main">
 
-        <?php
-        /**
-         * Functions hooked into zenvy_page_content_loop_before action
-         *
-         */
-        do_action('zenvy_page_content_loop_before');
+		<?php
+		/**
+		 * Functions hooked into zenvy_page_content_loop_before action
+		 */
+		do_action( 'zenvy_page_content_loop_before' );
 
-        while ( have_posts() ) : the_post();
+		while ( have_posts() ) :
+			the_post();
 
-            /**
-             * Functions hooked into zenvy_page_content_before action
-             *
-             */
-            do_action('zenvy_page_content_before');
+			/**
+			 * Functions hooked into zenvy_page_content_before action
+			 */
+			do_action( 'zenvy_page_content_before' );
 
-            get_template_part( 'template-parts/content', 'location' );
+			get_template_part( 'template-parts/content', 'location' );
 
-            /**
-             * Functions hooked into zenvy_page_content_after action
-             *
-             */
-            do_action('zenvy_page_content_after');
+			/**
+			 * Functions hooked into zenvy_page_content_after action
+			 */
+			do_action( 'zenvy_page_content_after' );
+		endwhile; // End of the loop.
 
-        endwhile; // End of the loop.
+		/**
+		 * Functions hooked into zenvy_page_content_loop_after action
+		 */
+		do_action( 'zenvy_page_content_loop_after' );
+		?>
 
-        /**
-         * Functions hooked into zenvy_page_content_loop_after action
-         *
-         */
-        do_action('zenvy_page_content_loop_after');
-        ?>
-
-    </main><!-- #main -->
+	</main><!-- #main -->
 </div><!-- #primary -->
 
 <?php

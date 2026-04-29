@@ -19,6 +19,7 @@ function zenvy_switch_theme() {
 	unset( $_GET['activated'] );
 	add_action( 'admin_notices', 'zenvy_upgrade_notice' );
 }
+
 add_action( 'after_switch_theme', 'zenvy_switch_theme' );
 
 /**
@@ -40,10 +41,15 @@ function zenvy_upgrade_notice() {
  * @global string $wp_version WordPress version.
  */
 function zenvy_customize() {
-	wp_die( sprintf( esc_html__( 'Zenvy requires at least WordPress version 5.6. You are running version %s. Please upgrade and try again.', 'zenvy' ), $GLOBALS['wp_version'] ), '', array(
-		'back_link' => true,
-	) );
+	wp_die(
+		sprintf( esc_html__( 'Zenvy requires at least WordPress version 5.6. You are running version %s. Please upgrade and try again.', 'zenvy' ), $GLOBALS['wp_version'] ),
+		'',
+		[
+			'back_link' => true,
+		]
+	);
 }
+
 add_action( 'load-customize.php', 'zenvy_customize' );
 
 /**
@@ -52,8 +58,11 @@ add_action( 'load-customize.php', 'zenvy_customize' );
  * @global string $wp_version WordPress version.
  */
 function zenvy_preview() {
-	if ( isset( $_GET['preview'] ) ) {
-		wp_die( sprintf( esc_html__( 'Zenvy requires at least WordPress version 5.6. You are running version %s. Please upgrade and try again.', 'zenvy' ), $GLOBALS['wp_version'] ) );
+	if ( ! isset( $_GET['preview'] ) ) {
+		return;
 	}
+
+	wp_die( sprintf( esc_html__( 'Zenvy requires at least WordPress version 5.6. You are running version %s. Please upgrade and try again.', 'zenvy' ), $GLOBALS['wp_version'] ) );
 }
+
 add_action( 'template_redirect', 'zenvy_preview' );

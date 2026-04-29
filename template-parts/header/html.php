@@ -9,11 +9,11 @@
 
 
 $content = get_theme_mod(
-    'zenvy_header_html_text',
-    ''
+	'zenvy_header_html_text',
+	''
 );
 ?>
 
 <div class="header-html-wrap">
-    <?php echo wp_kses_post( $content ); ?>
+	<?php echo wp_kses_post( $content ); ?>
 </div><!-- .header-html-wrap -->

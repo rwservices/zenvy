@@ -1,20 +1,19 @@
 <?xml version="1.0"?>
 <ruleset
-	name="WPCS for OnePress"
+	name="WPCS for Zenvy"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/PHPCSStandards/PHP_CodeSniffer/master/phpcs.xsd"
 >
-	<description>Sniffs for Zenvy plugin</description>
+	<description>Sniffs for Zenvy theme</description>
 
-	<!-- What to scan: include any root-level PHP files, and the /inc folder -->
-	<file>./inc/</file>
-	<file>./onesearch.php</file>
-	<file>./uninstall.php</file>
+	<!-- Check all files in this directory and the directories below it. -->
+	<file>.</file>
 
-	<!-- These are excluded from the above paths.-->
-	<exclude-pattern>**/build/**</exclude-pattern>
-	<exclude-pattern>**/node_modules/**</exclude-pattern>
-	<exclude-pattern>**/vendor/**</exclude-pattern>
+	<!-- Exclude patterns - placed BEFORE loading external rulesets -->
+	<exclude-pattern>/vendor/*</exclude-pattern>
+	<exclude-pattern>/node_modules/*</exclude-pattern>
+	<exclude-pattern>/build/*</exclude-pattern>
+	<exclude-pattern>/tests/*</exclude-pattern>
 
 	<!-- How to scan: include CLI args so you don't need to pass them manually -->
 	<!-- Usage instructions: https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Usage -->
@@ -69,10 +68,17 @@
 	<!--
 		Checks from PCP
 		@see https://github.com/wordpress/plugin-check
+		
+		Note: These external rulesets may try to scan the vendor directory.
+		To prevent this, we've already excluded /vendor/* at the top level,
+		and we use the following rule to ignore any vendor paths they might include.
 	-->
-	<rule
-		ref="./vendor/wpackagist-plugin/plugin-check/vendor/plugin-check/phpcs-sniffs/PluginCheck/ruleset.xml" />
-	<rule ref="./vendor/wpackagist-plugin/plugin-check/phpcs-rulesets/plugin-check.ruleset.xml" />
+	<rule ref="./vendor/wpackagist-plugin/plugin-check/vendor/plugin-check/phpcs-sniffs/PluginCheck/ruleset.xml">
+		<exclude-pattern>/vendor/*</exclude-pattern>
+	</rule>
+	<rule ref="./vendor/wpackagist-plugin/plugin-check/phpcs-rulesets/plugin-check.ruleset.xml">
+		<exclude-pattern>/vendor/*</exclude-pattern>
+	</rule>
 
 	<!--
 		Core WPCS Rulesets
@@ -141,7 +147,7 @@
 	<rule ref="SlevomatCodingStandard.Classes.UselessLateStaticBinding" />
 
 	<rule ref="SlevomatCodingStandard.ControlStructures.DisallowContinueWithoutIntegerOperandInSwitch" />
-	<rule ref="SlevomatCodingStandard.ControlStructures.EarlyExit" />
+	<!-- <rule ref="SlevomatCodingStandard.ControlStructures.EarlyExit" /> --> <!-- Disabled: causes fatal error with if statements without curly braces -->
 	<rule ref="SlevomatCodingStandard.ControlStructures.NewWithParentheses" />
 	<rule ref="SlevomatCodingStandard.ControlStructures.UselessIfConditionWithReturn" />
 	<rule ref="SlevomatCodingStandard.ControlStructures.UselessTernaryOperator" />

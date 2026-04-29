@@ -10,46 +10,47 @@
  */
 class Zenvy_Customize_Sortable_Control extends Zenvy_Customize_Base_Control {
 
-    /**
-     * The type of customize control being rendered.
-     *
-     * @access public
-     * @var    string
-     */
-    public $type = 'zenvy_sortable';
+	/**
+	 * The type of customize control being rendered.
+	 *
+	 * @access public
+	 * @var    string
+	 */
+	public $type = 'zenvy_sortable';
 
-    /**
-     * Underscore JS template to handle the control's output.
-     *
-     * @access public
-     * @return void
-     */
-    public function content_template() { ?>
+	/**
+	 * Underscore JS template to handle the control's output.
+	 *
+	 * @access public
+	 * @return void
+	 */
+	public function content_template() {
+		?>
 
-        <#
-        const   fields      = data.fields,
-                resetData   = data.default; #>
+		<#
+		const   fields      = data.fields,
+				resetData   = data.default; #>
 
-        <# if ( data.label ) { #>
-        <div class="d-flex justify-content-between align-items-center">
-            <span class="customize-control-title position-relative">
-                {{{ data.label }}}
-                <span class="reset-value"><i class="dashicons dashicons-image-rotate d-flex justify-content-center align-items-center"></i></span>
-            </span>
-        </div>
-        <# } #>
+		<# if ( data.label ) { #>
+		<div class="d-flex justify-content-between align-items-center">
+			<span class="customize-control-title position-relative">
+				{{{ data.label }}}
+				<span class="reset-value"><i class="dashicons dashicons-image-rotate d-flex justify-content-center align-items-center"></i></span>
+			</span>
+		</div>
+		<# } #>
 
-        <# if ( data.description ) { #>
-        <span class="description customize-control-description">{{{ data.description }}}</span>
-        <# } #>
+		<# if ( data.description ) { #>
+		<span class="description customize-control-description">{{{ data.description }}}</span>
+		<# } #>
 
-        <ul class="sortable control-wrap sortable-list">
-            <# const sortable_reset = ( resetData !== '' ) ? resetData : ''; #>
-            <input type="hidden" class="sortable-field" data-reset="{{ sortable_reset }}" />
-        </ul>
+		<ul class="sortable control-wrap sortable-list">
+			<# const sortable_reset = ( resetData !== '' ) ? resetData : ''; #>
+			<input type="hidden" class="sortable-field" data-reset="{{ sortable_reset }}" />
+		</ul>
 
-        <?php
-    }
+		<?php
+	}
 }
 
 // Register JS-rendered control types.

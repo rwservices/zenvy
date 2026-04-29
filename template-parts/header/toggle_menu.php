@@ -9,20 +9,22 @@
 ?>
 
 <div class="header-toggle-menu-wrap d-flex">
-    <div id="navbar" class="navbar mobile-navbar">
-        <!-- navbar starting from here -->
-        <nav id="site-navigation" class="main-navigation">
-            <div class="menu-content-wrapper">
+	<div id="navbar" class="navbar mobile-navbar">
+		<!-- navbar starting from here -->
+		<nav id="site-navigation" class="main-navigation">
+			<div class="menu-content-wrapper">
 				<?php
-				wp_nav_menu( array(
-					'theme_location'	=> 'mobile-menu',
-					'menu_class'        => 'menu-wrapper',
-					'container_class'   => 'menu-top-menu-container',
-					'items_wrap'        => '<ul id="mobile-menu-list" class="%2$s">%3$s</ul>',
-					'fallback_cb'       => 'zenvy_menu_fallback'
-				) );
+				wp_nav_menu(
+					[
+						'theme_location'  => 'mobile-menu',
+						'menu_class'      => 'menu-wrapper',
+						'container_class' => 'menu-top-menu-container',
+						'items_wrap'      => '<ul id="mobile-menu-list" class="%2$s">%3$s</ul>',
+						'fallback_cb'     => 'zenvy_menu_fallback',
+					]
+				);
 				?>
-            </div>
-        </nav><!-- #site-navigation -->
-    </div><!-- #navbar -->
+			</div>
+		</nav><!-- #site-navigation -->
+	</div><!-- #navbar -->
 </div><!-- .header-toggle-menu-wrap -->

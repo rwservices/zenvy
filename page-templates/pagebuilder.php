@@ -26,10 +26,11 @@ get_header();
 do_action( 'zenvy_content_before' );
 ?>
 
-<div id="primary" <?php Zenvy_Helper::primary_class();?>>
+<div id="primary" <?php Zenvy_Helper::primary_class(); ?>>
 	<main id="main" class="site-main">
 		<?php
-		while ( have_posts() ) : the_post();
+		while ( have_posts() ) :
+			the_post();
 			the_content();
 			if ( is_singular() && Zenvy_Helper::front_page_enable() ) :
 				get_template_part( 'template-parts/front-page/content' );

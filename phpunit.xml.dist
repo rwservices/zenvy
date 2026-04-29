@@ -18,12 +18,21 @@
 			<directory suffix=".php">tests/phpunit</directory>
 		</testsuite>
 	</testsuites>
+
 	<coverage processUncoveredFiles="false">
 		<include>
-			<directory suffix=".php">inc</directory>
-			<file>zenvy.php</file>
-			<file>uninstall.php</file>
+			<!-- Only include the main theme file -->
+			<file>./functions.php</file>
 		</include>
+		
+		<exclude>
+			<!-- Match the exclusions from your PHPCS ruleset -->
+			<directory>./vendor</directory>
+			<directory>./node_modules</directory>
+			<directory>./build</directory>
+			<directory>./tests</directory>
+		</exclude>
+		
 		<report>
 			<clover outputFile="tests/_output/php-coverage.xml" />
 			<html outputDirectory="tests/_output/html" />

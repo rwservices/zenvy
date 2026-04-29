@@ -8,106 +8,107 @@
  */
 
 $contact_info_lists = get_theme_mod(
-    'zenvy_header_contact_info_list',
-    [
-        [
-            'title'     => esc_html__( '0123456789', 'zenvy' ),
-            'subtitle'  => esc_html__( 'phone number', 'zenvy' ),
-            'icon'      => 'fa-phone',
-            'link_type' => 'tel',
-            'link'      => '#'
-        ],
-        [
-            'title'     => esc_html__( 'youremail@gmail.com', 'zenvy' ),
-            'subtitle'  => esc_html__( 'email address', 'zenvy' ),
-            'icon'      => 'fa-envelope',
-            'link_type' => 'email',
-            'link'      => '#'
-        ],
-        [
-            'title'     => esc_html__( 'address', 'zenvy' ),
-            'subtitle'  => esc_html__( 'find us', 'zenvy' ),
-            'icon'      => 'fa-map-marker',
-            'link_type' => 'disable',
-            'link'      => '#'
-        ]
-    ]
+	'zenvy_header_contact_info_list',
+	[
+		[
+			'title'     => esc_html__( '0123456789', 'zenvy' ),
+			'subtitle'  => esc_html__( 'phone number', 'zenvy' ),
+			'icon'      => 'fa-phone',
+			'link_type' => 'tel',
+			'link'      => '#'
+		],
+		[
+			'title'     => esc_html__( 'youremail@gmail.com', 'zenvy' ),
+			'subtitle'  => esc_html__( 'email address', 'zenvy' ),
+			'icon'      => 'fa-envelope',
+			'link_type' => 'email',
+			'link'      => '#'
+		],
+		[
+			'title'     => esc_html__( 'address', 'zenvy' ),
+			'subtitle'  => esc_html__( 'find us', 'zenvy' ),
+			'icon'      => 'fa-map-marker',
+			'link_type' => 'disable',
+			'link'      => '#'
+		]
+	]
 );
 
 if ( $contact_info_lists ) :
 
-    $sort_contents = get_theme_mod(
-        'zenvy_header_contact_info_elements',
-        ['title','subtitle']
-    );
+	$sort_contents = get_theme_mod(
+		'zenvy_header_contact_info_elements',
+		['title','subtitle']
+	);
 
-    // Content and icon flow
-    $content_class = ['d-flex align-items-center'];
+	// Content and icon flow
+	$content_class = ['d-flex align-items-center'];
 
-    // Icon Position
-    $icon_position = get_theme_mod(
-        'zenvy_header_contact_info_icon_position',
-        ['desktop'=> 'before']
-    );
-    $content_class[]    = ( $icon_position && $icon_position['desktop'] == 'after' ) ? 'flex-row-reverse' : 'flex-row';
-    $content_class      = array_unique( $content_class );
+	// Icon Position
+	$icon_position = get_theme_mod(
+		'zenvy_header_contact_info_icon_position',
+		['desktop'=> 'before']
+	);
+	$content_class[]    = ( $icon_position && $icon_position['desktop'] == 'after' ) ? 'flex-row-reverse' : 'flex-row';
+	$content_class      = array_unique( $content_class );
 
-    $link_open = get_theme_mod(
-        'zenvy_header_contact_info_link_open',
-        ''
-    );
-    $link_target = ( $link_open && array_key_exists( 'desktop', $link_open ) ) ? '_blank' : '_self';
-    ?>
-    <ul class="header-contact-info-wrap d-flex flex-wrap">
+	$link_open = get_theme_mod(
+		'zenvy_header_contact_info_link_open',
+		''
+	);
+	$link_target = ( $link_open && array_key_exists( 'desktop', $link_open ) ) ? '_blank' : '_self';
+	?>
+	<ul class="header-contact-info-wrap d-flex flex-wrap">
 
-        <?php foreach ( $contact_info_lists as $list_key => $lists ) :
+		<?php foreach ( $contact_info_lists as $list_key => $lists ) :
+			$link_href = '';
+			if ( $lists['link_type'] === 'email' ) {
+				$link_href = 'mailto:' . $lists['link'] . '';
+			} elseif ( $lists['link_type'] === 'tel' ) {
+				$link_href = 'tel:' . $lists['link'] . '';
+			} else {
+				$link_href = $lists['link'];
+			}
 
-            $link_href = '';
-            if ( $lists['link_type'] == 'email' ) {
-                $link_href = 'mailto:' . $lists['link'] . '';
-            } elseif ( $lists['link_type'] == 'tel' ) {
-                $link_href = 'tel:' . $lists['link'] . '';
-            } else {
-                $link_href = $lists['link'];
-            }
+			?>
 
-            ?>
+			<li class="<?php echo esc_attr( join( ' ', $content_class ) ); ?>">
+				<div class="contact-icon">
+					<?php Zenvy_Font_Awesome_Icons::get_icon( 'ui', $lists['icon'] ); ?>
+				</div>
+				<?php if ( $sort_contents ) : ?>
+					<div class="contact-details">
+						<?php
+						foreach ( $sort_contents as $content ) :
+							switch ( $content ) :
+								case 'title':
+									if ( $lists['link_type'] === 'disable' ) :
+										?>
 
-            <li class="<?php echo esc_attr( join( ' ', $content_class ) ); ?>">
-                <div class="contact-icon">
-                    <?php Zenvy_Font_Awesome_Icons::get_icon( 'ui', $lists['icon'] ); ?>
-                </div>
-                <?php if ( $sort_contents ) : ?>
-                    <div class="contact-details">
-                        <?php foreach ( $sort_contents as $content ) :
-                            switch ( $content ) :
-                                case 'title' :
+										<div class="contact-title"><?php echo esc_html( $lists['title'] ); ?></div>
 
-                                    if ( $lists['link_type'] == 'disable') : ?>
+									<?php else : ?>
 
-                                        <div class="contact-title"><?php echo esc_html( $lists['title'] ); ?></div>
+										<a href="<?php echo esc_url( $link_href ); ?>" class="contact-title" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $lists['title'] ); ?></a>
 
-                                    <?php else : ?>
+										<?php
+									endif;
+									break;
 
-                                        <a href="<?php echo esc_url( $link_href ); ?>" class="contact-title" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $lists['title'] ); ?></a>
+								case 'subtitle':
+									?>
+									<div class="contact-subtitle"><?php echo esc_html( $lists['subtitle'] ); ?></div>
+									<?php
+									break;
+							endswitch;
+						endforeach;
+						?>
+					</div>
+				<?php endif; ?>
+			</li>
 
-                                    <?php
-                                    endif;
-                                    break;
+		<?php endforeach; ?>
 
-                                case 'subtitle' :
-                                    ?>
-                                    <div class="contact-subtitle"><?php echo esc_html( $lists['subtitle'] ); ?></div>
-                                    <?php
-                                    break;
-                            endswitch;
-                        endforeach; ?>
-                    </div>
-                <?php endif; ?>
-            </li>
-
-        <?php endforeach; ?>
-
-    </ul><!-- .header-contact-info-wrap -->
+	</ul><!-- .header-contact-info-wrap -->
 
 <?php endif; ?>

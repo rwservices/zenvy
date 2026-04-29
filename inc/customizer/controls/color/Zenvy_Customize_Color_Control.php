@@ -10,63 +10,64 @@
  */
 class Zenvy_Customize_Color_Control extends Zenvy_Customize_Base_Control {
 
-    /**
-     * The type of customize control being rendered.
-     *
-     * @access public
-     * @var    string
-     */
-    public $type = 'zenvy_color';
+	/**
+	 * The type of customize control being rendered.
+	 *
+	 * @access public
+	 * @var    string
+	 */
+	public $type = 'zenvy_color';
 
-    /**
-     * Underscore JS template to handle the control's output.
-     *
-     * @access public
-     * @return void
-     */
-    public function content_template() { ?>
+	/**
+	 * Underscore JS template to handle the control's output.
+	 *
+	 * @access public
+	 * @return void
+	 */
+	public function content_template() {
+		?>
 
-        <#
-        const   resetData   = data.default,
-                inheritData = data.inherits,
-                colors      = data.colors; #>
+		<#
+		const   resetData   = data.default,
+				inheritData = data.inherits,
+				colors      = data.colors; #>
 
-        <# if ( data.label ) { #>
-        <div class="d-flex justify-content-between align-items-center">
-            <span class="customize-control-title position-relative">
-                {{{ data.label }}}
-                <span class="reset-value"><i class="dashicons dashicons-image-rotate d-flex justify-content-center align-items-center"></i></span>
-            </span>
-        </div>
-        <# } #>
+		<# if ( data.label ) { #>
+		<div class="d-flex justify-content-between align-items-center">
+			<span class="customize-control-title position-relative">
+				{{{ data.label }}}
+				<span class="reset-value"><i class="dashicons dashicons-image-rotate d-flex justify-content-center align-items-center"></i></span>
+			</span>
+		</div>
+		<# } #>
 
-        <# if ( data.description ) { #>
-        <span class="description customize-control-description">{{{ data.description }}}</span>
-        <# } #>
+		<# if ( data.description ) { #>
+		<span class="description customize-control-description">{{{ data.description }}}</span>
+		<# } #>
 
-        <!-- Colors -->
-        <div class="control-wrap d-flex justify-content-between align-items-center position-relative color-control">
+		<!-- Colors -->
+		<div class="control-wrap d-flex justify-content-between align-items-center position-relative color-control">
 
-            <span class="inner-label w-40"><?php esc_html_e( 'Color', 'zenvy' ); ?></span>
+			<span class="inner-label w-40"><?php esc_html_e( 'Color', 'zenvy' ); ?></span>
 
-            <div class="colors d-flex">
-                <# Object.keys( colors ).forEach( function ( key ) { #>
-                    <div class="color-picker d-flex flex-column" <# if ( inheritData !== undefined && inheritData[key] !== undefined ) { #> style="background:{{ inheritData[key] }}" <# } #>>
+			<div class="colors d-flex">
+				<# Object.keys( colors ).forEach( function ( key ) { #>
+					<div class="color-picker d-flex flex-column" <# if ( inheritData !== undefined && inheritData[key] !== undefined ) { #> style="background:{{ inheritData[key] }}" <# } #>>
 
-                        <span class="position-relative"><label class="inner-label">{{{ colors[key] }}}</label></span>
+						<span class="position-relative"><label class="inner-label">{{{ colors[key] }}}</label></span>
 
-                        <# let color_reset = ( resetData !== '' && resetData[key] !== undefined ) ? resetData[key] : ''; #>
-                        <# let color_inherit = ( inheritData !== '' && inheritData[key] !== undefined ) ? inheritData[key] : ''; #>
-                        <input class="alpha-color-control {{ key }}" type="text" data-alpha-enabled="true" data-reset="{{ color_reset }}" data-inherit="{{ color_inherit }}" />
+						<# let color_reset = ( resetData !== '' && resetData[key] !== undefined ) ? resetData[key] : ''; #>
+						<# let color_inherit = ( inheritData !== '' && inheritData[key] !== undefined ) ? inheritData[key] : ''; #>
+						<input class="alpha-color-control {{ key }}" type="text" data-alpha-enabled="true" data-reset="{{ color_reset }}" data-inherit="{{ color_inherit }}" />
 
-                    </div>
-                <# }); #>
-            </div>
+					</div>
+				<# }); #>
+			</div>
 
-        </div>
+		</div>
 
-        <?php
-    }
+		<?php
+	}
 }
 
 // Register JS-rendered control types.
