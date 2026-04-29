@@ -204,9 +204,8 @@ class Zenvy_Customize_Repeater_Control extends WP_Customize_Control {
                 }
             }
         }
-        wp_enqueue_script( 'zenvy-repeater', ZENVY_THEME_URI . 'inc/customizer/controls/repeater/assets/repeater.js', array( 'jquery', 'jquery-ui-core', 'jquery-ui-sortable' ), false, true );
-        wp_enqueue_style( 'zenvy-repeater', ZENVY_THEME_URI . 'inc/customizer/controls/repeater/assets/repeater.css', null );
-
+        wp_enqueue_script( 'zenvy-repeater', ZENVY_THEME_URI . 'assets/build/js/customize-repeater.js', array( 'jquery', 'jquery-ui-core', 'jquery-ui-sortable' ), false, true );
+        
         wp_localize_script( 'zenvy-repeater', 'zenvy_customize',
             array(
                 'nonce' => wp_create_nonce( 'zenvy_customize_nonce' )

@@ -104,6 +104,7 @@ const scripts = {
 		chunkFilename: '[name].js',
 	},
 	entry: {
+		'customize-repeater' : path.resolve(process.cwd(), 'assets', 'src', 'customize', 'repeater.js'),
 		'customize-builder' : path.resolve(process.cwd(), 'assets', 'src', 'customize', 'builder.js'),
 		'customize-preview' : path.resolve(process.cwd(), 'assets', 'src', 'customize', 'preview.js'),
 		'customize-controls' : path.resolve(process.cwd(), 'assets', 'src', 'customize', 'index.js'),
