@@ -199,7 +199,7 @@ class Zenvy_Customize_Repeater_Control extends WP_Customize_Control {
                         wp_enqueue_script( 'wp-color-picker' );
                         wp_enqueue_style( 'wp-color-picker' );
                     }elseif( 'font' === $field['type'] ){
-                        wp_enqueue_style( 'font-awesome', ZENVY_THEME_URI .'assets/css/font-awesome.css', array(), '4.7.0' );
+                        wp_enqueue_style( 'font-awesome', ZENVY_THEME_URI .'assets/build/library/font-awesome.css', array(), '4.7.0' );
                     }
                 }
             }
