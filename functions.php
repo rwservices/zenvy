@@ -176,47 +176,37 @@ add_action( 'widgets_init', 'zenvy_widgets_init' );
 function zenvy_scripts() {
 
 	// Font Awesome Style
-	wp_enqueue_style( 'font-awesome', ZENVY_THEME_URI .'assets/css/font-awesome.css', array(), '4.7.0' );
+	wp_enqueue_style( 'font-awesome', ZENVY_THEME_URI .'assets/build/library/font-awesome.css', array(), '4.7.0' );
 
 	// MeanMenu Style
-	wp_enqueue_style( 'meanmenu', ZENVY_THEME_URI .'assets/css/meanmenu.css', array(), '2.0.7' );
-
-	// Slick Style
-	wp_enqueue_style( 'slick-theme', ZENVY_THEME_URI .'assets/css/slick-theme.css', null, '1.8.0' );
-	wp_enqueue_style( 'slick', ZENVY_THEME_URI .'assets/css/slick.css', null, '1.8.0' );
+	wp_enqueue_style( 'meanmenu', ZENVY_THEME_URI .'assets/build/library/meanmenu.css', array(), '2.0.7' );
 
 	// Theme Style
 	wp_enqueue_style( 'zenvy-style', get_stylesheet_uri(), array(), ZENVY_THEME_VERSION );
 
 	// Main Style
-	wp_enqueue_style( 'zenvy-main-style', ZENVY_THEME_URI . 'assets/css/main.css', null, ZENVY_THEME_VERSION, 'all' );
+	wp_enqueue_style( 'zenvy-main-style', ZENVY_THEME_URI . 'assets/build/css/main.css', null, ZENVY_THEME_VERSION, 'all' );
 
 	// Responsive Style
-	wp_enqueue_style( 'zenvy-responsive', ZENVY_THEME_URI . 'assets/css/responsive.css', null, ZENVY_THEME_VERSION, 'all' );
+	wp_enqueue_style( 'zenvy-responsive', ZENVY_THEME_URI . 'assets/build/css/responsive.css', null, ZENVY_THEME_VERSION, 'all' );
 
 	// Add output of Customizer settings as inline style.
 	wp_add_inline_style( 'zenvy-main-style', Zenvy_Customizer_Inline_Style::css_output( 'front-end' ) );
 
-	// Enqueue Slick Js
-	wp_enqueue_script( 'slick', ZENVY_THEME_URI . 'assets/js/slick.js', [ 'jquery' ], '1.8.0', true );
-
 	// Enqueue MeanMenu Js
-	wp_enqueue_script( 'meanmenu', ZENVY_THEME_URI . 'assets/js/jquery.meanmenu.js', [ 'jquery' ], '2.0.7', true );
-
-	// Enqueue Isotope Js
-	wp_enqueue_script( 'isotope', ZENVY_THEME_URI . 'assets/js/isotope.pkgd.js', [ 'jquery' ], '3.0.6', true );
+	wp_enqueue_script( 'meanmenu', ZENVY_THEME_URI . 'assets/build/library/jquery.meanmenu.js', [ 'jquery' ], '2.0.7', true );
 
 	// Enqueue Images Loaded Js
-	wp_enqueue_script( 'imagesloaded', ZENVY_THEME_URI . 'assets/js/imagesloaded.pkgd.js', [ 'jquery' ], '3.2.0', true );
+	wp_enqueue_script( 'imagesloaded', ZENVY_THEME_URI . 'assets/build/library/imagesloaded.pkgd.js', [ 'jquery' ], '3.2.0', true );
 
 	// Enqueue theia-sticky-sidebar Js
 	$sticky_sidebar = get_theme_mod( 'zenvy_sidebar_sticky', '' );
 	if ( $sticky_sidebar ) {
-		wp_enqueue_script( 'theia-sticky-sidebar', ZENVY_THEME_URI . 'assets/js/theia-sticky-sidebar.js', [ 'jquery' ], '1.7.0', true );
+		wp_enqueue_script( 'theia-sticky-sidebar', ZENVY_THEME_URI . 'assets/build/library/theia-sticky-sidebar.js', [ 'jquery' ], '1.7.0', true );
 	}
 
 	// Main scripts.
-	wp_enqueue_script( 'zenvy', ZENVY_THEME_URI . 'assets/js/zenvy.js', array( 'jquery' ), ZENVY_THEME_VERSION, true );
+	wp_enqueue_script( 'zenvy', ZENVY_THEME_URI . 'assets/build/js/main.js', array( 'jquery' ), ZENVY_THEME_VERSION, true );
 
 	// Localized Scripts for the load more posts.
 	$locale = [

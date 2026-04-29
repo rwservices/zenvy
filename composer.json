@@ -37,11 +37,6 @@
 			]
 		}
 	},
-	"autoload": {
-		"psr-4": {
-			"Zenvy\\": "inc/"
-		}
-	},
     "autoload-dev": {
 		"psr-4": {
 			"Zenvy\\Tests\\": "tests/"

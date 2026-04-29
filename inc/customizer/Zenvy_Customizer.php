@@ -109,7 +109,7 @@ class Zenvy_Customizer {
      */
     public function zenvy_customize_preview_js() {
 
-        wp_enqueue_script( 'zenvy-customizer-preview', ZENVY_THEME_URI . 'assets/js/customizer-preview.js', array( 'customize-preview' ), ZENVY_THEME_VERSION, true );
+        wp_enqueue_script( 'zenvy-customizer-preview', ZENVY_THEME_URI . 'assets/build/js/customizer-preview.js', array( 'customize-preview' ), ZENVY_THEME_VERSION, true );
     }
 
     /**
@@ -118,21 +118,19 @@ class Zenvy_Customizer {
     public function zenvy_customize_js() {
 
         // Enqueue the style.
-        wp_enqueue_style( 'zenvy-customize-controls', ZENVY_THEME_URI . 'assets/css/customize-controls.css', null, ZENVY_THEME_VERSION, 'all' );
+        wp_enqueue_style( 'zenvy-customize-controls', ZENVY_THEME_URI . 'assets/build/css/customize-controls.css', null, ZENVY_THEME_VERSION, 'all' );
 
         // Add output of Customizer settings as inline style.
         wp_add_inline_style( 'zenvy-customize-controls', Zenvy_Customizer_Inline_Style::css_output( 'customizer' ) );
 
         // Enqueue alpha color picker script
-        wp_enqueue_script( 'wp-color-picker-alpha', ZENVY_THEME_URI . 'assets/js/wp-color-picker-alpha.js', [ 'jquery', 'wp-color-picker' ], '2.1.4', true );
+        wp_enqueue_script( 'wp-color-picker-alpha', ZENVY_THEME_URI . 'assets/build/library/wp-color-picker-alpha.js', [ 'jquery', 'wp-color-picker' ], '2.1.4', true );
 
         // Enqueue the font awesome style.
-        wp_enqueue_style( 'font-awesome', ZENVY_THEME_URI .'assets/css/font-awesome.css', array(), '4.7.0' );
+        wp_enqueue_style( 'font-awesome', ZENVY_THEME_URI .'assets/build/library/font-awesome.css', array(), '4.7.0' );
 
         // Enqueue the scripts.
-        wp_enqueue_script( 'zenvy-customize-controls', ZENVY_THEME_URI . 'assets/js/customize-controls.js', [ 'customize-base', 'wp-color-picker-alpha', 'jquery-ui-sortable' ], ZENVY_THEME_VERSION, true );
-
-        wp_enqueue_script( 'zenvy-customizer', ZENVY_THEME_URI . 'assets/js/customizer.js', array( 'jquery', 'customize-controls' ), ZENVY_THEME_VERSION, false );
+        wp_enqueue_script( 'zenvy-customize-controls', ZENVY_THEME_URI . 'assets/build/js/customize-controls.js', [ 'jquery', 'customize-controls', 'customize-base', 'wp-color-picker-alpha', 'jquery-ui-sortable' ], ZENVY_THEME_VERSION, true );
     }
 
     /**

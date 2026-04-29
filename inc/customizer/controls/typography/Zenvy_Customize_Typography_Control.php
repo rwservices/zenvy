@@ -91,7 +91,7 @@ class Zenvy_Customize_Typography_Control extends Zenvy_Customize_Base_Control {
 
         // Get formatted array of standard fonts, google fonts and all variants.
         wp_localize_script(
-            'zenvy-customize-controls', 'realHomeAllFonts', array(
+            'zenvy-customize-controls', 'zenvyAllFonts', array(
                 'allFonts'  => Zenvy_Google_Fonts::get_fonts()
             )
         );

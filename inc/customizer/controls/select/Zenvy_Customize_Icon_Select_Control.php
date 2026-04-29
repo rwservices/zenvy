@@ -44,10 +44,10 @@ class Zenvy_Customize_Icon_Select_Control extends Zenvy_Customize_Base_Control {
     public function enqueue_script() {
 
         // Enqueue style.
-        wp_enqueue_style( 'select2', ZENVY_THEME_URI .'assets/css/select2.css', array(), '4.1.0' );
+        wp_enqueue_style( 'select2', ZENVY_THEME_URI .'assets/build/library/select2.css', array(), '4.1.0' );
 
         // Enqueue script
-        wp_enqueue_script( 'select2', ZENVY_THEME_URI . 'assets/js/select2.js', [ 'jquery' ], '4.1.0', true );
+        wp_enqueue_script( 'select2', ZENVY_THEME_URI . 'assets/build/library/select2.js', [ 'jquery' ], '4.1.0', true );
 
     }
 

@@ -41,6 +41,16 @@ const sharedConfig = {
 					to: path.join(BUILD_DIR, 'images'),
 					noErrorOnMissing: true,
 				},
+				{
+					from: path.join(SRC_DIR, 'fonts'),
+					to: path.join(BUILD_DIR, 'fonts'),
+					noErrorOnMissing: true,
+				},
+				{
+					from: path.join(SRC_DIR, 'library'),
+					to: path.join(BUILD_DIR, 'library'),
+					noErrorOnMissing: true,
+				},
 			],
 		}),
 	],
@@ -94,8 +104,10 @@ const scripts = {
 		chunkFilename: '[name].js',
 	},
 	entry: {
-		dashboard: path.resolve(process.cwd(), 'assets', 'src', 'admin/dashboard', 'index.jsx'),
-		settings: path.resolve(process.cwd(), 'assets', 'src', 'admin', 'index.jsx'),
+		'customize-builder' : path.resolve(process.cwd(), 'assets', 'src', 'customize', 'builder.js'),
+		'customize-preview' : path.resolve(process.cwd(), 'assets', 'src', 'customize', 'preview.js'),
+		'customize-controls' : path.resolve(process.cwd(), 'assets', 'src', 'customize', 'index.js'),
+		'main' : path.resolve(process.cwd(), 'assets', 'src', 'js', 'main.js'),
 	},
 	module: {
 		rules:

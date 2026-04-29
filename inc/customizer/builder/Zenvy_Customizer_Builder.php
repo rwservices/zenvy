@@ -113,7 +113,7 @@ class Zenvy_Customizer_Builder {
         // Enqueue customizer styles.
         wp_enqueue_style(
             'customizer-builder',
-            ZENVY_THEME_URI . 'inc/customizer/builder/assets/css/builder.css',
+            ZENVY_THEME_URI . 'assets/build/css/customize-builder.css',
             array(),
             ZENVY_THEME_VERSION,
             'all'
@@ -121,7 +121,7 @@ class Zenvy_Customizer_Builder {
 
         wp_enqueue_script(
             'customizer-builder',
-            ZENVY_THEME_URI . 'inc/customizer/builder/assets/js/builder.js',
+            ZENVY_THEME_URI . 'assets/build/js/customize-builder.js',
             [
                 'customize-controls',
                 'jquery-ui-droppable'

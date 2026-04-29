@@ -1,5 +1,5 @@
 /*jshint -W065 */
-var realhomeRepeaterRow = function( rowIndex, container, label ){
+var zenvyRepeaterRow = function( rowIndex, container, label ){
 	'use strict';
 
 	var self        = this;
@@ -626,7 +626,7 @@ wp.customize.controlConstructor['zenvy-repeater'] = wp.customize.Control.extend(
 			template = template( templateData );
 
 			// Create a new row object and append the element
-			newRow = new realhomeRepeaterRow(
+			newRow = new zenvyRepeaterRow(
 				control.currentIndex,
 				jQuery( template ).appendTo( control.repeaterFieldsContainer ),
 				control.params.row_label
