@@ -81,8 +81,8 @@
 		"test-multisite": "WP_MULTISITE=1 phpunit --exclude-group=ms-excluded"
 	},
     "support": {
-		"issues": "https://github.com/rabindratharu/zenvy/issues",
-		"source": "https://github.com/rabindratharu/zenvy",
-		"docs": "https://github.com/rabindratharu/zenvy#readme"
+		"issues": "https://github.com/rwservices/zenvy/issues",
+		"source": "https://github.com/rwservices/zenvy",
+		"docs": "https://github.com/rwservices/zenvy#readme"
 	}
 }
