@@ -14,24 +14,18 @@ import './controls.js';
  * @param compare
  */
 const zenvy_active_callback = ( active_setting, settings, compare ) => {
-
 	wp.customize.bind( 'ready', function() {
-
 		wp.customize( active_setting, function( value ) {
+			const controlSelectors = function( control ) {
+				const active = function() {
+					const objVal = value.get();
 
-			let controlSelectors = function( control ) {
-
-				let active = function() {
-
-					let objVal = value.get();
-
-					if ( ( typeof objVal === 'string' || objVal instanceof String ) &&  ( jQuery.inArray( objVal, compare ) !== -1 ) ) {
-						control.container.removeClass('hidden');
-					}
-					else if ( ( objVal.desktop !== undefined && ( jQuery.inArray( objVal.desktop, compare ) !== -1 ) ) || ( objVal.tablet !== undefined && ( jQuery.inArray( objVal.tablet, compare ) !== -1 ) ) || ( objVal.mobile !== undefined && ( jQuery.inArray( objVal.mobile, compare ) !== -1 ) ) ) {
-						control.container.removeClass('hidden');
+					if ( ( typeof objVal === 'string' || objVal instanceof String ) && ( jQuery.inArray( objVal, compare ) !== -1 ) ) {
+						control.container.removeClass( 'hidden' );
+					} else if ( ( objVal.desktop !== undefined && ( jQuery.inArray( objVal.desktop, compare ) !== -1 ) ) || ( objVal.tablet !== undefined && ( jQuery.inArray( objVal.tablet, compare ) !== -1 ) ) || ( objVal.mobile !== undefined && ( jQuery.inArray( objVal.mobile, compare ) !== -1 ) ) ) {
+						control.container.removeClass( 'hidden' );
 					} else {
-						control.container.addClass('hidden');
+						control.container.addClass( 'hidden' );
 					}
 				};
 
@@ -46,11 +40,9 @@ const zenvy_active_callback = ( active_setting, settings, compare ) => {
 			jQuery.each( settings, function( index, id ) {
 				wp.customize.control( id, controlSelectors );
 			} );
-
 		} );
-
 	} );
-}
+};
 
 /**
  * Customizer control active callback function JS for empty or black value
@@ -59,22 +51,16 @@ const zenvy_active_callback = ( active_setting, settings, compare ) => {
  * @param settings
  */
 const zenvy_active_callback_blank = ( active_setting, settings ) => {
-
 	wp.customize.bind( 'ready', function() {
-
 		wp.customize( active_setting, function( value ) {
-
-			let controlSelectors = function( control ) {
-
-				let active = function() {
-
-					let val = value.get();
+			const controlSelectors = function( control ) {
+				const active = function() {
+					const val = value.get();
 
 					if ( val && val !== '' ) {
-						control.container.removeClass('hidden');
-					}
-					else {
-						control.container.addClass('hidden');
+						control.container.removeClass( 'hidden' );
+					} else {
+						control.container.addClass( 'hidden' );
 					}
 				};
 
@@ -89,50 +75,45 @@ const zenvy_active_callback_blank = ( active_setting, settings ) => {
 			jQuery.each( settings, function( index, id ) {
 				wp.customize.control( id, controlSelectors );
 			} );
-
 		} );
-
 	} );
-}
+};
 
 /**
  * Customizer inline css
  *
- * @param control string
- * @param inheritColor object
+ * @param control       string
+ * @param inheritColor  object
+ * @param inheritColors
  */
 const zenvy_inline_css = ( control, inheritColors ) => {
-
-	wp.customize( control, function ( value ) {
-
-		value.bind( function ( objectVal ) {
-
+	wp.customize( control, function( value ) {
+		value.bind( function( objectVal ) {
 			if ( objectVal !== undefined ) {
-
 				// Assign variables
-				let properties = '', output = '';
+				let properties = '',
+					output = '';
 
 				// remove inline style fist
 				jQuery( 'style#' + control ).remove();
 
 				// Initial objectVal
-				Object.keys( objectVal ).forEach( function ( key, index ) {
-					if ( inheritColors[key] !== undefined ) {
-						properties += inheritColors[key] + ':' + objectVal[key] + ';';
+				Object.keys( objectVal ).forEach( function( key, index ) {
+					if ( inheritColors[ key ] !== undefined ) {
+						properties += inheritColors[ key ] + ':' + objectVal[ key ] + ';';
 					}
-				});
+				} );
 
 				// Concat properties in root
-				output += ( properties !== '' ) ? ":root {" + properties + "}" : '';
+				output += ( properties !== '' ) ? ':root {' + properties + '}' : '';
 				// Concat and append new <style>.
 				jQuery( 'head' ).append(
-					'<style id="' + control + '">' + output + '</style>'
+					'<style id="' + control + '">' + output + '</style>',
 				);
 			}
-		});
-	});
-
-}
+		} );
+	} );
+};
 
 ( function( $, api ) {
 	'use strict';
@@ -141,27 +122,27 @@ const zenvy_inline_css = ( control, inheritColors ) => {
 	zenvy_active_callback(
 		'zenvy_blog_posts_layout',
 		[
-			'zenvy_blog_posts_col_img_overlay_color'
+			'zenvy_blog_posts_col_img_overlay_color',
 		],
-		['layout-4']
+		[ 'layout-4' ],
 	);
 
 	// About Page: Agents
 	zenvy_active_callback(
 		'zenvy_about_page_agents_type',
 		[
-			'zenvy_about_page_agents_pages'
+			'zenvy_about_page_agents_pages',
 		],
-		['new']
+		[ 'new' ],
 	);
 
 	// Header : Custom Header Height
 	zenvy_active_callback(
 		'zenvy_header_height_type',
 		[
-			'zenvy_header_custom_height'
+			'zenvy_header_custom_height',
 		],
-		['custom']
+		[ 'custom' ],
 	);
 
 	// Site Identify -> site title
@@ -170,9 +151,9 @@ const zenvy_inline_css = ( control, inheritColors ) => {
 		[
 			'blogname',
 			'zenvy_header_site_title_typo',
-			'zenvy_header_site_identify_note_two'
+			'zenvy_header_site_identify_note_two',
 		],
-		['true']
+		[ 'true' ],
 	);
 	// Site Identify -> tagline
 	zenvy_active_callback(
@@ -180,11 +161,10 @@ const zenvy_inline_css = ( control, inheritColors ) => {
 		[
 			'blogdescription',
 			'zenvy_header_site_tagline_typo',
-			'zenvy_header_site_identify_note_two'
+			'zenvy_header_site_identify_note_two',
 		],
-		['true']
+		[ 'true' ],
 	);
-
 
 	/**
 	 * Color Inherit Patterns
@@ -192,49 +172,47 @@ const zenvy_inline_css = ( control, inheritColors ) => {
 	// Accent Colors
 	zenvy_inline_css(
 		'zenvy_accent_color',
-		{ color_1: '--color-accent', color_2: '--color-accent-secondary'}
+		{ color_1: '--color-accent', color_2: '--color-accent-secondary' },
 	);
 	// Heading H1-H6 Color
 	zenvy_inline_css(
 		'zenvy_heading_color',
-		{ color_1: '--color-heading'}
+		{ color_1: '--color-heading' },
 	);
 	// Text Color
 	zenvy_inline_css(
 		'zenvy_text_color',
-		{ color_2: '--color-2'}
+		{ color_2: '--color-2' },
 	);
 	// Link Color
 	zenvy_inline_css(
 		'zenvy_link_color',
-		{ color_1: '--color-link', color_2: '--color-link-hover', color_3: '--color-link-visited'}
+		{ color_1: '--color-link', color_2: '--color-link-hover', color_3: '--color-link-visited' },
 	);
 	// Background Color
 	zenvy_inline_css(
 		'zenvy_background_color',
-		{ color_1: '--color-bg'}
+		{ color_1: '--color-bg' },
 	);
 
 	// Bind customizer focus target link
 	api.bind( 'ready', function() {
-		$('.customizer-focus').on('click', function (e) {
+		$( '.customizer-focus' ).on( 'click', function( e ) {
 			e.preventDefault();
 
-			let type 	= $(this).data('type'),
-				id		= $(this).data('id');
+			const type 	= $( this ).data( 'type' ),
+				id		= $( this ).data( 'id' );
 
 			if ( ! id || ! type ) {
 				return;
 			}
-			api[type]( id, function( instance ) {
+			api[ type ]( id, function( instance ) {
 				instance.deferred.embedded.done( function() {
 					api.previewer.deferred.active.done( function() {
 						instance.focus();
-					});
-				});
-			});
-
-		});
-	});
-
-}) ( jQuery, wp.customize );
+					} );
+				} );
+			} );
+		} );
+	} );
+}( jQuery, wp.customize ) );

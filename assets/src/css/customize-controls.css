@@ -13,8 +13,8 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 	--color-2: #6d707d;
 	--color-3: #9ea0a8;
 	--color-4: #cecfd4;
-	--color-5: #ffffff;
-	--color-bg: #ffffff;
+	--color-5: #fff;
+	--color-bg: #fff;
 	--color-bg-4: #F1F4F9;
 }
 
@@ -170,9 +170,11 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 	padding: 12px;
 	background-color: #ffffd7
 }
+
 .p-0 {
 	padding: 0 !important
 }
+
 .pt-0 {
 	padding: 0 !important
 }
@@ -201,6 +203,7 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 	-webkit-transition: all .35s;
 	transition: all .35s
 }
+
 .customizer-btn {
 	display: inline-block;
 	padding: 6px 16px;
@@ -212,7 +215,7 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 }
 
 .customizer-btn:hover {
-	background-color: #0033ff;
+	background-color: #03f;
 }
 
 /*--------------------------------------------------------------
@@ -247,6 +250,7 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 .customize-control:nth-last-of-type(1) {
 	padding-bottom: 20px;
 }
+
 .customize-control.hidden,
 .customize-control.hidden,
 .description.hidden {
@@ -305,6 +309,7 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 .has-responsive-switcher .control-wrap {
 	margin-top: 4px;
 }
+
 .customize-control-title {
 	margin: 0;
 	font-size: 13px;
@@ -315,11 +320,13 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 	letter-spacing: 0.02em;
 	color: #6d707d;
 }
+
 .control-wrap.heading-control {
 	background: #fff;
 	margin: 5px -24px;
 	border-bottom: 1px solid #cecfd4;
 }
+
 .control-wrap.heading-control .customize-control-title,
 .control-wrap.heading-control .customize-control-description {
 	padding: 5px 10px;
@@ -388,6 +395,7 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 .customize-control-border .control-wrap:nth-child(1) {
 	margin-top: 4px;
 }
+
 /*--------------------------------------------------------------
 # Inner Label
 --------------------------------------------------------------*/
@@ -754,10 +762,13 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 .customize-control-zenvy_buttonset .buttonset, .customize-control-zenvy_background .buttonset {
 	display: none
 }
+
 .buttonset-icon .buttonset-label {
 	width: 15%;
 }
+
 .buttonset-label {
+
 	/*width: 100%;*/
 	flex-grow: 1;
 	height: 28px;
@@ -797,6 +808,7 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 .customize-control-zenvy_buttonset label.buttonset-label-on, .customize-control-zenvy_background label.buttonset-label-on {
 	border-color: transparent;
 	background-color: #6685ff;
+
 	/*background-color: #4066ff;*/
 	color: #fff;
 }
@@ -882,6 +894,7 @@ body .select2-container {
 }
 
 .control-separator-before {
+
 	/*margin-bottom: 32px;*/
 	margin-bottom: 24px;
 }
@@ -932,7 +945,8 @@ body .select2-container {
 	border-width: 0 6px 8px 6px;
 	border-color: transparent transparent #fff transparent;
 }
-#customize-theme-controls .accordion-section-title:after,
+
+#customize-theme-controls .accordion-section-title::after,
 .control-wrap .wp-color-result-text {
 	display: none;
 }
@@ -1078,7 +1092,7 @@ input.range::-ms-tooltip {
 	margin: 0;
 }
 
-.range-input input[type=number] {
+.range-input input[type="number"] {
 	min-height: 30px;
 }
 
@@ -1114,7 +1128,7 @@ input.range::-ms-tooltip {
 	background-color: #4d71ff;
 }
 
-.custom-toggle-btn:checked + .custom-toggle-btn-label:before {
+.custom-toggle-btn:checked + .custom-toggle-btn-label::before {
 	right: 5px;
 }
 
@@ -1163,7 +1177,7 @@ input.range::-ms-tooltip {
 	margin: 0;
 }
 
-.dimension input[type=number] {
+.dimension input[type="number"] {
 	-moz-appearance: textfield;
 }
 
@@ -1201,6 +1215,7 @@ input.range::-ms-tooltip {
 }
 
 .dimension .link-dimensions .linked {
+
 	/*display: none !important;*/
 	color: #82838a;
 }
@@ -1236,6 +1251,7 @@ input.range::-ms-tooltip {
 .customize-control-zenvy_sortable ul li.invisible {
 	color: #9b9ba1;
 	background-color: #fcfcfc;
+
 	/*border: 1px dashed #aaa*/
 }
 
@@ -1267,6 +1283,7 @@ input.range::-ms-tooltip {
 	margin-right: 0;
 	margin-left: 0;
 }
+
 /*--------------------------------------------------------------
 # Group Control
 --------------------------------------------------------------*/
@@ -1276,10 +1293,12 @@ input.range::-ms-tooltip {
 	padding-bottom: 0;
 	border-bottom: 1px solid #cecfd4;
 }
+
 .customize-control-zenvy_group .customize-control-title,
 .customize-control-zenvy_group .customize-control-description {
 	padding-left: 24px;
 }
+
 .customize-control-zenvy_group .customize-control-description {
 	padding-bottom: 12px;
 }
@@ -1317,6 +1336,7 @@ input.range::-ms-tooltip {
 .customizer-group-control .customizer-tab:nth-last-of-type(1) label {
 	margin-right: 0;
 }
+
 .customizer-group-control .customizer-tab .active ~ label::after {
 	content: '';
 	position: absolute;
@@ -1335,9 +1355,11 @@ input.range::-ms-tooltip {
 .customizer-group-control .customizer-tab .inactive ~ label:hover {
 	color: #555968;
 }
+
 .group-control-wrap.last-child {
 	padding-bottom: 12px;
 }
+
 #customize-control-zenvy_breadcrumb .customize-control-title,
 #customize-control-zenvy_404_error_image .customize-control-title{
 	padding-top:24px;
@@ -1388,9 +1410,11 @@ li[id$="_meta_separator"] input:checked + .radio-image-label {
 .colors.visible {
 	overflow: visible !important;
 }
+
 .dimensions.unlinked .dimension:nth-of-type(1):hover::before {
 	color: #4d71ff;
 }
+
 .customize-control-border .inner-label {
 	margin-bottom: 4px;
 }
@@ -1450,12 +1474,14 @@ li[id$="_meta_separator"] input:checked + .radio-image-label {
 
 .color-picker .wp-picker-holder {
 	position: absolute;
+
 	/*top: 38px;*/
 	top: 39px;
 	right: 2px;
 	z-index: 99;
 	width: calc(100% - 2px);
 }
+
 .customize-control-border .color-picker .wp-picker-holder {
 	top: 64px;
 }
@@ -1500,7 +1526,7 @@ li[id$="_meta_separator"] input:checked + .radio-image-label {
 	border-radius: 8px !important;
 }
 
-.color-picker .iris-strip .ui-slider-handle:before {
+.color-picker .iris-strip .ui-slider-handle::before {
 	border: 3px solid #fff;
 	border-radius: 8px;
 }
@@ -1538,6 +1564,7 @@ ul.icons-list-wrapper li {
 	display: inline-block;
 	padding: 3px;
 }
+
 .selected-icon-preview {
 	text-align: center;
 	border: 1px  solid #ddd;
@@ -1545,10 +1572,12 @@ ul.icons-list-wrapper li {
 	margin-bottom: 20px;
 	border-radius: 5px;
 }
+
 .selected-icon-preview .fa{
 	font-size: 22px;
 	color: #333;
 }
+
 .icons-list-wrapper li {
 	width: 15%;
 	margin-right: 5px;
@@ -1558,6 +1587,7 @@ ul.icons-list-wrapper li {
 	float: left;
 	transition: 0.5s all ease;
 }
+
 .icons-list-wrapper li .fa:hover{
 	color: #f3c93a;
 	-webkit-transition: 0.5s all ease;
@@ -1565,6 +1595,7 @@ ul.icons-list-wrapper li {
 	-ms-transition: 0.5s all ease;
 	transition: 0.5s all ease;
 }
+
 ul.icons-list-wrapper{
 	height: 150px;
 	border: 1px solid #ddd;
@@ -1588,22 +1619,28 @@ ul.icons-list-wrapper{
 .control-wrap.heading-control {
 	margin: 5px 0;
 }
+
 .controls-wrap {
-	margin: 12px 0px 0;
+	margin: 12px 0 0;
 }
+
 .customize-control {
 	margin-bottom: 7px;
 }
+
 .reset-value i {
 	font-size: 12px;
 	margin-right: -9px;
 }
+
 #customize-control-zenvy_social_icons {
 	padding-top: 3px;
 }
+
 #customize-control-zenvy_social_share_note {
 	padding-top: 15px;
 }
+
 #customize-control-zenvy_social_share {
 	padding-top: 3px;
 }
@@ -1799,6 +1836,7 @@ line-height: 36px;
     border: 1px solid #EEE;
     margin: 0;
 }
+
 .font-group li{
     width: 50px;
     height: 50px;

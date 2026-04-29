@@ -3,6 +3,7 @@
 /node_modules
 /tests
 /vendor
+/assets/src/library
 
 ## Allow only CSS and SCSS files
 *.*

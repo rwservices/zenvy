@@ -1,53 +1,53 @@
-module.exports = function (grunt) {
-	require("load-grunt-tasks")(grunt);
+module.exports = function( grunt ) {
+	require( 'load-grunt-tasks' )( grunt );
 
 	const copyFiles = [
-		'**',                   // include everything
-		'!node_modules/**',     // exclude node_modules
-		'!vendor/**',           // exclude vendor directory
-		'!assets/src/**',       // exclude source assets
-		'!cypress/**',          // exclude Cypress tests
-		'!tests/**',            // exclude unit tests
-		'!build/**',            // exclude build output
-		'!.git/**',             // exclude git directory
-		'!.gitignore',          // exclude git config
-		'!package-lock.json',   // exclude lock files
+		'**', // include everything
+		'!node_modules/**', // exclude node_modules
+		'!vendor/**', // exclude vendor directory
+		'!assets/src/**', // exclude source assets
+		'!cypress/**', // exclude Cypress tests
+		'!tests/**', // exclude unit tests
+		'!build/**', // exclude build output
+		'!.git/**', // exclude git directory
+		'!.gitignore', // exclude git config
+		'!package-lock.json', // exclude lock files
 		'!composer.lock',
-		'!*.config.js',         // exclude config files used only for development
-		'!Gruntfile.js',        // exclude this build file
+		'!*.config.js', // exclude config files used only for development
+		'!Gruntfile.js', // exclude this build file
 		'!webpack.config.js',
 		'!babel.config.js',
 		'!postcss.config.js',
 		'!tailwind.config.js',
 		'!cypress.config.js',
-		'!phpcs.xml.dist',      // exclude linting configs
+		'!phpcs.xml.dist', // exclude linting configs
 		'!phpstan.neon.dist',
 		'!phpunit.xml.dist',
-		'!**/*.map',            // exclude source maps
-		'!**/.DS_Store',        // exclude macOS metadata
-		'!**/*.tmp',            // exclude temporary files
+		'!**/*.map', // exclude source maps
+		'!**/.DS_Store', // exclude macOS metadata
+		'!**/*.tmp', // exclude temporary files
 	];
-	
-	const excludeCopyFilesPro = copyFiles.slice(0).concat(['!changelog.txt']);
+
+	const excludeCopyFilesPro = copyFiles.slice( 0 ).concat( [ '!changelog.txt' ] );
 
 	// Project configuration
-	grunt.initConfig({
-		pkg: grunt.file.readJSON('package.json'),
+	grunt.initConfig( {
+		pkg: grunt.file.readJSON( 'package.json' ),
 
 		// Clean task to remove temporary files and previous builds
 		clean: {
 			temp: {
-				src: ['**/*.tmp', '**/.afpDeleted*', '**/.DS_Store'],
+				src: [ '**/*.tmp', '**/.afpDeleted*', '**/.DS_Store' ],
 				dot: true,
 				filter: 'isFile',
 			},
 			// Clean all build directories in assets folder and subfolders
 			assets: {
 				src: [
-					'build/**',      // All build directories in assets
-				]
+					'build/**', // All build directories in assets
+				],
 			},
-			folder_v2: ['build/**'],
+			folder_v2: [ 'build/**' ],
 		},
 
 		// Check text domain for WordPress i18n
@@ -83,11 +83,11 @@ module.exports = function (grunt) {
 		// Copy task for pro version
 		copy: {
 			pro: {
-				files: [{
+				files: [ {
 					expand: true,
 					src: excludeCopyFilesPro,
 					dest: 'build/<%= pkg.name %>/',
-				}],
+				} ],
 			},
 		},
 
@@ -100,7 +100,7 @@ module.exports = function (grunt) {
 				},
 				expand: true,
 				cwd: 'build/<%= pkg.name %>/',
-				src: ['**/*'],
+				src: [ '**/*' ],
 				dest: '<%= pkg.name %>/',
 			},
 		},
@@ -109,7 +109,7 @@ module.exports = function (grunt) {
 		search: {
 			version: {
 				files: {
-					src: ['*.php', 'inc/**/*.php'],
+					src: [ '*.php', 'inc/**/*.php' ],
 				},
 				options: {
 					searchString: /Version:\s*(\d+\.\d+\.\d+)/,
@@ -117,32 +117,32 @@ module.exports = function (grunt) {
 				},
 			},
 		},
-	});
+	} );
 
 	// Register tasks
-	grunt.registerTask('version-compare', ['search:version']);
-	grunt.registerTask('finish', function () {
-		const json = grunt.file.readJSON('package.json');
-		const file = `./build/${json.name}-${json.version}.zip`;
-		grunt.log.writeln(`Process finished. ZIP created: ${file}`);
-		grunt.log.writeln('----------');
-	});
+	grunt.registerTask( 'version-compare', [ 'search:version' ] );
+	grunt.registerTask( 'finish', function() {
+		const json = grunt.file.readJSON( 'package.json' );
+		const file = `./build/${ json.name }-${ json.version }.zip`;
+		grunt.log.writeln( `Process finished. ZIP created: ${ file }` );
+		grunt.log.writeln( '----------' );
+	} );
 
 	// Build task
-	grunt.registerTask('build', [
+	grunt.registerTask( 'build', [
 		'checktextdomain',
 		'copy:pro',
 		'compress:pro',
 		'finish',
-	]);
+	] );
 
 	// Pre-build clean task
-	grunt.registerTask('preBuildClean', [
+	grunt.registerTask( 'preBuildClean', [
 		'clean:temp',
 		'clean:assets',
 		'clean:folder_v2',
-	]);
+	] );
 
 	// release task
-	grunt.registerTask('release', ['preBuildClean', 'build']);
+	grunt.registerTask( 'release', [ 'preBuildClean', 'build' ] );
 };

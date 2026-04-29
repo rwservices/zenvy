@@ -1,29 +1,29 @@
 /*jshint -W065 */
-var zenvyRepeaterRow = function( rowIndex, container, label ){
+const zenvyRepeaterRow = function( rowIndex, container, label ) {
 	'use strict';
 
-	var self        = this;
+	const self = this;
 
-	this.rowIndex   = rowIndex;
-	this.container  = container;
-	this.label      = label;
-	this.header     = this.container.find( '.repeater-row-header' ),
+	this.rowIndex = rowIndex;
+	this.container = container;
+	this.label = label;
+	this.header = this.container.find( '.repeater-row-header' ),
 
 	this.header.on( 'click', function() {
 		self.toggleMinimize();
-	});
+	} );
 
 	this.container.on( 'click', '.repeater-row-remove', function() {
 		self.remove();
-	});
+	} );
 
 	this.header.on( 'mousedown', function() {
 		self.container.trigger( 'row:start-dragging' );
-	});
+	} );
 
 	this.container.on( 'keyup change', 'input, select, textarea', function( e ) {
 		self.container.trigger( 'row:update', [ self.rowIndex, jQuery( e.target ).data( 'field' ), e.target ] );
-	});
+	} );
 
 	this.setRowIndex = function( rowIndex ) {
 		this.rowIndex = rowIndex;
@@ -41,12 +41,12 @@ var zenvyRepeaterRow = function( rowIndex, container, label ){
 	this.remove = function() {
 		this.container.slideUp( 300, function() {
 			jQuery( this ).detach();
-		});
+		} );
 		this.container.trigger( 'row:remove', [ this.rowIndex ] );
 	};
 
 	this.updateLabel = function() {
-		var rowLabelField,
+		let rowLabelField,
 		    rowLabel;
 
 		if ( 'field' === this.label.type ) {
@@ -65,16 +65,16 @@ var zenvyRepeaterRow = function( rowIndex, container, label ){
 	this.updateLabel();
 };
 
-wp.customize.controlConstructor['zenvy-repeater'] = wp.customize.Control.extend({
-	ready: function(){
+wp.customize.controlConstructor[ 'zenvy-repeater' ] = wp.customize.Control.extend( {
+	ready() {
 		'use strict';
 
-		var control = this,
+		let control = this,
 		    limit,
 		    theNewRow;
 
 		// The current value set in Control Class (set in Zenvy_Customize_Repeater_Control::to_json() function)
-		var settingValue = this.params.value;
+		const settingValue = this.params.value;
 
 		// The hidden field that keeps the data saved (though we never update it)
 		this.settingField = this.container.find( '[data-customize-setting-link]' ).first();
@@ -107,82 +107,83 @@ wp.customize.controlConstructor['zenvy-repeater'] = wp.customize.Control.extend(
 			} else {
 				jQuery( control.selector + ' .limit' ).addClass( 'highlight' );
 			}
-		});
+		} );
 
 		this.container.on( 'click', '.repeater-row-remove', function( e ) {
 			control.currentIndex--;
 			if ( ! limit || control.currentIndex < limit ) {
 				jQuery( control.selector + ' .limit' ).removeClass( 'highlight' );
 			}
-		});
+		} );
 
 		this.container.on( 'click keypress', '.repeater-field-image .upload-button,.repeater-field-cropped_image .upload-button,.repeater-field-upload .upload-button', function( e ) {
 			e.preventDefault();
 			control.$thisButton = jQuery( this );
 			control.openFrame( e );
-		});
+		} );
 
 		this.container.on( 'click keypress', '.repeater-field-image .remove-button,.repeater-field-cropped_image .remove-button', function( e ) {
 			e.preventDefault();
 			control.$thisButton = jQuery( this );
 			control.removeImage( e );
-		});
+		} );
 
 		this.container.on( 'click keypress', '.repeater-field-upload .remove-button', function( e ) {
 			e.preventDefault();
 			control.$thisButton = jQuery( this );
 			control.removeFile( e );
-		});
+		} );
 
 		/**
 		 * Function that loads the Mustache template
 		 */
 		this.repeaterTemplate = _.memoize( function() {
-			var compiled,
-			/*
+			let compiled,
+				/*
 			 * Underscore's default ERB-style templates are incompatible with PHP
 			 * when asp_tags is enabled, so WordPress uses Mustache-inspired templating syntax.
 			 *
 			 * @see trac ticket #22344.
 			 */
-			options = {
-				evaluate: /<#([\s\S]+?)#>/g,
-				interpolate: /\{\{\{([\s\S]+?)\}\}\}/g,
-				escape: /\{\{([^\}]+?)\}\}(?!\})/g,
-				variable: 'data'
-			};
+				options = {
+					evaluate: /<#([\s\S]+?)#>/g,
+					interpolate: /\{\{\{([\s\S]+?)\}\}\}/g,
+					escape: /\{\{([^\}]+?)\}\}(?!\})/g,
+					variable: 'data',
+				};
 
 			return function( data ) {
 				compiled = _.template( control.container.find( '.customize-control-repeater-content' ).first().html(), null, options );
 				return compiled( data );
 			};
-		});
+		} );
 
 		// When we load the control, the fields have not been filled up
 		// This is the first time that we create all the rows
-		if( settingValue.length ){
+		if ( settingValue.length ) {
 			_.each( settingValue, function( subValue ) {
 				theNewRow = control.addRow( subValue );
 				control.initColorPicker();
 				//control.initDropdownPages( theNewRow, subValue );
-			});
+			} );
 		}
 
 		// Once we have displayed the rows, we cleanup the values
 		this.setValue( settingValue, true, true );
 
-		this.repeaterFieldsContainer.sortable({
+		this.repeaterFieldsContainer.sortable( {
 			handle: '.repeater-row-header',
-			update: function( e, ui ) {
+			update( e, ui ) {
 				control.sort();
-			}
-		});
+			},
+		} );
 	},
 
 	/**
 	 * Open the media modal.
+	 * @param event
 	 */
-	openFrame: function( event ){
+	openFrame( event ) {
 		'use strict';
 
 		if ( wp.customize.utils.isKeydownButNotEnterEvent( event ) ) {
@@ -198,20 +199,20 @@ wp.customize.controlConstructor['zenvy-repeater'] = wp.customize.Control.extend(
 		this.frame.open();
 	},
 
-	initFrame: function(){
+	initFrame() {
 		'use strict';
 
-		var libMediaType = this.getMimeType();
+		const libMediaType = this.getMimeType();
 
-		this.frame = wp.media({
+		this.frame = wp.media( {
 			states: [
-			new wp.media.controller.Library({
-					library:  wp.media.query({ type: libMediaType }),
+				new wp.media.controller.Library( {
+					library: wp.media.query( { type: libMediaType } ),
 					multiple: false,
-					date:     false
-				})
-			]
-		});
+					date: false,
+				} ),
+			],
+		} );
 
 		// When a file is selected, run a callback.
 		this.frame.on( 'select', this.onSelect, this );
@@ -220,26 +221,22 @@ wp.customize.controlConstructor['zenvy-repeater'] = wp.customize.Control.extend(
 	 * Create a media modal select frame, and store it so the instance can be reused when needed.
 	 * This is mostly a copy/paste of Core api.CroppedImageControl in /wp-admin/js/customize-control.js
 	 */
-	initCropperFrame: function(){
+	initCropperFrame() {
 		'use strict';
 
 		// We get the field id from which this was called
-		var currentFieldId = this.$thisButton.siblings( 'input.hidden-field' ).attr( 'data-field' ),
-		    attrs          = [ 'width', 'height', 'flex_width', 'flex_height' ], // A list of attributes to look for
-		    libMediaType   = this.getMimeType();
+		const currentFieldId = this.$thisButton.siblings( 'input.hidden-field' ).attr( 'data-field' ),
+		    attrs = [ 'width', 'height', 'flex_width', 'flex_height' ], // A list of attributes to look for
+		    libMediaType = this.getMimeType();
 
 		// Make sure we got it
 		if ( 'string' === typeof currentFieldId && '' !== currentFieldId ) {
-
 			// Make fields is defined and only do the hack for cropped_image
 			if ( 'object' === typeof this.params.fields[ currentFieldId ] && 'cropped_image' === this.params.fields[ currentFieldId ].type ) {
-
 				//Iterate over the list of attributes
 				attrs.forEach( function( el, index ) {
-
 					// If the attribute exists in the field
 					if ( 'undefined' !== typeof this.params.fields[ currentFieldId ][ el ] ) {
-
 						// Set the attribute in the main object
 						this.params[ el ] = this.params.fields[ currentFieldId ][ el ];
 					}
@@ -247,36 +244,35 @@ wp.customize.controlConstructor['zenvy-repeater'] = wp.customize.Control.extend(
 			}
 		}
 
-		this.frame = wp.media({
+		this.frame = wp.media( {
 			button: {
 				text: 'Select and Crop',
-				close: false
+				close: false,
 			},
 			states: [
-				new wp.media.controller.Library({
-					library:         wp.media.query({ type: libMediaType }),
-					multiple:        false,
-					date:            false,
-					suggestedWidth:  this.params.width,
-					suggestedHeight: this.params.height
-				}),
-				new wp.media.controller.CustomizeImageCropper({
+				new wp.media.controller.Library( {
+					library: wp.media.query( { type: libMediaType } ),
+					multiple: false,
+					date: false,
+					suggestedWidth: this.params.width,
+					suggestedHeight: this.params.height,
+				} ),
+				new wp.media.controller.CustomizeImageCropper( {
 					imgSelectOptions: this.calculateImageSelectOptions,
-					control: this
-				})
-			]
-		});
+					control: this,
+				} ),
+			],
+		} );
 
 		this.frame.on( 'select', this.onSelectForCrop, this );
 		this.frame.on( 'cropped', this.onCropped, this );
 		this.frame.on( 'skippedcrop', this.onSkippedCrop, this );
-
 	},
 
-	onSelect: function(){
+	onSelect() {
 		'use strict';
 
-		var attachment = this.frame.state().get( 'selection' ).first().toJSON();
+		const attachment = this.frame.state().get( 'selection' ).first().toJSON();
 
 		if ( this.$thisButton.closest( '.repeater-field' ).hasClass( 'repeater-field-upload' ) ) {
 			this.setFileInRepeaterField( attachment );
@@ -290,10 +286,10 @@ wp.customize.controlConstructor['zenvy-repeater'] = wp.customize.Control.extend(
 	 * state if the image isn't the right size.
 	 */
 
-	onSelectForCrop: function(){
+	onSelectForCrop() {
 		'use strict';
 
-		var attachment = this.frame.state().get( 'selection' ).first().toJSON();
+		const attachment = this.frame.state().get( 'selection' ).first().toJSON();
 
 		if ( this.params.width === attachment.width && this.params.height === attachment.height && ! this.params.flex_width && ! this.params.flex_height ) {
 			this.setImageInRepeaterField( attachment );
@@ -305,9 +301,9 @@ wp.customize.controlConstructor['zenvy-repeater'] = wp.customize.Control.extend(
 	/**
 	 * After the image has been cropped, apply the cropped image data to the setting.
 	 *
-	 * @param {object} croppedImage Cropped attachment data.
+	 * @param {Object} croppedImage Cropped attachment data.
 	 */
-	onCropped: function( croppedImage ){
+	onCropped( croppedImage ) {
 		'use strict';
 
 		this.setImageInRepeaterField( croppedImage );
@@ -318,23 +314,23 @@ wp.customize.controlConstructor['zenvy-repeater'] = wp.customize.Control.extend(
 	 * control-specific data, to be fed to the imgAreaSelect plugin in
 	 * wp.media.view.Cropper.
 	 *
-	 * @param {wp.media.model.Attachment} attachment
+	 * @param {wp.media.model.Attachment}   attachment
 	 * @param {wp.media.controller.Cropper} controller
-	 * @returns {Object} Options
+	 * @return {Object} Options
 	 */
-	calculateImageSelectOptions: function( attachment, controller ){
+	calculateImageSelectOptions( attachment, controller ) {
 		'use strict';
 
-		var control    = controller.get( 'control' ),
-		    flexWidth  = !! parseInt( control.params.flex_width, 10 ),
+		let control = controller.get( 'control' ),
+		    flexWidth = !! parseInt( control.params.flex_width, 10 ),
 		    flexHeight = !! parseInt( control.params.flex_height, 10 ),
-		    realWidth  = attachment.get( 'width' ),
+		    realWidth = attachment.get( 'width' ),
 		    realHeight = attachment.get( 'height' ),
-		    xInit      = parseInt( control.params.width, 10 ),
-		    yInit      = parseInt( control.params.height, 10 ),
-		    ratio      = xInit / yInit,
-		    xImg       = realWidth,
-		    yImg       = realHeight,
+		    xInit = parseInt( control.params.width, 10 ),
+		    yInit = parseInt( control.params.height, 10 ),
+		    ratio = xInit / yInit,
+		    xImg = realWidth,
+		    yImg = realHeight,
 		    x1,
 		    y1,
 		    imgSelectOptions;
@@ -353,16 +349,16 @@ wp.customize.controlConstructor['zenvy-repeater'] = wp.customize.Control.extend(
 		y1 = ( yImg - yInit ) / 2;
 
 		imgSelectOptions = {
-			handles:     true,
-			keys:        true,
-			instance:    true,
-			persistent:  true,
-			imageWidth:  realWidth,
+			handles: true,
+			keys: true,
+			instance: true,
+			persistent: true,
+			imageWidth: realWidth,
 			imageHeight: realHeight,
-			x1:          x1,
-			y1:          y1,
-			x2:          xInit + x1,
-			y2:          yInit + y1
+			x1,
+			y1,
+			x2: xInit + x1,
+			y2: yInit + y1,
 		};
 
 		if ( false === flexHeight && false === flexWidth ) {
@@ -389,7 +385,7 @@ wp.customize.controlConstructor['zenvy-repeater'] = wp.customize.Control.extend(
 	 * @param {int}  imgH
 	 * @return {bool}
 	 */
-	mustBeCropped: function( flexW, flexH, dstW, dstH, imgW, imgH ){
+	mustBeCropped( flexW, flexH, dstW, dstH, imgW, imgH ) {
 		'use strict';
 
 		if ( true === flexW && true === flexH ) {
@@ -418,22 +414,22 @@ wp.customize.controlConstructor['zenvy-repeater'] = wp.customize.Control.extend(
 	/**
 	 * If cropping was skipped, apply the image data directly to the setting.
 	 */
-	onSkippedCrop: function(){
+	onSkippedCrop() {
 		'use strict';
 
-		var attachment = this.frame.state().get( 'selection' ).first().toJSON();
+		const attachment = this.frame.state().get( 'selection' ).first().toJSON();
 		this.setImageInRepeaterField( attachment );
 	},
 
 	/**
 	 * Updates the setting and re-renders the control UI.
 	 *
-	 * @param {object} attachment
+	 * @param {Object} attachment
 	 */
-	setImageInRepeaterField: function( attachment ){
+	setImageInRepeaterField( attachment ) {
 		'use strict';
 
-		var $targetDiv = this.$thisButton.closest( '.repeater-field-image,.repeater-field-cropped_image' );
+		const $targetDiv = this.$thisButton.closest( '.repeater-field-image,.repeater-field-cropped_image' );
 
 		$targetDiv.find( '.zenvy-image-attachment' ).html( '<img src="' + attachment.url + '">' ).hide().slideDown( 'slow' );
 
@@ -444,18 +440,17 @@ wp.customize.controlConstructor['zenvy-repeater'] = wp.customize.Control.extend(
 		//This will activate the save button
 		$targetDiv.find( 'input, textarea, select' ).trigger( 'change' );
 		this.frame.close();
-
 	},
 
 	/**
 	 * Updates the setting and re-renders the control UI.
 	 *
-	 * @param {object} attachment
+	 * @param {Object} attachment
 	 */
-	setFileInRepeaterField: function( attachment ){
+	setFileInRepeaterField( attachment ) {
 		'use strict';
 
-		var $targetDiv = this.$thisButton.closest( '.repeater-field-upload' );
+		const $targetDiv = this.$thisButton.closest( '.repeater-field-upload' );
 
 		$targetDiv.find( '.zenvy-file-attachment' ).html( '<span class="file"><span class="dashicons dashicons-media-default"></span> ' + attachment.filename + '</span>' ).hide().slideDown( 'slow' );
 
@@ -469,22 +464,19 @@ wp.customize.controlConstructor['zenvy-repeater'] = wp.customize.Control.extend(
 		this.frame.close();
 	},
 
-	getMimeType: function(){
+	getMimeType() {
 		'use strict';
 
 		// We get the field id from which this was called
-		var currentFieldId = this.$thisButton.siblings( 'input.hidden-field' ).attr( 'data-field' ),
-		    attrs          = [ 'mime_type' ]; // A list of attributes to look for
+		const currentFieldId = this.$thisButton.siblings( 'input.hidden-field' ).attr( 'data-field' ),
+		    attrs = [ 'mime_type' ]; // A list of attributes to look for
 
 		// Make sure we got it
 		if ( 'string' === typeof currentFieldId && '' !== currentFieldId ) {
-
 			// Make fields is defined and only do the hack for cropped_image
 			if ( 'object' === typeof this.params.fields[ currentFieldId ] && 'upload' === this.params.fields[ currentFieldId ].type ) {
-
 				// If the attribute exists in the field
 				if ( 'undefined' !== typeof this.params.fields[ currentFieldId ].mime_type ) {
-
 					// Set the attribute in the main object
 					return this.params.fields[ currentFieldId ].mime_type;
 				}
@@ -493,10 +485,10 @@ wp.customize.controlConstructor['zenvy-repeater'] = wp.customize.Control.extend(
 		return 'image';
 	},
 
-	removeImage: function( event ){
+	removeImage( event ) {
 		'use strict';
 
-		var $targetDiv,
+		let $targetDiv,
 		    $uploadButton;
 
 		if ( wp.customize.utils.isKeydownButNotEnterEvent( event ) ) {
@@ -508,7 +500,7 @@ wp.customize.controlConstructor['zenvy-repeater'] = wp.customize.Control.extend(
 
 		$targetDiv.find( '.zenvy-image-attachment' ).slideUp( 'fast', function() {
 			jQuery( this ).show().html( jQuery( this ).data( 'placeholder' ) );
-		});
+		} );
 		$targetDiv.find( '.hidden-field' ).val( '' );
 		$uploadButton.text( $uploadButton.data( 'label' ) );
 		this.$thisButton.hide();
@@ -516,10 +508,10 @@ wp.customize.controlConstructor['zenvy-repeater'] = wp.customize.Control.extend(
 		$targetDiv.find( 'input, textarea, select' ).trigger( 'change' );
 	},
 
-	removeFile: function( event ){
+	removeFile( event ) {
 		'use strict';
 
-		var $targetDiv,
+		let $targetDiv,
 		    $uploadButton;
 
 		if ( wp.customize.utils.isKeydownButNotEnterEvent( event ) ) {
@@ -531,7 +523,7 @@ wp.customize.controlConstructor['zenvy-repeater'] = wp.customize.Control.extend(
 
 		$targetDiv.find( '.zenvy-file-attachment' ).slideUp( 'fast', function() {
 			jQuery( this ).show().html( jQuery( this ).data( 'placeholder' ) );
-		});
+		} );
 		$targetDiv.find( '.hidden-field' ).val( '' );
 		$uploadButton.text( $uploadButton.data( 'label' ) );
 		this.$thisButton.hide();
@@ -544,7 +536,7 @@ wp.customize.controlConstructor['zenvy-repeater'] = wp.customize.Control.extend(
 	 *
 	 * @return Object
 	 */
-	getValue: function(){
+	getValue() {
 		'use strict';
 
 		// The setting is saved in JSON
@@ -554,29 +546,30 @@ wp.customize.controlConstructor['zenvy-repeater'] = wp.customize.Control.extend(
 	/**
 	 * Set a new value for the setting
 	 *
-	 * @param newValue Object
-	 * @param refresh If we want to refresh the previewer or not
+	 * @param newValue  Object
+	 * @param refresh   If we want to refresh the previewer or not
+	 * @param filtering
 	 */
-	setValue: function( newValue, refresh, filtering ){
+	setValue( newValue, refresh, filtering ) {
 		'use strict';
 
 		// We need to filter the values after the first load to remove data requrired for diplay but that we don't want to save in DB
-		var filteredValue = newValue,
-		    filter        = [];
+		const filteredValue = newValue,
+		    filter = [];
 
 		if ( filtering ) {
 			jQuery.each( this.params.fields, function( index, value ) {
 				if ( 'image' === value.type || 'cropped_image' === value.type || 'upload' === value.type ) {
 					filter.push( index );
 				}
-			});
+			} );
 			jQuery.each( newValue, function( index, value ) {
 				jQuery.each( filter, function( ind, field ) {
-					if ( 'undefined' !== typeof value[field] && 'undefined' !== typeof value[field].id ) {
-						filteredValue[index][field] = value[field].id;
+					if ( 'undefined' !== typeof value[ field ] && 'undefined' !== typeof value[ field ].id ) {
+						filteredValue[ index ][ field ] = value[ field ].id;
 					}
-				});
-			});
+				} );
+			} );
 		}
 
 		this.setting.set( encodeURI( JSON.stringify( filteredValue ) ) );
@@ -593,19 +586,18 @@ wp.customize.controlConstructor['zenvy-repeater'] = wp.customize.Control.extend(
 	 *
 	 * @param data (Optional) Object of field => value pairs (undefined if you want to get the default values)
 	 */
-	addRow: function( data ){
+	addRow( data ) {
 		'use strict';
 
-		var control       = this,
-		    template      = control.repeaterTemplate(), // The template for the new row (defined on Zenvy_Customize_Repeater_Control::render_content() ).
-		    settingValue  = this.getValue(), // Get the current setting value.
+		let control = this,
+		    template = control.repeaterTemplate(), // The template for the new row (defined on Zenvy_Customize_Repeater_Control::render_content() ).
+		    settingValue = this.getValue(), // Get the current setting value.
 		    newRowSetting = {}, // Saves the new setting data.
 		    templateData, // Data to pass to the template
 		    newRow,
 		    i;
 
 		if ( template ) {
-
 			// The control structure is going to define the new fields
 			// We need to clone control.params.fields. Assigning it
 			// ould result in a reference assignment.
@@ -615,7 +607,7 @@ wp.customize.controlConstructor['zenvy-repeater'] = wp.customize.Control.extend(
 			if ( data ) {
 				for ( i in data ) {
 					if ( data.hasOwnProperty( i ) && templateData.hasOwnProperty( i ) ) {
-						templateData[ i ]['default'] = data[ i ];
+						templateData[ i ].default = data[ i ];
 					}
 				}
 			}
@@ -629,24 +621,24 @@ wp.customize.controlConstructor['zenvy-repeater'] = wp.customize.Control.extend(
 			newRow = new zenvyRepeaterRow(
 				control.currentIndex,
 				jQuery( template ).appendTo( control.repeaterFieldsContainer ),
-				control.params.row_label
+				control.params.row_label,
 			);
 
 			newRow.container.on( 'row:remove', function( e, rowIndex ) {
 				control.deleteRow( rowIndex );
-			});
+			} );
 
 			newRow.container.on( 'row:update', function( e, rowIndex, fieldName, element ) {
 				control.updateField.call( control, e, rowIndex, fieldName, element );
 				newRow.updateLabel();
-			});
+			} );
 
 			// Add the row to rows collection
 			this.rows[ this.currentIndex ] = newRow;
 
 			for ( i in templateData ) {
 				if ( templateData.hasOwnProperty( i ) ) {
-					newRowSetting[ i ] = templateData[ i ]['default'];
+					newRowSetting[ i ] = templateData[ i ].default;
 				}
 			}
 
@@ -659,26 +651,26 @@ wp.customize.controlConstructor['zenvy-repeater'] = wp.customize.Control.extend(
 		}
 	},
 
-	sort: function(){
+	sort() {
 		'use strict';
 
-		var control     = this,
-		    $rows       = this.repeaterFieldsContainer.find( '.repeater-row' ),
-		    newOrder    = [],
-		    settings    = control.getValue(),
-		    newRows     = [],
+		const control = this,
+		    $rows = this.repeaterFieldsContainer.find( '.repeater-row' ),
+		    newOrder = [],
+		    settings = control.getValue(),
+		    newRows = [],
 		    newSettings = [];
 
 		$rows.each( function( i, element ) {
 			newOrder.push( jQuery( element ).data( 'row' ) );
-		});
+		} );
 
 		jQuery.each( newOrder, function( newPosition, oldPosition ) {
 			newRows[ newPosition ] = control.rows[ oldPosition ];
 			newRows[ newPosition ].setRowIndex( newPosition );
 
 			newSettings[ newPosition ] = settings[ oldPosition ];
-		});
+		} );
 
 		control.rows = newRows;
 		control.setValue( newSettings );
@@ -689,20 +681,18 @@ wp.customize.controlConstructor['zenvy-repeater'] = wp.customize.Control.extend(
 	 *
 	 * @param index Position of the row in the complete Setting Array
 	 */
-	deleteRow: function( index ){
+	deleteRow( index ) {
 		'use strict';
 
-		var currentSettings = this.getValue(),
+		let currentSettings = this.getValue(),
 		    row,
 		    i,
 		    prop;
 
 		if ( currentSettings[ index ] ) {
-
 			// Find the row
 			row = this.rows[ index ];
 			if ( row ) {
-
 				// The row exists, let's delete it
 
 				// Remove the row settings
@@ -713,9 +703,7 @@ wp.customize.controlConstructor['zenvy-repeater'] = wp.customize.Control.extend(
 
 				// Update the new setting values
 				this.setValue( currentSettings, true );
-
 			}
-
 		}
 
 		// Remap the row numbers
@@ -732,12 +720,15 @@ wp.customize.controlConstructor['zenvy-repeater'] = wp.customize.Control.extend(
 	 * Update a single field inside a row.
 	 * Triggered when a field has changed
 	 *
-	 * @param e Event Object
+	 * @param e        Event Object
+	 * @param rowIndex
+	 * @param fieldId
+	 * @param element
 	 */
-	updateField: function( e, rowIndex, fieldId, element ){
+	updateField( e, rowIndex, fieldId, element ) {
 		'use strict';
 
-		var type,
+		let type,
 		    row,
 		    currentSettings;
 
@@ -749,8 +740,8 @@ wp.customize.controlConstructor['zenvy-repeater'] = wp.customize.Control.extend(
 			return;
 		}
 
-		type            = this.params.fields[ fieldId].type;
-		row             = this.rows[ rowIndex ];
+		type = this.params.fields[ fieldId ].type;
+		row = this.rows[ rowIndex ];
 		currentSettings = this.getValue();
 
 		element = jQuery( element );
@@ -760,14 +751,10 @@ wp.customize.controlConstructor['zenvy-repeater'] = wp.customize.Control.extend(
 		}
 
 		if ( 'checkbox' === type ) {
-
 			currentSettings[ row.rowIndex ][ fieldId ] = element.is( ':checked' );
-
 		} else {
-
 			// Update the settings
 			currentSettings[ row.rowIndex ][ fieldId ] = element.val();
-
 		}
 		this.setValue( currentSettings, true );
 	},
@@ -777,13 +764,13 @@ wp.customize.controlConstructor['zenvy-repeater'] = wp.customize.Control.extend(
 	 * Called after AddRow
 	 *
 	 */
-	initColorPicker: function(){
+	initColorPicker() {
 		'use strict';
 
-		var control     = this,
+		const control = this,
 		    colorPicker = control.container.find( '.color-picker-hex' ),
-		    options     = {},
-		    fieldId     = colorPicker.data( 'field' );
+		    options = {},
+		    fieldId = colorPicker.data( 'field' );
 
 		// We check if the color palette parameter is defined.
 		if ( 'undefined' !== typeof fieldId && 'undefined' !== typeof control.params.fields[ fieldId ] && 'undefined' !== typeof control.params.fields[ fieldId ].palettes && 'object' === typeof control.params.fields[ fieldId ].palettes ) {
@@ -792,15 +779,13 @@ wp.customize.controlConstructor['zenvy-repeater'] = wp.customize.Control.extend(
 
 		// When the color picker value is changed we update the value of the field
 		options.change = function( event, ui ) {
-
-			var currentPicker   = jQuery( event.target ),
-			    row             = currentPicker.closest( '.repeater-row' ),
-				rowIndex        = row.data( 'row' ),
+			const currentPicker = jQuery( event.target ),
+			    row = currentPicker.closest( '.repeater-row' ),
+				rowIndex = row.data( 'row' ),
 				currentSettings = control.getValue();
 
 			currentSettings[ rowIndex ][ currentPicker.data( 'field' ) ] = ui.color.toString();
 			control.setValue( currentSettings, true );
-
 		};
 
 		// Init the color picker
@@ -809,48 +794,48 @@ wp.customize.controlConstructor['zenvy-repeater'] = wp.customize.Control.extend(
 		}
 	},
 
-});
-jQuery( document ).ready(function($){
+} );
+jQuery( document ).ready( function( $ ) {
 	'use strict';
-	$(document).on('click','.repeater-add',function() {
-		$('.repeater-field').find('input[type="font"]').attr('placeholder','search icons');
-	});
+	$( document ).on( 'click', '.repeater-add', function() {
+		$( '.repeater-field' ).find( 'input[type="font"]' ).attr( 'placeholder', 'search icons' );
+	} );
 
-	$(document).on( 'click', 'input[type="font"]', function(){
-		var $this = $(this);
-		if( ( ! $this.hasClass('ajax-running') ) && $this.siblings( '.font-awesome-list' ).length < 1 ){
-			$.ajax({
-				type: "POST",
-				url : ajaxurl,
+	$( document ).on( 'click', 'input[type="font"]', function() {
+		const $this = $( this );
+		if ( ( ! $this.hasClass( 'ajax-running' ) ) && $this.siblings( '.font-awesome-list' ).length < 1 ) {
+			$.ajax( {
+				type: 'POST',
+				url: ajaxurl,
 				data: {
-					action             : 'zenvy_get_fontawesome',
-					zenvy_customize_nonce: zenvy_customize.nonce
+					action: 'zenvy_get_fontawesome',
+					zenvy_customize_nonce: zenvy_customize.nonce,
 				},
-				beforeSend: function(){
-					$this.addClass('ajax-running');
+				beforeSend() {
+					$this.addClass( 'ajax-running' );
 				},
-				success: function (response) {
-					var html = '<div class="font-awesome-list">'+response+'</div>';
-					$this.after(html);
-					$this.removeClass('ajax-running');
-				}
-			});
+				success( response ) {
+					const html = '<div class="font-awesome-list">' + response + '</div>';
+					$this.after( html );
+					$this.removeClass( 'ajax-running' );
+				},
+			} );
 		}
-	});
+	} );
 
-	$(document).on( 'click', '.font-group li', function(event){
-		var icon = $(this).attr('data-font');
-		$(this).parent().parent().siblings( 'input[type="font"]' ).val(icon);
-		$(this).parent().parent().siblings( 'input[type="font"]' ).trigger( 'change' );
-		$(this).parent().parent().remove();
+	$( document ).on( 'click', '.font-group li', function( event ) {
+		const icon = $( this ).attr( 'data-font' );
+		$( this ).parent().parent().siblings( 'input[type="font"]' ).val( icon );
+		$( this ).parent().parent().siblings( 'input[type="font"]' ).trigger( 'change' );
+		$( this ).parent().parent().remove();
 		event.preventDefault();
-	});
+	} );
 
-	$(document).on( 'keyup', 'input[type="font"]', function(){
-		var value = $(this).val();
-		var matcher = new RegExp( value, 'gi' );
-		$(this).next( '.font-awesome-list' ).children('.font-group').children( 'li' ).show().not(function(){
-			return matcher.test( $(this).find( 'i' ).attr( 'class' ) );
-		}).hide();
-	});
-});
+	$( document ).on( 'keyup', 'input[type="font"]', function() {
+		const value = $( this ).val();
+		const matcher = new RegExp( value, 'gi' );
+		$( this ).next( '.font-awesome-list' ).children( '.font-group' ).children( 'li' ).show().not( function() {
+			return matcher.test( $( this ).find( 'i' ).attr( 'class' ) );
+		} ).hide();
+	} );
+} );
