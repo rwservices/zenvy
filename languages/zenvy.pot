@@ -1,0 +1,435 @@
+# Copyright (C) 2026 Rabindra Tharu
+# This file is distributed under the GPL2.
+msgid ""
+msgstr ""
+"Project-Id-Version: Zenvy 1.1.0-beta.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/zenvy\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-01-09T08:44:17+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+
+#. Plugin Name of the plugin
+#: zenvy.php
+msgid "Zenvy"
+msgstr ""
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+#: zenvy.php
+msgid "https://github.com/rabindratharu"
+msgstr ""
+
+#. Description of the plugin
+#: zenvy.php
+msgid "A WordPress plugin with a custom post type, meta fields, shortcode, and REST API settings."
+msgstr ""
+
+#. Author of the plugin
+#: zenvy.php
+msgid "Rabindra Tharu"
+msgstr ""
+
+#: inc/Autoloader.php:71
+msgid "Zenvy: The Composer autoloader was not found. If you installed the plugin from the GitHub source code, make sure to run `composer install`."
+msgstr ""
+
+#. translators: %s: Class name.
+#: inc/Contracts/Traits/Singleton.php:51
+#, php-format
+msgid "The %s class should not be cloned."
+msgstr ""
+
+#. translators: %s: Class name.
+#: inc/Contracts/Traits/Singleton.php:66
+#, php-format
+msgid "De-serializing instances of %s is not allowed."
+msgstr ""
+
+#. translators: 1: Plugin name
+#: inc/Main.php:87
+#, php-format
+msgid "Zenvy: The plugin requires pretty permalinks to be enabled. Please go to <a href=\"%s\">Permalink Settings</a> and enable an option other than <code>Plain</code>."
+msgstr ""
+
+#: inc/Modules/Rest/Basic_Options_Controller.php:108
+#: inc/Modules/Rest/Basic_Options_Controller.php:281
+msgid "Secret key regenerated successfully."
+msgstr ""
+
+#: inc/Modules/Rest/Basic_Options_Controller.php:185
+msgid "Brand Site already exists."
+msgstr ""
+
+#: inc/Modules/Rest/Basic_Options_Controller.php:213
+msgid "Health check passed successfully."
+msgstr ""
+
+#: inc/Modules/Rest/Basic_Options_Controller.php:248
+msgid "Governing site removed successfully."
+msgstr ""
+
+#: inc/Modules/Rest/Governing_Data_Controller.php:78
+#: inc/Modules/Rest/Governing_Data_Handler.php:43
+msgid "The requesting site is not a shared brand site."
+msgstr ""
+
+#: inc/Modules/Rest/Governing_Data_Controller.php:132
+msgid "Brand configuration cache cleared successfully."
+msgstr ""
+
+#: inc/Modules/Rest/Governing_Data_Handler.php:59
+msgid "No governing site is configured."
+msgstr ""
+
+#: inc/Modules/Rest/Governing_Data_Handler.php:69
+msgid "No API key is configured."
+msgstr ""
+
+#: inc/Modules/Rest/Governing_Data_Handler.php:102
+msgid "Failed to connect to the governing site."
+msgstr ""
+
+#: inc/Modules/Rest/Governing_Data_Handler.php:114
+msgid "The governing site returned an invalid response."
+msgstr ""
+
+#: inc/Modules/Rest/Governing_Data_Handler.php:177
+msgid "The requesting site is not a governing site."
+msgstr ""
+
+#: inc/Modules/Rest/Governing_Data_Handler.php:190
+#: inc/Modules/Rest/Search_Controller.php:326
+msgid "Missing url or api_key."
+msgstr ""
+
+#. translators: %s is the error message.
+#: inc/Modules/Rest/Governing_Data_Handler.php:217
+#: inc/Modules/Rest/Search_Controller.php:354
+#, php-format
+msgid "Invalid response received. Error %s"
+msgstr ""
+
+#. translators: %s is the error code.
+#: inc/Modules/Rest/Governing_Data_Handler.php:229
+#: inc/Modules/Rest/Search_Controller.php:366
+#, php-format
+msgid "Failed to connect to the child site. Error code %s"
+msgstr ""
+
+#. translators: %s is the error message.
+#: inc/Modules/Rest/Governing_Data_Handler.php:239
+#: inc/Modules/Rest/Search_Controller.php:376
+msgid "The site returned an invalid response."
+msgstr ""
+
+#: inc/Modules/Rest/Search_Controller.php:131
+msgid "Both App ID and Write Key are required."
+msgstr ""
+
+#: inc/Modules/Rest/Search_Controller.php:140
+msgid "The provided Algolia credentials are invalid or lack necessary permissions."
+msgstr ""
+
+#: inc/Modules/Rest/Search_Controller.php:155
+msgid "Failed to save Algolia credentials."
+msgstr ""
+
+#: inc/Modules/Rest/Search_Controller.php:163
+msgid "Algolia credentials updated successfully."
+msgstr ""
+
+#: inc/Modules/Rest/Search_Controller.php:196
+msgid "Failed saving settings. Please try again"
+msgstr ""
+
+#: inc/Modules/Rest/Search_Controller.php:204
+msgid "Data saved successfully."
+msgstr ""
+
+#: inc/Modules/Rest/Search_Controller.php:239
+msgid "Re-index failed."
+msgstr ""
+
+#: inc/Modules/Rest/Search_Controller.php:247
+msgid "Re-indexing scheduled successfully."
+msgstr ""
+
+#: inc/Modules/Rest/Search_Controller.php:248
+msgid "Re-indexing was unsuccessful. Please try again later."
+msgstr ""
+
+#: inc/Modules/Rest/Search_Controller.php:300
+msgid "Parent site URL not configured."
+msgstr ""
+
+#: inc/Modules/Search/Admin.php:51
+#: inc/Modules/Search/Admin.php:52
+msgid "Indices and Search"
+msgstr ""
+
+#: inc/Modules/Search/Admin.php:66
+msgid "Search Settings"
+msgstr ""
+
+#: inc/Modules/Search/Algolia.php:31
+msgid "Algolia index name could not be determined."
+msgstr ""
+
+#: inc/Modules/Search/Algolia.php:57
+msgid "Algolia admin credentials missing."
+msgstr ""
+
+#: inc/Modules/Search/Index.php:89
+msgid "Failed to delete Algolia index."
+msgstr ""
+
+#: inc/Modules/Search/Index.php:120
+msgid "Failed to delete Algolia records by given args."
+msgstr ""
+
+#: inc/Modules/Search/Index.php:148
+msgid "Failed to save records to Algolia index."
+msgstr ""
+
+#: inc/Modules/Search/Index.php:179
+msgid "Failed to search Algolia index."
+msgstr ""
+
+#: inc/Modules/Search/Index.php:258
+msgid "Failed to set Algolia index settings."
+msgstr ""
+
+#: inc/Modules/Search/Settings.php:65
+msgid "Algolia Credentials"
+msgstr ""
+
+#: inc/Modules/Search/Settings.php:66
+msgid "Credentials used to connect to the Algolia service."
+msgstr ""
+
+#: inc/Modules/Search/Settings.php:94
+msgid "Indexable Entities"
+msgstr ""
+
+#: inc/Modules/Search/Settings.php:95
+msgid "List of content types that can be indexed by brand sites."
+msgstr ""
+
+#: inc/Modules/Search/Settings.php:108
+msgid "Sites Search Settings"
+msgstr ""
+
+#: inc/Modules/Search/Settings.php:109
+msgid "Search settings for brand sites."
+msgstr ""
+
+#: inc/Modules/Settings/Admin.php:58
+#: inc/Modules/Settings/Admin.php:59
+msgid "Zenvy"
+msgstr ""
+
+#: inc/Modules/Settings/Admin.php:75
+#: inc/Modules/Settings/Admin.php:76
+#: inc/Modules/Settings/Admin.php:100
+#: inc/Modules/Settings/Admin.php:154
+msgid "Settings"
+msgstr ""
+
+#: inc/Modules/Settings/Admin.php:146
+msgid "Expected an array."
+msgstr ""
+
+#: inc/Modules/Settings/Settings.php:64
+msgid "Site Type"
+msgstr ""
+
+#: inc/Modules/Settings/Settings.php:65
+msgid "Defines whether this site is a governing or a brand site."
+msgstr ""
+
+#: inc/Modules/Settings/Settings.php:85
+msgid "Consumer API Key"
+msgstr ""
+
+#: inc/Modules/Settings/Settings.php:86
+msgid "API key used by governing site to authenticate requests from this consumer site."
+msgstr ""
+
+#: inc/Modules/Settings/Settings.php:96
+msgid "Parent Site URL"
+msgstr ""
+
+#: inc/Modules/Settings/Settings.php:97
+msgid "The URL of the governing site that manages this consumer site."
+msgstr ""
+
+#: inc/Modules/Settings/Settings.php:113
+msgid "Brand Sites"
+msgstr ""
+
+#: inc/Modules/Settings/Settings.php:114
+msgid "An array of brand sites connected to this governing site."
+msgstr ""
+
+#: assets/src/admin/search/index.js:106
+msgid "Error fetching post types from sites."
+msgstr ""
+
+#: assets/src/admin/search/index.js:146
+msgid "Error fetching site type or Brand sites."
+msgstr ""
+
+#: assets/src/admin/search/index.js:188
+msgid "Brand Site saved successfully."
+msgstr ""
+
+#: assets/src/admin/search/index.js:193
+msgid "Error saving Brand site. Please try again later."
+msgstr ""
+
+#: assets/src/components/MultiSelectChips.js:16
+msgid "Select…"
+msgstr ""
+
+#: assets/src/components/SiteIndexableEntities.js:87
+msgid "Error fetching indexable entities."
+msgstr ""
+
+#: assets/src/components/SiteIndexableEntities.js:119
+msgid "Network response was not ok."
+msgstr ""
+
+#: assets/src/components/SiteIndexableEntities.js:131
+#: assets/src/components/SiteIndexableEntities.js:169
+msgid "Internal server error."
+msgstr ""
+
+#: assets/src/components/SiteIndexableEntities.js:196
+msgid "Select Entities to Index"
+msgstr ""
+
+#: assets/src/components/SiteIndexableEntities.js:207
+#: assets/src/components/SiteIndexableEntities.js:311
+msgid "Re-indexing…"
+msgstr ""
+
+#: assets/src/components/SiteIndexableEntities.js:207
+#: assets/src/components/SiteIndexableEntities.js:311
+msgid "Re-index"
+msgstr ""
+
+#: assets/src/components/SiteIndexableEntities.js:216
+#: assets/src/components/SiteSearchSettings.js:334
+msgid "Saving…"
+msgstr ""
+
+#: assets/src/components/SiteIndexableEntities.js:216
+msgid "Save Changes"
+msgstr ""
+
+#: assets/src/components/SiteIndexableEntities.js:220
+msgid "Saving changes will automatically re-index the data."
+msgstr ""
+
+#: assets/src/components/SiteIndexableEntities.js:230
+#: assets/src/components/SiteSearchSettings.js:64
+msgid "Governing Site"
+msgstr ""
+
+#: assets/src/components/SiteIndexableEntities.js:238
+#: assets/src/components/SiteIndexableEntities.js:268
+msgid "Select entities…"
+msgstr ""
+
+#: assets/src/components/SiteIndexableEntities.js:263
+msgid "No entities to select. Please check site configuration"
+msgstr ""
+
+#: assets/src/components/SiteIndexableEntities.js:285
+msgid "Re-index saved entities"
+msgstr ""
+
+#: assets/src/components/SiteIndexableEntities.js:290
+msgid "Re-indexing will only index the entities you have previously saved. To re-index modified entities, please make sure you have saved them."
+msgstr ""
+
+#: assets/src/components/SiteIndexableEntities.js:303
+msgid "Cancel"
+msgstr ""
+
+#: assets/src/components/SiteSearchSettings.js:114
+msgid "Sites without indexable entities have been automatically disabled and saved."
+msgstr ""
+
+#: assets/src/components/SiteSearchSettings.js:126
+msgid "Failed to auto-save disabled sites."
+msgstr ""
+
+#: assets/src/components/SiteSearchSettings.js:144
+msgid "Failed to load search settings."
+msgstr ""
+
+#: assets/src/components/SiteSearchSettings.js:157
+msgid "This site cannot use Algolia search because no content types have been selected for indexing. Please configure indexable entities first, then enable Algolia search."
+msgstr ""
+
+#: assets/src/components/SiteSearchSettings.js:187
+msgid "The current site cannot be excluded from search results. It will always be included when Algolia search is enabled."
+msgstr ""
+
+#: assets/src/components/SiteSearchSettings.js:253
+msgid "Some sites were skipped because they have no content types selected for indexing. Please configure indexable entities for these sites first."
+msgstr ""
+
+#: assets/src/components/SiteSearchSettings.js:273
+msgid "Search settings saved successfully."
+msgstr ""
+
+#: assets/src/components/SiteSearchSettings.js:279
+msgid "Failed to save search settings."
+msgstr ""
+
+#: assets/src/components/SiteSearchSettings.js:298
+msgid "Site Search Configuration"
+msgstr ""
+
+#: assets/src/components/SiteSearchSettings.js:313
+msgid "Enable All"
+msgstr ""
+
+#: assets/src/components/SiteSearchSettings.js:324
+msgid "Disable All"
+msgstr ""
+
+#: assets/src/components/SiteSearchSettings.js:335
+msgid "Save Settings"
+msgstr ""
+
+#: assets/src/components/SiteSearchSettings.js:354
+msgid "No sites configured yet."
+msgstr ""
+
+#: assets/src/components/SiteSearchSettings.js:380
+msgid "Algolia search enabled"
+msgstr ""
+
+#: assets/src/components/SiteSearchSettings.js:381
+msgid "Using default WordPress search"
+msgstr ""
+
+#: assets/src/components/SiteSearchSettings.js:385
+msgid "Please select entities for indexing to enable Algolia search"
+msgstr ""
+
+#: assets/src/components/SiteSearchSettings.js:407
+msgid "Search from:"
+msgstr ""
+
+#: assets/src/components/SiteSearchSettings.js:459
+msgid "(Current Site - Always Included)"
+msgstr ""
