@@ -58,7 +58,7 @@ if (! function_exists('zenvy_content_before_page_header')) :
 		// Blog
 		$elements = get_theme_mod(
 			'zenvy_blog_page_header_elements',
-			['post-title', 'breadcrumb']
+			['post-title']
 		);
 		if (is_single()) {
 			$elements = get_theme_mod(
@@ -83,7 +83,7 @@ if (! function_exists('zenvy_content_before_page_header')) :
 		}
 
 		// Container Class
-		$container_class = ['container d-flex flex-column align-items-center text-center'];
+		$container_class = ['container d-flex flex-column align-items-start text-left'];
 	?>
 		<?php if (! empty($elements)) : ?>
 
@@ -187,13 +187,11 @@ if (! function_exists('zenvy_content_before_wrapper_start')) :
 			);
 			$meta_elements  = get_theme_mod(
 				'zenvy_blog_posts_meta_elements',
-				['categories', 'author']
+				['date', 'categories' ]
 			);
 
 			if (! empty($posts_elements)) :
-				echo '<div class="post-detail-wrap d-flex flex-column text-left">';
-
-				zenvy_posted_on();
+				echo '<div class="post-content d-flex flex-column text-left">';
 
 				foreach ($posts_elements as $post_element) :
 					switch ($post_element):
@@ -220,6 +218,8 @@ if (! function_exists('zenvy_content_before_wrapper_start')) :
 										zenvy_posted_cats();
 									} elseif ($val === 'tags') {
 										zenvy_posted_tags();
+									} elseif ($val === 'date') {
+										zenvy_posted_on();
 									}
 								}
 							}
@@ -348,6 +348,17 @@ if (! function_exists('zenvy_content_before_wrapper_start')) :
 
 	/* ------------------------------ POST CONTENT ------------------------------ */
 
+	if (! function_exists('zenvy_featured_image_wrapper_start')) {
+
+		/**
+		 * Featured Image Wrapper Start
+		 */
+		function zenvy_featured_image_wrapper_start()
+		{
+			echo '<div class="featured-image-wrapper">';
+		}
+	}
+
 	if (! function_exists('zenvy_get_post_thumbnail')) :
 
 		/**
@@ -377,6 +388,17 @@ if (! function_exists('zenvy_content_before_wrapper_start')) :
 		}
 
 	endif;
+
+	if (! function_exists('zenvy_featured_image_wrapper_end')) {
+
+		/**
+		 * Featured Image Wrapper End
+		 */
+		function zenvy_featured_image_wrapper_end()
+		{
+			echo '</div><!-- .featured-image-wrapper -->';
+		}
+	}
 
 	if (! function_exists('zenvy_post_header')) :
 

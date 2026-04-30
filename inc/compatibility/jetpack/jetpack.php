@@ -35,7 +35,7 @@ function zenvy_jetpack_setup() {
 			'post-details'    => [
 				'stylesheet' => 'zenvy-style',
 				'date'       => '.posted-on',
-				'categories' => '.cat-links',
+				'categories' => '.cat-link',
 				'tags'       => '.tags-links',
 				'author'     => '.byline',
 				'comment'    => '.comments-link',

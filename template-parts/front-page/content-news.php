@@ -63,7 +63,7 @@ if ( $the_query->have_posts() ) :
 							<?php zenvy_post_thumbnail( 'medium_large', '16x9' ); ?>
 
 							<?php if ( ! empty( $posts_elements ) ) : ?>
-								<div class="post-detail-wrap d-flex flex-column text-left">
+								<div class="post-content d-flex flex-column text-left">
 
 									<?php zenvy_posted_on(); ?>
 

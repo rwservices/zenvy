@@ -53,11 +53,15 @@ add_action( 'zenvy_posts_content_loop_after', 'zenvy_posts_navigation', 10 );
 /**
  * Entry Header
  *
+ * @see zenvy_featured_image_wrapper_start()
  * @see zenvy_get_post_thumbnail()
+ * @see zenvy_featured_image_wrapper_end()
  * @see zenvy_blog_post_content()
  */
+add_action( 'zenvy_posts_content', 'zenvy_featured_image_wrapper_start', 5 );
 add_action( 'zenvy_posts_content', 'zenvy_get_post_thumbnail', 10 );
-add_action( 'zenvy_posts_content', 'zenvy_blog_post_content', 10 );
+add_action( 'zenvy_posts_content', 'zenvy_featured_image_wrapper_end', 15 );
+add_action( 'zenvy_posts_content', 'zenvy_blog_post_content', 20 );
 
 /* ------------------------------ SEARCH PAGE ------------------------------ */
 

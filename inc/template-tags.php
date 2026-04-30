@@ -60,7 +60,7 @@ if ( ! function_exists( 'zenvy_posted_cats' ) ) :
 		}
 
 		/* translators: 1: list of categories. */
-		printf( '<div class="post-cat-list"><span class="cat-links">%1$s</span></div>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		printf( '<div class="post-cat-list"><span class="cat-link">%1$s</span></div>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 endif;

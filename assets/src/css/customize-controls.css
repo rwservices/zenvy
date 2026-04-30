@@ -7,7 +7,7 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
  */
 
 :root {
-	--color-accent: #FCCE00;
+	--color-accent: #f9b189;
 	--color-accent-secondary: #354255;
 	--color-heading: #223148;
 	--color-2: #6d707d;
@@ -21,7 +21,7 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 :root {
 	--color-1: var(--color-accent-secondary);
 	--color-link: var(--color-accent-secondary);
-	--color-bg-2: var(--color-accent-secondary);
+	--color-bg-2: #F2F2F2;
 	--color-link-hover: var(--color-accent);
 	--color-link-visited: var(--color-3);
 	--color-bg-3: var(--color-accent);

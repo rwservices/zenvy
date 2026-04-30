@@ -631,7 +631,7 @@ class Zenvy_Customizer_Inline_Style {
 				--------------------------------------------------------------*/
 				// Read More button icon gap
 				self::generate_css(
-					[ '.zenvy-blog #primary .post .post-detail-wrap .read-more-wrap a .icon' ],
+					[ '.zenvy-blog #primary .post .post-content .read-more-wrap a .icon' ],
 					[ 'margin-left' ],
 					'10px'
 				);
@@ -767,7 +767,7 @@ class Zenvy_Customizer_Inline_Style {
 				--------------------------------------------------------------*/
 				// Read More button icon gap
 				self::generate_css(
-					[ '.zenvy-front-page #page .latest-news-section .post .post-detail-wrap .read-more-wrap a .icon' ],
+					[ '.zenvy-front-page #page .latest-news-section .post .post-content .read-more-wrap a .icon' ],
 					[ 'margin-left' ],
 					'10px'
 				);

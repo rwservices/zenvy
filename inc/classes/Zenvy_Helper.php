@@ -143,7 +143,10 @@ class Zenvy_Helper
 
             printf('<h2 class="page-title">%s</h2>', get_search_query());
         } else {
+            // Get archive title without prefix
+            add_filter('get_the_archive_title_prefix', '__return_false');
             the_archive_title('<h2 class="page-title">', '</h2>');
+            remove_filter('get_the_archive_title_prefix', '__return_false');
         }
     }
 
@@ -581,7 +584,7 @@ class Zenvy_Helper
                             <div class="post">
                                 <?php zenvy_post_thumbnail('medium', '4x3'); ?>
 
-                                <div class="post-detail-wrap">
+                                <div class="post-content">
 
                                     <div class="entry-meta">
                                         <?php zenvy_posted_cats(); ?>
@@ -596,7 +599,7 @@ class Zenvy_Helper
 
                                     <?php zenvy_posted_on(); ?>
 
-                                </div><!-- .post-detail-wrap -->
+                                </div><!-- .post-content -->
                             </div>
                         </div>
 
@@ -673,31 +676,27 @@ class Zenvy_Helper
 
         $btn_type = get_theme_mod(
             'zenvy_blog_post_read_btn_type',
-            ['desktop' => 'text']
+            ['desktop' => 'button']
         );
         $enable_arrow = get_theme_mod(
             'zenvy_blog_post_read_more_btn_arrow',
-            ''
+            [ 'desktop' => 'true' ]
         );
 
         $read_more_class = ['read-more'];
 
         if ($btn_type && $btn_type['desktop'] == 'button') {
-            $read_more_class[] = 'read-more-button';
+            $read_more_class[] = 'read-more-btn';
         }
 
         if ($enable_arrow && array_key_exists('desktop', $enable_arrow)) {
-            $read_more_class[] = 'd-flex align-items-center';
+            $read_more_class[] = 'read-more-arrow';
         }
         ob_start(); ?>
 
         <div class="d-flex justify-content-left read-more-wrap">
             <a href="<?php the_permalink(get_the_ID()); ?>" class="<?php echo esc_attr(implode(' ', $read_more_class)); ?>">
                 <?php esc_html_e('Read More', 'zenvy'); ?>
-                <?php if ($enable_arrow && array_key_exists('desktop', $enable_arrow)) : ?>
-                    <?php Zenvy_Font_Awesome_Icons::get_icon('ui', 'fa-arrow-right'); ?>
-                <?php endif; ?>
-
             </a>
         </div>
 
@@ -867,6 +866,10 @@ class Zenvy_Helper
         } else {
             // Ensure that we always coerce class to being an array.
             $class = array();
+        }
+
+        if ( is_archive() || is_search() ) {
+            $classes[] = 'alternative-post';
         }
 
         $classes = array_map('sanitize_html_class', $classes);

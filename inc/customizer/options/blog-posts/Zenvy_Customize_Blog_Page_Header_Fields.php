@@ -17,7 +17,7 @@ class Zenvy_Customize_Blog_Page_Header_Fields extends Zenvy_Customize_Base_Field
 			// Page Header
 			'zenvy_blog_page_header_elements' => [
 				'type'              => 'sortable',
-				'default'           => [ 'post-title', 'breadcrumb' ],
+				'default'           => [ 'post-title'],
 				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_sortable' ],
 				'label'             => esc_html__( 'Sort Elements', 'zenvy' ),
 				'description'       => esc_html__( 'Enable lists of page header elements and rearrange the order by drag and drop.', 'zenvy' ),
