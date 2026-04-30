@@ -7,9 +7,17 @@
  * @package Zenvy
  */
 
+$elements = get_theme_mod(
+	'zenvy_single_page_content_entry_header_elements',
+	''
+);
+$classes = array();
+if ( empty( $elements ) ) {
+	$classes[] = 'has-empty-header';
+}
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( $classes ); ?>>
 
 	<?php
 	/**

@@ -17,7 +17,7 @@ class Zenvy_Customize_Single_Post_Header_Fields extends Zenvy_Customize_Base_Fie
 			// Post Header
 			'zenvy_single_post_header_elements' => [
 				'type'              => 'sortable',
-				'default'           => [ 'post-title', 'breadcrumb' ],
+				'default'           => [ 'post-meta','post-title' ],
 				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_sortable' ],
 				'label'             => esc_html__( 'Sort Elements', 'zenvy' ),
 				'description'       => esc_html__( 'Enable lists of page header elements and rearrange the order by drag and drop.', 'zenvy' ),
@@ -32,7 +32,7 @@ class Zenvy_Customize_Single_Post_Header_Fields extends Zenvy_Customize_Base_Fie
 			// Meta Elements
 			'zenvy_single_post_meta_elements'   => [
 				'type'              => 'sortable',
-				'default'           => [ 'author', 'post-date' ],
+				'default'           => [ 'post-date', 'tags' ],
 				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_sortable' ],
 				'label'             => esc_html__( 'Post Meta Elements', 'zenvy' ),
 				'description'       => esc_html__( 'To display post meta data and rearrange them with drag and drop.', 'zenvy' ),

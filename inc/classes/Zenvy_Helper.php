@@ -130,22 +130,34 @@ class Zenvy_Helper
     public static function page_header()
     {
 
+        $html_tag = get_theme_mod(
+            'zenvy_blog_post_title_tag',
+            ['desktop' => 'h1']
+        );
         if (is_page()) {
-            the_title('<h2 class="page-title">', '</h2>');
+            $html_tag = get_theme_mod(
+                'zenvy_single_page_title_tag',
+                ['desktop' => 'h1']
+            );
+            the_title('<' . esc_attr($html_tag['desktop']) . ' class="page-title">', '</' . esc_attr($html_tag['desktop']) . '>');
         } elseif (is_404()) {
-            echo '<h2 class="page-title">' . esc_html__('404 Page', 'zenvy') . '</h2>';
+            echo '<' . esc_attr($html_tag['desktop']) . ' class="page-title">' . esc_html__('404 Page', 'zenvy') . '</' . esc_attr($html_tag['desktop']) . '>';
         } elseif (is_single()) {
-            the_title('<h2 class="page-title">', '</h2>');
+            $html_tag = get_theme_mod(
+                'zenvy_single_post_title_tag',
+                ['desktop' => 'h1']
+            );
+            the_title('<' . esc_attr($html_tag['desktop']) . ' class="page-title">', '</' . esc_attr($html_tag['desktop']) . '>');
         } elseif (is_home()) {
 
-            echo '<h2 class="page-title">' . esc_html__('Blog', 'zenvy') . '</h2>';
+            echo '<' . esc_attr($html_tag['desktop']) . ' class="page-title">' . esc_html__('Blog', 'zenvy') . '</' . esc_attr($html_tag['desktop']) . '>';
         } elseif (is_search()) {
 
-            printf('<h2 class="page-title">%s</h2>', get_search_query());
+            printf('<' . esc_attr($html_tag['desktop']) . ' class="page-title">%s</' . esc_attr($html_tag['desktop']) . '>', get_search_query());
         } else {
             // Get archive title without prefix
             add_filter('get_the_archive_title_prefix', '__return_false');
-            the_archive_title('<h2 class="page-title">', '</h2>');
+            the_archive_title('<' . esc_attr($html_tag['desktop']) . ' class="page-title">', '</' . esc_attr($html_tag['desktop']) . '>');
             remove_filter('get_the_archive_title_prefix', '__return_false');
         }
     }
@@ -632,7 +644,7 @@ class Zenvy_Helper
             else :
                 $html_tag = get_theme_mod(
                     'zenvy_blog_post_title_tag',
-                    ['desktop' => 'h2']
+                    ['desktop' => 'h1']
                 );
                 the_title('<' . esc_attr($html_tag['desktop']) . ' class="entry-title"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></' . esc_attr($html_tag['desktop']) . '>');
             endif;
@@ -680,7 +692,7 @@ class Zenvy_Helper
         );
         $enable_arrow = get_theme_mod(
             'zenvy_blog_post_read_more_btn_arrow',
-            [ 'desktop' => 'true' ]
+            ['desktop' => 'true']
         );
 
         $read_more_class = ['read-more'];
@@ -868,7 +880,7 @@ class Zenvy_Helper
             $class = array();
         }
 
-        if ( is_archive() || is_search() ) {
+        if (is_archive() || is_search() || is_home()) {
             $classes[] = 'alternative-post';
         }
 

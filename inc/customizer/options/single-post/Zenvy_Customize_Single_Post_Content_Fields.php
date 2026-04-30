@@ -18,7 +18,7 @@ class Zenvy_Customize_Single_Post_Content_Fields extends Zenvy_Customize_Base_Fi
 			// Entry Header
 			'zenvy_single_post_content_entry_header_elements' => [
 				'type'              => 'sortable',
-				'default'           => [ 'post-cats', 'post-title' ],
+				'default'           => '',
 				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_sortable' ],
 				'label'             => esc_html__( 'Header Elements', 'zenvy' ),
 				'description'       => esc_html__( 'Enable to show Header elements in posts and rearrange them by drag and drop.', 'zenvy' ),
@@ -33,7 +33,7 @@ class Zenvy_Customize_Single_Post_Content_Fields extends Zenvy_Customize_Base_Fi
 			// Entry Footer
 			'zenvy_single_post_content_entry_footer_elements' => [
 				'type'              => 'sortable',
-				'default'           => [ 'tags', 'post-comments', 'post-navigation' ],
+				'default'           => [ 'post-comments', 'post-navigation' ],
 				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_sortable' ],
 				'label'             => esc_html__( 'Footer Elements', 'zenvy' ),
 				'description'       => esc_html__( 'To display lists of Footer Elements, enable them. And sort them by drag and drop.', 'zenvy' ),

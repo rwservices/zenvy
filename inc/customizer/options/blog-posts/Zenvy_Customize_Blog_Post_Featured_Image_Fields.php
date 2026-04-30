@@ -17,7 +17,7 @@ class Zenvy_Customize_Blog_Post_Featured_Image_Fields extends Zenvy_Customize_Ba
 			// Image Ratio
 			'zenvy_blog_post_featured_image_ratio' => [
 				'type'              => 'buttonset',
-				'default'           => [ 'desktop' => '16x9' ],
+				'default'           => [ 'desktop' => '1x1' ],
 				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_buttonset' ],
 				'label'             => esc_html__( 'Aspect Ratio', 'zenvy' ),
 				'description'       => esc_html__( 'Set custom aspect ratio for featured image. Choose proper aspects for better appearance.', 'zenvy' ),
@@ -46,6 +46,16 @@ class Zenvy_Customize_Blog_Post_Featured_Image_Fields extends Zenvy_Customize_Ba
 					'medium_large' => esc_html__( 'Medium Large', 'zenvy' ),
 					'large'        => esc_html__( 'Large', 'zenvy' ),
 				],
+			],
+			// Enable/Disable Tags
+			'zenvy_blog_post_featured_image_tags' => [
+				'type'              => 'toggle',
+				'default'           => [ 'desktop' => 'true' ],
+				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_toggle' ],
+				'label'             => esc_html__( 'Tags', 'zenvy' ),
+				'description'       => esc_html__( 'Enable / Disable tags on featured image.', 'zenvy' ),
+				'section'           => 'zenvy_blog_post_featured_image_section',
+				'priority'          => 25,
 			],
 		];
 	}

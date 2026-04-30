@@ -47,6 +47,16 @@ class Zenvy_Customize_Single_Post_Featured_Image_Fields extends Zenvy_Customize_
 					'large'        => esc_html__( 'Large', 'zenvy' ),
 				],
 			],
+			// Enable/Disable Tags
+			'zenvy_single_post_featured_image_tags' => [
+				'type'              => 'toggle',
+				'default'           => [ 'desktop' => 'true' ],
+				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_toggle' ],
+				'label'             => esc_html__( 'Tags', 'zenvy' ),
+				'description'       => esc_html__( 'Enable / Disable tags on featured image.', 'zenvy' ),
+				'section'           => 'zenvy_single_post_featured_image_section',
+				'priority'          => 25,
+			],
 		];
 	}
 }

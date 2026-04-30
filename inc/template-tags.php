@@ -84,9 +84,9 @@ if ( ! function_exists( 'zenvy_posted_tags' ) ) :
 
 		/* translators: 1: list of tags. */
 		if ( is_singular() ) {
-			printf( '<div class="inner-post-tags-wrap"><label class="post-tags">%1$s</label></div>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			printf( '<div class="inner-post-tags-wrap"><label class="tags-links">%1$s</label></div>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		} else {
-			printf( '<div class="post-tag-list"><span class="tag-links">%1$s</span></div>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			printf( '<div class="post-tag-list"><span class="tags-links">%1$s</span></div>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 	}
 

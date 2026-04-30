@@ -17,7 +17,7 @@ class Zenvy_Customize_Single_Page_Content_Fields extends Zenvy_Customize_Base_Fi
 			// Entry Header
 			'zenvy_single_page_content_entry_header_elements' => [
 				'type'              => 'sortable',
-				'default'           => [ 'post-title' ],
+				'default'           => '',
 				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_sortable' ],
 				'label'             => esc_html__( 'Header Elements', 'zenvy' ),
 				'section'           => 'zenvy_single_page_content_section',

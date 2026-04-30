@@ -19,8 +19,10 @@ if ( ! has_post_thumbnail() ) {
 	/**
 	 * Functions hooked into zenvy_posts_entry_content action
 	 *
-	 * @hooked zenvy_get_post_thumbnail - 10
-	 * @hooked zenvy_blog_post_content   - 15
+	 * @hooked zenvy_featured_image_wrapper_start - 5
+	 * @hooked zenvy_get_post_thumbnail   - 10
+	 * @hooked zenvy_featured_image_wrapper_end   - 15
+	 * @hooked zenvy_blog_post_content   - 20
 	 */
 	do_action( 'zenvy_posts_content' );
 

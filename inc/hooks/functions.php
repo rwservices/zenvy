@@ -63,7 +63,7 @@ if (! function_exists('zenvy_content_before_page_header')) :
 		if (is_single()) {
 			$elements = get_theme_mod(
 				'zenvy_single_post_header_elements',
-				['post-title', 'breadcrumb']
+				['post-meta','post-title']
 			);
 		}
 
@@ -71,14 +71,14 @@ if (! function_exists('zenvy_content_before_page_header')) :
 		elseif (is_page()) {
 			$elements = get_theme_mod(
 				'zenvy_single_page_header_elements',
-				['post-title', 'breadcrumb']
+				['post-title']
 			);
 		}
 		// Is 404 Page
 		elseif (is_404()) {
 			$elements = get_theme_mod(
 				'zenvy_404_page_header_elements',
-				['post-title', 'breadcrumb']
+				['post-title']
 			);
 		}
 
@@ -183,18 +183,20 @@ if (! function_exists('zenvy_content_before_wrapper_start')) :
 
 			$posts_elements = get_theme_mod(
 				'zenvy_blog_posts_elements',
-				['post-meta', 'post-title', 'post-excerpt']
+				['post-meta', 'post-title', 'post-excerpt', 'read-more']
 			);
 			$meta_elements  = get_theme_mod(
 				'zenvy_blog_posts_meta_elements',
-				['date', 'categories' ]
+				['date', 'categories']
 			);
 
 			if (! empty($posts_elements)) :
 				echo '<div class="post-content d-flex flex-column text-left">';
 
 				foreach ($posts_elements as $post_element) :
+
 					switch ($post_element):
+
 						case 'post-title':
 							Zenvy_Helper::post_title();
 							break;
@@ -376,14 +378,27 @@ if (! function_exists('zenvy_content_before_wrapper_start')) :
 				$ratio = in_array('auto', $img_ratio) ? '16x9' : $img_ratio['desktop'];
 
 				zenvy_singular_post_thumbnail($img_size['desktop'], $ratio);
+
+				$enable_tags = get_theme_mod('zenvy_single_post_featured_image_tags', ['desktop' => 'true']);
+
+				if ($enable_tags && array_key_exists('desktop', $enable_tags)) {
+					zenvy_posted_tags();
+				}
+
 			} else {
-				$img_ratio = get_theme_mod('zenvy_blog_post_featured_image_ratio', ['desktop' => '16x9']);
+				$img_ratio = get_theme_mod('zenvy_blog_post_featured_image_ratio', ['desktop' => '1x1']);
 
 				$img_size = get_theme_mod('zenvy_blog_post_featured_image_size', ['desktop' => 'medium_large']);
 
 				$ratio = in_array('auto', $img_ratio) ? '16x9' : $img_ratio['desktop'];
 
 				zenvy_post_thumbnail($img_size['desktop'], $ratio);
+
+				$enable_tags = get_theme_mod('zenvy_blog_post_featured_image_tags', ['desktop' => 'true']);
+
+				if ($enable_tags && array_key_exists('desktop', $enable_tags)) {
+					zenvy_posted_tags();
+				}
 			}
 		}
 
@@ -420,7 +435,7 @@ if (! function_exists('zenvy_content_before_wrapper_start')) :
 					<?php
 					$elements = get_theme_mod(
 						'zenvy_single_post_content_entry_header_elements',
-						['post-cats', 'post-title']
+						''
 					);
 					if (! empty($elements)) :
 						foreach ($elements as $element) :
@@ -443,9 +458,6 @@ if (! function_exists('zenvy_content_before_wrapper_start')) :
 						endforeach;
 					endif;
 
-					if (has_post_thumbnail()) {
-						zenvy_posted_on();
-					}
 					?>
 
 					<?php
@@ -540,7 +552,7 @@ if (! function_exists('zenvy_content_before_wrapper_start')) :
 					<?php
 					$elements = get_theme_mod(
 						'zenvy_single_post_content_entry_footer_elements',
-						['tags', 'post-comments', 'post-navigation']
+						['post-comments', 'post-navigation']
 					);
 
 					if (! empty($elements)) :
@@ -612,7 +624,7 @@ if (! function_exists('zenvy_content_before_wrapper_start')) :
 					<?php
 					$elements = get_theme_mod(
 						'zenvy_single_page_content_entry_header_elements',
-						['post-title']
+						''
 					);
 
 					if (! empty($elements)) :
@@ -758,7 +770,7 @@ if (! function_exists('zenvy_content_before_wrapper_start')) :
 				if ($back_to_top && array_key_exists('desktop', $back_to_top)) :
 				?>
 					<div class="back-to-top">
-						<button href="#masthead" title="<?php esc_attr_e('Go to Top', 'zenvy'); ?>"><i class="fa fa-angle-up" aria-hidden="true"></i></button>
+						<a href="#masthead" title="<?php esc_attr_e('Go to Top', 'zenvy'); ?>"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
 					</div><!-- .back-to-top -->
 		<?php
 				endif;

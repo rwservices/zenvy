@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Template part for displaying post content in single.php
  *
@@ -7,15 +8,25 @@
  * @package Zenvy
  */
 
+$elements = get_theme_mod(
+	'zenvy_single_post_content_entry_header_elements',
+	''
+);
+$classes = array();
+if ( empty( $elements ) ) {
+	$classes[] = 'has-empty-header';
+}
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( $classes ); ?>>
 
 	<?php
 	/**
 	 * Functions hooked into zenvy_post_entry_header action
 	 *
-	 * @hooked zenvy_get_post_thumbnail - 10
-	 * @hooked zenvy_post_header    - 15
+	 * @hooked zenvy_featured_image_wrapper_start - 5
+	 * @hooked zenvy_get_post_thumbnail    - 10
+	 * @hooked zenvy_featured_image_wrapper_end - 15
+	 * @hooked zenvy_blog_post_content    - 20
 	 */
 	do_action( 'zenvy_post_entry_header' );
 	?>

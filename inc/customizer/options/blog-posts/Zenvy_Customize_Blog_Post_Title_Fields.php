@@ -17,7 +17,7 @@ class Zenvy_Customize_Blog_Post_Title_Fields extends Zenvy_Customize_Base_Field 
 			// Title Tag
 			'zenvy_blog_post_title_tag' => [
 				'type'              => 'buttonset',
-				'default'           => [ 'desktop' => 'h2' ],
+				'default'           => [ 'desktop' => 'h1' ],
 				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_buttonset' ],
 				'label'             => esc_html__( 'Heading Tag', 'zenvy' ),
 				'section'           => 'zenvy_blog_post_title_section',

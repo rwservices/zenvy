@@ -17,7 +17,7 @@ class Zenvy_Customize_Blog_Posts_Layout_Fields extends Zenvy_Customize_Base_Fiel
 			// Posts Elements
 			'zenvy_blog_posts_elements'      => [
 				'type'              => 'sortable',
-				'default'           => [ 'post-meta', 'post-title', 'post-excerpt' ],
+				'default'           => [ 'post-meta', 'post-title', 'post-excerpt', 'read-more' ],
 				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_sortable' ],
 				'label'             => esc_html__( 'Content Elements', 'zenvy' ),
 				'description'       => esc_html__( 'Enable lists for blog post content elements and rearrange the order by drag and drop.', 'zenvy' ),
