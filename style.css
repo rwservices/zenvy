@@ -6261,7 +6261,7 @@ a, a:hover, .latest-news-section .post:hover .entry-meta *, .latest-news-section
 	margin: 0;
 }
 
-#map_canvas,#property_map {
+#map_canvas {
 	border: 1px solid #dedede;
 	height: 418px;
 	width: 100%;

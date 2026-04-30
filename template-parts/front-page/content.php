@@ -8,9 +8,7 @@
  */
 
 
-$sortable_default  = Zenvy_Helper::crucial_real_state_plugin()
-	? [ 'featured', 'why-us', 'location', 'property-types', 'blog', 'clients' ]
-	: [ 'why-us', 'blog', 'clients' ];
+$sortable_default  = [ 'why-us', 'blog', 'clients' ];
 $sortable_elements = get_theme_mod(
 	'zenvy_front_page_elements',
 	$sortable_default
@@ -29,14 +27,6 @@ if ( $sortable_elements ) {
 
 			case 'why-us':
 				get_template_part( 'template-parts/front-page/content', 'why-us' );
-				break;
-
-			case 'location':
-				get_template_part( 'template-parts/front-page/content-property', 'location' );
-				break;
-
-			case 'property-types':
-				get_template_part( 'template-parts/front-page/content-property', 'types' );
 				break;
 
 			case 'clients':

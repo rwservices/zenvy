@@ -25,13 +25,6 @@ function zenvy_body_classes( $classes ) {
 
 	if ( is_front_page() && is_home() || is_home() || is_search() || is_archive() || is_404() ) {
 		$custom_class = 'zenvy-blog';
-
-		if ( ( is_post_type_archive( 'agent' )
-				|| is_post_type_archive( 'property' )
-				|| is_tax( 'property-location' ) )
-			|| 'property' === get_post_type() ) {
-			$custom_class = 'zenvy-archive';
-		}
 		$classes[] = esc_attr( $custom_class );
 	}
 

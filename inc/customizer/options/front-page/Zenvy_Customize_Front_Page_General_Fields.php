@@ -20,17 +20,7 @@ class Zenvy_Customize_Front_Page_General_Fields extends Zenvy_Customize_Base_Fie
 			'clients' => esc_html__( 'Clients Logo', 'zenvy' ),
 		];
 		$sortable_default = [ 'why-us', 'blog', 'clients' ];
-		if ( Zenvy_Helper::crucial_real_state_plugin() ) {
-			$sortable_list    = array_merge(
-				$sortable_list,
-				[
-					'property-types' => esc_html__( 'Property Types', 'zenvy' ),
-					'location'       => esc_html__( 'Property Locations', 'zenvy' ),
-					'featured'       => esc_html__( 'Property Featured', 'zenvy' ),
-				]
-			);
-			$sortable_default = [ 'featured', 'why-us', 'location', 'property-types', 'blog', 'clients' ];
-		}
+		
 		$this->args = [
 			// Active Front Page
 			'zenvy_front_page_enable'   => [

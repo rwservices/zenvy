@@ -216,24 +216,6 @@ class Zenvy_Customizer {
 		 */
 		require ZENVY_THEME_DIR . 'inc/customizer/options/404-page/Zenvy_Customize_404_Page_Header_Fields.php';
 		require ZENVY_THEME_DIR . 'inc/customizer/options/404-page/Zenvy_Customize_404_Page_Content_Fields.php';
-
-		/**
-		 * Property Posts Fields
-		 */
-		if ( ! Zenvy_Helper::crucial_real_state_plugin() ) {
-			return;
-		}
-
-		require ZENVY_THEME_DIR . 'inc/customizer/options/custom-posts/Zenvy_Customize_Custom_Archive_Property_Fields.php';
-
-		require ZENVY_THEME_DIR . 'inc/customizer/options/custom-post/Zenvy_Customize_Property_Post_Fields.php';
-		require ZENVY_THEME_DIR . 'inc/customizer/options/custom-post/Zenvy_Customize_Agent_Post_Fields.php';
-
-		// front page related field
-		require ZENVY_THEME_DIR . 'inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Banner_Slider_Fields.php';
-		require ZENVY_THEME_DIR . 'inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Property_Type_Fields.php';
-		require ZENVY_THEME_DIR . 'inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Property_Features_Fields.php';
-		require ZENVY_THEME_DIR . 'inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Property_Locations_Fields.php';
 	}
 
 	/**
@@ -257,27 +239,6 @@ class Zenvy_Customizer {
 			'single_post'            => [
 				'title'    => esc_html__( 'Single Post', 'zenvy' ),
 				'priority' => 35,
-			],
-
-			'property_archive_posts' => [
-				'title'    => esc_html__( 'Property Archive Posts', 'zenvy' ),
-				'priority' => 40,
-			],
-			'property_single_post'   => [
-				'title'    => esc_html__( 'Property Single Post', 'zenvy' ),
-				'priority' => 40,
-			],
-			'agent_archive_posts'    => [
-				'title'    => esc_html__( 'Agent Archive Posts', 'zenvy' ),
-				'priority' => 40,
-			],
-			'agent_single_post'      => [
-				'title'    => esc_html__( 'Agent Single Post', 'zenvy' ),
-				'priority' => 40,
-			],
-			'agency_single_post'     => [
-				'title'    => esc_html__( 'Agency Single Post', 'zenvy' ),
-				'priority' => 40,
 			],
 
 			'front_page'             => [
@@ -401,24 +362,7 @@ class Zenvy_Customizer {
 			'panel'    => 'zenvy_front_page_panel',
 			'priority' => 20,
 		];
-		// Property Featured
-		$sections['front_page_property_features'] = [
-			'title'    => esc_html__( 'Property Featured', 'zenvy' ),
-			'panel'    => 'zenvy_front_page_panel',
-			'priority' => 25,
-		];
-		// Property Types
-		$sections['front_page_property_type'] = [
-			'title'    => esc_html__( 'Property Types', 'zenvy' ),
-			'panel'    => 'zenvy_front_page_panel',
-			'priority' => 25,
-		];
-		// Property Location
-		$sections['front_page_property_locations'] = [
-			'title'    => esc_html__( 'Property Locations', 'zenvy' ),
-			'panel'    => 'zenvy_front_page_panel',
-			'priority' => 26,
-		];
+		
 		// Our Agents
 		$sections['front_page_agents'] = [
 			'title'    => esc_html__( 'Property Agents', 'zenvy' ),
@@ -576,103 +520,6 @@ class Zenvy_Customizer {
 			'panel'    => 'zenvy_single_post_panel',
 			'priority' => 45,
 		];
-
-		/*
-		--------------------------------------------------------------
-		# Property Archive Posts Sections
-		--------------------------------------------------------------*/
-		// Page Header
-		$sections['property_archive_page_header'] = [
-			'title'    => esc_html__( 'Page Header', 'zenvy' ),
-			'panel'    => 'zenvy_property_archive_posts_panel',
-			'priority' => 10,
-		];
-		// Page Content
-		$sections['property_archive_post_content'] = [
-			'title'    => esc_html__( 'Post Content', 'zenvy' ),
-			'panel'    => 'zenvy_property_archive_posts_panel',
-			'priority' => 15,
-		];
-		// Property Listing
-		$sections['property_archive_post_listing'] = [
-			'title'    => esc_html__( 'Property Listing', 'zenvy' ),
-			'panel'    => 'zenvy_property_archive_posts_panel',
-			'priority' => 20,
-		];
-
-		/*
-		--------------------------------------------------------------
-		# Property Archive Single Post Sections
-		--------------------------------------------------------------*/
-		// Page Header
-		$sections['property_single_post_header'] = [
-			'title'    => esc_html__( 'Page Header', 'zenvy' ),
-			'panel'    => 'zenvy_property_single_post_panel',
-			'priority' => 10,
-		];
-		// Post Content
-		$sections['property_single_post_content'] = [
-			'title'    => esc_html__( 'Post Content', 'zenvy' ),
-			'panel'    => 'zenvy_property_single_post_panel',
-			'priority' => 15,
-		];
-		// Related Posts
-		$sections['property_single_related_posts'] = [
-			'title'    => esc_html__( 'Related Properties', 'zenvy' ),
-			'panel'    => 'zenvy_property_single_post_panel',
-			'priority' => 30,
-		];
-		/*
-		--------------------------------------------------------------
-		# Agent Archive Single Post Sections
-		--------------------------------------------------------------*/
-		// Page Header
-		$sections['agent_single_post_header'] = [
-			'title'    => esc_html__( 'Page Header', 'zenvy' ),
-			'panel'    => 'zenvy_agent_single_post_panel',
-			'priority' => 10,
-		];
-		// Post Content
-		$sections['agent_single_post_content'] = [
-			'title'    => esc_html__( 'Post Content', 'zenvy' ),
-			'panel'    => 'zenvy_agent_single_post_panel',
-			'priority' => 15,
-		];
-		// Related Properties
-		$sections['agent_single_related_posts'] = [
-			'title'    => esc_html__( 'Related Properties', 'zenvy' ),
-			'panel'    => 'zenvy_agent_single_post_panel',
-			'priority' => 20,
-		];
-		/*
-		--------------------------------------------------------------
-		# Custom Post Sections
-		--------------------------------------------------------------*/
-		// Property
-		$sections['property_post'] = [
-			'title'    => esc_html__( 'Property', 'zenvy' ),
-			'panel'    => 'zenvy_custom_post_panel',
-			'priority' => 35,
-		];
-		// Agency
-		$sections['agency_post'] = [
-			'title'    => esc_html__( 'Agency', 'zenvy' ),
-			'panel'    => 'zenvy_custom_post_panel',
-			'priority' => 39,
-		];
-		// Agent
-		$sections['agent_post'] = [
-			'title'    => esc_html__( 'Agent', 'zenvy' ),
-			'panel'    => 'zenvy_custom_post_panel',
-			'priority' => 40,
-		];
-		// Sidebar
-		$sections['custom_post_sidebar'] = [
-			'title'    => esc_html__( 'Sidebar', 'zenvy' ),
-			'panel'    => 'zenvy_custom_post_panel',
-			'priority' => 45,
-		];
-
 		/*
 		--------------------------------------------------------------
 		# Single Page Sections
@@ -805,7 +652,7 @@ class Zenvy_Customizer {
 		$wp_customize->add_section(
 			new Zenvy_Customize_Custom_Section(
 				$wp_customize,
-				'real_front_page_section_eight',
+				'zenvy_front_page_section_eight',
 				[
 					'panel'        => 'zenvy_front_page_panel',
 					'priority'     => 11,
@@ -910,41 +757,6 @@ class Zenvy_Customizer {
 				]
 			)
 		);
-
-		if ( Zenvy_Helper::crucial_real_state_plugin() ) {
-			// Front Page: Property Types
-			$wp_customize->add_setting(
-				new Zenvy_Customize_Repeater_Setting(
-					$wp_customize,
-					'zenvy_front_page_property_types',
-					[
-						'default'           => '',
-						'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_repeater' ],
-					]
-				)
-			);
-			$wp_customize->add_control(
-				new Zenvy_Customize_Repeater_Control(
-					$wp_customize,
-					'zenvy_front_page_property_types',
-					[
-						'section'   => 'zenvy_front_page_property_type_section',
-						'fields'    => [
-							'cat_slug' => [
-								'type'    => 'select',
-								'label'   => esc_html__( 'Property Type', 'zenvy' ),
-								'choices' => Zenvy_Helper::get_terms( 'property-type' ),
-							],
-						],
-						'row_label' => [
-							'type'  => 'field',
-							'value' => esc_html__( 'Item', 'zenvy' ),
-						],
-						'priority'  => 15,
-					]
-				)
-			);
-		}
 
 		// Header Builder: Contact Info
 		$wp_customize->add_setting(

@@ -23,10 +23,6 @@ class Zenvy_Customize_Global_Social_Fields extends Zenvy_Customize_Base_Field {
 			],
 		];
 
-		if ( ! Zenvy_Helper::crucial_real_state_plugin() ) {
-			return;
-		}
-
 		$this->args = array_merge(
 			$this->args,
 			[

@@ -639,15 +639,6 @@ class Zenvy_Customizer_Inline_Style {
 				--------------------------------------------------------------
 				# Pagination
 				--------------------------------------------------------------*/
-				// is archive type property
-				if ( is_post_type_archive( 'property' ) || taxonomy_exists( 'property-type' ) || taxonomy_exists( 'property-location' ) || taxonomy_exists( 'property-status' ) ) {
-					self::generate_css(
-						[ '.post-type-archive-property .site-header .page-title-wrap .archive-description' ],
-						[ 'display' ],
-						'none'
-					);
-				}
-
 				// is archive type agent
 				if ( is_post_type_archive( 'agent' ) ) {
 					self::generate_css(
@@ -716,24 +707,6 @@ class Zenvy_Customizer_Inline_Style {
 			// Is Static Front Page Enable
 			if ( Zenvy_Helper::front_page_enable() ) {
 
-				// Featured Properties
-				// background
-				self::background(
-					[ '.zenvy-front-page .featured-properties-section' ],
-					'zenvy_front_page_featured_properties_background',
-					''
-				);
-				// background
-				self::background(
-					[ '.zenvy-front-page .featured-properties-section::before' ],
-					'zenvy_front_page_featured_properties_background_overlay',
-					[
-						'background' => 'color',
-						'colors'     => [
-							'color_1' => 'var(--color-bg)',
-						],
-					]
-				);
 				// Front page : Why Us?
 				// Background
 				self::background(
@@ -769,42 +742,7 @@ class Zenvy_Customizer_Inline_Style {
 						],
 					]
 				);
-				// Front page : Property Locations
-				// Background
-				self::background(
-					[ '.site-content section.property-location-section' ],
-					'zenvy_front_page_property_locations_background',
-					''
-				);
-				// Background Overlay
-				self::background(
-					[ '.site-content section.property-location-section::before' ],
-					'zenvy_front_page_property_locations_background_overlay',
-					[
-						'background' => 'color',
-						'colors'     => [
-							'color_1' => 'var(--color-bg-4)',
-						],
-					]
-				);
-				// Front page : Property Types
-				// Background
-				self::background(
-					[ '.site-content section.buy-rent-section' ],
-					'zenvy_front_page_property_type_background',
-					''
-				);
-				// Background Overlay
-				self::background(
-					[ '.site-content section.buy-rent-section::before' ],
-					'zenvy_front_page_property_type_background_overlay',
-					[
-						'background' => 'color',
-						'colors'     => [
-							'color_1' => 'var(--color-bg)',
-						],
-					]
-				);
+				
 				// Front page : News & Blog
 				// Background
 				self::background(
