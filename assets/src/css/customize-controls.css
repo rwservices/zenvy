@@ -6,19 +6,29 @@ License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
  */
 
-:root {
+ :root {
 	--color-accent: #f9b189;
-	--color-accent-secondary: #354255;
-	--color-heading: #223148;
+	--color-accent-secondary: #ff80c0;
+	--black-color: #000;
+	--color-heading: #201F1F;
+	--color-1: #444444;
 	--color-2: #6d707d;
 	--color-3: #9ea0a8;
 	--color-4: #cecfd4;
-	--color-5: #fff;
-	--color-bg: #fff;
-	--color-bg-4: #F1F4F9;
+	--color-5: #ffffff;
+	--color-bg: #ffffff;
+	--color-bg-4: #f2f2f2;
+	--container-width: 1170px;
+    --body-font: 'Cormorant Garamond', serif;
+    --heading-fonts: 'Cormorant Garamond', serif;
 }
 
 :root {
+	--color-link: var(--color-accent);
+	--color-link-hover: var(--color-accent-secondary);
+}
+
+/* :root {
 	--color-1: var(--color-accent-secondary);
 	--color-link: var(--color-accent-secondary);
 	--color-bg-2: #F2F2F2;
@@ -28,7 +38,7 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 	--color-btn: var(--color-5);
 	--color-btn-bg: var(--color-bg-3);
 	--color-btn-bg-2: var(--color-bg-2);
-}
+} */
 
 .d-flex {
 	display: -ms-flexbox !important;

@@ -84,9 +84,13 @@ Table of Content
 	--color-bg: #ffffff;
 	--color-bg-4: #f2f2f2;
 	--container-width: 1170px;
-  
     --body-font: 'Cormorant Garamond', serif;
     --heading-fonts: 'Cormorant Garamond', serif;
+}
+
+:root {
+	--color-link: var(--color-accent);
+	--color-link-hover: var(--color-accent-secondary);
 }
 
 /* :root {
@@ -415,14 +419,14 @@ ul {
 }
 
 a {
-	color: var(--color-accent);
+	color: var(--color-link);
 	text-decoration: none;
 }
 
 a:focus,
 a:active,
 a:hover {
-	color: var(--color-accent-secondary);
+	color: var(--color-link-hover);
 	outline: none;
 	text-decoration: none;
 	transition: all 0.3s ease-in 0s;
