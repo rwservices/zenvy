@@ -25,6 +25,21 @@
 		left: 20px;
 		right: 20px;
 	}
+	.page-title-wrap {
+		padding: 100px 0 0;
+		margin-bottom: 100px;
+	}
+	.widget_tag_cloud a {
+		font-size: 14px;
+		margin: 3px 5px 5px 0;
+		padding: 9px 20px;
+	}
+	.about-info-content .author-name {
+		font-size: 56px;
+	}
+	.heading .entry-title {
+		font-size: 32px;
+	}
 }
 
 /* All Tablet Portrait size smaller than standard 1023 (devices and browsers) */
@@ -38,13 +53,12 @@
 		width: calc(100% - 330px);
 		width: -webkit-calc(100% - 330px);
 	}
-	.shop-section .element-item {
-		width: 45.6%;
-		width: calc(50% - 15px);
-		width: -webkit-calc(50% - 15px);
-	}
 	.shop-section .custom-col-7 {
 		margin-top: 45px;
+	}
+	.widget .recent-post-wrap .post-content .entry-title,
+	.post.flexible-post .post-content .entry-title {
+		font-size: 20px;
 	}
 }
 
@@ -92,14 +106,19 @@
 	}
 	.mean-container a.meanmenu-reveal {
 		padding: 9px 0px 8px 5px;
-		top: 23px;
-		right: 15px;
+		top: 0;
+		right: 15px !important;
 		z-index: 999;
+		bottom: 0;
+		margin: auto;
+		height: 35px;
+		transform: none;
 	}
 	.mean-container .mean-nav > ul {
 		right: 0;
 		top: 57px;
 		left: 0;
+		z-index: 9;
 	}
 	.mean-container a.meanmenu-reveal span,
 	.mean-container .meanmenu-reveal span::before,
@@ -139,11 +158,6 @@
 		height: 12px;
 		left: 0;
 	}
-	.widget-instagram ul li {
-		width: 30.5%;
-		width: calc(33.33% - 20px);
-		width: -webkit-calc(33.33% - 20px);
-	}
 	.widget-instagram ul li .featured-image img {
 		width: 100%;
 	}
@@ -176,6 +190,75 @@
 	}
 	.heading .entry-title {
 		font-size: 36px;
+	}
+	.page-title-wrap {
+		margin-bottom: 70px;
+	}
+	.page-title {
+		font-size: 70px;
+	}
+	.post .entry-title {
+		font-size: 24px;
+	}
+	.widget-title {
+		font-size: 24px;
+		margin: 0 0 5px;
+	}
+	#secondary .widget li a,
+	#secondary .widget li {
+		font-size: 14px;
+	}
+	.tags-links a:first-child {
+		font-size: 38px;
+	}
+	.post-item-has-2column .post .entry-title {
+		font-size: 20px;
+	}
+	.overlap-post .post-content {
+		padding: 15px 15px;
+	}
+	.post-item-has-2column.overlap-post .post-content,
+	.post-item-has-3column.overlap-post .post-content {
+		margin-left: 20px;
+	}
+	.widget-instagram ul {
+		gap: 15px;
+	}
+	.widget-instagram ul li {
+		width: 46%;
+		width: calc(50% - 10px);
+		width: -webkit-calc(50% - 10px);
+	}
+	.heading .entry-title {
+		font-size: 30px;
+	}
+	h3 {
+		font-size: 24px;
+	}
+	.about-info-content {
+		padding-top: 15px;
+	}
+	.about-info-content .author-name {
+		font-size: 42px;
+	}
+	.skills-title {
+		font-size: 22px;
+		margin: 0 0 5px;
+	}
+	.site-footer {
+		padding-top: 60px;
+	}
+	.site-footer .widget-area {
+		padding: 20px 0 55px;
+	}
+	.contact-content-item .social-links {
+		bottom: -12px;
+	}
+	.contact-content-item .inline-social-icons ul li {
+		margin: 0 5px 5px;
+	}
+	.map-section {
+		margin-top: 40px;
 	}
 }
 
@@ -249,6 +332,57 @@
 	.site-footer {
 		padding-top: 35px;
 	}
+	.page-title-wrap {
+		margin-bottom: 60px;
+		padding-top: 60px;
+	}
+	.alternative-post .post .post-content {
+		padding: 15px 15px 15px;
+	}
+	.tags-links a:first-child {
+		font-size: 40px;
+	}
+	.post-item-has-2column.overlap-post .featured-image-wrapper .tags-links,
+	.post-item-has-3column.overlap-post .featured-image-wrapper .tags-links {
+		left: 25px;
+		bottom: 30px;
+	}
+	#secondary .search-form {
+		width: 100%;
+	}
+	.widget-instagram ul li {
+		width: 31%;
+		width: calc(33.33% - 10px);
+		width: -webkit-calc(33.33% - 10px);
+	}
+	.about-us-content-wrap {
+		display: block;
+	}
+	.skill-content + .about-info-content .author-name {
+		margin-left: 0;
+	}
+	.skill-content {
+		padding-bottom: 20px;
+	}
+	.about-info-content .entry-content p {
+		margin-bottom: 15px;
+	}
+	.contact-content-wrap {
+		display: block;
+		margin: 0;
+	}
+	.contact-content-item {
+		padding: 0 0 30px;
+	}
+	.contact-content-item .social-links {
+		bottom: 20px;
+	}
+	.contact-content-item:last-child {
+		padding-bottom: 0;
+	}
+	.slider-text {
+		padding-left: 0;
+	}
 }
 
 @media only screen and (max-width: 567px) {
@@ -257,6 +391,7 @@
 	}
 	.slider-title {
 		font-size: 32px;
+		margin-bottom: 0;
 	}
 	.slider-text {
 		padding: 0;
@@ -316,6 +451,71 @@
 	.heading .entry-title {
 		font-size: 30px;
 	}
+	.page-title-wrap {
+		margin-bottom: 30px;
+	}
+	.page-title {
+		font-size: 55px;
+	}
+	.alternative-post
+		.post:nth-child(2n + 2)
+		.featured-image-wrapper
+		.tags-links {
+		right: auto;
+	}
+	.overlap-post .post-content {
+		margin: 0;
+		padding: 15px 0 0;
+	}
+	.post-item-has-2column,
+	.post-item-has-3column {
+		display: block;
+	}
+	.post-item-has-2column .post,
+	.post-item-has-3column .post {
+		width: 100%;
+	}
+	.post-item-has-2column.overlap-post .post-content,
+	.post-item-has-3column.overlap-post .post-content {
+		margin: 0;
+	}
+	.overlap-post .featured-image-wrapper .tags-links {
+		bottom: -5px;
+		left: 0px;
+	}
+	.post-item-has-2column.overlap-post .featured-image-wrapper .tags-links,
+	.post-item-has-3column.overlap-post .featured-image-wrapper .tags-links {
+		left: 0;
+		bottom: -5px;
+	}
+	.read-more-btn::before {
+		top: -12px;
+		background-size: 30px;
+	}
+	.read-more-btn {
+		font-size: 18px;
+		margin-top: 12px;
+	}
+	.skills-wrapper {
+		margin-bottom: 20px;
+	}
+	.skills-title {
+		font-size: 20px;
+		margin: 0 0 0px;
+	}
+	.about-info-content .author-name {
+		font-size: 34px;
+		margin-bottom: 0;
+	}
+	.author-designation {
+		font-size: 18px;
+	}
+	.about-info-content .entry-content {
+		padding-bottom: 0;
+	}
+	.video-post-section .custom-col-7 .post .post-content {
+		padding: 10px 15px 10px;
+	}
 }
 
 /* All Mobile size smaller than standard 479 (devices and browsers) */
@@ -329,7 +529,6 @@
 		padding: 0;
 	}
 	.mean-container a.meanmenu-reveal {
-		top: 18px;
 		padding: 0;
 	}
 	.mean-container .meanmenu-reveal span {
@@ -358,10 +557,10 @@
 		font-size: 50px;
 	}
 	.post .entry-title {
-		font-size: 24px;
+		font-size: 22px;
 	}
 	.widget-title {
-		font-size: 24px;
+		font-size: 22px;
 		margin: 0 0 10px;
 	}
 	.widget-instagram ul {
@@ -383,7 +582,7 @@
 		width: 85px;
 	}
 	.testimonial-quote-content .entry-content p {
-		font-size: 20px;
+		font-size: 18px;
 	}
 	p {
 		font-size: 14px;
@@ -391,7 +590,6 @@
 	}
 	.overlap-post .post-content {
 		margin-left: 0;
-		padding: 15px;
 		margin-top: 0;
 	}
 	.overlap-post .featured-image-wrapper .tags-links {
@@ -432,11 +630,6 @@
 	.heading .entry-title {
 		font-size: 26px;
 	}
-	.shop-section .element-item,
-	.entry-content .element-item,
-	ul.products li.element-item {
-		width: 100%;
-	}
 	.search-section {
 		padding: 5px;
 	}
@@ -454,5 +647,94 @@
 	}
 	.mini_cart_inner {
 		padding: 8px;
+	}
+	.page-title-wrap {
+		margin-bottom: 25px;
+	}
+	.page-title {
+		font-size: 40px;
+	}
+	.tags-links a:first-child {
+		font-size: 32px;
+	}
+	.post .entry-title {
+		font-size: 20px;
+	}
+	.read-more-btn {
+		font-size: 18px;
+		margin-top: 7px;
+	}
+	.widget-instagram {
+		margin-bottom: 15px;
+	}
+	.widget_tag_cloud a {
+		margin: 3px 3px 3px 0;
+		padding: 7px 13px;
+	}
+	.site-footer {
+		padding-top: 25px;
+	}
+	.site-footer .widget-area {
+		padding: 20px 0 10px;
+	}
+	.site-generator {
+		padding: 13px 0 13px;
+	}
+	.site-footer .widget .social-links ul li {
+		margin-right: 5px;
+		margin-left: 5px;
+	}
+	.inline-social-icons li,
+	.widget .inline-social-icons li {
+		margin: 0 5px;
+	}
+	.mean-container .mean-nav > ul {
+		top: 51px;
+	}
+	.widget .recent-post-wrap .featured-image-wrapper,
+	.post.flexible-post .featured-image-wrapper {
+		width: 100%;
+	}
+	.widget .recent-post-wrap .post-content,
+	.post.flexible-post .post-content {
+		width: 100%;
+		padding: 15px 0 0;
+		margin: 0;
+	}
+	.video-post-section .custom-col-7 .post .post-content {
+		margin-top: 0;
+		padding: 10px 0 0;
+		margin-left: 0;
+	}
+	.about-info-content .author-name {
+		font-size: 28px;
+	}
+	.skills-title {
+		font-size: 18px;
+	}
+	.skills-value {
+		font-size: 20px;
+	}
+	.site-main {
+		padding-top: 25px;
+	}
+	.entry-header.heading {
+		padding: 0px 0 10px;
+	}
+	.explore-section .post .cat-link a {
+		font-size: 32px;
+	}
+	#secondary .widget li:not(.wp-social-link) a,
+	#secondary .widget li:not(.wp-social-link),
+	#primary .widget li:not(.wp-social-link) a,
+	#primary .widget li:not(.wp-social-link) {
+		font-size: 14px;
+	}
+	.shop-item-wrap,
+	ul.products,
+	.products.columns-4,
+	.products.columns-3,
+	.products.columns-2 {
+		grid-template-columns: repeat(1, 1fr);
 	}
 }
