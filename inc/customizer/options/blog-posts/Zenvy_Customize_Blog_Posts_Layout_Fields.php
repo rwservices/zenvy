@@ -14,6 +14,29 @@ class Zenvy_Customize_Blog_Posts_Layout_Fields extends Zenvy_Customize_Base_Fiel
 	 */
 	public function init() {
 		$this->args = [
+			'zenvy_blog_posts_layout' => [
+				'type'              => 'radio_image',
+				'default'           => 'alt',
+				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_choices' ],
+				'label'             => esc_html__( 'Blog Posts Layout', 'zenvy' ),
+				'description'       => esc_html__( 'Select the layout for blog posts.', 'zenvy' ),
+				'section'           => 'zenvy_blog_posts_layout_section',
+				'priority'          => 5,
+				'choices'           => [
+					'alt'  => ZENVY_THEME_URI . 'assets/build/images/alt-layout.png',
+					'right' => ZENVY_THEME_URI . 'assets/build/images/right-layout.png',
+					'left'  => ZENVY_THEME_URI . 'assets/build/images/left-layout.png',
+					'grid' => ZENVY_THEME_URI . 'assets/build/images/grid-layout.png',
+					'list' => ZENVY_THEME_URI . 'assets/build/images/list-layout.png',
+				],
+				'l10n'              => [
+					'alt'  => esc_html__( 'Alternative', 'zenvy' ),
+					'right' => esc_html__( 'Right', 'zenvy' ),
+					'left'  => esc_html__( 'Left', 'zenvy' ),
+					'grid' => esc_html__( 'Grid', 'zenvy' ),
+					'list' => esc_html__( 'List', 'zenvy' ),
+				],
+			],
 			// Posts Elements
 			'zenvy_blog_posts_elements'      => [
 				'type'              => 'sortable',
