@@ -2637,13 +2637,14 @@ div.error {
 /*   ===== Pages =====   */
 
 .page-title-wrap {
-	background-attachment: fixed !important;
-	background-position: center center !important;
-	background-repeat: no-repeat !important;
-	background-size: cover !important;
+	background-attachment: fixed;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
 	padding: 170px 0 0;
 	position: relative;
-	margin-bottom: 120px;
+	/* margin-bottom: 120px; */
+	margin-bottom: 80px;
 	background-color: var(--color-bg-4);
 }
 
@@ -4196,7 +4197,7 @@ ul.products {
 }
 
 /* single post wrapper styling from here */
-.single-post-wrapper {
+/* .single-post-wrapper {
 	margin-top: -330px;
 }
 
@@ -4207,7 +4208,7 @@ ul.products {
 
 .single-post-wrapper .post .featured-image-wrapper {
 	margin-bottom: 30px;
-}
+} */
 
 .entry-content h2,
 .entry-content h3,
