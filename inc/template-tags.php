@@ -84,9 +84,41 @@ if ( ! function_exists( 'zenvy_posted_tags' ) ) :
 
 		/* translators: 1: list of tags. */
 		if ( is_singular() ) {
-			printf( '<div class="inner-post-tags-wrap"><label class="tags-links">%1$s</label></div>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			printf( '<div class="inner-post-tags-wrap"><label class="tag-link">%1$s</label></div>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		} else {
-			printf( '<div class="post-tag-list"><span class="tags-links">%1$s</span></div>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			printf( '<div class="post-tag-list"><span class="tag-link">%1$s</span></div>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		}
+	}
+
+endif;
+
+if ( ! function_exists( 'zenvy_posted_first_tag' ) ) :
+
+	/**
+	 * Prints HTML with meta information for the current tags.
+	 */
+	function zenvy_posted_first_tag() {
+		// Hide category and tag text for pages.
+		if ( 'post' !== get_post_type() ) {
+			return;
+		}
+
+		$tags = get_the_tags();
+		if ( ! $tags || empty( $tags ) ) {
+			return;
+		}
+
+		// Get only the first tag
+		$single_tag = $tags[0];
+		$tag_link = get_tag_link( $single_tag->term_id );
+		$tag_name = esc_html( $single_tag->name );
+		$tag_list = sprintf( '<a href="%s" rel="tag">%s</a>', esc_url( $tag_link ), $tag_name );
+
+		/* translators: 1: list of tags. */
+		if ( is_singular() ) {
+			printf( '<label class="tags-links">%1$s</label>', $tag_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		} else {
+			printf( '<span class="tags-links">%1$s</span>', $tag_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 	}
 
