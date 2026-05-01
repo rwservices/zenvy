@@ -7,37 +7,47 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
  */
 
  :root {
-	--color-accent: #f9b189;
-	--color-accent-secondary: #ff80c0;
-	--black-color: #000;
-	--color-heading: #201F1F;
-	--color-1: #444444;
-	--color-2: #6d707d;
-	--color-3: #9ea0a8;
-	--color-4: #cecfd4;
-	--color-5: #ffffff;
-	--color-bg: #ffffff;
-	--color-bg-4: #f2f2f2;
-	--container-width: 1170px;
-    --body-font: 'Cormorant Garamond', serif;
-    --heading-fonts: 'Cormorant Garamond', serif;
-}
+	--color-primary: #f9b189;
+	--color-secondary: #ff80c0;
+	--color-gray-900: #201F1F;
+	--color-gray-800: #444444;
+	--color-gray-700: #6d707d;
+	--color-gray-600: #9ea0a8;
+	--color-gray-500: #cecfd4;
+	--color-gray-200: #f2f2f2;
+	--color-white: #ffffff;
 
-:root {
-	--color-link: var(--color-accent);
-	--color-link-hover: var(--color-accent-secondary);
+	/* Semantic Colors */
+	--color-black: #000000;
+	--color-heading: var(--color-gray-900);
+	--color-text: var(--color-gray-800);
+	--color-text-light: var(--color-gray-700);
+	--color-border: var(--color-gray-500);
+	--color-bg: var(--color-white);
+	--color-bg-light: var(--color-gray-200);
+	
+	/* Link Colors */
+	--color-link: var(--color-primary);
+	--color-link-hover: var(--color-secondary);
+	
+	/* Layout */
+	--container-width: 1170px;
+	
+	/* Typography */
+	--font-body: 'Cormorant Garamond', serif;
+	--font-heading: 'Cormorant Garamond', serif;
 }
 
 /* :root {
-	--color-1: var(--color-accent-secondary);
-	--color-link: var(--color-accent-secondary);
-	--color-bg-2: #F2F2F2;
-	--color-link-hover: var(--color-accent);
-	--color-link-visited: var(--color-3);
-	--color-bg-3: var(--color-accent);
-	--color-btn: var(--color-5);
-	--color-btn-bg: var(--color-bg-3);
-	--color-btn-bg-2: var(--color-bg-2);
+	--color-gray-800: var(--color-secondary);
+	--color-link: var(--color-secondary);
+	--color-white-2: #F2F2F2;
+	--color-link-hover: var(--color-primary);
+	--color-link-visited: var(--color-gray-600);
+	--color-white-3: var(--color-primary);
+	--color-btn: var(--color-white);
+	--color-btn-bg: var(--color-white-3);
+	--color-btn-bg-2: var(--color-white-2);
 } */
 
 .d-flex {
