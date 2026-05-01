@@ -205,7 +205,7 @@ class Zenvy_Customizer_Footer_Builder {
                         ],
                         'col-2'      => [
                             [
-                                'id'    => 'footer_social'
+                                'id'    => 'footer_menu'
                             ]
                         ]
                     ]

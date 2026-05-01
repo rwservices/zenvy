@@ -195,7 +195,7 @@ function zenvy_scripts() {
 	wp_enqueue_style( 'zenvy-responsive', ZENVY_THEME_URI . 'assets/build/css/responsive.css', null, ZENVY_THEME_VERSION, 'all' );
 
 	// Add output of Customizer settings as inline style.
-	wp_add_inline_style( 'zenvy-main-style', Zenvy_Customizer_Inline_Style::css_output( 'front-end' ) );
+	//wp_add_inline_style( 'zenvy-main-style', Zenvy_Customizer_Inline_Style::css_output( 'front-end' ) );
 
 	// Enqueue MeanMenu Js
 	wp_enqueue_script( 'meanmenu', ZENVY_THEME_URI . 'assets/build/library/jquery.meanmenu.js', [ 'jquery' ], '2.0.7', true );

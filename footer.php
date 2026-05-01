@@ -20,7 +20,7 @@
 do_action( 'zenvy_footer_before' );
 ?>
 
-<footer id="colophon" class="site-footer">
+<footer id="colophon" class="site-footer site-generator">
 
 	<?php
 	/**

@@ -779,32 +779,45 @@ if (! function_exists('zenvy_content_before_wrapper_start')) :
 		endif;
 
 		/* ------------------------------ CONTENT ------------------------------ */
-		if (! function_exists('zenvy_menu_fallback')) :
+		if ( ! function_exists( 'zenvy_menu_fallback' ) ) :
 
 			/**
 			 * Menu fallback for primary menu.
 			 *
 			 * Contains wp_list_pages to display pages created,
+			 *
+			 * @param array $args Array of wp_nav_menu arguments.
 			 */
-			function zenvy_menu_fallback()
-			{
+			function zenvy_menu_fallback( $args = array() ) {
+				// Get the container class from args or use default
+				$container_class = ! empty( $args['container_class'] ) ? $args['container_class'] : 'menu-top-menu-container';
+				
+				// Get the menu class from args or use default
+				$menu_class = ! empty( $args['menu_class'] ) ? $args['menu_class'] : 'menu-wrapper';
+				
+				// Get the menu ID from items_wrap or use default
+				$menu_id = 'primary-menu-list';
+				if ( ! empty( $args['items_wrap'] ) && preg_match( '/id="([^"]+)"/', $args['items_wrap'], $matches ) ) {
+					$menu_id = $matches[1];
+				}
+				
 				$output  = '';
-				$output .= '<div class="menu-top-menu-container">';
-				$output .= '<ul id="primary-menu-list" class="menu-wrapper">';
-
+				$output .= '<div class="' . esc_attr( $container_class ) . '">';
+				$output .= '<ul id="' . esc_attr( $menu_id ) . '" class="' . esc_attr( $menu_class ) . '">';
+				
 				$output .= wp_list_pages(
-					[
+					array(
 						'echo'     => false,
 						'title_li' => false,
-					]
+					)
 				);
-
+				
 				$output .= '</ul>';
 				$output .= '</div>';
-
+				
 				// @codingStandardsIgnoreStart
 				echo $output;
 				// @codingStandardsIgnoreEnd
 			}
-
+		
 		endif;

@@ -72,14 +72,38 @@ Table of Content
 /*  2.0 ===== Global =====   */
 
 :root {
-	--white: #fff;
+	--color-accent: #f9b189;
+	--color-accent-secondary: #ff80c0;
 	--black-color: #000;
-	--grey-bg: #f2f2f2;
+	--color-heading: #201F1F;
+	--color-1: #444444;
+	--color-2: #6d707d;
+	--color-3: #9ea0a8;
+	--color-4: #cecfd4;
+	--color-5: #ffffff;
+	--color-bg: #ffffff;
+	--color-bg-4: #f2f2f2;
+	--container-width: 1170px;
+  
+    --body-font: 'Cormorant Garamond', serif;
+    --heading-fonts: 'Cormorant Garamond', serif;
 }
 
+/* :root {
+	--color-1: var(--color-accent-secondary);
+	--color-link: var(--color-accent-secondary);
+	--color-bg-2: var(--color-accent-secondary);
+	--color-link-hover: var(--color-accent);
+	--color-link-visited: var(--color-3);
+	--color-bg-3: var(--color-accent);
+	--color-btn: var(--color-5);
+	--color-btn-bg: var(--color-bg-3);
+	--color-btn-bg-2: var(--color-bg-2);
+} */
+
 body {
-	color: var(--body-color);
-	background-color: var(--bg);
+	color: var(--color-1);
+	background-color: var(--color-bg);
 	font-family: var(--body-font);
 	font-size: 14px;
 	line-height: 1.27;
@@ -106,7 +130,7 @@ h3,
 h4,
 h5,
 h6 {
-	color: var(--heading-color);
+	color: var(--color-heading);
 	font-weight: 400;
 	margin: 0;
 	font-family: var(--heading-fonts);
@@ -118,7 +142,7 @@ h6 {
 .site-footer h4,
 .site-footer h5,
 .site-footer h6 {
-	color: var(--white);
+	color: var(--color-5);
 }
 
 h1 {
@@ -170,7 +194,7 @@ h6 {
 	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
 	clip-path: none;
 	clip: auto !important;
-	color: var(--secondary);
+	color: var(--color-accent-secondary);
 	display: block;
 	font-size: 0.875rem;
 	font-size: 14px;
@@ -256,7 +280,7 @@ blockquote cite {
 }
 
 .breadcrumbs li::before {
-	color: var(--white);
+	color: var(--color-5);
 	content: "/";
 	display: block;
 	left: -15px;
@@ -285,7 +309,7 @@ blockquote cite {
 .breadcrumbs li span,
 .breadcrumbs a:hover span,
 .breadcrumb li span {
-	color: var(--white);
+	color: var(--color-5);
 }
 
 /*   -- "Superscript and Subscript" (These are the styles for the Superscript and Subscript) --  */
@@ -326,7 +350,7 @@ i {
 }
 
 pre {
-	background-color: var(--white);
+	background-color: var(--color-bg);
 	margin-bottom: 20px;
 	overflow: auto;
 	padding: 30px;
@@ -353,7 +377,7 @@ address {
 }
 
 ins {
-	background-color: var(--white) 9c0;
+	background-color: var(--color-bg) 9c0;
 	margin-bottom: 20px;
 	text-decoration: none;
 }
@@ -391,14 +415,14 @@ ul {
 }
 
 a {
-	color: var(--primary);
+	color: var(--color-accent);
 	text-decoration: none;
 }
 
 a:focus,
 a:active,
 a:hover {
-	color: var(--secondary);
+	color: var(--color-accent-secondary);
 	outline: none;
 	text-decoration: none;
 	transition: all 0.3s ease-in 0s;
@@ -489,7 +513,7 @@ input[type="submit"] {
 input[type="reset"]:hover,
 input[type="button"]:hover,
 input[type="submit"]:hover {
-	color: var(--primary);
+	color: var(--color-accent);
 }
 
 select {
@@ -632,8 +656,8 @@ article {
 	-webkit-font-smoothing: antialiased;
 	-webkit-transition: all 0.5s ease-out;
 	border-radius: 3px;
-	border: 1px solid var(--white) fff;
-	color: var(--white);
+	border: 1px solid var(--color-5);
+	color: var(--color-5);
 	display: block;
 	font-family: "FontAwesome";
 	font-size: 16px;
@@ -646,7 +670,7 @@ article {
 }
 
 .back-to-top a:hover {
-	border: 1px solid var(--white);
+	border: 1px solid var(--color-5);
 	background: #ca77b4;
 }
 
@@ -661,7 +685,7 @@ article {
 	-ms-transition: all 0.4s ease 0s;
 	-o-transition: all 0.4s ease 0s;
 	-webkit-transition: all 0.4s ease 0s;
-	color: var(--body-color);
+	color: var(--color-1);
 	display: inline-block;
 	font-size: 16px;
 	line-height: 1.2;
@@ -670,7 +694,7 @@ article {
 	text-align: center;
 	text-transform: capitalize;
 	position: relative;
-	background: var(--grey-bg);
+	background: var(--color-bg-4);
 	border: 1px solid #e1e1e1;
 }
 
@@ -678,21 +702,21 @@ article {
 .woocommerce-button:hover,
 .woocommerce-Button:hover,
 .wc-block-components-button:hover {
-	color: var(--white);
+	color: var(--color-5);
 	transition: all 0.4s ease 0s;
 	-moz-transition: all 0.4s ease 0s;
 	-ms-transition: all 0.4s ease 0s;
 	-o-transition: all 0.4s ease 0s;
 	-webkit-transition: all 0.4s ease 0s;
-	background: var(--primary);
-	border-color: var(--primary);
+	background: var(--color-accent);
+	border-color: var(--color-accent);
 }
 
 .box-button:hover,
 .box-button:active,
 .box-button:focus {
-	color: var(--white);
-	background: var(--primary);
+	color: var(--color-5);
+	background: var(--color-accent);
 }
 
 .read-more-btn {
@@ -925,7 +949,7 @@ hr {
 
 .wp-caption-text {
 	bottom: 0;
-	color: var(--white);
+	color: var(--color-5);
 	font-size: 14px;
 	margin: 10px 0 0;
 	padding: 7px;
@@ -982,8 +1006,8 @@ iframe {
 
 .site-header {
 	position: relative;
-	background-color: var(--header-bg);
-	color: var(--header-color);
+	background-color: var(--color-bg);
+	color: var(--color-1);
 }
 
 .hgroup-wrap {
@@ -1025,7 +1049,7 @@ iframe {
 }
 
 .site-title a {
-	color: var(--white);
+	color: var(--color-heading);
 	display: inline-block;
 }
 
@@ -1034,7 +1058,7 @@ iframe {
 }
 
 .site-description {
-	color: var(--white);
+	color: var(--color-1);
 	display: inline-block;
 	font-size: 14px;
 	text-transform: uppercase;
@@ -1061,18 +1085,18 @@ iframe {
 /*   -- "Social Profile" (These are the styles for the Social Site section) --   */
 
 .social-links ul li a::before {
-	color: var(--body-color);
+	color: var(--color-1);
 	font-family: "FontAwesome";
 	font-size: 18px;
 	vertical-align: middle;
 }
 
 .site-footer .social-links ul li a::before {
-	color: var(--white);
+	color: var(--color-5);
 }
 
 .social-links ul li a:hover::before {
-	color: var(--white);
+	color: var(--color-1);
 }
 
 .social-links ul li a[href*="facebook.com"]::before {
@@ -1212,7 +1236,7 @@ iframe {
 }
 
 .social-links.inline-social-icons ul li a[href*="wordpress.org"]:hover {
-	background: var(--secondary);
+	background: var(--color-accent-secondary);
 }
 
 .social-links.inline-social-icons ul li a[href*="github.com"]:hover {
@@ -1304,7 +1328,7 @@ iframe {
 }
 
 .social-links.inline-social-icons ul li a[href*="wordpress.org"]:hover {
-	background: var(--secondary);
+	background: var(--color-accent-secondary);
 }
 
 .social-links.inline-social-icons ul li a[href*="jsfispanle.net"]:hover {
@@ -1368,7 +1392,7 @@ iframe {
 	-o-transition: all 0.3s ease 0s;
 	-webkit-transition: all 0.3s ease 0s;
 	border-radius: 50px;
-	color: var(--white);
+	color: var(--color-5);
 	display: inline-block;
 	font-size: 0px;
 	height: 43px;
@@ -1427,7 +1451,7 @@ iframe {
 .block-social-icons ul li a,
 .widget.block-social-icons ul li a {
 	border-radius: 3px;
-	color: var(--white);
+	color: var(--color-5);
 	display: block;
 	padding: 10px;
 	text-transform: inherit;
@@ -1435,12 +1459,12 @@ iframe {
 
 .block-social-icons ul li a:hover,
 .block-social-icons.social-links ul li a:before {
-	color: var(--white);
+	color: var(--color-5);
 }
 
 .block-social-icons a span {
-	border-right: 1px solid var(--white);
-	color: var(--white);
+	border-right: 1px solid var(--color-5);
+	color: var(--color-5);
 	display: inline-block;
 	font-size: 18px;
 	margin-right: 4px;
@@ -1549,7 +1573,7 @@ iframe {
 }
 
 .main-navigation li a {
-	color: var(--header-color);
+	color: var(--color-1);
 	display: block;
 	font-size: 14px;
 	padding: 4px 0px 5px;
@@ -1570,7 +1594,7 @@ iframe {
 	-ms-transition: all 0.5s ease 0s;
 	-o-transition: all 0.5s ease 0s;
 	-webkit-transition: all 0.5s ease 0s;
-	color: var(--secondary);
+	color: var(--color-accent-secondary);
 	transition: all 0.5s ease 0s;
 }
 
@@ -1614,7 +1638,7 @@ iframe {
 	-ms-transition: all 0.3s ease 0s;
 	-o-transition: all 0.3s ease 0s;
 	-webkit-transition: all 0.3s ease 0s;
-	background-color: var(--white);
+	background-color: var(--color-bg);
 	left: 0;
 	position: absolute;
 	text-align: left;
@@ -1637,7 +1661,7 @@ iframe {
 .main-navigation ul li.current-menu-ancestor ul li a,
 .main-navigation ul li.current-page-item ul li a {
 	border: none;
-	color: var(--body-color);
+	color: var(--color-1);
 	float: none;
 	font-size: 15px;
 	height: inherit;
@@ -1648,8 +1672,8 @@ iframe {
 .main-navigation ul li ul li a:hover,
 .main-navigation ul li ul li:hover > a,
 .main-navigation ul li.current-menu-item ul li a:hover {
-	background: var(--secondary);
-	color: var(--white);
+	background: var(--color-accent-secondary);
+	color: var(--color-5);
 }
 
 .main-navigation ul li ul li ul {
@@ -1820,7 +1844,7 @@ iframe {
 	position: absolute;
 	margin: 0 !important;
 	font-size: 32px !important;
-	color: var(--white);
+	color: var(--color-5);
 	-webkit-transition: all 0.3s ease 0s;
 	-o-transition: all 0.3s ease 0s;
 	transition: all 0.3s ease 0s;
@@ -1997,7 +2021,7 @@ iframe {
 
 .entry-meta,
 .entry-meta a {
-	color: var(--body-color);
+	color: var(--color-1);
 	font-size: 12px;
 }
 
@@ -2006,7 +2030,7 @@ iframe {
 }
 
 .entry-meta a:hover {
-	color: var(--secondary);
+	color: var(--color-accent-secondary);
 }
 
 .entry-meta .cat-links a {
@@ -2090,9 +2114,9 @@ iframe {
 }
 
 .widget_tag_cloud a:hover {
-	color: var(--white);
+	color: var(--color-5);
 	opacity: 1;
-	background: var(--primary);
+	background: var(--color-accent);
 }
 
 /* widget instagram styling from here */
@@ -2392,7 +2416,7 @@ iframe {
 }
 
 .comment-form .required {
-	color: var(--body-color);
+	color: var(--color-1);
 }
 
 .comment-form textarea {
@@ -2401,7 +2425,7 @@ iframe {
 
 .form-allowed-tags,
 .form-allowed-tags code {
-	color: var(--body-color);
+	color: var(--color-1);
 	font-size: 12px;
 }
 
@@ -2474,7 +2498,7 @@ iframe {
 }
 
 .comment-form p .fa {
-	color: var(--white);
+	color: var(--color-5);
 }
 
 .comment-form p.comment-form-cookies-consent {
@@ -2543,7 +2567,7 @@ ol.wp-block-latest-comments {
 .wpcf7-submit[type="submit"],
 .form-submit input[type="submit"],
 .page-content .search-form .search-submit {
-	color: var(--white);
+	color: var(--color-5);
 	margin: 0;
 	text-transform: uppercase;
 }
@@ -2620,7 +2644,7 @@ div.error {
 	padding: 170px 0 0;
 	position: relative;
 	margin-bottom: 120px;
-	background-color: var(--grey-bg);
+	background-color: var(--color-bg-4);
 }
 
 .page-title-wrap.empty-page-title-wrap {
@@ -2628,7 +2652,7 @@ div.error {
 }
 
 .page-title {
-	color: var(--primary);
+	color: var(--color-accent);
 	display: inline-block;
 	position: relative;
 	font-size: 110px;
@@ -2649,11 +2673,11 @@ div.error {
 
 .page-title a,
 .taxonomy-description p {
-	color: var(--primary);
+	color: var(--color-accent);
 }
 
 .page-title-wrap .breadcrumb {
-	background: var(--primary);
+	background: var(--color-accent);
 	border-radius: 0;
 	display: inline-block;
 	margin: 0 0 -15px;
@@ -2714,7 +2738,7 @@ div.bbp-submit-wrapper button {
 	-webkit-transition: all 0.3s ease-out;
 	background-color: rgb(46, 60, 66);
 	border: 0 none;
-	color: var(--white);
+	color: var(--color-5);
 	cursor: pointer;
 	display: block;
 	height: 40px;
@@ -2750,7 +2774,7 @@ div.bbp-submit-wrapper button {
 .pagination > span {
 	background-color: rgba(210, 209, 209, 0);
 	border: medium none;
-	color: var(--white);
+	color: var(--color-5);
 	display: inline-block;
 	font-size: 14px;
 	padding: 3px 10px;
@@ -2761,12 +2785,12 @@ div.bbp-submit-wrapper button {
 	display: flex;
 	align-items: center;
 	margin: 0;
-	border: 1px solid var(--primary);
+	border: 1px solid var(--color-accent);
 }
 
 .pagination a.prev,
 .pagination a.next {
-	border: 1px solid var(--primary);
+	border: 1px solid var(--color-accent);
 	display: inline-block;
 	padding: 2px 10px;
 	position: relative;
@@ -2774,8 +2798,8 @@ div.bbp-submit-wrapper button {
 }
 
 .pagination .current {
-	background-color: var(--primary);
-	color: var(--white);
+	background-color: var(--color-accent);
+	color: var(--color-5);
 	padding: 4px 10px 3px;
 	height: 30px;
 	width: 30px;
@@ -2794,8 +2818,8 @@ div.bbp-submit-wrapper button {
 .wp-pagenavi li > a:hover,
 #main ul.default-wp-page li > a:hover,
 .pagination > span {
-	background-color: var(--primary);
-	color: var(--white);
+	background-color: var(--color-accent);
+	color: var(--color-5);
 }
 
 .post-navigation {
@@ -2820,7 +2844,7 @@ div.bbp-submit-wrapper button {
 
 .post-navigation .nav-links a {
 	background: #303e4b;
-	color: var(--white);
+	color: var(--color-5);
 	display: block;
 	padding: 15px;
 }
@@ -2839,7 +2863,7 @@ div.bbp-submit-wrapper button {
 	-ms-transition: all 0.3s ease-out;
 	-o-transition: all 0.3s ease-out;
 	-webkit-transition: all 0.3s ease-out;
-	color: var(--white);
+	color: var(--color-5);
 	content: "\f060";
 	display: block;
 	font-family: "FontAwesome";
@@ -2865,7 +2889,7 @@ div.bbp-submit-wrapper button {
 	-ms-transition: all 0.3s ease-out;
 	-o-transition: all 0.3s ease-out;
 	-webkit-transition: all 0.3s ease-out;
-	color: var(--white);
+	color: var(--color-5);
 	content: "\f061";
 	display: block;
 	font-family: "FontAwesome";
@@ -2909,12 +2933,12 @@ div.bbp-submit-wrapper button {
 
 #secondary .widget li:not(.wp-social-link) a,
 #primary .widget li:not(.wp-social-link) a {
-	color: var(--body-color);
+	color: var(--color-1);
 }
 
 #secondary .widget li:not(.wp-social-link) a:hover,
 #primary .widget li:not(.wp-social-link) a:hover {
-	color: var(--secondary);
+	color: var(--color-accent-secondary);
 }
 
 .widget_media_image .featured-image {
@@ -2945,11 +2969,11 @@ div.bbp-submit-wrapper button {
 .widget-post-author .position a {
 	font-size: 16px;
 	text-transform: uppercase;
-	color: var(--body-color);
+	color: var(--color-1);
 }
 
 .widget-post-author .position a:hover {
-	color: var(--primary);
+	color: var(--color-accent);
 }
 
 /*     Widget-Search     */
@@ -2964,7 +2988,7 @@ div.bbp-submit-wrapper button {
 	border-radius: 0;
 	border: medium none;
 	box-shadow: inherit;
-	color: var(--white);
+	color: var(--color-5);
 	height: 57px;
 	margin: 0;
 	padding: 0 8px;
@@ -3061,19 +3085,19 @@ div.bbp-submit-wrapper button {
 
 .widget_tag_cloud a {
 	border: 1px solid #e1e1e1;
-	color: var(--body-color);
+	color: var(--color-1);
 	display: inline-block;
 	font-size: 16px;
 	margin: 3px 10px 10px 0;
 	padding: 9px 34px;
 	text-transform: uppercase;
-	background: var(--grey-bg);
+	background: var(--color-bg-4);
 }
 
 #secondary .widget.widget_tag_cloud a:hover {
-	color: var(--white);
-	background: var(--primary);
-	border-color: var(--primary);
+	color: var(--color-5);
+	background: var(--color-accent);
+	border-color: var(--color-accent);
 }
 
 /*   -- "Recent Entries/Comments widget" section (These are the styles for the Recent Entries/Comments widget section) --   */
@@ -3198,7 +3222,7 @@ div.bbp-submit-wrapper button {
 
 .search-active.search-toggle::before,
 .search-toggle:hover:before {
-	color: var(--primary);
+	color: var(--color-accent);
 }
 
 .search-toggle {
@@ -3211,7 +3235,7 @@ div.bbp-submit-wrapper button {
 }
 
 .search-section {
-	background-color: var(--white);
+	background-color: var(--color-bg);
 	border: 1px solid rgba(0, 0, 0, 0.1);
 	box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 	padding: 10px;
@@ -3228,7 +3252,7 @@ div.bbp-submit-wrapper button {
 }
 
 .search-section .search-arrow {
-	background-color: var(--white);
+	background-color: var(--color-bg);
 	border-color: rgba(0, 0, 0, 0.1);
 	border-style: solid;
 	border-width: 1px 0 0 1px;
@@ -3321,7 +3345,7 @@ div.bbp-submit-wrapper button {
 	font-size: 10px;
 	padding-top: 1px;
 	text-align: center;
-	color: var(--white);
+	color: var(--color-5);
 }
 
 .site-header .site-cart-views > .widget_shopping_cart {
@@ -3335,15 +3359,15 @@ div.bbp-submit-wrapper button {
 	opacity: 0;
 	-webkit-transition: all 0.2s ease-in-out;
 	transition: all 0.2s ease-in-out;
-	background: var(--white);
+	background: var(--color-bg);
 }
 
 .mini_cart_inner,
 .site-header .widget_shopping_cart_content {
-	border: 1px solid var(--primary);
+	border: 1px solid var(--color-accent);
 	padding: 15px 15px 5px;
 	position: relative;
-	background: var(--white);
+	background: var(--color-bg);
 }
 
 .site-header .mini_cart_inner::before,
@@ -3351,11 +3375,11 @@ div.bbp-submit-wrapper button {
 	content: "";
 	width: 12px;
 	height: 12px;
-	border: 1px solid var(--primary);
+	border: 1px solid var(--color-accent);
 	top: -7px;
 	right: 0;
 	right: 8px;
-	background: var(--white);
+	background: var(--color-bg);
 	position: absolute;
 	-webkit-transform: rotate(44deg);
 	transform: rotate(44deg);
@@ -3496,15 +3520,15 @@ div.bbp-submit-wrapper button {
 
 .post .entry-title {
 	font-size: 28px;
-	color: var(--heading-color);
+	color: var(--color-heading);
 }
 
 .post .entry-title a {
-	color: var(--heading-color);
+	color: var(--color-heading);
 }
 
 .post .entry-title a:hover {
-	color: var(--secondary);
+	color: var(--color-accent-secondary);
 }
 
 .alternative-post .post:nth-child(2n + 2) .featured-image-wrapper {
@@ -3629,7 +3653,7 @@ div.bbp-submit-wrapper button {
 .post.flexible-post .post-content {
 	width: 60%;
 	margin-left: -8%;
-	background: var(--white);
+	background: var(--color-bg);
 	z-index: 9;
 	padding: 10px 5px 10px 15px;
 }
@@ -3676,7 +3700,7 @@ div.bbp-submit-wrapper button {
 
 /*  video post section styling from here    */
 .video-post-section {
-	background: var(--grey-bg);
+	background: var(--color-bg-4);
 	margin-bottom: 60px;
 }
 
@@ -3686,7 +3710,7 @@ div.bbp-submit-wrapper button {
 
 .video-post-section .custom-col-7 .post .post-content {
 	margin-left: 60px;
-	background: var(--grey-bg);
+	background: var(--color-bg-4);
 	margin-top: -60px;
 	position: relative;
 	z-index: 9;
@@ -3694,7 +3718,7 @@ div.bbp-submit-wrapper button {
 }
 
 .video-post-section .post .post-content {
-	background: var(--grey-bg);
+	background: var(--color-bg-4);
 }
 
 .video-post-section .entry-header.heading {
@@ -3739,7 +3763,7 @@ div.bbp-submit-wrapper button {
 }
 
 .video-post-section .featured-image-wrapper:hover .featured-image::before {
-	color: var(--white);
+	color: var(--color-5);
 	-webkit-transition: all 0.3s ease 0s;
 	-o-transition: all 0.3s ease 0s;
 	transition: all 0.3s ease 0s;
@@ -3758,7 +3782,7 @@ div.bbp-submit-wrapper button {
 /*    testimonial quote section styling from here    */
 
 .testimonial-quote-content {
-	background: var(--white);
+	background: var(--color-bg);
 	max-width: 650px;
 	margin-left: auto;
 	padding: 52px 55px 62px 75px;
@@ -3788,12 +3812,12 @@ div.bbp-submit-wrapper button {
 .testimonial-quote-content .entry-content p {
 	font-size: 28px;
 	font-family: var(--heading-fonts);
-	color: var(--heading-color);
+	color: var(--color-heading);
 }
 
 .author-name,
 h3.author-name {
-	color: var(--body-color);
+	color: var(--color-1);
 	font-family: var(--body-font);
 	font-size: 16px;
 	text-transform: uppercase;
@@ -3857,8 +3881,8 @@ ul.products {
 }
 
 .image-icon-wrapper .sales-tag span {
-	background: var(--white);
-	color: var(--body-color);
+	background: var(--color-bg);
+	color: var(--color-1);
 	padding: 13px 5px;
 	display: inline-block;
 	font-size: 12px;
@@ -3902,9 +3926,9 @@ ul.products {
 .add_to_cart_button,
 .image-icon-wrapper .icons button,
 .added_to_cart {
-	background: var(--white);
+	background: var(--color-bg);
 	text-transform: uppercase;
-	color: var(--body-color);
+	color: var(--color-1);
 	font-size: 12px;
 	padding: 8px 15px;
 	z-index: 9;
@@ -3915,8 +3939,8 @@ ul.products {
 .add_to_cart_button:hover,
 .image-icon-wrapper .icons button:hover,
 .added_to_cart:hover {
-	background: var(--primary);
-	color: var(--white);
+	background: var(--color-accent);
+	color: var(--color-5);
 }
 .added_to_cart {
 	margin-top: 6px;
@@ -3959,7 +3983,7 @@ ul.products {
 }
 
 .list-info a:hover .entry-title {
-	color: var(--primary);
+	color: var(--color-accent);
 }
 
 .price del {
@@ -3968,7 +3992,7 @@ ul.products {
 }
 
 .price ins {
-	color: var(--heading-color);
+	color: var(--color-heading);
 }
 
 .shop-title-wrap {
@@ -4020,7 +4044,7 @@ ul.products {
 .about-info-content .author-name {
 	font-size: 70px;
 	text-transform: capitalize;
-	color: var(--heading-color);
+	color: var(--color-heading);
 	font-family: var(--heading-fonts);
 	text-shadow:
 		-1px 1px 0 #fff,
@@ -4049,7 +4073,7 @@ ul.products {
 .skills-value {
 	display: inline;
 	font-size: 28px;
-	color: var(--heading-color);
+	color: var(--color-heading);
 	font-family: var(--heading-fonts);
 }
 
@@ -4070,7 +4094,7 @@ ul.products {
 }
 
 .personal-skills-active .skills-wrapper .skills-progress-bar {
-	background: var(--heading-color);
+	background: var(--color-heading);
 	height: 100%;
 	-webkit-animation: animate-positive 2s;
 	animation: animate-positive 2s;
@@ -4124,7 +4148,7 @@ ul.products {
 
 .mc4wp-form input,
 .widget_search .search-form input {
-	color: var(--body-color);
+	color: var(--color-1);
 	padding-right: 20px;
 	text-align: center;
 }
@@ -4151,12 +4175,12 @@ ul.products {
 	height: auto;
 	position: static;
 	width: auto;
-	color: var(--body-color);
+	color: var(--color-1);
 }
 
 .mc4wp-form input[type="submit"]:hover,
 .widget_search .search-form input[type="submit"]:hover {
-	color: var(--secondary);
+	color: var(--color-accent-secondary);
 	background-position: 90% top;
 }
 
@@ -4287,7 +4311,7 @@ ul.products {
 	height: 43px;
 	width: 43px;
 	margin: 0 auto 10px;
-	background: var(--grey-bg);
+	background: var(--color-bg-4);
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -4310,12 +4334,12 @@ ul.products {
 }
 
 .contact-content-item ul li a {
-	color: var(--body-color);
+	color: var(--color-1);
 	font-size: 16px;
 }
 
 .contact-content-item ul li a:hover {
-	color: var(--primary);
+	color: var(--color-accent);
 }
 
 .contact-content-item > .featured-image {
@@ -4400,8 +4424,6 @@ p.no-comments {
 .site-footer {
 	position: relative;
 	overflow: hidden;
-	background: var(--footer-bg);
-	padding-top: 75px;
 }
 
 .site-footer::before {
@@ -4485,7 +4507,7 @@ p.no-comments {
 .site-footer a,
 .site-footer li,
 .site-footer span {
-	color: var(--footer-color);
+	color: var(--color-5);
 }
 
 .site-footer a:hover {
@@ -4518,7 +4540,7 @@ p.no-comments {
 
 .site-generator {
 	padding: 21px 0 22px;
-	background: var(--footer-bottom-bg);
+	background: var(--color-heading);
 }
 
 .site-info {
@@ -4585,7 +4607,7 @@ p.no-comments {
 .site-footer input[type="reset"]:hover,
 .site-footer input[type="button"]:hover,
 .site-footer input[type="submit"]:hover {
-	color: var(--white);
+	color: var(--color-5);
 }
 
 .site-footer form input,
@@ -4669,7 +4691,7 @@ p.no-comments {
 	-o-text-overflow: ellipsis;
 	-webkit-text-overflow: ellipsis;
 	bottom: -100%;
-	color: var(--white);
+	color: var(--color-5);
 	left: 10px;
 	margin: 0;
 	padding: 6px;
@@ -4691,11 +4713,11 @@ p.no-comments {
 ::selection {
 	background: rgba(48, 62, 75, 0.9) none repeat scroll 0 0;
 	/* WebKit/Blink Browsers */
-	color: var(--white);
+	color: var(--color-5);
 }
 
 ::-moz-selection {
 	background: rgba(48, 62, 75, 0.9) none repeat scroll 0 0;
 	/* Gecko Browsers */
-	color: var(--white);
+	color: var(--color-5);
 }

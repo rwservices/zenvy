@@ -30,6 +30,6 @@ $content .= sprintf(
 );
 ?>
 
-<div class="site-info footer-copyright-wrap">
+<span class="site-info footer-copyright-wrap">
 	<?php echo wp_kses_post( do_shortcode( $content ) ); ?>
-</div><!-- .site-info -->
+</span><!-- .site-info -->
