@@ -204,7 +204,7 @@ class Zenvy_Helper
 
         $post_meta = $meta_list ? $meta_list : get_theme_mod(
             'zenvy_single_post_meta_elements',
-            ['author', 'post-date']
+            'post-date', 'categories'
         );
 
         // If the post meta setting has the value 'empty', it's explicitly empty and the default post meta shouldn't be output.

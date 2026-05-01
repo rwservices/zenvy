@@ -32,7 +32,7 @@ class Zenvy_Customize_Single_Post_Header_Fields extends Zenvy_Customize_Base_Fie
 			// Meta Elements
 			'zenvy_single_post_meta_elements'   => [
 				'type'              => 'sortable',
-				'default'           => [ 'post-date', 'tags' ],
+				'default'           => [ 'post-date', 'categories' ],
 				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_sortable' ],
 				'label'             => esc_html__( 'Post Meta Elements', 'zenvy' ),
 				'description'       => esc_html__( 'To display post meta data and rearrange them with drag and drop.', 'zenvy' ),
