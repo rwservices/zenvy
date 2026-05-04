@@ -11,6 +11,7 @@ const CopyPlugin = require( 'copy-webpack-plugin' );
  * WordPress dependencies
  */
 const defaultConfig = require( '@wordpress/scripts/config/webpack.config' );
+const { widget } = require('@wordpress/icons');
 
 // Directory paths
 const SRC_DIR = path.resolve( __dirname, 'assets/src' );
@@ -108,6 +109,7 @@ const scripts = {
 		'customize-preview': path.resolve( process.cwd(), 'assets', 'src', 'customize', 'preview.js' ),
 		'customize-controls': path.resolve( process.cwd(), 'assets', 'src', 'customize', 'index.js' ),
 		main: path.resolve( process.cwd(), 'assets', 'src', 'js', 'main.js' ),
+		widget: path.resolve( process.cwd(), 'assets', 'src', 'js', 'widget.js' ),
 	},
 	module: {
 		rules:
