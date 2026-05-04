@@ -82,6 +82,7 @@ Table of Content
 	--color-gray-200: #f2f2f2;
 	--color-white: #ffffff;
 
+
 	/* Semantic Colors */
 	--color-black: #000000;
 	--color-heading: var(--color-gray-900);
@@ -90,6 +91,7 @@ Table of Content
 	--color-border: var(--color-gray-500);
 	--color-bg: var(--color-white);
 	--color-bg-light: var(--color-gray-200);
+	--color-bg-dark: var(--color-gray-900);
 	
 	/* Link Colors */
 	--color-link: var(--color-primary);
