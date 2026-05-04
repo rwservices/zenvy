@@ -65,6 +65,8 @@ if ( ! function_exists( 'zenvy_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 
+		add_image_size('featured_post', 330, 440, true);
+
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
 			[
@@ -144,6 +146,29 @@ function zenvy_widgets_init() {
 		]
 	);
 
+	register_sidebar(
+		array(
+			'name' => esc_html__('Homepage Sidebar', 'zenvy'),
+			'id' => 'sidebar-homepage',
+			'description' => esc_html__('Add widgets for homepage here.', 'zenvy'),
+			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'after_widget' => '</aside>',
+			'before_title' => '<h3 class="widget-title">',
+			'after_title' => '</h3>',
+		)
+	);
+	register_sidebar(
+		array(
+			'name' => esc_html__('Homepage Sidebar Secondary', 'zenvy'),
+			'id' => 'sidebar-homepage-sec',
+			'description' => esc_html__('Add secondary widgets for homepage here.', 'zenvy'),
+			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'after_widget' => '</aside>',
+			'before_title' => '<h3 class="widget-title">',
+			'after_title' => '',
+		)
+	);
+
 	// Subscribe Form
 	register_sidebar(
 		[
@@ -196,6 +221,13 @@ function zenvy_scripts() {
 
 	// Add output of Customizer settings as inline style.
 	//wp_add_inline_style( 'zenvy-main-style', Zenvy_Customizer_Inline_Style::css_output( 'front-end' ) );
+
+	// Enqueue Owl Carousel Style
+	wp_enqueue_style( 'owl-carousel', ZENVY_THEME_URI . 'assets/build/library/owl.carousel.css', [], '2.3.4' );
+	wp_enqueue_style( 'owl-carousel-theme', ZENVY_THEME_URI . 'assets/build/library/owl.theme.default.css', [], '2.3.4' );
+
+	// Enqueue Owl Carousel Js
+	wp_enqueue_script( 'owl-carousel', ZENVY_THEME_URI . 'assets/build/library/owl.carousel.js', [ 'jquery' ], '2.3.4', true );
 
 	// Enqueue MeanMenu Js
 	wp_enqueue_script( 'meanmenu', ZENVY_THEME_URI . 'assets/build/library/jquery.meanmenu.js', [ 'jquery' ], '2.0.7', true );

@@ -21,7 +21,7 @@ add_action('zenvy_head', 'zenvy_head_meta', 10);
  * @see zenvy_header_featured_slider()
  * @see zenvy_content_before_page_header()
  */
-add_action('zenvy_header_bottom', 'zenvy_header_featured_slider', 10);
+// add_action('zenvy_header_bottom', 'zenvy_header_featured_slider', 10);
 add_action('zenvy_header_bottom', 'zenvy_content_before_page_header', 15);
 
 

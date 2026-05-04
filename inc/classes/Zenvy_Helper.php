@@ -904,4 +904,19 @@ class Zenvy_Helper
 
         echo 'class="' . esc_attr(join(' ', $classes)) . '"'; // WPCS: XSS ok.
     }
+
+    /**
+     * get the thumbnail URL for a YouTube video
+     *
+     * @param string $video_url
+     * @return string
+     */
+    public static function get_youtube_thumb($video_url)
+    {
+        // Implementation for getting YouTube thumbnail
+        if (preg_match('/(?:v=|youtu\.be\/)([^&\s]+)/', $video_url, $matches)) {
+            return 'https://img.youtube.com/vi/' . esc_attr($matches[1]) . '/maxresdefault.jpg';
+        }
+        return '';
+    }
 }

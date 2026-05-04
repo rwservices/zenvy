@@ -8,7 +8,7 @@
  */
 
 
-$sortable_default  = [ 'why-us', 'blog', 'clients' ];
+$sortable_default  = [ 'featured-section', 'explore-categories', 'latest-posts' ];
 $sortable_elements = get_theme_mod(
 	'zenvy_front_page_elements',
 	$sortable_default
@@ -17,21 +17,36 @@ $sortable_elements = get_theme_mod(
 if ( $sortable_elements ) {
 	foreach ( $sortable_elements as $element ) :
 		switch ( $element ) :
-			case 'blog':
-				get_template_part( 'template-parts/front-page/content', 'news' );
-				break;
+			case 'featured-section':
+                get_template_part( 'template-parts/front-page/content', 'featured' );
+                break;
 
-			case 'featured':
-				get_template_part( 'template-parts/front-page/content', 'featured' );
-				break;
+            case 'explore-categories':
+                get_template_part( 'template-parts/front-page/content', 'explore-categories' );
+                break;
+            
+            case 'latest-posts':
+                get_template_part( 'template-parts/front-page/content', 'latest-posts' );
+                break;
 
-			case 'why-us':
-				get_template_part( 'template-parts/front-page/content', 'why-us' );
-				break;
+            case 'quote-section':
+                get_template_part( 'template-parts/front-page/content', 'quote' );
+                break;
 
-			case 'clients':
-				get_template_part( 'template-parts/front-page/content', 'clients' );
-				break;
-		endswitch;
+            case 'trending-posts':
+                get_template_part( 'template-parts/front-page/content', 'trending-posts' );
+                break;
+
+            case 'youtube-promotion':
+                get_template_part( 'template-parts/front-page/content', 'youtube-promotion' );
+                break;
+
+            case 'shop-section':
+                if ( class_exists( 'WooCommerce' ) ) {
+                    get_template_part( 'template-parts/front-page/content', 'shop-section' );
+                }
+                break;
+
+        endswitch;
 	endforeach;
 }

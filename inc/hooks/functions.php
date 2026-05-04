@@ -37,7 +37,7 @@ if (! function_exists('zenvy_header_featured_slider')) :
 			return;
 		}
 
-		get_template_part('template-parts/front-page/content', 'banner');
+		get_template_part('template-parts/front-page/content', 'featured');
 	}
 
 endif;
