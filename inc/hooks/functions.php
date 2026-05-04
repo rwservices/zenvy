@@ -62,8 +62,7 @@ if (! function_exists('zenvy_content_before_page_header')) :
 		);
 		if (is_single()) {
 			$elements = get_theme_mod(
-				'zenvy_single_post_header_elements',
-				['post-meta', 'post-title']
+				'zenvy_single_post_header_elements'
 			);
 		}
 
@@ -440,7 +439,7 @@ if (! function_exists('zenvy_content_before_wrapper_start')) :
 					<?php
 					$elements = get_theme_mod(
 						'zenvy_single_post_content_entry_header_elements',
-						''
+						['post-meta', 'post-title']
 					);
 					if (! empty($elements)) :
 						foreach ($elements as $element) :

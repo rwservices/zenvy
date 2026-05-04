@@ -1915,7 +1915,10 @@ iframe {
 
 /*  9.0 ===== Content =====   */
 .content-area.no-has-page-header {
-	margin-top: -330px;
+	margin-top: -200px;
+}
+.content-area.no-thumbnail-has-page-header {
+	margin-top: -120px;
 }
 .site-content {
 	padding: 50px 0;
@@ -2658,7 +2661,7 @@ div.error {
 }
 
 .page-title-wrap.empty-page-title-wrap {
-	min-height: 350px;
+	min-height: 300px;
 }
 
 .page-title {

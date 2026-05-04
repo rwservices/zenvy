@@ -204,7 +204,7 @@ class Zenvy_Helper
 
         $post_meta = $meta_list ? $meta_list : get_theme_mod(
             'zenvy_single_post_meta_elements',
-            'post-date', 'categories'
+            ['date', 'categories']
         );
 
         // If the post meta setting has the value 'empty', it's explicitly empty and the default post meta shouldn't be output.
@@ -883,14 +883,14 @@ class Zenvy_Helper
         if (is_archive() || is_search() || is_home()) {
             $classes[] = 'alternative-post';
         }
-        if ( is_singular() ) {
-            
-            $elements = is_single() ? get_theme_mod( 'zenvy_single_post_header_elements', ['post-title'] ) :  get_theme_mod('zenvy_single_page_header_elements',['post-title']);
-            
-            if ( empty($elements) ) {
-                $classes[] = 'no-has-page-header';
+        if (is_singular()) {
 
+            $elements = is_single() ? get_theme_mod('zenvy_single_post_header_elements') :  get_theme_mod('zenvy_single_page_header_elements', ['post-title']);
+
+            if ( empty($elements)) {
+                $classes[] = has_post_thumbnail() ? 'no-has-page-header' : 'no-thumbnail-has-page-header';
             }
+            
         }
 
         $classes = array_map('sanitize_html_class', $classes);

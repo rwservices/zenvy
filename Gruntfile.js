@@ -11,7 +11,9 @@ module.exports = function( grunt ) {
 		'!build/**', // exclude build output
 		'!.git/**', // exclude git directory
 		'!.gitignore', // exclude git config
+		'!package.json', // exclude lock files
 		'!package-lock.json', // exclude lock files
+		'!composer.json', // exclude lock files
 		'!composer.lock',
 		'!*.config.js', // exclude config files used only for development
 		'!Gruntfile.js', // exclude this build file

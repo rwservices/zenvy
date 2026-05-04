@@ -35,4 +35,3 @@ phpstan.neon
 
 # Build
 build/
-onesearch.zip

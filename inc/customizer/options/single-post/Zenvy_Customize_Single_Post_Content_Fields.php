@@ -18,7 +18,7 @@ class Zenvy_Customize_Single_Post_Content_Fields extends Zenvy_Customize_Base_Fi
 			// Entry Header
 			'zenvy_single_post_content_entry_header_elements' => [
 				'type'              => 'sortable',
-				'default'           => '',
+				'default'           => ['post-meta', 'post-title'],
 				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_sortable' ],
 				'label'             => esc_html__( 'Header Elements', 'zenvy' ),
 				'description'       => esc_html__( 'Enable to show Header elements in posts and rearrange them by drag and drop.', 'zenvy' ),
