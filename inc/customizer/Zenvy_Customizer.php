@@ -179,9 +179,13 @@ class Zenvy_Customizer {
 		 * Front Page Fields
 		 */
 		require ZENVY_THEME_DIR . 'inc/customizer/options/front-page/Zenvy_Customize_Front_Page_General_Fields.php';
-		require ZENVY_THEME_DIR . 'inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Services_Fields.php';
-		require ZENVY_THEME_DIR . 'inc/customizer/options/front-page/Zenvy_Customize_Front_Page_News_Blog_Fields.php';
-		require ZENVY_THEME_DIR . 'inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Clients_Logo_Fields.php';
+		require ZENVY_THEME_DIR . 'inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Featured_Section_Fields.php';
+		require ZENVY_THEME_DIR . 'inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Explore_Section_Fields.php';
+		require ZENVY_THEME_DIR . 'inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Latest_Posts_Fields.php';
+		require ZENVY_THEME_DIR . 'inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Quote_Fields.php';
+		require ZENVY_THEME_DIR . 'inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Trending_Posts_Fields.php';
+		require ZENVY_THEME_DIR . 'inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Youtube_Promotion_Fields.php';
+		require ZENVY_THEME_DIR . 'inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Shop_Section_Fields.php';
 
 		/**
 		 * Blog Posts Fields
@@ -350,56 +354,54 @@ class Zenvy_Customizer {
 			'priority' => 10,
 		];
 
-		// Banner
-		$sections['front_page_banner'] = [
-			'title'    => esc_html__( 'Property Slider', 'zenvy' ),
+		// Featured Section
+		$sections['front_page_featured'] = [
+			'title'    => esc_html__( 'Featured Section', 'zenvy' ),
 			'panel'    => 'zenvy_front_page_panel',
 			'priority' => 15,
 		];
-		// Search Properties
-		$sections['front_page_search'] = [
-			'title'    => esc_html__( 'Property Search', 'zenvy' ),
+
+		// Explore Section
+		$sections['front_page_explore'] = [
+			'title'    => esc_html__( 'Explore Categories Section', 'zenvy' ),
 			'panel'    => 'zenvy_front_page_panel',
 			'priority' => 20,
 		];
-		
-		// Our Agents
-		$sections['front_page_agents'] = [
-			'title'    => esc_html__( 'Property Agents', 'zenvy' ),
+
+		// Latest Posts
+		$sections['front_page_latest_posts'] = [
+			'title'    => esc_html__( 'Latest Posts Section', 'zenvy' ),
 			'panel'    => 'zenvy_front_page_panel',
-			'priority' => 27,
-		];
-		// Services
-		$sections['front_page_services'] = [
-			'title'    => esc_html__( 'Why Us?', 'zenvy' ),
-			'panel'    => 'zenvy_front_page_panel',
-			'priority' => 35,
+			'priority' => 25,
 		];
 
 		// Testimonial
-		$sections['front_page_testimonials'] = [
-			'title'    => esc_html__( 'Testimonials', 'zenvy' ),
+		$sections['front_page_quote'] = [
+			'title'    => esc_html__( 'Testimonial Quote Section', 'zenvy' ),
 			'panel'    => 'zenvy_front_page_panel',
-			'priority' => 45,
+			'priority' => 30,
 		];
 
-		// Latest Blogs
-		$sections['front_page_news_blog'] = [
-			'title'    => esc_html__( 'News & Blog', 'zenvy' ),
+		// Trending Posts
+		$sections['front_page_trending_posts'] = [
+			'title'    => esc_html__( 'Trending Posts Section', 'zenvy' ),
 			'panel'    => 'zenvy_front_page_panel',
-			'priority' => 60,
+			'description' => esc_html__( 'The trending posts section will display the most popular posts based on the number of comments. You can set the number of posts to display in this section.', 'zenvy' ),
+			'priority' => 35,
 		];
-		// Clients Logo
-		$sections['front_page_clients'] = [
-			'title'    => esc_html__( 'Clients Logo', 'zenvy' ),
+
+		// Youtube Promotion Section
+		$sections['front_page_youtube_promotion'] = [
+			'title'    => esc_html__( 'YouTube Promotion Section', 'zenvy' ),
 			'panel'    => 'zenvy_front_page_panel',
-			'priority' => 65,
+			'priority' => 40,
 		];
-		// Subscribe Form
-		$sections['front_page_subscribe'] = [
-			'title'    => esc_html__( 'Subscribe Form', 'zenvy' ),
+
+		// Woocommerce shop Section
+		$sections['front_page_shop'] = [		
+			'title'    => esc_html__( 'Shop Section', 'zenvy' ),
 			'panel'    => 'zenvy_front_page_panel',
-			'priority' => 70,
+			'priority' => 45,
 		];
 
 		/*
@@ -726,11 +728,11 @@ class Zenvy_Customizer {
 			)
 		);
 
-		// Front Page: Clients Logo
+		// Front Page: Explore Section Repeater
 		$wp_customize->add_setting(
 			new Zenvy_Customize_Repeater_Setting(
 				$wp_customize,
-				'zenvy_front_page_clients_logo_lists',
+				'zenvy_front_page_explore_section_lists',
 				[
 					'default'           => '',
 					'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_repeater' ],
@@ -740,18 +742,25 @@ class Zenvy_Customizer {
 		$wp_customize->add_control(
 			new Zenvy_Customize_Repeater_Control(
 				$wp_customize,
-				'zenvy_front_page_clients_logo_lists',
+				'zenvy_front_page_explore_section_lists',
 				[
-					'section'   => 'zenvy_front_page_clients_section',
+					'section'   => 'zenvy_front_page_explore_section',
 					'fields'    => [
-						'client_logo' => [
-							'type'  => 'image',
-							'label' => esc_html__( 'Logo', 'zenvy' ),
-						],
+						'category_slug' => array(
+                            'type' => 'select',
+                            'label' => esc_html__('Select Category', 'zenvy'),
+                            'choices' => Zenvy_Helper::get_terms('category'),
+                            'default' => __('Category to be displayed', 'zenvy'),
+                        ),
+                        'category_image' => array(
+                            'type' => 'image',
+                            'label' => esc_html__('Category Image', 'zenvy'),
+                        ),
 					],
 					'row_label' => [
 						'type'  => 'field',
-						'value' => esc_html__( 'Logo', 'zenvy' ),
+						'value' => esc_html__( 'Category', 'zenvy' ),
+						'field' => 'category_slug',
 					],
 					'priority'  => 15,
 				]

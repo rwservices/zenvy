@@ -5,19 +5,21 @@
  * @package Zenvy
  */
 
-$show_homepage_sidebar_sec = get_theme_mod('zenvy_front_page_show_homepage_sidebar_sec', false);
-$trending_posts_count = get_theme_mod('zenvy_front_page_trending_posts_count', 3);
-// Exclude featured posts from recent posts
+$show_homepage_sidebar_sec = get_theme_mod('zenvy_front_page_trending_posts_enable_sidebar', '');
+$trending_posts_count = get_theme_mod('zenvy_front_page_trending_posts_limit', ['desktop' => 3]);
+
+// Exclude featured posts from trending posts
 if (isset($featured_posts) && $featured_posts->have_posts()) {
     $featured_ids = wp_list_pluck($featured_posts->posts, 'ID');
 } else {
     $featured_ids = array();
 }
+
 $trending = new WP_Query(array(
     'post_type' => 'post',
     'orderby' => 'comment_count',
     'order' => 'DESC',
-    'posts_per_page' => $trending_posts_count,
+    'posts_per_page' => $trending_posts_count['desktop'],
     'post__not_in' => $featured_ids,
     'ignore_sticky_posts' => true,
 ));
@@ -47,7 +49,7 @@ $trending = new WP_Query(array(
                     </div>
                 </section>
             </div>
-            <?php if ($show_homepage_sidebar_sec && is_active_sidebar('sidebar-homepage-sec')): ?>
+            <?php if ($show_homepage_sidebar_sec && array_key_exists('desktop', $show_homepage_sidebar_sec) && is_active_sidebar('sidebar-homepage-sec')): ?>
                 <?php get_sidebar('homepage-sec'); ?>
             <?php endif; ?>
         </div>

@@ -5,6 +5,7 @@
  * @package Zenvy
  */
 
+$title = get_theme_mod('zenvy_front_page_youtube_promotion_section_title', esc_html__('ME @ YOUTUBE', 'zenvy'));
 
 $video_url_1 = get_theme_mod('zenvy_video_url_1', '#');
 $video_title_1 = get_theme_mod('zenvy_video_title_1', 'Video Title 1');
@@ -27,7 +28,7 @@ $video_channel_url = get_theme_mod('zenvy_video_channel_url', '#');
     <div class="container">
         <header class="entry-header heading">
             <h2 class="entry-title">
-                <?php esc_html_e('ME @ YOUTUBE', 'zenvy'); ?>
+                <?php echo esc_html($title); ?>
             </h2>
         </header>
         <div class="row">

@@ -18,7 +18,7 @@ if ( ! function_exists( 'zenvy_posted_on' ) ) :
 		$time_string = sprintf(
 			$time_string,
 			esc_attr( get_the_date( DATE_W3C ) ),
-			esc_html( get_the_date() )
+			esc_html( get_the_date('d M') )
 		);
 
 		printf( '<div class="posted-on"><a href="%1$s" rel="bookmark">%2$s</a></div>', esc_url( get_permalink() ), $time_string ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -255,3 +255,5 @@ if ( ! function_exists( 'wp_body_open' ) ) :
 	}
 
 endif;
+
+

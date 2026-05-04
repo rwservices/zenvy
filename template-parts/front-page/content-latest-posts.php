@@ -7,8 +7,8 @@
 
 ?>
 <?php
-$latest_posts_count = get_theme_mod('zenvy_front_page_latest_posts_count', 3);
-$show_homepage_sidebar = get_theme_mod('zenvy_front_page_show_homepage_sidebar', false);
+$latest_posts_count = get_theme_mod('zenvy_front_page_latest_posts_number', ['desktop' => 3]);
+$show_homepage_sidebar = get_theme_mod('zenvy_front_page_latest_posts_enable_sidebar', '');
 // Exclude featured posts from recent posts
 if (isset($featured_posts) && $featured_posts->have_posts()) {
     $featured_ids = wp_list_pluck($featured_posts->posts, 'ID');
@@ -17,7 +17,7 @@ if (isset($featured_posts) && $featured_posts->have_posts()) {
 }
 $args = array(
     'post_type' => 'post',
-    'posts_per_page' => $latest_posts_count,
+    'posts_per_page' => $latest_posts_count['desktop'],
     'post__not_in' => $featured_ids,
     'ignore_sticky_posts' => true,
 );
@@ -36,13 +36,15 @@ if ($recent_posts->have_posts()):
                             <?php
                             while ($recent_posts->have_posts()):
                                 $recent_posts->the_post();
-                                get_template_part('template-parts/content', null, array('image_size' => 'featured_post'));
+
+                                get_template_part('template-parts/content', 'posts');
+
                             endwhile;
                             ?>
                         </div>
                     </section>
                 </div>
-                <?php if ($show_homepage_sidebar && is_active_sidebar('sidebar-homepage')): ?>
+                <?php if ($show_homepage_sidebar && array_key_exists('desktop', $show_homepage_sidebar) && is_active_sidebar('sidebar-homepage')): ?>
                     <?php get_sidebar('homepage'); ?>
                 <?php endif; ?>
             </div>

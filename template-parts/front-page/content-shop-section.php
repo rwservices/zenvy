@@ -10,7 +10,7 @@ $section_title = get_theme_mod('zenvy_front_page_shop_title', 'Shop my favourite
 $section_desc = get_theme_mod('zenvy_front_page_shop_desc', 'Don’t laugh, guys, but I’ve turned into the person who maps out a detailed plan for how her makeup collection will look in the next year!');
 $shop_link = get_theme_mod('zenvy_front_page_shop_button_link', '#');
 $shop_btn_text = get_theme_mod('zenvy_front_page_shop_button_text', 'Shop more');
-$shop_image = get_theme_mod('zenvy_front_page_shop_image', get_template_directory_uri() . '/assets/img/shop-title-image.png');
+$shop_image = get_theme_mod('zenvy_front_page_shop_image', get_template_directory_uri() . '/assets/build/images/shop-title-image.png');
 ?>
 
 <section class="shop-section">

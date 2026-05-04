@@ -8,16 +8,17 @@
 ?>
 <?php
 
-$categories = get_theme_mod('zenvy_front_page_explore_categories');
+$categories = get_theme_mod('zenvy_front_page_explore_section_lists', '');
 
-if (!empty($categories)):
+if ($categories):
+    $title = get_theme_mod('zenvy_front_page_explore_section_heading', esc_html__('Explore our topics', 'zenvy'));
     ?>
     <section class="explore-section">
         <div class="container">
 
             <header class="entry-header heading">
                 <h2 class="entry-title">
-                    <?php esc_html_e('EXPLORE OUR TOPICS', 'zenvy'); ?>
+                    <?php echo esc_html($title); ?>
                 </h2>
             </header>
             <div class="owl-carousel owl-theme explore-slider">
@@ -27,10 +28,14 @@ if (!empty($categories)):
                     ?>
                     <article class="post">
                         <figure>
-                            <?php if ($category['category_image']): ?>
-                                <img src="<?php echo esc_url($category['category_image']); ?>"
-                                    alt="<?php echo esc_attr($category_obj->name); ?>">
-                            <?php endif; ?>
+                            <?php if (!empty($category['category_image'])):
+                                $img_url = wp_get_attachment_image_src(absint($category['category_image']), 'medium_large');
+                                if ($img_url):
+                                ?>
+                                    <img src="<?php echo esc_url($img_url[0]); ?>" alt="<?php echo esc_attr($category_obj->name); ?>">
+                                <?php
+                                endif;
+                            endif; ?>
                         </figure>
                         <div class="post-content">
                             <div class="post-cat-list">
