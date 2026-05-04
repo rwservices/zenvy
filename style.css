@@ -72,43 +72,41 @@ Table of Content
 /*  2.0 ===== Global =====   */
 
 :root {
-	--color-accent: #f9b189;
-	--color-accent-secondary: #ff80c0;
-	--black-color: #000;
-	--color-heading: #201F1F;
-	--color-1: #444444;
-	--color-2: #6d707d;
-	--color-3: #9ea0a8;
-	--color-4: #cecfd4;
-	--color-5: #ffffff;
-	--color-bg: #ffffff;
-	--color-bg-4: #f2f2f2;
+	--color-primary: #f9b189;
+	--color-secondary: #ff80c0;
+	--color-gray-900: #201F1F;
+	--color-gray-800: #444444;
+	--color-gray-700: #6d707d;
+	--color-gray-600: #9ea0a8;
+	--color-gray-500: #cecfd4;
+	--color-gray-200: #f2f2f2;
+	--color-white: #ffffff;
+
+	/* Semantic Colors */
+	--color-black: #000000;
+	--color-heading: var(--color-gray-900);
+	--color-text: var(--color-gray-800);
+	--color-text-light: var(--color-gray-700);
+	--color-border: var(--color-gray-500);
+	--color-bg: var(--color-white);
+	--color-bg-light: var(--color-gray-200);
+	
+	/* Link Colors */
+	--color-link: var(--color-primary);
+	--color-link-hover: var(--color-secondary);
+	
+	/* Layout */
 	--container-width: 1170px;
-    --body-font: 'Cormorant Garamond', serif;
-    --heading-fonts: 'Cormorant Garamond', serif;
+	
+	/* Typography */
+	--font-body: 'Cormorant Garamond', serif;
+	--font-heading: 'Cormorant Garamond', serif;
 }
-
-:root {
-	--color-link: var(--color-accent);
-	--color-link-hover: var(--color-accent-secondary);
-}
-
-/* :root {
-	--color-1: var(--color-accent-secondary);
-	--color-link: var(--color-accent-secondary);
-	--color-bg-2: var(--color-accent-secondary);
-	--color-link-hover: var(--color-accent);
-	--color-link-visited: var(--color-3);
-	--color-bg-3: var(--color-accent);
-	--color-btn: var(--color-5);
-	--color-btn-bg: var(--color-bg-3);
-	--color-btn-bg-2: var(--color-bg-2);
-} */
 
 body {
-	color: var(--color-1);
+	color: var(--color-text);
 	background-color: var(--color-bg);
-	font-family: var(--body-font);
+	font-family: var(--font-body);
 	font-size: 14px;
 	line-height: 1.27;
 	margin: 0;
@@ -137,7 +135,7 @@ h6 {
 	color: var(--color-heading);
 	font-weight: 400;
 	margin: 0;
-	font-family: var(--heading-fonts);
+	font-family: var(--font-heading);
 }
 
 .site-footer h1,
@@ -146,7 +144,7 @@ h6 {
 .site-footer h4,
 .site-footer h5,
 .site-footer h6 {
-	color: var(--color-5);
+	color: var(--color-white);
 }
 
 h1 {
@@ -193,12 +191,12 @@ h6 {
 }
 
 .screen-reader-text:focus {
-	background-color: #f1f1f1;
+	background-color: var(--color-bg-light);
 	border-radius: 3px;
 	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
 	clip-path: none;
 	clip: auto !important;
-	color: var(--color-accent-secondary);
+	color: var(--color-secondary);
 	display: block;
 	font-size: 0.875rem;
 	font-size: 14px;
@@ -224,7 +222,7 @@ blockquote {
 	border-bottom: 1px solid;
 	border-left: medium none;
 	border-top: 1px solid;
-	color: #666666;
+	color: var(--color-text-light);
 	font-size: 14px;
 	font-style: normal;
 	line-height: 22px;
@@ -284,7 +282,7 @@ blockquote cite {
 }
 
 .breadcrumbs li::before {
-	color: var(--color-5);
+	color: var(--color-white);
 	content: "/";
 	display: block;
 	left: -15px;
@@ -306,14 +304,14 @@ blockquote cite {
 
 .page-title-wrap .breadcrumb a span,
 .page-title-wrap .breadcrumbs a span {
-	color: rgb(255, 255, 255, 0.45);
+	color: var(--color-gray-600);
 }
 
 .breadcrumb a:hover span,
 .breadcrumbs li span,
 .breadcrumbs a:hover span,
 .breadcrumb li span {
-	color: var(--color-5);
+	color: var(--color-white);
 }
 
 /*   -- "Superscript and Subscript" (These are the styles for the Superscript and Subscript) --  */
@@ -381,7 +379,7 @@ address {
 }
 
 ins {
-	background-color: var(--color-bg) 9c0;
+	background-color: var(--color-white) 9c0;
 	margin-bottom: 20px;
 	text-decoration: none;
 }
@@ -470,7 +468,7 @@ input[type="number"] {
 	margin: 0 0 15px;
 	padding: 5px 19px 5px;
 	width: 100%;
-	background: #f2f2f2;
+	background: var(--color-bg-light);
 	border-color: #e1e1e1;
 	font-size: 16px;
 }
@@ -500,7 +498,7 @@ input[type="submit"] {
 	text-align: center;
 	text-transform: capitalize;
 	transition: all 0.3s ease-out;
-	font-family: var(--heading-fonts);
+	font-family: var(--font-heading);
 }
 
 .wpcf7-form input[type="submit"] {
@@ -517,11 +515,11 @@ input[type="submit"] {
 input[type="reset"]:hover,
 input[type="button"]:hover,
 input[type="submit"]:hover {
-	color: var(--color-accent);
+	color: var(--color-primary);
 }
 
 select {
-	background-color: #f9f9f9;
+	background-color: var(--color-bg-light);
 	border-radius: 3px;
 	border: 1px solid rgba(0, 0, 0, 0.05);
 	font-size: 14px;
@@ -580,9 +578,9 @@ textarea:-moz-placeholder {
 
 input,
 textarea {
-	color: #323232;
+	color: var(--color-text);
 	font-size: 14px;
-	font-family: var(--body-font);
+	font-family: var(--font-body);
 }
 
 /*   -- "label" (These are the styles for the label) --   */
@@ -660,8 +658,8 @@ article {
 	-webkit-font-smoothing: antialiased;
 	-webkit-transition: all 0.5s ease-out;
 	border-radius: 3px;
-	border: 1px solid var(--color-5);
-	color: var(--color-5);
+	border: 1px solid var(--color-white);
+	color: var(--color-white);
 	display: block;
 	font-family: "FontAwesome";
 	font-size: 16px;
@@ -670,11 +668,11 @@ article {
 	text-align: center;
 	transition: all 0.5s ease-out;
 	width: 40px;
-	background: var(--black-color);
+	background: var(--color-black);
 }
 
 .back-to-top a:hover {
-	border: 1px solid var(--color-5);
+	border: 1px solid var(--color-white);
 	background: #ca77b4;
 }
 
@@ -689,7 +687,7 @@ article {
 	-ms-transition: all 0.4s ease 0s;
 	-o-transition: all 0.4s ease 0s;
 	-webkit-transition: all 0.4s ease 0s;
-	color: var(--color-1);
+	color: var(--color-text);
 	display: inline-block;
 	font-size: 16px;
 	line-height: 1.2;
@@ -698,7 +696,7 @@ article {
 	text-align: center;
 	text-transform: capitalize;
 	position: relative;
-	background: var(--color-bg-4);
+	background: var(--color-gray-200);
 	border: 1px solid #e1e1e1;
 }
 
@@ -706,21 +704,21 @@ article {
 .woocommerce-button:hover,
 .woocommerce-Button:hover,
 .wc-block-components-button:hover {
-	color: var(--color-5);
+	color: var(--color-white);
 	transition: all 0.4s ease 0s;
 	-moz-transition: all 0.4s ease 0s;
 	-ms-transition: all 0.4s ease 0s;
 	-o-transition: all 0.4s ease 0s;
 	-webkit-transition: all 0.4s ease 0s;
-	background: var(--color-accent);
-	border-color: var(--color-accent);
+	background: var(--color-primary);
+	border-color: var(--color-primary);
 }
 
 .box-button:hover,
 .box-button:active,
 .box-button:focus {
-	color: var(--color-5);
-	background: var(--color-accent);
+	color: var(--color-white);
+	background: var(--color-primary);
 }
 
 .read-more-btn {
@@ -728,7 +726,7 @@ article {
 	text-transform: capitalize;
 	font-size: 22px;
 	position: relative;
-	font-family: var(--heading-fonts);
+	font-family: var(--font-heading);
 	display: inline-block;
 	margin-top: 25px;
 }
@@ -953,7 +951,7 @@ hr {
 
 .wp-caption-text {
 	bottom: 0;
-	color: var(--color-5);
+	color: var(--color-white);
 	font-size: 14px;
 	margin: 10px 0 0;
 	padding: 7px;
@@ -1011,7 +1009,7 @@ iframe {
 .site-header {
 	position: relative;
 	background-color: var(--color-bg);
-	color: var(--color-1);
+	color: var(--color-text);
 }
 
 .hgroup-wrap {
@@ -1062,10 +1060,11 @@ iframe {
 }
 
 .site-description {
-	color: var(--color-1);
+	color: var(--color-text);
 	display: inline-block;
 	font-size: 14px;
 	text-transform: uppercase;
+	margin-bottom: 0px;
 }
 
 .site-title a img,
@@ -1089,18 +1088,18 @@ iframe {
 /*   -- "Social Profile" (These are the styles for the Social Site section) --   */
 
 .social-links ul li a::before {
-	color: var(--color-1);
+	color: var(--color-text);
 	font-family: "FontAwesome";
 	font-size: 18px;
 	vertical-align: middle;
 }
 
 .site-footer .social-links ul li a::before {
-	color: var(--color-5);
+	color: var(--color-white);
 }
 
 .social-links ul li a:hover::before {
-	color: var(--color-1);
+	color: var(--color-text);
 }
 
 .social-links ul li a[href*="facebook.com"]::before {
@@ -1240,7 +1239,7 @@ iframe {
 }
 
 .social-links.inline-social-icons ul li a[href*="wordpress.org"]:hover {
-	background: var(--color-accent-secondary);
+	background: var(--color-secondary);
 }
 
 .social-links.inline-social-icons ul li a[href*="github.com"]:hover {
@@ -1284,7 +1283,7 @@ iframe {
 }
 
 .social-links.inline-social-icons ul li a[href*="codepen.io"]:hover {
-	background: var(--black-color);
+	background: var(--color-black);
 }
 
 .social-links.inline-social-icons ul li a[href*="respanit.com"]:hover {
@@ -1332,7 +1331,7 @@ iframe {
 }
 
 .social-links.inline-social-icons ul li a[href*="wordpress.org"]:hover {
-	background: var(--color-accent-secondary);
+	background: var(--color-secondary);
 }
 
 .social-links.inline-social-icons ul li a[href*="jsfispanle.net"]:hover {
@@ -1348,7 +1347,7 @@ iframe {
 }
 
 .social-links.inline-social-icons ul li a[href*="angel.co"]:hover {
-	background: var(--black-color);
+	background: var(--color-black);
 }
 
 .social-links.inline-social-icons ul li a[href*="slack.com"]:hover {
@@ -1396,7 +1395,7 @@ iframe {
 	-o-transition: all 0.3s ease 0s;
 	-webkit-transition: all 0.3s ease 0s;
 	border-radius: 50px;
-	color: var(--color-5);
+	color: var(--color-white);
 	display: inline-block;
 	font-size: 0px;
 	height: 43px;
@@ -1404,7 +1403,7 @@ iframe {
 	transition: all 0.3s ease 0s;
 	width: 43px;
 	position: relative;
-	background: #f2f2f2;
+	background: var(--color-bg-light);
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -1455,7 +1454,7 @@ iframe {
 .block-social-icons ul li a,
 .widget.block-social-icons ul li a {
 	border-radius: 3px;
-	color: var(--color-5);
+	color: var(--color-white);
 	display: block;
 	padding: 10px;
 	text-transform: inherit;
@@ -1463,12 +1462,12 @@ iframe {
 
 .block-social-icons ul li a:hover,
 .block-social-icons.social-links ul li a:before {
-	color: var(--color-5);
+	color: var(--color-white);
 }
 
 .block-social-icons a span {
-	border-right: 1px solid var(--color-5);
-	color: var(--color-5);
+	border-right: 1px solid var(--color-white);
+	color: var(--color-white);
 	display: inline-block;
 	font-size: 18px;
 	margin-right: 4px;
@@ -1577,7 +1576,7 @@ iframe {
 }
 
 .main-navigation li a {
-	color: var(--color-1);
+	color: var(--color-text);
 	display: block;
 	font-size: 14px;
 	padding: 4px 0px 5px;
@@ -1598,7 +1597,7 @@ iframe {
 	-ms-transition: all 0.5s ease 0s;
 	-o-transition: all 0.5s ease 0s;
 	-webkit-transition: all 0.5s ease 0s;
-	color: var(--color-accent-secondary);
+	color: var(--color-secondary);
 	transition: all 0.5s ease 0s;
 }
 
@@ -1665,7 +1664,7 @@ iframe {
 .main-navigation ul li.current-menu-ancestor ul li a,
 .main-navigation ul li.current-page-item ul li a {
 	border: none;
-	color: var(--color-1);
+	color: var(--color-text);
 	float: none;
 	font-size: 15px;
 	height: inherit;
@@ -1676,8 +1675,8 @@ iframe {
 .main-navigation ul li ul li a:hover,
 .main-navigation ul li ul li:hover > a,
 .main-navigation ul li.current-menu-item ul li a:hover {
-	background: var(--color-accent-secondary);
-	color: var(--color-5);
+	background: var(--color-secondary);
+	color: var(--color-white);
 }
 
 .main-navigation ul li ul li ul {
@@ -1694,7 +1693,7 @@ iframe {
 .main-navigation ul ul ul ul li:hover ul,
 .main-navigation ul ul ul ul ul li:hover ul,
 .main-navigation ul li ul {
-	border-top: 5px solid var(--black-color);
+	border-top: 5px solid var(--color-black);
 }
 
 .menu-item-has-children::before {
@@ -1702,7 +1701,7 @@ iframe {
 	-ms-transition: all 0.3s ease 0s;
 	-webkit-transition: all 0.3s ease 0s;
 	transition: all 0.3s ease 0s;
-	color: var(--black-color);
+	color: var(--color-black);
 	content: "\f107";
 	display: block;
 	font-family: "FontAwesome";
@@ -1720,7 +1719,7 @@ iframe {
 	-o-transform: rotate(180deg);
 	-webkit-transform: rotate(180deg);
 	-webkit-transition: all 0.3s ease 0s;
-	color: var(--black-color);
+	color: var(--color-black);
 	top: 7px;
 	transform: rotate(180deg);
 	transition: all 0.3s ease 0s;
@@ -1781,13 +1780,13 @@ iframe {
 	font-size: 42px;
 	line-height: 1.2;
 	margin-bottom: 15px;
-	color: var(--black-color);
+	color: var(--color-black);
 }
 
 .slider-subtitle {
 	font-size: 18px;
 	text-transform: uppercase;
-	color: var(----black-color);
+	color: var(----color-black);
 	display: inline-block;
 	position: relative;
 	padding: 10px 10px 10px 0;
@@ -1848,7 +1847,7 @@ iframe {
 	position: absolute;
 	margin: 0 !important;
 	font-size: 32px !important;
-	color: var(--color-5);
+	color: var(--color-white);
 	-webkit-transition: all 0.3s ease 0s;
 	-o-transition: all 0.3s ease 0s;
 	transition: all 0.3s ease 0s;
@@ -1915,7 +1914,12 @@ iframe {
 }
 
 /*  9.0 ===== Content =====   */
-
+.content-area.no-has-page-header {
+	margin-top: -330px;
+}
+.site-content {
+	padding: 50px 0;
+}
 .site-content h1,
 .site-content h2,
 .site-content h3,
@@ -1951,7 +1955,7 @@ iframe {
 }
 
 .cat-links a {
-	background: var(--black-color);
+	background: var(--color-black);
 	color: rgb(255, 255, 255);
 	display: inline-block;
 	font-size: 12px;
@@ -1963,7 +1967,7 @@ iframe {
 
 .tags-links a:first-child {
 	font-size: 110px;
-	font-family: var(--heading-fonts);
+	font-family: var(--font-heading);
 	text-transform: capitalize;
 	line-height: 1;
 	text-shadow:
@@ -2025,7 +2029,7 @@ iframe {
 
 .entry-meta,
 .entry-meta a {
-	color: var(--color-1);
+	color: var(--color-text);
 	font-size: 12px;
 }
 
@@ -2034,7 +2038,7 @@ iframe {
 }
 
 .entry-meta a:hover {
-	color: var(--color-accent-secondary);
+	color: var(--color-secondary);
 }
 
 .entry-meta .cat-links a {
@@ -2118,9 +2122,9 @@ iframe {
 }
 
 .widget_tag_cloud a:hover {
-	color: var(--color-5);
+	color: var(--color-white);
 	opacity: 1;
-	background: var(--color-accent);
+	background: var(--color-primary);
 }
 
 /* widget instagram styling from here */
@@ -2243,6 +2247,7 @@ iframe {
 }
 
 .post .entry-content > p:last-child {
+	margin-top: 20px;
 	margin-bottom: 5px;
 }
 
@@ -2420,7 +2425,7 @@ iframe {
 }
 
 .comment-form .required {
-	color: var(--color-1);
+	color: var(--color-text);
 }
 
 .comment-form textarea {
@@ -2429,7 +2434,7 @@ iframe {
 
 .form-allowed-tags,
 .form-allowed-tags code {
-	color: var(--color-1);
+	color: var(--color-text);
 	font-size: 12px;
 }
 
@@ -2490,7 +2495,7 @@ iframe {
 }
 
 .comment-form p .comment-input-icon {
-	background: var(--black-color);
+	background: var(--color-black);
 	display: block;
 	height: 37px;
 	left: 2px;
@@ -2502,7 +2507,7 @@ iframe {
 }
 
 .comment-form p .fa {
-	color: var(--color-5);
+	color: var(--color-white);
 }
 
 .comment-form p.comment-form-cookies-consent {
@@ -2571,7 +2576,7 @@ ol.wp-block-latest-comments {
 .wpcf7-submit[type="submit"],
 .form-submit input[type="submit"],
 .page-content .search-form .search-submit {
-	color: var(--color-5);
+	color: var(--color-white);
 	margin: 0;
 	text-transform: uppercase;
 }
@@ -2647,9 +2652,9 @@ div.error {
 	background-size: cover;
 	padding: 170px 0 0;
 	position: relative;
-	/* margin-bottom: 120px; */
-	margin-bottom: 80px;
-	background-color: var(--color-bg-4);
+	/* margin-bottom: 120px;
+	margin-bottom: 80px; */
+	background-color: var(--color-gray-200);
 }
 
 .page-title-wrap.empty-page-title-wrap {
@@ -2657,7 +2662,7 @@ div.error {
 }
 
 .page-title {
-	color: var(--color-accent);
+	color: var(--color-primary);
 	display: inline-block;
 	position: relative;
 	font-size: 110px;
@@ -2669,7 +2674,7 @@ div.error {
 		1px -1px 0 #fff,
 		-1px -1px 0 #fff,
 		1px 4px 4px rgba(0, 0, 0, 0.5);
-	margin-bottom: -15px;
+	margin-bottom: -10px;
 }
 
 .page-title-wrap div {
@@ -2678,11 +2683,11 @@ div.error {
 
 .page-title a,
 .taxonomy-description p {
-	color: var(--color-accent);
+	color: var(--color-primary);
 }
 
 .page-title-wrap .breadcrumb {
-	background: var(--color-accent);
+	background: var(--color-primary);
 	border-radius: 0;
 	display: inline-block;
 	margin: 0 0 -15px;
@@ -2743,7 +2748,7 @@ div.bbp-submit-wrapper button {
 	-webkit-transition: all 0.3s ease-out;
 	background-color: rgb(46, 60, 66);
 	border: 0 none;
-	color: var(--color-5);
+	color: var(--color-white);
 	cursor: pointer;
 	display: block;
 	height: 40px;
@@ -2779,7 +2784,7 @@ div.bbp-submit-wrapper button {
 .pagination > span {
 	background-color: rgba(210, 209, 209, 0);
 	border: medium none;
-	color: var(--color-5);
+	color: var(--color-white);
 	display: inline-block;
 	font-size: 14px;
 	padding: 3px 10px;
@@ -2790,12 +2795,12 @@ div.bbp-submit-wrapper button {
 	display: flex;
 	align-items: center;
 	margin: 0;
-	border: 1px solid var(--color-accent);
+	border: 1px solid var(--color-primary);
 }
 
 .pagination a.prev,
 .pagination a.next {
-	border: 1px solid var(--color-accent);
+	border: 1px solid var(--color-primary);
 	display: inline-block;
 	padding: 2px 10px;
 	position: relative;
@@ -2803,8 +2808,8 @@ div.bbp-submit-wrapper button {
 }
 
 .pagination .current {
-	background-color: var(--color-accent);
-	color: var(--color-5);
+	background-color: var(--color-primary);
+	color: var(--color-white);
 	padding: 4px 10px 3px;
 	height: 30px;
 	width: 30px;
@@ -2823,8 +2828,8 @@ div.bbp-submit-wrapper button {
 .wp-pagenavi li > a:hover,
 #main ul.default-wp-page li > a:hover,
 .pagination > span {
-	background-color: var(--color-accent);
-	color: var(--color-5);
+	background-color: var(--color-primary);
+	color: var(--color-white);
 }
 
 .post-navigation {
@@ -2849,7 +2854,7 @@ div.bbp-submit-wrapper button {
 
 .post-navigation .nav-links a {
 	background: #303e4b;
-	color: var(--color-5);
+	color: var(--color-white);
 	display: block;
 	padding: 15px;
 }
@@ -2868,7 +2873,7 @@ div.bbp-submit-wrapper button {
 	-ms-transition: all 0.3s ease-out;
 	-o-transition: all 0.3s ease-out;
 	-webkit-transition: all 0.3s ease-out;
-	color: var(--color-5);
+	color: var(--color-white);
 	content: "\f060";
 	display: block;
 	font-family: "FontAwesome";
@@ -2894,7 +2899,7 @@ div.bbp-submit-wrapper button {
 	-ms-transition: all 0.3s ease-out;
 	-o-transition: all 0.3s ease-out;
 	-webkit-transition: all 0.3s ease-out;
-	color: var(--color-5);
+	color: var(--color-white);
 	content: "\f061";
 	display: block;
 	font-family: "FontAwesome";
@@ -2938,12 +2943,12 @@ div.bbp-submit-wrapper button {
 
 #secondary .widget li:not(.wp-social-link) a,
 #primary .widget li:not(.wp-social-link) a {
-	color: var(--color-1);
+	color: var(--color-text);
 }
 
 #secondary .widget li:not(.wp-social-link) a:hover,
 #primary .widget li:not(.wp-social-link) a:hover {
-	color: var(--color-accent-secondary);
+	color: var(--color-secondary);
 }
 
 .widget_media_image .featured-image {
@@ -2974,11 +2979,11 @@ div.bbp-submit-wrapper button {
 .widget-post-author .position a {
 	font-size: 16px;
 	text-transform: uppercase;
-	color: var(--color-1);
+	color: var(--color-text);
 }
 
 .widget-post-author .position a:hover {
-	color: var(--color-accent);
+	color: var(--color-primary);
 }
 
 /*     Widget-Search     */
@@ -2993,7 +2998,7 @@ div.bbp-submit-wrapper button {
 	border-radius: 0;
 	border: medium none;
 	box-shadow: inherit;
-	color: var(--color-5);
+	color: var(--color-white);
 	height: 57px;
 	margin: 0;
 	padding: 0 8px;
@@ -3090,19 +3095,19 @@ div.bbp-submit-wrapper button {
 
 .widget_tag_cloud a {
 	border: 1px solid #e1e1e1;
-	color: var(--color-1);
+	color: var(--color-text);
 	display: inline-block;
 	font-size: 16px;
 	margin: 3px 10px 10px 0;
 	padding: 9px 34px;
 	text-transform: uppercase;
-	background: var(--color-bg-4);
+	background: var(--color-gray-200);
 }
 
 #secondary .widget.widget_tag_cloud a:hover {
-	color: var(--color-5);
-	background: var(--color-accent);
-	border-color: var(--color-accent);
+	color: var(--color-white);
+	background: var(--color-primary);
+	border-color: var(--color-primary);
 }
 
 /*   -- "Recent Entries/Comments widget" section (These are the styles for the Recent Entries/Comments widget section) --   */
@@ -3209,9 +3214,9 @@ div.bbp-submit-wrapper button {
 
 /*        main styleing from here	   */
 
-.site-content section {
+/* .site-content section {
 	padding: 0 0 80px;
-}
+} */
 
 .site-content section section {
 	padding: 0;
@@ -3227,11 +3232,11 @@ div.bbp-submit-wrapper button {
 
 .search-active.search-toggle::before,
 .search-toggle:hover:before {
-	color: var(--color-accent);
+	color: var(--color-primary);
 }
 
 .search-toggle {
-	color: var(--black-color);
+	color: var(--color-black);
 	cursor: pointer;
 	display: inline-block;
 	font-size: 16px;
@@ -3335,11 +3340,11 @@ div.bbp-submit-wrapper button {
 
 .site-cart-info .fa {
 	font-size: 18px;
-	color: var(--black-color);
+	color: var(--color-black);
 }
 
 .site-cart-info .cart-quantity {
-	background: var(--black-color);
+	background: var(--color-black);
 	width: 15px;
 	height: 15px;
 	display: block;
@@ -3350,7 +3355,7 @@ div.bbp-submit-wrapper button {
 	font-size: 10px;
 	padding-top: 1px;
 	text-align: center;
-	color: var(--color-5);
+	color: var(--color-white);
 }
 
 .site-header .site-cart-views > .widget_shopping_cart {
@@ -3364,15 +3369,15 @@ div.bbp-submit-wrapper button {
 	opacity: 0;
 	-webkit-transition: all 0.2s ease-in-out;
 	transition: all 0.2s ease-in-out;
-	background: var(--color-bg);
+	background: var(--color-white);
 }
 
 .mini_cart_inner,
 .site-header .widget_shopping_cart_content {
-	border: 1px solid var(--color-accent);
+	border: 1px solid var(--color-primary);
 	padding: 15px 15px 5px;
 	position: relative;
-	background: var(--color-bg);
+	background: var(--color-white);
 }
 
 .site-header .mini_cart_inner::before,
@@ -3380,11 +3385,11 @@ div.bbp-submit-wrapper button {
 	content: "";
 	width: 12px;
 	height: 12px;
-	border: 1px solid var(--color-accent);
+	border: 1px solid var(--color-primary);
 	top: -7px;
 	right: 0;
 	right: 8px;
-	background: var(--color-bg);
+	background: var(--color-white);
 	position: absolute;
 	-webkit-transform: rotate(44deg);
 	transform: rotate(44deg);
@@ -3417,7 +3422,7 @@ div.bbp-submit-wrapper button {
 
 .explore-section .post .cat-link a {
 	font-size: 56px;
-	font-family: var(--heading-fonts);
+	font-family: var(--font-heading);
 	text-transform: capitalize;
 	line-height: 1;
 	text-shadow:
@@ -3442,7 +3447,7 @@ div.bbp-submit-wrapper button {
 .explore-section .heading .entry-title,
 .video-post-section .heading .entry-title {
 	font-size: 14px;
-	font-family: var(--body-font);
+	font-family: var(--font-body);
 	letter-spacing: 1.2px;
 	margin: 0;
 	padding: 0;
@@ -3533,7 +3538,7 @@ div.bbp-submit-wrapper button {
 }
 
 .post .entry-title a:hover {
-	color: var(--color-accent-secondary);
+	color: var(--color-secondary);
 }
 
 .alternative-post .post:nth-child(2n + 2) .featured-image-wrapper {
@@ -3658,7 +3663,7 @@ div.bbp-submit-wrapper button {
 .post.flexible-post .post-content {
 	width: 60%;
 	margin-left: -8%;
-	background: var(--color-bg);
+	background: var(--color-white);
 	z-index: 9;
 	padding: 10px 5px 10px 15px;
 }
@@ -3705,7 +3710,7 @@ div.bbp-submit-wrapper button {
 
 /*  video post section styling from here    */
 .video-post-section {
-	background: var(--color-bg-4);
+	background: var(--color-gray-200);
 	margin-bottom: 60px;
 }
 
@@ -3715,7 +3720,7 @@ div.bbp-submit-wrapper button {
 
 .video-post-section .custom-col-7 .post .post-content {
 	margin-left: 60px;
-	background: var(--color-bg-4);
+	background: var(--color-gray-200);
 	margin-top: -60px;
 	position: relative;
 	z-index: 9;
@@ -3723,7 +3728,7 @@ div.bbp-submit-wrapper button {
 }
 
 .video-post-section .post .post-content {
-	background: var(--color-bg-4);
+	background: var(--color-gray-200);
 }
 
 .video-post-section .entry-header.heading {
@@ -3768,7 +3773,7 @@ div.bbp-submit-wrapper button {
 }
 
 .video-post-section .featured-image-wrapper:hover .featured-image::before {
-	color: var(--color-5);
+	color: var(--color-white);
 	-webkit-transition: all 0.3s ease 0s;
 	-o-transition: all 0.3s ease 0s;
 	transition: all 0.3s ease 0s;
@@ -3787,7 +3792,7 @@ div.bbp-submit-wrapper button {
 /*    testimonial quote section styling from here    */
 
 .testimonial-quote-content {
-	background: var(--color-bg);
+	background: var(--color-white);
 	max-width: 650px;
 	margin-left: auto;
 	padding: 52px 55px 62px 75px;
@@ -3816,14 +3821,14 @@ div.bbp-submit-wrapper button {
 
 .testimonial-quote-content .entry-content p {
 	font-size: 28px;
-	font-family: var(--heading-fonts);
+	font-family: var(--font-heading);
 	color: var(--color-heading);
 }
 
 .author-name,
 h3.author-name {
-	color: var(--color-1);
-	font-family: var(--body-font);
+	color: var(--color-text);
+	font-family: var(--font-body);
 	font-size: 16px;
 	text-transform: uppercase;
 }
@@ -3886,8 +3891,8 @@ ul.products {
 }
 
 .image-icon-wrapper .sales-tag span {
-	background: var(--color-bg);
-	color: var(--color-1);
+	background: var(--color-white);
+	color: var(--color-text);
 	padding: 13px 5px;
 	display: inline-block;
 	font-size: 12px;
@@ -3931,9 +3936,9 @@ ul.products {
 .add_to_cart_button,
 .image-icon-wrapper .icons button,
 .added_to_cart {
-	background: var(--color-bg);
+	background: var(--color-white);
 	text-transform: uppercase;
-	color: var(--color-1);
+	color: var(--color-text);
 	font-size: 12px;
 	padding: 8px 15px;
 	z-index: 9;
@@ -3944,8 +3949,8 @@ ul.products {
 .add_to_cart_button:hover,
 .image-icon-wrapper .icons button:hover,
 .added_to_cart:hover {
-	background: var(--color-accent);
-	color: var(--color-5);
+	background: var(--color-primary);
+	color: var(--color-white);
 }
 .added_to_cart {
 	margin-top: 6px;
@@ -3988,7 +3993,7 @@ ul.products {
 }
 
 .list-info a:hover .entry-title {
-	color: var(--color-accent);
+	color: var(--color-primary);
 }
 
 .price del {
@@ -4050,7 +4055,7 @@ ul.products {
 	font-size: 70px;
 	text-transform: capitalize;
 	color: var(--color-heading);
-	font-family: var(--heading-fonts);
+	font-family: var(--font-heading);
 	text-shadow:
 		-1px 1px 0 #fff,
 		1px 1px 0 #fff,
@@ -4079,7 +4084,7 @@ ul.products {
 	display: inline;
 	font-size: 28px;
 	color: var(--color-heading);
-	font-family: var(--heading-fonts);
+	font-family: var(--font-heading);
 }
 
 .skills-title {
@@ -4091,7 +4096,7 @@ ul.products {
 
 .skills-wrapper {
 	height: 15px;
-	background: #f2f2f2;
+	background: var(--color-bg-light);
 	margin-bottom: 30px;
 	overflow: visible;
 	position: relative;
@@ -4099,7 +4104,7 @@ ul.products {
 }
 
 .personal-skills-active .skills-wrapper .skills-progress-bar {
-	background: var(--color-heading);
+	background: var(--color-gray-900);
 	height: 100%;
 	-webkit-animation: animate-positive 2s;
 	animation: animate-positive 2s;
@@ -4153,7 +4158,7 @@ ul.products {
 
 .mc4wp-form input,
 .widget_search .search-form input {
-	color: var(--color-1);
+	color: var(--color-text);
 	padding-right: 20px;
 	text-align: center;
 }
@@ -4180,12 +4185,12 @@ ul.products {
 	height: auto;
 	position: static;
 	width: auto;
-	color: var(--color-1);
+	color: var(--color-text);
 }
 
 .mc4wp-form input[type="submit"]:hover,
 .widget_search .search-form input[type="submit"]:hover {
-	color: var(--color-accent-secondary);
+	color: var(--color-secondary);
 	background-position: 90% top;
 }
 
@@ -4316,7 +4321,7 @@ ul.products {
 	height: 43px;
 	width: 43px;
 	margin: 0 auto 10px;
-	background: var(--color-bg-4);
+	background: var(--color-gray-200);
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -4339,12 +4344,12 @@ ul.products {
 }
 
 .contact-content-item ul li a {
-	color: var(--color-1);
+	color: var(--color-text);
 	font-size: 16px;
 }
 
 .contact-content-item ul li a:hover {
-	color: var(--color-accent);
+	color: var(--color-primary);
 }
 
 .contact-content-item > .featured-image {
@@ -4512,7 +4517,7 @@ p.no-comments {
 .site-footer a,
 .site-footer li,
 .site-footer span {
-	color: var(--color-5);
+	color: var(--color-white);
 }
 
 .site-footer a:hover {
@@ -4545,7 +4550,7 @@ p.no-comments {
 
 .site-generator {
 	padding: 21px 0 22px;
-	background: var(--color-heading);
+	background: var(--color-gray-900);
 }
 
 .site-info {
@@ -4606,13 +4611,13 @@ p.no-comments {
 .site-footer input[type="reset"],
 .site-footer input[type="button"],
 .site-footer input[type="submit"] {
-	color: var(--black-color);
+	color: var(--color-black);
 }
 
 .site-footer input[type="reset"]:hover,
 .site-footer input[type="button"]:hover,
 .site-footer input[type="submit"]:hover {
-	color: var(--color-5);
+	color: var(--color-white);
 }
 
 .site-footer form input,
@@ -4696,7 +4701,7 @@ p.no-comments {
 	-o-text-overflow: ellipsis;
 	-webkit-text-overflow: ellipsis;
 	bottom: -100%;
-	color: var(--color-5);
+	color: var(--color-white);
 	left: 10px;
 	margin: 0;
 	padding: 6px;
@@ -4718,11 +4723,11 @@ p.no-comments {
 ::selection {
 	background: rgba(48, 62, 75, 0.9) none repeat scroll 0 0;
 	/* WebKit/Blink Browsers */
-	color: var(--color-5);
+	color: var(--color-white);
 }
 
 ::-moz-selection {
 	background: rgba(48, 62, 75, 0.9) none repeat scroll 0 0;
 	/* Gecko Browsers */
-	color: var(--color-5);
+	color: var(--color-white);
 }

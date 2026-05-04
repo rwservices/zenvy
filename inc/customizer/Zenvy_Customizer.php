@@ -201,6 +201,7 @@ class Zenvy_Customizer {
 		require ZENVY_THEME_DIR . 'inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Header_Fields.php';
 		require ZENVY_THEME_DIR . 'inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Featured_Image_Fields.php';
 		require ZENVY_THEME_DIR . 'inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Title_Fields.php';
+		require ZENVY_THEME_DIR . 'inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Meta_Fields.php';
 		require ZENVY_THEME_DIR . 'inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Sidebar_Fields.php';
 
 		/**
@@ -507,6 +508,11 @@ class Zenvy_Customizer {
 			'title'    => esc_html__( 'Post Title', 'zenvy' ),
 			'panel'    => 'zenvy_single_post_panel',
 			'priority' => 20,
+		];
+		$sections['single_post_meta'] = [
+			'title'    => esc_html__( 'Post Meta', 'zenvy' ),
+			'panel'    => 'zenvy_single_post_panel',
+			'priority' => 21,
 		];
 		// Featured Image
 		$sections['single_post_featured_image'] = [

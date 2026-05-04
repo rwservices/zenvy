@@ -29,23 +29,6 @@ class Zenvy_Customize_Single_Post_Header_Fields extends Zenvy_Customize_Base_Fie
 					'breadcrumb' => esc_html__( 'Breadcrumb', 'zenvy' ),
 				],
 			],
-			// Meta Elements
-			'zenvy_single_post_meta_elements'   => [
-				'type'              => 'sortable',
-				'default'           => [ 'post-date', 'categories' ],
-				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_sortable' ],
-				'label'             => esc_html__( 'Post Meta Elements', 'zenvy' ),
-				'description'       => esc_html__( 'To display post meta data and rearrange them with drag and drop.', 'zenvy' ),
-				'section'           => 'zenvy_single_post_header_section',
-				'priority'          => 15,
-				'choices'           => [
-					'author'     => esc_html__( 'Author', 'zenvy' ),
-					'comments'   => esc_html__( 'Comments', 'zenvy' ),
-					'categories' => esc_html__( 'Categories', 'zenvy' ),
-					'tags'       => esc_html__( 'Tags', 'zenvy' ),
-					'post-date'  => esc_html__( 'Post Date', 'zenvy' ),
-				],
-			],
 		];
 	}
 }

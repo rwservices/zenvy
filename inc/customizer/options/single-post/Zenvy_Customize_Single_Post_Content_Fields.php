@@ -27,6 +27,7 @@ class Zenvy_Customize_Single_Post_Content_Fields extends Zenvy_Customize_Base_Fi
 				'choices'           => [
 					'post-cats'  => esc_html__( 'Categories', 'zenvy' ),
 					'post-title' => esc_html__( 'Post Title', 'zenvy' ),
+					'post-meta'  => esc_html__( 'Post Meta', 'zenvy' ),
 				],
 			],
 

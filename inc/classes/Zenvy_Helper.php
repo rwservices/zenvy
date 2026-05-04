@@ -883,6 +883,15 @@ class Zenvy_Helper
         if (is_archive() || is_search() || is_home()) {
             $classes[] = 'alternative-post';
         }
+        if ( is_singular() ) {
+            
+            $elements = is_single() ? get_theme_mod( 'zenvy_single_post_header_elements', ['post-title'] ) :  get_theme_mod('zenvy_single_page_header_elements',['post-title']);
+            
+            if ( empty($elements) ) {
+                $classes[] = 'no-has-page-header';
+
+            }
+        }
 
         $classes = array_map('sanitize_html_class', $classes);
 

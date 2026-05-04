@@ -96,10 +96,10 @@ add_action('zenvy_search_posts_entry_footer', 'zenvy_search_posts_footer', 10);
  * @see zenvy_featured_image_wrapper_end()
  * @see zenvy_blog_post_content()
  */
+add_action('zenvy_post_entry_header', 'zenvy_post_header', 0);
 add_action('zenvy_post_entry_header', 'zenvy_featured_image_wrapper_start', 5);
 add_action('zenvy_post_entry_header', 'zenvy_get_post_thumbnail', 10);
 add_action('zenvy_post_entry_header', 'zenvy_featured_image_wrapper_end', 15);
-add_action('zenvy_post_entry_header', 'zenvy_post_header', 20);
 
 /**
  * Entry Content

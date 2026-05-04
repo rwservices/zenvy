@@ -63,7 +63,7 @@ if (! function_exists('zenvy_content_before_page_header')) :
 		if (is_single()) {
 			$elements = get_theme_mod(
 				'zenvy_single_post_header_elements',
-				['post-meta','post-title']
+				['post-meta', 'post-title']
 			);
 		}
 
@@ -82,14 +82,19 @@ if (! function_exists('zenvy_content_before_page_header')) :
 			);
 		}
 
+		$page_class = ['page-title-wrap'];
+		if ( empty($elements) ) {
+			$page_class[] = 'empty-page-title-wrap';
+		}
+
 		// Container Class
 		$container_class = ['container d-flex flex-column align-items-start text-left'];
 	?>
-		<?php if (! empty($elements)) : ?>
 
-			<div class="page-title-wrap">
-				<div class="<?php echo esc_attr(implode(' ', $container_class)); ?>">
-					<?php
+		<div class="<?php echo esc_attr(implode(' ', $page_class)); ?>">
+			<div class="<?php echo esc_attr(implode(' ', $container_class)); ?>">
+				<?php
+				if (! empty($elements)) :
 					foreach ($elements as $element) :
 						switch ($element):
 							case 'post-title':
@@ -113,12 +118,13 @@ if (! function_exists('zenvy_content_before_page_header')) :
 								break;
 						endswitch;
 					endforeach;
-					?>
-				</div>
+				endif;
+				?>
 			</div>
+		</div>
 
-		<?php
-		endif;
+	<?php
+
 	}
 
 endif;
@@ -133,7 +139,7 @@ if (! function_exists('zenvy_content_before_wrapper_start')) :
 			return;
 		}
 		$section_class = is_single() && 'agent' !== get_post_type() ? 'page-wrapper single-post-wrapper' : 'page-wrapper';
-		?>
+	?>
 		<section class="<?php echo esc_attr($section_class); ?>">
 			<div class="container d-flex flex-wrap">
 			<?php
@@ -384,7 +390,6 @@ if (! function_exists('zenvy_content_before_wrapper_start')) :
 				if ($enable_tags && array_key_exists('desktop', $enable_tags)) {
 					zenvy_posted_first_tag();
 				}
-
 			} else {
 				$img_ratio = get_theme_mod('zenvy_blog_post_featured_image_ratio', ['desktop' => '1x1']);
 
@@ -454,6 +459,32 @@ if (! function_exists('zenvy_content_before_wrapper_start')) :
 									echo '</div><!-- .entry-meta -->';
 
 									break;
+
+								case 'post-meta':
+									echo '<div class="entry-meta">';
+									$meta_elements  = get_theme_mod(
+										'zenvy_single_post_meta_elements',
+										['date', 'categories']
+									);
+									if ($meta_elements) {
+										foreach ($meta_elements as $val) {
+											if ($val === 'author') {
+												zenvy_posted_by();
+											} elseif ($val === 'categories') {
+												zenvy_posted_cats();
+											} elseif ($val === 'tags') {
+												zenvy_posted_tags();
+											} elseif ($val === 'date') {
+												zenvy_posted_on();
+											}
+											elseif ($val === 'comments') {
+												zenvy_posted_comments();
+											}
+										}
+									}
+									echo '</div><!-- .entry-meta -->';
+									break;
+
 							endswitch;
 						endforeach;
 					endif;
@@ -779,7 +810,7 @@ if (! function_exists('zenvy_content_before_wrapper_start')) :
 		endif;
 
 		/* ------------------------------ CONTENT ------------------------------ */
-		if ( ! function_exists( 'zenvy_menu_fallback' ) ) :
+		if (! function_exists('zenvy_menu_fallback')) :
 
 			/**
 			 * Menu fallback for primary menu.
@@ -788,36 +819,37 @@ if (! function_exists('zenvy_content_before_wrapper_start')) :
 			 *
 			 * @param array $args Array of wp_nav_menu arguments.
 			 */
-			function zenvy_menu_fallback( $args = array() ) {
+			function zenvy_menu_fallback($args = array())
+			{
 				// Get the container class from args or use default
-				$container_class = ! empty( $args['container_class'] ) ? $args['container_class'] : 'menu-top-menu-container';
-				
+				$container_class = ! empty($args['container_class']) ? $args['container_class'] : 'menu-top-menu-container';
+
 				// Get the menu class from args or use default
-				$menu_class = ! empty( $args['menu_class'] ) ? $args['menu_class'] : 'menu-wrapper';
-				
+				$menu_class = ! empty($args['menu_class']) ? $args['menu_class'] : 'menu-wrapper';
+
 				// Get the menu ID from items_wrap or use default
 				$menu_id = 'primary-menu-list';
-				if ( ! empty( $args['items_wrap'] ) && preg_match( '/id="([^"]+)"/', $args['items_wrap'], $matches ) ) {
+				if (! empty($args['items_wrap']) && preg_match('/id="([^"]+)"/', $args['items_wrap'], $matches)) {
 					$menu_id = $matches[1];
 				}
-				
+
 				$output  = '';
-				$output .= '<div class="' . esc_attr( $container_class ) . '">';
-				$output .= '<ul id="' . esc_attr( $menu_id ) . '" class="' . esc_attr( $menu_class ) . '">';
-				
+				$output .= '<div class="' . esc_attr($container_class) . '">';
+				$output .= '<ul id="' . esc_attr($menu_id) . '" class="' . esc_attr($menu_class) . '">';
+
 				$output .= wp_list_pages(
 					array(
 						'echo'     => false,
 						'title_li' => false,
 					)
 				);
-				
+
 				$output .= '</ul>';
 				$output .= '</div>';
-				
+
 				// @codingStandardsIgnoreStart
 				echo $output;
 				// @codingStandardsIgnoreEnd
 			}
-		
+
 		endif;
