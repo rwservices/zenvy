@@ -17,10 +17,6 @@ class Zenvy_Customize_Global_Color_Fields extends Zenvy_Customize_Base_Field {
 			// Accent Color
 			'zenvy_accent_color'     => [
 				'type'              => 'color',
-				'default'           => [
-					'color_1' => '#FCCE00',
-					'color_2' => '#354255',
-				],
 				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_color' ],
 				'label'             => esc_html__( 'Accent', 'zenvy' ),
 				'section'           => 'colors',
@@ -28,18 +24,17 @@ class Zenvy_Customize_Global_Color_Fields extends Zenvy_Customize_Base_Field {
 				'colors'            => [
 					'color_1' => esc_html__( 'Primary', 'zenvy' ),
 					'color_2' => esc_html__( 'Secondary', 'zenvy' ),
+					'color_3' => esc_html__( 'Tertiary', 'zenvy' ),
 				],
 				'inherits'          => [
-					'color_1' => 'var(--color-accent)',
-					'color_2' => 'var(--color-accent-secondary)',
+					'color_1' => 'var(--color-primary)',
+					'color_2' => 'var(--color-secondary)',
+					'color_3' => 'var(--color-tertiary)',
 				],
 			],
 			// H1-H6 Color
 			'zenvy_heading_color'    => [
 				'type'              => 'color',
-				'default'           => [
-					'color_1' => '#3d4151',
-				],
 				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_color' ],
 				'label'             => esc_html__( 'H1 -H6', 'zenvy' ),
 				'section'           => 'colors',
@@ -51,18 +46,17 @@ class Zenvy_Customize_Global_Color_Fields extends Zenvy_Customize_Base_Field {
 			// Text Color
 			'zenvy_text_color'       => [
 				'type'              => 'color',
-				'default'           => [
-					'color_2' => '#6d707d',
-				],
 				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_color' ],
 				'label'             => esc_html__( 'Base Text', 'zenvy' ),
 				'section'           => 'colors',
 				'priority'          => 20,
 				'colors'            => [
+					'color_1' => esc_html__( 'Color 1', 'zenvy' ),
 					'color_2' => esc_html__( 'Color 2', 'zenvy' ),
 				],
 				'inherits'          => [
-					'color_2' => 'var(--color-2)',
+					'color_1' => 'var(--color-text)',
+					'color_2' => 'var(--color-text-light)',
 				],
 			],
 			// Link Color
@@ -76,26 +70,44 @@ class Zenvy_Customize_Global_Color_Fields extends Zenvy_Customize_Base_Field {
 				'colors'            => [
 					'color_1' => esc_html__( 'Normal', 'zenvy' ),
 					'color_2' => esc_html__( 'Hover', 'zenvy' ),
-					'color_3' => esc_html__( 'Visited', 'zenvy' ),
 				],
 				'inherits'          => [
-					'color_1' => 'var(--color-1)',
-					'color_2' => 'var(--color-accent)',
-					'color_3' => 'var(--color-3)',
+					'color_1' => 'var(--color-link)',
+					'color_2' => 'var(--color-link-hover)',
+				],
+			],
+			// Border & Shadow Color
+			'zenvy_border_shadow_color'       => [
+				'type'              => 'color',
+				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_color' ],
+				'label'             => esc_html__( 'Border & Shadow', 'zenvy' ),
+				'section'           => 'colors',
+				'priority'          => 30,
+				'colors'            => [
+					'color_1' => esc_html__( 'Border', 'zenvy' ),
+					'color_2' => esc_html__( 'Shadow', 'zenvy' ),
+				],
+				'inherits'          => [
+					'color_1' => 'var(--color-border)',
+					'color_2' => 'var(--color-box-shadow)',
 				],
 			],
 			// Background Color
 			'zenvy_background_color' => [
 				'type'              => 'color',
-				'default'           => [
-					'color_1' => '#ffffff',
-				],
 				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_color' ],
 				'label'             => esc_html__( 'Background', 'zenvy' ),
 				'section'           => 'colors',
-				'priority'          => 30,
+				'priority'          => 35,
 				'colors'            => [
-					'color_1' => esc_html__( 'BG Color', 'zenvy' ),
+					'color_1' => esc_html__( 'Color 1', 'zenvy' ),
+					'color_2' => esc_html__( 'Color 2', 'zenvy' ),
+					'color_3' => esc_html__( 'Color 3', 'zenvy' ),
+				],
+				'inherits'          => [
+					'color_1' => 'var(--color-bg)',
+					'color_2' => 'var(--color-bg-light)',
+					'color_3' => 'var(--color-bg-dark)',
 				],
 			],
 		];

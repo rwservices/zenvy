@@ -12,6 +12,7 @@ wp_nav_menu(
 	[
 		'theme_location'  => 'footer-menu',
 		'menu_class'      => 'menu-wrapper',
+		'container'       => true,  // This removes the parent div
 		'container_class' => 'menu-top-menu-container footer-menu',
 		'items_wrap'      => '<ul id="footer-menu-list" class="%2$s">%3$s</ul>',
 		'fallback_cb'     => 'zenvy_menu_fallback',

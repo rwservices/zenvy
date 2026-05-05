@@ -225,7 +225,7 @@ function zenvy_scripts()
 	wp_enqueue_style('zenvy-responsive', ZENVY_THEME_URI . 'assets/build/css/responsive.css', null, ZENVY_THEME_VERSION, 'all');
 
 	// Add output of Customizer settings as inline style.
-	//wp_add_inline_style( 'zenvy-main-style', Zenvy_Customizer_Inline_Style::css_output( 'front-end' ) );
+	wp_add_inline_style( 'zenvy-main-style', Zenvy_Customizer_Inline_Style::css_output( 'front-end' ) );
 
 	// Enqueue Owl Carousel Style
 	wp_enqueue_style('owl-carousel', ZENVY_THEME_URI . 'assets/build/library/owl.carousel.css', [], '2.3.4');
@@ -239,6 +239,9 @@ function zenvy_scripts()
 
 	// Enqueue Images Loaded Js
 	wp_enqueue_script('imagesloaded', ZENVY_THEME_URI . 'assets/build/library/imagesloaded.pkgd.js', ['jquery'], '3.2.0', true);
+
+	// Enqueue Isotope Js
+	wp_enqueue_script('isotope', ZENVY_THEME_URI . 'assets/build/library/isotope.pkgd.js', ['jquery'], '3.0.6', true);
 
 	// Enqueue theia-sticky-sidebar Js
 	$sticky_sidebar = get_theme_mod('zenvy_sidebar_sticky', '');

@@ -172,7 +172,7 @@ const zenvy_inline_css = ( control, inheritColors ) => {
 	// Accent Colors
 	zenvy_inline_css(
 		'zenvy_accent_color',
-		{ color_1: '--color-accent', color_2: '--color-accent-secondary' },
+		{ color_1: '--color-primary', color_2: '--color-secondary', color_3: '--color-tertiary' },
 	);
 	// Heading H1-H6 Color
 	zenvy_inline_css(
@@ -182,17 +182,22 @@ const zenvy_inline_css = ( control, inheritColors ) => {
 	// Text Color
 	zenvy_inline_css(
 		'zenvy_text_color',
-		{ color_2: '--color-2' },
+		{ color_1: '--color-text', color_2: '--color-text-light' },
 	);
 	// Link Color
 	zenvy_inline_css(
 		'zenvy_link_color',
-		{ color_1: '--color-link', color_2: '--color-link-hover', color_3: '--color-link-visited' },
+		{ color_1: '--color-link', color_2: '--color-link-hover' },
+	);
+	// Border & Shadow Color
+	zenvy_inline_css(
+		'zenvy_border_shadow_color',
+		{ color_1: '--color-border', color_2: '--color-box-shadow' },
 	);
 	// Background Color
 	zenvy_inline_css(
 		'zenvy_background_color',
-		{ color_1: '--color-bg' },
+		{ color_1: '--color-bg', color_2: '--color-bg-light', color_3: '--color-bg-dark' },
 	);
 
 	// Bind customizer focus target link
