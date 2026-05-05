@@ -41,7 +41,7 @@ class Zenvy_Customize_Global_Page_Header_Fields extends Zenvy_Customize_Base_Fie
 				'section'           => 'zenvy_page_header_section',
 				'priority'          => 5,
 				'inherits'          => [
-					'color_1' => 'var(--color-bg-2)',
+					'color_1' => 'var(--color-bg-light)',
 				],
 				'fields'            => [ 'colors' => true ],
 			],

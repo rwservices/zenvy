@@ -24,7 +24,7 @@ class Zenvy_Customize_Global_Body_Fields extends Zenvy_Customize_Base_Field {
 				'section'           => 'zenvy_body_section',
 				'priority'          => 10,
 				'inherits'          => [
-					'color_1' => 'var(--color-bg)',
+					'color_1' 		=> 'var(--color-bg)',
 				],
 				'fields'            => [
 					'background' => true,

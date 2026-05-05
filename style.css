@@ -455,6 +455,7 @@ input[type="submit"] {
 	appearance: none !important;
 	border-radius: 0px;
 	box-sizing: inherit;
+	background-color: var(--color-bg-light);
 }
 
 input[type="text"],
@@ -855,7 +856,7 @@ hr {
 	max-width: 100%;
 	padding-left: 15px;
 	padding-right: 15px;
-	width: 1170px;
+	width: var(--container-width);
 }
 
 .row {
@@ -2650,14 +2651,17 @@ div.error {
 /*   ===== Pages =====   */
 
 .page-title-wrap {
-	background-attachment: fixed;
-	background-position: center center;
-	background-repeat: no-repeat;
-	background-size: cover;
 	padding: 170px 0 0;
 	position: relative;
-	/* margin-bottom: 120px;
-	margin-bottom: 80px; */
+}
+.page-title-wrap::before {
+	content: "";
+	display: block;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	left: 0;
 	background-color: var(--color-bg-light);
 }
 
