@@ -37,17 +37,14 @@ if ($featured_posts->have_posts()):
                         <div class="slider-image-wrapper">
                             <figure class="slider-image">
                                 <?php zenvy_post_thumbnail('featured_image', "3x4") ?>
-                            </figure>
-                            <span class="tags-links">
                                 <?php
-                                $categories = get_the_category();
-                                if (!empty($categories)) {
-                                    echo '<a href="' . esc_url(get_category_link($categories[0]->term_id)) . '" rel="category">';
-                                    echo esc_html($categories[0]->name);
-                                    echo '</a>';
-                                }
+                                    $enable_tags = get_theme_mod('zenvy_single_page_featured_image_tags', ['desktop' => 'true']);
+                                    if ($enable_tags && array_key_exists('desktop', $enable_tags)) {
+                                        zenvy_posted_first_tag();
+                                    }
                                 ?>
-                            </span>
+                                </span>
+                            </figure>
                         </div>
                         <?php if (!empty($posts_elements)): ?>
                             <div class="slider-text">
