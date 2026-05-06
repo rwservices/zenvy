@@ -16,6 +16,10 @@ if ($featured_tag) {
     $args['tag'] = sanitize_text_field($featured_tag);
 }
 $featured_posts = new WP_Query($args);
+$meta_elements  = get_theme_mod(
+    'zenvy_meta_elements',
+    ['date', 'categories']
+);
 
 if ($featured_posts->have_posts()):
 
@@ -53,8 +57,21 @@ if ($featured_posts->have_posts()):
                                             ?>
                                             <div class="entry-meta">
                                                 <?php
-                                                zenvy_posted_on();
-                                                zenvy_posted_cats();
+                                                if ($meta_elements) {
+                                                    foreach ($meta_elements as $val) {
+                                                        if ($val === 'author') {
+                                                            zenvy_posted_by();
+                                                        } elseif ($val === 'categories') {
+                                                            zenvy_posted_cats();
+                                                        } elseif ($val === 'tags') {
+                                                            zenvy_posted_tags();
+                                                        } elseif ($val === 'date') {
+                                                            zenvy_posted_on();
+                                                        } elseif ($val === 'comment') {
+                                                            zenvy_comment_count();
+                                                        }
+                                                    }
+                                                }
                                                 ?>
                                             </div>
                                             <?php

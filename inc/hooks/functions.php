@@ -191,7 +191,7 @@ endif;
 				['post-meta', 'post-title', 'post-excerpt', 'read-more']
 			);
 			$meta_elements  = get_theme_mod(
-				'zenvy_blog_posts_meta_elements',
+				'zenvy_meta_elements',
 				['date', 'categories']
 			);
 
@@ -227,6 +227,8 @@ endif;
 										zenvy_posted_tags();
 									} elseif ($val === 'date') {
 										zenvy_posted_on();
+									} elseif ($val === 'comment') {
+										zenvy_comment_count();
 									}
 								}
 							}
@@ -462,7 +464,7 @@ endif;
 								case 'post-meta':
 									echo '<div class="entry-meta">';
 									$meta_elements  = get_theme_mod(
-										'zenvy_single_post_meta_elements',
+										'zenvy_meta_elements',
 										['date', 'categories']
 									);
 									if ($meta_elements) {
@@ -476,7 +478,7 @@ endif;
 											} elseif ($val === 'date') {
 												zenvy_posted_on();
 											} elseif ($val === 'comments') {
-												zenvy_posted_comments();
+												zenvy_comment_count();
 											}
 										}
 									}
