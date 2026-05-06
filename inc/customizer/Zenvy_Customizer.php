@@ -170,7 +170,9 @@ class Zenvy_Customizer {
 		require ZENVY_THEME_DIR . 'inc/customizer/options/global/Zenvy_Customize_Global_Placeholder_Fields.php';
 		require ZENVY_THEME_DIR . 'inc/customizer/options/global/Zenvy_Customize_Global_Body_Fields.php';
 		require ZENVY_THEME_DIR . 'inc/customizer/options/global/Zenvy_Customize_Global_Container_Fields.php';
+		require ZENVY_THEME_DIR . 'inc/customizer/options/global/Zenvy_Customize_Global_Button_Fields.php';
 		require ZENVY_THEME_DIR . 'inc/customizer/options/global/Zenvy_Customize_Global_Page_Header_Fields.php';
+		require ZENVY_THEME_DIR . 'inc/customizer/options/global/Zenvy_Customize_Global_Post_Meta_Fields.php';
 		require ZENVY_THEME_DIR . 'inc/customizer/options/global/Zenvy_Customize_Global_Sidebar_Fields.php';
 		require ZENVY_THEME_DIR . 'inc/customizer/options/global/Zenvy_Customize_Global_Typography_Fields.php';
 		require ZENVY_THEME_DIR . 'inc/customizer/options/global/Zenvy_Customize_Global_Color_Fields.php';
@@ -302,6 +304,14 @@ class Zenvy_Customizer {
 			'panel'    => 'zenvy_global_panel',
 			'priority' => 15,
 		];
+
+		// Buttons
+		$sections['button'] = [
+			'title'    => esc_html__( 'Buttons', 'zenvy' ),
+			'panel'    => 'zenvy_global_panel',
+			'priority' => 20,
+		];
+
 		// Page Header
 		$sections['page_header'] = [
 			'title'    => esc_html__( 'Page Header', 'zenvy' ),
