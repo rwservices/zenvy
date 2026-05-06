@@ -21,7 +21,6 @@ $video_url_3 = get_theme_mod('zenvy_video_url_3', '#');
 $video_title_3 = get_theme_mod('zenvy_video_title_3', 'Video Title 3');
 $video_category_3 = get_theme_mod('zenvy_video_category_3');
 $video_category_3 = get_term_by('slug', $video_category_3, 'category');
-
 $video_channel_url = get_theme_mod('zenvy_video_channel_url', '#');
 ?>
 <section class="video-post-section">
@@ -35,9 +34,9 @@ $video_channel_url = get_theme_mod('zenvy_video_channel_url', '#');
             <div class="custom-col-7">
                 <article class="post">
                     <div class="featured-image-wrapper">
-                        <figure class="featured-image">
+                        <figure class="featured-image" data-ratio="auto">
                             <a href="<?php echo esc_url($video_url_1); ?>">
-                                <img src="<?php echo Zenvy_Helper::get_youtube_thumb($video_url_1); ?>" alt="">
+                                <img src="<?php echo Zenvy_Helper::get_video_thumbnail_url($video_url_1); ?>" alt="">
                             </a>
                         </figure>
                     </div>
@@ -66,9 +65,9 @@ $video_channel_url = get_theme_mod('zenvy_video_channel_url', '#');
             <div class="custom-col-5">
                 <article class="post flexible-post">
                     <div class="featured-image-wrapper">
-                        <figure class="featured-image">
+                        <figure class="featured-image" data-ratio="auto">
                             <a href="<?php echo esc_url($video_url_2); ?>">
-                                <img src="<?php echo Zenvy_Helper::get_youtube_thumb($video_url_2); ?>" alt="">
+                                <img src="<?php echo Zenvy_Helper::get_video_thumbnail_url($video_url_2); ?>" alt="">
                             </a>
                         </figure>
                     </div>
@@ -95,9 +94,9 @@ $video_channel_url = get_theme_mod('zenvy_video_channel_url', '#');
                 </article>
                 <article class="post flexible-post">
                     <div class="featured-image-wrapper">
-                        <figure class="featured-image">
+                        <figure class="featured-image" data-ratio="auto">
                             <a href="<?php echo esc_url($video_url_3); ?>">
-                                <img src="<?php echo Zenvy_Helper::get_youtube_thumb($video_url_3); ?>" alt="">
+                                <img src="<?php echo Zenvy_Helper::get_video_thumbnail_url($video_url_3); ?>" alt="">
                             </a>
                             </a>
                         </figure>

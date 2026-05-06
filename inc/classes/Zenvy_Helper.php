@@ -887,10 +887,9 @@ class Zenvy_Helper
 
             $elements = is_single() ? get_theme_mod('zenvy_single_post_header_elements') :  get_theme_mod('zenvy_single_page_header_elements', ['post-title']);
 
-            if ( empty($elements)) {
+            if (empty($elements)) {
                 $classes[] = has_post_thumbnail() ? 'no-has-page-header' : 'no-thumbnail-has-page-header';
             }
-            
         }
 
         $classes = array_map('sanitize_html_class', $classes);
@@ -904,19 +903,48 @@ class Zenvy_Helper
 
         echo 'class="' . esc_attr(join(' ', $classes)) . '"'; // WPCS: XSS ok.
     }
-
+    
     /**
-     * get the thumbnail URL for a YouTube video
-     *
-     * @param string $video_url
-     * @return string
+     * Get video thumbnail URL from YouTube or Vimeo URL
+     * 
+     * @param string $url The video URL
+     * @param string $quality Quality: 'maxres', 'hq', 'medium', 'sd' (YouTube only)
+     * @return string|false Thumbnail URL or false if not found
      */
-    public static function get_youtube_thumb($video_url)
+    public static function get_video_thumbnail_url($url, $quality = 'maxres')
     {
-        // Implementation for getting YouTube thumbnail
-        if (preg_match('/(?:v=|youtu\.be\/)([^&\s]+)/', $video_url, $matches)) {
-            return 'https://img.youtube.com/vi/' . esc_attr($matches[1]) . '/maxresdefault.jpg';
+        // YouTube pattern
+        $youtube_pattern = '/(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/';
+        preg_match($youtube_pattern, $url, $youtube_matches);
+
+        if (!empty($youtube_matches[1])) {
+            $video_id = $youtube_matches[1];
+            $qualities = [
+                'maxres' => 'maxresdefault.jpg',
+                'hq' => 'hqdefault.jpg',
+                'medium' => 'mqdefault.jpg',
+                'sd' => 'sddefault.jpg'
+            ];
+            $thumb = isset($qualities[$quality]) ? $qualities[$quality] : 'hqdefault.jpg';
+            return "https://img.youtube.com/vi/{$video_id}/{$thumb}";
         }
-        return '';
+
+        // Vimeo pattern
+        $vimeo_pattern = '/vimeo\.com\/(?:video\/)?(\d+)/';
+        preg_match($vimeo_pattern, $url, $vimeo_matches);
+
+        if (!empty($vimeo_matches[1])) {
+            $video_id = $vimeo_matches[1];
+            $response = wp_remote_get("https://vimeo.com/api/v2/video/{$video_id}.json");
+
+            if (!is_wp_error($response) && $response['response']['code'] === 200) {
+                $data = json_decode(wp_remote_retrieve_body($response), true);
+                if (!empty($data[0]['thumbnail_large'])) {
+                    return $data[0]['thumbnail_large'];
+                }
+            }
+        }
+
+        return false;
     }
 }
