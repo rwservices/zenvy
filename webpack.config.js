@@ -42,8 +42,8 @@ const sharedConfig = {
 					noErrorOnMissing: true,
 				},
 				{
-					from: path.join( SRC_DIR, 'fonts' ),
-					to: path.join( BUILD_DIR, 'fonts' ),
+					from: path.join( SRC_DIR, 'webfonts' ),
+					to: path.join( BUILD_DIR, 'webfonts' ),
 					noErrorOnMissing: true,
 				},
 				{

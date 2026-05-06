@@ -623,15 +623,15 @@ class Zenvy_Customizer_Inline_Style
 				# Post Content
 				--------------------------------------------------------------*/
 				// Background Color
-				self::color(
-					['.single .single-post-wrapper .post .post-navigation .nav-links a', '.single .single-post-wrapper .post .post-navigation .nav-links a::before,.single .single-post-wrapper .post .post-navigation .nav-links a:hover'],
-					'zenvy_single_post_navigation_background',
-					[
-						'color_1' => '#F8F5FC',
-						'color_2' => 'var(--color-bg-2)',
-					],
-					'background-color'
-				);
+				// self::color(
+				// 	['.single .single-post-wrapper .post .post-navigation .nav-links a', '.single .single-post-wrapper .post .post-navigation .nav-links a::before,.single .single-post-wrapper .post .post-navigation .nav-links a:hover'],
+				// 	'zenvy_single_post_navigation_background',
+				// 	[
+				// 		'color_1' => '#F8F5FC',
+				// 		'color_2' => 'var(--color-bg-2)',
+				// 	],
+				// 	'background-color'
+				// );
 			}
 
 			// Is 404 Page

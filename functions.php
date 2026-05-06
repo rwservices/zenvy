@@ -112,6 +112,18 @@ if (! function_exists('zenvy_setup')) :
 				'flex-height' => true,
 			]
 		);
+
+		// Add support for page excerpt
+		add_post_type_support( 'page', 'excerpt' );
+
+		// Add support for Block Styles.
+		add_theme_support( 'wp-block-styles' );
+
+		// Add support for full and wide align images.
+		add_theme_support( 'align-wide' );
+
+		// Add support for responsive embedded content.
+		add_theme_support( 'responsive-embeds' );
 	}
 
 endif;
@@ -210,7 +222,7 @@ function zenvy_scripts()
 {
 
 	// Font Awesome Style
-	wp_enqueue_style('font-awesome', ZENVY_THEME_URI . 'assets/build/library/font-awesome.css', [], '4.7.0');
+	wp_enqueue_style( 'fontawesome', ZENVY_THEME_URI . 'assets/build/library/all.css', [], '6.1.1');
 
 	// MeanMenu Style
 	wp_enqueue_style('meanmenu', ZENVY_THEME_URI . 'assets/build/library/meanmenu.css', [], '2.0.7');

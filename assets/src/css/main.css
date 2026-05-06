@@ -6,6 +6,29 @@ License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 */
 
+/* Header - "Theme Toggle" */
+#theme-toggle {
+    padding: 0;
+	border: none;
+	background: transparent;
+}
+#theme-toggle span {
+    cursor: pointer;
+    display: inline-block;
+}
+html[data-theme="dark"] #theme-toggle span.color-light {
+	display: none;
+}
+html[data-theme="light"] #theme-toggle span.color-dark {
+	display: none;
+}
+#theme-toggle span.color-light i{
+	color: var(--color-bg-dark);
+}
+#theme-toggle span.color-dark i{
+	color: var(--color-bg-dark);
+}
+
 /*   -- "Social Profile" (These are the styles for the Social Site section) --   */
 .social-links ul li a::before {
 	font-family: "FontAwesome";
