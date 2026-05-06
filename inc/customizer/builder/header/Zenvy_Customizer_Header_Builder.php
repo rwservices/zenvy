@@ -1,6 +1,6 @@
 <?php
 /**
- * Zenvy Theme Customizer Builder
+ * Blogin Aarambha Theme Customizer Builder
  *
  * @package Zenvy
  */
@@ -52,7 +52,6 @@ class Zenvy_Customizer_Header_Builder {
      *
      */
     public $header_bottom = 'zenvy_header_bottom';
-
 
     /*Header Elements Section, Setting and Control ID*/
 
@@ -120,6 +119,14 @@ class Zenvy_Customizer_Header_Builder {
      */
     public $toggle_menu = 'toggle_menu';
 
+	/**
+     * Theme color mode
+     *
+     * @var string
+     *
+     */
+    public $color_mode = 'color_mode';
+	
 
     /**
      * Main Instance
@@ -188,7 +195,6 @@ class Zenvy_Customizer_Header_Builder {
         }
         return $builder;
     }
-
 
     /**
      * Callback functions for zenvy_default_theme_options,
@@ -286,7 +292,12 @@ class Zenvy_Customizer_Header_Builder {
                     'name'    => esc_html__( 'HTML', 'zenvy' ),
                     'id'      => Zenvy_Customizer_Header_Builder()->html,
                     'section' => Zenvy_Customizer_Header_Builder()->html,
-                )
+                ),
+				Zenvy_Customizer_Header_Builder()->color_mode  => array(
+                    'name'    => esc_html__( 'Color Mode', 'zenvy' ),
+                    'id'      => Zenvy_Customizer_Header_Builder()->color_mode,
+                    'section' => Zenvy_Customizer_Header_Builder()->color_mode,
+                ),
             )
         );
 
@@ -299,18 +310,18 @@ class Zenvy_Customizer_Header_Builder {
                 'section'    => Zenvy_Customizer_Header_Builder()->builder_section_controller,
                 'devices'    => array(
                     'desktop' => esc_html__( 'Desktop', 'zenvy' ),
-                    'mobile'  => esc_html__( 'Mobile/Tablet', 'zenvy' )
+                    'mobile'  => esc_html__( 'Mobile/Tablet', 'zenvy' ),
                 ),
                 'items'      => $items,
                 'rows'       => array(
                     'top'       => esc_html__( 'Top Row', 'zenvy' ),
                     'main'      => esc_html__( 'Main Row', 'zenvy' ),
-                    'bottom'    => esc_html__( 'Bottom Row', 'zenvy' )
+                    'bottom'    => esc_html__( 'Bottom Row', 'zenvy' ),
                 ),
                 'cols'       => array(
                     'top'       => 3,
                     'main'      => 3,
-                    'bottom'    => 3
+                    'bottom'    => 3,
                 ),
             ),
         );
@@ -336,7 +347,7 @@ class Zenvy_Customizer_Header_Builder {
             $this->panel,
             array(
                 'title'     => esc_html__( 'Header Builder', 'zenvy' ),
-                'priority'  => 20
+                'priority'  => 15
             ) );
 
         /**
@@ -389,7 +400,7 @@ class Zenvy_Customizer_Header_Builder {
             $this->toggle_menu,
             array(
                 'title'    => esc_html__( 'Mobile Menu', 'zenvy' ),
-                'priority' => 45,
+                'priority' => 41,
                 'panel'    => $this->panel,
             )
         );
@@ -433,6 +444,15 @@ class Zenvy_Customizer_Header_Builder {
                 'panel'    => $this->panel,
             )
         );
+		$wp_customize->add_section(
+            $this->color_mode,
+            array(
+                'title'    => esc_html__( 'Color Mode', 'zenvy' ),
+                'priority' => 80,
+                'panel'    => $this->panel,
+            )
+        );
+
         /**
          * Builder control and setting
          */
@@ -469,6 +489,7 @@ class Zenvy_Customizer_Header_Builder {
         require ZENVY_THEME_DIR  . 'inc/customizer/builder/header/options/Zenvy_Customize_Header_Search_Icon_Fields.php';
         require ZENVY_THEME_DIR  . 'inc/customizer/builder/header/options/Zenvy_Customize_Header_Toggle_Menu_Fields.php';
         require ZENVY_THEME_DIR  . 'inc/customizer/builder/header/options/Zenvy_Customize_Header_Html_Fields.php';
+		require ZENVY_THEME_DIR  . 'inc/customizer/builder/header/options/Zenvy_Customize_Header_Color_Mode_Fields.php';
     }
 
     /**
@@ -493,11 +514,12 @@ class Zenvy_Customizer_Header_Builder {
     public function zenvy_header_display() {
 
         $builder = $this->get_builder();
+        $active_sidebar = [];
+
         // Desktop Display
         if ( isset( $builder['desktop'] ) && ! empty( $builder['desktop'] ) ) {
 
-            $desktop_builder_data = [];
-
+            $desktop_builder_data   = [];
             $desktop_builder = $builder['desktop'];
 
             foreach ( $desktop_builder as $key => $single_row ) {
@@ -509,6 +531,7 @@ class Zenvy_Customizer_Header_Builder {
                         if ( ! empty( $columns ) ) {
 
                             $desktop_builder_data[$key][$col_key] = $columns;
+                            $active_sidebar[]                     = $columns[0]['id'];
                         }
 
                     }
@@ -524,8 +547,7 @@ class Zenvy_Customizer_Header_Builder {
         // Tablet/Mobile Display
         if ( isset( $builder['mobile'] ) && ! empty( $builder['mobile'] ) ) {
 
-            $mobile_builder_data = [];
-
+            $mobile_builder_data    = [];
             $mobile_builder = $builder['mobile'];
 
             foreach ( $mobile_builder as $key => $single_row ) {
@@ -548,6 +570,9 @@ class Zenvy_Customizer_Header_Builder {
                 $this->mobile_header( $mobile_builder_data );
             }
         }
+
+        // Load sidebar template parts
+        self::get_elements($active_sidebar);
     }
 
     /**
@@ -1317,6 +1342,29 @@ class Zenvy_Customizer_Header_Builder {
         <?php
     }
 
+    /**
+     * Footer get_elements only for the sidebar so that we can see sidebar in customizer
+     *
+     * @param $sidebar_elements array
+     * @return void
+     */
+    public function get_elements( $sidebar_elements ) {
+
+        if ( is_array( $sidebar_elements ) ) {
+            $sidebar_array = [
+                'sidebar-widgets-slide-in-box-settings'
+            ];
+            $sidebar_elements = array_diff( $sidebar_array, $sidebar_elements);
+
+            echo '<div class="container d-none">';
+            foreach ( $sidebar_elements as $key ) {
+                if ( file_exists( trailingslashit( get_template_directory() ) . 'template-parts/header/sidebar-widgets-slide-in-box.php' ) ) {
+                    get_template_part( 'template-parts/header/sidebar-widgets-slide-in-box' );
+                }
+            }
+            echo '</div><!-- .d-none -->';
+        }
+    }
 }
 
 /**
