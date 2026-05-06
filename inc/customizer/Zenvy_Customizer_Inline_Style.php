@@ -509,12 +509,29 @@ class Zenvy_Customizer_Inline_Style
 				'zenvy_page_header_background',
 				''
 			);
-			// Container Background Overlay
-			self::background(
-				['.page-title-wrap::before'],
-				'zenvy_page_header_background_overlay',
-				''
-			);
+			$page_header_image = get_theme_mod('zenvy_page_header_background', '');
+			if ($page_header_image && (isset( $page_header_image['image'] ) || isset( $page_header_image['image'] )) ) {
+				$page_header_image_bg = get_theme_mod('zenvy_page_header_background_overlay', '');
+				if (!empty($page_header_image_bg) && !empty($page_header_image_bg['colors']['color_1'])) {
+					$overlay_color = $page_header_image_bg['colors']['color_1'];
+				} else {
+					$overlay_color = 'transparent';
+				}
+				self::generate_css(
+					['.page-title-wrap::before'],
+					['background'],
+					$overlay_color
+				);
+			} else {
+				// Container Background Overlay
+				self::background(
+					['.page-title-wrap::before'],
+					'zenvy_page_header_background_overlay',
+					''
+				);
+			}
+
+
 			// Item Gap
 			self::generate_css(
 				['.site-header .page-title-wrap .text-left .breadcrumbs ul li,.site-header .page-title-wrap .text-center .breadcrumbs ul li'],
