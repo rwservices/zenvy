@@ -24,7 +24,6 @@ $social_icons = get_theme_mod(
 );
 
 if ( $social_icons ) :
-
     $link_open = get_theme_mod(
         'zenvy_footer_social_icon_link_open',
         ''
@@ -32,20 +31,24 @@ if ( $social_icons ) :
     $link_target = ( $link_open && array_key_exists( 'desktop', $link_open ) ) ? '_blank' : '_self'
     ?>
 
-    <ul class="footer-social-wrap column d-flex align-items-center">
+	<div class="footer-social-container">
+		<ul class="footer-social-wrap d-flex align-items-center">
 
-		<?php foreach ( $social_icons as $social ) :
-			$network 	= ($social['network'] != '') ? $social['network'] : 'facebook';
-			$icon		= ($social['icon'] != '') ? $social['icon'] : 'fa-'.$network;
-			?>
-			<li>
-				<a href="<?php echo esc_url( $social['link'] ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
-					<?php Zenvy_Font_Awesome_Icons::get_icon( 'ui', $icon ); ?>
-				</a>
-			</li>
-		<?php endforeach; ?>
+			<?php foreach ( $social_icons as $social ) :
+				$network 	= ($social['network'] != '') ? $social['network'] : 'facebook';
+				$icon		= ($social['icon'] != '') ? $social['icon'] : 'fab fa-'.$network;
+				?>
+				<li>
+					<a href="<?php echo esc_url( $social['link'] ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+						<?php Zenvy_Font_Awesome_Icons::get_icon( 'ui', $icon ); ?>
+					</a>
+				</li>
+			<?php endforeach; ?>
 
-    </ul><!-- .social-icons -->
+		</ul><!-- .social-icons -->
+	</div>
+
+    
 
 <?php
 

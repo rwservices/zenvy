@@ -123,7 +123,7 @@
 	.mean-container a.meanmenu-reveal span,
 	.mean-container .meanmenu-reveal span::before,
 	.mean-container .meanmenu-reveal span::after {
-		background: var(--color-black);
+		background: var(--color-bg-dark);
 	}
 	.tags-links a:first-child {
 		font-size: 68px;

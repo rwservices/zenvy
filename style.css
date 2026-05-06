@@ -4739,3 +4739,104 @@ p.no-comments {
 	/* Gecko Browsers */
 	color: var(--color-white);
 }
+
+
+/* builder */
+.site-header {
+	position: relative;
+}
+.site-header .top-header,
+.site-header .main-header,
+.site-header .bottom-header,
+.site-footer .top-footer,
+.site-footer .main-footer,
+.site-footer .bottom-footer{
+	position: relative;
+}
+
+.site-header .top-header::before,
+.site-header .main-header::before,
+.site-header .bottom-header::before,
+.site-footer .top-footer::before,
+.site-footer .main-footer::before,
+.site-footer .bottom-footer::before{
+	position: absolute;
+	display: block;
+	content: "";
+	height: 100%;
+	width: 100%;
+	top: 0;
+}
+
+.header-layout-full-width .container,
+.footer-layout-full-width .container,
+.site-header .header-layout-full-width .container,
+.site-footer .footer-layout-full-width .container {
+	width: 100%;
+}
+.header-layout-contained,
+.footer-layout-contained{
+	max-width: var(--container-width);
+	margin: 0 auto;
+}
+
+.site-header-row.has-no-sides-column {
+	grid-template-columns: inherit;
+}
+.site-header-row > div.col-has-search-element,
+.site-header-row > div.col-has-toggle-menu-element {
+	position: static;
+}
+.site-header-row {
+	position: relative;
+}
+.site-header .desktop-header-wrap .site-header-section-center .mobile-navbar .mean-container a.meanmenu-reveal {
+	left: auto !important;
+	right: auto !important;
+}
+.site-header-section > * {
+	padding: 0 10px;
+}
+.site-header-section > div:first-child {
+	padding-left: 0;
+}
+.site-header-section > div:last-child {
+	padding-right: 0;
+}
+
+.site-header .header-search-section.active .search-form,
+.site-header .header-search-section.active .search-toggle:focus .search-form,
+.site-header .header-search-section.active .search-toggle:focus-within .search-form {
+	visibility: visible;
+	opacity: 1;
+}
+
+.site-header .header-account-wrap a,
+.site-header .header-social-wrap li a,
+.site-header .header-button-wrap a,
+.site-footer .footer-button-wrap a,
+.site-footer .footer-social-wrap li{
+	border: 1px solid var(--color-border);
+}
+
+.site-footer .social-links li a {
+	background: none;
+	padding: 16px 10px;
+	position: relative;
+	border-left: 1px solid var(--color-link-hover);
+	width: 50px;
+	font-size: 0;
+	text-align: center;
+}
+
+.site-footer .social-links li a:hover {
+	background: var(--color-bg-dark);
+}
+
+.site-footer .social-links li:last-child a {
+	border-right: 1px solid var(--color-link-hover);
+}
+
+.site-footer .social-links li {
+	margin: 0 -2px
+}

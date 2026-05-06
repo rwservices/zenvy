@@ -82,7 +82,7 @@ if (! function_exists('zenvy_content_before_page_header')) :
 		}
 
 		$page_class = ['page-title-wrap'];
-		if ( empty($elements) ) {
+		if (empty($elements)) {
 			$page_class[] = 'empty-page-title-wrap';
 		}
 
@@ -144,25 +144,25 @@ if (! function_exists('zenvy_content_before_wrapper_start')) :
 			<?php
 		}
 
-	endif;
+endif;
 
-	/* ------------------------------ AFTER CONTENT ------------------------------ */
-	if (! function_exists('zenvy_content_after_wrapper_end')) :
+/* ------------------------------ AFTER CONTENT ------------------------------ */
+if (! function_exists('zenvy_content_after_wrapper_end')) :
 
-		/**
-		 * Close custom wrapper div after content
-		 */
-		function zenvy_content_after_wrapper_end()
-		{
-			if (is_404() || Zenvy_Helper::front_page_enable()) {
-				return;
-			}
-			get_sidebar();
-			echo '</div><! -- .container -->';
-			echo '</section><! -- .page-wrapper -->';
+	/**
+	 * Close custom wrapper div after content
+	 */
+	function zenvy_content_after_wrapper_end()
+	{
+		if (is_404() || Zenvy_Helper::front_page_enable()) {
+			return;
 		}
+		get_sidebar();
+		echo '</div><! -- .container -->';
+		echo '</section><! -- .page-wrapper -->';
+	}
 
-	endif;
+endif;
 	/* ------------------------------ BLOG PAGE CONTENT ------------------------------ */
 
 	if (! function_exists('zenvy_posts_navigation')) :
@@ -475,8 +475,7 @@ if (! function_exists('zenvy_content_before_wrapper_start')) :
 												zenvy_posted_tags();
 											} elseif ($val === 'date') {
 												zenvy_posted_on();
-											}
-											elseif ($val === 'comments') {
+											} elseif ($val === 'comments') {
 												zenvy_posted_comments();
 											}
 										}
@@ -809,46 +808,46 @@ if (! function_exists('zenvy_content_before_wrapper_start')) :
 		endif;
 
 		/* ------------------------------ CONTENT ------------------------------ */
-		if (! function_exists('zenvy_menu_fallback')) :
+if (! function_exists('zenvy_menu_fallback')) :
 
-			/**
-			 * Menu fallback for primary menu.
-			 *
-			 * Contains wp_list_pages to display pages created,
-			 *
-			 * @param array $args Array of wp_nav_menu arguments.
-			 */
-			function zenvy_menu_fallback($args = array())
-			{
-				// Get the container class from args or use default
-				$container_class = ! empty($args['container_class']) ? $args['container_class'] : 'menu-top-menu-container';
+	/**
+	 * Menu fallback for primary menu.
+	 *
+	 * Contains wp_list_pages to display pages created,
+	 *
+	 * @param array $args Array of wp_nav_menu arguments.
+	 */
+	function zenvy_menu_fallback($args = array())
+	{
+		// Get the container class from args or use default
+		$container_class = ! empty($args['container_class']) ? $args['container_class'] : 'menu-top-menu-container';
 
-				// Get the menu class from args or use default
-				$menu_class = ! empty($args['menu_class']) ? $args['menu_class'] : 'menu-wrapper';
+		// Get the menu class from args or use default
+		$menu_class = ! empty($args['menu_class']) ? $args['menu_class'] : 'menu-wrapper';
 
-				// Get the menu ID from items_wrap or use default
-				$menu_id = 'primary-menu-list';
-				if (! empty($args['items_wrap']) && preg_match('/id="([^"]+)"/', $args['items_wrap'], $matches)) {
-					$menu_id = $matches[1];
-				}
+		// Get the menu ID from items_wrap or use default
+		$menu_id = 'primary-menu-list';
+		if (! empty($args['items_wrap']) && preg_match('/id="([^"]+)"/', $args['items_wrap'], $matches)) {
+			$menu_id = $matches[1];
+		}
 
-				$output  = '';
-				$output .= '<div class="' . esc_attr($container_class) . '">';
-				$output .= '<ul id="' . esc_attr($menu_id) . '" class="' . esc_attr($menu_class) . '">';
+		$output  = '';
+		$output .= '<div class="' . esc_attr($container_class) . '">';
+		$output .= '<ul id="' . esc_attr($menu_id) . '" class="' . esc_attr($menu_class) . '">';
 
-				$output .= wp_list_pages(
-					array(
-						'echo'     => false,
-						'title_li' => false,
-					)
-				);
+		$output .= wp_list_pages(
+			array(
+				'echo'     => false,
+				'title_li' => false,
+			)
+		);
 
-				$output .= '</ul>';
-				$output .= '</div>';
+		$output .= '</ul>';
+		$output .= '</div>';
 
-				// @codingStandardsIgnoreStart
-				echo $output;
-				// @codingStandardsIgnoreEnd
-			}
+		// @codingStandardsIgnoreStart
+		echo $output;
+		// @codingStandardsIgnoreEnd
+	}
 
-		endif;
+endif;
