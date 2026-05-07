@@ -120,6 +120,58 @@ class Zenvy_Google_Fonts {
 		// Declare default font lists
 		$lists = [
 			[
+				'family'	=> 'Cormorant Garamond',
+				'variants'	=> [
+					"300",
+					"300italic",
+					"regular",
+					"italic",
+					"500",
+					"500italic",
+					"600",
+					"600italic",
+					"700",
+					"700italic"
+				],
+				'subsets'	=> [
+					"cyrillic",
+					"cyrillic-ext",
+					"latin",
+					"latin-ext",
+					"vietnamese"
+				],
+				'category'	=> 'serif'
+			],
+			[
+				'family'	=> 'Poppins',
+				'variants'	=> [
+					"100",
+					"100italic",
+					"200",
+					"200italic",
+					"300",
+					"300italic",
+					"regular",
+					"italic",
+					"500",
+					"500italic",
+					"600",
+					"600italic",
+					"700",
+					"700italic",
+					"800",
+					"800italic",
+					"900",
+					"900italic"
+				],
+				'subsets'	=> [
+					"devanagari",
+					"latin",
+					"latin-ext"
+				],
+				'category'	=> 'sans-serif'
+			],
+			[
 				'family'   => 'Barlow',
 				'variants' => [
 					'100',
@@ -417,6 +469,16 @@ class Zenvy_Google_Fonts {
 		if ( $base && array_key_exists( 'font_family', $base ) ) {
 			$added_fonts[] = $base;
 		}
+
+		// Heading
+		$heading = get_theme_mod(
+			'zenvy_heading_typography',
+			''
+		);
+		if ( $heading && array_key_exists( 'font_family', $heading ) ) {
+			$added_fonts[] = $heading;
+		}
+
 		// Header contact info
 		$header_contact_info_title = get_theme_mod(
 			'zenvy_header_contact_info_title_typo',

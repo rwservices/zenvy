@@ -487,6 +487,14 @@ class Zenvy_Customizer_Inline_Style
 				'zenvy_base_typography',
 				''
 			);
+
+			// Heading
+			self::typography(
+				['h1, h2, h3, h4, h5, h6'],
+				'zenvy_heading_typography',
+				''
+			);			
+
 			/*
 			--------------------------------------------------------------
 			# Global -> Featured Image Color

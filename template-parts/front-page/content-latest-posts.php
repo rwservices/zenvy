@@ -37,7 +37,7 @@ if ($recent_posts->have_posts()):
                             while ($recent_posts->have_posts()):
                                 $recent_posts->the_post();
 
-                                get_template_part('template-parts/content', 'posts');
+                                get_template_part('template-parts/content');
 
                             endwhile;
                             ?>

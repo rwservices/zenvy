@@ -42,6 +42,22 @@ if ( ! function_exists( 'zenvy_posted_by' ) ) :
 
 endif;
 
+if ( ! function_exists( 'zenvy_comment_count' ) ) :
+    /**
+     * Prints HTML with the comment count for the current post.
+     */
+    function zenvy_comment_count() {
+        if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
+            echo '<div class="comments-link">';
+
+            /* translators: %s: Post title. Only visible to screen readers. */
+            comments_popup_link( sprintf( __( 'Leave a comment<span class="screen-reader-text"> on %s</span>', 'zenvy' ), get_the_title() ) );
+
+            echo '</div>';
+        }
+    }
+endif;
+
 if ( ! function_exists( 'zenvy_posted_cats' ) ) :
 
 	/**
