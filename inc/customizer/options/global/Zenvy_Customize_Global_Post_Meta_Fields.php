@@ -19,16 +19,16 @@ class Zenvy_Customize_Global_Post_Meta_Fields extends Zenvy_Customize_Base_Field
                 'type'              => 'sortable',
                 'default'           => ['date','categories'],
                 'sanitize_callback' => ['Zenvy_Customizer_Sanitize_Callback', 'sanitize_sortable' ],
-                'label'             => esc_html__( 'Post Meta Elements', 'blogin-aarambha' ),
-                'description'       => esc_html__( 'Enable Post Meta elements and rearrange lists using drag and drop.', 'blogin-aarambha' ),
+                'label'             => esc_html__( 'Post Meta Elements', 'zenvy' ),
+                'description'       => esc_html__( 'Enable Post Meta elements and rearrange lists using drag and drop.', 'zenvy' ),
                 'section'           => 'zenvy_post_meta_section',
                 'priority'          => 10,
                 'choices'           => [
-                    'author'            => esc_html__( 'Author', 'blogin-aarambha' ),
-                    'categories'        => esc_html__( 'Categories', 'blogin-aarambha' ),
-                    'tags'              => esc_html__( 'Tags', 'blogin-aarambha' ),
-                    'date'              => esc_html__( 'Publish Date', 'blogin-aarambha' ),
-                    'comment'           => esc_html__( 'Comments', 'blogin-aarambha' )
+                    'author'            => esc_html__( 'Author', 'zenvy' ),
+                    'categories'        => esc_html__( 'Categories', 'zenvy' ),
+                    'tags'              => esc_html__( 'Tags', 'zenvy' ),
+                    'date'              => esc_html__( 'Publish Date', 'zenvy' ),
+                    'comment'           => esc_html__( 'Comments', 'zenvy' )
                 ],
             ]
         ];

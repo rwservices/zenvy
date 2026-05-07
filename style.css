@@ -511,6 +511,7 @@ input[type="submit"] {
 	text-transform: capitalize;
 	transition: all 0.3s ease-out;
 	font-family: var(--font-heading);
+	background: var(--color-link);
 }
 
 .wpcf7-form input[type="submit"] {
@@ -528,6 +529,7 @@ input[type="reset"]:hover,
 input[type="button"]:hover,
 input[type="submit"]:hover {
 	color: var(--color-primary);
+	background: var(--color-link-hover);
 }
 
 select {
@@ -1981,7 +1983,7 @@ iframe {
 }
 
 .tags-links a:first-child {
-	font-size: 110px;
+	font-size: 80px;
 	font-family: var(--font-heading);
 	text-transform: capitalize;
 	line-height: 1;
@@ -2078,11 +2080,12 @@ iframe {
 }
 
 .entry-meta > div {
-	display: inline-block;
-	line-height: 1.2;
-	padding-right: 5px;
-	margin-bottom: 5px;
-	position: relative;
+  display: inline-block;
+  line-height: 1.2;
+  padding-right: 7px;
+  margin-bottom: 5px;
+  position: relative;
+  margin-right: 5px;
 }
 
 .entry-meta > div::before {
@@ -2871,10 +2874,13 @@ div.bbp-submit-wrapper button {
 }
 
 .post-navigation .nav-links a {
-	background: var(--color-bg-dark);
+	background: var(--color-link);
 	color: var(--color-white);
 	display: block;
 	padding: 15px;
+}
+.post-navigation .nav-links a:hover {
+	background: var(--color-link-hover);
 }
 
 .post-navigation .nav-links .nav-next a {
@@ -2935,6 +2941,7 @@ div.bbp-submit-wrapper button {
 	left: 15px;
 	margin: auto;
 	top: 0;
+	right: auto;
 }
 
 /*  8.0 ===== Widgets =====  */
@@ -3064,7 +3071,10 @@ div.bbp-submit-wrapper button {
 .widget.widget_categories ul li,
 .widget.widget_archive ul li,
 .widget_recent_entries ul li,
-.wp-block-page-list li {
+.wp-block-page-list li,
+.wp-block-latest-posts li,
+.wp-block-categories li,
+.wp-block-archives li {
 	margin-bottom: 13px;
 	border-bottom: 1px solid var(--color-border);
 	padding-bottom: 14px;
@@ -3073,14 +3083,20 @@ div.bbp-submit-wrapper button {
 .widget.widget.widget_categories ul li:last-child,
 .widget.widget_archive ul li:last-child,
 .widget_recent_entries ul li:last-child,
-.wp-block-page-list li:last-child {
+.wp-block-page-list li:last-child,
+.wp-block-latest-posts li:last-child,
+.wp-block-categories li:last-child,
+.wp-block-archives li:last-child {
 	margin-bottom: 0;
 	border-bottom: none;
 	padding-bottom: 0;
 }
 
 .widget.widget.widget_categories ul li ul,
-.widget.widget_archive ul li ul {
+.widget.widget_archive ul li ul,
+.wp-block-latest-posts li ul,
+.wp-block-categories li ul,
+.wp-block-archives li ul {
 	padding: 13px 0 0 10px;
 	border-top: 1px solid var(--color-border);
 	margin-top: 13px;
@@ -3439,7 +3455,7 @@ div.bbp-submit-wrapper button {
 }
 
 .explore-section .post .cat-link a {
-	font-size: 56px;
+	font-size: 36px;
 	font-family: var(--font-heading);
 	text-transform: capitalize;
 	line-height: 1;
@@ -4494,10 +4510,12 @@ p.no-comments {
 	margin-bottom: 45px;
 }
 
-.widget-title {
+.widget-title,
+.site-content .widget .wp-block-heading ,
+.site-content .widget .wp-block-search__label {
 	display: block;
 	font-size: 28px;
-	margin: 0 0 15px;
+	margin: 0;
 	padding-bottom: 19px;
 	position: relative;
 }

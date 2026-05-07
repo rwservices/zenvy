@@ -29,6 +29,9 @@ html[data-theme="light"] #theme-toggle span.color-dark {
 	color: var(--color-bg-dark);
 }
 
+/* Header - "Search Icon" */
+
+
 /*   -- "Social Profile" (These are the styles for the Social Site section) --   */
 .social-links ul li a::before {
 	font-family: "FontAwesome";

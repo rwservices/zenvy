@@ -17,7 +17,7 @@ class Zenvy_Customize_Blog_Post_Read_More_Fields extends Zenvy_Customize_Base_Fi
 			// Type
 			'zenvy_blog_post_read_btn_type'       => [
 				'type'              => 'buttonset',
-				'default'           => [ 'desktop' => 'button' ],
+				'default'           => [ 'desktop' => 'text' ],
 				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_buttonset' ],
 				'label'             => esc_html__( 'Display as', 'zenvy' ),
 				'section'           => 'zenvy_blog_post_read_more_section',

@@ -688,7 +688,7 @@ class Zenvy_Helper
 
         $btn_type = get_theme_mod(
             'zenvy_blog_post_read_btn_type',
-            ['desktop' => 'button']
+            ['desktop' => 'text']
         );
         $enable_arrow = get_theme_mod(
             'zenvy_blog_post_read_more_btn_arrow',
@@ -698,6 +698,10 @@ class Zenvy_Helper
         $read_more_class = ['read-more'];
 
         if ($btn_type && $btn_type['desktop'] == 'button') {
+            $read_more_class[] = 'box-button';
+        }
+
+        if ($btn_type && $btn_type['desktop'] == 'text') {
             $read_more_class[] = 'read-more-btn';
         }
 
