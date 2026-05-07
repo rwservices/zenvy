@@ -306,10 +306,6 @@ blockquote cite {
 	display: none;
 }
 
-.breadcrumbs li:first-child:before {
-	display: none;
-}
-
 .trail-items li:first-child {
 	margin-left: 0px;
 }
@@ -623,6 +619,7 @@ input[type="checkbox"] {
 	margin: 0 0 1.5em;
 }
 
+.has-empty-header .entry-header,
 .updated:not(.published) {
 	display: none;
 }
