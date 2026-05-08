@@ -65,6 +65,9 @@ if ( ! class_exists( 'Zenvy_WooCommerce' ) ) :
                  * Remove WooCommerce Default hooks
                  */
                 add_filter( 'woocommerce_show_page_title', '__return_null' );
+               
+                add_action('woocommerce_before_main_content', array($this, 'woocommerce_output_content_wrapper'), 5 );
+                add_action('zenvy_sidebar_after', array($this, 'woocommerce_output_content_wrapper_end'), 9999 );
                 remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
 
                 /**
@@ -76,6 +79,7 @@ if ( ! class_exists( 'Zenvy_WooCommerce' ) ) :
                 /**
                  * Shop Page action
                  */
+               // add_action( 'woocommerce_before_shop_loop', 'woocommerce_output_all_notices', 10 );
                 add_action('woocommerce_before_shop_loop', array($this, 'products_results_ordering_before'), 19 );
                 add_action('woocommerce_before_shop_loop', array($this, 'products_results_ordering_after'), 31 );
 
@@ -99,6 +103,16 @@ if ( ! class_exists( 'Zenvy_WooCommerce' ) ) :
             }
 
 		}
+
+        public function woocommerce_output_content_wrapper() {
+            echo '<section class="page-wrapper">';
+            echo '<div class="container d-flex flex-wrap">';
+        }
+
+        public function woocommerce_output_content_wrapper_end() {
+            echo '</div><! -- .container -->';
+            echo '</section><! -- .page-wrapper -->';
+        }
 
         /**
          *  Load required files
