@@ -137,7 +137,7 @@ if (! function_exists('zenvy_content_before_wrapper_start')) :
 		if (is_404() || Zenvy_Helper::front_page_enable()) {
 			return;
 		}
-		$section_class = is_single() && 'agent' !== get_post_type() ? 'page-wrapper single-post-wrapper' : 'page-wrapper';
+		$section_class = is_single() ? 'page-wrapper single-post-wrapper' : 'page-wrapper';
 	?>
 		<section class="<?php echo esc_attr($section_class); ?>">
 			<div class="container d-flex flex-wrap">

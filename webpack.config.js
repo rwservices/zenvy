@@ -110,6 +110,7 @@ const scripts = {
 		'customize-controls': path.resolve( process.cwd(), 'assets', 'src', 'customize', 'index.js' ),
 		main: path.resolve( process.cwd(), 'assets', 'src', 'js', 'main.js' ),
 		widget: path.resolve( process.cwd(), 'assets', 'src', 'js', 'widget.js' ),
+		woocommerce: path.resolve( process.cwd(), 'assets', 'src', 'js', 'woocommerce.js' ),
 	},
 	module: {
 		rules:

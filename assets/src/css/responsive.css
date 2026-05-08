@@ -1,3 +1,6 @@
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/@wordpress/scripts/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./assets/src/css/responsive.css ***!
+  \*******************************************************************************************************************************************************************************************************************/
 /*  12.0 ===== Medias/Responsive =====   */
 
 /*
@@ -8,6 +11,10 @@
  */
 
 @-ms-viewport {
+	width: device-width;
+}
+
+@-o-viewport {
 	width: device-width;
 }
 
@@ -72,6 +79,7 @@
 		visibility: visible;
 		width: 100%;
 		border: none !important;
+		-webkit-transition: none !important;
 		transition: none !important;
 		background: rgba(255, 255, 255, 0);
 	}
@@ -112,7 +120,8 @@
 		bottom: 0;
 		margin: auto;
 		height: 35px;
-		transform: none;
+		-webkit-transform: none;
+		        transform: none;
 	}
 	.mean-container .mean-nav > ul {
 		right: 0;
@@ -749,3 +758,6 @@
 		grid-template-columns: repeat(1, 1fr);
 	}
 }
+
+
+/*# sourceMappingURL=responsive.css.map*/

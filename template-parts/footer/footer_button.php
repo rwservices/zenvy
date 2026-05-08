@@ -23,7 +23,7 @@ $link_target = ( $link_open && array_key_exists( 'desktop', $link_open ) ) ? '_b
 ?>
 
 <div class="footer-button-wrap d-flex align-items-center">
-    <a href="<?php echo esc_url( $button_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
+    <a href="<?php echo esc_url( $button_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>" class="box-button d-flex align-items-center">
 		<label><?php echo esc_html( $button_text ); ?></label>
     </a>
 </div><!-- .footer-button-wrap -->

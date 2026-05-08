@@ -29,7 +29,7 @@ $link_target = ( $link_open && array_key_exists( 'desktop', $link_open ) ) ? '_b
 ?>
 
 <div class="header-button-wrap d-flex">
-    <a href="<?php echo esc_url( $button_url ); ?>" class="d-flex align-items-center" target="<?php echo esc_attr( $link_target ); ?>">
+    <a href="<?php echo esc_url( $button_url ); ?>" class="box-button d-flex align-items-center" target="<?php echo esc_attr( $link_target ); ?>">
         <?php if ( $content_display && ( $content_display['desktop'] == 'text' || $content_display['desktop'] == 'both' ) ) : ?>
             <label><?php echo esc_html( $button_text ); ?></label>
         <?php endif; ?>

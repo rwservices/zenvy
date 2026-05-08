@@ -565,32 +565,3 @@ p.no-comments {
 .widget_price_filter .ui-slider-horizontal .ui-slider-range {
 	height: 100%;
 }
-.mini_cart_item .attachment-woocommerce_thumbnail {
-  width: 80px;
-}
-ol {
-  padding-left: 15px;
-}
-article .entry-content ul li, article .entry-content ol li {
-  margin-bottom: 10px;
-}
-.pagination a, .pagination > li > a, .pagination > li > span, #wp_page_numbers li, .wp-pagenavi li, #main ul.default-wp-page, .pagination > span {
-  background-color: rgba(210, 209, 209, 0);
-  border: medium none;
-  color: var(--white);
-  display: inline-block;
-  font-size: 14px;
-  padding: 3px 10px;
-  text-transform: uppercase;
-  height: 30px;
-  width: 30px;
-  line-height: 25px;
-  display: flex;
-  align-items: center;
-  margin: 0;
-  border: 1px solid var(--color-primary);
-  color: var(--color-primary);
-}
-.pagination a.next::before, .nav-next a::before{
-	color: var(--color-primary);
-}
