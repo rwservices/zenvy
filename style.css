@@ -698,7 +698,7 @@ article {
 	-ms-transition: all 0.4s ease 0s;
 	-o-transition: all 0.4s ease 0s;
 	-webkit-transition: all 0.4s ease 0s;
-	color: var(--color-text);
+	color: var(--color-white);
 	display: inline-block;
 	font-size: 16px;
 	line-height: 1.2;
@@ -707,8 +707,8 @@ article {
 	text-align: center;
 	text-transform: capitalize;
 	position: relative;
-	background: var(--color-bg-light);
-	border: 1px solid var(--color-border);
+	background: var(--color-link);
+	border: 1px solid var(--color-link);
 }
 
 .box-button:hover,
@@ -721,15 +721,15 @@ article {
 	-ms-transition: all 0.4s ease 0s;
 	-o-transition: all 0.4s ease 0s;
 	-webkit-transition: all 0.4s ease 0s;
-	background: var(--color-primary);
-	border-color: var(--color-primary);
+	background: var(--color-link-hover);
+	border-color: var(--color-link-hover);
 }
 
 .box-button:hover,
 .box-button:active,
 .box-button:focus {
 	color: var(--color-white);
-	background: var(--color-primary);
+	background: var(--color-link-hover);
 }
 
 .read-more-btn {
@@ -2870,22 +2870,24 @@ div.bbp-submit-wrapper button {
 	position: relative;
 }
 
-.post-navigation .nav-links a {
+.post-navigation .nav-links a,
+.navigation .nav-links a {
 	background: var(--color-link);
 	color: var(--color-white);
 	display: block;
 	padding: 15px;
 }
-.post-navigation .nav-links a:hover {
+.post-navigation .nav-links a:hover,
+.navigation .nav-links a:hover {
 	background: var(--color-link-hover);
 }
 
 .post-navigation .nav-links .nav-next a {
-	padding-left: 50px;
+	padding-right: 50px;
 }
 
 .post-navigation .nav-links .nav-previous a {
-	padding-right: 50px;
+	padding-left: 50px;
 }
 
 .pagination a.prev::before,
@@ -2910,7 +2912,7 @@ div.bbp-submit-wrapper button {
 	bottom: 0;
 	height: 18px;
 	margin: auto;
-	right: 15px;
+	left: 15px;
 	top: 0;
 }
 
@@ -2935,10 +2937,10 @@ div.bbp-submit-wrapper button {
 .nav-next a::before {
 	bottom: 0;
 	height: 18px;
-	left: 15px;
+	left: auto;
 	margin: auto;
 	top: 0;
-	right: auto;
+	right: 15px;
 }
 
 /*  8.0 ===== Widgets =====  */
@@ -3286,7 +3288,14 @@ div.bbp-submit-wrapper button {
 	visibility: hidden;
 	z-index: 10000;
 }
-
+.site-header .site-header-section-left .search-section {
+  left: 0;
+  right: auto;
+}
+.site-header .site-header-section-left .search-section .search-arrow {
+  right: auto;
+  left: 12px;
+}
 .search-toggle.search-active ~ .search-section {
 	display: block;
 	visibility: visible;
@@ -3336,6 +3345,7 @@ div.bbp-submit-wrapper button {
 	transition: all 0s ease 0s;
 	width: 46px;
 	height: 100%;
+	height: 46px;
 }
 
 .search-form input[type="submit"]:hover {
@@ -4834,6 +4844,10 @@ p.no-comments {
 .site-header .header-search-section.active .search-toggle:focus-within .search-form {
 	visibility: visible;
 	opacity: 1;
+}
+.site-header .header-search-section .search-form input {
+  margin-bottom: 0;
+  height: 46px;
 }
 
 .site-header .header-account-wrap a,

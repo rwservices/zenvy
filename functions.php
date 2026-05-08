@@ -29,6 +29,9 @@ if (! defined('ZENVY_THEME_DIR')) {
 if (! defined('ZENVY_THEME_URI')) {
 	define('ZENVY_THEME_URI', trailingslashit(esc_url(get_template_directory_uri())));
 }
+if ( ! defined( 'ZENY_RTL_SUFFIX' ) ) {
+    define( 'ZENY_RTL_SUFFIX', ( is_rtl() ) ? '-rtl' : '' );
+}
 
 if (! function_exists('zenvy_setup')) :
 
@@ -334,8 +337,15 @@ require ZENVY_THEME_DIR . 'inc/customizer/builder/footer/Zenvy_Customizer_Footer
 /**
  * Load Jetpack compatibility file.
  */
-if (defined('JETPACK__VERSION')) {
+if ( defined( 'JETPACK__VERSION' ) ) {
 	require ZENVY_THEME_DIR . 'inc/compatibility/jetpack/jetpack.php';
+}
+
+/**
+ * Load WooCommerce compatibility file.
+ */
+if ( class_exists( 'WooCommerce' ) ) {
+	require ZENVY_THEME_DIR . 'inc/compatibility/woocommerce/woocommerce.php';
 }
 
 /**

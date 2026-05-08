@@ -8,6 +8,34 @@
 
 class Zenvy_Helper
 {
+    /**
+     * Store the post ids.
+     *
+     * Since blog page takes the first post as its id,
+     * here we are storing the id of the post and for the blog page,
+     * storing its value via getting the specific page id through:
+     * `get_option( 'page_for_posts' )`
+     *
+     * @return false|int|mixed|string|void
+     */
+    public static function get_post_id() {
+
+        $post_id        = '';
+        $page_for_posts = get_option( 'page_for_posts' );
+
+        // For single post and pages.
+        if ( is_singular() ) {
+            $post_id = get_the_ID();
+        } elseif ( ! is_front_page() && is_home() && $page_for_posts ) { // For the static blog page.
+            $post_id = $page_for_posts;
+        }
+        elseif ( self::is_woocommerce() && is_shop() ) { // Shop Page
+            $post_id = wc_get_page_id('shop');
+        }
+
+        // Return the post ID.
+        return $post_id;
+    }
 
     /**
      * Get an array of terms from a taxonomy.
@@ -304,49 +332,21 @@ class Zenvy_Helper
     public static function get_sidebar_layout($sidebar = 'none')
     {
 
-        $post_id = get_the_ID();
-
-        // Blog Page ID
-        $page_for_posts = get_option('page_for_posts');
-        if (is_home() && $page_for_posts) {
-            $post_id = $page_for_posts;
+    // Check meta first to override and return (prevents filters from overriding meta)
+        $sidebar = get_post_meta( self::get_post_id(), 'zenvy_sidebar_layout', true );
+        if ( $sidebar && $sidebar != 'default' ) {
+            return $sidebar;
         }
-
-        // Check meta first to override and return (prevents filters from overriding meta)
-        $meta = get_post_meta($post_id, 'cre_global_sidebar_layout', true);
-
-        if ($post_id && $meta && $meta != 'default') {
-
-            return $meta;
+        if ( is_single() ) {
+            $sidebar = get_theme_mod( 'zenvy_single_post_sidebar_layout', 'right' );
+        } elseif ( is_page() ) {
+            $sidebar = get_theme_mod( 'zenvy_single_page_sidebar_layout', 'right' );
         }
-
-        // Bail if static blog page or archive page
-        if (is_front_page() && is_home() || is_home() || is_search() || is_archive()) {
-
-            $sidebar = get_theme_mod('zenvy_blog_sidebar_layout', 'right');
+        else {
+            $sidebar = get_theme_mod( 'zenvy_blog_sidebar_layout', 'right' );
         }
-        // Bail if single page
-        elseif (is_page()) {
-
-            if (is_page_template('page-templates/location.php')) {
-                $sidebar = 'none';
-            } else {
-                $sidebar = get_theme_mod('zenvy_single_page_sidebar_layout', 'right');
-            }
-        }
-        // Bail if single Post
-        elseif (is_single()) {
-
-            if ('post' == get_post_type()) {
-
-                $sidebar = get_theme_mod('zenvy_single_post_sidebar_layout', 'right');
-            } else {
-
-                $sidebar = 'none';
-            }
-        }
-
         return $sidebar;
+
     }
 
     /**
@@ -950,5 +950,19 @@ class Zenvy_Helper
         }
 
         return false;
+    }
+
+    /**
+     * Function to return the boolean value if `WooCommerce` plugin is activated or not.
+     *
+     * @return boolean
+     */
+    public static function is_woocommerce() {
+
+        if ( class_exists( 'WooCommerce' ) ) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

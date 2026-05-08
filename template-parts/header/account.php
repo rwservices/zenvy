@@ -47,7 +47,7 @@ else {
 ?>
 
 <div class="header-account-wrap d-flex">
-    <a href="<?php echo esc_url( $account_url ); ?>" class="d-flex align-items-center" target="<?php echo esc_attr( $link_target ); ?>">
+    <a href="<?php echo esc_url( $account_url ); ?>" class="box-button d-flex align-items-center" target="<?php echo esc_attr( $link_target ); ?>">
         <?php if ( $account_text !== '' ) : ?>
             <label><?php echo esc_html( $account_text ); ?></label>
         <?php endif; ?>
