@@ -349,6 +349,37 @@ class Zenvy_Customizer_Inline_Style
 			--------------------------------------------------------------
 			# Header Builder -> Toggle Menu
 			--------------------------------------------------------------*/
+			// Icon Color
+           self::color(
+                ['
+                .site-header .mobile-navbar .mean-container .meanmenu-reveal span,
+                .site-header .mobile-navbar .mean-container .meanmenu-reveal span:before,
+                .site-header .mobile-navbar .mean-container .meanmenu-reveal span:after
+                '],
+                'zenvy_header_toggle_menu_icon_color',
+                ['color_1'=> 'var(--color-accent-secondary)'],
+                'background'
+            );
+            // Icon background color
+            self::color(
+                ['.site-header .mobile-navbar .mean-container a.meanmenu-reveal'],
+                'zenvy_header_toggle_menu_icon_background_color',
+                '',
+                'background-color'
+            );
+           // Menu Typography
+           self::typography(
+                ['.site-header .mobile-navbar .mean-container .mean-nav ul li a'],
+                'zenvy_header_toggle_menu_text_typo',
+                ''
+            );
+            // Menu Background
+            self::color(
+                ['.site-header .mobile-navbar .mean-container .mean-nav>ul,.site-header .mobile-navbar .main-navigation ul li ul li:hover>a','.site-header .mobile-navbar .mean-container .mean-nav>ul>li>a:hover'],
+                'zenvy_header_toggle_menu_dropdown_container_menu_background',
+                '',
+                'background-color'
+            );
 			// Container Padding
 			self::dimensions(
 				['.site-header .header-toggle-menu-wrap'],

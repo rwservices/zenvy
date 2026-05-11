@@ -61,13 +61,16 @@ class Zenvy_Customize_Header_Toggle_Menu_Fields extends Zenvy_Customize_Base_Fie
             'zenvy_header_toggle_menu_icon_color' => [
                 'type'              => 'color',
                 'default'           => [
-                    'color_1'           => 'var(--color-accent-secondary)'
+                    'color_1'           => 'var(--color-bg-dark)'
                 ],
                 'sanitize_callback' => ['Zenvy_Customizer_Sanitize_Callback', 'sanitize_color' ],
                 'label'             => esc_html__( 'Color', 'zenvy' ),
                 'description'       => esc_html__( 'Set trigger menu icon color.', 'zenvy' ),
                 'section'           => 'toggle_menu',
                 'priority'          => 40,
+                'inherits'            => [
+                    'color_1'           => 'var(--color-bg-dark)',
+                ],
             ],
             // Icon Background Color
             'zenvy_header_toggle_menu_icon_background_color' => [
@@ -79,7 +82,7 @@ class Zenvy_Customize_Header_Toggle_Menu_Fields extends Zenvy_Customize_Base_Fie
                 'section'           => 'toggle_menu',
                 'priority'          => 40,
                 'inherits'            => [
-                    'color_1'           => 'var(--color-2)',
+                    'color_1'           => 'var(--color-bg)',
                 ],
             ],
             // Note three
@@ -100,7 +103,7 @@ class Zenvy_Customize_Header_Toggle_Menu_Fields extends Zenvy_Customize_Base_Fie
                 'priority'          => 61,
                 'units'             => [ 'px', 'rem', 'pt', 'em','vw' ],
                 'inherits'            => [
-                    'color_1'           => 'var(--color-2)'
+                    'color_1'           => 'var(--color-white)'
                 ],
                 'fields'            => ['colors'=>true],
             ],
@@ -119,7 +122,7 @@ class Zenvy_Customize_Header_Toggle_Menu_Fields extends Zenvy_Customize_Base_Fie
                 ],
                 'inherits'            => [
                     'color_1'           => 'rgba(0, 0, 0, 0.8)',
-                    'color_2'           => 'var(--color-bg-3)'
+                    'color_2'           => '#ca77b4'
                 ],
             ],
             // Container Padding
