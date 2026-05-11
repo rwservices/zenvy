@@ -399,48 +399,50 @@ class Zenvy_Customizer_Inline_Style
 			# Header Builder -> Button
 			--------------------------------------------------------------*/
 			// Icon color
-			self::generate_css(
-				['.site-header .header-button-wrap a:hover'],
-				['color'],
-				'var(--color-5)'
-			);
-			// Background color
-			self::generate_css(
-				['.site-header .header-button-wrap a:hover'],
-				['background-color'],
-				'var(--color-bg-3)'
-			);
-			self::border(
-				['.site-header .header-button-wrap a'],
-				'zenvy_header_button_border',
-				[
-					'width' => [
-						'side_1' => '1px',
-						'side_2' => '1px',
-						'side_3' => '1px',
-						'side_4' => '1px',
-						'linked' => 'off',
-					],
-				]
-			);
+            self::color(
+                ['.site-header .header-button-wrap a','.site-header .header-button-wrap a:hover'],
+                'zenvy_header_button_color',
+                [
+                    'color_1'   => 'var(--color-white)',
+                    'color_2'   => 'var(--color-white)'
+                ]
+            );
+            // Background color
+            self::color(
+                ['.site-header .header-button-wrap a','.site-header .header-button-wrap a:hover'],
+                'zenvy_header_button_background',
+                [
+                    'color_1'   => 'var(--color-link)',
+                    'color_2'   => 'var(--color-link-hover)'
+                ],
+                'background-color'
+            );
+			// Padding
+            self::dimensions(
+                ['.site-header .header-button-wrap a'],
+                'zenvy_header_button_padding',
+                [
+                    'desktop'           => [
+                        'side_1'            => '12px',
+                        'side_2'            => '18px',
+                        'side_3'            => '12px',
+                        'side_4'            => '18px',
+                        'linked'            => 'off'
+                    ]
+                ]
+            );
+			
 			// Padding
 			self::dimensions(
-				['.site-header .header-button-wrap a'],
-				'zenvy_header_button_padding',
-				[
-					'desktop' => [
-						'side_1' => '12px',
-						'side_2' => '18px',
-						'side_3' => '12px',
-						'side_4' => '18px',
-						'linked' => 'off',
-					],
-				]
+				['.site-header .header-button-wrap'],
+				'zenvy_header_button_container_padding',
+				'',
+				'padding'	
 			);
 			// Margin
 			self::dimensions(
 				['.site-header .header-button-wrap a'],
-				'zenvy_header_button_margin',
+				'zenvy_header_button_container_margin',
 				'',
 				'margin'
 			);
