@@ -13,7 +13,7 @@ $content_display = get_theme_mod(
 );
 $button_text = get_theme_mod(
         'zenvy_header_button_text',
-    esc_html__( 'ENG', 'blogin-aarambha' )
+    esc_html__( 'ENG', 'zenvy' )
 );
 $button_url = get_theme_mod(
     'zenvy_header_button_url',

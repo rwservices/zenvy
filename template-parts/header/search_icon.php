@@ -11,7 +11,7 @@
 // Placeholder
 $placeholder = get_theme_mod(
     'zenvy_header_search_icon_placeholder',
-    esc_html__('Search...', 'blogin-aarambha')
+    esc_html__('Search...', 'zenvy')
 );
 ?>
 <div class="header-search-icon-wrap header-search-section d-flex">

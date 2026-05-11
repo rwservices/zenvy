@@ -99,7 +99,7 @@ if ( ! class_exists( 'Zenvy_WooCommerce_Cart_Header' ) ) :
                     'panel'    => Zenvy_Customizer_Header_Builder()->panel,
                 )
             );
-            require ZENVY_DIR  . 'inc/customizer/builder/header/options/woocommerce/cart/Zenvy_Customize_Header_WooCommerce_Cart_Fields.php';
+            require ZENVY_THEME_DIR  . 'inc/customizer/builder/header/options/woocommerce/cart/Zenvy_Customize_Header_WooCommerce_Cart_Fields.php';
         }
 
         /**
@@ -111,8 +111,8 @@ if ( ! class_exists( 'Zenvy_WooCommerce_Cart_Header' ) ) :
          * @since    1.0.0
          */
         function get_template_part( $template, $id ) {
-            if ( ! $template && file_exists( ZENVY_DIR . "/template-parts/header/woocommerce/{$id}.php" ) ) {
-                $template = ZENVY_DIR . "/template-parts/header/woocommerce/{$id}.php";
+            if ( ! $template && file_exists( ZENVY_THEME_DIR . "/template-parts/header/woocommerce/{$id}.php" ) ) {
+                $template = ZENVY_THEME_DIR . "/template-parts/header/woocommerce/{$id}.php";
             }
             return $template;
         }

@@ -9,7 +9,7 @@
 
 $button_text = get_theme_mod(
         'zenvy_footer_button_text',
-    esc_html__( 'Button', 'blogin-aarambha' )
+    esc_html__( 'Button', 'zenvy' )
 );
 $button_url = get_theme_mod(
     'zenvy_footer_button_url',
