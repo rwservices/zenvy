@@ -79,6 +79,10 @@ if ( ! class_exists( 'Zenvy_WooCommerce' ) ) :
                 /**
                  * Shop Page action
                  */
+
+                // add_action( 'woocommerce_before_shop_loop_item', function() { echo '<div class="product-wrapper">'; }, 5 );
+                // add_action( 'woocommerce_after_shop_loop_item', function() { echo '</div>'; }, 10 );
+
                // add_action( 'woocommerce_before_shop_loop', 'woocommerce_output_all_notices', 10 );
                 add_action('woocommerce_before_shop_loop', array($this, 'products_results_ordering_before'), 19 );
                 add_action('woocommerce_before_shop_loop', array($this, 'products_results_ordering_after'), 31 );
