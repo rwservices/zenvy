@@ -83,7 +83,7 @@ class Zenvy_Customize_Header_Primary_Menu_Fields extends Zenvy_Customize_Base_Fi
                     'color_2'           => esc_html__( 'Hover', 'zenvy' )
                 ],
                 'inherits'            => [
-                    'color_1'           => 'var(--color-link)',
+                    'color_1'           => 'var(--color-text)',
                     'color_2'           => 'var(--color-link-hover)',
                 ],
                 'priority'          => 55,
@@ -102,8 +102,8 @@ class Zenvy_Customize_Header_Primary_Menu_Fields extends Zenvy_Customize_Base_Fi
                 ],
                 'priority'          => 60,
                 'inherits'            => [
-                    'color_1'           => 'var(--color-bg-1)',
-                    'color_2'           => 'var(--color-bg-1)',
+                    'color_1'           => 'var(--color-bg)',
+                    'color_2'           => 'var(--color-bg)',
                 ],
             ],
             // Heading Three
@@ -126,8 +126,8 @@ class Zenvy_Customize_Header_Primary_Menu_Fields extends Zenvy_Customize_Base_Fi
                     'color_2'           => esc_html__( 'Hover', 'zenvy' )
                 ],
                 'inherits'            => [
-                    'color_1'           => 'var(--color-link)',
-                    'color_2'           => 'var(--color-bg-1)',
+                    'color_1'           => 'var(--color-text)',
+                    'color_2'           => 'var(--color-white)',
                 ],
                 'priority'          => 75,
             ],
@@ -145,22 +145,8 @@ class Zenvy_Customize_Header_Primary_Menu_Fields extends Zenvy_Customize_Base_Fi
                 ],
                 'priority'          => 80,
                 'inherits'            => [
-                    'color_1'           => 'var(--color-bg-1)',
-                    'color_2'           => 'var(--color-bg-3)',
-                ],
-            ],
-            // child menu border
-            'zenvy_header_primary_child_menu_border' => [
-                'type'              => 'border',
-                'default'           => '',
-                'sanitize_callback' => ['Zenvy_Customizer_Sanitize_Callback', 'sanitize_border' ],
-                'label'             => esc_html__( 'Border Color', 'zenvy' ),
-                'description'       => esc_html__( 'Set child menu bottom border color.', 'zenvy' ),
-                'section'           => 'primary_menu',
-                'priority'          => 90,
-                'fields'            => ['colors'=>true],
-                'inherits'            => [
-                    'color_1'           => 'var(--color-1)'
+                    'color_1'           => 'var(--color-bg)',
+                    'color_2'           => 'var(--color-secondary)',
                 ],
             ],
             // Heading four

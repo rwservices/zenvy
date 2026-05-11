@@ -225,13 +225,13 @@ class Zenvy_Customizer_Inline_Style
 			// Container Padding
 			self::dimensions(
 				['.site-header .primary-navbar'],
-				'zenvy_header_primary_menu_padding',
+				'zenvy_header_primary_menu_container_padding',
 				''
 			);
 			// Container Margin
 			self::dimensions(
 				['.site-header .primary-navbar'],
-				'zenvy_header_primary_menu_margin',
+				'zenvy_header_primary_menu_container_margin',
 				'',
 				'margin'
 			);
@@ -251,6 +251,99 @@ class Zenvy_Customizer_Inline_Style
 					'margin-left'
 				);
 			}
+
+			// Parent Menu Colors
+            self::color(
+                ['
+                .site-header .primary-navbar .menu-top-menu-container>ul>li>a,
+                .site-header .main-navigation .menu-item-has-children::before,
+                .main-navigation.enable-submenu .menu-top-menu-container>ul>li.menu-item-has-children::before
+                ','
+                .site-header .primary-navbar .menu-top-menu-container>ul>li:hover>a,
+                .site-header .main-navigation .menu-item-has-children:hover::before,
+                .main-navigation.enable-submenu .menu-top-menu-container>ul>li.menu-item-has-children:hover::before
+                '
+                ],
+                'zenvy_header_primary_parent_menu_colors',
+                '',
+                'color'
+            );
+            $parent_menu_color = get_theme_mod('zenvy_header_primary_parent_menu_colors','');
+            $parent_menu_background = get_theme_mod('zenvy_header_primary_parent_menu_background_color','');
+            if ( !empty($parent_menu_color['color_2'] ) ) {
+                self::generate_css(
+                    ['
+                    .site-header .primary-navbar .menu-top-menu-container>ul>li.current_page_item>a,
+                    .site-header .primary-navbar .menu-top-menu-container>ul>li.current_page_item.menu-item-has-children::before,
+                    .site-header .primary-navbar .menu-top-menu-container>ul>li.current-menu-item>a,
+                    .site-header .primary-navbar .menu-top-menu-container>ul>li.current-menu-item.menu-item-has-children::before
+                    '],
+                    ['color'],
+                    $parent_menu_color['color_2']
+                );
+            }
+            if ( !empty($parent_menu_background['color_2'] ) ) {
+                self::generate_css(
+                    ['.site-header .primary-navbar .menu-top-menu-container>ul>li.current_page_item>a,.site-header .primary-navbar .menu-top-menu-container>ul>li.current-menu-item>a'],
+                    ['background-color'],
+                    $parent_menu_background['color_2']
+                );
+            }
+            // Parent Menu Background
+            self::color(
+                ['.site-header .primary-navbar .menu-top-menu-container>ul>li>a','.site-header .primary-navbar .menu-top-menu-container>ul>li:hover>a'],
+                'zenvy_header_primary_parent_menu_background_color',
+                '',
+                'background-color'
+            );
+
+            // child Menu Colors
+            self::color(
+                ['
+                .site-header .primary-navbar .main-navigation ul li ul li a,
+                .site-header .primary-navbar .main-navigation ul li ul li.menu-item-has-children::before
+                ',
+				'.site-header .primary-navbar .main-navigation ul li ul li:hover a,
+                .site-header .primary-navbar .main-navigation ul li ul li.menu-item-has-children:hover::before
+                '
+                ],
+                'zenvy_header_primary_child_menu_colors',
+                '',
+                'color'
+            );
+
+            // Child Menu Background
+            self::color(
+                ['.site-header .primary-navbar .main-navigation ul li ul li a',
+                    '.site-header .primary-navbar .main-navigation ul li ul li:hover a'],
+                'zenvy_header_primary_child_menu_background_colors',
+                '',
+                'background-color'
+            );
+            $child_menu_color = get_theme_mod('zenvy_header_primary_child_menu_colors','');
+            $child_menu_background = get_theme_mod('zenvy_header_primary_child_menu_background_colors','');
+            if ( !empty($child_menu_color['color_2'] ) ) {
+                self::generate_css(
+                    ['
+                    .site-header .primary-navbar .main-navigation ul li ul li.current_page_item>a,
+                    .site-header .primary-navbar .main-navigation ul li ul li.current_page_item.menu-item-has-children::before,
+                    .site-header .primary-navbar .main-navigation ul li ul li.current-menu-item>a,
+                    .site-header .primary-navbar .main-navigation ul li ul li.current-menu-item.menu-item-has-children::before
+                    '],
+                    ['color'],
+                    $child_menu_color['color_2']
+                );
+            }
+            if ( !empty($child_menu_background['color_2'] ) ) {
+                self::generate_css(
+                    ['
+                    .site-header .primary-navbar .main-navigation ul li ul li.current_page_item>a,
+                    .site-header .primary-navbar .main-navigation ul li ul li.current-menu-item>a,
+                    '],
+                    ['background-color'],
+                    $child_menu_background['color_2']
+                );
+            }
 
 			/*
 			--------------------------------------------------------------
