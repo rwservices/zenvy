@@ -10,7 +10,7 @@
 // Login
 $login_text = get_theme_mod(
     'zenvy_header_account_login_text',
-    esc_html__( 'My Account', 'blogin-aarambha' )
+    esc_html__( 'My Account', 'zenvy' )
 );
 $login_url = get_theme_mod(
     'zenvy_header_account_login_url',
@@ -20,7 +20,7 @@ $login_url = get_theme_mod(
 // Logout
 $logout_text = get_theme_mod(
     'zenvy_header_account_logout_text',
-    esc_html__( 'Log In', 'blogin-aarambha' )
+    esc_html__( 'Log In', 'zenvy' )
 );
 $logout_url = get_theme_mod(
     'zenvy_header_account_logout_url',
