@@ -562,6 +562,46 @@ class Zenvy_Customizer_Inline_Style
 				'margin'
 			);
 
+			/*--------------------------------------------------------------
+            # Header Builder -> Color Mode Icon
+            --------------------------------------------------------------*/
+            // Icon Size
+            self::range(
+                ['.site-header .header-color-mode-wrap #theme-toggle span'],
+                'zenvy_header_color_mode_icon_size',
+                ['desktop' => '13px'],
+                'font-size'
+            );
+            // Background color
+            self::color(
+                ['.site-header .header-color-mode-wrap #theme-toggle span'],
+                'zenvy_header_color_mode_icon_bg_color',
+                '',
+                'background-color'
+            );
+            // Icon color
+            self::color(
+                ['.site-header .header-color-mode-wrap #theme-toggle span i'],
+                'zenvy_header_color_mode_icon_color',
+				 [
+					'color_1'   => 'var(--color-link)',
+				],
+                'color'
+            );
+            // Padding
+            self::dimensions(
+                ['.site-header .header-color-mode-wrap #theme-toggle span'],
+                'zenvy_header_color_mode_padding',
+                ''
+            );
+            // Margin
+            self::dimensions(
+                ['.site-header .header-color-mode-wrap'],
+                'zenvy_header_color_mode_margin',
+                '',
+                'margin'
+            );
+
 			/*
 			--------------------------------------------------------------
 			# Header Builder -> Search Icon
