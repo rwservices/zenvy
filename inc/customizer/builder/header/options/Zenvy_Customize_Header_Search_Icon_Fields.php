@@ -33,6 +33,7 @@ class Zenvy_Customize_Header_Search_Icon_Fields extends Zenvy_Customize_Base_Fie
                             'zenvy_header_search_icon_container_margin',
                             'zenvy_header_search_icon_color',
                             'zenvy_header_search_icon_background',
+                            'zenvy_header_search_button_background',
                             'zenvy_header_search_icon_padding'
                         )
                     )
@@ -84,8 +85,8 @@ class Zenvy_Customize_Header_Search_Icon_Fields extends Zenvy_Customize_Base_Fie
                 ],
                 'priority'          => 30,
                 'inherits'          => [
-                    'color_1'           => 'var(--color-link)',
-                    'color_2'           => 'var(--color-link-hover)',
+                    'color_1'           => 'var(--color-bg-dark)',
+                    'color_2'           => 'var(--color-link)',
                 ]
             ],
             // Background
@@ -102,8 +103,26 @@ class Zenvy_Customize_Header_Search_Icon_Fields extends Zenvy_Customize_Base_Fie
                 ],
                 'priority'          => 35,
                 'inherits'          => [
-                    'color_1'           => 'var(--color-bg-1)',
-                    'color_2'           => 'var(--color-bg-1)',
+                    'color_1'           => 'var(--color-bg)',
+                    'color_2'           => 'var(--color-bg)',
+                ]
+            ],
+            // Button Background
+            'zenvy_header_search_button_background' => [
+                'type'              => 'color',
+                'default'           => '',
+                'sanitize_callback' => ['Zenvy_Customizer_Sanitize_Callback', 'sanitize_color' ],
+                'label'             => esc_html__( 'Button Background', 'zenvy' ),
+                'description'       => esc_html__( 'Set pop up search button background color.', 'zenvy' ),
+                'section'           => 'search_icon',
+                'colors'            => [
+                    'color_1'           => esc_html__( 'Normal', 'zenvy' ),
+                    'color_2'           => esc_html__( 'Hover', 'zenvy' ),
+                ],
+                'priority'          => 37,
+                'inherits'          => [
+                    'color_1'           => 'var(--color-link)',
+                    'color_2'           => 'var(--color-link-hover)',
                 ]
             ],
             // Padding

@@ -606,6 +606,26 @@ class Zenvy_Customizer_Inline_Style
 			--------------------------------------------------------------
 			# Header Builder -> Search Icon
 			--------------------------------------------------------------*/
+			// Icon color
+            self::color(
+                ['.site-header .site-header-section .header-search-icon-wrap .search-toggle','.site-header .site-header-section .header-search-icon-wrap .search-toggle:hover'],
+                'zenvy_header_search_icon_color',
+                ''
+            );
+            // Background color
+            self::color(
+                ['.site-header .site-header-section .header-search-icon-wrap .search-toggle','.site-header .site-header-section .header-search-icon-wrap .search-toggle:hover'],
+                'zenvy_header_search_icon_background',
+                '',
+                'background-color'
+            );
+			// Button Background color
+			self::color(
+				['.site-header .header-search-section .search-form input[type="submit"]','.site-header .header-search-section .search-form input[type="submit"]:hover'],
+				'zenvy_header_search_button_background',
+				'',
+				'background-color'
+			);
 			// Container Padding
 			self::dimensions(
 				['.site-header .header-search-icon-wrap'],
