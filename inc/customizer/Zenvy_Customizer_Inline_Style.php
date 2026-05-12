@@ -448,30 +448,25 @@ class Zenvy_Customizer_Inline_Style
 			# Header Builder -> Account
 			--------------------------------------------------------------*/
 			// Icon text color
-			self::generate_css(
-				['.site-header .header-account-wrap a:hover'],
-				['color'],
-				'var(--color-5)'
-			);
-			// Background color
-			self::generate_css(
-				['.site-header .header-account-wrap a:hover'],
-				['background-color'],
-				'var(--color-bg-3)'
-			);
-			self::border(
-				['.site-header .header-account-wrap a'],
-				'zenvy_header_account_border',
+			self::color(
+				['.site-header .header-account-wrap a','.site-header .header-account-wrap a:hover'],
+				'zenvy_header_account_icon_color',
 				[
-					'width' => [
-						'side_1' => '1px',
-						'side_2' => '1px',
-						'side_3' => '1px',
-						'side_4' => '1px',
-						'linked' => 'on',
-					],
+					'color_1'   => 'var(--color-white)',
+					'color_2'   => 'var(--color-white)'
 				]
 			);
+			// Background color
+			self::color(
+				['.site-header .header-account-wrap a', '.site-header .header-account-wrap a:hover'],
+				'zenvy_header_account_background',
+				[
+					'color_1'   => 'var(--color-white)',
+					'color_2'   => 'var(--color-white)'
+				],
+				'background-color'
+			);
+
 			// Padding
 			self::dimensions(
 				['.site-header .header-account-wrap a'],
@@ -486,13 +481,22 @@ class Zenvy_Customizer_Inline_Style
 					],
 				]
 			);
-			// Margin
+			// Container Margin
 			self::dimensions(
 				['.site-header .header-account-wrap a'],
-				'zenvy_header_account_margin',
+				'zenvy_header_account_container_margin',
 				'',
 				'margin'
 			);
+
+			// Container Padding
+			self::dimensions(
+				['.site-header .header-account-wrap'],
+				'zenvy_header_account_container_padding',
+				'',
+				'padding'
+			);
+
 			/*
 			--------------------------------------------------------------
 			# Header Builder -> Menu Trigger

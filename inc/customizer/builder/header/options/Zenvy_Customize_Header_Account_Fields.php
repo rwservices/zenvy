@@ -42,7 +42,7 @@ class Zenvy_Customize_Header_Account_Fields extends Zenvy_Customize_Base_Field {
                             'zenvy_header_account_icon_color',
                             'zenvy_header_account_background',
                             'zenvy_header_account_padding',
-                            
+                            'zenvy_header_account_border',
                         )
                     )
                 ]
@@ -140,7 +140,8 @@ class Zenvy_Customize_Header_Account_Fields extends Zenvy_Customize_Base_Field {
             'zenvy_header_account_icon_color' => [
                 'type'              => 'color',
                 'default'           => [
-                    'color_2'           => 'var(--color-2)'
+                    'color_1'           => 'var(--color-white)',
+                    'color_2'           => 'var(--color-white)'
                 ],
                 'sanitize_callback' => ['Zenvy_Customizer_Sanitize_Callback', 'sanitize_color' ],
                 'label'             => esc_html__( 'Account', 'zenvy' ),
@@ -152,8 +153,8 @@ class Zenvy_Customize_Header_Account_Fields extends Zenvy_Customize_Base_Field {
                 ],
                 'priority'          => 60,
                 'inherits'          => [
-                    'color_1'           => 'var(--color-link)',
-                    'color_2'           => 'var(--color-2)',
+                    'color_1'           => 'var(--color-white)',
+                    'color_2'           => 'var(--color-white)',
                 ]
             ],
 
@@ -161,7 +162,8 @@ class Zenvy_Customize_Header_Account_Fields extends Zenvy_Customize_Base_Field {
             'zenvy_header_account_background' => [
                 'type'              => 'color',
                 'default'           => [
-                    'color_2'           => 'var(--color-bg-3)'
+                    'color_1'           => 'var(--color-link)',
+                    'color_2'           => 'var(--color-link-hover)'
                 ],
                 'sanitize_callback' => ['Zenvy_Customizer_Sanitize_Callback', 'sanitize_color' ],
                 'label'             => esc_html__( 'Background', 'zenvy' ),
@@ -173,8 +175,8 @@ class Zenvy_Customize_Header_Account_Fields extends Zenvy_Customize_Base_Field {
                 ],
                 'priority'          => 65,
                 'inherits'          => [
-                    'color_1'           => 'var(--color-bg-1)',
-                    'color_2'           => 'var(--color-bg-3)',
+                    'color_1'           => 'var(--color-link)',
+                    'color_2'           => 'var(--color-link-hover)',
                 ]
             ],
 		
