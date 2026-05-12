@@ -62,8 +62,8 @@ class Zenvy_Customize_Footer_Copyright_Fields extends Zenvy_Customize_Base_Field
                 'type'              => 'typography',
                 'default'           => [
                     'colors'            => [
-                        'color_1'           => 'var(--color-1)',
-                        'color_2'           => 'var(--color-2)'
+                        'color_1'           => 'var(--color-white)',
+                        'color_2'           => 'var(--color-gray-600)'
                     ]
                 ],
                 'sanitize_callback' => ['Zenvy_Customizer_Sanitize_Callback', 'sanitize_typography' ],
@@ -75,8 +75,8 @@ class Zenvy_Customize_Footer_Copyright_Fields extends Zenvy_Customize_Base_Field
                     'color_2'           => esc_html__( 'Link Hover', 'zenvy' )
                 ],
                 'inherits'          => [
-                    'color_1'           => 'var(--color-1)',
-                    'color_2'           => 'var(--color-2)'
+                    'color_1'           => 'var(--color-white)',
+                    'color_2'           => 'var(--color-gray-600)'
                 ],
                 'fields'            => ['colors'=>true],
             ],

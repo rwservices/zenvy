@@ -1192,50 +1192,65 @@ class Zenvy_Customizer_Inline_Style
 			# Footer Builder -> Footer Menu
 			--------------------------------------------------------------*/
 			// Container Padding
-			self::dimensions(
-				['.site-footer .footer-navbar'],
-				'zenvy_footer_menu_padding',
-				''
-			);
-			// Container Margin
-			self::dimensions(
-				['.site-footer .footer-navbar'],
-				'zenvy_footer_menu_margin',
-				'',
-				'margin'
-			);
-			// Menu Item Spacing
-			$footer_menu_spacing = get_theme_mod('zenvy_footer_menu_spacing', '');
-			if ($footer_menu_spacing && ($footer_menu_spacing['desktop'] === '0px')) {
-				self::generate_css(
-					['.site-footer .footer-navbar .main-navigation div>ul>li'],
-					['margin'],
-					'0 -3px'
-				);
-			} else {
-				self::range(
-					['.site-footer .footer-navbar .main-navigation div>ul>li'],
-					'zenvy_footer_menu_spacing',
-					'',
-					'margin-left'
-				);
-			}
-
+            self::dimensions(
+                ['.site-footer .footer-navbar'],
+                'zenvy_footer_menu_container_padding',
+                ''
+            );
+            // Container Margin
+            self::dimensions(
+                ['.site-footer .footer-navbar'],
+                'zenvy_footer_menu_container_margin',
+                '',
+                'margin'
+            );
+            // Item Gap
+            self::range(
+                ['.site-footer .footer-navbar ul.menu-wrapper >*:not(:last-child)'],
+                'zenvy_footer_menu_spacing',
+                '',
+                'margin-right'
+            );
+            // Menu Colors
+            self::color(
+                ['.site-footer .footer-navbar ul.menu-wrapper li,
+                .site-footer .footer-navbar ul.menu-wrapper li a',
+                '.site-footer .footer-navbar ul.menu-wrapper li a:hover'],
+                'zenvy_footer_menu_font_colors',
+                ''
+            );
+            // Menu Background
+            self::color(
+                ['.site-footer .footer-navbar ul.menu-wrapper li,
+                .site-footer .footer-navbar ul.menu-wrapper li a',
+                '.site-footer .footer-navbar ul.menu-wrapper li a:hover'],
+                'zenvy_footer_menu_background_color',
+                '',
+                'background-color'
+            );
+			
 			/*
 			--------------------------------------------------------------
 			# Footer Builder -> Button
 			--------------------------------------------------------------*/
 			// Icon color
-			self::generate_css(
-				['.site-footer .footer-button-wrap a:hover'],
-				['color'],
-				'var(--color-5)'
+			self::color(
+				['.site-footer .footer-button-wrap a','.site-footer .footer-button-wrap a:hover'],
+				'zenvy_footer_button_color',
+				[
+					'color_1'   => 'var(--color-bg-dark)',
+					'color_2'   => 'var(--color-bg-dark)'
+				]
 			);
 			// Background color
-			self::generate_css(
-				['.site-footer .footer-button-wrap a:hover'],
-				['background-color'],
-				'var(--color-bg-3)'
+			self::color(
+				['.site-footer .footer-button-wrap a','.site-footer .footer-button-wrap a:hover'],
+				'zenvy_footer_button_background',
+				[
+					'color_1'   => 'var(--color-white)',
+					'color_2'   => 'var(--color-gray-500)'
+				],
+				'background-color'
 			);
 			// Border
 			self::border(
@@ -1285,6 +1300,17 @@ class Zenvy_Customizer_Inline_Style
 			--------------------------------------------------------------
 			# Footer Builder -> Copyright Text
 			--------------------------------------------------------------*/
+			// Text Typography
+            self::typography(
+                ['.site-footer .site-info,.site-footer .site-info a','.site-footer .site-info a:hover'],
+                'zenvy_footer_copyright_text_typo',
+                [
+                    'colors'            => [
+                        'color_1'           => 'var(--color-white)',
+                        'color_2'           => 'var(--color-gray-600)'
+                    ]
+                ]
+            );
 
 			// Padding
 			self::dimensions(
@@ -1330,21 +1356,32 @@ class Zenvy_Customizer_Inline_Style
 				'',
 				'margin'
 			);
+			// Item Gap
+            self::range(
+                ['.site-footer ul.footer-social-wrap >*:not(:last-child)'],
+                'zenvy_footer_social_icon_gap',
+                ['desktop' => '2px'],
+                'margin-right'
+            );
 			// Icon color
-			self::generate_css(
-				['.site-footer .footer-social-wrap li:hover a'],
-				['color'],
-				'var(--color-5)'
-			);
-			// Item Background color
-			self::color(
-				['.site-footer .footer-social-wrap li', '.site-footer .footer-social-wrap li:hover'],
-				'zenvy_footer_social_icon_item_background',
-				[
-					'color_2' => 'var(--color-bg-2)',
-				],
-				'background-color'
-			);
+            self::color(
+                ['.site-footer .footer-social-wrap li a span','.site-footer .footer-social-wrap li:hover a span'],
+                'zenvy_footer_social_icon_item_icon_color',
+                [
+                    'color_1'           => 'var(--color-white)',
+                    'color_2'           => 'var(--color-gray-500)'
+                ]
+            );
+            // Item Background color
+            self::color(
+                ['.site-footer .footer-social-wrap li','.site-footer .footer-social-wrap li:hover'],
+                'zenvy_footer_social_icon_item_background',
+                [
+					'color_1'           => 'var(--color-bg-dark)',
+                    'color_2'           => 'var(--color-bg-dark)'
+                ],
+                'background-color'
+            );
 			// Item Border
 			self::border(
 				['.site-footer .footer-social-wrap li'],
@@ -1373,22 +1410,57 @@ class Zenvy_Customizer_Inline_Style
 					],
 				]
 			);
-			// Item Margin
-			self::dimensions(
-				['.site-footer .footer-social-wrap li'],
-				'zenvy_footer_social_icon_item_margin',
-				[
-					'desktop' => [
-						'side_1' => '0px',
-						'side_2' => '0px',
-						'side_3' => '0px',
-						'side_4' => '0px',
-						'linked' => 'on',
-					],
-				],
-				'margin'
-			);
 		}
+
+		/*--------------------------------------------------------------
+		# Footer Builder -> Sidebar 1, Sidebar 2, Sidebar 3, Sidebar 4, Sidebar 5, Sidebar 6
+		--------------------------------------------------------------*/
+		// Sidebar Widgets Typography
+		self::typography(
+			['
+				.site-footer .footer-sidebar-wrap .widget .widget-title,
+				.site-footer .footer-sidebar-wrap .widget_block h2,
+				.site-footer .footer-sidebar-wrap .widget .widget-title a,
+				.site-footer .footer-sidebar-wrap .widget_block h2 a
+				'],
+			'zenvy_footer_builder_widget_title_typo',
+			''
+		);
+		// Sidebar Widget Content
+		self::typography(
+			['
+				.site-footer .footer-sidebar-wrap .widget ul li,
+				.site-footer .footer-sidebar-wrap .widget ul li a,
+				.site-footer .footer-sidebar-wrap .widget .calendar_wrap,
+				.site-footer .footer-sidebar-wrap .widget input,
+				.site-footer .footer-sidebar-wrap .widget input::placeholder,
+				.site-footer .footer-sidebar-wrap .widget textarea,
+				.site-footer .footer-sidebar-wrap .widget input::placeholder,
+				.site-footer .footer-sidebar-wrap .widget select,
+				.site-footer .footer-sidebar-wrap .widget .wp-caption-text,
+				.site-footer .footer-sidebar-wrap .widget .textwidget,
+				.site-footer .widget p,
+				.site-footer .widget li,
+				.site-footer .widget span,
+				.site-footer .footer-sidebar-wrap .widget .textwidget a,
+				.site-footer .footer-sidebar-wrap .widget_block .wp-block-group__inner-container ul li,
+				.site-footer .footer-sidebar-wrap .widget_tag_cloud a,
+				.site-footer .footer-sidebar-wrap .widget_block .wp-block-group__inner-container ul li a
+				','
+				.site-footer .footer-sidebar-wrap .widget ul li a:hover,
+				.site-footer .footer-sidebar-wrap .widget .textwidget a:hover,
+				.site-footer .footer-sidebar-wrap .widget_tag_cloud a:hover,
+				.site-footer .footer-sidebar-wrap .widget_block .wp-block-group__inner-container ul li a:hover
+				'],
+			'zenvy_footer_builder_widget_content_typo',
+			''
+		);
+		// Widget Padding
+		self::dimensions(
+			['.site-footer .footer-sidebar-wrap .widget'],
+			'zenvy_footer_builder_widget_padding',
+			''
+		);
 
 		// Customizer Styles.
 		if ('customizer' === $type) {

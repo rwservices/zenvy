@@ -123,7 +123,7 @@ class Zenvy_Customize_Header_Top_Row_Fields extends Zenvy_Customize_Base_Field {
                 'section'           => 'zenvy_header_top',
                 'priority'          => 45,
                 'inherits'          => [
-                    'color_1'           => 'var(--color-bg-1)'
+                    'color_1'           => 'var(--color-bg)'
                 ],
                 'fields'            => ['colors' => true],
             ],

@@ -106,8 +106,8 @@ class Zenvy_Customize_Footer_Social_Icons_Fields extends Zenvy_Customize_Base_Fi
             'zenvy_footer_social_icon_item_icon_color' => [
                 'type'              => 'color',
                 'default'           => [
-                    'color_1'           => 'var(--color-link)',
-                    'color_2'           => 'var(--color-2)'
+                    'color_1'           => 'var(--color-white)',
+                    'color_2'           => 'var(--color-gray-600)'
                 ],
                 'sanitize_callback' => ['Zenvy_Customizer_Sanitize_Callback', 'sanitize_color' ],
                 'label'             => esc_html__( 'Icon/Text', 'zenvy' ),
@@ -118,8 +118,8 @@ class Zenvy_Customize_Footer_Social_Icons_Fields extends Zenvy_Customize_Base_Fi
                     'color_2'           => esc_html__( 'Hover', 'zenvy' ),
                 ],
                 'inherits'          => [
-                    'color_1'           => 'var(--color-link)',
-                    'color_2'           => 'var(--color-2)'
+                    'color_1'           => 'var(--color-white)',
+                    'color_2'           => 'var(--color-gray-500)'
                 ],
                 'priority'          => 55,
             ],
@@ -127,7 +127,8 @@ class Zenvy_Customize_Footer_Social_Icons_Fields extends Zenvy_Customize_Base_Fi
             'zenvy_footer_social_icon_item_background' => [
                 'type'              => 'color',
                 'default'           => [
-                    'color_2'           => 'var(--color-link)'
+                    'color_1'           => 'var(--color-bg-dark)',
+                    'color_2'           => 'var(--color-bg-dark)'
                 ],
                 'sanitize_callback' => ['Zenvy_Customizer_Sanitize_Callback', 'sanitize_color' ],
                 'label'             => esc_html__( 'Background', 'zenvy' ),
@@ -138,8 +139,8 @@ class Zenvy_Customize_Footer_Social_Icons_Fields extends Zenvy_Customize_Base_Fi
                     'color_2'           => esc_html__( 'Hover', 'zenvy' ),
                 ],
                 'inherits'          => [
-                    'color_1'           => 'var(--color-bg-1)',
-                    'color_2'           => 'var(--color-link)'
+                    'color_1'           => 'var(--color-bg-dark)',
+                    'color_2'           => 'var(--color-bg-dark)'
                 ],
                 'priority'          => 60,
             ],

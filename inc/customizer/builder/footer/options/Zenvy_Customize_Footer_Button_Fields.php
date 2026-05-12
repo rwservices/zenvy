@@ -33,6 +33,7 @@ class Zenvy_Customize_Footer_Button_Fields extends Zenvy_Customize_Base_Field {
                         'controls'      => array(
                             'zenvy_footer_button_color',
                             'zenvy_footer_button_background',
+                            'zenvy_footer_button_border',
                             'zenvy_footer_button_padding',
                             'zenvy_footer_button_margin'
                         )
@@ -71,7 +72,8 @@ class Zenvy_Customize_Footer_Button_Fields extends Zenvy_Customize_Base_Field {
             'zenvy_footer_button_color' => [
                 'type'              => 'color',
                 'default'           => [
-                    'color_2'           => 'var(--color-link)'
+                    'color_1'           => 'var(--color-bg-dark)',
+                    'color_2'           => 'var(--color-bg-dark)'
                 ],
                 'sanitize_callback' => ['Zenvy_Customizer_Sanitize_Callback', 'sanitize_color' ],
                 'label'             => esc_html__( 'Button', 'zenvy' ),
@@ -83,15 +85,16 @@ class Zenvy_Customize_Footer_Button_Fields extends Zenvy_Customize_Base_Field {
                 ],
                 'priority'          => 55,
                 'inherits'          => [
-                    'color_1'           => 'var(--color-link)',
-                    'color_2'           => 'var(--color-link)',
+                    'color_1'           => 'var(--color-bg-dark)',
+                    'color_2'           => 'var(--color-bg-dark)',
                 ]
             ],
             // Background
             'zenvy_footer_button_background' => [
                 'type'              => 'color',
                 'default'           => [
-                    'color_2'           => 'var(--color-bg-3)'
+                    'color_1'           => 'var(--color-white)',
+                    'color_2'           => 'var(--color-gray-500)'
                 ],
                 'sanitize_callback' => ['Zenvy_Customizer_Sanitize_Callback', 'sanitize_color' ],
                 'label'             => esc_html__( 'Background', 'zenvy' ),
@@ -103,10 +106,28 @@ class Zenvy_Customize_Footer_Button_Fields extends Zenvy_Customize_Base_Field {
                 ],
                 'priority'          => 60,
                 'inherits'          => [
-                    'color_1'           => 'var(--color-bg-1)',
-                    'color_2'           => 'var(--color-bg-3)',
+                    'color_1'           => 'var(--color-white)',
+                    'color_2'           => 'var(--color-gray-500)',
                 ]
             ],
+            //Button Border
+            'zenvy_footer_button_border' => [
+                'type'              => 'border',
+                'default'           => '',
+                'sanitize_callback' => ['Zenvy_Customizer_Sanitize_Callback', 'sanitize_border' ],
+                'label'             => esc_html__( 'Border', 'zenvy' ),
+                'description'       => esc_html__( 'Set button border.', 'zenvy' ),
+                'section'           => 'footer_button',
+                'priority'          => 65,
+                'fields'            => ['width' => true, 'colors' => true],
+                'colors'            => [
+                    'color_1'           => esc_html__( 'Normal', 'zenvy' ),
+                ],
+                'inherits'            => [
+                    'color_1'           => 'var(--color-white)',
+                ],
+            ],
+
             // Padding
             'zenvy_footer_button_padding' => [
                 'type'              => 'dimensions',

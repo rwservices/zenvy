@@ -122,7 +122,7 @@ class Zenvy_Customize_Header_Main_Row_Fields extends Zenvy_Customize_Base_Field 
                 'section'           => 'zenvy_header_main',
                 'priority'          => 35,
                 'inherits'          => [
-                    'color_1'           => 'var(--color-bg-1)'
+                    'color_1'           => 'var(--color-bg)'
                 ],
                 'fields'            => ['colors' => true],
             ],

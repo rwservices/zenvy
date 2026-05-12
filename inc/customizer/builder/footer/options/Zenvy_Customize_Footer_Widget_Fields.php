@@ -23,7 +23,7 @@ class Zenvy_Customize_Footer_Widget_Fields extends Zenvy_Customize_Base_Field {
 				'section'           => 'zenvy_footer_builder_widget_section',
 				'priority'          => 20,
 				'inherits'          => [
-					'color_1'           => 'var(--color-heading)',
+					'color_1'           => 'var(--color-white)',
 				],
 				'fields'			=> ['colors' => true]
 			],
@@ -40,8 +40,8 @@ class Zenvy_Customize_Footer_Widget_Fields extends Zenvy_Customize_Base_Field {
 					'color_2'           => esc_html__( 'Hover', 'zenvy' ),
 				],
 				'inherits'          => [
-					'color_1'           => 'var(--color-2)',
-					'color_2'           => 'var(--color-link-hover)',
+					'color_1'           => 'var(--color-white)',
+					'color_2'           => 'var(--color-gray-500)',
 				],
 				'fields'			=> ['colors' => true]
 			],

@@ -71,8 +71,8 @@ class Zenvy_Customize_Footer_Menu_Fields extends Zenvy_Customize_Base_Field {
                 ],
                 'priority'          => 35,
                 'inherits'            => [
-                    'color_1'           => 'var(--color-link)',
-                    'color_2'           => 'var(--color-link-hover)',
+                    'color_1'           => 'var(--color-white)',
+                    'color_2'           => 'var(--color-gray-500)',
                 ],
             ],
             // Menu Background
@@ -89,8 +89,8 @@ class Zenvy_Customize_Footer_Menu_Fields extends Zenvy_Customize_Base_Field {
                 ],
                 'priority'          => 40,
                 'inherits'            => [
-                    'color_1'           => 'var(--color-bg-1)',
-                    'color_2'           => 'var(--color-bg-1)',
+                    'color_1'           => 'var(--color-bg-dark)',
+                    'color_2'           => 'var(--color-bg-dark)',
                 ],
             ],
 			// Heading four
