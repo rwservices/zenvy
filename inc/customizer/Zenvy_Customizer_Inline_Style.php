@@ -159,18 +159,21 @@ class Zenvy_Customizer_Inline_Style
 				'margin'
 			);
 			// Icon color
-			self::generate_css(
-				['.site-header .header-social-wrap li:hover a'],
-				['color'],
-				'var(--color-5)'
-			);
+            self::color(
+                ['.site-header .header-social-wrap li a','.site-header .header-social-wrap li:hover a'],
+                'zenvy_header_social_icon_item_icon_color',
+                [
+                    'color_1'           => 'var(--color-link)',
+                    'color_2'           => 'var(--color-link-hover)'
+                ]
+            );
 			// Item Background color
 			self::color(
 				['.site-header .header-social-wrap li a', '.site-header .header-social-wrap li:hover a'],
 				'zenvy_header_social_icon_item_background',
 				[
-					'color_1' => 'var(--color-bg-4)',
-					'color_2' => 'var(--color-bg-3)',
+					'color_1' => 'var(--color-bg)',
+					'color_2' => 'var(--color-bg)',
 				],
 				'background-color'
 			);
@@ -202,21 +205,14 @@ class Zenvy_Customizer_Inline_Style
 					],
 				]
 			);
-			// Item Margin
-			self::dimensions(
-				['.site-header .header-social-wrap li a'],
-				'zenvy_header_social_icon_item_margin',
-				[
-					'desktop' => [
-						'side_1' => '0px',
-						'side_2' => '0px',
-						'side_3' => '0px',
-						'side_4' => '0px',
-						'linked' => 'on',
-					],
-				],
-				'margin'
-			);
+
+			// Item Gap
+            self::range(
+                ['.site-header ul.header-social-wrap >*:not(:last-child)'],
+                'zenvy_header_social_icon_gap',
+                ['desktop' => '2px'],
+                'margin-right'
+            );
 
 			/*
 			--------------------------------------------------------------
@@ -665,6 +661,98 @@ class Zenvy_Customizer_Inline_Style
 				);
 			}
 
+			/*--------------------------------------------------------------
+            # Global -> Button
+            --------------------------------------------------------------*/
+            // color
+            self::color(
+                ['
+                .box-button, .read-more-wrap .read-more-button, .wpcf7-submit[type="submit"], input[type="submit"], button[type="submit"], .comment-form input[type="submit"],
+                .post-navigation .nav-links .nav-previous a, .pagination-wrap .nav-links .nav-previous a,
+                .post-navigation .nav-links .nav-next a, .pagination-wrap .nav-links .nav-next a,
+                .back-to-top a, .wp-block-search .wp-block-search__button,
+                .pagination .current,.pagination .page-numbers,
+                .mc4wp-form input[type=submit],
+                button:not(.components-button),
+                a.button,
+                .wp-block-button__link,
+                input[type="button"],
+                input[type="reset"],
+                input[type="submit"]
+                ','
+                .box-button:hover, .read-more-wrap .read-more-button:hover, .wpcf7-submit[type="submit"]:hover, input[type="submit"]:hover, button[type="submit"]:hover, .comment-form input[type="submit"]:hover,
+                .post-navigation .nav-links .nav-previous a:hover, .pagination-wrap .nav-links .nav-previous a:hover,
+                .post-navigation .nav-links .nav-next a:hover, .pagination-wrap .nav-links .nav-next a:hover,
+                .back-to-top a:hover,
+                .wp-block-search .wp-block-search__button:hover,
+                .pagination a:hover,
+                .mc4wp-form input[type=submit]:hover,
+                button:not(.components-button):hover,
+                a.button:hover,
+                .wp-block-button__link:hover,
+                input[type="button"]:hover,
+                input[type="reset"]:hover,
+                input[type="submit"]:hover
+                '],
+                'zenvy_button_color',
+                '',
+                'color'
+            );
+            // Background color
+            self::color(
+                ['
+                .box-button, .read-more-wrap .read-more-button, .wpcf7-submit[type="submit"], input[type="submit"], button[type="submit"], .comment-form input[type="submit"],
+                .post-navigation .nav-links .nav-previous a, .pagination-wrap .nav-links .nav-previous a,
+                .post-navigation .nav-links .nav-next a, .pagination-wrap .nav-links .nav-next a,
+                .back-to-top a,
+                .wp-block-search .wp-block-search__button,
+                .pagination .current,.pagination .page-numbers,
+                .mc4wp-form input[type=submit],
+                button:not(.components-button),
+                a.button,
+                .wp-block-button__link,
+                input[type="button"],
+                input[type="reset"],
+                input[type="submit"]
+                ','
+                .box-button:hover, .read-more-wrap .read-more-button:hover, .wpcf7-submit[type="submit"]:hover, input[type="submit"]:hover, button[type="submit"]:hover, .comment-form input[type="submit"]:hover,
+                .post-navigation .nav-links .nav-previous a:hover, .pagination-wrap .nav-links .nav-previous a:hover,
+                .post-navigation .nav-links .nav-next a:hover, .pagination-wrap .nav-links .nav-next a:hover,
+                .back-to-top a:hover,
+                .wp-block-search .wp-block-search__button:hover,
+                .pagination a:hover,
+                .mc4wp-form input[type=submit]:hover,
+                button:not(.components-button):hover,
+                a.button:hover,
+                .wp-block-button__link:hover,
+                input[type="button"]:hover,
+                input[type="reset"]:hover,
+                input[type="submit"]:hover
+                '],
+                'zenvy_button_bg_color',
+                '',
+                'background-color'
+            );
+             // Border
+             self::border(
+                ['
+                .box-button, .read-more-wrap .read-more-button, .wpcf7-submit[type="submit"], input[type="submit"], button[type="submit"], .comment-form input[type="submit"],
+                .post-navigation .nav-links .nav-previous a, .pagination-wrap .nav-links .nav-previous a,
+                .post-navigation .nav-links .nav-next a, .pagination-wrap .nav-links .nav-next a,
+                .back-to-top a,
+                .wp-block-search .wp-block-search__button,
+                .pagination .current,.pagination .page-numbers,
+                .mc4wp-form input[type=submit],
+                button:not(.components-button),
+                a.button,
+                .wp-block-button__link,
+                input[type="button"],
+                input[type="reset"],
+                input[type="submit"]
+                '],
+                'zenvy_button_border',
+                ''
+            );
 
 			// Item Gap
 			self::generate_css(

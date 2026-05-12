@@ -36,7 +36,8 @@ class Zenvy_Customize_Header_Social_Icons_Fields extends Zenvy_Customize_Base_Fi
                             'zenvy_header_social_icon_note_two',
                             'zenvy_header_social_icon_item_icon_color',
                             'zenvy_header_social_icon_item_background',
-                            'zenvy_header_social_icon_item_padding'
+                            'zenvy_header_social_icon_item_padding',
+                            'zenvy_header_social_icon_item_border'
                         )
                     )
                 ]
@@ -109,7 +110,7 @@ class Zenvy_Customize_Header_Social_Icons_Fields extends Zenvy_Customize_Base_Fi
                 'type'              => 'color',
                 'default'           => [
                     'color_1'           => 'var(--color-link)',
-                    'color_2'           => 'var(--color-2)'
+                    'color_2'           => 'var(--color-link-hover)'
                 ],
                 'sanitize_callback' => ['Zenvy_Customizer_Sanitize_Callback', 'sanitize_color' ],
                 'label'             => esc_html__( 'Icon', 'zenvy' ),
@@ -121,7 +122,7 @@ class Zenvy_Customize_Header_Social_Icons_Fields extends Zenvy_Customize_Base_Fi
                 ],
                 'inherits'          => [
                     'color_1'           => 'var(--color-link)',
-                    'color_2'           => 'var(--color-2)'
+                    'color_2'           => 'var(--color-link-hover)'
                 ],
                 'priority'          => 55,
             ],
@@ -129,8 +130,8 @@ class Zenvy_Customize_Header_Social_Icons_Fields extends Zenvy_Customize_Base_Fi
             'zenvy_header_social_icon_item_background' => [
                 'type'              => 'color',
                 'default'           => [
-                    'color_1'           => 'var(--color-bg-1)',
-                    'color_2'           => 'var(--color-bg-3)'
+                    'color_1'           => 'var(--color-bg)',
+                    'color_2'           => 'var(--color-bg)'
                 ],
                 'sanitize_callback' => ['Zenvy_Customizer_Sanitize_Callback', 'sanitize_color' ],
                 'label'             => esc_html__( 'Background', 'zenvy' ),
@@ -141,8 +142,8 @@ class Zenvy_Customize_Header_Social_Icons_Fields extends Zenvy_Customize_Base_Fi
                     'color_2'           => esc_html__( 'Hover', 'zenvy' ),
                 ],
                 'inherits'          => [
-                    'color_1'           => 'var(--color-bg-1)',
-                    'color_2'           => 'var(--color-bg-3)'
+                    'color_1'           => 'var(--color-bg)',
+                    'color_2'           => 'var(--color-bg)'
                 ],
                 'priority'          => 60,
             ],
@@ -164,6 +165,22 @@ class Zenvy_Customize_Header_Social_Icons_Fields extends Zenvy_Customize_Base_Fi
                 'section'           => 'social_icons',
                 'priority'          => 80,
                 'responsive'        => [ 'desktop', 'tablet', 'mobile' ],
+            ],
+            // Border
+            'zenvy_header_social_icon_item_border' => [
+                'type'              => 'border',
+                'default'           => '',
+                'sanitize_callback' => ['Zenvy_Customizer_Sanitize_Callback', 'sanitize_border' ],
+                'label'             => esc_html__( 'Border', 'zenvy' ),
+                'section'           => 'social_icons',
+                'priority'          => 85,
+				'fields'            => ['width' => true, 'colors' => true],
+                'colors'            => [
+                    'color_1'           => esc_html__( 'Normal', 'zenvy' ),
+                ],
+                'inherits'            => [
+                    'color_1'           => 'var(--color-border)',
+                ],
             ]
         ];
     }

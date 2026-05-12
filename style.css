@@ -2090,7 +2090,7 @@ iframe {
 	display: block;
 	content: ",";
 	right: 0px;
-	bottom: 0;
+	/* bottom: 0; */
 	font-size: 14px;
 }
 
@@ -2106,7 +2106,6 @@ iframe {
 .cat-link a {
 	position: relative;
 	display: inline-block;
-	margin-right: 12px;
 }
 
 .cat-link a::before {
