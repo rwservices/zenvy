@@ -106,7 +106,7 @@ class Zenvy_Customizer {
 	 */
 	public function zenvy_customize_preview_js() {
 
-		wp_enqueue_script( 'zenvy-customizer-preview', ZENVY_THEME_URI . 'assets/build/js/customizer-preview.js', [ 'customize-preview' ], ZENVY_THEME_VERSION, true );
+		wp_enqueue_script( 'zenvy-customizer-preview', ZENVY_THEME_URI . 'assets/build/js/customize-preview.js', [ 'customize-preview' ], ZENVY_THEME_VERSION, true );
 	}
 
 	/**
@@ -115,7 +115,7 @@ class Zenvy_Customizer {
 	public function zenvy_customize_js() {
 
 		// Enqueue the style.
-		wp_enqueue_style( 'zenvy-customize-controls', ZENVY_THEME_URI . 'assets/build/css/customize-controls.css', null, ZENVY_THEME_VERSION, 'all' );
+		wp_enqueue_style( 'zenvy-customize-controls', ZENVY_THEME_URI . 'assets/build/css/customize-controls.css', [], ZENVY_THEME_VERSION, 'all' );
 
 		// Add output of Customizer settings as inline style.
 		wp_add_inline_style( 'zenvy-customize-controls', Zenvy_Customizer_Inline_Style::css_output( 'customizer' ) );
@@ -124,7 +124,7 @@ class Zenvy_Customizer {
 		wp_enqueue_script( 'wp-color-picker-alpha', ZENVY_THEME_URI . 'assets/build/library/wp-color-picker-alpha.js', [ 'jquery', 'wp-color-picker' ], '2.1.4', true );
 
 		// Enqueue the font awesome style.
-		wp_enqueue_style( 'font-awesome', ZENVY_THEME_URI . 'assets/build/library/font-awesome.css', [], '4.7.0' );
+		wp_enqueue_style( 'font-awesome', ZENVY_THEME_URI . 'assets/build/library/all.min.css');
 
 		// Enqueue the scripts.
 		wp_enqueue_script( 'zenvy-customize-controls', ZENVY_THEME_URI . 'assets/build/js/customize-controls.js', [ 'jquery', 'customize-controls', 'customize-base', 'wp-color-picker-alpha', 'jquery-ui-sortable' ], ZENVY_THEME_VERSION, true );

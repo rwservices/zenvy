@@ -103,7 +103,7 @@ class Zenvy_Customize_Footer_Bottom_Row_Fields extends Zenvy_Customize_Base_Fiel
                 'default'           => [
                     'background'        => 'color',
                     'colors'            => [
-                        'color_1'           => 'var(--color-bg-3)'
+                        'color_1'           => 'var(--color-bg-dark)'
                     ]
                 ],
                 'sanitize_callback' => ['Zenvy_Customizer_Sanitize_Callback', 'sanitize_background' ],
@@ -112,7 +112,7 @@ class Zenvy_Customize_Footer_Bottom_Row_Fields extends Zenvy_Customize_Base_Fiel
                 'section'           => 'zenvy_footer_bottom',
                 'priority'          => 20,
                 'inherits'          => [
-                    'color_1'           => 'var(--color-bg-3)'
+                    'color_1'           => 'var(--color-bg-dark)'
                 ],
                 'fields'            => ['colors' => true],
             ],

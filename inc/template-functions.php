@@ -93,7 +93,7 @@ function zenvy_get_fontawesome() {
 	if ( $fonts ) { ?>
 			<ul class="font-group">
 				<?php
-				foreach ( $fonts as $font => $val ) {
+				foreach ( $fonts as $font ) {
 					echo '<li data-font="' . esc_attr( $font ) . '"><i class="fa ' . esc_attr( $font ) . '"></i></li>';
 				}
 				?>

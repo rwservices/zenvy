@@ -35,7 +35,7 @@ $video_channel_url = get_theme_mod('zenvy_video_channel_url', '#');
                 <article class="post">
                     <div class="featured-image-wrapper">
                         <figure class="featured-image" data-ratio="auto">
-                            <a href="<?php echo esc_url($video_url_1); ?>">
+                            <a href="<?php echo esc_url($video_url_1); ?>" target="_blank">
                                 <img src="<?php echo Zenvy_Helper::get_video_thumbnail_url($video_url_1); ?>" alt="">
                             </a>
                         </figure>
@@ -54,7 +54,7 @@ $video_channel_url = get_theme_mod('zenvy_video_channel_url', '#');
                         </div>
                         <header class="entry-header">
                             <h3 class="entry-title">
-                                <a href="<?php echo esc_url($video_url_1); ?>">
+                                <a href="<?php echo esc_url($video_url_1); ?>" target="_blank">
                                     <?php echo esc_html($video_title_1); ?>
                                 </a>
                             </h3>
@@ -66,7 +66,7 @@ $video_channel_url = get_theme_mod('zenvy_video_channel_url', '#');
                 <article class="post flexible-post">
                     <div class="featured-image-wrapper">
                         <figure class="featured-image" data-ratio="auto">
-                            <a href="<?php echo esc_url($video_url_2); ?>">
+                            <a href="<?php echo esc_url($video_url_2); ?>" target="_blank">
                                 <img src="<?php echo Zenvy_Helper::get_video_thumbnail_url($video_url_2); ?>" alt="">
                             </a>
                         </figure>
@@ -85,7 +85,7 @@ $video_channel_url = get_theme_mod('zenvy_video_channel_url', '#');
                         </div>
                         <header class="entry-header">
                             <h3 class="entry-title">
-                                <a href="<?php echo esc_url($video_url_2); ?>">
+                                <a href="<?php echo esc_url($video_url_2); ?>" target="_blank">
                                     <?php echo esc_html($video_title_2); ?>
                                 </a>
                             </h3>
@@ -95,7 +95,7 @@ $video_channel_url = get_theme_mod('zenvy_video_channel_url', '#');
                 <article class="post flexible-post">
                     <div class="featured-image-wrapper">
                         <figure class="featured-image" data-ratio="auto">
-                            <a href="<?php echo esc_url($video_url_3); ?>">
+                            <a href="<?php echo esc_url($video_url_3); ?>" target="_blank">
                                 <img src="<?php echo Zenvy_Helper::get_video_thumbnail_url($video_url_3); ?>" alt="">
                             </a>
                             </a>
@@ -115,7 +115,7 @@ $video_channel_url = get_theme_mod('zenvy_video_channel_url', '#');
                         </div>
                         <header class="entry-header">
                             <h3 class="entry-title">
-                                <a href="<?php echo esc_url($video_url_3); ?>">
+                                <a href="<?php echo esc_url($video_url_3); ?>" target="_blank">
                                     <?php echo esc_html($video_title_3); ?>
                                 </a>
                             </h3>
@@ -123,7 +123,7 @@ $video_channel_url = get_theme_mod('zenvy_video_channel_url', '#');
                     </div>
                 </article>
                 <div class="btn-wrapper">
-                    <a href="<?php echo esc_url($video_channel_url); ?>" class="read-more-btn">
+                    <a href="<?php echo esc_url($video_channel_url); ?>" target="_blank" class="read-more-btn">
                         <?php esc_html_e('All Videos', 'zenvy'); ?>
                     </a>
                 </div>

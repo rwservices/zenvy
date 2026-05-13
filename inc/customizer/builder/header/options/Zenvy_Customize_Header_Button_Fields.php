@@ -31,11 +31,11 @@ class Zenvy_Customize_Header_Button_Fields extends Zenvy_Customize_Base_Field {
                     'hover'         => array(
                         'tab-title'     => esc_html__( 'Style', 'zenvy' ),
                         'controls'      => array(
-                            'zenvy_header_button_container_padding',
-                            'zenvy_header_button_container_margin',
                             'zenvy_header_button_color',
                             'zenvy_header_button_background',
                             'zenvy_header_button_padding',
+                            'zenvy_header_button_container_padding',
+                            'zenvy_header_button_container_margin',
 
                         )
                     )
@@ -69,34 +69,12 @@ class Zenvy_Customize_Header_Button_Fields extends Zenvy_Customize_Base_Field {
                 'label'             => esc_html__( 'Link Open', 'zenvy' ),
                 'description'       => esc_html__( 'Enable to open the link in the new tab.', 'zenvy' ),
             ],
-            // Padding
-            'zenvy_header_button_container_padding' => [
-                'type'              => 'dimensions',
-                'default'           => '',
-                'sanitize_callback' => ['Zenvy_Customizer_Sanitize_Callback', 'sanitize_dimensions' ],
-                'label'             => esc_html__( 'Padding', 'zenvy' ),
-                'description'       => esc_html__( 'Set button container padding.', 'zenvy' ),
-                'section'           => 'button_one',
-                'priority'          => 35,
-                'responsive'        => [ 'desktop', 'tablet', 'mobile' ],
-            ],
-            // Margin
-            'zenvy_header_button_container_margin' => [
-                'type'              => 'dimensions',
-                'default'           => '',
-                'sanitize_callback' => ['Zenvy_Customizer_Sanitize_Callback', 'sanitize_dimensions' ],
-                'label'             => esc_html__( 'Margin', 'zenvy' ),
-                'description'       => esc_html__( 'Set button container margin.', 'zenvy' ),
-                'section'           => 'button_one',
-                'priority'          => 40,
-                'responsive'        => [ 'desktop', 'tablet', 'mobile' ],
-            ],
             // Button Color
             'zenvy_header_button_color' => [
                 'type'              => 'color',
                 'default'           => [
-                    'color_1'           => 'var(--color-link)',
-                    'color_2'           => 'var(--color-2)'
+                    'color_1'           => 'var(--color-white)',
+                    'color_2'           => 'var(--color-white)'
                 ],
                 'sanitize_callback' => ['Zenvy_Customizer_Sanitize_Callback', 'sanitize_color' ],
                 'label'             => esc_html__( 'Button', 'zenvy' ),
@@ -106,17 +84,18 @@ class Zenvy_Customize_Header_Button_Fields extends Zenvy_Customize_Base_Field {
                     'color_1'           => esc_html__( 'Normal', 'zenvy' ),
                     'color_2'           => esc_html__( 'Hover', 'zenvy' ),
                 ],
-                'priority'          => 45,
+                'priority'          => 35,
                 'inherits'          => [
-                    'color_1'           => 'var(--color-link)',
-                    'color_2'           => 'var(--color-2)',
+                    'color_1'           => 'var(--color-white)',
+                    'color_2'           => 'var(--color-white)',
                 ]
             ],
             // Background
             'zenvy_header_button_background' => [
                 'type'              => 'color',
                 'default'           => [
-                    'color_2'           => 'var(--color-bg-3)'
+                    'color_1'           => 'var(--color-link)',
+                    'color_2'           => 'var(--color-link-hover)'
                 ],
                 'sanitize_callback' => ['Zenvy_Customizer_Sanitize_Callback', 'sanitize_color' ],
                 'label'             => esc_html__( 'Background', 'zenvy' ),
@@ -126,10 +105,10 @@ class Zenvy_Customize_Header_Button_Fields extends Zenvy_Customize_Base_Field {
                     'color_1'           => esc_html__( 'Normal', 'zenvy' ),
                     'color_2'           => esc_html__( 'Hover', 'zenvy' ),
                 ],
-                'priority'          => 50,
+                'priority'          => 40,
                 'inherits'          => [
-                    'color_1'           => 'var(--color-bg-1)',
-                    'color_2'           => 'var(--color-bg-3)',
+                    'color_1'           => 'var(--color-link)',
+                    'color_2'           => 'var(--color-link-hover)',
                 ]
             ],
 			
@@ -146,8 +125,32 @@ class Zenvy_Customize_Header_Button_Fields extends Zenvy_Customize_Base_Field {
                     ]
                 ],
                 'sanitize_callback' => ['Zenvy_Customizer_Sanitize_Callback', 'sanitize_dimensions' ],
-                'label'             => esc_html__( 'Padding', 'zenvy' ),
+                'label'             => esc_html__( 'Button Padding', 'zenvy' ),
                 'description'       => esc_html__( 'Set button padding.', 'zenvy' ),
+                'section'           => 'button_one',
+                'priority'          => 45,
+                'responsive'        => [ 'desktop', 'tablet', 'mobile' ],
+            ],
+
+            // Margin
+            'zenvy_header_button_container_margin' => [
+                'type'              => 'dimensions',
+                'default'           => '',
+                'sanitize_callback' => ['Zenvy_Customizer_Sanitize_Callback', 'sanitize_dimensions' ],
+                'label'             => esc_html__( 'Margin', 'zenvy' ),
+                'description'       => esc_html__( 'Set button container margin.', 'zenvy' ),
+                'section'           => 'button_one',
+                'priority'          => 50,
+                'responsive'        => [ 'desktop', 'tablet', 'mobile' ],
+            ],
+
+            // Padding
+            'zenvy_header_button_container_padding' => [
+                'type'              => 'dimensions',
+                'default'           => '',
+                'sanitize_callback' => ['Zenvy_Customizer_Sanitize_Callback', 'sanitize_dimensions' ],
+                'label'             => esc_html__( 'Padding', 'zenvy' ),
+                'description'       => esc_html__( 'Set button container padding.', 'zenvy' ),
                 'section'           => 'button_one',
                 'priority'          => 55,
                 'responsive'        => [ 'desktop', 'tablet', 'mobile' ],

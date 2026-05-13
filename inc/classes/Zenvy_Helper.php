@@ -200,7 +200,11 @@ class Zenvy_Helper
     {
         return [
             'facebook'        => esc_html__('Facebook', 'zenvy'),
-            'twitter'        => esc_html__('Twitter', 'zenvy')
+            'twitter'        => esc_html__('Twitter', 'zenvy'),
+            'linkedin'       => esc_html__('LinkedIn', 'zenvy'),
+            'pinterest'      => esc_html__('Pinterest', 'zenvy'),
+            'instagram'     => esc_html__('Instagram', 'zenvy'),
+            'youtube'       => esc_html__('YouTube', 'zenvy'),
         ];
     }
     /**

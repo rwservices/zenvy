@@ -27,8 +27,8 @@ class Zenvy_Customize_Global_Button_Fields extends Zenvy_Customize_Base_Field {
                     'color_2'           => esc_html__( 'Hover', 'zenvy' ),
                 ],
                 'inherits'            => [
-                    'color_1'           => 'var(--color-link-hover)',
-                    'color_2'           => 'var(--color-link)',
+                    'color_1'           => 'var(--color-white)',
+                    'color_2'           => 'var(--color-white)',
                 ]
             ],
             // Background Color
@@ -44,8 +44,8 @@ class Zenvy_Customize_Global_Button_Fields extends Zenvy_Customize_Base_Field {
                     'color_2'           => esc_html__( 'Hover', 'zenvy' ),
                 ],
                 'inherits'            => [
-                    'color_1'           => 'var(--color-bg-3)',
-                    'color_2'           => 'var(--color-accent-secondary)',
+                    'color_1'           => 'var(--color-link)',
+                    'color_2'           => 'var(--color-link-hover)',
                 ]
             ],
             // Border
@@ -56,8 +56,14 @@ class Zenvy_Customize_Global_Button_Fields extends Zenvy_Customize_Base_Field {
                 'label'             => esc_html__( 'Border', 'zenvy' ),
                 'section'           => 'zenvy_button_section',
                 'priority'          => 15,
-				'fields'            => ['radius'=>true],
-            ],
+				'fields'            => ['colors' => true, 'radius' => true],
+                'colors'            => [
+                    'color_1'           => esc_html__( 'Normal', 'zenvy' ),
+                ],
+                'inherits'            => [
+                    'color_1'           => 'var(--color-link)',
+                ],
+            ]
         ];
     }
 

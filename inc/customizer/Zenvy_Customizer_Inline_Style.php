@@ -159,18 +159,21 @@ class Zenvy_Customizer_Inline_Style
 				'margin'
 			);
 			// Icon color
-			self::generate_css(
-				['.site-header .header-social-wrap li:hover a'],
-				['color'],
-				'var(--color-5)'
-			);
+            self::color(
+                ['.site-header .header-social-wrap li a','.site-header .header-social-wrap li:hover a'],
+                'zenvy_header_social_icon_item_icon_color',
+                [
+                    'color_1'           => 'var(--color-link)',
+                    'color_2'           => 'var(--color-link-hover)'
+                ]
+            );
 			// Item Background color
 			self::color(
 				['.site-header .header-social-wrap li a', '.site-header .header-social-wrap li:hover a'],
 				'zenvy_header_social_icon_item_background',
 				[
-					'color_1' => 'var(--color-bg-4)',
-					'color_2' => 'var(--color-bg-3)',
+					'color_1' => 'var(--color-bg)',
+					'color_2' => 'var(--color-bg)',
 				],
 				'background-color'
 			);
@@ -202,21 +205,14 @@ class Zenvy_Customizer_Inline_Style
 					],
 				]
 			);
-			// Item Margin
-			self::dimensions(
-				['.site-header .header-social-wrap li a'],
-				'zenvy_header_social_icon_item_margin',
-				[
-					'desktop' => [
-						'side_1' => '0px',
-						'side_2' => '0px',
-						'side_3' => '0px',
-						'side_4' => '0px',
-						'linked' => 'on',
-					],
-				],
-				'margin'
-			);
+
+			// Item Gap
+            self::range(
+                ['.site-header ul.header-social-wrap >*:not(:last-child)'],
+                'zenvy_header_social_icon_gap',
+                ['desktop' => '2px'],
+                'margin-right'
+            );
 
 			/*
 			--------------------------------------------------------------
@@ -225,13 +221,13 @@ class Zenvy_Customizer_Inline_Style
 			// Container Padding
 			self::dimensions(
 				['.site-header .primary-navbar'],
-				'zenvy_header_primary_menu_padding',
+				'zenvy_header_primary_menu_container_padding',
 				''
 			);
 			// Container Margin
 			self::dimensions(
 				['.site-header .primary-navbar'],
-				'zenvy_header_primary_menu_margin',
+				'zenvy_header_primary_menu_container_margin',
 				'',
 				'margin'
 			);
@@ -252,10 +248,134 @@ class Zenvy_Customizer_Inline_Style
 				);
 			}
 
+			// Parent Menu Colors
+            self::color(
+                ['
+                .site-header .primary-navbar .menu-top-menu-container>ul>li>a,
+                .site-header .main-navigation .menu-item-has-children::before,
+                .main-navigation.enable-submenu .menu-top-menu-container>ul>li.menu-item-has-children::before
+                ','
+                .site-header .primary-navbar .menu-top-menu-container>ul>li:hover>a,
+                .site-header .main-navigation .menu-item-has-children:hover::before,
+                .main-navigation.enable-submenu .menu-top-menu-container>ul>li.menu-item-has-children:hover::before
+                '
+                ],
+                'zenvy_header_primary_parent_menu_colors',
+                '',
+                'color'
+            );
+            $parent_menu_color = get_theme_mod('zenvy_header_primary_parent_menu_colors','');
+            $parent_menu_background = get_theme_mod('zenvy_header_primary_parent_menu_background_color','');
+            if ( !empty($parent_menu_color['color_2'] ) ) {
+                self::generate_css(
+                    ['
+                    .site-header .primary-navbar .menu-top-menu-container>ul>li.current_page_item>a,
+                    .site-header .primary-navbar .menu-top-menu-container>ul>li.current_page_item.menu-item-has-children::before,
+                    .site-header .primary-navbar .menu-top-menu-container>ul>li.current-menu-item>a,
+                    .site-header .primary-navbar .menu-top-menu-container>ul>li.current-menu-item.menu-item-has-children::before
+                    '],
+                    ['color'],
+                    $parent_menu_color['color_2']
+                );
+            }
+            if ( !empty($parent_menu_background['color_2'] ) ) {
+                self::generate_css(
+                    ['.site-header .primary-navbar .menu-top-menu-container>ul>li.current_page_item>a,.site-header .primary-navbar .menu-top-menu-container>ul>li.current-menu-item>a'],
+                    ['background-color'],
+                    $parent_menu_background['color_2']
+                );
+            }
+            // Parent Menu Background
+            self::color(
+                ['.site-header .primary-navbar .menu-top-menu-container>ul>li>a','.site-header .primary-navbar .menu-top-menu-container>ul>li:hover>a'],
+                'zenvy_header_primary_parent_menu_background_color',
+                '',
+                'background-color'
+            );
+
+            // child Menu Colors
+            self::color(
+                ['
+                .site-header .primary-navbar .main-navigation ul li ul li a,
+                .site-header .primary-navbar .main-navigation ul li ul li.menu-item-has-children::before
+                ',
+				'.site-header .primary-navbar .main-navigation ul li ul li:hover a,
+                .site-header .primary-navbar .main-navigation ul li ul li.menu-item-has-children:hover::before
+                '
+                ],
+                'zenvy_header_primary_child_menu_colors',
+                '',
+                'color'
+            );
+
+            // Child Menu Background
+            self::color(
+                ['.site-header .primary-navbar .main-navigation ul li ul li a',
+                    '.site-header .primary-navbar .main-navigation ul li ul li:hover a'],
+                'zenvy_header_primary_child_menu_background_colors',
+                '',
+                'background-color'
+            );
+            $child_menu_color = get_theme_mod('zenvy_header_primary_child_menu_colors','');
+            $child_menu_background = get_theme_mod('zenvy_header_primary_child_menu_background_colors','');
+            if ( !empty($child_menu_color['color_2'] ) ) {
+                self::generate_css(
+                    ['
+                    .site-header .primary-navbar .main-navigation ul li ul li.current_page_item>a,
+                    .site-header .primary-navbar .main-navigation ul li ul li.current_page_item.menu-item-has-children::before,
+                    .site-header .primary-navbar .main-navigation ul li ul li.current-menu-item>a,
+                    .site-header .primary-navbar .main-navigation ul li ul li.current-menu-item.menu-item-has-children::before
+                    '],
+                    ['color'],
+                    $child_menu_color['color_2']
+                );
+            }
+            if ( !empty($child_menu_background['color_2'] ) ) {
+                self::generate_css(
+                    ['
+                    .site-header .primary-navbar .main-navigation ul li ul li.current_page_item>a,
+                    .site-header .primary-navbar .main-navigation ul li ul li.current-menu-item>a,
+                    '],
+                    ['background-color'],
+                    $child_menu_background['color_2']
+                );
+            }
+
 			/*
 			--------------------------------------------------------------
 			# Header Builder -> Toggle Menu
 			--------------------------------------------------------------*/
+			// Icon Color
+           self::color(
+                ['
+                .site-header .mobile-navbar .mean-container .meanmenu-reveal span,
+                .site-header .mobile-navbar .mean-container .meanmenu-reveal span:before,
+                .site-header .mobile-navbar .mean-container .meanmenu-reveal span:after
+                '],
+                'zenvy_header_toggle_menu_icon_color',
+                ['color_1'=> 'var(--color-accent-secondary)'],
+                'background'
+            );
+            // Icon background color
+            self::color(
+                ['.site-header .mobile-navbar .mean-container a.meanmenu-reveal'],
+                'zenvy_header_toggle_menu_icon_background_color',
+                '',
+                'background-color'
+            );
+           // Menu Typography
+           self::typography(
+                ['.site-header .mobile-navbar .mean-container .mean-nav ul li a'],
+                'zenvy_header_toggle_menu_text_typo',
+                ''
+            );
+            // Menu Background
+            self::color(
+                ['.site-header .mobile-navbar .mean-container .mean-nav>ul,.site-header .mobile-navbar .main-navigation ul li ul li:hover>a','.site-header .mobile-navbar .mean-container .mean-nav>ul>li>a:hover'],
+                'zenvy_header_toggle_menu_dropdown_container_menu_background',
+                '',
+                'background-color'
+            );
 			// Container Padding
 			self::dimensions(
 				['.site-header .header-toggle-menu-wrap'],
@@ -275,48 +395,50 @@ class Zenvy_Customizer_Inline_Style
 			# Header Builder -> Button
 			--------------------------------------------------------------*/
 			// Icon color
-			self::generate_css(
-				['.site-header .header-button-wrap a:hover'],
-				['color'],
-				'var(--color-5)'
-			);
-			// Background color
-			self::generate_css(
-				['.site-header .header-button-wrap a:hover'],
-				['background-color'],
-				'var(--color-bg-3)'
-			);
-			self::border(
-				['.site-header .header-button-wrap a'],
-				'zenvy_header_button_border',
-				[
-					'width' => [
-						'side_1' => '1px',
-						'side_2' => '1px',
-						'side_3' => '1px',
-						'side_4' => '1px',
-						'linked' => 'off',
-					],
-				]
-			);
+            self::color(
+                ['.site-header .header-button-wrap a','.site-header .header-button-wrap a:hover'],
+                'zenvy_header_button_color',
+                [
+                    'color_1'   => 'var(--color-white)',
+                    'color_2'   => 'var(--color-white)'
+                ]
+            );
+            // Background color
+            self::color(
+                ['.site-header .header-button-wrap a','.site-header .header-button-wrap a:hover'],
+                'zenvy_header_button_background',
+                [
+                    'color_1'   => 'var(--color-link)',
+                    'color_2'   => 'var(--color-link-hover)'
+                ],
+                'background-color'
+            );
+			// Padding
+            self::dimensions(
+                ['.site-header .header-button-wrap a'],
+                'zenvy_header_button_padding',
+                [
+                    'desktop'           => [
+                        'side_1'            => '12px',
+                        'side_2'            => '18px',
+                        'side_3'            => '12px',
+                        'side_4'            => '18px',
+                        'linked'            => 'off'
+                    ]
+                ]
+            );
+			
 			// Padding
 			self::dimensions(
-				['.site-header .header-button-wrap a'],
-				'zenvy_header_button_padding',
-				[
-					'desktop' => [
-						'side_1' => '12px',
-						'side_2' => '18px',
-						'side_3' => '12px',
-						'side_4' => '18px',
-						'linked' => 'off',
-					],
-				]
+				['.site-header .header-button-wrap'],
+				'zenvy_header_button_container_padding',
+				'',
+				'padding'	
 			);
 			// Margin
 			self::dimensions(
 				['.site-header .header-button-wrap a'],
-				'zenvy_header_button_margin',
+				'zenvy_header_button_container_margin',
 				'',
 				'margin'
 			);
@@ -326,30 +448,25 @@ class Zenvy_Customizer_Inline_Style
 			# Header Builder -> Account
 			--------------------------------------------------------------*/
 			// Icon text color
-			self::generate_css(
-				['.site-header .header-account-wrap a:hover'],
-				['color'],
-				'var(--color-5)'
-			);
-			// Background color
-			self::generate_css(
-				['.site-header .header-account-wrap a:hover'],
-				['background-color'],
-				'var(--color-bg-3)'
-			);
-			self::border(
-				['.site-header .header-account-wrap a'],
-				'zenvy_header_account_border',
+			self::color(
+				['.site-header .header-account-wrap a','.site-header .header-account-wrap a:hover'],
+				'zenvy_header_account_icon_color',
 				[
-					'width' => [
-						'side_1' => '1px',
-						'side_2' => '1px',
-						'side_3' => '1px',
-						'side_4' => '1px',
-						'linked' => 'on',
-					],
+					'color_1'   => 'var(--color-white)',
+					'color_2'   => 'var(--color-white)'
 				]
 			);
+			// Background color
+			self::color(
+				['.site-header .header-account-wrap a', '.site-header .header-account-wrap a:hover'],
+				'zenvy_header_account_background',
+				[
+					'color_1'   => 'var(--color-white)',
+					'color_2'   => 'var(--color-white)'
+				],
+				'background-color'
+			);
+
 			// Padding
 			self::dimensions(
 				['.site-header .header-account-wrap a'],
@@ -364,13 +481,22 @@ class Zenvy_Customizer_Inline_Style
 					],
 				]
 			);
-			// Margin
+			// Container Margin
 			self::dimensions(
 				['.site-header .header-account-wrap a'],
-				'zenvy_header_account_margin',
+				'zenvy_header_account_container_margin',
 				'',
 				'margin'
 			);
+
+			// Container Padding
+			self::dimensions(
+				['.site-header .header-account-wrap'],
+				'zenvy_header_account_container_padding',
+				'',
+				'padding'
+			);
+
 			/*
 			--------------------------------------------------------------
 			# Header Builder -> Menu Trigger
@@ -440,10 +566,70 @@ class Zenvy_Customizer_Inline_Style
 				'margin'
 			);
 
+			/*--------------------------------------------------------------
+            # Header Builder -> Color Mode Icon
+            --------------------------------------------------------------*/
+            // Icon Size
+            self::range(
+                ['.site-header .header-color-mode-wrap #theme-toggle span'],
+                'zenvy_header_color_mode_icon_size',
+                ['desktop' => '13px'],
+                'font-size'
+            );
+            // Background color
+            self::color(
+                ['.site-header .header-color-mode-wrap #theme-toggle span'],
+                'zenvy_header_color_mode_icon_bg_color',
+                '',
+                'background-color'
+            );
+            // Icon color
+            self::color(
+                ['.site-header .header-color-mode-wrap #theme-toggle span i'],
+                'zenvy_header_color_mode_icon_color',
+				 [
+					'color_1'   => 'var(--color-link)',
+				],
+                'color'
+            );
+            // Padding
+            self::dimensions(
+                ['.site-header .header-color-mode-wrap #theme-toggle span'],
+                'zenvy_header_color_mode_padding',
+                ''
+            );
+            // Margin
+            self::dimensions(
+                ['.site-header .header-color-mode-wrap'],
+                'zenvy_header_color_mode_margin',
+                '',
+                'margin'
+            );
+
 			/*
 			--------------------------------------------------------------
 			# Header Builder -> Search Icon
 			--------------------------------------------------------------*/
+			// Icon color
+            self::color(
+                ['.site-header .site-header-section .header-search-icon-wrap .search-toggle','.site-header .site-header-section .header-search-icon-wrap .search-toggle:hover'],
+                'zenvy_header_search_icon_color',
+                ''
+            );
+            // Background color
+            self::color(
+                ['.site-header .site-header-section .header-search-icon-wrap .search-toggle','.site-header .site-header-section .header-search-icon-wrap .search-toggle:hover'],
+                'zenvy_header_search_icon_background',
+                '',
+                'background-color'
+            );
+			// Button Background color
+			self::color(
+				['.site-header .header-search-section .search-form input[type="submit"]','.site-header .header-search-section .search-form input[type="submit"]:hover'],
+				'zenvy_header_search_button_background',
+				'',
+				'background-color'
+			);
 			// Container Padding
 			self::dimensions(
 				['.site-header .header-search-icon-wrap'],
@@ -539,6 +725,98 @@ class Zenvy_Customizer_Inline_Style
 				);
 			}
 
+			/*--------------------------------------------------------------
+            # Global -> Button
+            --------------------------------------------------------------*/
+            // color
+            self::color(
+                ['
+                .box-button, .read-more-wrap .read-more-button, .wpcf7-submit[type="submit"], input[type="submit"], button[type="submit"], .comment-form input[type="submit"],
+                .post-navigation .nav-links .nav-previous a, .pagination-wrap .nav-links .nav-previous a,
+                .post-navigation .nav-links .nav-next a, .pagination-wrap .nav-links .nav-next a,
+                .back-to-top a, .wp-block-search .wp-block-search__button,
+                .pagination .current,.pagination .page-numbers,
+                .mc4wp-form input[type=submit],
+                button:not(.components-button),
+                a.button,
+                .wp-block-button__link,
+                input[type="button"],
+                input[type="reset"],
+                input[type="submit"]
+                ','
+                .box-button:hover, .read-more-wrap .read-more-button:hover, .wpcf7-submit[type="submit"]:hover, input[type="submit"]:hover, button[type="submit"]:hover, .comment-form input[type="submit"]:hover,
+                .post-navigation .nav-links .nav-previous a:hover, .pagination-wrap .nav-links .nav-previous a:hover,
+                .post-navigation .nav-links .nav-next a:hover, .pagination-wrap .nav-links .nav-next a:hover,
+                .back-to-top a:hover,
+                .wp-block-search .wp-block-search__button:hover,
+                .pagination a:hover,
+                .mc4wp-form input[type=submit]:hover,
+                button:not(.components-button):hover,
+                a.button:hover,
+                .wp-block-button__link:hover,
+                input[type="button"]:hover,
+                input[type="reset"]:hover,
+                input[type="submit"]:hover
+                '],
+                'zenvy_button_color',
+                '',
+                'color'
+            );
+            // Background color
+            self::color(
+                ['
+                .box-button, .read-more-wrap .read-more-button, .wpcf7-submit[type="submit"], input[type="submit"], button[type="submit"], .comment-form input[type="submit"],
+                .post-navigation .nav-links .nav-previous a, .pagination-wrap .nav-links .nav-previous a,
+                .post-navigation .nav-links .nav-next a, .pagination-wrap .nav-links .nav-next a,
+                .back-to-top a,
+                .wp-block-search .wp-block-search__button,
+                .pagination .current,.pagination .page-numbers,
+                .mc4wp-form input[type=submit],
+                button:not(.components-button),
+                a.button,
+                .wp-block-button__link,
+                input[type="button"],
+                input[type="reset"],
+                input[type="submit"]
+                ','
+                .box-button:hover, .read-more-wrap .read-more-button:hover, .wpcf7-submit[type="submit"]:hover, input[type="submit"]:hover, button[type="submit"]:hover, .comment-form input[type="submit"]:hover,
+                .post-navigation .nav-links .nav-previous a:hover, .pagination-wrap .nav-links .nav-previous a:hover,
+                .post-navigation .nav-links .nav-next a:hover, .pagination-wrap .nav-links .nav-next a:hover,
+                .back-to-top a:hover,
+                .wp-block-search .wp-block-search__button:hover,
+                .pagination a:hover,
+                .mc4wp-form input[type=submit]:hover,
+                button:not(.components-button):hover,
+                a.button:hover,
+                .wp-block-button__link:hover,
+                input[type="button"]:hover,
+                input[type="reset"]:hover,
+                input[type="submit"]:hover
+                '],
+                'zenvy_button_bg_color',
+                '',
+                'background-color'
+            );
+             // Border
+             self::border(
+                ['
+                .box-button, .read-more-wrap .read-more-button, .wpcf7-submit[type="submit"], input[type="submit"], button[type="submit"], .comment-form input[type="submit"],
+                .post-navigation .nav-links .nav-previous a, .pagination-wrap .nav-links .nav-previous a,
+                .post-navigation .nav-links .nav-next a, .pagination-wrap .nav-links .nav-next a,
+                .back-to-top a,
+                .wp-block-search .wp-block-search__button,
+                .pagination .current,.pagination .page-numbers,
+                .mc4wp-form input[type=submit],
+                button:not(.components-button),
+                a.button,
+                .wp-block-button__link,
+                input[type="button"],
+                input[type="reset"],
+                input[type="submit"]
+                '],
+                'zenvy_button_border',
+                ''
+            );
 
 			// Item Gap
 			self::generate_css(
@@ -914,50 +1192,65 @@ class Zenvy_Customizer_Inline_Style
 			# Footer Builder -> Footer Menu
 			--------------------------------------------------------------*/
 			// Container Padding
-			self::dimensions(
-				['.site-footer .footer-navbar'],
-				'zenvy_footer_menu_padding',
-				''
-			);
-			// Container Margin
-			self::dimensions(
-				['.site-footer .footer-navbar'],
-				'zenvy_footer_menu_margin',
-				'',
-				'margin'
-			);
-			// Menu Item Spacing
-			$footer_menu_spacing = get_theme_mod('zenvy_footer_menu_spacing', '');
-			if ($footer_menu_spacing && ($footer_menu_spacing['desktop'] === '0px')) {
-				self::generate_css(
-					['.site-footer .footer-navbar .main-navigation div>ul>li'],
-					['margin'],
-					'0 -3px'
-				);
-			} else {
-				self::range(
-					['.site-footer .footer-navbar .main-navigation div>ul>li'],
-					'zenvy_footer_menu_spacing',
-					'',
-					'margin-left'
-				);
-			}
-
+            self::dimensions(
+                ['.site-footer .footer-navbar'],
+                'zenvy_footer_menu_container_padding',
+                ''
+            );
+            // Container Margin
+            self::dimensions(
+                ['.site-footer .footer-navbar'],
+                'zenvy_footer_menu_container_margin',
+                '',
+                'margin'
+            );
+            // Item Gap
+            self::range(
+                ['.site-footer .footer-navbar ul.menu-wrapper >*:not(:last-child)'],
+                'zenvy_footer_menu_spacing',
+                '',
+                'margin-right'
+            );
+            // Menu Colors
+            self::color(
+                ['.site-footer .footer-navbar ul.menu-wrapper li,
+                .site-footer .footer-navbar ul.menu-wrapper li a',
+                '.site-footer .footer-navbar ul.menu-wrapper li a:hover'],
+                'zenvy_footer_menu_font_colors',
+                ''
+            );
+            // Menu Background
+            self::color(
+                ['.site-footer .footer-navbar ul.menu-wrapper li,
+                .site-footer .footer-navbar ul.menu-wrapper li a',
+                '.site-footer .footer-navbar ul.menu-wrapper li a:hover'],
+                'zenvy_footer_menu_background_color',
+                '',
+                'background-color'
+            );
+			
 			/*
 			--------------------------------------------------------------
 			# Footer Builder -> Button
 			--------------------------------------------------------------*/
 			// Icon color
-			self::generate_css(
-				['.site-footer .footer-button-wrap a:hover'],
-				['color'],
-				'var(--color-5)'
+			self::color(
+				['.site-footer .footer-button-wrap a','.site-footer .footer-button-wrap a:hover'],
+				'zenvy_footer_button_color',
+				[
+					'color_1'   => 'var(--color-bg-dark)',
+					'color_2'   => 'var(--color-bg-dark)'
+				]
 			);
 			// Background color
-			self::generate_css(
-				['.site-footer .footer-button-wrap a:hover'],
-				['background-color'],
-				'var(--color-bg-3)'
+			self::color(
+				['.site-footer .footer-button-wrap a','.site-footer .footer-button-wrap a:hover'],
+				'zenvy_footer_button_background',
+				[
+					'color_1'   => 'var(--color-white)',
+					'color_2'   => 'var(--color-gray-500)'
+				],
+				'background-color'
 			);
 			// Border
 			self::border(
@@ -1007,6 +1300,17 @@ class Zenvy_Customizer_Inline_Style
 			--------------------------------------------------------------
 			# Footer Builder -> Copyright Text
 			--------------------------------------------------------------*/
+			// Text Typography
+            self::typography(
+                ['.site-footer .site-info,.site-footer .site-info a','.site-footer .site-info a:hover'],
+                'zenvy_footer_copyright_text_typo',
+                [
+                    'colors'            => [
+                        'color_1'           => 'var(--color-white)',
+                        'color_2'           => 'var(--color-gray-600)'
+                    ]
+                ]
+            );
 
 			// Padding
 			self::dimensions(
@@ -1052,21 +1356,32 @@ class Zenvy_Customizer_Inline_Style
 				'',
 				'margin'
 			);
+			// Item Gap
+            self::range(
+                ['.site-footer ul.footer-social-wrap >*:not(:last-child)'],
+                'zenvy_footer_social_icon_gap',
+                ['desktop' => '2px'],
+                'margin-right'
+            );
 			// Icon color
-			self::generate_css(
-				['.site-footer .footer-social-wrap li:hover a'],
-				['color'],
-				'var(--color-5)'
-			);
-			// Item Background color
-			self::color(
-				['.site-footer .footer-social-wrap li', '.site-footer .footer-social-wrap li:hover'],
-				'zenvy_footer_social_icon_item_background',
-				[
-					'color_2' => 'var(--color-bg-2)',
-				],
-				'background-color'
-			);
+            self::color(
+                ['.site-footer .footer-social-wrap li a span','.site-footer .footer-social-wrap li:hover a span'],
+                'zenvy_footer_social_icon_item_icon_color',
+                [
+                    'color_1'           => 'var(--color-white)',
+                    'color_2'           => 'var(--color-gray-500)'
+                ]
+            );
+            // Item Background color
+            self::color(
+                ['.site-footer .footer-social-wrap li','.site-footer .footer-social-wrap li:hover'],
+                'zenvy_footer_social_icon_item_background',
+                [
+					'color_1'           => 'var(--color-bg-dark)',
+                    'color_2'           => 'var(--color-bg-dark)'
+                ],
+                'background-color'
+            );
 			// Item Border
 			self::border(
 				['.site-footer .footer-social-wrap li'],
@@ -1095,22 +1410,57 @@ class Zenvy_Customizer_Inline_Style
 					],
 				]
 			);
-			// Item Margin
-			self::dimensions(
-				['.site-footer .footer-social-wrap li'],
-				'zenvy_footer_social_icon_item_margin',
-				[
-					'desktop' => [
-						'side_1' => '0px',
-						'side_2' => '0px',
-						'side_3' => '0px',
-						'side_4' => '0px',
-						'linked' => 'on',
-					],
-				],
-				'margin'
-			);
 		}
+
+		/*--------------------------------------------------------------
+		# Footer Builder -> Sidebar 1, Sidebar 2, Sidebar 3, Sidebar 4, Sidebar 5, Sidebar 6
+		--------------------------------------------------------------*/
+		// Sidebar Widgets Typography
+		self::typography(
+			['
+				.site-footer .footer-sidebar-wrap .widget .widget-title,
+				.site-footer .footer-sidebar-wrap .widget_block h2,
+				.site-footer .footer-sidebar-wrap .widget .widget-title a,
+				.site-footer .footer-sidebar-wrap .widget_block h2 a
+				'],
+			'zenvy_footer_builder_widget_title_typo',
+			''
+		);
+		// Sidebar Widget Content
+		self::typography(
+			['
+				.site-footer .footer-sidebar-wrap .widget ul li,
+				.site-footer .footer-sidebar-wrap .widget ul li a,
+				.site-footer .footer-sidebar-wrap .widget .calendar_wrap,
+				.site-footer .footer-sidebar-wrap .widget input,
+				.site-footer .footer-sidebar-wrap .widget input::placeholder,
+				.site-footer .footer-sidebar-wrap .widget textarea,
+				.site-footer .footer-sidebar-wrap .widget input::placeholder,
+				.site-footer .footer-sidebar-wrap .widget select,
+				.site-footer .footer-sidebar-wrap .widget .wp-caption-text,
+				.site-footer .footer-sidebar-wrap .widget .textwidget,
+				.site-footer .widget p,
+				.site-footer .widget li,
+				.site-footer .widget span,
+				.site-footer .footer-sidebar-wrap .widget .textwidget a,
+				.site-footer .footer-sidebar-wrap .widget_block .wp-block-group__inner-container ul li,
+				.site-footer .footer-sidebar-wrap .widget_tag_cloud a,
+				.site-footer .footer-sidebar-wrap .widget_block .wp-block-group__inner-container ul li a
+				','
+				.site-footer .footer-sidebar-wrap .widget ul li a:hover,
+				.site-footer .footer-sidebar-wrap .widget .textwidget a:hover,
+				.site-footer .footer-sidebar-wrap .widget_tag_cloud a:hover,
+				.site-footer .footer-sidebar-wrap .widget_block .wp-block-group__inner-container ul li a:hover
+				'],
+			'zenvy_footer_builder_widget_content_typo',
+			''
+		);
+		// Widget Padding
+		self::dimensions(
+			['.site-footer .footer-sidebar-wrap .widget'],
+			'zenvy_footer_builder_widget_padding',
+			''
+		);
 
 		// Customizer Styles.
 		if ('customizer' === $type) {

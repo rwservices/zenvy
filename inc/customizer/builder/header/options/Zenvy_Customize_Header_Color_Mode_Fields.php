@@ -30,6 +30,7 @@ class Zenvy_Customize_Header_Color_Mode_Fields extends Zenvy_Customize_Base_Fiel
                     'hover'         => array(
                         'tab-title'     => esc_html__( 'Style', 'zenvy' ),
                         'controls'      => array(
+                            'zenvy_header_color_mode_icon_color',
                             'zenvy_header_color_mode_icon_bg_color',
                             'zenvy_header_color_mode_padding',
                             'zenvy_header_color_mode_margin'
@@ -47,7 +48,22 @@ class Zenvy_Customize_Header_Color_Mode_Fields extends Zenvy_Customize_Base_Fiel
 				'priority'          => 15,
 				'responsive'        => [ 'desktop', 'tablet', 'mobile' ],
 			],
-            // Icon backgorund color
+            // Icon color
+            'zenvy_header_color_mode_icon_color' => [
+                'type'              => 'color',
+                'default'           => ['color_1' => 'var(--color-link)'],
+                'sanitize_callback' => ['Zenvy_Customizer_Sanitize_Callback', 'sanitize_color' ],
+                'label'             => esc_html__( 'Icon Color', 'zenvy' ),
+                'section'           => 'color_mode',
+                'priority'          => 20,
+                'colors'            => [
+                    'color_1'           => esc_html__( 'Normal', 'zenvy' ),
+                ],
+                'inherits'          => [
+                    'color_1'           => 'var(--color-link)',
+                ]
+            ],
+            // Icon background color
             'zenvy_header_color_mode_icon_bg_color' => [
                 'type'              => 'color',
                 'default'           => '',
@@ -56,7 +72,7 @@ class Zenvy_Customize_Header_Color_Mode_Fields extends Zenvy_Customize_Base_Fiel
                 'section'           => 'color_mode',
                 'priority'          => 30,
                 'inherits'          => [
-                    'color_1'           => 'var(--color-link)',
+                    'color_1'           => 'var(--color-bg)',
                 ]
             ],
             // Padding
