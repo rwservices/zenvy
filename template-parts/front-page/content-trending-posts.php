@@ -5,7 +5,7 @@
  * @package Zenvy
  */
 
-$show_homepage_sidebar_sec = get_theme_mod('zenvy_front_page_trending_posts_enable_sidebar', '');
+$show_trending_posts_sidebar = get_theme_mod('zenvy_front_page_trending_posts_enable_sidebar', '');
 $trending_posts_count = get_theme_mod('zenvy_front_page_trending_posts_limit', ['desktop' => 3]);
 
 // Exclude featured posts from trending posts
@@ -24,11 +24,11 @@ $trending = new WP_Query(array(
     'ignore_sticky_posts' => true,
 ));
 ?>
-<section class="section-wrap">
+<section class="section-wrap trending-posts-section">
     <div class="container">
         <h2 class="screen-reader-text"><?php esc_html_e('Trending Posts', 'zenvy'); ?></h2>
         <div class="section-wrap-inner">
-            <div class="<?php echo $show_homepage_sidebar_sec ? 'section-left' : ''; ?>">
+            <div class="<?php echo $show_trending_posts_sidebar ? 'section-left' : ''; ?>">
                 <section class="blog-section">
                     <div class="post-wrapper overlap-post">
                         <?php
@@ -49,8 +49,8 @@ $trending = new WP_Query(array(
                     </div>
                 </section>
             </div>
-            <?php if ($show_homepage_sidebar_sec && array_key_exists('desktop', $show_homepage_sidebar_sec) && is_active_sidebar('sidebar-homepage-sec')): ?>
-                <?php get_sidebar('homepage-sec'); ?>
+            <?php if ($show_trending_posts_sidebar && array_key_exists('desktop', $show_trending_posts_sidebar) && is_active_sidebar('sidebar-trending-posts')): ?>
+                <?php get_sidebar('sidebar-trending-posts'); ?>
             <?php endif; ?>
         </div>
     </div>

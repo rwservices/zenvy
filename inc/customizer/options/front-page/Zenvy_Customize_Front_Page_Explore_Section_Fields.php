@@ -69,7 +69,7 @@ class Zenvy_Customize_Front_Page_Explore_Section_Fields extends Zenvy_Customize_
 				'default'           => [
 					'background' => 'color',
 					'colors'     => [
-						'color_1' => 'var(--color-bg-4)',
+						'color_1' => 'var(--color-bg)',
 					],
 				],
 				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_background' ],
@@ -78,7 +78,7 @@ class Zenvy_Customize_Front_Page_Explore_Section_Fields extends Zenvy_Customize_
 				'section'           => 'zenvy_front_page_explore_section',
 				'priority'          => 26,
 				'inherits'          => [
-					'color_1' => 'var(--color-bg-4)',
+					'color_1' => 'var(--color-bg)',
 				],
 				'fields'            => [ 'colors' => true ],
 			],

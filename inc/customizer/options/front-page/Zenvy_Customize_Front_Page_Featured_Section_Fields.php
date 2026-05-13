@@ -24,6 +24,8 @@ class Zenvy_Customize_Front_Page_Featured_Section_Fields extends Zenvy_Customize
 						'tab-title' => esc_html__( 'General', 'zenvy' ),
 						'controls'  => [
 							'zenvy_front_page_featured_section_tag',
+							'zenvy_front_page_featured_section_posts_limit',
+							'zenvy_front_page_featured_section_post_elements',
 						],
 					],
 					'hover'  => [
@@ -104,7 +106,7 @@ class Zenvy_Customize_Front_Page_Featured_Section_Fields extends Zenvy_Customize
 				'default'           => [
 					'background' => 'color',
 					'colors'     => [
-						'color_1' => 'var(--color-bg-4)',
+						'color_1' => 'var(--color-bg)',
 					],
 				],
 				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_background' ],
@@ -113,7 +115,7 @@ class Zenvy_Customize_Front_Page_Featured_Section_Fields extends Zenvy_Customize
 				'section'           => 'zenvy_front_page_featured_section',
 				'priority'          => 26,
 				'inherits'          => [
-					'color_1' => 'var(--color-bg-4)',
+					'color_1' => 'var(--color-bg)',
 				],
 				'fields'            => [ 'colors' => true ],
 			],

@@ -77,6 +77,19 @@ class Zenvy_Customizer_Inline_Style
 			--------------------------------------------------------------
 			# Header Builder -> HTML
 			--------------------------------------------------------------*/
+			// Text Typography
+            self::typography(
+                ['.site-header .header-html-wrap'],
+                'zenvy_header_html_text_typo',
+                ''
+            );
+            // Link Color
+            self::color(
+                ['.site-header .header-html-wrap a','.site-header .header-html-wrap a:hover'],
+                'zenvy_header_html_text_link_color',
+                ''
+            );
+
 			// Container Padding
 			self::dimensions(
 				['.site-header .header-html-wrap'],
@@ -959,53 +972,38 @@ class Zenvy_Customizer_Inline_Style
 			// Is Static Front Page Enable
 			if (Zenvy_Helper::front_page_enable()) {
 
-				// Front page : Why Us?
+				// Front page : Featured Section
 				// Background
 				self::background(
-					['.zenvy-front-page .why-choose-us-section'],
-					'zenvy_front_page_services_background',
+					['.zenvy-front-page .featured-slider'],
+					'zenvy_front_page_featured_section_background',
 					''
 				);
-				// Background Overlay
+
+				// Background Overlay	
 				self::background(
-					['.zenvy-front-page .why-choose-us-section::before'],
-					'zenvy_front_page_services_background_overlay',
+					['.zenvy-front-page .featured-slider::before'],
+					'zenvy_front_page_featured_section_background_overlay',
 					[
 						'background' => 'color',
 						'colors'     => [
 							'color_1' => 'var(--color-bg)',
-						],
-					]
-				);
-				// Background
-				self::background(
-					['.site-content section.partner-section'],
-					'zenvy_front_page_clients_logo_section_background',
-					''
-				);
-				// Background
-				self::background(
-					['.site-content section.partner-section::before'],
-					'zenvy_front_page_clients_logo_section_background_overlay',
-					[
-						'background' => 'color',
-						'colors'     => [
-							'color_1' => 'var(--color-bg-4)',
 						],
 					]
 				);
 
-				// Front page : News & Blog
+				// Front page : Explore Section
 				// Background
 				self::background(
-					['.zenvy-front-page .latest-news-section'],
-					'zenvy_front_page_news_blog_section_background',
+					['.zenvy-front-page .explore-section'],
+					'zenvy_front_page_explore_section_background',
 					''
 				);
-				// Background
+
+				// Background Overlay
 				self::background(
-					['.zenvy-front-page .latest-news-section::before'],
-					'zenvy_front_page_news_blog_section_background_overlay',
+					['.zenvy-front-page .explore-section::before'],
+					'zenvy_front_page_explore_section_background_overlay',
 					[
 						'background' => 'color',
 						'colors'     => [
@@ -1013,6 +1011,91 @@ class Zenvy_Customizer_Inline_Style
 						],
 					]
 				);
+
+				// Front page : Latest Posts Section
+				// Background
+				self::background(
+					['.zenvy-front-page .latest-posts-section'],
+					'zenvy_front_page_latest_posts_background',
+					''
+				);
+
+				// Background Overlay
+				self::background(
+					['.zenvy-front-page .latest-posts-section::before'],
+					'zenvy_front_page_latest_posts_background_overlay',
+					[
+						'background' => 'color',
+						'colors'     => [
+							'color_1' => 'var(--color-bg)',
+						],
+					]
+				);
+
+				// Front page : Quote Section
+				// Background
+				// special case for quote section as it has different structure than other sections, will do tomorrow.
+
+				// Front page : Trending Posts Section
+				// Background
+				self::background(
+					['.zenvy-front-page .trending-section'],
+					'zenvy_front_page_trending_posts_background',
+					''
+				);
+
+				// Background Overlay
+				self::background(
+					['.zenvy-front-page .trending-section::before'],
+					'zenvy_front_page_trending_posts_background_overlay',
+					[
+						'background' => 'color',
+						'colors'     => [
+							'color_1' => 'var(--color-bg)',
+						],
+					]
+				);
+
+				// Front page : Youtube Promotion Section
+				// Background
+				self::background(
+					['.zenvy-front-page .video-post-section'],
+					'zenvy_front_page_youtube_promotion_background',
+					''
+				);
+
+				// Background Overlay
+				self::background(
+					['.zenvy-front-page .video-post-section::before'],
+					'zenvy_front_page_youtube_promotion_background_overlay',
+					[
+						'background' => 'color',
+						'colors'     => [
+							'color_1' => 'var(--color-bg-light)',
+						],
+					]
+				);
+
+				// Front page : Shop Section
+				// Background
+				self::background(
+					['.zenvy-front-page .shop-section'],
+					'zenvy_front_page_shop_section_background',
+					''
+				);
+
+				// Background Overlay
+				self::background(
+					['.zenvy-front-page .shop-section::before'],
+					'zenvy_front_page_shop_section_background_overlay',
+					[
+						'background' => 'color',
+						'colors'     => [
+							'color_1' => 'var(--color-bg)',
+						],
+					]
+				);
+
 				/*
 				--------------------------------------------------------------
 				# Post Content
@@ -1167,6 +1250,23 @@ class Zenvy_Customizer_Inline_Style
 			--------------------------------------------------------------
 			# Footer Builder -> Footer HTML
 			--------------------------------------------------------------*/
+			// Text Typography
+            self::typography(
+                ['.site-footer .footer-html-wrap'],
+                'zenvy_footer_html_text_typo',
+                [
+					'colors' =>	[
+						'color_1'           => 'var(--color-white)',
+					]
+				]
+            );
+            // Link Color
+            self::color(
+                ['.site-footer .footer-html-wrap a','.site-footer .footer-html-wrap a:hover'],
+                'zenvy_footer_html_text_link_color',
+                ''
+            );
+
 			// Container Padding
 			self::dimensions(
 				['.site-footer .footer-html-wrap'],

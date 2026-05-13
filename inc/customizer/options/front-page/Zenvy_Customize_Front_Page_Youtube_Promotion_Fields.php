@@ -171,7 +171,7 @@ class Zenvy_Customize_Front_Page_Youtube_Promotion_Fields extends Zenvy_Customiz
 				'default'           => [
 					'background' => 'color',
 					'colors'     => [
-						'color_1' => 'var(--color-bg-4)',
+						'color_1' => 'var(--color-bg-light)',
 					],
 				],
 				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_background' ],
@@ -180,7 +180,7 @@ class Zenvy_Customize_Front_Page_Youtube_Promotion_Fields extends Zenvy_Customiz
 				'section'           => 'zenvy_front_page_youtube_promotion_section',
 				'priority'          => 130,
 				'inherits'          => [
-					'color_1' => 'var(--color-bg-4)',
+					'color_1' => 'var(--color-bg-light)',
 				],
 				'fields'            => [ 'colors' => true ],
 			],

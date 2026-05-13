@@ -53,13 +53,13 @@ class Zenvy_Customize_Front_Page_Trending_Posts_Fields extends Zenvy_Customize_B
                 ],
             ],
 
-            // Show Homepage Sidebar Section
+            // Show Trending Posts Sidebar Section
             'zenvy_front_page_trending_posts_enable_sidebar' => [
                 'type'              => 'toggle',
                 'default'           => '',
                 'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_toggle' ],
-                'label'             => esc_html__( 'Show Homepage Sidebar Section', 'zenvy' ),
-                'description'       => esc_html__( 'Enable this option to show sidebar in trending posts section. Sidebar Name: Homepage Sidebar Secondary', 'zenvy' ),
+                'label'             => esc_html__( 'Show Trending Posts Sidebar Section', 'zenvy' ),
+                'description'       => esc_html__( 'Enable this option to show sidebar in trending posts section. Sidebar Name: Trending Posts Sidebar', 'zenvy' ),
                 'section'           => 'zenvy_front_page_trending_posts_section',
                 'priority'          => 21,
             ],

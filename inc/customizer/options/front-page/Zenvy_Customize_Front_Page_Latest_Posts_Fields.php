@@ -59,7 +59,7 @@ class Zenvy_Customize_Front_Page_Latest_Posts_Fields extends Zenvy_Customize_Bas
                 'default'           => '',
                 'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_toggle' ],
                 'label'             => esc_html__( 'Enable Sidebar', 'zenvy' ),
-                'description'       => esc_html__( 'Show section specific sidebar for this section. Sidebar Name: Homepage Sidebar', 'zenvy' ),
+                'description'       => esc_html__( 'Show section specific sidebar for this section. Sidebar Name: Latest Posts Sidebar', 'zenvy' ),
                 'section'           => 'zenvy_front_page_latest_posts_section',
                 'priority'          => 25,
             ],
@@ -87,7 +87,7 @@ class Zenvy_Customize_Front_Page_Latest_Posts_Fields extends Zenvy_Customize_Bas
 				'default'           => [
 					'background' => 'color',
 					'colors'     => [
-						'color_1' => 'var(--color-bg-4)',
+						'color_1' => 'var(--color-bg)',
 					],
 				],
 				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_background' ],
@@ -96,7 +96,7 @@ class Zenvy_Customize_Front_Page_Latest_Posts_Fields extends Zenvy_Customize_Bas
 				'section'           => 'zenvy_front_page_latest_posts_section',
 				'priority'          => 35,
 				'inherits'          => [
-					'color_1' => 'var(--color-bg-4)',
+					'color_1' => 'var(--color-bg)',
 				],
 				'fields'            => [ 'colors' => true ],
 			],

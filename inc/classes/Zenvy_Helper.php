@@ -716,11 +716,12 @@ class Zenvy_Helper
 
         <div class="d-flex justify-content-left read-more-wrap">
             <a href="<?php the_permalink(get_the_ID()); ?>" class="<?php echo esc_attr(implode(' ', $read_more_class)); ?>">
+                <span class="read-more-btn-image"></span>
                 <?php esc_html_e('Read More', 'zenvy'); ?>
             </a>
         </div>
 
-<?php
+        <?php
         $output = ob_get_clean();
         echo apply_filters('zenvy_read_more', $output); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
     }
@@ -888,9 +889,6 @@ class Zenvy_Helper
             $class = array();
         }
 
-        if (is_archive() || is_search() || is_home()) {
-            $classes[] = 'alternative-post';
-        }
         if (is_singular()) {
 
             $elements = is_single() ? get_theme_mod('zenvy_single_post_header_elements') :  get_theme_mod('zenvy_single_page_header_elements', ['post-title']);
@@ -911,7 +909,34 @@ class Zenvy_Helper
 
         echo 'class="' . esc_attr(join(' ', $classes)) . '"'; // WPCS: XSS ok.
     }
-    
+
+    /**
+     * Post Layout classes for archives page
+     * 
+     * @return string Class names for post layout
+     */
+    public static function get_post_layout_class()
+    {
+        if (is_archive() || is_search() || is_home()) {
+            $post_layout = get_theme_mod('zenvy_blog_posts_layout', 'alt');
+            switch ($post_layout) {
+                case 'alt':
+                    return 'alternative-post';
+                case 'right':
+                    return 'right-post';
+                case 'left':
+                    return 'left-post';
+                case 'grid':
+                    return 'overlap-post post-item-has-2column';
+                case 'list':
+                    return 'overlap-post';
+                default:
+                    return 'alternative-post';
+            }
+        }
+        return '';
+    }
+
     /**
      * Get video thumbnail URL from YouTube or Vimeo URL
      * 

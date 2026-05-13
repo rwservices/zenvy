@@ -77,6 +77,7 @@ class Zenvy_Customizer {
 		require_once $customizer_dir . '/controls/buttonset/Zenvy_Customize_Buttonset_Control.php';
 		require_once $customizer_dir . '/controls/range/Zenvy_Customize_Range_Control.php';
 		require_once $customizer_dir . '/controls/dimensions/Zenvy_Customize_Dimensions_Control.php';
+		require_once $customizer_dir . '/controls/editor/Zenvy_Customize_Editor_Control.php';
 		require_once $customizer_dir . '/controls/radio-image/Zenvy_Customize_Radio_Image_Control.php';
 		require_once $customizer_dir . '/controls/heading/Zenvy_Customize_Heading_Control.php';
 		require_once $customizer_dir . '/controls/select/Zenvy_Customize_Select_Control.php';
@@ -474,7 +475,7 @@ class Zenvy_Customizer {
 		];
 		// Post title
 		$sections['blog_post_title'] = [
-			'title'    => esc_html__( 'Post Title', 'zenvy' ),
+			'title'    => esc_html__( 'Page Title', 'zenvy' ),
 			'panel'    => 'zenvy_blog_posts_panel',
 			'priority' => 25,
 		];

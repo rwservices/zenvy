@@ -7,7 +7,7 @@
 
 $quote = get_theme_mod('zenvy_front_page_quote', "People often say that motivation doesn't come from within.");
 $quote_by = get_theme_mod('zenvy_front_page_quote_by', '');
-$quote_background = get_theme_mod('zenvy_front_page_quote_background');
+$quote_background = get_theme_mod('zenvy_front_page_quote_container_background');
 ?>
 <section class="testimonial-quote-section">
     <div class="container">
