@@ -287,6 +287,7 @@ blockquote cite {
 	list-style: outside none none;
 	margin: 0 10px;
 	position: relative;
+	margin-left: 0;
 }
 
 .breadcrumbs li:first-child {
@@ -294,16 +295,16 @@ blockquote cite {
 }
 
 .breadcrumbs li::before {
-	color: var(--color-white);
+	color: var(--color-primary);
 	content: "/";
 	display: block;
-	left: -15px;
+	right: -15px !impotant;
 	position: absolute;
 	top: 0px;
 }
 
-.breadcrumbs li:first-child:before {
-	display: none;
+.breadcrumbs li:last-child::before {
+  display: none;
 }
 
 .trail-items li:first-child {
@@ -312,14 +313,14 @@ blockquote cite {
 
 .page-title-wrap .breadcrumb a span,
 .page-title-wrap .breadcrumbs a span {
-	color: var(--color-gray-600);
+	color: var(--color-link);
 }
 
 .breadcrumb a:hover span,
 .breadcrumbs li span,
 .breadcrumbs a:hover span,
 .breadcrumb li span {
-	color: var(--color-white);
+	color: var(--color-link-hover);
 }
 
 /*   -- "Superscript and Subscript" (These are the styles for the Superscript and Subscript) --  */
@@ -740,9 +741,10 @@ article {
 	font-family: var(--font-heading);
 	display: inline-block;
 	margin-top: 25px;
+	position: relative;
 }
 
-.read-more-btn::before {
+/*.read-more-btn::before {
 	position: absolute;
 	display: block;
 	content: "";
@@ -756,14 +758,33 @@ article {
 	-o-transition: all 0.3s ease 0s;
 	transition: all 0.3s ease 0s;
 }
-
 .read-more-btn:hover:before {
 	right: -41px;
 	top: -10px;
 	-webkit-transition: all 0.3s ease 0s;
 	-o-transition: all 0.3s ease 0s;
 	transition: all 0.3s ease 0s;
+}*/
+.read-more-btn-image {
+  background: url("assets/build/images/read-more-icon.png");
+  height: 35px;
+  width: 32px;
+  display: block;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  position: absolute;
+  right: -42px;
+  top: -20px;
+  -webkit-transition: all 0.3s ease 0s;
+	-o-transition: all 0.3s ease 0s;
+	transition: all 0.3s ease 0s;
 }
+.read-more-btn:hover .read-more-btn-image {
+  right: -37px;
+  top: -8px;
+}
+
+
 
 /*   -- "Alignment" (These are the styles for the Alignment) --   */
 
@@ -2659,7 +2680,7 @@ div.error {
 /*   ===== Pages =====   */
 
 .page-title-wrap {
-	padding: 170px 0 0;
+	padding: 120px 0 20px;
 	position: relative;
 }
 .page-title-wrap::before {
@@ -2670,7 +2691,7 @@ div.error {
 	top: 0;
 	width: 100%;
 	left: 0;
-	background-color: var(--color-bg-light);
+	/*background-color: var(--color-bg-light);*/
 }
 
 .page-title-wrap.empty-page-title-wrap {
@@ -2690,7 +2711,7 @@ div.error {
 		1px -1px 0 var(--color-white),
 		-1px -1px 0 var(--color-white),
 		1px 4px 4px var(--color-box-shadow);
-	margin-bottom: -10px;
+	margin-bottom: 15px;
 }
 
 .page-title-wrap div {
@@ -2885,7 +2906,7 @@ div.bbp-submit-wrapper button {
 
 .post-navigation .nav-links a,
 .posts-navigation .nav-links a,
-.navigation .nav-links a {
+.navigation.post-navigation .nav-links a {
 	background: var(--color-link);
 	color: var(--color-white);
 	display: block;
@@ -2939,7 +2960,7 @@ div.bbp-submit-wrapper button {
 	-ms-transition: all 0.3s ease-out;
 	-o-transition: all 0.3s ease-out;
 	-webkit-transition: all 0.3s ease-out;
-	color: var(--color-white);
+	/*color: var(--color-white);*/
 	content: "\f061";
 	display: block;
 	font-family: "FontAwesome";
@@ -3556,7 +3577,6 @@ article .entry-content ul li, article .entry-content ol li {
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
 	gap: 0 30px;
-	display: block;
 }
 
 .section-wrap-inner .section-left {
@@ -4723,14 +4743,12 @@ p.no-comments {
 }
 
 .site-generator {
-	padding: 21px 0 22px;
 	background: var(--color-bg-dark);
 }
 
 .site-info {
 	font-size: 14px;
 	line-height: 20px;
-	padding: 0 0 3px;
 }
 
 .footer-menu ul {
@@ -5009,4 +5027,30 @@ p.no-comments {
 
 .site-footer .social-links li {
 	margin: 0 -2px
+}
+
+/* Umid Addition for frontpage */
+
+.explore-section::before, .featured-slider::before, 
+.latest-posts-section::before, .trending-posts-section::before, .shop-section::before{
+	content: "";
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: var(--color-bg);
+}
+
+.video-post-section::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: var(--color-bg-light);
+}
+
+.site-content .site-main > section
+ {
+    position: relative;
 }

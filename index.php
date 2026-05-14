@@ -25,7 +25,7 @@ do_action( 'zenvy_content_before' );
 ?>
 
 <div id="primary" <?php Zenvy_Helper::primary_class(); ?>>
-	<main id="main" class="site-main">
+	<main id="main" class="site-main <?php echo esc_attr( Zenvy_Helper::get_post_layout_class()); ?>">
 
 		<?php
 		/**

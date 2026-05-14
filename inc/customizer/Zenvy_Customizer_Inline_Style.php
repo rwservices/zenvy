@@ -718,7 +718,10 @@ class Zenvy_Customizer_Inline_Style
 			);
 			$page_header_image = get_theme_mod('zenvy_page_header_background', '');
 			if ($page_header_image && (isset( $page_header_image['image'] ) || isset( $page_header_image['image'] )) ) {
-				$page_header_image_bg = get_theme_mod('zenvy_page_header_background_overlay', '');
+				$page_header_image_bg = get_theme_mod('zenvy_page_header_background_overlay', [
+					'colors'     => [
+						'color_1' => 'var(--color-bg-light)',
+					]]);
 				if (!empty($page_header_image_bg) && !empty($page_header_image_bg['colors']['color_1'])) {
 					$overlay_color = $page_header_image_bg['colors']['color_1'];
 				} else {
@@ -1039,14 +1042,14 @@ class Zenvy_Customizer_Inline_Style
 				// Front page : Trending Posts Section
 				// Background
 				self::background(
-					['.zenvy-front-page .trending-section'],
+					['.zenvy-front-page .trending-posts-section'],
 					'zenvy_front_page_trending_posts_background',
 					''
 				);
 
 				// Background Overlay
 				self::background(
-					['.zenvy-front-page .trending-section::before'],
+					['.zenvy-front-page .trending-posts-section::before'],
 					'zenvy_front_page_trending_posts_background_overlay',
 					[
 						'background' => 'color',

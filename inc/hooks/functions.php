@@ -211,7 +211,7 @@ if (! function_exists('zenvy_content_before_wrapper_start')) :
 							break;
 
 						case 'read-more':
-							Zenvy_Helper::read_more();
+							Zenvy_Helper::read_more('blog_post');
 							break;
 
 						case 'post-meta':
@@ -376,7 +376,7 @@ if (! function_exists('zenvy_content_before_wrapper_start')) :
 		function zenvy_get_post_thumbnail()
 		{
 			// Is Singular
-			if (is_singular() && !is_front_page()) {
+			if (is_singular()) {
 
 				$img_ratio = is_single() ? get_theme_mod('zenvy_single_post_featured_image_ratio', ['desktop' => '16x9']) : get_theme_mod('zenvy_single_page_featured_image_ratio', ['desktop' => '16x9']);
 
@@ -388,24 +388,9 @@ if (! function_exists('zenvy_content_before_wrapper_start')) :
 
 				$enable_tags = get_theme_mod('zenvy_single_post_featured_image_tags', ['desktop' => 'true']);
 
-				if ($enable_tags && array_key_exists('desktop', $enable_tags)) {
+				if ($enable_tags && array_key_exists('desktop', $enable_tags) && has_post_thumbnail()) {
 					zenvy_posted_first_tag();
 				}
-
-			// } else if (is_front_page()){
-			// 	$img_ratio = get_theme_mod('zenvy_single_page_featured_image_ratio', ['desktop' => '16x9']);
-
-			// 	$img_size = get_theme_mod('zenvy_single_page_featured_image_size', ['desktop' => 'medium_large']);
-
-			// 	$ratio = in_array('auto', $img_ratio) ? '16x9' : $img_ratio['desktop'];
-
-			// 	zenvy_post_thumbnail($img_size['desktop'], $ratio);
-
-			// 	$enable_tags = get_theme_mod('zenvy_single_page_featured_image_tags', ['desktop' => 'true']);
-
-			// 	if ($enable_tags && array_key_exists('desktop', $enable_tags)) {
-			// 		zenvy_posted_first_tag();
-			// 	}
 			} else {
 				$img_ratio = get_theme_mod('zenvy_blog_post_featured_image_ratio', ['desktop' => '1x1']);
 

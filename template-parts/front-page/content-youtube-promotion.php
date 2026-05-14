@@ -124,6 +124,7 @@ $video_channel_url = get_theme_mod('zenvy_video_channel_url', '#');
                 </article>
                 <div class="btn-wrapper">
                     <a href="<?php echo esc_url($video_channel_url); ?>" target="_blank" class="read-more-btn">
+                        <span class="read-more-btn-image"></span>
                         <?php esc_html_e('All Videos', 'zenvy'); ?>
                     </a>
                 </div>

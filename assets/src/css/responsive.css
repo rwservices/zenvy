@@ -254,9 +254,6 @@
 		font-size: 22px;
 		margin: 0 0 5px;
 	}
-	.site-footer {
-		padding-top: 60px;
-	}
 	.site-footer .widget-area {
 		padding: 20px 0 55px;
 	}
@@ -273,6 +270,13 @@
 		font-size: 28px;
 		margin-bottom: 15px;
 	}
+	.site-content .site-main > section {
+  padding: 0 0 50px;
+}
+ .section-wrap-inner .section-left {
+    margin-bottom: 20px;
+  }
+
 }
 
 /* All Mobile Portrait size smaller than 768 (devices and browsers) */
@@ -320,7 +324,6 @@
 		font-size: 19px;
 	}
 	.site-generator {
-		padding: 17px 0 17px;
 		text-align: center;
 	}
 	.site-generator .custom-col-6:first-child {
@@ -341,9 +344,6 @@
 	}
 	.site-footer .widget-area {
 		padding: 20px 0 30px;
-	}
-	.site-footer {
-		padding-top: 35px;
 	}
 	.page-title-wrap {
 		margin-bottom: 60px;
@@ -396,6 +396,9 @@
 	.slider-text {
 		padding-left: 0;
 	}
+	.site-content .site-main > section.featured-slider {
+  padding-bottom: 30px;
+}
 }
 
 @media only screen and (max-width: 567px) {
@@ -691,14 +694,8 @@
 		margin: 3px 3px 3px 0;
 		padding: 7px 13px;
 	}
-	.site-footer {
-		padding-top: 25px;
-	}
 	.site-footer .widget-area {
 		padding: 20px 0 10px;
-	}
-	.site-generator {
-		padding: 13px 0 13px;
 	}
 	.site-footer .widget .social-links ul li {
 		margin-right: 5px;
