@@ -36,66 +36,54 @@ $shop_image = get_theme_mod('zenvy_front_page_shop_image', get_template_director
                 </header>
                 <div class="shop-item-wrap">
                     <?php
-                    $args = array(
-                        'post_type' => 'product',
-                        'posts_per_page' => 3,
-                        'post_status' => 'publish'
-                    );
-                    $products = new WP_Query($args);
-                    if ($products->have_posts()):
+                    $products = wc_get_products([
+                        'limit' => 3,
+                        'status' => 'publish',
+                        'orderby' => 'date',
+                        'order' => 'DESC',
+                    ]);
 
-                        while ($products->have_posts()):
-                            $products->the_post();
-                            global $product;
-                            ?>
+                    foreach ($products as $product):
+                        setup_postdata($product->get_id());
+                        ?>
+                        <div class="element-item">
+                            <div class="product-list-wrapper">
+                                <div class="image-icon-wrapper">
+                                    <figure class="featured-image">
+                                        <a href="<?php echo get_permalink($product->get_id()); ?>">
+                                            <?php echo $product->get_image('woocommerce_thumbnail'); ?>
+                                        </a>
+                                    </figure>
 
-                            <div class="element-item">
-                                <div class="product-list-wrapper">
-
-                                    <div class="image-icon-wrapper">
-
-                                        <figure class="featured-image">
-                                            <a href="<?php the_permalink(); ?>">
-                                                <?php echo woocommerce_get_product_thumbnail(); ?>
-                                            </a>
-                                        </figure>
-
-                                        <?php if ($product->is_on_sale()): ?>
-                                            <div class="sales-tag">
-                                                <span>
-                                                    <?php esc_html_e('Sale', 'zenvy'); ?>
-                                                </span>
-                                            </div>
-                                        <?php endif; ?>
-
-                                        <div class="icons">
-                                            <?php woocommerce_template_loop_add_to_cart(); ?>
+                                    <?php if ($product->is_on_sale()): ?>
+                                        <div class="sales-tag">
+                                            <span>
+                                                <?php esc_html_e('Sale', 'zenvy'); ?>
+                                            </span>
                                         </div>
+                                    <?php endif; ?>
 
+                                    <div class="icons">
+                                        <?php woocommerce_template_loop_add_to_cart(); ?>
                                     </div>
+                                </div>
 
-                                    <div class="list-info">
-
-                                        <header class="entry-header">
-                                            <a href="<?php the_permalink(); ?>">
-                                                <h3 class="entry-title">
-                                                    <?php the_title(); ?>
-                                                </h3>
-                                            </a>
-                                        </header>
-
-                                        <span class="price">
-                                            <?php echo wp_kses_post($product->get_price_html()); ?>
-                                        </span>
-
-                                    </div>
-
+                                <div class="list-info">
+                                    <header class="entry-header">
+                                        <a href="<?php echo get_permalink($product->get_id()); ?>">
+                                            <h3 class="entry-title">
+                                                <?php echo esc_html($product->get_name()); ?>
+                                            </h3>
+                                        </a>
+                                    </header>
+                                    <span class="price">
+                                        <?php echo wp_kses_post($product->get_price_html()); ?>
+                                    </span>
                                 </div>
                             </div>
-
-                            <?php
-                        endwhile;
-                    endif;
+                        </div>
+                        <?php
+                    endforeach;
                     wp_reset_postdata();
                     ?>
                 </div>
