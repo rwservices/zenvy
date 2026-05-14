@@ -203,15 +203,6 @@ if ( ! class_exists( 'Zenvy_WooCommerce' ) ) :
         }
 
         /**
-         * Archive Grid columns
-         * 
-         * @return int
-         */
-        public function zenvy_woocommerce_archive_columns() {
-            return 3;
-        }
-
-        /**
          * Related Products Args.
          *
          * @param array $args related products args.
