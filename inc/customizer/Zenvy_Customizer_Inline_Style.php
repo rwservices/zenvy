@@ -670,6 +670,67 @@ class Zenvy_Customizer_Inline_Style
 					],
 				]
 			);
+
+			if (class_exists('WooCommerce')) {
+				/*
+				--------------------------------------------------------------
+				# Header Builder -> WC Cart
+				--------------------------------------------------------------*/
+				// Icon Size
+				self::range(
+					['.site-header .header-wc-cart-wrap .wc-icon i'],
+					'zenvy_header_woocommerce_cart_icon_size',
+					['desktop' => '16px'],
+					'font-size'
+				);
+
+				// Icon color
+				self::color(
+					['.site-header .header-wc-cart-wrap .wc-icon i', '.site-header .header-wc-cart-wrap .wc-icon i:hover'],
+					'zenvy_header_woocommerce_cart_icon_color',
+					'',
+					'color'
+				);
+
+				// Background color
+				self::color(
+					['.site-header .header-wc-cart-wrap', '.site-header .header-wc-cart-wrap:hover'],
+					'zenvy_header_woocommerce_cart_icon_background',
+					'',
+					'background-color'
+				);
+				// Count Color
+				self::color(
+					['.site-header .header-wc-cart-wrap .wc-icon .cart-value'],
+					'zenvy_header_woocommerce_cart_count_color',
+					'',
+					'color'
+				);
+
+				// Background color
+				self::color(
+					['.site-header .header-wc-cart-wrap .wc-icon .cart-value'],
+					'zenvy_header_woocommerce_cart_count_background',
+					'',
+					'background-color'
+				);
+
+				// Padding
+				self::dimensions(
+					['.site-header .header-wc-cart-wrap'],
+					'zenvy_header_woocommerce_cart_padding',
+					''
+				);
+				// Margin
+				self::dimensions(
+					['.site-header .header-wc-cart-wrap'],
+					'zenvy_header_woocommerce_cart_margin',
+					'',
+					'margin'
+				);
+
+
+			}
 			/*
 			--------------------------------------------------------------
 			# Global -> Body
@@ -751,7 +812,6 @@ class Zenvy_Customizer_Inline_Style
                 .post-navigation .nav-links .nav-previous a, .pagination-wrap .nav-links .nav-previous a,
                 .post-navigation .nav-links .nav-next a, .pagination-wrap .nav-links .nav-next a,
                 .back-to-top a, .wp-block-search .wp-block-search__button,
-                .pagination .current,.pagination .page-numbers,
                 .mc4wp-form input[type=submit],
                 button:not(.components-button),
                 a.button,
@@ -765,7 +825,6 @@ class Zenvy_Customizer_Inline_Style
                 .post-navigation .nav-links .nav-next a:hover, .pagination-wrap .nav-links .nav-next a:hover,
                 .back-to-top a:hover,
                 .wp-block-search .wp-block-search__button:hover,
-                .pagination a:hover,
                 .mc4wp-form input[type=submit]:hover,
                 button:not(.components-button):hover,
                 a.button:hover,
@@ -786,7 +845,6 @@ class Zenvy_Customizer_Inline_Style
                 .post-navigation .nav-links .nav-next a, .pagination-wrap .nav-links .nav-next a,
                 .back-to-top a,
                 .wp-block-search .wp-block-search__button,
-                .pagination .current,.pagination .page-numbers,
                 .mc4wp-form input[type=submit],
                 button:not(.components-button),
                 a.button,
@@ -800,7 +858,6 @@ class Zenvy_Customizer_Inline_Style
                 .post-navigation .nav-links .nav-next a:hover, .pagination-wrap .nav-links .nav-next a:hover,
                 .back-to-top a:hover,
                 .wp-block-search .wp-block-search__button:hover,
-                .pagination a:hover,
                 .mc4wp-form input[type=submit]:hover,
                 button:not(.components-button):hover,
                 a.button:hover,
@@ -821,7 +878,6 @@ class Zenvy_Customizer_Inline_Style
                 .post-navigation .nav-links .nav-next a, .pagination-wrap .nav-links .nav-next a,
                 .back-to-top a,
                 .wp-block-search .wp-block-search__button,
-                .pagination .current,.pagination .page-numbers,
                 .mc4wp-form input[type=submit],
                 button:not(.components-button),
                 a.button,
