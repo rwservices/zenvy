@@ -798,7 +798,10 @@ class Zenvy_Customizer_Inline_Style
 				self::background(
 					['.page-title-wrap::before'],
 					'zenvy_page_header_background_overlay',
-					''
+					[
+					'colors'     => [
+						'color_1' => 'var(--color-bg-light)',
+					]],
 				);
 			}
 
@@ -1373,11 +1376,12 @@ class Zenvy_Customizer_Inline_Style
                 'zenvy_footer_menu_container_padding',
                 [
                     'desktop'           => [
-                        'side_2'            => '10px',
+                        'side_1'            => '10px',
                         'side_3'            => '10px',
                         'linked'            => 'off'
                     ]
-                ]
+                ],
+				'padding'
             );
             // Container Margin
             self::dimensions(
