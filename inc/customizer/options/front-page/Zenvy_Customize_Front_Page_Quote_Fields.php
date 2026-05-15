@@ -77,7 +77,7 @@ class Zenvy_Customize_Front_Page_Quote_Fields extends Zenvy_Customize_Base_Field
 				'default'           => [
 					'background' => 'color',
 					'colors'     => [
-						'color_1' => 'var(--color-bg)',
+						'color_1' => 'var(--color-bg-light)',
 					],
 				],
 				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_background' ],
@@ -86,7 +86,7 @@ class Zenvy_Customize_Front_Page_Quote_Fields extends Zenvy_Customize_Base_Field
 				'section'           => 'zenvy_front_page_quote_section',
 				'priority'          => 35,
 				'inherits'          => [
-					'color_1' => 'var(--color-bg)',
+					'color_1' => 'var(--color-bg-light)',
 				],
 				'fields'            => [ 'colors' => true ],
 			],

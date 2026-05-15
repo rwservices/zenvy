@@ -71,6 +71,14 @@ class Zenvy_Customize_Front_Page_Shop_Section_Fields extends Zenvy_Customize_Bas
 				'description'       => esc_html__( 'Upload an image for the shop section.', 'zenvy' ),
 			],
 
+			// Note One
+            'zenvy_front_page_trending_posts_note_one' => [
+                'type'              => 'heading',
+                'label'             => esc_html__( 'READ MORE BUTTON', 'zenvy' ),
+                'section'           => 'zenvy_front_page_trending_posts_section',
+                'priority'          => 19,
+            ],
+
 			// Button Text
 			'zenvy_front_page_shop_button_text' => [
 				'type'              => 'text',
@@ -89,6 +97,30 @@ class Zenvy_Customize_Front_Page_Shop_Section_Fields extends Zenvy_Customize_Bas
 				'sanitize_callback' => 'esc_url_raw',
 				'priority'          => 35,
 				'label'             => esc_html__( 'Button Link', 'zenvy' ),
+			],
+
+			//// Type
+			'zenvy_trending_posts_read_btn_type'       => [
+				'type'              => 'buttonset',
+				'default'           => [ 'desktop' => 'button' ],
+				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_buttonset' ],
+				'label'             => esc_html__( 'Display as', 'zenvy' ),
+				'section'           => 'zenvy_front_page_trending_posts_section',
+				'priority'          => 20,
+				'choices'           => [
+					'text'   => esc_html__( 'Text', 'zenvy' ),
+					'button' => esc_html__( 'Button', 'zenvy' ),
+				],
+			],
+			// Button Arrow
+			'zenvy_trending_posts_read_more_btn_arrow' => [
+				'type'              => 'toggle',
+				'default'           => '',
+				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_toggle' ],
+				'label'             => esc_html__( 'Read More Arrow', 'zenvy' ),
+				'description'       => esc_html__( 'Enable Arrow Icon after Text.', 'zenvy' ),
+				'section'           => 'zenvy_front_page_trending_posts_section',
+				'priority'          => 25,
 			],
 
 			// Background Image
