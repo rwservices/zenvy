@@ -18,18 +18,18 @@ class Zenvy_Helper
      *
      * @return false|int|mixed|string|void
      */
-    public static function get_post_id() {
+    public static function get_post_id()
+    {
 
-        $post_id        = '';
-        $page_for_posts = get_option( 'page_for_posts' );
+        $post_id = '';
+        $page_for_posts = get_option('page_for_posts');
 
         // For single post and pages.
-        if ( is_singular() ) {
+        if (is_singular()) {
             $post_id = get_the_ID();
-        } elseif ( ! is_front_page() && is_home() && $page_for_posts ) { // For the static blog page.
+        } elseif (!is_front_page() && is_home() && $page_for_posts) { // For the static blog page.
             $post_id = $page_for_posts;
-        }
-        elseif ( self::is_woocommerce() && is_shop() ) { // Shop Page
+        } elseif (self::is_woocommerce() && is_shop()) { // Shop Page
             $post_id = wc_get_page_id('shop');
         }
 
@@ -53,7 +53,7 @@ class Zenvy_Helper
         // Get the post types.
         $terms = get_terms(
             array(
-                'taxonomy'   => $taxonomies,
+                'taxonomy' => $taxonomies,
                 'hide_empty' => true,
             )
         );
@@ -61,13 +61,13 @@ class Zenvy_Helper
         // Build the array.
         if ($terms) {
             if ($choice == true) {
-                $items[0]   = esc_html__('--- choose ---', 'zenvy');
+                $items[0] = esc_html__('--- choose ---', 'zenvy');
             }
             foreach ($terms as $term) {
                 $items[$term->slug] = esc_html($term->name);
             }
         } else {
-            $items[0]   = esc_html__('Item Not Found...', 'zenvy');
+            $items[0] = esc_html__('Item Not Found...', 'zenvy');
         }
 
         return $items;
@@ -89,7 +89,7 @@ class Zenvy_Helper
                     'suppress_filters' => false,
                 )
             );
-        } elseif (is_array($args) && ! isset($args['suppress_filters'])) {
+        } elseif (is_array($args) && !isset($args['suppress_filters'])) {
             $args['suppress_filters'] = false;
         }
 
@@ -119,7 +119,7 @@ class Zenvy_Helper
 
         ob_start();
 
-        if (! empty($values)) {
+        if (!empty($values)) {
 
             // Base or Mobile
             echo isset($values['mobile'])
@@ -199,12 +199,12 @@ class Zenvy_Helper
     public static function social_network_list()
     {
         return [
-            'facebook'        => esc_html__('Facebook', 'zenvy'),
-            'twitter'        => esc_html__('Twitter', 'zenvy'),
-            'linkedin'       => esc_html__('LinkedIn', 'zenvy'),
-            'pinterest'      => esc_html__('Pinterest', 'zenvy'),
-            'instagram'     => esc_html__('Instagram', 'zenvy'),
-            'youtube'       => esc_html__('YouTube', 'zenvy'),
+            'facebook' => esc_html__('Facebook', 'zenvy'),
+            'twitter' => esc_html__('Twitter', 'zenvy'),
+            'linkedin' => esc_html__('LinkedIn', 'zenvy'),
+            'pinterest' => esc_html__('Pinterest', 'zenvy'),
+            'instagram' => esc_html__('Instagram', 'zenvy'),
+            'youtube' => esc_html__('YouTube', 'zenvy'),
         ];
     }
     /**
@@ -218,7 +218,7 @@ class Zenvy_Helper
     {
 
         // Require post ID.
-        if (! $post_id) {
+        if (!$post_id) {
             return;
         }
 
@@ -240,7 +240,7 @@ class Zenvy_Helper
         );
 
         // If the post meta setting has the value 'empty', it's explicitly empty and the default post meta shouldn't be output.
-        if ($post_meta && ! in_array('empty', $post_meta, true)) {
+        if ($post_meta && !in_array('empty', $post_meta, true)) {
 
             // Make sure we don't output an empty container.
             $has_meta = false;
@@ -249,7 +249,7 @@ class Zenvy_Helper
             $the_post = get_post($post_id);
             setup_postdata($the_post);
             ob_start();
-?>
+            ?>
             <ul class="post-meta d-flex flex-wrap">
 
                 <?php
@@ -264,53 +264,56 @@ class Zenvy_Helper
                 do_action('zenvy_before_post_meta_list', $post_id, $post_meta);
                 ?>
 
-                <?php foreach ($post_meta as $meta) : ?>
+                <?php foreach ($post_meta as $meta): ?>
 
-                    <?php if (post_type_supports(get_post_type($post_id), 'author') && in_array('author', $post_meta, true) && $meta == 'author') : $has_meta = true; // author 
-                    ?>
+                    <?php if (post_type_supports(get_post_type($post_id), 'author') && in_array('author', $post_meta, true) && $meta == 'author'): $has_meta = true; // author 
+                                            ?>
                         <li class="post-author meta-wrapper d-flex">
                             <?php
-                            $author_url     = esc_url(get_author_posts_url(get_the_author_meta('ID')));
-                            $author_avatar  = get_avatar(get_the_author_meta('user_email'), apply_filters('zenvy_meta_avatar_size', 25));
+                            $author_url = esc_url(get_author_posts_url(get_the_author_meta('ID')));
+                            $author_avatar = get_avatar(get_the_author_meta('user_email'), apply_filters('zenvy_meta_avatar_size', 25));
                             ?>
                             <span class="meta-icon">
                                 <span class="screen-reader-text"><?php esc_html_e('Post author', 'zenvy'); ?></span>
                                 <figure class="author-avatar">
-                                    <a href="<?php echo esc_url($author_url); ?>" rel="<?php esc_attr_e('Author', 'zenvy'); ?>"><?php echo wp_kses_post($author_avatar); ?></a>
+                                    <a href="<?php echo esc_url($author_url); ?>"
+                                        rel="<?php esc_attr_e('Author', 'zenvy'); ?>"><?php echo wp_kses_post($author_avatar); ?></a>
                                 </figure><!-- .author-avatar -->
                             </span>
                             <span class="meta-text">
-                                <a href="<?php echo esc_url(get_author_posts_url(get_the_author_meta('ID'))); ?>"><?php echo esc_html(get_the_author_meta('display_name')); ?></a>
+                                <a
+                                    href="<?php echo esc_url(get_author_posts_url(get_the_author_meta('ID'))); ?>"><?php echo esc_html(get_the_author_meta('display_name')); ?></a>
                             </span>
                         </li>
 
-                    <?php elseif (in_array('post-date', $post_meta, true) && $meta == 'post-date') : $has_meta = true;
-                        $date_format = get_option('date_format');
-                        $published_date = esc_html(get_the_date($date_format)); // post date 
-                    ?>
+                    <?php elseif (in_array('post-date', $post_meta, true) && $meta == 'post-date'): $has_meta = true;
+                                            $date_format = get_option('date_format');
+                                            $published_date = esc_html(get_the_date($date_format)); // post date 
+                                            ?>
                         <li class="post-date meta-wrapper d-flex">
                             <span class="meta-text">
                                 <a href="<?php the_permalink(); ?>"><?php the_time(get_option('date_format')); ?></a>
                             </span>
                         </li>
 
-                    <?php elseif (in_array('categories', $post_meta, true) && $meta == 'categories' && has_category()) : $has_meta = true; // Categories 
-                    ?>
+                    <?php elseif (in_array('categories', $post_meta, true) && $meta == 'categories' && has_category()): $has_meta = true; // Categories 
+                                            ?>
                         <li class="post-categories meta-wrapper d-flex">
                             <span class="meta-text">
                                 <?php the_category(', '); ?>
                             </span>
                         </li>
-                    <?php
-                    elseif (in_array('tags', $post_meta, true) && $meta == 'tags' && has_tag()) : $has_meta = true; ?>
+                        <?php
+                                        elseif (in_array('tags', $post_meta, true) && $meta == 'tags' && has_tag()): $has_meta = true; ?>
                         <li class="post-tags meta-wrapper d-flex">
                             <span class="meta-text">
                                 <?php the_tags('', ', ', ''); ?>
                             </span>
                         </li>
 
-                    <?php elseif (in_array('comments', $post_meta, true) && ! post_password_required() && (comments_open() || get_comments_number()) && $meta == 'comments') : $has_meta = true; // Comments 
-                    ?>
+                    <?php elseif (in_array('comments', $post_meta, true) && !post_password_required() && (comments_open() || get_comments_number()) && $meta == 'comments'):
+                                            $has_meta = true; // Comments 
+                                            ?>
                         <li class="post-comment-link meta-wrapper d-flex">
                             <span class="meta-text">
                                 <?php comments_popup_link(); ?>
@@ -322,7 +325,7 @@ class Zenvy_Helper
                 <?php endforeach; ?>
 
             </ul><!-- .post-meta -->
-        <?php
+            <?php
 
         }
     }
@@ -336,18 +339,17 @@ class Zenvy_Helper
     public static function get_sidebar_layout($sidebar = 'none')
     {
 
-    // Check meta first to override and return (prevents filters from overriding meta)
-        $sidebar = get_post_meta( self::get_post_id(), 'zenvy_sidebar_layout', true );
-        if ( $sidebar && $sidebar != 'default' ) {
+        // Check meta first to override and return (prevents filters from overriding meta)
+        $sidebar = get_post_meta(self::get_post_id(), 'zenvy_sidebar_layout', true);
+        if ($sidebar && $sidebar != 'default') {
             return $sidebar;
         }
-        if ( is_single() ) {
-            $sidebar = get_theme_mod( 'zenvy_single_post_sidebar_layout', 'right' );
-        } elseif ( is_page() ) {
-            $sidebar = get_theme_mod( 'zenvy_single_page_sidebar_layout', 'right' );
-        }
-        else {
-            $sidebar = get_theme_mod( 'zenvy_blog_sidebar_layout', 'right' );
+        if (is_single()) {
+            $sidebar = get_theme_mod('zenvy_single_post_sidebar_layout', 'right');
+        } elseif (is_page()) {
+            $sidebar = get_theme_mod('zenvy_single_page_sidebar_layout', 'right');
+        } else {
+            $sidebar = get_theme_mod('zenvy_blog_sidebar_layout', 'right');
         }
         return $sidebar;
 
@@ -361,7 +363,7 @@ class Zenvy_Helper
     public static function post_comment()
     {
         // If comments are open or we have at least one comment, load up the comment template.
-        if (! post_password_required() && (comments_open() || get_comments_number())) :
+        if (!post_password_required() && (comments_open() || get_comments_number())):
             comments_template();
         endif;
     }
@@ -375,7 +377,7 @@ class Zenvy_Helper
     {
 
         // Only display for single post navigation
-        if (! is_single()) {
+        if (!is_single()) {
             return;
         }
 
@@ -386,15 +388,16 @@ class Zenvy_Helper
 
             $pagination_classes = '';
 
-            if (! $next_post) {
+            if (!$next_post) {
                 $pagination_classes = ' only-one only-prev';
-            } elseif (! $prev_post) {
+            } elseif (!$prev_post) {
                 $pagination_classes = ' only-one only-next';
             }
 
-        ?>
+            ?>
 
-            <nav class="navigation post-navigation section-inner<?php echo esc_attr($pagination_classes); ?>" aria-label="<?php esc_attr_e('Post', 'zenvy'); ?>" role="navigation">
+            <nav class="navigation post-navigation section-inner<?php echo esc_attr($pagination_classes); ?>"
+                aria-label="<?php esc_attr_e('Post', 'zenvy'); ?>" role="navigation">
 
                 <h2 class="screen-reader-text"><?php esc_html_e('Post navigation', 'zenvy'); ?></h2>
 
@@ -402,7 +405,7 @@ class Zenvy_Helper
 
                     <?php
                     if ($prev_post) {
-                    ?>
+                        ?>
                         <div class="nav-previous text-left">
                             <span class="screen-reader-text"><?php esc_html_e('Previous Post', 'zenvy'); ?></span>
                             <a class="previous-post" href="<?php echo esc_url(get_permalink($prev_post->ID)); ?>">
@@ -411,11 +414,11 @@ class Zenvy_Helper
                                 </div><!-- .nav-content-wrap -->
                             </a>
                         </div><!-- .nav-previous -->
-                    <?php
+                        <?php
                     }
 
                     if ($next_post) {
-                    ?>
+                        ?>
                         <div class="nav-next text-right">
                             <span class="screen-reader-text"><?php esc_html_e('Next Post', 'zenvy'); ?></span>
                             <a href="<?php echo esc_url(get_permalink($next_post->ID)); ?>" rel="prev">
@@ -424,14 +427,14 @@ class Zenvy_Helper
                                 </div><!-- .nav-content-wrap -->
                             </a>
                         </div><!-- .nav-next -->
-                    <?php
+                        <?php
                     }
                     ?>
 
                 </div><!-- .pagination-single-inner -->
             </nav><!-- .pagination-single -->
 
-        <?php
+            <?php
         }
     }
 
@@ -455,7 +458,7 @@ class Zenvy_Helper
             'nxt-prv'
         );
 
-        if ($pagination_type) :
+        if ($pagination_type):
 
             ob_start();
 
@@ -500,11 +503,11 @@ class Zenvy_Helper
         }
 
         // Get author data
-        $author             = get_the_author();
+        $author = get_the_author();
         $author_description = get_the_author_meta('description');
-        $author_url         = esc_url(get_author_posts_url(get_the_author_meta('ID')));
-        $author_avatar      = get_avatar(get_the_author_meta('user_email'), apply_filters('zenvy_avatar_size', 150));
-        $author_contents     = ['name', 'info'];
+        $author_url = esc_url(get_author_posts_url(get_the_author_meta('ID')));
+        $author_avatar = get_avatar(get_the_author_meta('user_email'), apply_filters('zenvy_avatar_size', 150));
+        $author_contents = ['name', 'info'];
         ?>
 
         <div class="contact-agent-section">
@@ -512,27 +515,29 @@ class Zenvy_Helper
                 <div class="contact-agent-info">
 
                     <figure class="author-image" data-ratio="auto">
-                        <a href="<?php echo esc_url($author_url); ?>" rel="<?php esc_attr_e('Author', 'zenvy'); ?>"><?php echo wp_kses_post($author_avatar); ?></a>
+                        <a href="<?php echo esc_url($author_url); ?>"
+                            rel="<?php esc_attr_e('Author', 'zenvy'); ?>"><?php echo wp_kses_post($author_avatar); ?></a>
                     </figure><!-- .author-avatar -->
 
-                    <?php if ($author_contents) : ?>
+                    <?php if ($author_contents): ?>
                         <div class="contact-agent-info-content">
 
-                            <?php foreach ($author_contents as $content) :
+                            <?php foreach ($author_contents as $content):
 
                                 switch ($content):
                                     case 'name':
-                            ?>
-                                        <h3 class="author-name"><a href="<?php echo esc_url($author_url); ?>" class="author-name" rel="<?php esc_attr_e('Author', 'zenvy'); ?>"><?php echo esc_html($author); ?></a></h3>
-                                    <?php
+                                        ?>
+                                        <h3 class="author-name"><a href="<?php echo esc_url($author_url); ?>" class="author-name"
+                                                rel="<?php esc_attr_e('Author', 'zenvy'); ?>"><?php echo esc_html($author); ?></a></h3>
+                                        <?php
                                         break;
 
                                     case 'info':
-                                    ?>
+                                        ?>
                                         <div class="author-desc">
                                             <?php echo wp_kses_post(wpautop($author_description)); ?>
                                         </div>
-                            <?php
+                                        <?php
                                         break;
                                 endswitch;
                             endforeach; ?>
@@ -557,30 +562,30 @@ class Zenvy_Helper
         }
 
         global $post;
-        $current_post       = $post;
-        $args               = [];
+        $current_post = $post;
+        $args = [];
 
         // Categories arguments
-        $cats   = wp_get_post_categories($post->ID, ['fields' => 'ids']);
-        if (! empty($cats)) {
-            $args['posts_per_page']         = 4;
-            $args['post__not_in']           = [$current_post->ID];
-            $args['category__in']           = $cats;
-            $args['no_found_rows']          = true;
-            $args['ignore_sticky_posts']    = true;
+        $cats = wp_get_post_categories($post->ID, ['fields' => 'ids']);
+        if (!empty($cats)) {
+            $args['posts_per_page'] = 4;
+            $args['post__not_in'] = [$current_post->ID];
+            $args['category__in'] = $cats;
+            $args['no_found_rows'] = true;
+            $args['ignore_sticky_posts'] = true;
         }
 
         $the_query = new WP_Query($args);
 
-        if ($the_query->have_posts()) :
+        if ($the_query->have_posts()):
 
             // Columns per row
             $col_per_row = [
-                'desktop'           => '2',
-                'tablet'            => '2',
-                'mobile'            => '1'
+                'desktop' => '2',
+                'tablet' => '2',
+                'mobile' => '1'
             ];
-        ?>
+            ?>
 
             <div class="related-post-section">
                 <header class="entry-header heading">
@@ -588,14 +593,15 @@ class Zenvy_Helper
                 </header>
                 <div class="row columns" <?php Zenvy_Helper::get_data_columns($col_per_row); ?>>
 
-                    <?php while ($the_query->have_posts()) : $the_query->the_post();
+                    <?php while ($the_query->have_posts()):
+                        $the_query->the_post();
 
                         /*
-                        * Include the Post-Type-specific template for the content.
-                        * If you want to override this in a child theme, then include a file
-                        * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-                        */
-                    ?>
+                         * Include the Post-Type-specific template for the content.
+                         * If you want to override this in a child theme, then include a file
+                         * called content-___.php (where ___ is the Post Type name) and that will be used instead.
+                         */
+                        ?>
                         <div class="column">
                             <div class="post">
                                 <?php zenvy_post_thumbnail('medium', '4x3'); ?>
@@ -625,7 +631,7 @@ class Zenvy_Helper
 
                 </div>
             </div><!-- .related-post-wrapper -->
-        <?php
+            <?php
         endif;
     }
 
@@ -639,13 +645,13 @@ class Zenvy_Helper
         <header class="entry-header">
 
             <?php
-            if (is_singular()) :
+            if (is_singular()):
 
                 $html_tag = is_single() ? get_theme_mod('zenvy_single_post_title_tag', ['desktop' => 'h1']) : get_theme_mod('zenvy_single_page_title_tag', ['desktop' => 'h1']);
 
                 the_title('<' . esc_attr($html_tag['desktop']) . ' class="entry-title"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">', '</a></' . esc_attr($html_tag['desktop']) . '>');
 
-            else :
+            else:
                 $html_tag = get_theme_mod(
                     'zenvy_blog_post_title_tag',
                     ['desktop' => 'h1']
@@ -655,7 +661,7 @@ class Zenvy_Helper
             ?>
 
         </header><!-- .entry-header -->
-    <?php
+        <?php
 
     }
 
@@ -669,34 +675,35 @@ class Zenvy_Helper
         <div class="entry-content">
 
             <?php
-            if (is_singular() && !Zenvy_Helper::front_page_enable()) :
+            if (is_singular() && !Zenvy_Helper::front_page_enable()):
 
                 the_content();
-            else :
+            else:
                 self::post_excerpt();
             endif;
             ?>
 
         </div><!-- .entry-content -->
-    <?php
+        <?php
 
     }
 
     /**
      * Post Read More Button
      *
+     * @param string $setting_section The setting section for the read more button.
      * @return void
      */
-    public static function read_more()
+    public static function read_more($setting_section = 'blog_post')
     {
 
         $btn_type = get_theme_mod(
-            'zenvy_blog_post_read_btn_type',
-            ['desktop' => 'text']
+            'zenvy_' . $setting_section . '_read_btn_type',
+            ['desktop' => 'button']
         );
         $enable_arrow = get_theme_mod(
-            'zenvy_blog_post_read_more_btn_arrow',
-            ['desktop' => 'true']
+            'zenvy_' . $setting_section . '_read_more_btn_arrow',
+            ''
         );
 
         $read_more_class = ['read-more'];
@@ -709,18 +716,20 @@ class Zenvy_Helper
             $read_more_class[] = 'read-more-btn';
         }
 
-        if ($enable_arrow && array_key_exists('desktop', $enable_arrow)) {
-            $read_more_class[] = 'read-more-arrow';
-        }
         ob_start(); ?>
 
         <div class="d-flex justify-content-left read-more-wrap">
             <a href="<?php the_permalink(get_the_ID()); ?>" class="<?php echo esc_attr(implode(' ', $read_more_class)); ?>">
+                <?php
+                if ($enable_arrow && array_key_exists('desktop', $enable_arrow)) {
+                    echo '<span class="read-more-btn-image"></span>';
+                }
+                ?>
                 <?php esc_html_e('Read More', 'zenvy'); ?>
             </a>
         </div>
 
-<?php
+        <?php
         $output = ob_get_clean();
         echo apply_filters('zenvy_read_more', $output); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
     }
@@ -745,8 +754,8 @@ class Zenvy_Helper
     public static function front_page_enable()
     {
 
-        $is_static_page     = get_theme_mod('zenvy_front_page_enable', 'disable');
-        $show_front_page    = get_option('show_on_front');
+        $is_static_page = get_theme_mod('zenvy_front_page_enable', 'disable');
+        $show_front_page = get_option('show_on_front');
         if (is_front_page() && $show_front_page == 'page' && $is_static_page == 'enable') {
             return true;
         } else {
@@ -763,7 +772,7 @@ class Zenvy_Helper
     public static function site_content_class($class = '')
     {
 
-        $classes    = ['site-content'];
+        $classes = ['site-content'];
 
         if (
             is_active_sidebar('sidebar-1')
@@ -773,8 +782,8 @@ class Zenvy_Helper
             $classes[] = 'have-sidebar';
         }
 
-        if (! empty($class)) {
-            if (! is_array($class)) {
+        if (!empty($class)) {
+            if (!is_array($class)) {
                 $class = preg_split('#\s+#', $class);
             }
             $classes = array_merge($classes, $class);
@@ -804,15 +813,15 @@ class Zenvy_Helper
     public static function sidebar_class($class = '')
     {
 
-        $classes    = ['widget-area'];
+        $classes = ['widget-area'];
 
         if (is_active_sidebar('sidebar-1') && Zenvy_Helper::get_sidebar_layout()) {
 
             $classes[] = '' . self::get_sidebar_layout() . '-sidebar';
         }
 
-        if (! empty($class)) {
-            if (! is_array($class)) {
+        if (!empty($class)) {
+            if (!is_array($class)) {
                 $class = preg_split('#\s+#', $class);
             }
             $classes = array_merge($classes, $class);
@@ -845,8 +854,8 @@ class Zenvy_Helper
 
         $classes = ['site'];
 
-        if (! empty($class)) {
-            if (! is_array($class)) {
+        if (!empty($class)) {
+            if (!is_array($class)) {
                 $class = preg_split('#\s+#', $class);
             }
             $classes = array_merge($classes, $class);
@@ -878,8 +887,8 @@ class Zenvy_Helper
 
         $classes = ['content-area'];
 
-        if (! empty($class)) {
-            if (! is_array($class)) {
+        if (!empty($class)) {
+            if (!is_array($class)) {
                 $class = preg_split('#\s+#', $class);
             }
             $classes = array_merge($classes, $class);
@@ -888,12 +897,9 @@ class Zenvy_Helper
             $class = array();
         }
 
-        if (is_archive() || is_search() || is_home()) {
-            $classes[] = 'alternative-post';
-        }
         if (is_singular()) {
 
-            $elements = is_single() ? get_theme_mod('zenvy_single_post_header_elements') :  get_theme_mod('zenvy_single_page_header_elements', ['post-title']);
+            $elements = is_single() ? get_theme_mod('zenvy_single_post_header_elements') : get_theme_mod('zenvy_single_page_header_elements', ['post-title']);
 
             if (empty($elements)) {
                 $classes[] = has_post_thumbnail() ? 'no-has-page-header' : 'no-thumbnail-has-page-header';
@@ -911,7 +917,34 @@ class Zenvy_Helper
 
         echo 'class="' . esc_attr(join(' ', $classes)) . '"'; // WPCS: XSS ok.
     }
-    
+
+    /**
+     * Post Layout classes for archives page
+     * 
+     * @return string Class names for post layout
+     */
+    public static function get_post_layout_class()
+    {
+        if (is_archive() || is_search() || is_home()) {
+            $post_layout = get_theme_mod('zenvy_blog_posts_layout', 'alt');
+            switch ($post_layout) {
+                case 'alt':
+                    return 'alternative-post';
+                case 'right':
+                    return 'right-post';
+                case 'left':
+                    return 'left-post';
+                case 'grid':
+                    return 'overlap-post post-item-has-2column';
+                case 'list':
+                    return 'overlap-post';
+                default:
+                    return 'alternative-post';
+            }
+        }
+        return '';
+    }
+
     /**
      * Get video thumbnail URL from YouTube or Vimeo URL
      * 
@@ -961,9 +994,10 @@ class Zenvy_Helper
      *
      * @return boolean
      */
-    public static function is_woocommerce() {
+    public static function is_woocommerce()
+    {
 
-        if ( class_exists( 'WooCommerce' ) ) {
+        if (class_exists('WooCommerce')) {
             return true;
         } else {
             return false;

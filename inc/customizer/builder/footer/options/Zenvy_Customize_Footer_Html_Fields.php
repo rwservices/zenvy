@@ -51,13 +51,15 @@ class Zenvy_Customize_Footer_Html_Fields extends Zenvy_Customize_Base_Field {
             // Text Typo
             'zenvy_footer_html_text_typo' => [
                 'type'              => 'typography',
-                'default'           => '',
+                'default'           => [
+                    'colors' => ['color_1' => 'var(--color-white)']
+                ],
                 'sanitize_callback' => ['Zenvy_Customizer_Sanitize_Callback', 'sanitize_typography' ],
                 'label'             => esc_html__( 'Text Color', 'zenvy' ),
                 'section'           => 'footer_html',
                 'priority'          => 20,
                 'inherits'          => [
-                    'color_1'           => 'var(--color-1)'
+                    'color_1'           => 'var(--color-white)'
                 ],
                 'fields'            => ['colors'=>true]
             ],
@@ -74,8 +76,8 @@ class Zenvy_Customize_Footer_Html_Fields extends Zenvy_Customize_Base_Field {
                 ],
                 'priority'          => 25,
                 'inherits'          => [
-                    'color_1'           => 'var(--color-link)',
-                    'color_2'           => 'var(--color-link-hover)',
+                    'color_1'           => 'var(--color-white)',
+                    'color_2'           => 'var(--color-gray-600)',
                 ]
             ],
             // Padding

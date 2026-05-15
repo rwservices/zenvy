@@ -54,27 +54,42 @@ class Zenvy_Customize_Front_Page_Quote_Fields extends Zenvy_Customize_Base_Field
                 'priority'          => 15,
             ],
 
-            // Quote Section Background
-            'zenvy_front_page_quote_background' => [
-                'type'              => 'image',
-                'default'           => '',
-                'sanitize_callback' => 'esc_url_raw',
-                'label'             => esc_html__( 'Quote Section Background', 'zenvy' ),
-                'description'       => esc_html__( 'Upload background image for quote section.', 'zenvy' ),
-                'section'           => 'zenvy_front_page_quote_section',
-                'priority'          => 20,
-            ],
-
-            // Quote Section Background Overlay
-            'zenvy_front_page_quote_background_overlay' => [
-                'type'              => 'color',
-                'default'           => 'rgba(0, 0, 0, 0.5)',
-                'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_color' ],
-                'label'             => esc_html__( 'Quote Section Background Overlay', 'zenvy' ),
-                'description'       => esc_html__( 'Set background overlay color for quote section.', 'zenvy' ),
-                'section'           => 'zenvy_front_page_quote_section',
-                'priority'          => 30,
-            ],
+            // Background Image
+			'zenvy_front_page_quote_background' => [
+				'type'              => 'background',
+				'default'           => '',
+				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_background' ],
+				'label'             => esc_html__( 'Background Image', 'zenvy' ),
+				'description'       => esc_html__( 'Set Background Image for container.', 'zenvy' ),
+				'section'           => 'zenvy_front_page_quote_section',
+				'priority'          => 30,
+				'fields'            => [
+					'image'      => true,
+					'position'   => true,
+					'attachment' => true,
+					'repeat'     => true,
+					'size'       => true,
+				],
+			],
+			// Background Overlay
+			'zenvy_front_page_quote_background_overlay' => [
+				'type'              => 'background',
+				'default'           => [
+					'background' => 'color',
+					'colors'     => [
+						'color_1' => 'var(--color-bg)',
+					],
+				],
+				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_background' ],
+				'label'             => esc_html__( 'Background Overlay', 'zenvy' ),
+				'description'       => esc_html__( 'Set background overlay color for container.', 'zenvy' ),
+				'section'           => 'zenvy_front_page_quote_section',
+				'priority'          => 35,
+				'inherits'          => [
+					'color_1' => 'var(--color-bg)',
+				],
+				'fields'            => [ 'colors' => true ],
+			],
         ];
     }
 }

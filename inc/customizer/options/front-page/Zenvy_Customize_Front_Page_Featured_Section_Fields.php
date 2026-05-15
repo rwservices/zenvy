@@ -24,6 +24,12 @@ class Zenvy_Customize_Front_Page_Featured_Section_Fields extends Zenvy_Customize
 						'tab-title' => esc_html__( 'General', 'zenvy' ),
 						'controls'  => [
 							'zenvy_front_page_featured_section_tag',
+							'zenvy_front_page_featured_section_posts_limit',
+							'zenvy_front_page_featured_section_image_tags',
+							'zenvy_front_page_featured_section_post_elements',
+							'zenvy_front_page_featured_section_note_one',
+							'zenvy_featured_section_read_btn_type',
+							'zenvy_featured_section_read_more_btn_arrow',
 						],
 					],
 					'hover'  => [
@@ -64,6 +70,17 @@ class Zenvy_Customize_Front_Page_Featured_Section_Fields extends Zenvy_Customize
 				],
 			],
 
+			// Enable/Disable Tags
+			'zenvy_front_page_featured_section_image_tags' => [
+				'type'              => 'toggle',
+				'default'           => [ 'desktop' => 'true' ],
+				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_toggle' ],
+				'label'             => esc_html__( 'Tags', 'zenvy' ),
+				'description'       => esc_html__( 'Enable / Disable tags on featured image.', 'zenvy' ),
+				'section'           => 'zenvy_front_page_featured_section',
+				'priority'			=> 23,
+			],
+
 			// Post elements
 			'zenvy_front_page_featured_section_post_elements' => [
 				'type'			  => 'sortable',
@@ -81,6 +98,37 @@ class Zenvy_Customize_Front_Page_Featured_Section_Fields extends Zenvy_Customize
 				],
 			],
 
+			// Note One
+            'zenvy_front_page_featured_section_note_one' => [
+                'type'              => 'heading',
+                'label'             => esc_html__( 'READ MORE BUTTON', 'zenvy' ),
+                'section'           => 'zenvy_front_page_featured_section',
+                'priority'          => 29,
+            ],
+            // Type
+			'zenvy_featured_section_read_btn_type'       => [
+				'type'              => 'buttonset',
+				'default'           => [ 'desktop' => 'button' ],
+				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_buttonset' ],
+				'label'             => esc_html__( 'Display as', 'zenvy' ),
+				'section'           => 'zenvy_front_page_featured_section',
+				'priority'          => 30,
+				'choices'           => [
+					'text'   => esc_html__( 'Text', 'zenvy' ),
+					'button' => esc_html__( 'Button', 'zenvy' ),
+				],
+			],
+			// Button Arrow
+			'zenvy_featured_section_read_more_btn_arrow' => [
+				'type'              => 'toggle',
+				'default'           => '',
+				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_toggle' ],
+				'label'             => esc_html__( 'Read More Arrow', 'zenvy' ),
+				'description'       => esc_html__( 'Enable Arrow Icon after Text.', 'zenvy' ),
+				'section'           => 'zenvy_front_page_featured_section',
+				'priority'          => 35,
+			],
+
 			// Background Image
 			'zenvy_front_page_featured_section_background' => [
 				'type'              => 'background',
@@ -89,7 +137,7 @@ class Zenvy_Customize_Front_Page_Featured_Section_Fields extends Zenvy_Customize
 				'label'             => esc_html__( 'Background Image', 'zenvy' ),
 				'description'       => esc_html__( 'Set Background Image for container.', 'zenvy' ),
 				'section'           => 'zenvy_front_page_featured_section',
-				'priority'          => 25,
+				'priority'          => 40,
 				'fields'            => [
 					'image'      => true,
 					'position'   => true,
@@ -104,16 +152,16 @@ class Zenvy_Customize_Front_Page_Featured_Section_Fields extends Zenvy_Customize
 				'default'           => [
 					'background' => 'color',
 					'colors'     => [
-						'color_1' => 'var(--color-bg-4)',
+						'color_1' => 'var(--color-bg)',
 					],
 				],
 				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_background' ],
 				'label'             => esc_html__( 'Background Overlay', 'zenvy' ),
 				'description'       => esc_html__( 'Set background overlay color for container.', 'zenvy' ),
 				'section'           => 'zenvy_front_page_featured_section',
-				'priority'          => 26,
+				'priority'          => 45,
 				'inherits'          => [
-					'color_1' => 'var(--color-bg-4)',
+					'color_1' => 'var(--color-bg)',
 				],
 				'fields'            => [ 'colors' => true ],
 			],

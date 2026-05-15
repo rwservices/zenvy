@@ -2410,6 +2410,54 @@
 	} );
 
 	/**
+	 * Customizer Control: zenvy_editor
+     */
+    api.controlConstructor['zenvy_editor'] = api.Control.extend( {
+        ready : function () {
+
+            'use strict';
+
+            var control = this,
+                id      = 'editor_' + control.id;
+
+            wp.editor.initialize( id, {
+                tinymce      : {
+                    wpautop : false,
+                    forced_root_block : "",
+                },
+                quicktags    : true,
+                mediaButtons : true
+            } );
+
+        },
+
+        onChangeActive : function ( active, args ) {
+
+            'use strict';
+
+            var control = this,
+                id      = 'editor_' + control.id,
+                element = control.container.find( 'textarea' ),
+                editor;
+
+            editor = tinyMCE.get( id );
+
+            if ( editor ) {
+
+                editor.onChange.add( function ( ed ) {
+                    var content;
+
+                    ed.save();
+                    content = editor.getContent();
+                    element.val( content ).trigger( 'change' );
+                    api.instance( control.id ).set( content );
+                } );
+
+            }
+        }
+    } );
+
+	/**
 	 * Customizer Control: zenvy_multi_select
 	 */
 	api.controlConstructor.zenvy_multi_select = api.Control.extend( {

@@ -33,8 +33,7 @@
 		right: 20px;
 	}
 	.page-title-wrap {
-		padding: 100px 0 0;
-		margin-bottom: 100px;
+		padding: 100px 0 20px;
 	}
 	.widget_tag_cloud a {
 		font-size: 14px;
@@ -47,6 +46,12 @@
 	.heading .entry-title {
 		font-size: 32px;
 	}
+.shop-item-wrap,
+	ul.products,
+	.products.columns-4{
+		grid-template-columns: repeat(3, 1fr);
+	}
+
 }
 
 /* All Tablet Portrait size smaller than standard 1023 (devices and browsers) */
@@ -200,11 +205,8 @@
 	.heading .entry-title {
 		font-size: 36px;
 	}
-	.page-title-wrap {
-		margin-bottom: 70px;
-	}
 	.page-title {
-		font-size: 70px;
+		font-size: 60px;
 	}
 	.post .entry-title {
 		font-size: 20px;
@@ -254,9 +256,6 @@
 		font-size: 22px;
 		margin: 0 0 5px;
 	}
-	.site-footer {
-		padding-top: 60px;
-	}
 	.site-footer .widget-area {
 		padding: 20px 0 55px;
 	}
@@ -273,6 +272,13 @@
 		font-size: 28px;
 		margin-bottom: 15px;
 	}
+	.site-content .site-main > section {
+  padding: 0 0 50px;
+}
+ .section-wrap-inner .section-left {
+    margin-bottom: 20px;
+  }
+
 }
 
 /* All Mobile Portrait size smaller than 768 (devices and browsers) */
@@ -320,7 +326,6 @@
 		font-size: 19px;
 	}
 	.site-generator {
-		padding: 17px 0 17px;
 		text-align: center;
 	}
 	.site-generator .custom-col-6:first-child {
@@ -342,12 +347,8 @@
 	.site-footer .widget-area {
 		padding: 20px 0 30px;
 	}
-	.site-footer {
-		padding-top: 35px;
-	}
 	.page-title-wrap {
-		margin-bottom: 60px;
-		padding-top: 60px;
+		padding: 60px 0 20px;
 	}
 	.alternative-post .post .post-content {
 		padding: 15px 15px 15px;
@@ -396,6 +397,46 @@
 	.slider-text {
 		padding-left: 0;
 	}
+	.site-content .site-main > section.featured-slider {
+  padding-bottom: 30px;
+}
+.shop-item-wrap,
+	ul.products,
+	.products.columns-4,
+	.products.columns-3,
+	.products.columns-2 {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	.woocommerce div.product div.summary {
+  min-width: 50%;
+  padding-left: 20px;
+}
+.woocommerce div.product div.images.woocommerce-product-gallery {
+  min-width: 50%;
+}
+.product-gallery-summary {
+  gap: 0;
+}
+.woocommerce div.product form.cart .variations {
+  padding: 0;
+}
+.woocommerce div.product form.cart .variations tr th {
+  padding-left: 0;
+}
+.woocommerce div.product form.cart .variations tr td {
+  padding-right: 0;
+}
+.site-content {
+  padding: 40px 0 30px;
+}
+.page-title {
+    font-size: 54px;
+  }
+  .widget-title, .site-content .widget .wp-block-heading, .site-content .widget .wp-block-search__label, h2 {
+  font-size: 24px;
+}
+
+
 }
 
 @media only screen and (max-width: 567px) {
@@ -408,9 +449,6 @@
 	}
 	.slider-text {
 		padding: 0;
-	}
-	.site-main {
-		padding-top: 35px;
 	}
 	.alternative-post .post .featured-image-wrapper {
 		width: 100%;
@@ -464,11 +502,8 @@
 	.heading .entry-title {
 		font-size: 30px;
 	}
-	.page-title-wrap {
-		margin-bottom: 30px;
-	}
 	.page-title {
-		font-size: 55px;
+		font-size: 45px;
 	}
 	.alternative-post
 		.post:nth-child(2n + 2)
@@ -668,11 +703,8 @@
 	.mini_cart_inner {
 		padding: 8px;
 	}
-	.page-title-wrap {
-		margin-bottom: 25px;
-	}
 	.page-title {
-		font-size: 40px;
+		font-size: 32px;
 	}
 	.tags-links a:first-child {
 		font-size: 32px;
@@ -691,14 +723,8 @@
 		margin: 3px 3px 3px 0;
 		padding: 7px 13px;
 	}
-	.site-footer {
-		padding-top: 25px;
-	}
 	.site-footer .widget-area {
 		padding: 20px 0 10px;
-	}
-	.site-generator {
-		padding: 13px 0 13px;
 	}
 	.site-footer .widget .social-links ul li {
 		margin-right: 5px;
@@ -735,9 +761,6 @@
 	.skills-value {
 		font-size: 20px;
 	}
-	.site-main {
-		padding-top: 25px;
-	}
 	.entry-header.heading {
 		padding: 0px 0 10px;
 	}
@@ -757,6 +780,26 @@
 	.products.columns-2 {
 		grid-template-columns: repeat(1, 1fr);
 	}
+	.page-title-wrap {
+		padding: 40px 0 20px;
+	}
+	.product-gallery-summary {
+    display: block;
+  }
+  .woocommerce div.product div.summary {
+    padding-left: 0;
+  }
+.woocommerce div.product .woocommerce-tabs ul.tabs li {
+  margin: 0 -4px;
+  padding: 0 7px;
+  font-size: 12px;
+}
+.widget-title, .site-content .widget .wp-block-heading, .site-content .widget .wp-block-search__label, h2 {
+  font-size: 22px;
+  padding-bottom: 10px;
+}
+
+
 }
 
 

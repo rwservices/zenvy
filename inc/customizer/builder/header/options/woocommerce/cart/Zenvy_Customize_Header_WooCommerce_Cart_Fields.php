@@ -33,6 +33,8 @@ class Zenvy_Customize_Header_WooCommerce_Cart_Fields extends Zenvy_Customize_Bas
                         'controls'      => array(
                             'zenvy_header_woocommerce_cart_icon_color',
                             'zenvy_header_woocommerce_cart_icon_background',
+                            'zenvy_header_woocommerce_cart_count_color',
+                            'zenvy_header_woocommerce_cart_count_background',
                             'zenvy_header_woocommerce_cart_padding',
                             'zenvy_header_woocommerce_cart_margin'
 
@@ -43,7 +45,7 @@ class Zenvy_Customize_Header_WooCommerce_Cart_Fields extends Zenvy_Customize_Bas
             // Icon
             'zenvy_header_woocommerce_cart_icon' => [
                 'type'              => 'icon_select',
-                'default'           => 'fas fa-bullhorn',
+                'default'           => 'fas fa-shopping-basket',
                 'sanitize_callback' => 'sanitize_text_field',
                 'label'             => esc_html__( 'Icon', 'zenvy' ),
                 'section'           => Zenvy_WooCommerce_Cart_Header()->element,
@@ -101,8 +103,40 @@ class Zenvy_Customize_Header_WooCommerce_Cart_Fields extends Zenvy_Customize_Bas
                 ],
                 'priority'          => 60,
                 'inherits'          => [
-                    'color_1'           => 'var(--color-bg-1)',
-                    'color_2'           => 'var(--color-bg-1)',
+                    'color_1'           => 'var(--color-bg)',
+                    'color_2'           => 'var(--color-bg)',
+                ]
+            ],
+            // Count Color
+            'zenvy_header_woocommerce_cart_count_color' => [
+                'type'              => 'color',
+                'default'           => '',
+                'sanitize_callback' => ['Zenvy_Customizer_Sanitize_Callback', 'sanitize_color' ],
+                'label'             => esc_html__( 'Cart Count', 'zenvy' ),
+                'description'       => esc_html__( 'Set WooCommerce cart count color.', 'zenvy' ),
+                'section'           => Zenvy_WooCommerce_Cart_Header()->element,
+                'colors'            => [
+                    'color_1'           => esc_html__( 'Normal', 'zenvy' ),
+                ],
+                'priority'          => 65,
+                'inherits'          => [
+                    'color_1'           => 'var(--color-white)',
+                ]
+            ],
+            // Count Background 
+            'zenvy_header_woocommerce_cart_count_background' => [
+                'type'              => 'color',
+                'default'           => '',
+                'sanitize_callback' => ['Zenvy_Customizer_Sanitize_Callback', 'sanitize_color' ],
+                'label'             => esc_html__( 'Cart Count Background', 'zenvy' ),
+                'description'       => esc_html__( 'Set WooCommerce cart count background color.', 'zenvy' ),
+                'section'           => Zenvy_WooCommerce_Cart_Header()->element,
+                'colors'            => [
+                    'color_1'           => esc_html__( 'Normal', 'zenvy' ),
+                ],
+                'priority'          => 75,
+                'inherits'          => [
+                    'color_1'           => 'var(--color-bg-dark)',
                 ]
             ],
             // Padding

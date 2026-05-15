@@ -56,7 +56,7 @@ class Zenvy_Customize_Header_Html_Fields extends Zenvy_Customize_Base_Field {
                 'section'           => 'html',
                 'priority'          => 20,
                 'inherits'          => [
-                    'color_1'           => 'var(--color-1)'
+                    'color_1'           => 'var(--color-text)'
                 ],
                 'fields'            => ['colors'=>true]
             ],

@@ -38,7 +38,7 @@ if ($featured_posts->have_posts()):
                             <figure class="slider-image">
                                 <?php zenvy_post_thumbnail('featured_image', "3x4") ?>
                                 <?php
-                                    $enable_tags = get_theme_mod('zenvy_single_page_featured_image_tags', ['desktop' => 'true']);
+                                    $enable_tags = get_theme_mod('zenvy_front_page_featured_section_image_tags', ['desktop' => 'true']);
                                     if ($enable_tags && array_key_exists('desktop', $enable_tags)) {
                                         zenvy_posted_first_tag();
                                     }
@@ -84,18 +84,10 @@ if ($featured_posts->have_posts()):
                                             <?php
                                             break;
                                         case 'excerpt':
-                                            ?>
-                                            <p>
-                                                <?php the_excerpt(); ?>
-                                            </p>
-                                            <?php
+                                            Zenvy_Helper::post_excerpt();
                                             break;
                                         case 'read_more':
-                                            ?>
-                                            <a href="<?php the_permalink(); ?>"
-                                                class="read-more-btn"><?php esc_html_e('Read More', 'zenvy'); ?>
-                                            </a>
-                                            <?php
+                                            Zenvy_Helper::read_more('featured_section');
                                             break;
                                     }
                                 endforeach; ?>
