@@ -798,7 +798,10 @@ class Zenvy_Customizer_Inline_Style
 				self::background(
 					['.page-title-wrap::before'],
 					'zenvy_page_header_background_overlay',
-					''
+					[
+					'colors'     => [
+						'color_1' => 'var(--color-bg-light)',
+					]],
 				);
 			}
 
@@ -1093,7 +1096,24 @@ class Zenvy_Customizer_Inline_Style
 
 				// Front page : Quote Section
 				// Background
-				// special case for quote section as it has different structure than other sections, will do tomorrow.
+				self::background(
+					['.zenvy-front-page .testimonial-quote-section .testimonial-quote-content-wrap'],
+					'zenvy_front_page_quote_background',
+					''
+				);
+
+				//Background Overlay
+				self::background(
+					['.zenvy-front-page .testimonial-quote-section .testimonial-quote-content-wrap'],
+					'zenvy_front_page_quote_background_overlay',
+					[
+						'background' => 'color',
+						'colors'     => [
+							'color_1' => 'var(--color-bg-light)',
+						],
+					]
+				);
+
 
 				// Front page : Trending Posts Section
 				// Background
@@ -1354,7 +1374,14 @@ class Zenvy_Customizer_Inline_Style
             self::dimensions(
                 ['.site-footer .footer-navbar'],
                 'zenvy_footer_menu_container_padding',
-                ''
+                [
+                    'desktop'           => [
+                        'side_1'            => '10px',
+                        'side_3'            => '10px',
+                        'linked'            => 'off'
+                    ]
+                ],
+				'padding'
             );
             // Container Margin
             self::dimensions(

@@ -103,7 +103,13 @@ class Zenvy_Customize_Footer_Menu_Fields extends Zenvy_Customize_Base_Field {
 			// Container Padding
 			'zenvy_footer_menu_container_padding' => [
 				'type'              => 'dimensions',
-				'default'           => '',
+                'default'           => [
+                    'desktop'           => [
+                        'side_1'            => '10px',
+                        'side_3'            => '10px',
+                        'linked'            => 'off'
+                    ]
+                ],
 				'sanitize_callback' => ['Zenvy_Customizer_Sanitize_Callback', 'sanitize_dimensions' ],
 				'label'             => esc_html__( 'Padding', 'zenvy' ),
 				'description'       => esc_html__( 'Set Padding to the Footer Menu.', 'zenvy' ),
