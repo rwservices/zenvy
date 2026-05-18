@@ -30,6 +30,7 @@ $shop_image = get_theme_mod('zenvy_front_page_shop_image', get_template_director
                     <?php endif; ?>
                     <?php if ($shop_link): ?>
                         <a href="<?php echo esc_url($shop_link); ?>" class="read-more-btn">
+                            <span class="read-more-btn-image"></span>
                             <?php echo esc_html($shop_btn_text); ?>
                         </a>
                     <?php endif; ?>
@@ -49,7 +50,7 @@ $shop_image = get_theme_mod('zenvy_front_page_shop_image', get_template_director
                         <div class="element-item">
                             <div class="product-list-wrapper">
                                 <div class="image-icon-wrapper">
-                                    <figure class="featured-image">
+                                    <figure class="featured-image" data-ratio="auto">
                                         <a href="<?php echo get_permalink($product->get_id()); ?>">
                                             <?php echo $product->get_image('woocommerce_thumbnail'); ?>
                                         </a>
@@ -93,7 +94,7 @@ $shop_image = get_theme_mod('zenvy_front_page_shop_image', get_template_director
                 <div class="shop-title-wrap">
 
                     <?php if ($shop_image): ?>
-                        <figure class="featured-image">
+                        <figure class="featured-image" data-ratio="auto">
                             <img src="<?php echo esc_url($shop_image); ?>" alt="">
                         </figure>
                     <?php endif; ?>
