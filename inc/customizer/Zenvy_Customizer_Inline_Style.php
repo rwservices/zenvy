@@ -474,8 +474,8 @@ class Zenvy_Customizer_Inline_Style
 				['.site-header .header-account-wrap a', '.site-header .header-account-wrap a:hover'],
 				'zenvy_header_account_background',
 				[
-					'color_1'   => 'var(--color-white)',
-					'color_2'   => 'var(--color-white)'
+					'color_1'   => 'var(--color-link)',
+					'color_2'   => 'var(--color-link-hover)'
 				],
 				'background-color'
 			);
