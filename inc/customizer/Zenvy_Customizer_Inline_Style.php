@@ -366,7 +366,7 @@ class Zenvy_Customizer_Inline_Style
                 .site-header .mobile-navbar .mean-container .meanmenu-reveal span:after
                 '],
                 'zenvy_header_toggle_menu_icon_color',
-                ['color_1'=> 'var(--color-accent-secondary)'],
+                ['color_1'=> 'var(--color-bg-dark)'],
                 'background'
             );
             // Icon background color
