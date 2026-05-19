@@ -116,12 +116,14 @@ if ($recent_posts->have_posts()):
                         </div>
                     </section>
                 </div>
-                <?php if ($show_latest_posts_sidebar && array_key_exists('desktop', $show_latest_posts_sidebar) && is_active_sidebar('sidebar-latest-posts')): ?>
-                    <?php get_sidebar('sidebar-latest-posts'); ?>
+                <?php if ($show_latest_posts_sidebar && array_key_exists('desktop', $show_latest_posts_sidebar)): ?>
+                    <div class="section-wrap-sidebar widget-area">
+                            <?php dynamic_sidebar('sidebar-latest-posts'); ?>
+                    </div>
                 <?php endif; ?>
             </div>
         </div>
     </section>
-    <?php
+        <?php
 endif;
 wp_reset_postdata();

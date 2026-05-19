@@ -124,8 +124,10 @@ $trending = new WP_Query(array(
                     </div>
                 </section>
             </div>
-            <?php if ($show_trending_posts_sidebar && array_key_exists('desktop', $show_trending_posts_sidebar) && is_active_sidebar('sidebar-trending-posts')): ?>
-                <?php get_sidebar('sidebar-trending-posts'); ?>
+            <?php if ($show_trending_posts_sidebar && array_key_exists('desktop', $show_trending_posts_sidebar)): ?>
+                <div class="section-wrap-sidebar widget-area">
+                        <?php dynamic_sidebar('sidebar-trending-posts'); ?>
+                </div>
             <?php endif; ?>
         </div>
     </div>
