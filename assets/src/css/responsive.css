@@ -206,7 +206,7 @@
 		font-size: 36px;
 	}
 	.page-title {
-		font-size: 60px;
+		font-size: 50px;
 	}
 	.post .entry-title {
 		font-size: 20px;
@@ -430,10 +430,21 @@
   padding: 40px 0 30px;
 }
 .page-title {
-    font-size: 54px;
+    font-size: 48px;
   }
   .widget-title, .site-content .widget .wp-block-heading, .site-content .widget .wp-block-search__label, h2 {
   font-size: 24px;
+}
+.wc-block-components-sidebar {
+  padding: 0 !important;
+}
+.wp-block-woocommerce-checkout-order-summary-block .wc-block-components-checkout-order-summary__title {
+  margin-top: 0 !important;
+}
+.woocommerce .woocommerce-customer-details .woocommerce-column__title {
+  margin-top: 10px;
+  margin-bottom: 0;
+  font-size: 20px;
 }
 
 
@@ -503,7 +514,7 @@
 		font-size: 30px;
 	}
 	.page-title {
-		font-size: 45px;
+		font-size: 40px;
 	}
 	.alternative-post
 		.post:nth-child(2n + 2)
@@ -571,6 +582,10 @@
 	.nav-next {
 		width: 100%;
 	}
+ .site-content section {
+    padding: 0 0 30px;
+  }
+
 }
 
 /* All Mobile size smaller than standard 479 (devices and browsers) */
@@ -704,7 +719,7 @@
 		padding: 8px;
 	}
 	.page-title {
-		font-size: 32px;
+		font-size: 28px;
 	}
 	.tags-links a:first-child {
 		font-size: 32px;
