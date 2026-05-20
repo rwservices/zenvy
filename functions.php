@@ -167,7 +167,7 @@ function zenvy_widgets_init()
 
 	register_sidebar(
 		array(
-			'name' => esc_html__('Latest Posts Sidebar', 'zenvy'),
+			'name' => esc_html__('Front Page:Latest Posts', 'zenvy'),
 			'id' => 'sidebar-latest-posts',
 			'description' => esc_html__('Add widgets for Latest Posts Section sidebar here.', 'zenvy'),
 			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
@@ -178,7 +178,7 @@ function zenvy_widgets_init()
 	);
 	register_sidebar(
 		array(
-			'name' => esc_html__('Trending Posts Sidebar', 'zenvy'),
+			'name' => esc_html__('Front Page: Trending Posts', 'zenvy'),
 			'id' => 'sidebar-trending-posts',
 			'description' => esc_html__('Add widgets for Trending Posts Section sidebar here.', 'zenvy'),
 			'before_widget' => '<aside id="%1$s" class="widget %2$s">',

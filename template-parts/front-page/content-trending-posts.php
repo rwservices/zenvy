@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Template part for displaying trending posts section on the front page
  * 
@@ -23,12 +24,14 @@ $trending = new WP_Query(array(
     'post__not_in' => $featured_ids,
     'ignore_sticky_posts' => true,
 ));
+
+$sidebar_class = ($show_trending_posts_sidebar && array_key_exists('desktop', $show_trending_posts_sidebar) && is_active_sidebar('sidebar-trending-posts')) ? 'section-left' : '';
 ?>
-<section class="section-wrap trending-posts-section">
+<section class="section-wrap">
     <div class="container">
         <h2 class="screen-reader-text"><?php esc_html_e('Trending Posts', 'zenvy'); ?></h2>
         <div class="section-wrap-inner">
-            <div class="<?php echo $show_trending_posts_sidebar ? 'section-left' : ''; ?>">
+            <div class="<?php echo esc_attr($sidebar_class); ?>">
                 <section class="blog-section">
                     <div class="post-wrapper overlap-post">
                         <?php
@@ -39,7 +42,7 @@ $trending = new WP_Query(array(
                                 if (!has_post_thumbnail()) {
                                     $post_class[] = 'no-featured-image';
                                 }
-                                ?>
+                        ?>
 
                                 <article id="post-<?php the_ID(); ?>" <?php post_class($post_class); ?>>
                                     <div class="featured-image-wrapper">
@@ -110,14 +113,14 @@ $trending = new WP_Query(array(
 
                                     ?>
                                 </article><!--#post-<?php the_ID(); ?> -->
-                                <?php
+                            <?php
                             endwhile;
                             ?>
                             <div class="btn-wrapper">
                                 <a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>"
                                     class="box-button"><?php esc_html_e('View all', 'zenvy') ?></a>
                             </div>
-                            <?php
+                        <?php
                         endif;
                         wp_reset_postdata();
                         ?>
@@ -125,7 +128,9 @@ $trending = new WP_Query(array(
                 </section>
             </div>
             <?php if ($show_trending_posts_sidebar && array_key_exists('desktop', $show_trending_posts_sidebar) && is_active_sidebar('sidebar-trending-posts')): ?>
-                <?php get_sidebar('sidebar-trending-posts'); ?>
+                <div class="section-wrap-sidebar widget-area">
+                    <?php dynamic_sidebar('sidebar-trending-posts'); ?>
+                </div>
             <?php endif; ?>
         </div>
     </div>

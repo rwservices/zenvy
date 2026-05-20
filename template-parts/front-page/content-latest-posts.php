@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Template part for displaying explore categories section on the front page
  * 
@@ -9,6 +10,7 @@
 <?php
 $latest_posts_count = get_theme_mod('zenvy_front_page_latest_posts_number', ['desktop' => 3]);
 $show_latest_posts_sidebar = get_theme_mod('zenvy_front_page_latest_posts_enable_sidebar', '');
+
 // Exclude featured posts from recent posts
 if (isset($featured_posts) && $featured_posts->have_posts()) {
     $featured_ids = wp_list_pluck($featured_posts->posts, 'ID');
@@ -23,14 +25,17 @@ $args = array(
 );
 
 $recent_posts = new WP_Query($args);
+
+$sidebar_class = ($show_latest_posts_sidebar && array_key_exists('desktop', $show_latest_posts_sidebar) && is_active_sidebar('sidebar-latest-posts')) ? 'section-left' : '';
+
 if ($recent_posts->have_posts()):
-    ?>
+?>
     <!-- recent posts sections -->
-    <section class="section-wrap latest-posts-section">
+    <section class="section-wrap">
         <div class="container">
             <h2 class="screen-reader-text"><?php esc_html_e('Recent Posts', 'zenvy'); ?></h2>
             <div class="section-wrap-inner">
-                <div class="<?php echo $show_latest_posts_sidebar ? 'section-left' : ''; ?>">
+                <div class="<?php echo esc_attr($sidebar_class); ?>">
                     <section class="blog-section">
                         <div class="post-wrapper alternative-post">
                             <?php
@@ -40,8 +45,7 @@ if ($recent_posts->have_posts()):
                                 if (!has_post_thumbnail()) {
                                     $post_class[] = 'no-featured-image';
                                 }
-                                ?>
-
+                            ?>
                                 <article id="post-<?php the_ID(); ?>" <?php post_class($post_class); ?>>
                                     <div class="featured-image-wrapper">
                                         <?php
@@ -110,18 +114,20 @@ if ($recent_posts->have_posts()):
 
                                     ?>
                                 </article><!--#post-<?php the_ID(); ?> -->
-                                <?php
+                            <?php
                             endwhile;
                             ?>
                         </div>
                     </section>
                 </div>
                 <?php if ($show_latest_posts_sidebar && array_key_exists('desktop', $show_latest_posts_sidebar) && is_active_sidebar('sidebar-latest-posts')): ?>
-                    <?php get_sidebar('sidebar-latest-posts'); ?>
+                    <div class="section-wrap-sidebar widget-area">
+                        <?php dynamic_sidebar('sidebar-latest-posts'); ?>
+                    </div>
                 <?php endif; ?>
             </div>
         </div>
     </section>
-    <?php
+<?php
 endif;
 wp_reset_postdata();
