@@ -71,10 +71,6 @@ class Zenvy_Customize_Footer_Button_Fields extends Zenvy_Customize_Base_Field {
             // Button Color
             'zenvy_footer_button_color' => [
                 'type'              => 'color',
-                'default'           => [
-                    'color_1'           => 'var(--color-bg-dark)',
-                    'color_2'           => 'var(--color-bg-dark)'
-                ],
                 'sanitize_callback' => ['Zenvy_Customizer_Sanitize_Callback', 'sanitize_color' ],
                 'label'             => esc_html__( 'Button', 'zenvy' ),
                 'description'       => esc_html__( 'Set button color.', 'zenvy' ),
@@ -85,17 +81,13 @@ class Zenvy_Customize_Footer_Button_Fields extends Zenvy_Customize_Base_Field {
                 ],
                 'priority'          => 55,
                 'inherits'          => [
-                    'color_1'           => 'var(--color-bg-dark)',
-                    'color_2'           => 'var(--color-bg-dark)',
+                    'color_1'           => 'var(--color-white)',
+                    'color_2'           => 'var(--color-white)',
                 ]
             ],
             // Background
             'zenvy_footer_button_background' => [
                 'type'              => 'color',
-                'default'           => [
-                    'color_1'           => 'var(--color-white)',
-                    'color_2'           => 'var(--color-gray-500)'
-                ],
                 'sanitize_callback' => ['Zenvy_Customizer_Sanitize_Callback', 'sanitize_color' ],
                 'label'             => esc_html__( 'Background', 'zenvy' ),
                 'description'       => esc_html__( 'Set button background.', 'zenvy' ),
@@ -106,8 +98,8 @@ class Zenvy_Customize_Footer_Button_Fields extends Zenvy_Customize_Base_Field {
                 ],
                 'priority'          => 60,
                 'inherits'          => [
-                    'color_1'           => 'var(--color-white)',
-                    'color_2'           => 'var(--color-gray-500)',
+                    'color_1'           => 'var(--color-link)',
+                    'color_2'           => 'var(--color-link-hover)',
                 ]
             ],
             //Button Border
