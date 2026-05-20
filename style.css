@@ -626,7 +626,6 @@ input[type="checkbox"] {
 }
 
 .page-content,
-.entry-content,
 .entry-summary {
 	margin: 15px 0 0;
 }
@@ -694,7 +693,9 @@ article {
 .woocommerce-button,
 .woocommerce-Button,
 .wc-block-components-button,
-.wc-block-checkout__form .wc-block-components-checkout-return-to-cart-button {
+.wc-block-checkout__form .wc-block-components-checkout-return-to-cart-button,
+.comment-reply-link,
+.woocommerce .woocommerce-form-login .woocommerce-form-login__submit {
 	transition: all 0.4s ease 0s;
 	-moz-transition: all 0.4s ease 0s;
 	-ms-transition: all 0.4s ease 0s;
@@ -717,7 +718,9 @@ article {
 .woocommerce-button:hover,
 .woocommerce-Button:hover,
 .wc-block-components-button:hover,
-.wc-block-checkout__form .wc-block-components-checkout-return-to-cart-button:hover {
+.wc-block-checkout__form .wc-block-components-checkout-return-to-cart-button:hover,
+.comment-reply-link:hover,
+.woocommerce .woocommerce-form-login .woocommerce-form-login__submit:hover {
 	color: var(--color-white);
 	transition: all 0.4s ease 0s;
 	-moz-transition: all 0.4s ease 0s;
@@ -2290,19 +2293,20 @@ iframe {
 
 /*      COMMENT     */
 
-.bypostauthor > article .fn:after {
-	content: "\f304";
-	left: 3px;
-	position: relative;
-	top: 5px;
+.bypostauthor > article .fn::after {
+  content: "\f304";
+  left: 4px;
+  position: relative;
+  top: 0px;
+  font-family: "FontAwesome";
+  font-weight: 400;
+  font-size: 11px;
 }
-
+.bypostauthor > article .fn{
+	margin-right: 5px;
+}
 .bypostauthor {
 	display: block;
-}
-
-.comment-list .reply {
-	text-align: right;
 }
 
 .sidebar .comments-title,
@@ -2358,10 +2362,20 @@ iframe {
 	padding: 0px 0 24px 140px;
 	position: relative;
 }
+.comment-meta {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
 
 .comment-body {
-	margin: 0 0 30px;
-	padding: 0 0 41px 140px;
+  margin: 0 0 20px;
+  padding: 0 0 10px 45px;
+}
+.comment-author .avatar {
+  position: absolute;
+  left: 0;
 }
 
 .comment-content > p:last-child {
@@ -2412,13 +2426,8 @@ iframe {
 	color: var(--color-gray-600);
 }
 
-.comment-meta > div {
-	float: left;
-	margin-right: 10px;
-}
-
-.reply a:hover {
-	color: var(--color-gray-900);
+.reply a {
+	padding: 8px 23px 7px 23px;
 }
 
 .comment-metadata {
@@ -2697,14 +2706,15 @@ div.error {
 }
 
 .page-title-wrap.empty-page-title-wrap {
-	min-height: 300px;
+  /*min-height: 300px;*/
+  padding: 0;
 }
 
 .page-title {
 	color: var(--color-primary);
 	display: inline-block;
 	position: relative;
-	font-size: 84px;
+	font-size: 70px;
 	text-transform: capitalize;
 	line-height: 1;
 	text-shadow:
@@ -2936,7 +2946,7 @@ div.bbp-submit-wrapper button {
 	-ms-transition: all 0.3s ease-out;
 	-o-transition: all 0.3s ease-out;
 	-webkit-transition: all 0.3s ease-out;
-	color: var(--color-white);
+	/*color: var(--color-white);*/
 	content: "\f060";
 	display: block;
 	font-family: "FontAwesome";
@@ -4624,11 +4634,36 @@ p.no-comments {
   padding: 0;
   border: none;
 }
-.wc-block-components-checkout-place-order-button {
+.wc-block-checkout__actions_row .wc-block-components-checkout-place-order-button {
   padding: 12px 30px;
   min-height: auto;
 }
-
+.wp-block-woocommerce-checkout.wc-block-checkout {
+  padding-top: 0;
+}
+.contact-agent-info {
+  text-align: left;
+}
+.contact-agent-info .author-image {
+  margin-bottom: 15px;
+  text-align: left
+}
+.contact-agent-section,
+content-post-tags {
+  margin-bottom: 30px;
+}
+.image-icon-wrapper .featured-image img {
+  position: static;
+}
+.editor-styles-wrapper table.wc-block-cart-items, table.wc-block-cart-items {
+  padding: 0;
+}
+.error-page-content h2 {
+  font-size: 100px;
+}
+.content-post-tags {
+  margin-bottom: 15px;
+}
 
 /*  10.0 ===== Footer =====   */
 
@@ -5040,9 +5075,7 @@ p.no-comments {
 	margin: 0 -2px
 }
 
-/* Umid Addition for frontpage */
-
-.explore-section::before, .featured-slider::before, 
+.explore-section::before, .featured-slider::before,
 .latest-posts-section::before, .trending-posts-section::before, .shop-section::before{
 	content: "";
 	position: absolute;
@@ -5061,7 +5094,6 @@ p.no-comments {
 	background-color: var(--color-bg-light);
 }
 
-.site-content .site-main > section
- {
-    position: relative;
+.site-content .site-main > section{
+	position: relative;
 }

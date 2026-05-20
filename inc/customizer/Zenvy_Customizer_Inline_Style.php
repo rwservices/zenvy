@@ -366,7 +366,7 @@ class Zenvy_Customizer_Inline_Style
                 .site-header .mobile-navbar .mean-container .meanmenu-reveal span:after
                 '],
                 'zenvy_header_toggle_menu_icon_color',
-                ['color_1'=> 'var(--color-accent-secondary)'],
+                ['color_1'=> 'var(--color-bg-dark)'],
                 'background'
             );
             // Icon background color
@@ -474,8 +474,8 @@ class Zenvy_Customizer_Inline_Style
 				['.site-header .header-account-wrap a', '.site-header .header-account-wrap a:hover'],
 				'zenvy_header_account_background',
 				[
-					'color_1'   => 'var(--color-white)',
-					'color_2'   => 'var(--color-white)'
+					'color_1'   => 'var(--color-link)',
+					'color_2'   => 'var(--color-link-hover)'
 				],
 				'background-color'
 			);
