@@ -105,10 +105,6 @@ class Zenvy_Customize_Footer_Social_Icons_Fields extends Zenvy_Customize_Base_Fi
             // Icon Color
             'zenvy_footer_social_icon_item_icon_color' => [
                 'type'              => 'color',
-                'default'           => [
-                    'color_1'           => 'var(--color-white)',
-                    'color_2'           => 'var(--color-gray-600)'
-                ],
                 'sanitize_callback' => ['Zenvy_Customizer_Sanitize_Callback', 'sanitize_color' ],
                 'label'             => esc_html__( 'Icon/Text', 'zenvy' ),
                 'description'       => esc_html__( 'Set each items icon and text as same color.', 'zenvy' ),
@@ -118,18 +114,14 @@ class Zenvy_Customize_Footer_Social_Icons_Fields extends Zenvy_Customize_Base_Fi
                     'color_2'           => esc_html__( 'Hover', 'zenvy' ),
                 ],
                 'inherits'          => [
-                    'color_1'           => 'var(--color-white)',
-                    'color_2'           => 'var(--color-gray-500)'
+                    'color_1'           => 'var(--color-link)',
+                    'color_2'           => 'var(--color-link-hover)'
                 ],
                 'priority'          => 55,
             ],
             // Background Color
             'zenvy_footer_social_icon_item_background' => [
                 'type'              => 'color',
-                'default'           => [
-                    'color_1'           => 'var(--color-bg-dark)',
-                    'color_2'           => 'var(--color-bg-dark)'
-                ],
                 'sanitize_callback' => ['Zenvy_Customizer_Sanitize_Callback', 'sanitize_color' ],
                 'label'             => esc_html__( 'Background', 'zenvy' ),
                 'description'       => esc_html__( 'Set each item background color.', 'zenvy' ),

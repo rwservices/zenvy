@@ -1423,19 +1423,13 @@ class Zenvy_Customizer_Inline_Style
 			self::color(
 				['.site-footer .footer-button-wrap a','.site-footer .footer-button-wrap a:hover'],
 				'zenvy_footer_button_color',
-				[
-					'color_1'   => 'var(--color-bg-dark)',
-					'color_2'   => 'var(--color-bg-dark)'
-				]
+				'',
 			);
 			// Background color
 			self::color(
 				['.site-footer .footer-button-wrap a','.site-footer .footer-button-wrap a:hover'],
 				'zenvy_footer_button_background',
-				[
-					'color_1'   => 'var(--color-white)',
-					'color_2'   => 'var(--color-gray-500)'
-				],
+				'',
 				'background-color'
 			);
 			// Border
@@ -1553,35 +1547,29 @@ class Zenvy_Customizer_Inline_Style
             self::color(
                 ['.site-footer .footer-social-wrap li a span','.site-footer .footer-social-wrap li:hover a span'],
                 'zenvy_footer_social_icon_item_icon_color',
-                [
-                    'color_1'           => 'var(--color-white)',
-                    'color_2'           => 'var(--color-gray-500)'
-                ]
+				''
             );
             // Item Background color
             self::color(
                 ['.site-footer .footer-social-wrap li','.site-footer .footer-social-wrap li:hover'],
                 'zenvy_footer_social_icon_item_background',
-                [
-					'color_1'           => 'var(--color-bg-dark)',
-                    'color_2'           => 'var(--color-bg-dark)'
-                ],
+				'',
                 'background-color'
             );
 			// Item Border
-			self::border(
-				['.site-footer .footer-social-wrap li'],
-				'zenvy_footer_social_icon_item_border',
-				[
-					'width' => [
-						'side_1' => '0px',
-						'side_2' => '0px',
-						'side_3' => '0px',
-						'side_4' => '0px',
-						'linked' => 'on',
-					],
-				]
-			);
+			// self::border(
+			// 	['.site-footer .footer-social-wrap li'],
+			// 	'zenvy_footer_social_icon_item_border',
+			// 	[
+			// 		'width' => [
+			// 			'side_1' => '0px',
+			// 			'side_2' => '0px',
+			// 			'side_3' => '0px',
+			// 			'side_4' => '0px',
+			// 			'linked' => 'on',
+			// 		],
+			// 	]
+			// );
 			// Item Padding
 			self::dimensions(
 				['.site-footer .footer-social-wrap li'],
