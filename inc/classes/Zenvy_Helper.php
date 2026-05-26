@@ -900,7 +900,7 @@ class Zenvy_Helper
 
             $elements = is_single() ? get_theme_mod('zenvy_single_post_header_elements') : get_theme_mod('zenvy_single_page_header_elements', ['post-title']);
 
-            if ( !$elements || empty($elements)) {
+            if (!$elements || empty($elements)) {
                 $classes[] = 'no-has-page-header';
             }
         }
@@ -953,30 +953,37 @@ class Zenvy_Helper
      */
     public static function get_video_thumbnail_url($url, $quality = 'maxres')
     {
-        // YouTube pattern
-        $youtube_pattern = '/(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/';
+        // YouTube pattern — handles watch, youtu.be, shorts, embed, live
+        $youtube_pattern = '/(?:youtube\.com\/(?:watch\?v=|shorts\/|embed\/|live\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/';
         preg_match($youtube_pattern, $url, $youtube_matches);
-
         if (!empty($youtube_matches[1])) {
             $video_id = $youtube_matches[1];
             $qualities = [
                 'maxres' => 'maxresdefault.jpg',
-                'hq' => 'hqdefault.jpg',
+                'hq'     => 'hqdefault.jpg',
                 'medium' => 'mqdefault.jpg',
-                'sd' => 'sddefault.jpg'
+                'sd'     => 'sddefault.jpg'
             ];
             $thumb = isset($qualities[$quality]) ? $qualities[$quality] : 'hqdefault.jpg';
+
+            if ($quality === 'maxres') {
+                $maxres_url = "https://img.youtube.com/vi/{$video_id}/maxresdefault.jpg";
+                $response   = wp_remote_head($maxres_url);
+                if (is_wp_error($response) || wp_remote_retrieve_response_code($response) !== 200) {
+                    return "https://img.youtube.com/vi/{$video_id}/hqdefault.jpg";
+                }
+                return $maxres_url;
+            }
+
             return "https://img.youtube.com/vi/{$video_id}/{$thumb}";
         }
 
         // Vimeo pattern
         $vimeo_pattern = '/vimeo\.com\/(?:video\/)?(\d+)/';
         preg_match($vimeo_pattern, $url, $vimeo_matches);
-
         if (!empty($vimeo_matches[1])) {
             $video_id = $vimeo_matches[1];
             $response = wp_remote_get("https://vimeo.com/api/v2/video/{$video_id}.json");
-
             if (!is_wp_error($response) && $response['response']['code'] === 200) {
                 $data = json_decode(wp_remote_retrieve_body($response), true);
                 if (!empty($data[0]['thumbnail_large'])) {
