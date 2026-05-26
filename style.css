@@ -2709,7 +2709,7 @@ div.error {
 }
 
 .page-title-wrap.empty-page-title-wrap {
-  min-height: 300px;
+  min-height: 225px;
   padding: 0;
   margin: 0;
 }

@@ -60,10 +60,18 @@ if (! function_exists('zenvy_content_before_page_header')) :
 			'zenvy_blog_page_header_elements',
 			['post-title']
 		);
+
 		if (is_single()) {
 			$elements = get_theme_mod(
 				'zenvy_single_post_header_elements',
 			);
+			// Is Product Page (WooCommerce)
+			if (function_exists('is_product') && is_product()) {
+				$elements = get_theme_mod(
+					'zenvy_product_page_header_elements',
+					['post-title']
+				);
+			}
 		}
 
 		// Is Single Page
@@ -81,7 +89,7 @@ if (! function_exists('zenvy_content_before_page_header')) :
 			);
 		}
 
-		$page_class = ['page-title-wrap'];
+		$page_class = ['page-title-wrap rabindra'];
 		if (empty($elements)) {
 			$page_class[] = 'empty-page-title-wrap';
 		}
@@ -803,7 +811,7 @@ if (! function_exists('zenvy_content_before_wrapper_start')) :
 					<div class="back-to-top">
 						<a href="#masthead" title="<?php esc_attr_e('Go to Top', 'zenvy'); ?>"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
 					</div><!-- .back-to-top -->
-				<?php
+		<?php
 				endif;
 			}
 

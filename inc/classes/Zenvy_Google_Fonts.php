@@ -1,5 +1,6 @@
 <?php
-class Zenvy_Google_Fonts {
+class Zenvy_Google_Fonts
+{
 
 	/**
 	 * Main Instance
@@ -12,13 +13,14 @@ class Zenvy_Google_Fonts {
 	 *
 	 * @return object
 	 */
-	public static function instance() {
+	public static function instance()
+	{
 
 		// Store the instance locally to avoid private static replication
 		static $instance = null;
 
 		// Only run these methods if they haven't been ran previously
-		if ( null === $instance ) {
+		if (null === $instance) {
 			$instance = new self();
 		}
 
@@ -34,9 +36,10 @@ class Zenvy_Google_Fonts {
 	 *
 	 * @return void
 	 */
-	public function run() {
+	public function run()
+	{
 
-		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_google_fonts' ], 1 );
+		add_action('wp_enqueue_scripts', [$this, 'enqueue_google_fonts'], 1);
 	}
 
 	/**
@@ -44,7 +47,8 @@ class Zenvy_Google_Fonts {
 	 *
 	 * @return array $webfonts
 	 */
-	protected static function standard_webfonts() {
+	protected static function standard_webfonts()
+	{
 
 		// Declare default font lists
 		$lists = [
@@ -83,29 +87,29 @@ class Zenvy_Google_Fonts {
 		// Build default webfonts
 		$webfonts = [];
 
-		foreach ( $lists as $item ) {
+		foreach ($lists as $item) {
 
 			// font name
-			$name = str_replace( ' ', '+', $item['family'] );
+			$name = str_replace(' ', '+', $item['family']);
 
 			// font url
-			$url = "https://fonts.googleapis.com/css?family={$name}:" . implode( ',', $item['variants'] );
-			if ( isset( $item['subsets'] ) ) {
-				$url .= '&subset=' . join( ',', $item['subsets'] );
+			$url = "https://fonts.googleapis.com/css?family={$name}:" . implode(',', $item['variants']);
+			if (isset($item['subsets'])) {
+				$url .= '&subset=' . join(',', $item['subsets']);
 			}
 
 			// Create a font array containing it's properties and add it to the $webfonts array
 			$attr = [
 				'name'          => $item['family'],
-				'font_type'     => esc_html__( 'Standard Fonts', 'zenvy' ),
+				'font_type'     => esc_html__('Standard Fonts', 'zenvy'),
 				'font_variants' => $item['variants'],
 				'subsets'       => $item['subsets'],
 				'url'           => $url,
 			];
 
 			// Add this font to the fonts array
-			$id              = strtolower( str_replace( ' ', '_', $item['family'] ) );
-			$webfonts[ $id ] = $attr;
+			$id              = strtolower(str_replace(' ', '_', $item['family']));
+			$webfonts[$id] = $attr;
 		}
 
 		return $webfonts;
@@ -116,7 +120,8 @@ class Zenvy_Google_Fonts {
 	 *
 	 * @return array $webfonts
 	 */
-	protected static function google_webfonts() {
+	protected static function google_webfonts()
+	{
 		// Declare default font lists
 		$lists = [
 			[
@@ -397,30 +402,30 @@ class Zenvy_Google_Fonts {
 		// Google Fonts webfonts
 		$webfonts = [];
 
-		foreach ( $lists as $item ) {
+		foreach ($lists as $item) {
 
 			// font name
-			$name = str_replace( ' ', '+', $item['family'] );
+			$name = str_replace(' ', '+', $item['family']);
 
 			// font url
-			$url = "https://fonts.googleapis.com/css?family={$name}:" . implode( ',', $item['variants'] );
-			if ( isset( $item['subsets'] ) ) {
-				$url .= '&subset=' . join( ',', $item['subsets'] );
+			$url = "https://fonts.googleapis.com/css?family={$name}:" . implode(',', $item['variants']);
+			if (isset($item['subsets']) && ! empty($item['subsets'])) {
+				$url .= '&subset=' . join(',', $item['subsets']);
 			}
 
 			// Create a font array containing it's properties and add it to the $webfonts array
 			$attr = [
 				'name'          => $item['family'],
 				'category'      => $item['category'],
-				'font_type'     => esc_html__( 'Google Fonts', 'zenvy' ),
+				'font_type'     => esc_html__('Google Fonts', 'zenvy'),
 				'font_variants' => $item['variants'],
 				'subsets'       => $item['subsets'],
 				'url'           => $url,
 			];
 
 			// Add this font to the fonts array
-			$id              = strtolower( str_replace( ' ', '_', $item['family'] ) );
-			$webfonts[ $id ] = $attr;
+			$id              = strtolower(str_replace(' ', '_', $item['family']));
+			$webfonts[$id] = $attr;
 		}
 
 		return $webfonts;
@@ -436,12 +441,13 @@ class Zenvy_Google_Fonts {
 	 * @access public
 	 * @return array All fonts with their properties
 	 */
-	public static function get_fonts() {
+	public static function get_fonts()
+	{
 
 		$standard = self::standard_webfonts();
 		$google   = self::google_webfonts();
 
-		return array_merge( $standard, $google );
+		return array_merge($standard, $google);
 	}
 
 	/**
@@ -451,7 +457,8 @@ class Zenvy_Google_Fonts {
 	 * @access public
 	 * @return array
 	 */
-	public static function add_google_fonts() {
+	public static function add_google_fonts()
+	{
 
 		$added_fonts      = [];
 		$added_fonts_pass = [];
@@ -466,7 +473,7 @@ class Zenvy_Google_Fonts {
 			'zenvy_base_typography',
 			''
 		);
-		if ( $base && array_key_exists( 'font_family', $base ) ) {
+		if ($base && array_key_exists('font_family', $base)) {
 			$added_fonts[] = $base;
 		}
 
@@ -475,7 +482,7 @@ class Zenvy_Google_Fonts {
 			'zenvy_heading_typography',
 			''
 		);
-		if ( $heading && array_key_exists( 'font_family', $heading ) ) {
+		if ($heading && array_key_exists('font_family', $heading)) {
 			$added_fonts[] = $heading;
 		}
 
@@ -484,14 +491,14 @@ class Zenvy_Google_Fonts {
 			'zenvy_header_contact_info_title_typo',
 			''
 		);
-		if ( $header_contact_info_title && array_key_exists( 'font_family', $header_contact_info_title ) ) {
+		if ($header_contact_info_title && array_key_exists('font_family', $header_contact_info_title)) {
 			$added_fonts[] = $header_contact_info_title;
 		}
 		$header_contact_info_subtitle = get_theme_mod(
 			'zenvy_header_contact_info_subtitle_typo',
 			''
 		);
-		if ( $header_contact_info_subtitle && array_key_exists( 'font_family', $header_contact_info_subtitle ) ) {
+		if ($header_contact_info_subtitle && array_key_exists('font_family', $header_contact_info_subtitle)) {
 			$added_fonts[] = $header_contact_info_subtitle;
 		}
 		// Site Identity ->  Site Title
@@ -499,7 +506,7 @@ class Zenvy_Google_Fonts {
 			'zenvy_header_site_title_typo',
 			''
 		);
-		if ( $site_title && array_key_exists( 'font_family', $site_title ) ) {
+		if ($site_title && array_key_exists('font_family', $site_title)) {
 			$added_fonts[] = $site_title;
 		}
 		// Site Identify => Tagline
@@ -507,41 +514,41 @@ class Zenvy_Google_Fonts {
 			'zenvy_header_site_tagline_typo',
 			''
 		);
-		if ( $site_tagline && array_key_exists( 'font_family', $site_tagline ) ) {
+		if ($site_tagline && array_key_exists('font_family', $site_tagline)) {
 			$added_fonts[] = $site_tagline;
 		}
-		$added_fonts = apply_filters( 'zenvy_added_fonts', $added_fonts );
+		$added_fonts = apply_filters('zenvy_added_fonts', $added_fonts);
 
-		if ( ! empty( $added_fonts ) ) {
+		if (! empty($added_fonts)) {
 			$weights = [];
 
-			foreach ( $added_fonts as $added_font ) {
+			foreach ($added_fonts as $added_font) {
 
 				// Check if font_family exist in $selected_font
-				if ( empty( $added_font['font_family'] ) ) {
+				if (empty($added_font['font_family'])) {
 					continue;
 				}
 
-				$font_key = esc_html( strtolower( str_replace( ' ', '_', $added_font['font_family'] ) ) );
+				$font_key = esc_html(strtolower(str_replace(' ', '_', $added_font['font_family'])));
 				// Check for the Google Fonts arrays.
-				if ( array_key_exists( $font_key, $all_fonts ) ) {
-					$added_fonts_pass[ $font_key ]['font'] = esc_html( $added_font['font_family'] );
+				if (array_key_exists($font_key, $all_fonts)) {
+					$added_fonts_pass[$font_key]['font'] = esc_html($added_font['font_family']);
 				}
 
 				// font weight
-				if ( array_key_exists( 'weight', $added_font ) ) {
-					if ( ! in_array( $added_font['weight'], $weights, true ) ) {
-						array_push( $weights, $added_font['weight'] );
+				if (array_key_exists('weight', $added_font)) {
+					if (! in_array($added_font['weight'], $weights, true)) {
+						array_push($weights, $added_font['weight']);
 					}
-					$added_fonts_pass[ $font_key ]['weight'] = $weights;
-					asort( $added_fonts_pass[ $font_key ]['weight'] );
+					$added_fonts_pass[$font_key]['weight'] = $weights;
+					asort($added_fonts_pass[$font_key]['weight']);
 				}
 				// font style
-				if ( ! array_key_exists( 'style', $added_font ) ) {
+				if (! array_key_exists('style', $added_font)) {
 					continue;
 				}
 
-				$added_fonts_pass[ $font_key ]['style'] = esc_html( $added_font['style'] );
+				$added_fonts_pass[$font_key]['style'] = esc_html($added_font['style']);
 			}
 		}
 
@@ -551,53 +558,55 @@ class Zenvy_Google_Fonts {
 	/**
 	 * Enqueue fonts.
 	 */
-	public function google_font_url() {
+	public function google_font_url()
+	{
 
 		$selected_fonts = self::add_google_fonts();
 		$font_families  = [];
 
-		if ( empty( $selected_fonts ) ) {
+		if (empty($selected_fonts)) {
 			return;
 		}
 
-		foreach ( $selected_fonts as $selected_font ) {
+		foreach ($selected_fonts as $selected_font) {
 			$font_str = '';
 			// font family, font style and font weight
-			if ( empty( $selected_font['font'] ) ) {
+			if (empty($selected_font['font'])) {
 				continue;
 			}
 
-			if ( ! empty( $selected_font['weight'] ) || ! empty( $selected_font['style'] ) ) {
-				$font_str .= ! empty( $selected_font['style'] ) ? ':ital,wght@' : ':wght@';
-				if ( ! empty( $selected_font['weight'] ) ) {
+			if (! empty($selected_font['weight']) || ! empty($selected_font['style'])) {
+				$font_str .= ! empty($selected_font['style']) ? ':ital,wght@' : ':wght@';
+				if (! empty($selected_font['weight'])) {
 					$i = 0;
-					foreach ( $selected_font['weight'] as $val ) {
-						$font_str .= ! empty( $selected_font['style'] )
-									? $i . ',' . esc_html( $val )
-									: esc_html( $val );
-						if ( $val !== end( $selected_font['weight'] ) ) {
+					foreach ($selected_font['weight'] as $val) {
+						$font_str .= ! empty($selected_font['style'])
+							? $i . ',' . esc_html($val)
+							: esc_html($val);
+						if ($val !== end($selected_font['weight'])) {
 							$font_str .= ';';
 						}
 						++$i;
 					}
 				}
 			}
-			$font_families[] = trim( $selected_font['font'] ) . $font_str;
+			$font_families[] = trim($selected_font['font']) . $font_str;
 		}
 
 		$fonts_url = add_query_arg(
 			[
-				'family'  => implode( '&family=', $font_families ),
+				'family'  => implode('&family=', $font_families),
 				'display' => 'swap',
 			],
 			'https://fonts.googleapis.com/css2'
 		);
 
-		return esc_url_raw( $fonts_url );
+		return esc_url_raw($fonts_url);
 	}
 
-	public function enqueue_google_fonts() {
-		if ( ! zenvy_google_fonts()->google_font_url() ) {
+	public function enqueue_google_fonts()
+	{
+		if (! zenvy_google_fonts()->google_font_url()) {
 			return;
 		}
 
@@ -605,16 +614,17 @@ class Zenvy_Google_Fonts {
 
 		wp_enqueue_style(
 			'zenvy-google-fonts',
-			wptt_get_webfont_url( $this->google_font_url() ),
+			wptt_get_webfont_url($this->google_font_url()),
 			[],
 			ZENVY_THEME_VERSION
 		);
 	}
 }
 
-if ( ! function_exists( 'zenvy_google_fonts' ) ) {
+if (! function_exists('zenvy_google_fonts')) {
 
-	function zenvy_google_fonts() {
+	function zenvy_google_fonts()
+	{
 
 		return Zenvy_Google_Fonts::instance();
 	}
