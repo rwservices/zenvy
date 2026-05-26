@@ -696,7 +696,11 @@ article {
 .wc-block-checkout__form .wc-block-components-checkout-return-to-cart-button,
 .comment-reply-link,
 .woocommerce .woocommerce-form-login .woocommerce-form-login__submit,
-.woocommerce #respond .form-submit input#submit {
+.woocommerce #respond .form-submit input#submit,
+.mc4wp-form input[type="submit"],
+.widget_search .search-form input[type="submit"],
+.sbi_load .sbi_load_btn,
+.sbi_load .sbi_follow_btn {
 	transition: all 0.4s ease 0s;
 	-moz-transition: all 0.4s ease 0s;
 	-ms-transition: all 0.4s ease 0s;
@@ -723,7 +727,11 @@ article {
 .wc-block-checkout__form .wc-block-components-checkout-return-to-cart-button:hover,
 .comment-reply-link:hover,
 .woocommerce .woocommerce-form-login .woocommerce-form-login__submit:hover,
-.woocommerce #respond .form-submit input#submit:hover {
+.woocommerce #respond .form-submit input#submit:hover,
+.mc4wp-form input[type="submit"]:hover,
+.widget_search .search-form input[type="submit"]:hover,
+.sbi_load .sbi_load_btn:hover,
+.sbi_load .sbi_follow_btn:hover {
 	color: var(--color-white);
 	transition: all 0.4s ease 0s;
 	-moz-transition: all 0.4s ease 0s;
@@ -1146,7 +1154,8 @@ iframe {
 	content: "\f09a";
 }
 
-.social-links ul li a[href*="twitter.com"]::before {
+.social-links ul li a[href*="twitter.com"]::before,
+.social-links ul li a[href*="x.com"]::before {
 	content: "\f099";
 }
 
@@ -2576,6 +2585,7 @@ iframe {
 
 .wp-block-search__inside-wrapper input[type="search"] {
 	margin-bottom: 0;
+	height: inherit;
 }
 
 .wp-block-search__inside-wrapper {
@@ -4306,7 +4316,7 @@ ul.products {
 	padding-right: 20px;
 	text-align: center;
 }
-
+/*
 .mc4wp-form input[type="submit"],
 .widget_search .search-form input[type="submit"] {
 	background: var(--color-gray-600) url("assets/build/images/read-more-icon.png")
@@ -4336,7 +4346,7 @@ ul.products {
 .widget_search .search-form input[type="submit"]:hover {
 	color: var(--color-secondary);
 	background-position: 90% top;
-}
+}*/
 
 .mc4wp-form-wrapper:hover .mc4wp-form input[type="submit"] {
 	transition: all 0.4s ease 0s;
@@ -4696,6 +4706,24 @@ content-post-tags {
 #primary .widget li .remove.remove_from_cart_button {
   position: absolute;
 }
+.explore-section .heading .entry-title {
+  background: var(--color-white);
+  display: inline-block;
+  padding: 5px;
+}
+.widget_follow_me {
+  text-align: center;
+}
+.mc4wp-form p label {
+  line-height: 1.2;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-heading);
+}
+.mc4wp-form p label input[type="email"] {
+  margin-top: 10px;
+}
+
 
 /*  10.0 ===== Footer =====   */
 
