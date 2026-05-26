@@ -34,9 +34,7 @@ class Zenvy_Customize_Global_Page_Header_Fields extends Zenvy_Customize_Base_Fie
 			// Background Overlay
 			'zenvy_page_header_background_overlay' => [
 				'type'              => 'background',
-				'default'           => ['colors' => [
-					'color_1' 		=> 'var(--color-bg-light)',
-				]],
+				'default'           => '',
 				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_background' ],
 				'label'             => esc_html__( 'Background Overlay', 'zenvy' ),
 				'description'       => esc_html__( 'Set Background overlay color on page header container.', 'zenvy' ),

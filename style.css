@@ -1955,11 +1955,11 @@ iframe {
 
 /*  9.0 ===== Content =====   */
 .content-area.no-has-page-header {
-	margin-top: -200px;
-}
-.content-area.no-thumbnail-has-page-header {
 	margin-top: -120px;
 }
+/* .content-area.no-thumbnail-has-page-header {
+	margin-top: -120px;
+} */
 .site-content {
 	padding: 50px 0;
 }
@@ -2705,11 +2705,11 @@ div.error {
 	top: 0;
 	width: 100%;
 	left: 0;
-	/*background-color: var(--color-bg-light);*/
+	background-color: var(--color-bg-light);
 }
 
 .page-title-wrap.empty-page-title-wrap {
-  /*min-height: 300px;*/
+  min-height: 300px;
   padding: 0;
 }
 
@@ -4349,6 +4349,12 @@ ul.products {
 }
 
 /* single post wrapper styling from here */
+.single-post-wrapper .site-main .post {
+	display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 /* .single-post-wrapper {
 	margin-top: -330px;
 }

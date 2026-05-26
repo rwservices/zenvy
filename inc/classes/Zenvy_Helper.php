@@ -249,7 +249,7 @@ class Zenvy_Helper
             $the_post = get_post($post_id);
             setup_postdata($the_post);
             ob_start();
-            ?>
+?>
             <ul class="post-meta d-flex flex-wrap">
 
                 <?php
@@ -267,7 +267,7 @@ class Zenvy_Helper
                 <?php foreach ($post_meta as $meta): ?>
 
                     <?php if (post_type_supports(get_post_type($post_id), 'author') && in_array('author', $post_meta, true) && $meta == 'author'): $has_meta = true; // author 
-                                            ?>
+                    ?>
                         <li class="post-author meta-wrapper d-flex">
                             <?php
                             $author_url = esc_url(get_author_posts_url(get_the_author_meta('ID')));
@@ -287,9 +287,9 @@ class Zenvy_Helper
                         </li>
 
                     <?php elseif (in_array('post-date', $post_meta, true) && $meta == 'post-date'): $has_meta = true;
-                                            $date_format = get_option('date_format');
-                                            $published_date = esc_html(get_the_date($date_format)); // post date 
-                                            ?>
+                        $date_format = get_option('date_format');
+                        $published_date = esc_html(get_the_date($date_format)); // post date 
+                    ?>
                         <li class="post-date meta-wrapper d-flex">
                             <span class="meta-text">
                                 <a href="<?php the_permalink(); ?>"><?php the_time(get_option('date_format')); ?></a>
@@ -297,14 +297,14 @@ class Zenvy_Helper
                         </li>
 
                     <?php elseif (in_array('categories', $post_meta, true) && $meta == 'categories' && has_category()): $has_meta = true; // Categories 
-                                            ?>
+                    ?>
                         <li class="post-categories meta-wrapper d-flex">
                             <span class="meta-text">
                                 <?php the_category(', '); ?>
                             </span>
                         </li>
-                        <?php
-                                        elseif (in_array('tags', $post_meta, true) && $meta == 'tags' && has_tag()): $has_meta = true; ?>
+                    <?php
+                    elseif (in_array('tags', $post_meta, true) && $meta == 'tags' && has_tag()): $has_meta = true; ?>
                         <li class="post-tags meta-wrapper d-flex">
                             <span class="meta-text">
                                 <?php the_tags('', ', ', ''); ?>
@@ -312,8 +312,8 @@ class Zenvy_Helper
                         </li>
 
                     <?php elseif (in_array('comments', $post_meta, true) && !post_password_required() && (comments_open() || get_comments_number()) && $meta == 'comments'):
-                                            $has_meta = true; // Comments 
-                                            ?>
+                        $has_meta = true; // Comments 
+                    ?>
                         <li class="post-comment-link meta-wrapper d-flex">
                             <span class="meta-text">
                                 <?php comments_popup_link(); ?>
@@ -325,7 +325,7 @@ class Zenvy_Helper
                 <?php endforeach; ?>
 
             </ul><!-- .post-meta -->
-            <?php
+        <?php
 
         }
     }
@@ -352,7 +352,6 @@ class Zenvy_Helper
             $sidebar = get_theme_mod('zenvy_blog_sidebar_layout', 'right');
         }
         return $sidebar;
-
     }
 
     /**
@@ -394,7 +393,7 @@ class Zenvy_Helper
                 $pagination_classes = ' only-one only-next';
             }
 
-            ?>
+        ?>
 
             <nav class="navigation post-navigation section-inner<?php echo esc_attr($pagination_classes); ?>"
                 aria-label="<?php esc_attr_e('Post', 'zenvy'); ?>" role="navigation">
@@ -405,7 +404,7 @@ class Zenvy_Helper
 
                     <?php
                     if ($prev_post) {
-                        ?>
+                    ?>
                         <div class="nav-previous text-left">
                             <span class="screen-reader-text"><?php esc_html_e('Previous Post', 'zenvy'); ?></span>
                             <a class="previous-post" href="<?php echo esc_url(get_permalink($prev_post->ID)); ?>">
@@ -414,11 +413,11 @@ class Zenvy_Helper
                                 </div><!-- .nav-content-wrap -->
                             </a>
                         </div><!-- .nav-previous -->
-                        <?php
+                    <?php
                     }
 
                     if ($next_post) {
-                        ?>
+                    ?>
                         <div class="nav-next text-right">
                             <span class="screen-reader-text"><?php esc_html_e('Next Post', 'zenvy'); ?></span>
                             <a href="<?php echo esc_url(get_permalink($next_post->ID)); ?>" rel="prev">
@@ -427,14 +426,14 @@ class Zenvy_Helper
                                 </div><!-- .nav-content-wrap -->
                             </a>
                         </div><!-- .nav-next -->
-                        <?php
+                    <?php
                     }
                     ?>
 
                 </div><!-- .pagination-single-inner -->
             </nav><!-- .pagination-single -->
 
-            <?php
+        <?php
         }
     }
 
@@ -526,18 +525,18 @@ class Zenvy_Helper
 
                                 switch ($content):
                                     case 'name':
-                                        ?>
+                            ?>
                                         <h3 class="author-name"><a href="<?php echo esc_url($author_url); ?>" class="author-name"
                                                 rel="<?php esc_attr_e('Author', 'zenvy'); ?>"><?php echo esc_html($author); ?></a></h3>
-                                        <?php
+                                    <?php
                                         break;
 
                                     case 'info':
-                                        ?>
+                                    ?>
                                         <div class="author-desc">
                                             <?php echo wp_kses_post(wpautop($author_description)); ?>
                                         </div>
-                                        <?php
+                            <?php
                                         break;
                                 endswitch;
                             endforeach; ?>
@@ -585,7 +584,7 @@ class Zenvy_Helper
                 'tablet' => '2',
                 'mobile' => '1'
             ];
-            ?>
+        ?>
 
             <div class="related-post-section">
                 <header class="entry-header heading">
@@ -601,7 +600,7 @@ class Zenvy_Helper
                          * If you want to override this in a child theme, then include a file
                          * called content-___.php (where ___ is the Post Type name) and that will be used instead.
                          */
-                        ?>
+                    ?>
                         <div class="column">
                             <div class="post">
                                 <?php zenvy_post_thumbnail('medium', '4x3'); ?>
@@ -631,7 +630,7 @@ class Zenvy_Helper
 
                 </div>
             </div><!-- .related-post-wrapper -->
-            <?php
+        <?php
         endif;
     }
 
@@ -661,7 +660,7 @@ class Zenvy_Helper
             ?>
 
         </header><!-- .entry-header -->
-        <?php
+    <?php
 
     }
 
@@ -684,7 +683,7 @@ class Zenvy_Helper
             ?>
 
         </div><!-- .entry-content -->
-        <?php
+    <?php
 
     }
 
@@ -729,7 +728,7 @@ class Zenvy_Helper
             </a>
         </div>
 
-        <?php
+<?php
         $output = ob_get_clean();
         echo apply_filters('zenvy_read_more', $output); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
     }
@@ -901,8 +900,8 @@ class Zenvy_Helper
 
             $elements = is_single() ? get_theme_mod('zenvy_single_post_header_elements') : get_theme_mod('zenvy_single_page_header_elements', ['post-title']);
 
-            if (empty($elements)) {
-                $classes[] = has_post_thumbnail() ? 'no-has-page-header' : 'no-thumbnail-has-page-header';
+            if ( !$elements || empty($elements)) {
+                $classes[] = 'no-has-page-header';
             }
         }
 

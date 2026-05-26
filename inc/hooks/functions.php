@@ -63,7 +63,6 @@ if (! function_exists('zenvy_content_before_page_header')) :
 		if (is_single()) {
 			$elements = get_theme_mod(
 				'zenvy_single_post_header_elements',
-				['breadcrumb']
 			);
 		}
 
