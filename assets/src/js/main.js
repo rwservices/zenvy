@@ -1,6 +1,6 @@
 /**
  * File main.js
- * Optimized and improved version
+ * Optimized and fixed version
  */
 
 /**
@@ -8,16 +8,20 @@
  * Helps with accessibility for keyboard only users
  * Learn more: https://git.io/vWdr2
  */
-(function() {
+(function () {
     const isIe = /(trident|msie)/i.test(navigator.userAgent);
 
     if (isIe && document.getElementById && window.addEventListener) {
-        window.addEventListener("hashchange", function() {
-            const id = location.hash.substring(1);
-            
-            if (!/^[A-z0-9_-]+$/.test(id)) return;
-            
-            const element = document.getElementById(id);
+        window.addEventListener("hashchange", function () {
+            let id = location.hash.substring(1),
+                element;
+
+            if (!/^[A-z0-9_-]+$/.test(id)) {
+                return;
+            }
+
+            element = document.getElementById(id);
+
             if (element) {
                 if (!/^(?:a|select|input|button|textarea)$/i.test(element.tagName)) {
                     element.tabIndex = -1;
@@ -28,101 +32,121 @@
     }
 })();
 
-(function($) {
+(function ($) {
     'use strict';
 
-    // Constants
-    const SELECTORS = {
-        menuContainer: '.menu-top-menu-container',
-        navigation: '.main-navigation',
-        header: '.site-header',
-        searchSection: '.header-search-section',
-        searchToggle: '.search-toggle',
-        backToTop: '.back-to-top',
-        primary: '#primary',
-        secondary: '#secondary'
-    };
+    $(document).ready(function () {
 
-    const KEY_CODES = {
-        TAB: 9,
-        ESC: 27
-    };
+        /* Mean Menu */
+        let $mobileMeanMenuPosition = $('#mobile-header .col-has-toggle-menu-element').data('meanmenu');
+        $('.header-toggle-menu-wrap .menu-top-menu-container').meanmenu({
+            meanMenuContainer: '.header-toggle-menu-wrap .main-navigation',
+            meanScreenWidth: "1023",
+            meanRevealPosition: $mobileMeanMenuPosition,
+        });
 
-    const SCROLL_THRESHOLD = 400;
+        if ($(window).width() < 1024) {
+            var windowWidth = jQuery(window).width();
+            var nav = ".main-navigation";
+            if (windowWidth > 1023) {
+                jQuery(nav).off('mouseenter', 'li');
+                jQuery(nav).off('mouseleave', 'li');
+                jQuery(nav).off('click', 'li');
+                jQuery(nav).off('click', 'a');
+                jQuery(nav).on('mouseenter', 'li', function () {
+                    jQuery(this).children('ul').stop().hide();
+                    jQuery(this).children('ul').slideDown(400);
+                });
+                jQuery(nav).on('mouseleave', 'li', function () {
+                    jQuery(this).children('ul').stop().slideUp(350);
+                });
+            }
 
-    /**
-     * Initialize Mean Menu
-     */
-    function initMeanMenu() {
-        if ($(SELECTORS.menuContainer).length) {
-            $(SELECTORS.menuContainer).meanmenu({
-                meanMenuContainer: SELECTORS.navigation,
-                meanScreenWidth: "992",
-                meanRevealPosition: "right"
-            });
+            //keyboard navigation for mean menu
+            var myEvents = {
+                click: function (e) {
+                    if (jQuery(this).hasClass('menu-item-has-children') || jQuery(this).hasClass('page_item_has_children')) {
+                        jQuery(this).find('.mean-expand').addClass('mean-clicked');
+                    }
+                    jQuery(this).siblings('li').find('.mean-expand').removeClass('mean-clicked');
+                    jQuery(this).children('.sub-menu').show().end().siblings('li').find('ul').hide();
+                    jQuery(this).children('.children').show().end().siblings('li').find('ul').hide();
+
+                },
+
+                keydown: function (e) {
+                    e.stopPropagation();
+                    if (e.keyCode == 9) {
+                        if (!e.shiftKey &&
+                            (jQuery('.mean-bar li').index(jQuery(this)) == (jQuery('.mean-bar li').length - 1))) {
+                            jQuery('.meanclose').trigger('click');
+                        } else if (jQuery('.mean-bar li').index(jQuery(this)) == 0) {
+                            $('.meanclose').removeClass('onfocus');
+                        }
+                        else if (e.shiftKey && jQuery('.mean-bar li').index(jQuery(this)) === 0)
+                            jQuery('.mean-bar ul:first > li:last').focus().blur();
+                    }
+                },
+
+                keyup: function (e) {
+                    e.stopPropagation();
+                    if (e.keyCode == 9) {
+                        if (myEvents.cancelKeyup) myEvents.cancelKeyup = false;
+                        else myEvents.click.apply(this, arguments);
+                    }
+                }
+            }
+            jQuery(document)
+                .on('click', 'li', myEvents.click)
+                .on('keydown', 'li', myEvents.keydown)
+                .on('keyup', 'li', myEvents.keyup);
+            jQuery('.mean-bar li').each(function (i) { this.tabIndex = i; });
         }
-    }
-
-    /**
-     * Handle search functionality with improved accessibility
-     */
-    function initSearch() {
-        const $searchSection = $(SELECTORS.searchSection);
-        
-        function toggleSearch() {
+        // Search functionality
+        function Search() {
+            const $searchSection = $(".site-header .header-search-section");
             $searchSection.toggleClass("active");
-            
+
             if ($searchSection.hasClass("active")) {
-                setTimeout(() => {
+                setTimeout(function () {
                     $('.header-search-section form input[type="search"]').focus();
                 }, 500);
-                setupKeyboardNavigation();
-            } else {
-                $searchSection.off("keydown");
             }
-        }
 
-        function setupKeyboardNavigation() {
             const focusableEls = $('.header-search-section input[type="submit"]:not([disabled]), .header-search-section input:not([disabled])');
             const firstFocusableEl = focusableEls[0];
             const lastFocusableEl = focusableEls[focusableEls.length - 1];
-            
-            if (!focusableEls.length) return;
+            const KEYCODE_TAB = 9;
 
-            $searchSection.off("keydown").on("keydown", function(e) {
-                if (e.key === "Tab" || e.keyCode === KEY_CODES.TAB) {
+            $(".header-search-section").off("keydown").on("keydown", function (e) {
+                if (e.key === "Tab" || e.keyCode === KEYCODE_TAB) {
                     if (e.shiftKey && document.activeElement === lastFocusableEl) {
                         e.preventDefault();
                         $('.header-search-section form input[type="search"]').focus();
                     } else if (document.activeElement === lastFocusableEl) {
-                        $searchSection.removeClass("active");
+                        $(".header-search-section").removeClass("active");
                     }
                 }
             });
         }
 
-        // Search toggle handler
-        $(SELECTORS.searchToggle).on("click", function(e) {
+        // Search toggle handlers
+        $(".site-header .search-toggle").on("click", function (e) {
             e.preventDefault();
-            toggleSearch();
+            Search();
         });
-    }
 
-    /**
-     * Handle global search close events
-     */
-    function initGlobalSearchHandlers() {
-        // Close with ESC key
-        $(document).on("keyup", function(e) {
-            if (e.keyCode === KEY_CODES.ESC && $(SELECTORS.searchSection).hasClass("active")) {
-                $(SELECTORS.searchSection).removeClass("active");
+        // Close search with ESC key
+        $(document).on("keyup", function (e) {
+            if (e.keyCode === 27 && $(".header-search-section").hasClass("active")) {
+                $(".header-search-section").removeClass("active");
             }
         });
 
-        // Close when clicking outside
-        $("body").on("click", function(evt) {
-            const $target = $(evt.target);
-            if (!$target.closest(".search-section").length && !$target.hasClass("search-toggle")) {
+        // Close search when clicking outside
+        $("body").on("click", function (evt) {
+            if (!$(evt.target).closest(".search-section").length &&
+                !$(evt.target).hasClass("search-toggle")) {
                 if ($(".search-toggle").hasClass("search-active")) {
                     $(".search-toggle").removeClass("search-active");
                     $(".search-box").slideUp("slow");
@@ -130,87 +154,73 @@
             }
         });
 
-        // Original search toggle (legacy support)
-        $(".search-toggle").on("click", function(e) {
+        $(".search-toggle").on("click", function (e) {
             e.preventDefault();
             $(".search-box").slideToggle("slow");
             $(this).toggleClass("search-active");
         });
-    }
 
-    /**
-     * Initialize back to top button
-     */
-    function initBackToTop() {
-        const $backToTop = $(SELECTORS.backToTop);
-        
-        if (!$backToTop.length) return;
-        
+        // Back-to-top button
+        const $backToTop = $(".back-to-top");
         $backToTop.hide();
 
-        $backToTop.on("click", function(e) {
+        $backToTop.on("click", function (e) {
             e.preventDefault();
             $("html, body").animate({ scrollTop: 0 }, "slow");
         });
 
-        $(window).on("scroll", function() {
-            const shouldShow = $(window).scrollTop() > SCROLL_THRESHOLD;
-            $backToTop[shouldShow ? 'fadeIn' : 'fadeOut']();
+        $(window).on("scroll", function () {
+            const scrollHeight = 400;
+            if ($(window).scrollTop() > scrollHeight) {
+                $backToTop.fadeIn();
+            } else {
+                $backToTop.fadeOut();
+            }
         });
-    }
 
-    /**
-     * Initialize sticky sidebar
-     */
-    function initStickySidebar() {
-        const hasStickySidebar = typeof ZENVY !== 'undefined' && ZENVY.sticky_sidebar;
-        const hasTheiaPlugin = $.fn.theiaStickySidebar;
-        
-        if (hasStickySidebar && hasTheiaPlugin) {
+        // Sticky Sidebar - check if plugin exists
+        if (typeof ZENVY !== 'undefined' && ZENVY.sticky_sidebar && $.fn.theiaStickySidebar) {
             $(".has-sticky-sidebar .have-sidebar #primary, .has-sticky-sidebar .have-sidebar #secondary")
                 .theiaStickySidebar({
                     additionalMarginTop: 30
                 });
         }
-    }
 
-    /**
-     * Initialize Owl Carousel with error handling
-     */
-    function initOwlCarousel(selector, options) {
-        if ($(selector).length && typeof $.fn.owlCarousel !== 'undefined') {
-            $(selector).owlCarousel(options);
+        // Initialize sliders with error handling
+        function initOwlCarousel(selector, options) {
+            if ($(selector).length && typeof $.fn.owlCarousel !== 'undefined') {
+                $(selector).owlCarousel(options);
+            }
         }
-    }
-
-    /**
-     * Initialize all carousels
-     */
-    function initCarousels() {
-        const commonOptions = {
-            loop: true,
-            smartSpeed: 900,
-            autoplay: true,
-            autoplayTimeout: 5000,
-            autoplayHoverPause: true,
-            animateOut: "fadeOut"
-        };
 
         // Main slider
         initOwlCarousel(".owl-slider-demo", {
-            ...commonOptions,
             items: 1,
+            loop: true,
             nav: true,
             dots: false,
-            transitionStyle: "fade"
+            smartSpeed: 900,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            fallbackEasing: "easing",
+            transitionStyle: "fade",
+            autoplayHoverPause: true,
+            animateOut: "fadeOut"
         });
 
         // Explore slider
         initOwlCarousel(".explore-slider", {
-            ...commonOptions,
             items: 1,
+            loop: true,
             nav: false,
             dots: false,
+            smartSpeed: 900,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            fallbackEasing: "easing",
+            transitionStyle: "fade",
+            autoplayHoverPause: true,
+            animateOut: "fadeOut",
             responsive: {
                 0: { items: 1 },
                 479: { items: 2 },
@@ -218,26 +228,17 @@
                 991: { items: 4 }
             }
         });
-    }
 
-    /**
-     * Initialize map section toggle
-     */
-    function initMapToggle() {
-        $(".map-section .box-button").on("click", function(e) {
+        // Map section toggle
+        $(".map-section .box-button").on("click", function (e) {
             e.preventDefault();
             $(".contact-map-wrap").toggleClass("openmap");
         });
-    }
 
-    /**
-     * Initialize Isotope gallery
-     */
-    function initIsotopeGallery() {
+        // Isotope gallery initialization
         const $galleryContainer = $(".post-gallery .grid");
         const $eventGallery = $(".epost-gallery .grid");
 
-        // Main gallery
         if ($galleryContainer.length && typeof $.fn.isotope !== 'undefined') {
             $galleryContainer.isotope({
                 itemSelector: ".event-gallery-image-wrap",
@@ -246,50 +247,34 @@
             });
         }
 
-        // Event gallery with imagesLoaded
         if ($eventGallery.length && typeof $.fn.imagesLoaded !== 'undefined' && typeof $.fn.isotope !== 'undefined') {
-            $eventGallery.imagesLoaded().progress(() => {
+            $eventGallery.imagesLoaded().progress(function () {
                 $eventGallery.isotope("layout");
             });
         }
-    }
 
-    /**
-     * Initialize theme color mode
-     */
-    function initThemeMode() {
-        const toggle = document.getElementById("theme-toggle");
-        if (!toggle) return;
+        // Theme Color Mode
+        let toggle = document.getElementById("theme-toggle");
+        if (toggle) {
 
-        // Get stored theme or system preference
-        const storedTheme = localStorage.getItem('theme');
-        const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        const initialTheme = storedTheme || (systemPrefersDark ? "dark" : "light");
-        
-        document.documentElement.setAttribute('data-theme', initialTheme);
+            let storedTheme = localStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+            if (storedTheme)
+                document.documentElement.setAttribute('data-theme', storedTheme)
 
-        toggle.onclick = () => {
-            const currentTheme = document.documentElement.getAttribute("data-theme");
-            const targetTheme = currentTheme === "light" ? "dark" : "light";
-            
-            document.documentElement.setAttribute('data-theme', targetTheme);
-            localStorage.setItem('theme', targetTheme);
-        };
-    }
 
-    /**
-     * Initialize all modules when document is ready
-     */
-    $(document).ready(function() {
-        initMeanMenu();
-        initSearch();
-        initGlobalSearchHandlers();
-        initBackToTop();
-        initStickySidebar();
-        initCarousels();
-        initMapToggle();
-        initIsotopeGallery();
-        initThemeMode();
+            toggle.onclick = function () {
+                let currentTheme = document.documentElement.getAttribute("data-theme");
+                let targetTheme = "light";
+
+                if (currentTheme === "light") {
+                    targetTheme = "dark";
+                }
+
+                document.documentElement.setAttribute('data-theme', targetTheme)
+                localStorage.setItem('theme', targetTheme);
+            };
+        }
+
     });
 
 })(jQuery);

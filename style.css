@@ -4725,6 +4725,10 @@ content-post-tags {
 .mc4wp-form p label input[type="email"] {
   margin-top: 10px;
 }
+.site-header .header-search-section {
+    position: relative;
+    z-index: 3;
+}
 
 
 /*  10.0 ===== Footer =====   */
