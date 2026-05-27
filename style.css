@@ -699,8 +699,8 @@ article {
 .woocommerce #respond .form-submit input#submit,
 .mc4wp-form input[type="submit"],
 .widget_search .search-form input[type="submit"],
-.sbi_load .sbi_load_btn,
-.sbi_load .sbi_follow_btn {
+#sb_instagram #sbi_load .sbi_load_btn, 
+#sb_instagram .sbi_follow_btn a {
 	transition: all 0.4s ease 0s;
 	-moz-transition: all 0.4s ease 0s;
 	-ms-transition: all 0.4s ease 0s;
@@ -730,8 +730,8 @@ article {
 .woocommerce #respond .form-submit input#submit:hover,
 .mc4wp-form input[type="submit"]:hover,
 .widget_search .search-form input[type="submit"]:hover,
-.sbi_load .sbi_load_btn:hover,
-.sbi_load .sbi_follow_btn:hover {
+#sb_instagram #sbi_load .sbi_load_btn:hover, 
+#sb_instagram .sbi_follow_btn a:hover {
 	color: var(--color-white);
 	transition: all 0.4s ease 0s;
 	-moz-transition: all 0.4s ease 0s;
@@ -1747,18 +1747,21 @@ iframe {
 
 .menu-item-has-children::before {
 	-moz-transition: all 0.3s ease 0s;
-	-ms-transition: all 0.3s ease 0s;
-	-webkit-transition: all 0.3s ease 0s;
-	transition: all 0.3s ease 0s;
-	color: var(--color-bg-dark);
-	content: "\f107";
-	display: block;
-	font-family: "FontAwesome";
-	font-size: 18px;
-	line-height: 1;
-	position: absolute;
-	right: -19px;
-	top: 3px;
+  -ms-transition: all 0.3s ease 0s;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  color: var(--color-bg-dark);
+  content: "\f107";
+  display: block;
+  font-family: "FontAwesome";
+  font-size: 13px;
+  line-height: 1;
+  position: absolute;
+  right: -14px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: 12px;
 }
 
 .menu-item-has-children:hover:before {
@@ -1769,7 +1772,7 @@ iframe {
 	-webkit-transform: rotate(180deg);
 	-webkit-transition: all 0.3s ease 0s;
 	color: var(--color-bg-dark);
-	top: 7px;
+	top: 2px;
 	transform: rotate(180deg);
 	transition: all 0.3s ease 0s;
 }
@@ -2173,7 +2176,7 @@ iframe {
 	transition: all 0.3s ease 0s;
 }
 
-.widget_tag_cloud a:hover {
+.tagcloud a:hover {
 	color: var(--color-white);
 	opacity: 1;
 	background: var(--color-primary);
@@ -3208,7 +3211,7 @@ div.bbp-submit-wrapper button {
 
 /*   widget tag cloud styling from here   */
 
-.widget_tag_cloud a {
+.tagcloud a {
 	border: 1px solid var(--color-border);
 	color: var(--color-text);
 	display: inline-block;
@@ -3219,7 +3222,7 @@ div.bbp-submit-wrapper button {
 	background: var(--color-bg-light);
 }
 
-#secondary .widget.widget_tag_cloud a:hover {
+#secondary .widget .tagcloud a:hover {
 	color: var(--color-white);
 	background: var(--color-primary);
 	border-color: var(--color-primary);
@@ -3354,7 +3357,6 @@ div.bbp-submit-wrapper button {
 }
 
 .search-toggle {
-	color: var(--color-bg-dark);
 	cursor: pointer;
 	display: inline-block;
 	font-size: 16px;
@@ -3368,7 +3370,7 @@ div.bbp-submit-wrapper button {
 	box-shadow: 0 3px 10px var(--color-box-shadow);
 	padding: 10px;
 	position: absolute;
-	right: 15px;
+	right: 0;
 	top: 54px;
 	visibility: hidden;
 	z-index: 10000; 
@@ -4771,7 +4773,7 @@ content-post-tags {
 }
 
 .site-content .widget-area .widget {
-	margin-bottom: 45px;
+	margin-bottom: 30px;
 }
 
 .widget-title,
@@ -5034,6 +5036,7 @@ content-post-tags {
 /* builder */
 .site-header {
 	position: relative;
+	z-index: 99;
 }
 .site-header .top-header,
 .site-header .main-header,

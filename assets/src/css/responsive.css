@@ -38,7 +38,7 @@
 	.page-title-wrap {
 		padding: 100px 0 20px;
 	}
-	.widget_tag_cloud a {
+	.tagcloud a {
 		font-size: 14px;
 		margin: 3px 5px 5px 0;
 		padding: 9px 20px;
@@ -111,11 +111,11 @@
 	}
 	.mean-container .mean-nav ul li li a {
 		border-color: rgba(255, 255, 255, 0.5);
-		font-size: 14px;
-		padding: 11px 5%;
+		padding: 13px 5%;
+		width: 100%;
 	}
 	.mean-container .mean-nav ul li li li a {
-		padding: 11px 8%;
+		padding: 12px 8%;
 	}
 	.site-title {
 		font-size: 20px;
@@ -281,6 +281,9 @@
  .section-wrap-inner .section-left {
     margin-bottom: 20px;
   }
+  .site-header .mobile-navbar .mean-container .meanmenu-reveal span {
+  background: transparent;
+}
 
 }
 
@@ -448,6 +451,15 @@
   margin-top: 10px;
   margin-bottom: 0;
   font-size: 20px;
+}
+.home .site-content {
+  padding-top: 0;
+}
+.featured-slider .owl-carousel {
+  padding-left: 0;
+}
+.slider-image-wrapper .featured-image {
+  margin-bottom: 0;
 }
 
 
@@ -737,7 +749,7 @@
 	.widget-instagram {
 		margin-bottom: 15px;
 	}
-	.widget_tag_cloud a {
+	.tagcloud a {
 		margin: 3px 3px 3px 0;
 		padding: 7px 13px;
 	}
