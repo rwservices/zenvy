@@ -51,11 +51,6 @@ Copyright (c) 2012-2017 Kevin Brown, Igor Vaynberg, and Select2 contributors
 License: MIT - https://opensource.org/licenses/MIT
 Source: https://select2.org/
 
-Slick
-Copyright (c) Ken Wheeler
-License: MIT - https://opensource.org/licenses/MIT
-Source: https://github.com/kenwheeler/slick/
-
 Isotope
 Copyright (c) 2015 Metafizzy
 License: GPLv3 - https://www.gnu.org/licenses/gpl-3.0.en.html
@@ -80,10 +75,6 @@ TGM Plugin Activation
 Copyright (c) 2011, Thomas Griffin
 License: GNU General Public License v2.0 - https://github.com/TGMPA/TGM-Plugin-Activation/blob/develop/LICENSE.md
 Source: https://github.com/TGMPA/TGM-Plugin-Activation
-
-Customizer Header/Footer Builder reference from CosmosWP
-License: GPLv2 or later - https://www.gnu.org/licenses/gpl-2.0.html
-Source: https://wordpress.org/themes/cosmoswp/
 
 Webfonts Loader
 WordPress Themes Team (WPTT)
@@ -112,15 +103,5 @@ Source:	Self Created
 
 == Changelog ==
 
-= 1.0.0 - September 30 2021 =
+= 1.0.0 - May 27 2026 =
 * Initial release.
-
-= 1.0.1 - October 9 2021 =
-* Fix front page why us content creation.
-* Remove front page counter.
-
-= 1.0.2 - October 21 2021 =
-* Tweak in recommended plugin.
-
-= 1.0.3 - November 28 2022 =
-* New - Load Google Font locally.
