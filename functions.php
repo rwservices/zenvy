@@ -188,19 +188,6 @@ function zenvy_widgets_init()
 		)
 	);
 
-	// Subscribe Form
-	register_sidebar(
-		[
-			'name'          => esc_html__('Front Page: Subscribe Form', 'zenvy'),
-			'id'            => 'subscribe-form',
-			'description'   => esc_html__('Add widgets here.', 'zenvy'),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		]
-	);
-
 	for ($sidebar = 1; $sidebar <= 6; $sidebar++) {
 		register_sidebar(
 			[

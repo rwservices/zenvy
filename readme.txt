@@ -56,6 +56,11 @@ Copyright (c) 2015 Metafizzy
 License: GPLv3 - https://www.gnu.org/licenses/gpl-3.0.en.html
 Source: https://isotope.metafizzy.co
 
+Owl Carousel
+Copyright (c) David Deutsch
+License: MIT License - https://opensource.org/licenses/MIT
+Source: https://github.com/OwlCarousel2/OwlCarousel2
+
 Theia Sticky Sidebar
 Copyright (c) 2014 Liviu Cristian Mirea Ghiban
 License: MIT - https://opensource.org/licenses/MIT
@@ -83,8 +88,20 @@ Source: https://github.com/WPTT/webfont-loader
 
 Images for theme screenshot:
 
-Logo,
 License: CC0 license - https://creativecommons.org/about/cc0
+Source: https://pxhere.com/en/photo/722668
+
+License: CC0 license - https://creativecommons.org/about/cc0
+Source: https://pxhere.com/en/photo/1250151
+
+License: CC0 license - https://creativecommons.org/about/cc0
+Source: https://pxhere.com/en/photo/833883
+
+License: CC0 license - https://creativecommons.org/about/cc0
+Source: https://pxhere.com/en/photo/56456
+
+License: CC0 license - https://creativecommons.org/about/cc0
+Source: https://pxhere.com/en/photo/693726
 
 == Images ==
 
@@ -93,9 +110,22 @@ Source: https://pxhere.com/en/photo/1364746
 
 
 All assets in assets/build/images
-left.svg:
-none.svg:
-right.svg:
+left.png:
+none.png:
+right.png:
+alt-layout.png:
+gallery-icon.png:
+grid-layout.png:
+image-arrow.png:
+left-layout.png:
+list-layout.png:
+mail-icon.png:
+quote-icon.png:
+read-more-icon.png:
+right-layout.png:
+search-icon.png:
+subscribe-icon1.svg:
+xsearch-icon1.svg
 search-icon.png:
 License: Creative Commons Zero (CC0) license - https://creativecommons.org/about/cc0
 Source:	Self Created
