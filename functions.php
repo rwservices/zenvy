@@ -212,10 +212,10 @@ function zenvy_scripts()
 {
 
 	// Font Awesome Style
-	wp_enqueue_style( 'fontawesome', ZENVY_THEME_URI . 'assets/build/library/all.css', [], '6.1.1');
+	wp_enqueue_style( 'fontawesome', ZENVY_THEME_URI . 'assets/build/library/all.min.css', [], '6.1.1');
 
 	// MeanMenu Style
-	wp_enqueue_style('meanmenu', ZENVY_THEME_URI . 'assets/build/library/meanmenu.css', [], '2.0.7');
+	wp_enqueue_style('meanmenu', ZENVY_THEME_URI . 'assets/build/library/meanmenu.min.css', [], '2.0.7');
 
 	// Theme Style
 	wp_enqueue_style('zenvy-style', get_stylesheet_uri(), [], ZENVY_THEME_VERSION);
@@ -234,21 +234,21 @@ function zenvy_scripts()
 	wp_enqueue_style('owl-carousel-theme', ZENVY_THEME_URI . 'assets/build/library/owl.theme.default.css', [], '2.3.4');
 
 	// Enqueue Owl Carousel Js
-	wp_enqueue_script('owl-carousel', ZENVY_THEME_URI . 'assets/build/library/owl.carousel.js', ['jquery'], '2.3.4', true);
+	wp_enqueue_script('owl-carousel', ZENVY_THEME_URI . 'assets/build/library/owl.carousel.min.js', ['jquery'], '2.3.4', true);
 
 	// Enqueue MeanMenu Js
-	wp_enqueue_script('meanmenu', ZENVY_THEME_URI . 'assets/build/library/jquery.meanmenu.js', ['jquery'], '2.0.7', true);
+	wp_enqueue_script('meanmenu', ZENVY_THEME_URI . 'assets/build/library/jquery.meanmenu.min.js', ['jquery'], '2.0.8', true);
 
 	// Enqueue Images Loaded Js
-	wp_enqueue_script('imagesloaded', ZENVY_THEME_URI . 'assets/build/library/imagesloaded.pkgd.js', ['jquery'], '3.2.0', true);
+	wp_enqueue_script('imagesloaded', ZENVY_THEME_URI . 'assets/build/library/imagesloaded.pkgd.min.js', ['jquery'], '4.1.4', true);
 
 	// Enqueue Isotope Js
-	wp_enqueue_script('isotope', ZENVY_THEME_URI . 'assets/build/library/isotope.pkgd.js', ['jquery'], '3.0.6', true);
+	wp_enqueue_script('isotope', ZENVY_THEME_URI . 'assets/build/library/isotope.pkgd.min.js', ['jquery'], '3.0.6', true);
 
 	// Enqueue theia-sticky-sidebar Js
 	$sticky_sidebar = get_theme_mod('zenvy_sidebar_sticky', '');
 	if ($sticky_sidebar) {
-		wp_enqueue_script('theia-sticky-sidebar', ZENVY_THEME_URI . 'assets/build/library/theia-sticky-sidebar.js', ['jquery'], '1.7.0', true);
+		wp_enqueue_script('theia-sticky-sidebar', ZENVY_THEME_URI . 'assets/build/library/theia-sticky-sidebar.min.js', ['jquery'], '1.7.0', true);
 	}
 
 	// Main scripts.

@@ -131,7 +131,22 @@
 		top: 57px;
 		left: 0;
 		z-index: 9;
+		right: 0;
+    top: 57px;
+    left: 0;
+    z-index: 9;
+    background: rgba(0, 0, 0, 0.8) none repeat scroll 0 0;
+    list-style-type: none;
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 0;
+    position: absolute;
+    width: 100%;
 	}
+	.mean-bar {
+  position: static !important;
+}
 	.mean-container a.meanmenu-reveal span,
 	.mean-container .meanmenu-reveal span::before,
 	.mean-container .meanmenu-reveal span::after {
