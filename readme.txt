@@ -105,6 +105,10 @@ Source: https://pxhere.com/en/photo/693726
 
 == Images ==
 
+shop-title-image.jpg:
+License: pxhere provides images under CC0 license - https://creativecommons.org/about/cc0
+Source: https://pxhere.com/en/photo/989242 
+
 License: pxhere provides images under CC0 license - https://creativecommons.org/about/cc0
 Source: https://pxhere.com/en/photo/1364746
 

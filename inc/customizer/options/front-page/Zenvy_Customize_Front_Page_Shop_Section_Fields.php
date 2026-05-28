@@ -64,7 +64,7 @@ class Zenvy_Customize_Front_Page_Shop_Section_Fields extends Zenvy_Customize_Bas
 			'zenvy_front_page_shop_image' => [
 				'type'              => 'image',
 				'section'           => 'zenvy_front_page_shop_section',
-				'default'           => get_template_directory_uri() . '/assets/build/images/shop-title-image.png',
+				'default'           => get_template_directory_uri() . '/assets/build/images/shop-title-image.jpg',
 				'sanitize_callback' => 'esc_url_raw',
 				'priority'          => 25,
 				'label'             => esc_html__( 'Section Image', 'zenvy' ),
