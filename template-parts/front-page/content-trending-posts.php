@@ -26,6 +26,22 @@ $trending = new WP_Query(array(
 ));
 
 $sidebar_class = ($show_trending_posts_sidebar && array_key_exists('desktop', $show_trending_posts_sidebar) && is_active_sidebar('sidebar-trending-posts')) ? 'section-left' : '';
+
+$btn_type = get_theme_mod(
+    'zenvy_button_type',
+    ['desktop' => 'button']
+);
+
+$read_more_class = ['read-more'];
+// Fixed: Check if btn_type is array and has 'desktop' key
+if (is_array($btn_type) && isset($btn_type['desktop']) && $btn_type['desktop'] === 'button') {
+    $read_more_class[] = 'box-button';
+}
+
+// Fixed: Check if btn_type is array and has 'desktop' key
+if (is_array($btn_type) && isset($btn_type['desktop']) && $btn_type['desktop'] === 'text') {
+    $read_more_class[] = 'text-button';
+}
 ?>
 <section class="section-wrap">
     <div class="container">
@@ -118,7 +134,7 @@ $sidebar_class = ($show_trending_posts_sidebar && array_key_exists('desktop', $s
                             ?>
                             <div class="btn-wrapper">
                                 <a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>"
-                                    class="box-button"><?php esc_html_e('View all', 'zenvy') ?></a>
+                                    class="<?php echo esc_attr(implode(' ', $read_more_class)); ?>"><?php esc_html_e('View all', 'zenvy') ?></a>
                             </div>
                         <?php
                         endif;

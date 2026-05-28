@@ -94,6 +94,7 @@
 	}
 	.mean-container .mean-nav ul li a:hover {
 		background: #ca77b4;
+		color: #fff;
 	}
 	.main-navigation ul li ul,
 	.main-navigation ul li:hover ul ul,
@@ -107,13 +108,17 @@
 	.mean-container .mean-nav ul li {
 		margin: 0;
 	}
-	.mean-container .mean-nav ul li li a {
-		border-color: rgba(255, 255, 255, 0.5);
+	.main-navigation.mean-container .mean-nav ul li li a {
+		border-color: rgba(255, 255, 255, 0.5) !important;
 		padding: 13px 5%;
 		width: 100%;
+		opacity: 1;
+    color: #fff;
+    border-top: 1px solid;
 	}
-	.mean-container .mean-nav ul li li li a {
-		padding: 12px 8%;
+	.main-navigation.mean-container .mean-nav ul li li li a {
+		padding: 12px 7%;
+		width: 100%;
 	}
 	.mean-container a.meanmenu-reveal {
 		padding: 9px 0px 8px 5px;
@@ -122,17 +127,21 @@
 		z-index: 999;
 		bottom: 0;
 		margin: auto;
-		height: 35px;
 		-webkit-transform: none;
 		        transform: none;
+		        color: var(--color-bg-dark);
+		        
 	}
+	.main-navigation ul li ul li:hover > a {
+    background: none;
+}
 	.mean-container .mean-nav > ul {
 		right: 0;
 		top: 57px;
 		left: 0;
 		z-index: 9;
 		right: 0;
-    top: 57px;
+    top: 70px;
     left: 0;
     z-index: 9;
     background: rgba(0, 0, 0, 0.8) none repeat scroll 0 0;
@@ -156,21 +165,23 @@
 		display: none;
 	}
 	.main-navigation ul li.menu-item-has-children .mean-expand::before {
-		content: "\f0d7";
-		display: inline-block;
-		font-size: 12px;
-		font-family: FontAwesome;
-		right: 0;
-		position: absolute;
-		color: var(--white);
-		top: 0;
-		bottom: 0;
-		margin: auto;
-		height: 12px;
-		left: 0;
+		display: none;
 	}
+.main-navigation.mean-container .mean-nav ul li a.mean-expand {
+    height: 22px;
+    width: 26px;
+  }
 	.site-header .mobile-navbar .mean-container .meanmenu-reveal.meanclose span {
   background: transparent;
+}
+.mean-container a.meanmenu-reveal span{
+	position: relative;
+}
+.mean-container a.meanmenu-reveal span span {
+  position: absolute;
+  top: 5px;
+  height: 3px;
+  width: 100%;
 }
 
 
@@ -787,7 +798,7 @@
 		margin: 0 5px;
 	}
 	.mean-container .mean-nav > ul {
-		top: 51px;
+		top: 60px;
 	}
 	.widget .recent-post-wrap .featured-image-wrapper,
 	.post.flexible-post .featured-image-wrapper {
