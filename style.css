@@ -749,7 +749,7 @@ article {
 	background: var(--color-link-hover);
 }
 
-.read-more-btn {
+.text-button {
 	color: var(--color-gray-900);
 	text-transform: capitalize;
 	font-size: 22px;
@@ -760,7 +760,7 @@ article {
 	position: relative;
 }
 
-/*.read-more-btn::before {
+.zenvy-btn-arrow .text-button::before {
 	position: absolute;
 	display: block;
 	content: "";
@@ -774,30 +774,12 @@ article {
 	-o-transition: all 0.3s ease 0s;
 	transition: all 0.3s ease 0s;
 }
-.read-more-btn:hover:before {
+.zenvy-btn-arrow .text-button:hover:before {
 	right: -41px;
 	top: -10px;
 	-webkit-transition: all 0.3s ease 0s;
 	-o-transition: all 0.3s ease 0s;
 	transition: all 0.3s ease 0s;
-}*/
-.read-more-btn-image {
-  background: url("assets/build/images/read-more-icon.png");
-  height: 35px;
-  width: 32px;
-  display: block;
-  background-repeat: no-repeat;
-  background-size: 100%;
-  position: absolute;
-  right: -42px;
-  top: -20px;
-  -webkit-transition: all 0.3s ease 0s;
-	-o-transition: all 0.3s ease 0s;
-	transition: all 0.3s ease 0s;
-}
-.read-more-btn:hover .read-more-btn-image {
-  right: -37px;
-  top: -8px;
 }
 
 
@@ -3341,6 +3323,7 @@ div.bbp-submit-wrapper button {
 }
 .site-content .site-main > section.featured-slider {
   padding-bottom: 0;
+  z-index: 0;
 }
 
 /*     search section styling from here   */
@@ -4729,7 +4712,15 @@ content-post-tags {
     position: relative;
     z-index: 3;
 }
-
+.main-navigation ul li li.menu-item-has-children {
+  margin: 0;
+}
+.main-navigation ul li li.menu-item-has-children::before {
+  right: 5px;
+}
+.main-navigation ul li li.menu-item-has-children:hover::before {
+  color: var(--color-white);
+}
 
 /*  10.0 ===== Footer =====   */
 
@@ -5040,7 +5031,6 @@ content-post-tags {
 /* builder */
 .site-header {
 	position: relative;
-	z-index: 99;
 }
 .site-header .top-header,
 .site-header .main-header,

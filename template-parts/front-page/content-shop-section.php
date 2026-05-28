@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Template part for displaying woocommerce shop section on the front page
  * 
@@ -28,9 +29,25 @@ $shop_image = get_theme_mod('zenvy_front_page_shop_image', get_template_director
                             <?php echo esc_html($section_desc); ?>
                         </p>
                     <?php endif; ?>
-                    <?php if ($shop_link): ?>
-                        <a href="<?php echo esc_url($shop_link); ?>" class="read-more-btn">
-                            <span class="read-more-btn-image"></span>
+                    <?php if ($shop_link):
+                        $btn_type = get_theme_mod(
+                            'zenvy_button_type',
+                            ['desktop' => 'button']
+                        );
+
+                        $read_more_class = ['read-more'];
+                        // Fixed: Check if btn_type is array and has 'desktop' key
+                        if (is_array($btn_type) && isset($btn_type['desktop']) && $btn_type['desktop'] === 'button') {
+                            $read_more_class[] = 'box-button';
+                        }
+
+                        // Fixed: Check if btn_type is array and has 'desktop' key
+                        if (is_array($btn_type) && isset($btn_type['desktop']) && $btn_type['desktop'] === 'text') {
+                            $read_more_class[] = 'text-button';
+                        }
+
+                    ?>
+                        <a href="<?php echo esc_url($shop_link); ?>" class="<?php echo esc_attr(implode(' ', $read_more_class)); ?>">
                             <?php echo esc_html($shop_btn_text); ?>
                         </a>
                     <?php endif; ?>
@@ -46,7 +63,7 @@ $shop_image = get_theme_mod('zenvy_front_page_shop_image', get_template_director
 
                     foreach ($products as $product):
                         setup_postdata($product->get_id());
-                        ?>
+                    ?>
                         <div class="element-item">
                             <div class="product-list-wrapper">
                                 <div class="image-icon-wrapper">
@@ -83,7 +100,7 @@ $shop_image = get_theme_mod('zenvy_front_page_shop_image', get_template_director
                                 </div>
                             </div>
                         </div>
-                        <?php
+                    <?php
                     endforeach;
                     wp_reset_postdata();
                     ?>

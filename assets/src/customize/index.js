@@ -127,14 +127,7 @@ const zenvy_inline_css = ( control, inheritColors ) => {
 		[ 'layout-4' ],
 	);
 
-	// About Page: Agents
-	zenvy_active_callback(
-		'zenvy_about_page_agents_type',
-		[
-			'zenvy_about_page_agents_pages',
-		],
-		[ 'new' ],
-	);
+	
 
 	// Header : Custom Header Height
 	zenvy_active_callback(

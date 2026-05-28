@@ -63,7 +63,30 @@ class Zenvy_Customize_Global_Button_Fields extends Zenvy_Customize_Base_Field {
                 'inherits'            => [
                     'color_1'           => 'var(--color-link)',
                 ],
-            ]
+            ],
+            // Type
+			'zenvy_button_type'       => [
+				'type'              => 'buttonset',
+				'default'           => [ 'desktop' => 'button' ],
+				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_buttonset' ],
+				'label'             => esc_html__( 'Display as', 'zenvy' ),
+				'section'           => 'zenvy_button_section',
+				'priority'          => 20,
+				'choices'           => [
+					'text'   => esc_html__( 'Text', 'zenvy' ),
+					'button' => esc_html__( 'Button', 'zenvy' ),
+				],
+			],
+			// Button Arrow
+			'zenvy_button_arrow' => [
+				'type'              => 'toggle',
+				'default'           => ['desktop'=>'true'],
+				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_toggle' ],
+				'label'             => esc_html__( 'Button Arrow', 'zenvy' ),
+				'description'       => esc_html__( 'Info::- Enable Arrow Icon after Text and this works only if button type is text.', 'zenvy' ),
+				'section'           => 'zenvy_button_section',
+				'priority'          => 25,
+			],
         ];
     }
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Template part for displaying YouTube promotion section on the front page
  * 
@@ -22,6 +23,22 @@ $video_title_3 = get_theme_mod('zenvy_video_title_3', 'Video Title 3');
 $video_category_3 = get_theme_mod('zenvy_video_category_3');
 $video_category_3 = get_term_by('slug', $video_category_3, 'category');
 $video_channel_url = get_theme_mod('zenvy_video_channel_url', '#');
+
+$btn_type = get_theme_mod(
+    'zenvy_button_type',
+    ['desktop' => 'button']
+);
+
+$read_more_class = ['read-more'];
+// Fixed: Check if btn_type is array and has 'desktop' key
+if (is_array($btn_type) && isset($btn_type['desktop']) && $btn_type['desktop'] === 'button') {
+    $read_more_class[] = 'box-button';
+}
+
+// Fixed: Check if btn_type is array and has 'desktop' key
+if (is_array($btn_type) && isset($btn_type['desktop']) && $btn_type['desktop'] === 'text') {
+    $read_more_class[] = 'text-button';
+}
 ?>
 <section class="video-post-section">
     <div class="container">
@@ -123,7 +140,7 @@ $video_channel_url = get_theme_mod('zenvy_video_channel_url', '#');
                     </div>
                 </article>
                 <div class="btn-wrapper">
-                    <a href="<?php echo esc_url($video_channel_url); ?>" target="_blank" class="read-more-btn">
+                    <a href="<?php echo esc_url($video_channel_url); ?>" target="_blank" class="<?php echo esc_attr(implode(' ', $read_more_class)); ?>">
                         <span class="read-more-btn-image"></span>
                         <?php esc_html_e('All Videos', 'zenvy'); ?>
                     </a>

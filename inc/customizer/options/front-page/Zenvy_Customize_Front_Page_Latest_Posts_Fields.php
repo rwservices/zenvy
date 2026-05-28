@@ -27,7 +27,6 @@ class Zenvy_Customize_Front_Page_Latest_Posts_Fields extends Zenvy_Customize_Bas
                             'zenvy_front_page_latest_posts_elements',
                             'zenvy_front_page_latest_posts_note_one',
                             'zenvy_latest_posts_read_btn_type',
-                            'zenvy_latest_posts_read_more_btn_arrow',
                             'zenvy_front_page_latest_posts_note_two',
                             'zenvy_front_page_latest_posts_enable_sidebar',
                         ],
@@ -96,25 +95,16 @@ class Zenvy_Customize_Front_Page_Latest_Posts_Fields extends Zenvy_Customize_Bas
             // Type
 			'zenvy_latest_posts_read_btn_type'       => [
 				'type'              => 'buttonset',
-				'default'           => [ 'desktop' => 'button' ],
+				'default'           => [ 'desktop' => 'default' ],
 				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_buttonset' ],
 				'label'             => esc_html__( 'Display as', 'zenvy' ),
 				'section'           => 'zenvy_front_page_latest_posts_section',
 				'priority'          => 20,
 				'choices'           => [
-					'text'   => esc_html__( 'Text', 'zenvy' ),
-					'button' => esc_html__( 'Button', 'zenvy' ),
+					'default' => esc_html__('Default', 'zenvy'),
+					'text'   => esc_html__('Text', 'zenvy'),
+					'button' => esc_html__('Button', 'zenvy'),
 				],
-			],
-			// Button Arrow
-			'zenvy_latest_posts_read_more_btn_arrow' => [
-				'type'              => 'toggle',
-				'default'           => '',
-				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_toggle' ],
-				'label'             => esc_html__( 'Read More Arrow', 'zenvy' ),
-				'description'       => esc_html__( 'Enable Arrow Icon after Text.', 'zenvy' ),
-				'section'           => 'zenvy_front_page_latest_posts_section',
-				'priority'          => 25,
 			],
 
 			// Note Two

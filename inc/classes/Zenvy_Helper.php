@@ -695,35 +695,37 @@ class Zenvy_Helper
      */
     public static function read_more($setting_section = 'blog_post')
     {
+        $button_type = get_theme_mod(
+            'zenvy_button_type',
+            ['desktop' => 'button']
+        );
 
         $btn_type = get_theme_mod(
             'zenvy_' . $setting_section . '_read_btn_type',
-            ['desktop' => 'button']
-        );
-        $enable_arrow = get_theme_mod(
-            'zenvy_' . $setting_section . '_read_more_btn_arrow',
-            ''
+            ['desktop' => 'default']
         );
 
         $read_more_class = ['read-more'];
 
-        if ($btn_type && $btn_type['desktop'] == 'button') {
+        // Fixed: Check if btn_type is array and has 'desktop' key
+        if (is_array($btn_type) && isset($btn_type['desktop']) && $btn_type['desktop'] === 'default') {
+            $btn_type = $button_type;
+        }
+
+        // Fixed: Check if btn_type is array and has 'desktop' key
+        if (is_array($btn_type) && isset($btn_type['desktop']) && $btn_type['desktop'] === 'button') {
             $read_more_class[] = 'box-button';
         }
 
-        if ($btn_type && $btn_type['desktop'] == 'text') {
-            $read_more_class[] = 'read-more-btn';
+        // Fixed: Check if btn_type is array and has 'desktop' key
+        if (is_array($btn_type) && isset($btn_type['desktop']) && $btn_type['desktop'] === 'text') {
+            $read_more_class[] = 'text-button';
         }
 
         ob_start(); ?>
 
         <div class="d-flex justify-content-left read-more-wrap">
-            <a href="<?php the_permalink(get_the_ID()); ?>" class="<?php echo esc_attr(implode(' ', $read_more_class)); ?>">
-                <?php
-                if ($enable_arrow && array_key_exists('desktop', $enable_arrow)) {
-                    echo '<span class="read-more-btn-image"></span>';
-                }
-                ?>
+            <a href="<?php echo esc_url(get_permalink(get_the_ID())); ?>" class="<?php echo esc_attr(implode(' ', $read_more_class)); ?>">
                 <?php esc_html_e('Read More', 'zenvy'); ?>
             </a>
         </div>

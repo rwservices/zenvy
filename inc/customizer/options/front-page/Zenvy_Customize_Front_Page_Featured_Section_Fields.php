@@ -29,7 +29,6 @@ class Zenvy_Customize_Front_Page_Featured_Section_Fields extends Zenvy_Customize
 							'zenvy_front_page_featured_section_post_elements',
 							'zenvy_front_page_featured_section_note_one',
 							'zenvy_featured_section_read_btn_type',
-							'zenvy_featured_section_read_more_btn_arrow',
 						],
 					],
 					'hover'  => [
@@ -108,25 +107,16 @@ class Zenvy_Customize_Front_Page_Featured_Section_Fields extends Zenvy_Customize
             // Type
 			'zenvy_featured_section_read_btn_type'       => [
 				'type'              => 'buttonset',
-				'default'           => [ 'desktop' => 'button' ],
+				'default'           => [ 'desktop' => 'default' ],
 				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_buttonset' ],
 				'label'             => esc_html__( 'Display as', 'zenvy' ),
 				'section'           => 'zenvy_front_page_featured_section',
 				'priority'          => 30,
 				'choices'           => [
-					'text'   => esc_html__( 'Text', 'zenvy' ),
-					'button' => esc_html__( 'Button', 'zenvy' ),
+					'default' => esc_html__('Default', 'zenvy'),
+					'text'   => esc_html__('Text', 'zenvy'),
+					'button' => esc_html__('Button', 'zenvy'),
 				],
-			],
-			// Button Arrow
-			'zenvy_featured_section_read_more_btn_arrow' => [
-				'type'              => 'toggle',
-				'default'           => '',
-				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_toggle' ],
-				'label'             => esc_html__( 'Read More Arrow', 'zenvy' ),
-				'description'       => esc_html__( 'Enable Arrow Icon after Text.', 'zenvy' ),
-				'section'           => 'zenvy_front_page_featured_section',
-				'priority'          => 35,
 			],
 
 			// Background Image
