@@ -3341,6 +3341,7 @@ div.bbp-submit-wrapper button {
 }
 .site-content .site-main > section.featured-slider {
   padding-bottom: 0;
+  z-index: 0;
 }
 
 /*     search section styling from here   */
@@ -5040,7 +5041,6 @@ content-post-tags {
 /* builder */
 .site-header {
 	position: relative;
-	z-index: 99;
 }
 .site-header .top-header,
 .site-header .main-header,
