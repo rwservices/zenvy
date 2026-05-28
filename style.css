@@ -4730,15 +4730,7 @@ content-post-tags {
     position: relative;
     z-index: 3;
 }
-.main-navigation ul li li.menu-item-has-children {
-  margin: 0;
-}
-.main-navigation ul li li.menu-item-has-children::before {
-  right: 5px;
-}
-.main-navigation ul li li.menu-item-has-children:hover::before {
-  color: var(--color-white);
-}
+
 
 /*  10.0 ===== Footer =====   */
 

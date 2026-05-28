@@ -36,85 +36,72 @@
     'use strict';
 
     $(document).ready(function () {
+
         /* Mean Menu */
-        const mobileMeanMenuPosition = $("#mobile-header .col-has-toggle-menu-element").data("meanmenu");
+        let $mobileMeanMenuPosition = $('#mobile-header .col-has-toggle-menu-element').data('meanmenu');
+        $('.header-toggle-menu-wrap .menu-top-menu-container').meanmenu({
+            meanMenuContainer: '.header-toggle-menu-wrap .main-navigation',
+            meanScreenWidth: "1023",
+            meanRevealPosition: $mobileMeanMenuPosition,
+        });
 
-        if ($(".header-toggle-menu-wrap .menu-top-menu-container").length) {
-            $(".header-toggle-menu-wrap .menu-top-menu-container").meanmenu({
-                meanMenuContainer: ".header-toggle-menu-wrap .main-navigation",
-                meanScreenWidth: "1023",
-                meanRevealPosition: mobileMeanMenuPosition
-            });
-        }
-
-        // Handle responsive navigation
-        function handleResponsiveNav() {
-            const windowWidth = $(window).width();
-            const nav = ".main-navigation";
-
+        if ($(window).width() < 1024) {
+            var windowWidth = jQuery(window).width();
+            var nav = ".main-navigation";
             if (windowWidth > 1023) {
-                $(nav).off("mouseenter", "li");
-                $(nav).off("mouseleave", "li");
-                $(nav).off("click", "li");
-                $(nav).off("click", "a");
-                $(nav).on("mouseenter", "li", function () {
-                    $(this).children("ul").stop().hide().slideDown(400);
+                jQuery(nav).off('mouseenter', 'li');
+                jQuery(nav).off('mouseleave', 'li');
+                jQuery(nav).off('click', 'li');
+                jQuery(nav).off('click', 'a');
+                jQuery(nav).on('mouseenter', 'li', function () {
+                    jQuery(this).children('ul').stop().hide();
+                    jQuery(this).children('ul').slideDown(400);
                 });
-                $(nav).on("mouseleave", "li", function () {
-                    $(this).children("ul").stop().slideUp(350);
+                jQuery(nav).on('mouseleave', 'li', function () {
+                    jQuery(this).children('ul').stop().slideUp(350);
                 });
             }
-        }
 
-        handleResponsiveNav();
-        $(window).on('resize', handleResponsiveNav);
-
-        // Keyboard navigation for mean menu
-        if ($(window).width() < 1024) {
-            const myEvents = {
-                click(e) {
-                    const $this = $(this);
-                    if ($this.hasClass("menu-item-has-children")) {
-                        $this.find(".mean-expand").addClass("mean-clicked");
+            //keyboard navigation for mean menu
+            var myEvents = {
+                click: function (e) {
+                    if (jQuery(this).hasClass('menu-item-has-children') || jQuery(this).hasClass('page_item_has_children')) {
+                        jQuery(this).find('.mean-expand').addClass('mean-clicked');
                     }
-                    $this.siblings("li").find(".mean-expand").removeClass("mean-clicked");
-                    $this.children(".sub-menu").show().end().siblings("li").find("ul").hide();
-                },
-                keydown(e) {
-                    e.stopPropagation();
-                    if (e.keyCode === 9) {
-                        const $meanBarLi = $(".mean-bar li");
-                        const currentIndex = $meanBarLi.index($(this));
+                    jQuery(this).siblings('li').find('.mean-expand').removeClass('mean-clicked');
+                    jQuery(this).children('.sub-menu').show().end().siblings('li').find('ul').hide();
+                    jQuery(this).children('.children').show().end().siblings('li').find('ul').hide();
 
-                        if (!e.shiftKey && currentIndex === $meanBarLi.length - 1) {
-                            $(".meanclose").trigger("click");
-                        } else if (currentIndex === 0) {
-                            $(".meanclose").removeClass("onfocus");
-                        } else if (e.shiftKey && currentIndex === 0) {
-                            $(".mean-bar ul:first > li:last").focus().blur();
+                },
+
+                keydown: function (e) {
+                    e.stopPropagation();
+                    if (e.keyCode == 9) {
+                        if (!e.shiftKey &&
+                            (jQuery('.mean-bar li').index(jQuery(this)) == (jQuery('.mean-bar li').length - 1))) {
+                            jQuery('.meanclose').trigger('click');
+                        } else if (jQuery('.mean-bar li').index(jQuery(this)) == 0) {
+                            $('.meanclose').removeClass('onfocus');
                         }
+                        else if (e.shiftKey && jQuery('.mean-bar li').index(jQuery(this)) === 0)
+                            jQuery('.mean-bar ul:first > li:last').focus().blur();
                     }
                 },
-                keyup(e) {
+
+                keyup: function (e) {
                     e.stopPropagation();
-                    if (e.keyCode === 9 && !this.cancelKeyup) {
-                        this.click.apply(this, arguments);
+                    if (e.keyCode == 9) {
+                        if (myEvents.cancelKeyup) myEvents.cancelKeyup = false;
+                        else myEvents.click.apply(this, arguments);
                     }
-                    this.cancelKeyup = false;
-                },
-                cancelKeyup: false
-            };
-
-            $(document)
-                .on("click", "li", myEvents.click)
-                .on("keydown", "li", myEvents.keydown)
-                .on("keyup", "li", myEvents.keyup);
-
-            $(".mean-bar li").each(function (i) {
-                this.tabIndex = i;
-            });
+                }
+            }
+            jQuery(document)
+                .on('click', 'li', myEvents.click)
+                .on('keydown', 'li', myEvents.keydown)
+                .on('keyup', 'li', myEvents.keyup);
+            jQuery('.mean-bar li').each(function (i) { this.tabIndex = i; });
         }
-
         // Search functionality
         function Search() {
             const $searchSection = $(".site-header .header-search-section");
@@ -287,7 +274,7 @@
                 localStorage.setItem('theme', targetTheme);
             };
         }
-        
+
     });
 
 })(jQuery);
