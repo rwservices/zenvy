@@ -3341,6 +3341,7 @@ div.bbp-submit-wrapper button {
 }
 .site-content .site-main > section.featured-slider {
   padding-bottom: 0;
+  z-index: 0;
 }
 
 /*     search section styling from here   */
@@ -4725,7 +4726,19 @@ content-post-tags {
 .mc4wp-form p label input[type="email"] {
   margin-top: 10px;
 }
-
+.site-header .header-search-section {
+    position: relative;
+    z-index: 3;
+}
+.main-navigation ul li li.menu-item-has-children {
+  margin: 0;
+}
+.main-navigation ul li li.menu-item-has-children::before {
+  right: 5px;
+}
+.main-navigation ul li li.menu-item-has-children:hover::before {
+  color: var(--color-white);
+}
 
 /*  10.0 ===== Footer =====   */
 
@@ -5036,7 +5049,6 @@ content-post-tags {
 /* builder */
 .site-header {
 	position: relative;
-	z-index: 99;
 }
 .site-header .top-header,
 .site-header .main-header,
