@@ -491,7 +491,8 @@ textarea {
 
 input[type="reset"],
 input[type="button"],
-input[type="submit"] {
+input[type="submit"],
+.wpcf7-form  input[type="submit"] {
 	-moz-transition: all 0.3s ease-out;
 	-ms-transition: all 0.3s ease-out;
 	-o-transition: all 0.3s ease-out;
@@ -501,7 +502,6 @@ input[type="submit"] {
 	display: block;
 	font-size: 16px;
 	height: 36px;
-	margin-bottom: 30px;
 	margin-top: 5px;
 	padding: 0px 25px 2px;
 	text-align: center;
@@ -511,13 +511,6 @@ input[type="submit"] {
 	background: var(--color-link);
 }
 
-.wpcf7-form input[type="submit"] {
-	font-size: 16px;
-	padding: 0px 25px;
-	border: none;
-	display: inline-block;
-}
-
 .wpcf7-form p label {
 	text-align: left;
 }
@@ -525,7 +518,6 @@ input[type="submit"] {
 input[type="reset"]:hover,
 input[type="button"]:hover,
 input[type="submit"]:hover {
-	color: var(--color-primary);
 	background: var(--color-link-hover);
 }
 
@@ -2632,16 +2624,7 @@ ol.wp-block-latest-comments {
 
 .wpcf7-form input,
 .wpcf7-form textarea {
-	background: var(--color-bg-light);
-	color: var(--color-text);
 	margin-bottom: 0px;
-	padding: 10px 18px;
-	border: 1px solid var(--color-border);
-	border-radius: 20px;
-}
-
-.wpcf7-form textarea {
-	margin-bottom: 0;
 }
 
 .wpcf7 {

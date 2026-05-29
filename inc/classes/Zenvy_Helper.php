@@ -590,10 +590,14 @@ class Zenvy_Helper
                 <header class="entry-header heading">
                     <h2 class="entry-title"><?php esc_html_e('Related Posts', 'zenvy'); ?></h2>
                 </header>
-                <div class="row columns" <?php Zenvy_Helper::get_data_columns($col_per_row); ?>>
+                <div class="row columns overlap-post" <?php Zenvy_Helper::get_data_columns($col_per_row); ?>>
 
                     <?php while ($the_query->have_posts()):
                         $the_query->the_post();
+                        $post_class = ['post'];
+                        if (!has_post_thumbnail()) {
+                            $post_class[] = 'no-featured-image';
+                        }
 
                         /*
                          * Include the Post-Type-specific template for the content.
@@ -602,14 +606,18 @@ class Zenvy_Helper
                          */
                     ?>
                         <div class="column">
-                            <div class="post">
-                                <?php zenvy_post_thumbnail('medium', '4x3'); ?>
+                            <article <?php post_class($post_class); ?> id="post-<?php the_ID(); ?>">
+                                <div class="featured-image-wrapper">
+                                    <?php
+                                    zenvy_post_thumbnail("medium_large", "1x1");
+                                    zenvy_posted_first_tag();
+                                    ?>
+                                </div>
 
-                                <div class="post-content">
+                                <div class="post-content d-flex flex-column text-left">
 
                                     <div class="entry-meta">
                                         <?php zenvy_posted_cats(); ?>
-                                        <?php zenvy_posted_by(); ?>
                                     </div><!-- .entry-meta -->
 
                                     <?php the_title(sprintf('<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url(get_permalink())), '</a></h2>'); ?>
@@ -618,10 +626,8 @@ class Zenvy_Helper
                                         <?php self::post_excerpt(); ?>
                                     </div><!-- .entry-content -->
 
-                                    <?php zenvy_posted_on(); ?>
-
                                 </div><!-- .post-content -->
-                            </div>
+                            </article>
                         </div>
 
                     <?php endwhile; ?>
