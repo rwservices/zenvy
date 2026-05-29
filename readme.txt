@@ -4,7 +4,7 @@ Contributors: aarambhathemes
 Tags: translation-ready, blog, two-columns, right-sidebar, left-sidebar, grid-layout, custom-colors, custom-logo, custom-menu, featured-images, full-width-template, footer-widgets, theme-options, threaded-comments, education, photography
 Requires at least: 5.6
 Requires PHP: 7.0
-Tested up to: 6.1.1
+Tested up to: 7.0
 Stable tag: 1.0.3
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html

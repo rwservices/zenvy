@@ -55,6 +55,12 @@ if (! function_exists('zenvy_content_before_page_header')) :
 			return;
 		}
 
+		// Check meta first to override and return (prevents filters from overriding meta)
+        $page_header_enable = get_post_meta( Zenvy_Helper::get_post_id(), 'zenvy_page_header_enable', true );
+        if ( $page_header_enable && $page_header_enable != 'default' ) {
+            return;
+        }
+
 		// Blog
 		$elements = get_theme_mod(
 			'zenvy_blog_page_header_elements',

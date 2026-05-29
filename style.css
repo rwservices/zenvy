@@ -4721,6 +4721,21 @@ content-post-tags {
 .main-navigation ul li li.menu-item-has-children:hover::before {
   color: var(--color-white);
 }
+.zenvy-btn-arrow .mc4wp-form input[type="submit"] {
+  color: var(--color-gray-900);
+  text-transform: capitalize;
+  font-size: 22px;
+  position: relative;
+  font-family: var(--font-heading);
+  display: inline-block;
+  margin-top: 25px;
+  position: relative;
+  background: none;
+  border: none;
+  margin-bottom: 0;
+  padding: 0;
+  background-image: url("assets/build/images/read-more-icon.png");
+}
 
 /*  10.0 ===== Footer =====   */
 

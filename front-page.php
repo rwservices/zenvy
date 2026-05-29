@@ -12,11 +12,6 @@
  * @package Zenvy
  */
 
-if ( is_page() && Zenvy_Helper::front_page_enable() && is_page_template( 'page-templates/pagebuilder.php' ) ) {
-	load_template( get_page_template() );
-	return true;
-}
-
 get_header();
 ?>
 

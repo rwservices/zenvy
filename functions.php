@@ -321,6 +321,12 @@ require ZENVY_THEME_DIR . 'inc/customizer/builder/Zenvy_Customizer_Builder.php';
 require ZENVY_THEME_DIR . 'inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php';
 require ZENVY_THEME_DIR . 'inc/customizer/builder/footer/Zenvy_Customizer_Footer_Builder.php';
 
+
+/**
+ * Load theme meta box
+ */
+require ZENVY_THEME_DIR . 'inc/meta-boxes/Zenvy_Meta_Boxes.php';
+
 /**
  * Load Jetpack compatibility file.
  */

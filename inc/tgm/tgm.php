@@ -22,11 +22,6 @@ if ( ! function_exists( 'zenvy_recommended_plugins' ) ) :
 				'slug'     => 'aarambha-demo-sites',
 				'required' => false,
 			],
-			[
-				'name'     => esc_html__( 'Crucial Real Estate', 'zenvy' ),
-				'slug'     => 'crucial-real-estate',
-				'required' => false,
-			],
 		];
 
 		$config = [];
