@@ -2121,8 +2121,12 @@ iframe {
 .cat-link a {
 	position: relative;
 	display: inline-block;
+	margin-right: 13px;
 }
 
+.cat-link a:last-child {
+  margin-right: 0;
+}
 .cat-link a::before {
 	position: absolute;
 	display: block;
@@ -3636,8 +3640,8 @@ article .entry-content ul li, article .entry-content ol li {
 }
 
 .alternative-post .post .post-content {
-	width: 63%;
-	margin-left: -13%;
+	width: 60%;
+	margin-left: -10%;
 	z-index: 9;
 	background: var(--color-bg);
 	padding: 21px 30px 17px;
@@ -3697,8 +3701,8 @@ article .entry-content ul li, article .entry-content ol li {
 }
 
 .left-post .post .post-content {
-	width: 63%;
-	margin-left: -13%;
+	width: 60%;
+	margin-left: -10%;
 	z-index: 9;
 	background: var(--color-bg);
 	padding: 21px 30px 17px;
@@ -3731,7 +3735,7 @@ article .entry-content ul li, article .entry-content ol li {
 }
 
 .right-post .post .post-content {
-	width: 63%;
+	width: 60%;
 	z-index: 9;
 	background: var(--color-bg);
 	padding: 21px 30px 17px 30px;
@@ -3740,11 +3744,11 @@ article .entry-content ul li, article .entry-content ol li {
 	-ms-flex-order: 1;
 	order: 1;
 	margin-left: 0;
-	margin-right: -13%;
+	margin-right: -10%;
 }
 
 .overlap-post .post-content {
-	margin-left: 80px;
+	margin-left: 40px;
 	margin-top: -100px;
 	z-index: 9;
 	position: relative;
@@ -3825,6 +3829,10 @@ article .entry-content ul li, article .entry-content ol li {
 .post-item-has-3column.overlap-post .featured-image-wrapper .tags-links {
 	left: 50px;
 	bottom: 31px;
+}
+.related-post-section .entry-header.heading {
+  text-align: left;
+  margin-top: 30px;
 }
 
 /*  video post section styling from here    */
