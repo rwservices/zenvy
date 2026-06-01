@@ -1,9 +1,3 @@
-/*!*******************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/@wordpress/scripts/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./assets/src/css/responsive.css ***!
-  \*******************************************************************************************************************************************************************************************************************/
-/*!*******************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/@wordpress/scripts/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./assets/src/css/responsive.css ***!
-  \*******************************************************************************************************************************************************************************************************************/
 /*  12.0 ===== Medias/Responsive =====   */
 
 /*
@@ -49,12 +43,11 @@
 	.heading .entry-title {
 		font-size: 32px;
 	}
-.shop-item-wrap,
+	.shop-item-wrap,
 	ul.products,
-	.products.columns-4{
+	.products.columns-4 {
 		grid-template-columns: repeat(3, 1fr);
 	}
-
 }
 
 /* All Tablet Portrait size smaller than standard 1023 (devices and browsers) */
@@ -76,7 +69,7 @@
 		font-size: 20px;
 	}
 
-.hgroup-right {
+	.hgroup-right {
 		padding-right: 50px;
 	}
 	.main-navigation ul li ul {
@@ -113,8 +106,8 @@
 		padding: 13px 5%;
 		width: 100%;
 		opacity: 1;
-    color: #fff;
-    border-top: 1px solid;
+		color: #fff;
+		border-top: 1px solid;
 	}
 	.main-navigation.mean-container .mean-nav ul li li li a {
 		padding: 12px 7%;
@@ -128,34 +121,33 @@
 		bottom: 0;
 		margin: auto;
 		-webkit-transform: none;
-		        transform: none;
-		        color: var(--color-bg-dark);
-		        
+		transform: none;
+		color: var(--color-bg-dark);
 	}
 	.main-navigation ul li ul li:hover > a {
-    background: none;
-}
+		background: none;
+	}
 	.mean-container .mean-nav > ul {
 		right: 0;
 		top: 57px;
 		left: 0;
 		z-index: 9;
 		right: 0;
-    top: 70px;
-    left: 0;
-    z-index: 9;
-    background: rgba(0, 0, 0, 0.8) none repeat scroll 0 0;
-    list-style-type: none;
-    margin: 0;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    padding: 0;
-    position: absolute;
-    width: 100%;
+		top: 70px;
+		left: 0;
+		z-index: 9;
+		background: rgba(0, 0, 0, 0.8) none repeat scroll 0 0;
+		list-style-type: none;
+		margin: 0;
+		overflow-x: hidden;
+		overflow-y: scroll;
+		padding: 0;
+		position: absolute;
+		width: 100%;
 	}
 	.mean-bar {
-  position: static !important;
-}
+		position: static !important;
+	}
 	.mean-container a.meanmenu-reveal span,
 	.mean-container .meanmenu-reveal span::before,
 	.mean-container .meanmenu-reveal span::after {
@@ -167,32 +159,29 @@
 	.main-navigation ul li.menu-item-has-children .mean-expand::before {
 		display: none;
 	}
-.main-navigation.mean-container .mean-nav ul li a.mean-expand {
-    height: 22px;
-    width: 26px;
-  }
+	.main-navigation.mean-container .mean-nav ul li a.mean-expand {
+		height: 22px;
+		width: 26px;
+	}
 	.site-header .mobile-navbar .mean-container .meanmenu-reveal.meanclose span {
-  background: transparent;
-}
-.mean-container a.meanmenu-reveal span{
-	position: relative;
-}
-.mean-container a.meanmenu-reveal span span {
-  position: absolute;
-  top: 5px;
-  height: 3px;
-  width: 100%;
-}
-
-
+		background: transparent;
+	}
+	.mean-container a.meanmenu-reveal span {
+		position: relative;
+	}
+	.mean-container a.meanmenu-reveal span span {
+		position: absolute;
+		top: 5px;
+		height: 3px;
+		width: 100%;
+	}
 }
 
 @media only screen and (max-width: 992px) {
-	
 	.site-title {
 		font-size: 20px;
 	}
-	
+
 	.tags-links a:first-child {
 		font-size: 68px;
 	}
@@ -209,7 +198,7 @@
 	.featured-slider {
 		padding: 35px 0 0;
 	}
-	
+
 	.widget-instagram ul li .featured-image img {
 		width: 100%;
 	}
@@ -311,16 +300,14 @@
 		margin-bottom: 15px;
 	}
 	.site-content .site-main > section {
-  padding: 0 0 50px;
-}
+		padding: 0 0 50px;
+	}
 	.site-content .site-main > section.video-post-section {
-  padding-top: 50px;
-}
- .section-wrap-inner .section-left {
-    margin-bottom: 20px;
-  }
-
-
+		padding-top: 50px;
+	}
+	.section-wrap-inner .section-left {
+		margin-bottom: 20px;
+	}
 }
 
 /* All Mobile Portrait size smaller than 768 (devices and browsers) */
@@ -439,9 +426,9 @@
 		padding-left: 0;
 	}
 	.site-content .site-main > section.featured-slider {
-  padding-bottom: 30px;
-}
-.shop-item-wrap,
+		padding-bottom: 30px;
+	}
+	.shop-item-wrap,
 	ul.products,
 	.products.columns-4,
 	.products.columns-3,
@@ -449,55 +436,57 @@
 		grid-template-columns: repeat(2, 1fr);
 	}
 	.woocommerce div.product div.summary {
-  min-width: 50%;
-  padding-left: 20px;
-}
-.woocommerce div.product div.images.woocommerce-product-gallery {
-  min-width: 50%;
-}
-.product-gallery-summary {
-  gap: 0;
-}
-.woocommerce div.product form.cart .variations {
-  padding: 0;
-}
-.woocommerce div.product form.cart .variations tr th {
-  padding-left: 0;
-}
-.woocommerce div.product form.cart .variations tr td {
-  padding-right: 0;
-}
-.site-content {
-  padding: 40px 0 30px;
-}
-.page-title {
-    font-size: 48px;
-  }
-  .widget-title, .site-content .widget .wp-block-heading, .site-content .widget .wp-block-search__label, h2 {
-  font-size: 24px;
-}
-.wc-block-components-sidebar {
-  padding: 0 !important;
-}
-.wp-block-woocommerce-checkout-order-summary-block .wc-block-components-checkout-order-summary__title {
-  margin-top: 0 !important;
-}
-.woocommerce .woocommerce-customer-details .woocommerce-column__title {
-  margin-top: 10px;
-  margin-bottom: 0;
-  font-size: 20px;
-}
-.home .site-content {
-  padding-top: 0;
-}
-.featured-slider .owl-carousel {
-  padding-left: 0;
-}
-.slider-image-wrapper .featured-image {
-  margin-bottom: 0;
-}
-
-
+		min-width: 50%;
+		padding-left: 20px;
+	}
+	.woocommerce div.product div.images.woocommerce-product-gallery {
+		min-width: 50%;
+	}
+	.product-gallery-summary {
+		gap: 0;
+	}
+	.woocommerce div.product form.cart .variations {
+		padding: 0;
+	}
+	.woocommerce div.product form.cart .variations tr th {
+		padding-left: 0;
+	}
+	.woocommerce div.product form.cart .variations tr td {
+		padding-right: 0;
+	}
+	.site-content {
+		padding: 40px 0 30px;
+	}
+	.page-title {
+		font-size: 48px;
+	}
+	.widget-title,
+	.site-content .widget .wp-block-heading,
+	.site-content .widget .wp-block-search__label,
+	h2 {
+		font-size: 24px;
+	}
+	.wc-block-components-sidebar {
+		padding: 0 !important;
+	}
+	.wp-block-woocommerce-checkout-order-summary-block
+		.wc-block-components-checkout-order-summary__title {
+		margin-top: 0 !important;
+	}
+	.woocommerce .woocommerce-customer-details .woocommerce-column__title {
+		margin-top: 10px;
+		margin-bottom: 0;
+		font-size: 20px;
+	}
+	.home .site-content {
+		padding-top: 0;
+	}
+	.featured-slider .owl-carousel {
+		padding-left: 0;
+	}
+	.slider-image-wrapper .featured-image {
+		margin-bottom: 0;
+	}
 }
 
 @media only screen and (max-width: 567px) {
@@ -632,10 +621,9 @@
 	.nav-next {
 		width: 100%;
 	}
- .site-content section {
-    padding: 0 0 30px;
-  }
-
+	.site-content section {
+		padding: 0 0 30px;
+	}
 }
 
 /* All Mobile size smaller than standard 479 (devices and browsers) */
@@ -849,25 +837,21 @@
 		padding: 40px 0 20px;
 	}
 	.product-gallery-summary {
-    display: block;
-  }
-  .woocommerce div.product div.summary {
-    padding-left: 0;
-  }
-.woocommerce div.product .woocommerce-tabs ul.tabs li {
-  margin: 0 -4px;
-  padding: 0 7px;
-  font-size: 12px;
+		display: block;
+	}
+	.woocommerce div.product div.summary {
+		padding-left: 0;
+	}
+	.woocommerce div.product .woocommerce-tabs ul.tabs li {
+		margin: 0 -4px;
+		padding: 0 7px;
+		font-size: 12px;
+	}
+	.widget-title,
+	.site-content .widget .wp-block-heading,
+	.site-content .widget .wp-block-search__label,
+	h2 {
+		font-size: 22px;
+		padding-bottom: 10px;
+	}
 }
-.widget-title, .site-content .widget .wp-block-heading, .site-content .widget .wp-block-search__label, h2 {
-  font-size: 22px;
-  padding-bottom: 10px;
-}
-
-
-}
-
-
-/*# sourceMappingURL=responsive.css.map*/
-
-/*# sourceMappingURL=responsive.css.map*/
