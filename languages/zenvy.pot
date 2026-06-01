@@ -2,14 +2,14 @@
 # This file is distributed under the GPLv3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Zenvy 1.0.3\n"
+"Project-Id-Version: Zenvy 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/zenvy\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-04-29T10:26:10+00:00\n"
+"POT-Creation-Date: 2026-06-01T07:40:35+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 
@@ -25,7 +25,7 @@ msgstr ""
 
 #. Description of the theme
 #: style.css
-msgid "Zenvy is a super flexible and modernized free WordPress Theme for real estate agents and companies. It facilitates purpose oriented designs with innumerable powerful features that a real estate business can benefit from. Zenvy is gracefully handicraft to beautifully present properties information to website visitors and smoothens its structure for making property management easier. It is a unique theme with multiple varieties which saves both time and money when creating your seller/rental platforms."
+msgid "Zenvy is a sleek, minimalist WordPress theme designed for bloggers, creatives, and storytellers. With clean layouts, fast performance, and a focus on readability, Zenvy makes your content shine and keeps readers engaged."
 msgstr ""
 
 #. Author of the theme
@@ -39,30 +39,30 @@ msgstr ""
 msgid "https://aarambhathemes.com"
 msgstr ""
 
-#: 404.php:45
+#: 404.php:44
 msgid "404 Error Image"
 msgstr ""
 
-#: 404.php:52
+#: 404.php:51
 msgid "404"
 msgstr ""
 
-#: 404.php:58
+#: 404.php:57
 msgid "It looks like nothing was found at this location. Maybe try one of the links below or a search?"
 msgstr ""
 
-#: 404.php:64
+#: 404.php:78
 msgid "Return Home"
 msgstr ""
 
 #. translators: 1: title.
-#: comments.php:43
+#: comments.php:42
 #, php-format
 msgid "One thought on &ldquo;%1$s&rdquo;"
 msgstr ""
 
 #. translators: 1: comment count number, 2: title.
-#: comments.php:49
+#: comments.php:48
 #, php-format
 msgctxt "comments title"
 msgid "%1$s thought on &ldquo;%2$s&rdquo;"
@@ -70,65 +70,76 @@ msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: comments.php:76
+#: comments.php:75
 msgid "Comments are closed."
 msgstr ""
 
-#: functions.php:70
-#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:256
-#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:383
+#: functions.php:78
+#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:262
+#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:394
 msgid "Primary Menu"
 msgstr ""
 
-#: functions.php:71
-#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:281
-#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:391
+#: functions.php:79
+#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:287
+#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:402
 msgid "Mobile Menu"
 msgstr ""
 
-#: functions.php:72
+#: functions.php:80
 #: inc/customizer/builder/footer/Zenvy_Customizer_Footer_Builder.php:236
 #: inc/customizer/builder/footer/Zenvy_Customizer_Footer_Builder.php:409
 msgid "Footer Menu"
 msgstr ""
 
-#: functions.php:134
+#: functions.php:158
 #: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Sidebar_Fields.php:22
 #: inc/customizer/options/single-page/Zenvy_Customize_Single_Page_Sidebar_Fields.php:22
 #: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Sidebar_Fields.php:22
-#: inc/customizer/Zenvy_Customizer.php:355
-#: inc/customizer/Zenvy_Customizer.php:537
-#: inc/customizer/Zenvy_Customizer.php:572
-#: inc/customizer/Zenvy_Customizer.php:664
-#: inc/customizer/Zenvy_Customizer.php:700
+#: inc/customizer/Zenvy_Customizer.php:329
+#: inc/customizer/Zenvy_Customizer.php:496
+#: inc/customizer/Zenvy_Customizer.php:533
+#: inc/customizer/Zenvy_Customizer.php:569
+#: inc/meta-boxes/Zenvy_Meta_Boxes.php:402
 msgid "Sidebar"
 msgstr ""
 
-#: functions.php:136
-#: functions.php:149
+#: functions.php:160
 msgid "Add widgets here."
 msgstr ""
 
-#: functions.php:147
-msgid "Front Page: Subscribe Form"
+#: functions.php:170
+msgid "Front Page:Latest Posts"
 msgstr ""
 
-#: functions.php:160
+#: functions.php:172
+msgid "Add widgets for Latest Posts Section sidebar here."
+msgstr ""
+
+#: functions.php:181
+msgid "Front Page: Trending Posts"
+msgstr ""
+
+#: functions.php:183
+msgid "Add widgets for Trending Posts Section sidebar here."
+msgstr ""
+
+#: functions.php:194
 #, php-format
 msgid "Footer Sidebar %d "
 msgstr ""
 
-#: functions.php:162
+#: functions.php:196
 msgid "Display widgets footer section of the site."
 msgstr ""
 
-#: header.php:71
+#: header.php:67
 msgid "Skip to content"
 msgstr ""
 
-#: inc/back-compat.php:33
-#: inc/back-compat.php:43
-#: inc/back-compat.php:56
+#: inc/back-compat.php:34
+#: inc/back-compat.php:45
+#: inc/back-compat.php:65
 #, php-format
 msgid "Zenvy requires at least WordPress version 5.6. You are running version %s. Please upgrade and try again."
 msgstr ""
@@ -184,126 +195,140 @@ msgstr ""
 msgid "Week %s"
 msgstr ""
 
-#: inc/classes/Zenvy_Breadcrumb_Trail.php:732
+#: inc/classes/Zenvy_Breadcrumb_Trail.php:738
 msgctxt "minute and hour archives time format"
 msgid "g:i a"
 msgstr ""
 
-#: inc/classes/Zenvy_Breadcrumb_Trail.php:749
+#: inc/classes/Zenvy_Breadcrumb_Trail.php:756
 msgctxt "minute archives time format"
 msgid "i"
 msgstr ""
 
-#: inc/classes/Zenvy_Breadcrumb_Trail.php:766
+#: inc/classes/Zenvy_Breadcrumb_Trail.php:774
 msgctxt "hour archives time format"
 msgid "g a"
 msgstr ""
 
-#: inc/classes/Zenvy_Breadcrumb_Trail.php:782
-#: inc/classes/Zenvy_Breadcrumb_Trail.php:811
-#: inc/classes/Zenvy_Breadcrumb_Trail.php:838
-#: inc/classes/Zenvy_Breadcrumb_Trail.php:865
-#: inc/classes/Zenvy_Breadcrumb_Trail.php:1205
+#: inc/classes/Zenvy_Breadcrumb_Trail.php:791
+#: inc/classes/Zenvy_Breadcrumb_Trail.php:820
+#: inc/classes/Zenvy_Breadcrumb_Trail.php:859
+#: inc/classes/Zenvy_Breadcrumb_Trail.php:886
+#: inc/classes/Zenvy_Breadcrumb_Trail.php:1236
 msgctxt "yearly archives date format"
 msgid "Y"
 msgstr ""
 
-#: inc/classes/Zenvy_Breadcrumb_Trail.php:783
-#: inc/classes/Zenvy_Breadcrumb_Trail.php:839
-#: inc/classes/Zenvy_Breadcrumb_Trail.php:1209
+#: inc/classes/Zenvy_Breadcrumb_Trail.php:792
+#: inc/classes/Zenvy_Breadcrumb_Trail.php:860
+#: inc/classes/Zenvy_Breadcrumb_Trail.php:1241
 msgctxt "monthly archives date format"
 msgid "F"
 msgstr ""
 
-#: inc/classes/Zenvy_Breadcrumb_Trail.php:784
-#: inc/classes/Zenvy_Breadcrumb_Trail.php:1213
+#: inc/classes/Zenvy_Breadcrumb_Trail.php:793
+#: inc/classes/Zenvy_Breadcrumb_Trail.php:1246
 msgctxt "daily archives date format"
 msgid "j"
 msgstr ""
 
-#: inc/classes/Zenvy_Breadcrumb_Trail.php:812
+#: inc/classes/Zenvy_Breadcrumb_Trail.php:821
 msgctxt "weekly archives date format"
 msgid "W"
 msgstr ""
 
-#: inc/classes/Zenvy_Google_Fonts.php:100
+#: inc/classes/Zenvy_Google_Fonts.php:104
 msgid "Standard Fonts"
 msgstr ""
 
-#: inc/classes/Zenvy_Google_Fonts.php:364
+#: inc/classes/Zenvy_Google_Fonts.php:420
 msgid "Google Fonts"
 msgstr ""
 
-#: inc/classes/Zenvy_Helper.php:33
+#: inc/classes/Zenvy_Helper.php:64
 msgid "--- choose ---"
 msgstr ""
 
-#: inc/classes/Zenvy_Helper.php:40
+#: inc/classes/Zenvy_Helper.php:70
 msgid "Item Not Found..."
 msgstr ""
 
-#: inc/classes/Zenvy_Helper.php:132
-#: inc/customizer/Zenvy_Customizer.php:299
+#: inc/classes/Zenvy_Helper.php:172
+#: inc/customizer/Zenvy_Customizer.php:264
 msgid "404 Page"
 msgstr ""
 
-#: inc/classes/Zenvy_Helper.php:139
+#: inc/classes/Zenvy_Helper.php:181
 msgid "Blog"
 msgstr ""
 
-#: inc/classes/Zenvy_Helper.php:158
-#: inc/customizer/options/global/Zenvy_Customize_Global_Social_Fields.php:45
+#: inc/classes/Zenvy_Helper.php:202
 msgid "Facebook"
 msgstr ""
 
-#: inc/classes/Zenvy_Helper.php:159
-#: inc/customizer/options/global/Zenvy_Customize_Global_Social_Fields.php:46
+#: inc/classes/Zenvy_Helper.php:203
 msgid "Twitter"
 msgstr ""
 
-#: inc/classes/Zenvy_Helper.php:235
+#: inc/classes/Zenvy_Helper.php:204
+msgid "LinkedIn"
+msgstr ""
+
+#: inc/classes/Zenvy_Helper.php:205
+msgid "Pinterest"
+msgstr ""
+
+#: inc/classes/Zenvy_Helper.php:206
+msgid "Instagram"
+msgstr ""
+
+#: inc/classes/Zenvy_Helper.php:207
+msgid "YouTube"
+msgstr ""
+
+#: inc/classes/Zenvy_Helper.php:277
 msgid "Post author"
 msgstr ""
 
-#: inc/classes/Zenvy_Helper.php:237
-#: inc/classes/Zenvy_Helper.php:565
-#: inc/classes/Zenvy_Helper.php:576
-#: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Posts_Layout_Fields.php:43
-#: inc/customizer/options/custom-post/Zenvy_Customize_Property_Post_Fields.php:43
-#: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Header_Fields.php:42
+#: inc/classes/Zenvy_Helper.php:280
+#: inc/classes/Zenvy_Helper.php:518
+#: inc/classes/Zenvy_Helper.php:530
+#: inc/customizer/options/global/Zenvy_Customize_Global_Post_Meta_Fields.php:27
 msgid "Author"
 msgstr ""
 
-#: inc/classes/Zenvy_Helper.php:446
+#: inc/classes/Zenvy_Helper.php:399
 msgid "Post"
 msgstr ""
 
-#: inc/classes/Zenvy_Helper.php:448
+#: inc/classes/Zenvy_Helper.php:401
 msgid "Post navigation"
 msgstr ""
 
-#: inc/classes/Zenvy_Helper.php:456
+#: inc/classes/Zenvy_Helper.php:409
 msgid "Previous Post"
 msgstr ""
 
-#: inc/classes/Zenvy_Helper.php:469
+#: inc/classes/Zenvy_Helper.php:422
 msgid "Next Post"
 msgstr ""
 
-#: inc/classes/Zenvy_Helper.php:636
-#: inc/customizer/options/custom-post/Zenvy_Customize_Property_Post_Fields.php:87
-#: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Content_Fields.php:47
+#: inc/classes/Zenvy_Helper.php:591
+#: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Content_Fields.php:66
 msgid "Related Posts"
 msgstr ""
 
-#: inc/classes/Zenvy_Helper.php:762
-#: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Posts_Layout_Fields.php:30
-#: inc/customizer/Zenvy_Customizer.php:525
+#: inc/classes/Zenvy_Helper.php:735
+#: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Posts_Layout_Fields.php:53
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Featured_Section_Fields.php:96
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Latest_Posts_Fields.php:84
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Trending_Posts_Fields.php:85
+#: inc/customizer/Zenvy_Customizer.php:484
 msgid "Read More"
 msgstr ""
 
 #: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Back_To_Top_Fields.php:23
-#: inc/customizer/builder/footer/Zenvy_Customizer_Footer_Builder.php:465
+#: inc/customizer/builder/footer/Zenvy_Customizer_Footer_Builder.php:427
 msgid "Scroll to Top"
 msgstr ""
 
@@ -311,474 +336,601 @@ msgstr ""
 msgid "Enable button to scroll to top."
 msgstr ""
 
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Bottom_Row_Fields.php:26
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Main_Row_Fields.php:26
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Top_Row_Fields.php:26
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Bottom_Row_Fields.php:41
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Main_Row_Fields.php:41
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Top_Row_Fields.php:41
-msgid "Left Column"
-msgstr ""
-
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Bottom_Row_Fields.php:27
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Main_Row_Fields.php:27
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Top_Row_Fields.php:27
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Bottom_Row_Fields.php:42
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Main_Row_Fields.php:42
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Top_Row_Fields.php:42
-msgid "Choose position for the content in the Left Column."
-msgstr ""
-
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Bottom_Row_Fields.php:31
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Bottom_Row_Fields.php:51
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Bottom_Row_Fields.php:71
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Main_Row_Fields.php:31
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Main_Row_Fields.php:51
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Main_Row_Fields.php:71
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Top_Row_Fields.php:31
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Top_Row_Fields.php:51
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Top_Row_Fields.php:71
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Bottom_Row_Fields.php:46
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Bottom_Row_Fields.php:66
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Bottom_Row_Fields.php:86
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Main_Row_Fields.php:46
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Main_Row_Fields.php:66
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Main_Row_Fields.php:86
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Top_Row_Fields.php:46
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Top_Row_Fields.php:66
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Top_Row_Fields.php:86
-msgid "Start"
-msgstr ""
-
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Bottom_Row_Fields.php:32
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Bottom_Row_Fields.php:52
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Bottom_Row_Fields.php:72
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Main_Row_Fields.php:32
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Main_Row_Fields.php:52
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Main_Row_Fields.php:72
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Top_Row_Fields.php:32
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Top_Row_Fields.php:52
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Top_Row_Fields.php:72
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Bottom_Row_Fields.php:47
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Bottom_Row_Fields.php:67
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Bottom_Row_Fields.php:87
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Main_Row_Fields.php:47
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Main_Row_Fields.php:67
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Main_Row_Fields.php:87
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Top_Row_Fields.php:47
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Top_Row_Fields.php:67
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Top_Row_Fields.php:87
-#: inc/customizer/controls/background/Zenvy_Customize_Background_Control.php:146
-msgid "Center"
-msgstr ""
-
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Bottom_Row_Fields.php:33
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Bottom_Row_Fields.php:53
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Bottom_Row_Fields.php:73
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Main_Row_Fields.php:33
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Main_Row_Fields.php:53
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Main_Row_Fields.php:73
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Top_Row_Fields.php:33
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Top_Row_Fields.php:53
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Top_Row_Fields.php:73
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Bottom_Row_Fields.php:48
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Bottom_Row_Fields.php:68
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Bottom_Row_Fields.php:88
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Main_Row_Fields.php:48
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Main_Row_Fields.php:68
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Main_Row_Fields.php:88
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Top_Row_Fields.php:48
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Top_Row_Fields.php:68
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Top_Row_Fields.php:88
-msgid "End"
-msgstr ""
-
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Bottom_Row_Fields.php:46
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Main_Row_Fields.php:46
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Top_Row_Fields.php:46
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Bottom_Row_Fields.php:61
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Main_Row_Fields.php:61
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Top_Row_Fields.php:61
-msgid "Center Column"
-msgstr ""
-
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Bottom_Row_Fields.php:47
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Main_Row_Fields.php:47
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Top_Row_Fields.php:47
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Bottom_Row_Fields.php:62
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Top_Row_Fields.php:62
-msgid "Choose position for the content in the Center Column."
-msgstr ""
-
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Bottom_Row_Fields.php:66
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Main_Row_Fields.php:66
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Top_Row_Fields.php:66
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Bottom_Row_Fields.php:81
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Main_Row_Fields.php:81
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Top_Row_Fields.php:81
-msgid "Right Column"
-msgstr ""
-
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Bottom_Row_Fields.php:67
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Main_Row_Fields.php:67
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Top_Row_Fields.php:67
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Bottom_Row_Fields.php:82
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Main_Row_Fields.php:82
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Top_Row_Fields.php:82
-msgid "Choose position for the content in the Right Column."
-msgstr ""
-
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Bottom_Row_Fields.php:87
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Main_Row_Fields.php:98
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Top_Row_Fields.php:93
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Bottom_Row_Fields.php:97
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Main_Row_Fields.php:97
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Top_Row_Fields.php:97
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Clients_Logo_Fields.php:78
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_News_Blog_Fields.php:115
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Property_Features_Fields.php:87
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Property_Locations_Fields.php:111
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Property_Type_Fields.php:94
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Services_Fields.php:93
-#: inc/customizer/options/global/Zenvy_Customize_Global_Page_Header_Fields.php:33
-msgid "Background Overlay"
-msgstr ""
-
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Bottom_Row_Fields.php:88
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Bottom_Row_Fields.php:98
-msgid "Set Background overlay color for bottom row container."
-msgstr ""
-
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Bottom_Row_Fields.php:101
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Button_Fields.php:101
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Copyright_Fields.php:70
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Html_Fields.php:60
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Main_Row_Fields.php:118
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Menu_Fields.php:70
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Social_Icons_Fields.php:65
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Social_Icons_Fields.php:121
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Top_Row_Fields.php:113
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Account_Fields.php:146
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Button_Fields.php:101
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Html_Fields.php:60
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Primary_Menu_Fields.php:71
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Search_Icon_Fields.php:53
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Site_Identity_Fields.php:120
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Social_Icons_Fields.php:65
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Social_Icons_Fields.php:121
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Toggle_Menu_Fields.php:52
-msgid "Padding"
-msgstr ""
-
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Bottom_Row_Fields.php:104
-msgid "Set footer bottom row padding."
-msgstr ""
-
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Bottom_Row_Fields.php:24
 #: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Button_Fields.php:24
 #: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Copyright_Fields.php:24
 #: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Html_Fields.php:24
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Main_Row_Fields.php:24
 #: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Menu_Fields.php:24
 #: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Social_Icons_Fields.php:24
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Top_Row_Fields.php:24
+#: inc/customizer/builder/header/options/woocommerce/cart/Zenvy_Customize_Header_WooCommerce_Cart_Fields.php:25
 #: inc/customizer/builder/header/options/Zenvy_Customize_Header_Account_Fields.php:25
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Bottom_Row_Fields.php:24
 #: inc/customizer/builder/header/options/Zenvy_Customize_Header_Button_Fields.php:24
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Color_Mode_Fields.php:24
 #: inc/customizer/builder/header/options/Zenvy_Customize_Header_Html_Fields.php:24
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Main_Row_Fields.php:24
 #: inc/customizer/builder/header/options/Zenvy_Customize_Header_Primary_Menu_Fields.php:24
 #: inc/customizer/builder/header/options/Zenvy_Customize_Header_Search_Icon_Fields.php:24
 #: inc/customizer/builder/header/options/Zenvy_Customize_Header_Site_Identity_Fields.php:24
 #: inc/customizer/builder/header/options/Zenvy_Customize_Header_Social_Icons_Fields.php:24
 #: inc/customizer/builder/header/options/Zenvy_Customize_Header_Toggle_Menu_Fields.php:25
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Top_Row_Fields.php:24
 #: inc/customizer/options/404-page/Zenvy_Customize_404_Page_Content_Fields.php:24
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Clients_Logo_Fields.php:24
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_News_Blog_Fields.php:19
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Property_Features_Fields.php:19
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Property_Locations_Fields.php:25
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Property_Type_Fields.php:26
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Services_Fields.php:24
-#: inc/customizer/Zenvy_Customizer.php:387
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Explore_Section_Fields.php:23
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Featured_Section_Fields.php:24
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Latest_Posts_Fields.php:23
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Quote_Fields.php:22
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Shop_Section_Fields.php:24
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Trending_Posts_Fields.php:26
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Youtube_Promotion_Fields.php:24
+#: inc/customizer/Zenvy_Customizer.php:363
 msgid "General"
 msgstr ""
 
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Bottom_Row_Fields.php:32
 #: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Button_Fields.php:32
 #: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Copyright_Fields.php:31
 #: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Html_Fields.php:31
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Main_Row_Fields.php:32
 #: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Menu_Fields.php:31
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Social_Icons_Fields.php:31
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Social_Icons_Fields.php:32
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Top_Row_Fields.php:32
+#: inc/customizer/builder/header/options/woocommerce/cart/Zenvy_Customize_Header_WooCommerce_Cart_Fields.php:32
 #: inc/customizer/builder/header/options/Zenvy_Customize_Header_Account_Fields.php:38
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Bottom_Row_Fields.php:33
 #: inc/customizer/builder/header/options/Zenvy_Customize_Header_Button_Fields.php:32
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Html_Fields.php:31
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Color_Mode_Fields.php:31
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Html_Fields.php:30
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Main_Row_Fields.php:33
 #: inc/customizer/builder/header/options/Zenvy_Customize_Header_Primary_Menu_Fields.php:31
 #: inc/customizer/builder/header/options/Zenvy_Customize_Header_Search_Icon_Fields.php:30
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Site_Identity_Fields.php:36
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Social_Icons_Fields.php:31
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Site_Identity_Fields.php:35
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Social_Icons_Fields.php:32
 #: inc/customizer/builder/header/options/Zenvy_Customize_Header_Toggle_Menu_Fields.php:31
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Top_Row_Fields.php:33
 #: inc/customizer/controls/border/Zenvy_Customize_Border_Control.php:136
 #: inc/customizer/options/404-page/Zenvy_Customize_404_Page_Content_Fields.php:31
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Clients_Logo_Fields.php:31
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_News_Blog_Fields.php:28
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Property_Features_Fields.php:26
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Property_Locations_Fields.php:34
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Property_Type_Fields.php:34
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Services_Fields.php:32
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Explore_Section_Fields.php:30
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Featured_Section_Fields.php:35
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Latest_Posts_Fields.php:35
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Quote_Fields.php:29
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Shop_Section_Fields.php:34
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Trending_Posts_Fields.php:38
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Youtube_Promotion_Fields.php:40
 msgid "Style"
 msgstr ""
 
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Button_Fields.php:44
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Bottom_Row_Fields.php:49
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Main_Row_Fields.php:49
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Top_Row_Fields.php:50
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Bottom_Row_Fields.php:64
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Main_Row_Fields.php:64
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Top_Row_Fields.php:65
+msgid "Left Column"
+msgstr ""
+
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Bottom_Row_Fields.php:50
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Main_Row_Fields.php:50
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Top_Row_Fields.php:51
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Bottom_Row_Fields.php:65
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Main_Row_Fields.php:65
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Top_Row_Fields.php:66
+msgid "Choose position for the content in the Left Column."
+msgstr ""
+
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Bottom_Row_Fields.php:54
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Bottom_Row_Fields.php:74
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Bottom_Row_Fields.php:94
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Main_Row_Fields.php:54
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Main_Row_Fields.php:74
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Main_Row_Fields.php:94
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Top_Row_Fields.php:55
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Top_Row_Fields.php:75
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Top_Row_Fields.php:95
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Bottom_Row_Fields.php:69
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Bottom_Row_Fields.php:89
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Bottom_Row_Fields.php:109
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Main_Row_Fields.php:69
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Main_Row_Fields.php:89
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Main_Row_Fields.php:109
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Top_Row_Fields.php:70
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Top_Row_Fields.php:90
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Top_Row_Fields.php:110
+msgid "Start"
+msgstr ""
+
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Bottom_Row_Fields.php:55
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Bottom_Row_Fields.php:75
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Bottom_Row_Fields.php:95
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Main_Row_Fields.php:55
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Main_Row_Fields.php:75
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Main_Row_Fields.php:95
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Top_Row_Fields.php:56
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Top_Row_Fields.php:76
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Top_Row_Fields.php:96
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Bottom_Row_Fields.php:70
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Bottom_Row_Fields.php:90
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Bottom_Row_Fields.php:110
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Main_Row_Fields.php:70
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Main_Row_Fields.php:90
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Main_Row_Fields.php:110
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Top_Row_Fields.php:71
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Top_Row_Fields.php:91
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Top_Row_Fields.php:111
+#: inc/customizer/controls/background/Zenvy_Customize_Background_Control.php:146
+msgid "Center"
+msgstr ""
+
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Bottom_Row_Fields.php:56
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Bottom_Row_Fields.php:76
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Bottom_Row_Fields.php:96
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Main_Row_Fields.php:56
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Main_Row_Fields.php:76
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Main_Row_Fields.php:96
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Top_Row_Fields.php:57
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Top_Row_Fields.php:77
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Top_Row_Fields.php:97
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Bottom_Row_Fields.php:71
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Bottom_Row_Fields.php:91
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Bottom_Row_Fields.php:111
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Main_Row_Fields.php:71
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Main_Row_Fields.php:91
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Main_Row_Fields.php:111
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Top_Row_Fields.php:72
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Top_Row_Fields.php:92
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Top_Row_Fields.php:112
+msgid "End"
+msgstr ""
+
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Bottom_Row_Fields.php:69
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Main_Row_Fields.php:69
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Top_Row_Fields.php:70
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Bottom_Row_Fields.php:84
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Main_Row_Fields.php:84
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Top_Row_Fields.php:85
+msgid "Center Column"
+msgstr ""
+
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Bottom_Row_Fields.php:70
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Main_Row_Fields.php:70
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Top_Row_Fields.php:71
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Bottom_Row_Fields.php:85
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Top_Row_Fields.php:86
+msgid "Choose position for the content in the Center Column."
+msgstr ""
+
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Bottom_Row_Fields.php:89
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Main_Row_Fields.php:89
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Top_Row_Fields.php:90
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Bottom_Row_Fields.php:104
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Main_Row_Fields.php:104
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Top_Row_Fields.php:105
+msgid "Right Column"
+msgstr ""
+
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Bottom_Row_Fields.php:90
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Main_Row_Fields.php:90
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Top_Row_Fields.php:91
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Bottom_Row_Fields.php:105
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Main_Row_Fields.php:105
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Top_Row_Fields.php:106
+msgid "Choose position for the content in the Right Column."
+msgstr ""
+
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Bottom_Row_Fields.php:110
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Main_Row_Fields.php:110
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Top_Row_Fields.php:111
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Bottom_Row_Fields.php:120
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Main_Row_Fields.php:120
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Top_Row_Fields.php:121
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Explore_Section_Fields.php:76
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Featured_Section_Fields.php:149
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Latest_Posts_Fields.php:156
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Quote_Fields.php:84
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Shop_Section_Fields.php:145
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Trending_Posts_Fields.php:156
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Youtube_Promotion_Fields.php:178
+#: inc/customizer/options/global/Zenvy_Customize_Global_Page_Header_Fields.php:39
+msgid "Background Overlay"
+msgstr ""
+
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Bottom_Row_Fields.php:111
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Bottom_Row_Fields.php:121
+msgid "Set Background overlay color for bottom row container."
+msgstr ""
+
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Bottom_Row_Fields.php:124
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Button_Fields.php:136
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Copyright_Fields.php:94
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Html_Fields.php:94
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Main_Row_Fields.php:130
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Menu_Fields.php:114
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Social_Icons_Fields.php:81
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Social_Icons_Fields.php:152
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Top_Row_Fields.php:131
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Widget_Fields.php:53
+#: inc/customizer/builder/header/options/woocommerce/cart/Zenvy_Customize_Header_WooCommerce_Cart_Fields.php:155
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Account_Fields.php:122
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Account_Fields.php:196
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Button_Fields.php:152
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Color_Mode_Fields.php:83
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Html_Fields.php:91
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Primary_Menu_Fields.php:164
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Search_Icon_Fields.php:57
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Search_Icon_Fields.php:141
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Site_Identity_Fields.php:119
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Social_Icons_Fields.php:84
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Social_Icons_Fields.php:163
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Toggle_Menu_Fields.php:133
+msgid "Padding"
+msgstr ""
+
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Bottom_Row_Fields.php:127
+msgid "Set footer bottom row padding."
+msgstr ""
+
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Button_Fields.php:46
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Button_Fields.php:75
 #: inc/customizer/builder/footer/Zenvy_Customizer_Footer_Builder.php:246
 #: inc/customizer/builder/footer/Zenvy_Customizer_Footer_Builder.php:393
-#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:271
-#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:399
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Button_Fields.php:80
+#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:277
+#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:410
 #: inc/customizer/options/404-page/Zenvy_Customize_404_Page_Content_Fields.php:51
-#: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Post_Read_More_Fields.php:27
-#: inc/customizer/Zenvy_Customizer.php:1065
+#: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Post_Read_More_Fields.php:28
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Featured_Section_Fields.php:118
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Latest_Posts_Fields.php:106
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Shop_Section_Fields.php:113
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Trending_Posts_Fields.php:107
+#: inc/customizer/options/global/Zenvy_Customize_Global_Button_Fields.php:77
+#: inc/customizer/Zenvy_Customizer.php:908
 #: template-parts/footer/footer_button.php:12
 msgid "Button"
 msgstr ""
 
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Button_Fields.php:46
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Account_Fields.php:59
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Account_Fields.php:84
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Button_Fields.php:46
-#: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Post_Read_More_Fields.php:26
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Button_Fields.php:48
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Copyright_Fields.php:70
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Account_Fields.php:62
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Account_Fields.php:87
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Button_Fields.php:49
+#: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Post_Read_More_Fields.php:27
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Featured_Section_Fields.php:117
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Latest_Posts_Fields.php:105
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Shop_Section_Fields.php:112
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Trending_Posts_Fields.php:106
+#: inc/customizer/options/global/Zenvy_Customize_Global_Button_Fields.php:76
 msgid "Text"
 msgstr ""
 
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Button_Fields.php:55
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Account_Fields.php:68
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Account_Fields.php:93
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Button_Fields.php:55
-#: inc/customizer/Zenvy_Customizer.php:1000
-#: inc/customizer/Zenvy_Customizer.php:1009
-#: inc/customizer/Zenvy_Customizer.php:1060
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Button_Fields.php:57
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Account_Fields.php:71
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Account_Fields.php:96
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Button_Fields.php:58
+#: inc/customizer/Zenvy_Customizer.php:843
+#: inc/customizer/Zenvy_Customizer.php:852
+#: inc/customizer/Zenvy_Customizer.php:903
 msgid "URL"
 msgstr ""
 
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Button_Fields.php:66
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Copyright_Fields.php:56
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Social_Icons_Fields.php:57
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Account_Fields.php:111
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Button_Fields.php:66
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Social_Icons_Fields.php:57
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Button_Fields.php:68
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Copyright_Fields.php:57
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Social_Icons_Fields.php:73
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Account_Fields.php:114
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Button_Fields.php:69
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Social_Icons_Fields.php:76
 msgid "Link Open"
 msgstr ""
 
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Button_Fields.php:67
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Social_Icons_Fields.php:58
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Button_Fields.php:67
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Social_Icons_Fields.php:58
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Button_Fields.php:69
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Social_Icons_Fields.php:74
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Button_Fields.php:70
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Social_Icons_Fields.php:77
 msgid "Enable to open the link in the new tab."
 msgstr ""
 
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Button_Fields.php:82
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Social_Icons_Fields.php:102
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Account_Fields.php:127
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Button_Fields.php:82
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Social_Icons_Fields.php:102
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Button_Fields.php:76
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Button_Fields.php:81
+msgid "Set button color."
+msgstr ""
+
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Button_Fields.php:79
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Button_Fields.php:96
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Button_Fields.php:116
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Copyright_Fields.php:74
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Html_Fields.php:74
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Menu_Fields.php:69
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Menu_Fields.php:87
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Social_Icons_Fields.php:113
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Social_Icons_Fields.php:130
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Widget_Fields.php:39
+#: inc/customizer/builder/header/options/woocommerce/cart/Zenvy_Customize_Header_WooCommerce_Cart_Fields.php:83
+#: inc/customizer/builder/header/options/woocommerce/cart/Zenvy_Customize_Header_WooCommerce_Cart_Fields.php:101
+#: inc/customizer/builder/header/options/woocommerce/cart/Zenvy_Customize_Header_WooCommerce_Cart_Fields.php:119
+#: inc/customizer/builder/header/options/woocommerce/cart/Zenvy_Customize_Header_WooCommerce_Cart_Fields.php:135
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Account_Fields.php:151
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Account_Fields.php:173
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Button_Fields.php:84
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Button_Fields.php:105
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Color_Mode_Fields.php:60
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Html_Fields.php:71
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Primary_Menu_Fields.php:82
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Primary_Menu_Fields.php:100
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Primary_Menu_Fields.php:125
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Primary_Menu_Fields.php:143
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Search_Icon_Fields.php:83
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Search_Icon_Fields.php:101
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Search_Icon_Fields.php:119
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Site_Identity_Fields.php:83
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Social_Icons_Fields.php:120
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Social_Icons_Fields.php:141
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Social_Icons_Fields.php:179
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Toggle_Menu_Fields.php:120
+#: inc/customizer/options/global/Zenvy_Customize_Global_Button_Fields.php:26
+#: inc/customizer/options/global/Zenvy_Customize_Global_Button_Fields.php:43
+#: inc/customizer/options/global/Zenvy_Customize_Global_Button_Fields.php:61
+#: inc/customizer/options/global/Zenvy_Customize_Global_Color_Fields.php:71
+msgid "Normal"
+msgstr ""
+
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Button_Fields.php:80
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Button_Fields.php:97
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Html_Fields.php:75
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Menu_Fields.php:70
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Menu_Fields.php:88
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Social_Icons_Fields.php:114
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Social_Icons_Fields.php:131
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Widget_Fields.php:40
+#: inc/customizer/builder/header/options/woocommerce/cart/Zenvy_Customize_Header_WooCommerce_Cart_Fields.php:84
+#: inc/customizer/builder/header/options/woocommerce/cart/Zenvy_Customize_Header_WooCommerce_Cart_Fields.php:102
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Account_Fields.php:152
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Account_Fields.php:174
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Button_Fields.php:85
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Button_Fields.php:106
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Html_Fields.php:72
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Primary_Menu_Fields.php:83
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Primary_Menu_Fields.php:101
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Primary_Menu_Fields.php:126
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Primary_Menu_Fields.php:144
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Search_Icon_Fields.php:84
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Search_Icon_Fields.php:102
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Search_Icon_Fields.php:120
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Site_Identity_Fields.php:84
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Social_Icons_Fields.php:121
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Social_Icons_Fields.php:142
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Toggle_Menu_Fields.php:121
+#: inc/customizer/options/global/Zenvy_Customize_Global_Button_Fields.php:27
+#: inc/customizer/options/global/Zenvy_Customize_Global_Button_Fields.php:44
+#: inc/customizer/options/global/Zenvy_Customize_Global_Color_Fields.php:72
+msgid "Hover"
+msgstr ""
+
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Button_Fields.php:92
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Menu_Fields.php:83
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Social_Icons_Fields.php:126
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Account_Fields.php:169
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Button_Fields.php:101
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Primary_Menu_Fields.php:96
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Search_Icon_Fields.php:97
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Social_Icons_Fields.php:137
+#: inc/customizer/options/global/Zenvy_Customize_Global_Body_Fields.php:22
+#: inc/customizer/options/global/Zenvy_Customize_Global_Color_Fields.php:99
+msgid "Background"
+msgstr ""
+
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Button_Fields.php:93
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Button_Fields.php:102
+msgid "Set button background."
+msgstr ""
+
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Button_Fields.php:110
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Social_Icons_Fields.php:174
+#: inc/customizer/options/global/Zenvy_Customize_Global_Button_Fields.php:56
+#: inc/customizer/options/global/Zenvy_Customize_Global_Color_Fields.php:87
 msgid "Border"
 msgstr ""
 
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Button_Fields.php:83
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Button_Fields.php:83
-msgid "Set button border width."
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Button_Fields.php:111
+msgid "Set button border."
 msgstr ""
 
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Button_Fields.php:102
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Button_Fields.php:102
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Button_Fields.php:137
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Button_Fields.php:129
 msgid "Set button padding."
 msgstr ""
 
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Button_Fields.php:120
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Copyright_Fields.php:80
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Html_Fields.php:71
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Menu_Fields.php:81
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Social_Icons_Fields.php:76
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Social_Icons_Fields.php:140
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Account_Fields.php:157
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Button_Fields.php:112
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Html_Fields.php:71
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Primary_Menu_Fields.php:82
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Search_Icon_Fields.php:64
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Site_Identity_Fields.php:131
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Social_Icons_Fields.php:76
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Social_Icons_Fields.php:140
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Toggle_Menu_Fields.php:63
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Button_Fields.php:155
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Copyright_Fields.php:104
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Html_Fields.php:105
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Menu_Fields.php:125
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Social_Icons_Fields.php:92
+#: inc/customizer/builder/header/options/woocommerce/cart/Zenvy_Customize_Header_WooCommerce_Cart_Fields.php:166
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Account_Fields.php:133
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Button_Fields.php:140
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Color_Mode_Fields.php:94
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Html_Fields.php:102
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Primary_Menu_Fields.php:175
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Search_Icon_Fields.php:68
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Site_Identity_Fields.php:130
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Social_Icons_Fields.php:95
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Toggle_Menu_Fields.php:144
 msgid "Margin"
 msgstr ""
 
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Button_Fields.php:121
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Button_Fields.php:113
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Button_Fields.php:156
 msgid "Set button margin."
 msgstr ""
 
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Copyright_Fields.php:42
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Copyright_Fields.php:43
 #: template-parts/footer/footer_copyright.php:13
 msgid "Copyright {copyright} {current_year} {site_title}"
 msgstr ""
 
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Copyright_Fields.php:44
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Copyright_Fields.php:45
 msgid "Copyright Text"
 msgstr ""
 
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Copyright_Fields.php:45
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Copyright_Fields.php:46
 msgid "You can insert some arbitrary HTML code tags: {current_year} and {site_title}"
 msgstr ""
 
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Copyright_Fields.php:57
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Account_Fields.php:112
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Copyright_Fields.php:58
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Account_Fields.php:115
 msgid "Toggle to enable link open in new window tab."
 msgstr ""
 
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Html_Fields.php:44
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Copyright_Fields.php:75
+msgid "Link Hover"
+msgstr ""
+
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Html_Fields.php:46
 #: inc/customizer/builder/footer/Zenvy_Customizer_Footer_Builder.php:251
 #: inc/customizer/builder/footer/Zenvy_Customizer_Footer_Builder.php:401
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Html_Fields.php:44
-#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:286
-#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:431
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Html_Fields.php:45
+#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:292
+#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:442
 msgid "HTML"
 msgstr ""
 
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Html_Fields.php:45
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Html_Fields.php:45
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Html_Fields.php:47
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Html_Fields.php:46
 msgid "Enter Text/Simple HTML Code"
 msgstr ""
 
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Html_Fields.php:61
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Html_Fields.php:61
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Html_Fields.php:58
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Html_Fields.php:55
+msgid "Text Color"
+msgstr ""
+
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Html_Fields.php:71
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Html_Fields.php:68
+msgid "Link Color"
+msgstr ""
+
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Html_Fields.php:95
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Html_Fields.php:92
 msgid "Set HTML container padding."
 msgstr ""
 
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Html_Fields.php:72
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Html_Fields.php:72
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Html_Fields.php:106
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Html_Fields.php:103
 msgid "Set HTML container margin."
 msgstr ""
 
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Main_Row_Fields.php:82
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Top_Row_Fields.php:82
-#: inc/customizer/options/404-page/Zenvy_Customize_404_Page_Content_Fields.php:69
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Clients_Logo_Fields.php:62
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_News_Blog_Fields.php:99
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Property_Features_Fields.php:71
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Property_Locations_Fields.php:96
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Property_Type_Fields.php:78
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Services_Fields.php:77
-#: inc/customizer/options/global/Zenvy_Customize_Global_Page_Header_Fields.php:22
-msgid "Background Image"
-msgstr ""
-
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Main_Row_Fields.php:83
-msgid "Set Background Image for main row"
-msgstr ""
-
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Main_Row_Fields.php:99
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Main_Row_Fields.php:98
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Main_Row_Fields.php:111
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Main_Row_Fields.php:121
 msgid "Set Background overlay color for main row container."
 msgstr ""
 
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Main_Row_Fields.php:121
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Main_Row_Fields.php:133
 msgid "Set footer main row padding."
 msgstr ""
 
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Menu_Fields.php:43
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Menu_Fields.php:45
 msgid "To set menu, go to <a data-type=\"section\" data-id=\"menu_locations\" class=\"customizer-focus\"><strong>Footer Menu</strong></a>"
 msgstr ""
 
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Menu_Fields.php:52
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Primary_Menu_Fields.php:53
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Menu_Fields.php:54
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Primary_Menu_Fields.php:60
 msgid "Menu Spacing"
 msgstr ""
 
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Menu_Fields.php:53
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Menu_Fields.php:55
 msgid "Slide to set Menu Spacing."
 msgstr ""
 
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Menu_Fields.php:61
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Primary_Menu_Fields.php:62
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Menu_Fields.php:65
+msgid "Font Colors"
+msgstr ""
+
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Menu_Fields.php:66
+msgid "Set menu normal and hover colors."
+msgstr ""
+
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Menu_Fields.php:84
+msgid "Set menu each item background."
+msgstr ""
+
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Menu_Fields.php:99
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Primary_Menu_Fields.php:155
 msgid "CONTAINER"
 msgstr ""
 
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Menu_Fields.php:71
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Menu_Fields.php:115
 msgid "Set Padding to the Footer Menu."
 msgstr ""
 
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Menu_Fields.php:82
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Menu_Fields.php:126
 msgid "Set Margin to the Footer Menu."
 msgstr ""
 
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Sidebar_1_Fields.php:20
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Sidebar_2_Fields.php:20
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Sidebar_3_Fields.php:20
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Sidebar_4_Fields.php:20
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Sidebar_5_Fields.php:20
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Sidebar_6_Fields.php:20
-msgid "NOTE"
-msgstr ""
-
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Sidebar_1_Fields.php:21
-msgid "Drag and Drop Widgets to <a data-type=\"section\" data-id=\"sidebar-widgets-footer-sidebar-1\" class=\"customizer-focus\"><strong> Footer Sidebar 1 </strong></a>widget area."
-msgstr ""
-
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Sidebar_2_Fields.php:21
-msgid "Drag and Drop Widgets to <a data-type=\"section\" data-id=\"sidebar-widgets-footer-sidebar-2\" class=\"customizer-focus\"><strong> Footer Sidebar 2 </strong></a>widget area."
-msgstr ""
-
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Sidebar_3_Fields.php:21
-msgid "Drag and Drop Widgets to <a data-type=\"section\" data-id=\"sidebar-widgets-footer-sidebar-3\" class=\"customizer-focus\"><strong> Footer Sidebar 3 </strong></a>widget area."
-msgstr ""
-
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Sidebar_4_Fields.php:21
-msgid "Drag and Drop Widgets to <a data-type=\"section\" data-id=\"sidebar-widgets-footer-sidebar-4\" class=\"customizer-focus\"><strong> Footer Sidebar 4 </strong></a>widget area."
-msgstr ""
-
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Sidebar_5_Fields.php:21
-msgid "Drag and Drop Widgets to <a data-type=\"section\" data-id=\"sidebar-widgets-footer-sidebar-5\" class=\"customizer-focus\"><strong> Footer Sidebar 5 </strong></a>widget area."
-msgstr ""
-
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Sidebar_6_Fields.php:21
-msgid "Drag and Drop Widgets to <a data-type=\"section\" data-id=\"sidebar-widgets-footer-sidebar-6\" class=\"customizer-focus\"><strong> Footer Sidebar 6 </strong></a>widget area."
-msgstr ""
-
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Social_Icons_Fields.php:46
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Social_Icons_Fields.php:46
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Social_Icons_Fields.php:47
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Social_Icons_Fields.php:48
 msgid "Configure social icons in Global &raquo; Social &raquo; <a data-type=\"control\" data-id=\"zenvy_social_icons\" class=\"customizer-focus\"><strong> Social Icons </strong></a>."
 msgstr ""
 
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Social_Icons_Fields.php:66
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Social_Icons_Fields.php:66
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Social_Icons_Fields.php:56
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Social_Icons_Fields.php:59
+msgid "Item Gap"
+msgstr ""
+
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Social_Icons_Fields.php:57
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Social_Icons_Fields.php:60
+msgid "Set gap between each social icon lists."
+msgstr ""
+
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Social_Icons_Fields.php:82
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Social_Icons_Fields.php:85
 msgid "Set social container padding."
 msgstr ""
 
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Social_Icons_Fields.php:77
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Social_Icons_Fields.php:77
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Social_Icons_Fields.php:93
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Social_Icons_Fields.php:96
 msgid "Set social container margin."
 msgstr ""
 
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Social_Icons_Fields.php:85
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Social_Icons_Fields.php:85
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Social_Icons_Fields.php:101
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Social_Icons_Fields.php:104
 msgid "ITEM"
 msgstr ""
 
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Social_Icons_Fields.php:103
-msgid "Set border width to each item."
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Social_Icons_Fields.php:109
+msgid "Icon/Text"
 msgstr ""
 
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Social_Icons_Fields.php:122
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Social_Icons_Fields.php:110
+msgid "Set each items icon and text as same color."
+msgstr ""
+
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Social_Icons_Fields.php:127
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Social_Icons_Fields.php:138
+msgid "Set each item background color."
+msgstr ""
+
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Social_Icons_Fields.php:153
 msgid "Set padding to each item."
 msgstr ""
 
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Social_Icons_Fields.php:141
-msgid "Set margin to each item."
-msgstr ""
-
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Top_Row_Fields.php:83
-msgid "Set Background Image for footer top row."
-msgstr ""
-
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Top_Row_Fields.php:94
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Top_Row_Fields.php:98
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Top_Row_Fields.php:112
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Top_Row_Fields.php:122
 msgid "Set Background overlay color for top row container."
 msgstr ""
 
-#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Top_Row_Fields.php:116
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Top_Row_Fields.php:134
 msgid "Set footer top row padding."
+msgstr ""
+
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Widget_Fields.php:22
+msgid "Widget Title"
+msgstr ""
+
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Widget_Fields.php:35
+msgid "Widget Content"
+msgstr ""
+
+#: inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Widget_Fields.php:54
+msgid "Set each footer widgets wrapper padding."
 msgstr ""
 
 #: inc/customizer/builder/footer/Zenvy_Customizer_Footer_Builder.php:231
@@ -788,38 +940,32 @@ msgstr ""
 
 #: inc/customizer/builder/footer/Zenvy_Customizer_Footer_Builder.php:241
 #: inc/customizer/builder/footer/Zenvy_Customizer_Footer_Builder.php:385
-#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:261
-#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:407
+#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:267
+#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:418
 msgid "Social Icons"
 msgstr ""
 
 #: inc/customizer/builder/footer/Zenvy_Customizer_Footer_Builder.php:256
-#: inc/customizer/builder/footer/Zenvy_Customizer_Footer_Builder.php:417
 msgid "Footer Sidebar 1"
 msgstr ""
 
 #: inc/customizer/builder/footer/Zenvy_Customizer_Footer_Builder.php:261
-#: inc/customizer/builder/footer/Zenvy_Customizer_Footer_Builder.php:425
 msgid "Footer Sidebar 2"
 msgstr ""
 
 #: inc/customizer/builder/footer/Zenvy_Customizer_Footer_Builder.php:266
-#: inc/customizer/builder/footer/Zenvy_Customizer_Footer_Builder.php:433
 msgid "Footer Sidebar 3"
 msgstr ""
 
 #: inc/customizer/builder/footer/Zenvy_Customizer_Footer_Builder.php:271
-#: inc/customizer/builder/footer/Zenvy_Customizer_Footer_Builder.php:441
 msgid "Footer Sidebar 4"
 msgstr ""
 
 #: inc/customizer/builder/footer/Zenvy_Customizer_Footer_Builder.php:276
-#: inc/customizer/builder/footer/Zenvy_Customizer_Footer_Builder.php:449
 msgid "Footer Sidebar 5"
 msgstr ""
 
 #: inc/customizer/builder/footer/Zenvy_Customizer_Footer_Builder.php:281
-#: inc/customizer/builder/footer/Zenvy_Customizer_Footer_Builder.php:457
 msgid "Footer Sidebar 6"
 msgstr ""
 
@@ -830,236 +976,415 @@ msgid "Footer Builder"
 msgstr ""
 
 #: inc/customizer/builder/footer/Zenvy_Customizer_Footer_Builder.php:296
-#: inc/customizer/Zenvy_Customizer.php:253
+#: inc/customizer/Zenvy_Customizer.php:239
 msgid "Global"
 msgstr ""
 
 #: inc/customizer/builder/footer/Zenvy_Customizer_Footer_Builder.php:300
 #: inc/customizer/builder/footer/Zenvy_Customizer_Footer_Builder.php:352
-#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:306
-#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:358
+#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:317
+#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:369
 msgid "Top Row"
 msgstr ""
 
 #: inc/customizer/builder/footer/Zenvy_Customizer_Footer_Builder.php:301
 #: inc/customizer/builder/footer/Zenvy_Customizer_Footer_Builder.php:360
-#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:307
-#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:366
+#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:318
+#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:377
 msgid "Main Row"
 msgstr ""
 
 #: inc/customizer/builder/footer/Zenvy_Customizer_Footer_Builder.php:302
 #: inc/customizer/builder/footer/Zenvy_Customizer_Footer_Builder.php:368
-#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:308
-#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:374
+#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:319
+#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:385
 msgid "Bottom Row"
 msgstr ""
 
-#: inc/customizer/builder/footer/Zenvy_Customizer_Footer_Builder.php:486
-#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:296
-#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:338
+#: inc/customizer/builder/footer/Zenvy_Customizer_Footer_Builder.php:418
+msgid "Widget Settings"
+msgstr ""
+
+#: inc/customizer/builder/footer/Zenvy_Customizer_Footer_Builder.php:448
+#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:307
 #: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:349
-#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:451
+#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:360
+#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:471
 msgid "Header Builder"
 msgstr ""
 
-#: inc/customizer/builder/footer/Zenvy_Customizer_Footer_Builder.php:527
+#: inc/customizer/builder/footer/Zenvy_Customizer_Footer_Builder.php:482
 msgid "Create New File "
 msgstr ""
 
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Account_Fields.php:50
+#: inc/customizer/builder/header/options/woocommerce/cart/Zenvy_Customize_Header_WooCommerce_Cart_Fields.php:50
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Search_Icon_Fields.php:79
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Social_Icons_Fields.php:116
+#: inc/customizer/Zenvy_Customizer.php:827
+#: inc/customizer/Zenvy_Customizer.php:893
+msgid "Icon"
+msgstr ""
+
+#: inc/customizer/builder/header/options/woocommerce/cart/Zenvy_Customize_Header_WooCommerce_Cart_Fields.php:67
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Color_Mode_Fields.php:46
+msgid "Icon Size"
+msgstr ""
+
+#: inc/customizer/builder/header/options/woocommerce/cart/Zenvy_Customize_Header_WooCommerce_Cart_Fields.php:68
+msgid "Set WooCommerce cart icon size."
+msgstr ""
+
+#: inc/customizer/builder/header/options/woocommerce/cart/Zenvy_Customize_Header_WooCommerce_Cart_Fields.php:79
+msgid "Cart Icon"
+msgstr ""
+
+#: inc/customizer/builder/header/options/woocommerce/cart/Zenvy_Customize_Header_WooCommerce_Cart_Fields.php:80
+msgid "Set WooCommerce cart icon color."
+msgstr ""
+
+#: inc/customizer/builder/header/options/woocommerce/cart/Zenvy_Customize_Header_WooCommerce_Cart_Fields.php:97
+msgid "Cart Background"
+msgstr ""
+
+#: inc/customizer/builder/header/options/woocommerce/cart/Zenvy_Customize_Header_WooCommerce_Cart_Fields.php:98
+msgid "Set WooCommerce cart icon background."
+msgstr ""
+
+#: inc/customizer/builder/header/options/woocommerce/cart/Zenvy_Customize_Header_WooCommerce_Cart_Fields.php:115
+msgid "Cart Count"
+msgstr ""
+
+#: inc/customizer/builder/header/options/woocommerce/cart/Zenvy_Customize_Header_WooCommerce_Cart_Fields.php:116
+msgid "Set WooCommerce cart count color."
+msgstr ""
+
+#: inc/customizer/builder/header/options/woocommerce/cart/Zenvy_Customize_Header_WooCommerce_Cart_Fields.php:131
+msgid "Cart Count Background"
+msgstr ""
+
+#: inc/customizer/builder/header/options/woocommerce/cart/Zenvy_Customize_Header_WooCommerce_Cart_Fields.php:132
+msgid "Set WooCommerce cart count background color."
+msgstr ""
+
+#: inc/customizer/builder/header/options/woocommerce/cart/Zenvy_Customize_Header_WooCommerce_Cart_Fields.php:156
+msgid "Set WooCommerce cart padding."
+msgstr ""
+
+#: inc/customizer/builder/header/options/woocommerce/cart/Zenvy_Customize_Header_WooCommerce_Cart_Fields.php:167
+msgid "Set WooCommerce cart margin."
+msgstr ""
+
+#: inc/customizer/builder/header/options/woocommerce/cart/Zenvy_WooCommerce_Cart_Header.php:75
+msgid "Cart"
+msgstr ""
+
+#: inc/customizer/builder/header/options/woocommerce/cart/Zenvy_WooCommerce_Cart_Header.php:97
+msgid "WC Cart"
+msgstr ""
+
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Account_Fields.php:53
 msgid "LOGIN"
 msgstr ""
 
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Account_Fields.php:57
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Account_Fields.php:60
 #: template-parts/header/account.php:13
 msgid "My Account"
 msgstr ""
 
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Account_Fields.php:75
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Account_Fields.php:78
 msgid "LOGOUT"
 msgstr ""
 
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Account_Fields.php:82
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Account_Fields.php:85
 #: template-parts/header/account.php:23
 msgid "Log In"
 msgstr ""
 
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Account_Fields.php:100
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Account_Fields.php:103
 msgid "SETTINGS"
 msgstr ""
 
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Account_Fields.php:128
-msgid "Set account border width."
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Account_Fields.php:123
+msgid "Set account container padding."
+msgstr ""
+
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Account_Fields.php:134
+msgid "Set account container margin."
 msgstr ""
 
 #: inc/customizer/builder/header/options/Zenvy_Customize_Header_Account_Fields.php:147
+#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:282
+#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:426
+msgid "Account"
+msgstr ""
+
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Account_Fields.php:148
+msgid "Set account text color."
+msgstr ""
+
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Account_Fields.php:170
+msgid "Set account background."
+msgstr ""
+
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Account_Fields.php:197
 msgid "Set account padding."
 msgstr ""
 
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Account_Fields.php:158
-msgid "Set account margin."
-msgstr ""
-
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Bottom_Row_Fields.php:22
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Main_Row_Fields.php:22
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Top_Row_Fields.php:22
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Bottom_Row_Fields.php:45
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Main_Row_Fields.php:45
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Top_Row_Fields.php:46
 msgid "Min Height"
 msgstr ""
 
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Bottom_Row_Fields.php:23
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Bottom_Row_Fields.php:46
 msgid "To set Min Height at the bottom row of Header."
 msgstr ""
 
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Button_Fields.php:44
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Button_Fields.php:47
 #: template-parts/header/button_one.php:16
 msgid "ENG"
 msgstr ""
 
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Main_Row_Fields.php:23
-msgid "To set Min Height at the main row of Header."
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Button_Fields.php:128
+msgid "Button Padding"
 msgstr ""
 
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Main_Row_Fields.php:62
-msgid " Choose position for the content in the Center Column."
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Button_Fields.php:141
+msgid "Set button container margin."
 msgstr ""
 
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Primary_Menu_Fields.php:44
-msgid "To set menu, go to <a data-type=\"section\" data-id=\"menu_locations\" class=\"customizer-focus\"><strong>Primary Menu</strong></a>"
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Button_Fields.php:153
+msgid "Set button container padding."
 msgstr ""
 
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Primary_Menu_Fields.php:54
-msgid "Slide to change the value of Parent Menu Spacing."
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Color_Mode_Fields.php:56
+msgid "Icon Color"
 msgstr ""
 
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Primary_Menu_Fields.php:72
-msgid "Set primary menu container padding."
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Color_Mode_Fields.php:71
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Toggle_Menu_Fields.php:80
+#: inc/customizer/options/global/Zenvy_Customize_Global_Button_Fields.php:39
+msgid "Background Color"
 msgstr ""
 
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Primary_Menu_Fields.php:83
-msgid "Set primary menu container margin."
-msgstr ""
-
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Search_Icon_Fields.php:41
-#: template-parts/header/search_icon.php:13
-msgid "Search..."
-msgstr ""
-
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Search_Icon_Fields.php:43
-msgid "Placeholder"
-msgstr ""
-
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Search_Icon_Fields.php:44
-msgid "Set Search Model with placeholder."
-msgstr ""
-
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Search_Icon_Fields.php:54
-msgid "Set search icon container padding."
-msgstr ""
-
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Search_Icon_Fields.php:65
-msgid "Set search icon container margin."
-msgstr ""
-
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Site_Identity_Fields.php:53
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Site_Identity_Fields.php:78
-msgid "Site Title"
-msgstr ""
-
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Site_Identity_Fields.php:62
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Site_Identity_Fields.php:98
-msgid "Tagline"
-msgstr ""
-
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Site_Identity_Fields.php:69
-msgid "SITE TITLE & TAGLINE"
-msgstr ""
-
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Site_Identity_Fields.php:84
-#: inc/customizer/options/global/Zenvy_Customize_Global_Color_Fields.php:77
-msgid "Normal"
-msgstr ""
-
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Site_Identity_Fields.php:85
-#: inc/customizer/options/global/Zenvy_Customize_Global_Color_Fields.php:78
-msgid "Hover"
-msgstr ""
-
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Site_Identity_Fields.php:111
-msgid "SITE IDENTIFY CONTAINER"
-msgstr ""
-
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Site_Identity_Fields.php:121
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Color_Mode_Fields.php:84
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Site_Identity_Fields.php:120
 msgid "Set container padding."
 msgstr ""
 
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Site_Identity_Fields.php:132
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Color_Mode_Fields.php:95
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Site_Identity_Fields.php:131
 msgid "Set container margin."
 msgstr ""
 
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Social_Icons_Fields.php:103
-msgid "Set each item border width."
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Main_Row_Fields.php:46
+msgid "To set Min Height at the main row of Header."
 msgstr ""
 
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Social_Icons_Fields.php:122
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Main_Row_Fields.php:85
+msgid " Choose position for the content in the Center Column."
+msgstr ""
+
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Primary_Menu_Fields.php:51
+msgid "To set menu, go to <a data-type=\"section\" data-id=\"menu_locations\" class=\"customizer-focus\"><strong>Primary Menu</strong></a>"
+msgstr ""
+
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Primary_Menu_Fields.php:61
+msgid "Slide to change the value of Parent Menu Spacing."
+msgstr ""
+
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Primary_Menu_Fields.php:69
+msgid "PARENT MENU"
+msgstr ""
+
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Primary_Menu_Fields.php:78
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Primary_Menu_Fields.php:121
+msgid "Colors"
+msgstr ""
+
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Primary_Menu_Fields.php:79
+msgid "Set parent menu each item normal and hover colors."
+msgstr ""
+
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Primary_Menu_Fields.php:97
+msgid "Set parent menu each item background."
+msgstr ""
+
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Primary_Menu_Fields.php:112
+msgid "CHILD MENU"
+msgstr ""
+
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Primary_Menu_Fields.php:122
+msgid "Set child menu each item normal and hover colors."
+msgstr ""
+
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Primary_Menu_Fields.php:139
+msgid "Background Colors"
+msgstr ""
+
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Primary_Menu_Fields.php:140
+msgid "Set child menu each item background colors."
+msgstr ""
+
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Primary_Menu_Fields.php:165
+msgid "Set primary menu container padding."
+msgstr ""
+
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Primary_Menu_Fields.php:176
+msgid "Set primary menu container margin."
+msgstr ""
+
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Search_Icon_Fields.php:45
+#: template-parts/header/search_icon.php:14
+msgid "Search..."
+msgstr ""
+
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Search_Icon_Fields.php:47
+msgid "Placeholder"
+msgstr ""
+
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Search_Icon_Fields.php:48
+msgid "Set Search Model with placeholder."
+msgstr ""
+
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Search_Icon_Fields.php:58
+msgid "Set search icon container padding."
+msgstr ""
+
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Search_Icon_Fields.php:69
+msgid "Set search icon container margin."
+msgstr ""
+
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Search_Icon_Fields.php:80
+msgid "Set icon color."
+msgstr ""
+
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Search_Icon_Fields.php:98
+msgid "Set icon  background."
+msgstr ""
+
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Search_Icon_Fields.php:115
+msgid "Button Background"
+msgstr ""
+
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Search_Icon_Fields.php:116
+msgid "Set pop up search button background color."
+msgstr ""
+
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Search_Icon_Fields.php:142
+msgid "Set search icon padding."
+msgstr ""
+
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Site_Identity_Fields.php:52
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Site_Identity_Fields.php:77
+msgid "Site Title"
+msgstr ""
+
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Site_Identity_Fields.php:61
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Site_Identity_Fields.php:97
+msgid "Tagline"
+msgstr ""
+
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Site_Identity_Fields.php:68
+msgid "SITE TITLE & TAGLINE"
+msgstr ""
+
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Site_Identity_Fields.php:110
+msgid "SITE IDENTIFY CONTAINER"
+msgstr ""
+
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Social_Icons_Fields.php:117
+msgid "Set each items icon as same color."
+msgstr ""
+
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Social_Icons_Fields.php:164
 msgid "Set each item padding."
 msgstr ""
 
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Social_Icons_Fields.php:141
-msgid "Set each item margin."
-msgstr ""
-
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Toggle_Menu_Fields.php:43
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Toggle_Menu_Fields.php:49
 msgid "To set menu, go to <a data-type=\"section\" data-id=\"menu_locations\" class=\"customizer-focus\"><strong>Mobile Menu</strong></a>"
 msgstr ""
 
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Toggle_Menu_Fields.php:53
-msgid "Set toggle menu container padding."
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Toggle_Menu_Fields.php:56
+msgid "Menu Icon"
 msgstr ""
 
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Toggle_Menu_Fields.php:64
-msgid "Set toggle menu container margin."
-msgstr ""
-
-#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Top_Row_Fields.php:23
-msgid "To set Min Height at the top row of Header."
-msgstr ""
-
-#: inc/customizer/builder/header/views/builder-template.php:25
-msgid "Close"
-msgstr ""
-
-#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:251
-msgid "Site Identity"
-msgstr ""
-
-#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:266
-#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:423
-msgid "Search Icon"
-msgstr ""
-
-#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:276
-#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:415
-msgid "Account"
-msgstr ""
-
-#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:301
-#: inc/customizer/builder/Zenvy_Customizer_Builder.php:139
-msgid "Desktop"
-msgstr ""
-
-#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:302
-#: inc/customizer/builder/Zenvy_Customizer_Builder.php:140
-msgid "Mobile/Tablet"
-msgstr ""
-
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Toggle_Menu_Fields.php:67
 #: inc/customizer/controls/background/Zenvy_Customize_Background_Control.php:95
 #: inc/customizer/controls/background/Zenvy_Customize_Background_Control.php:200
 #: inc/customizer/controls/border/Zenvy_Customize_Border_Control.php:152
 #: inc/customizer/controls/box-shadow/Zenvy_Customize_Box_Shadow_Control.php:209
-#: inc/customizer/controls/color/Zenvy_Customize_Color_Control.php:50
-#: inc/customizer/controls/typography/Zenvy_Customize_Typography_Control.php:361
+#: inc/customizer/controls/color/Zenvy_Customize_Color_Control.php:51
+#: inc/customizer/controls/typography/Zenvy_Customize_Typography_Control.php:363
 msgid "Color"
+msgstr ""
+
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Toggle_Menu_Fields.php:68
+msgid "Set trigger menu icon color."
+msgstr ""
+
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Toggle_Menu_Fields.php:81
+msgid "Set trigger menu icon background color."
+msgstr ""
+
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Toggle_Menu_Fields.php:91
+msgid "Dropdown Container"
+msgstr ""
+
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Toggle_Menu_Fields.php:100
+msgid "Menu Color"
+msgstr ""
+
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Toggle_Menu_Fields.php:101
+msgid "Set menu & submenu text color."
+msgstr ""
+
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Toggle_Menu_Fields.php:115
+msgid "Menu Background"
+msgstr ""
+
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Toggle_Menu_Fields.php:116
+msgid "Set dropdown container each menu background colors."
+msgstr ""
+
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Toggle_Menu_Fields.php:134
+msgid "Set toggle menu container padding."
+msgstr ""
+
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Toggle_Menu_Fields.php:145
+msgid "Set toggle menu container margin."
+msgstr ""
+
+#: inc/customizer/builder/header/options/Zenvy_Customize_Header_Top_Row_Fields.php:47
+msgid "To set Min Height at the top row of Header."
+msgstr ""
+
+#: inc/customizer/builder/header/views/builder-template.php:27
+msgid "Close"
+msgstr ""
+
+#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:257
+msgid "Site Identity"
+msgstr ""
+
+#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:272
+#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:434
+msgid "Search Icon"
+msgstr ""
+
+#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:297
+#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:450
+msgid "Color Mode"
+msgstr ""
+
+#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:312
+#: inc/customizer/builder/Zenvy_Customizer_Builder.php:130
+msgid "Desktop"
+msgstr ""
+
+#: inc/customizer/builder/header/Zenvy_Customizer_Header_Builder.php:313
+#: inc/customizer/builder/Zenvy_Customizer_Builder.php:131
+msgid "Mobile/Tablet"
 msgstr ""
 
 #: inc/customizer/controls/background/Zenvy_Customize_Background_Control.php:102
@@ -1225,119 +1550,119 @@ msgstr ""
 msgid "Add new %s"
 msgstr ""
 
-#: inc/customizer/controls/repeater/Zenvy_Customize_Repeater_Control.php:237
+#: inc/customizer/controls/repeater/Zenvy_Customize_Repeater_Control.php:249
 #, php-format
 msgid "Limit: %s rows"
 msgstr ""
 
-#: inc/customizer/controls/repeater/Zenvy_Customize_Repeater_Control.php:387
+#: inc/customizer/controls/repeater/Zenvy_Customize_Repeater_Control.php:399
 msgid "Hex Value"
 msgstr ""
 
-#: inc/customizer/controls/repeater/Zenvy_Customize_Repeater_Control.php:412
-#: inc/customizer/controls/repeater/Zenvy_Customize_Repeater_Control.php:417
+#: inc/customizer/controls/repeater/Zenvy_Customize_Repeater_Control.php:424
+#: inc/customizer/controls/repeater/Zenvy_Customize_Repeater_Control.php:429
 msgid "No Image Selected"
 msgstr ""
 
-#: inc/customizer/controls/repeater/Zenvy_Customize_Repeater_Control.php:422
-#: inc/customizer/controls/repeater/Zenvy_Customize_Repeater_Control.php:487
+#: inc/customizer/controls/repeater/Zenvy_Customize_Repeater_Control.php:434
+#: inc/customizer/controls/repeater/Zenvy_Customize_Repeater_Control.php:499
 msgid "Remove"
 msgstr ""
 
-#: inc/customizer/controls/repeater/Zenvy_Customize_Repeater_Control.php:423
-#: inc/customizer/controls/repeater/Zenvy_Customize_Repeater_Control.php:427
+#: inc/customizer/controls/repeater/Zenvy_Customize_Repeater_Control.php:435
+#: inc/customizer/controls/repeater/Zenvy_Customize_Repeater_Control.php:439
 msgid "Add Image"
 msgstr ""
 
-#: inc/customizer/controls/repeater/Zenvy_Customize_Repeater_Control.php:423
-#: inc/customizer/controls/repeater/Zenvy_Customize_Repeater_Control.php:425
+#: inc/customizer/controls/repeater/Zenvy_Customize_Repeater_Control.php:435
+#: inc/customizer/controls/repeater/Zenvy_Customize_Repeater_Control.php:437
 msgid "Change Image"
 msgstr ""
 
-#: inc/customizer/controls/repeater/Zenvy_Customize_Repeater_Control.php:448
-#: inc/customizer/controls/repeater/Zenvy_Customize_Repeater_Control.php:453
+#: inc/customizer/controls/repeater/Zenvy_Customize_Repeater_Control.php:460
+#: inc/customizer/controls/repeater/Zenvy_Customize_Repeater_Control.php:465
 msgid "No File Selected"
 msgstr ""
 
-#: inc/customizer/controls/repeater/Zenvy_Customize_Repeater_Control.php:459
-#: inc/customizer/controls/repeater/Zenvy_Customize_Repeater_Control.php:463
+#: inc/customizer/controls/repeater/Zenvy_Customize_Repeater_Control.php:471
+#: inc/customizer/controls/repeater/Zenvy_Customize_Repeater_Control.php:475
 msgid "Add File"
 msgstr ""
 
-#: inc/customizer/controls/repeater/Zenvy_Customize_Repeater_Control.php:459
-#: inc/customizer/controls/repeater/Zenvy_Customize_Repeater_Control.php:461
+#: inc/customizer/controls/repeater/Zenvy_Customize_Repeater_Control.php:471
+#: inc/customizer/controls/repeater/Zenvy_Customize_Repeater_Control.php:473
 msgid "Change File"
 msgstr ""
 
-#: inc/customizer/controls/typography/Zenvy_Customize_Typography_Control.php:78
-#: inc/customizer/controls/typography/Zenvy_Customize_Typography_Control.php:161
-#: inc/customizer/controls/typography/Zenvy_Customize_Typography_Control.php:176
+#: inc/customizer/controls/typography/Zenvy_Customize_Typography_Control.php:77
+#: inc/customizer/controls/typography/Zenvy_Customize_Typography_Control.php:163
+#: inc/customizer/controls/typography/Zenvy_Customize_Typography_Control.php:178
+#: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Post_Read_More_Fields.php:26
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Featured_Section_Fields.php:116
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Latest_Posts_Fields.php:104
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Shop_Section_Fields.php:111
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Trending_Posts_Fields.php:105
 msgid "Default"
 msgstr ""
 
-#: inc/customizer/controls/typography/Zenvy_Customize_Typography_Control.php:136
+#: inc/customizer/controls/typography/Zenvy_Customize_Typography_Control.php:138
 msgid "Font Family"
 msgstr ""
 
-#: inc/customizer/controls/typography/Zenvy_Customize_Typography_Control.php:146
+#: inc/customizer/controls/typography/Zenvy_Customize_Typography_Control.php:148
 msgid "Font Weight"
 msgstr ""
 
-#: inc/customizer/controls/typography/Zenvy_Customize_Typography_Control.php:157
+#: inc/customizer/controls/typography/Zenvy_Customize_Typography_Control.php:159
 msgid "Text Transform"
 msgstr ""
 
-#: inc/customizer/controls/typography/Zenvy_Customize_Typography_Control.php:162
+#: inc/customizer/controls/typography/Zenvy_Customize_Typography_Control.php:164
 msgid "Uppercase"
 msgstr ""
 
-#: inc/customizer/controls/typography/Zenvy_Customize_Typography_Control.php:163
+#: inc/customizer/controls/typography/Zenvy_Customize_Typography_Control.php:165
 msgid "Lowercase"
 msgstr ""
 
-#: inc/customizer/controls/typography/Zenvy_Customize_Typography_Control.php:164
+#: inc/customizer/controls/typography/Zenvy_Customize_Typography_Control.php:166
 msgid "Capitalize"
 msgstr ""
 
-#: inc/customizer/controls/typography/Zenvy_Customize_Typography_Control.php:172
+#: inc/customizer/controls/typography/Zenvy_Customize_Typography_Control.php:174
 msgid "Text Decoration"
 msgstr ""
 
-#: inc/customizer/controls/typography/Zenvy_Customize_Typography_Control.php:177
+#: inc/customizer/controls/typography/Zenvy_Customize_Typography_Control.php:179
 msgid "Overline"
 msgstr ""
 
-#: inc/customizer/controls/typography/Zenvy_Customize_Typography_Control.php:178
+#: inc/customizer/controls/typography/Zenvy_Customize_Typography_Control.php:180
 msgid "Underline"
 msgstr ""
 
-#: inc/customizer/controls/typography/Zenvy_Customize_Typography_Control.php:179
+#: inc/customizer/controls/typography/Zenvy_Customize_Typography_Control.php:181
 msgid "Line through"
 msgstr ""
 
-#: inc/customizer/controls/typography/Zenvy_Customize_Typography_Control.php:189
+#: inc/customizer/controls/typography/Zenvy_Customize_Typography_Control.php:191
 msgid "Font Size"
 msgstr ""
 
-#: inc/customizer/controls/typography/Zenvy_Customize_Typography_Control.php:246
+#: inc/customizer/controls/typography/Zenvy_Customize_Typography_Control.php:248
 msgid "Line Height"
 msgstr ""
 
-#: inc/customizer/controls/typography/Zenvy_Customize_Typography_Control.php:303
+#: inc/customizer/controls/typography/Zenvy_Customize_Typography_Control.php:305
 msgid "Letter Spacing"
 msgstr ""
 
 #: inc/customizer/options/404-page/Zenvy_Customize_404_Page_Content_Fields.php:43
 #: inc/customizer/options/404-page/Zenvy_Customize_404_Page_Header_Fields.php:22
 #: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Page_Header_Fields.php:22
-#: inc/customizer/options/custom-post/Zenvy_Customize_Agent_Post_Fields.php:23
-#: inc/customizer/options/custom-post/Zenvy_Customize_Agent_Post_Fields.php:41
-#: inc/customizer/options/custom-post/Zenvy_Customize_Property_Post_Fields.php:23
-#: inc/customizer/options/custom-post/Zenvy_Customize_Property_Post_Fields.php:60
-#: inc/customizer/options/custom-posts/Zenvy_Customize_Custom_Archive_Property_Fields.php:23
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_General_Fields.php:51
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_General_Fields.php:49
 #: inc/customizer/options/single-page/Zenvy_Customize_Single_Page_Header_Fields.php:22
-#: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Header_Fields.php:22
+#: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Header_Fields.php:21
 msgid "Sort Elements"
 msgstr ""
 
@@ -1347,19 +1672,33 @@ msgstr ""
 
 #: inc/customizer/options/404-page/Zenvy_Customize_404_Page_Content_Fields.php:49
 #: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Page_Header_Fields.php:27
-#: inc/customizer/options/custom-posts/Zenvy_Customize_Custom_Archive_Property_Fields.php:28
-#: inc/customizer/Zenvy_Customizer.php:989
-#: inc/customizer/Zenvy_Customizer.php:1055
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Featured_Section_Fields.php:94
+#: inc/customizer/Zenvy_Customizer.php:832
+#: inc/customizer/Zenvy_Customizer.php:898
+#: inc/widgets/class-zenvy-sidebar-posts-widget.php:122
+#: inc/widgets/class-zenvy-sidebar-posts-widget.php:145
 msgid "Title"
 msgstr ""
 
 #: inc/customizer/options/404-page/Zenvy_Customize_404_Page_Content_Fields.php:50
-#: inc/customizer/Zenvy_Customizer.php:993
+#: inc/customizer/Zenvy_Customizer.php:836
 msgid "Sub Title"
 msgstr ""
 
 #: inc/customizer/options/404-page/Zenvy_Customize_404_Page_Content_Fields.php:52
 msgid "Search"
+msgstr ""
+
+#: inc/customizer/options/404-page/Zenvy_Customize_404_Page_Content_Fields.php:69
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Explore_Section_Fields.php:54
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Featured_Section_Fields.php:127
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Latest_Posts_Fields.php:134
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Quote_Fields.php:62
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Shop_Section_Fields.php:122
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Trending_Posts_Fields.php:134
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Youtube_Promotion_Fields.php:156
+#: inc/customizer/options/global/Zenvy_Customize_Global_Page_Header_Fields.php:22
+msgid "Background Image"
 msgstr ""
 
 #: inc/customizer/options/404-page/Zenvy_Customize_404_Page_Content_Fields.php:70
@@ -1371,29 +1710,25 @@ msgid "Enable page header elements and order their list with drag and drop."
 msgstr ""
 
 #: inc/customizer/options/404-page/Zenvy_Customize_404_Page_Header_Fields.php:27
-#: inc/customizer/options/custom-post/Zenvy_Customize_Agent_Post_Fields.php:28
 #: inc/customizer/options/single-page/Zenvy_Customize_Single_Page_Header_Fields.php:27
-#: inc/customizer/Zenvy_Customizer.php:688
+#: inc/customizer/Zenvy_Customizer.php:478
+#: inc/customizer/Zenvy_Customizer.php:557
 msgid "Page Title"
 msgstr ""
 
 #: inc/customizer/options/404-page/Zenvy_Customize_404_Page_Header_Fields.php:28
 #: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Page_Header_Fields.php:29
-#: inc/customizer/options/custom-post/Zenvy_Customize_Agent_Post_Fields.php:29
-#: inc/customizer/options/custom-post/Zenvy_Customize_Property_Post_Fields.php:30
-#: inc/customizer/options/custom-posts/Zenvy_Customize_Custom_Archive_Property_Fields.php:30
 #: inc/customizer/options/single-page/Zenvy_Customize_Single_Page_Header_Fields.php:28
-#: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Header_Fields.php:29
+#: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Header_Fields.php:28
 msgid "Breadcrumb"
 msgstr ""
 
 #: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Page_Header_Fields.php:23
-#: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Header_Fields.php:23
+#: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Header_Fields.php:22
 msgid "Enable lists of page header elements and rearrange the order by drag and drop."
 msgstr ""
 
 #: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Page_Header_Fields.php:28
-#: inc/customizer/options/custom-posts/Zenvy_Customize_Custom_Archive_Property_Fields.php:29
 msgid "Description"
 msgstr ""
 
@@ -1409,57 +1744,76 @@ msgstr ""
 msgid "Numeric"
 msgstr ""
 
+#: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Posts_Layout_Fields.php:21
+msgid "Blog Posts Layout"
+msgstr ""
+
 #: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Posts_Layout_Fields.php:22
-msgid "Content Elements"
+msgid "Select the layout for blog posts."
 msgstr ""
 
-#: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Posts_Layout_Fields.php:23
-msgid "Enable lists for blog post content elements and rearrange the order by drag and drop."
+#: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Posts_Layout_Fields.php:33
+msgid "Alternative"
 msgstr ""
 
-#: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Posts_Layout_Fields.php:27
-#: inc/customizer/options/custom-post/Zenvy_Customize_Property_Post_Fields.php:28
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_News_Blog_Fields.php:82
-#: inc/customizer/options/single-page/Zenvy_Customize_Single_Page_Content_Fields.php:26
-#: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Content_Fields.php:29
-#: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Header_Fields.php:27
-#: inc/customizer/Zenvy_Customizer.php:519
-#: inc/customizer/Zenvy_Customizer.php:560
-msgid "Post Title"
+#: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Posts_Layout_Fields.php:34
+#: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Sidebar_Fields.php:33
+#: inc/customizer/options/single-page/Zenvy_Customize_Single_Page_Sidebar_Fields.php:33
+#: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Sidebar_Fields.php:33
+msgid "Right"
 msgstr ""
 
-#: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Posts_Layout_Fields.php:28
-#: inc/customizer/options/custom-post/Zenvy_Customize_Property_Post_Fields.php:29
-#: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Header_Fields.php:28
-#: inc/customizer/Zenvy_Customizer.php:349
-msgid "Post Meta"
+#: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Posts_Layout_Fields.php:35
+#: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Sidebar_Fields.php:32
+#: inc/customizer/options/single-page/Zenvy_Customize_Single_Page_Sidebar_Fields.php:32
+#: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Sidebar_Fields.php:32
+msgid "Left"
 msgstr ""
 
-#: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Posts_Layout_Fields.php:29
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_News_Blog_Fields.php:84
-msgid "Post Excerpt"
+#: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Posts_Layout_Fields.php:36
+msgid "Grid"
 msgstr ""
 
-#: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Posts_Layout_Fields.php:38
-#: inc/customizer/options/custom-post/Zenvy_Customize_Property_Post_Fields.php:38
-#: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Header_Fields.php:37
-msgid "Post Meta Elements"
-msgstr ""
-
-#: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Posts_Layout_Fields.php:39
-msgid "Enable Post Meta elements and rearrange lists using drag and drop."
-msgstr ""
-
-#: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Posts_Layout_Fields.php:44
-#: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Content_Fields.php:28
-#: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Header_Fields.php:44
-msgid "Categories"
+#: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Posts_Layout_Fields.php:37
+msgid "List"
 msgstr ""
 
 #: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Posts_Layout_Fields.php:45
-#: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Content_Fields.php:43
-#: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Header_Fields.php:45
-msgid "Tags"
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Latest_Posts_Fields.php:76
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Trending_Posts_Fields.php:77
+msgid "Content Elements"
+msgstr ""
+
+#: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Posts_Layout_Fields.php:46
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Latest_Posts_Fields.php:77
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Trending_Posts_Fields.php:78
+msgid "Enable lists for blog post content elements and rearrange the order by drag and drop."
+msgstr ""
+
+#: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Posts_Layout_Fields.php:50
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Latest_Posts_Fields.php:81
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Trending_Posts_Fields.php:82
+#: inc/customizer/options/single-page/Zenvy_Customize_Single_Page_Content_Fields.php:26
+#: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Content_Fields.php:29
+#: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Header_Fields.php:26
+#: inc/customizer/Zenvy_Customizer.php:520
+msgid "Post Title"
+msgstr ""
+
+#: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Posts_Layout_Fields.php:51
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Featured_Section_Fields.php:93
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Latest_Posts_Fields.php:82
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Trending_Posts_Fields.php:83
+#: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Content_Fields.php:30
+#: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Header_Fields.php:27
+#: inc/customizer/Zenvy_Customizer.php:323
+msgid "Post Meta"
+msgstr ""
+
+#: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Posts_Layout_Fields.php:52
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Latest_Posts_Fields.php:83
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Trending_Posts_Fields.php:84
+msgid "Post Excerpt"
 msgstr ""
 
 #: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Post_Featured_Image_Fields.php:22
@@ -1497,75 +1851,73 @@ msgid "3:4"
 msgstr ""
 
 #: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Post_Featured_Image_Fields.php:39
-#: inc/customizer/options/custom-post/Zenvy_Customize_Agent_Post_Fields.php:76
-#: inc/customizer/options/custom-post/Zenvy_Customize_Property_Post_Fields.php:109
-#: inc/customizer/options/custom-posts/Zenvy_Customize_Custom_Archive_Property_Fields.php:42
 #: inc/customizer/options/single-page/Zenvy_Customize_Single_Page_Featured_Image_Fields.php:39
 #: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Featured_Image_Fields.php:39
 msgid "Image Size"
 msgstr ""
 
 #: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Post_Featured_Image_Fields.php:40
-#: inc/customizer/options/custom-post/Zenvy_Customize_Agent_Post_Fields.php:77
-#: inc/customizer/options/custom-post/Zenvy_Customize_Property_Post_Fields.php:110
-#: inc/customizer/options/custom-posts/Zenvy_Customize_Custom_Archive_Property_Fields.php:43
 #: inc/customizer/options/single-page/Zenvy_Customize_Single_Page_Featured_Image_Fields.php:40
 #: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Featured_Image_Fields.php:40
 msgid "Set proper size for featured image. Selecting a bigger image size may display a better appearance but takes more time on loading websites."
 msgstr ""
 
 #: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Post_Featured_Image_Fields.php:44
-#: inc/customizer/options/custom-post/Zenvy_Customize_Agent_Post_Fields.php:81
-#: inc/customizer/options/custom-post/Zenvy_Customize_Property_Post_Fields.php:114
-#: inc/customizer/options/custom-posts/Zenvy_Customize_Custom_Archive_Property_Fields.php:47
 #: inc/customizer/options/single-page/Zenvy_Customize_Single_Page_Featured_Image_Fields.php:44
 #: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Featured_Image_Fields.php:44
 msgid "Small"
 msgstr ""
 
 #: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Post_Featured_Image_Fields.php:45
-#: inc/customizer/options/custom-post/Zenvy_Customize_Agent_Post_Fields.php:82
-#: inc/customizer/options/custom-post/Zenvy_Customize_Property_Post_Fields.php:115
-#: inc/customizer/options/custom-posts/Zenvy_Customize_Custom_Archive_Property_Fields.php:48
 #: inc/customizer/options/single-page/Zenvy_Customize_Single_Page_Featured_Image_Fields.php:45
 #: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Featured_Image_Fields.php:45
 msgid "Medium"
 msgstr ""
 
 #: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Post_Featured_Image_Fields.php:46
-#: inc/customizer/options/custom-post/Zenvy_Customize_Agent_Post_Fields.php:83
-#: inc/customizer/options/custom-post/Zenvy_Customize_Property_Post_Fields.php:116
-#: inc/customizer/options/custom-posts/Zenvy_Customize_Custom_Archive_Property_Fields.php:49
 #: inc/customizer/options/single-page/Zenvy_Customize_Single_Page_Featured_Image_Fields.php:46
 #: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Featured_Image_Fields.php:46
 msgid "Medium Large"
 msgstr ""
 
 #: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Post_Featured_Image_Fields.php:47
-#: inc/customizer/options/custom-post/Zenvy_Customize_Agent_Post_Fields.php:84
-#: inc/customizer/options/custom-post/Zenvy_Customize_Property_Post_Fields.php:117
-#: inc/customizer/options/custom-posts/Zenvy_Customize_Custom_Archive_Property_Fields.php:50
 #: inc/customizer/options/single-page/Zenvy_Customize_Single_Page_Featured_Image_Fields.php:47
 #: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Featured_Image_Fields.php:47
 msgid "Large"
 msgstr ""
 
+#: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Post_Featured_Image_Fields.php:55
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Featured_Section_Fields.php:77
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Latest_Posts_Fields.php:66
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Trending_Posts_Fields.php:67
+#: inc/customizer/options/global/Zenvy_Customize_Global_Post_Meta_Fields.php:29
+#: inc/customizer/options/single-page/Zenvy_Customize_Single_Page_Featured_Image_Fields.php:55
+#: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Content_Fields.php:62
+#: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Featured_Image_Fields.php:55
+#: inc/widgets/class-zenvy-sidebar-tags-widget.php:35
+msgid "Tags"
+msgstr ""
+
+#: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Post_Featured_Image_Fields.php:56
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Featured_Section_Fields.php:78
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Latest_Posts_Fields.php:67
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Trending_Posts_Fields.php:68
+#: inc/customizer/options/single-page/Zenvy_Customize_Single_Page_Featured_Image_Fields.php:56
+#: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Featured_Image_Fields.php:56
+msgid "Enable / Disable tags on featured image."
+msgstr ""
+
 #: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Post_Read_More_Fields.php:22
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Featured_Section_Fields.php:112
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Latest_Posts_Fields.php:100
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Shop_Section_Fields.php:107
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Trending_Posts_Fields.php:101
+#: inc/customizer/options/global/Zenvy_Customize_Global_Button_Fields.php:72
 msgid "Display as"
 msgstr ""
 
-#: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Post_Read_More_Fields.php:35
-msgid "Button Arrow"
-msgstr ""
-
-#: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Post_Read_More_Fields.php:36
-msgid "Enable Arrow Icon after Button/Text."
-msgstr ""
-
 #: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Post_Title_Fields.php:22
-#: inc/customizer/options/single-page/Zenvy_Customize_Single_Page_Title_Fields.php:22
-#: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Title_Fields.php:22
-msgid "Heading Tag"
+msgid "Page Heading Tag"
 msgstr ""
 
 #: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Post_Title_Fields.php:26
@@ -1608,346 +1960,334 @@ msgstr ""
 msgid "Choose Sidebar Layout for blog/archive pages."
 msgstr ""
 
-#: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Sidebar_Fields.php:32
-#: inc/customizer/options/single-page/Zenvy_Customize_Single_Page_Sidebar_Fields.php:32
-#: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Sidebar_Fields.php:32
-msgid "Left"
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Explore_Section_Fields.php:42
+#: template-parts/front-page/content-explore-categories.php:14
+msgid "Explore our topics"
 msgstr ""
 
-#: inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Sidebar_Fields.php:33
-#: inc/customizer/options/single-page/Zenvy_Customize_Single_Page_Sidebar_Fields.php:33
-#: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Sidebar_Fields.php:33
-msgid "Right"
-msgstr ""
-
-#: inc/customizer/options/custom-post/Zenvy_Customize_Agent_Post_Fields.php:24
-#: inc/customizer/options/custom-posts/Zenvy_Customize_Custom_Archive_Property_Fields.php:24
-msgid "Enable Page Header Elements and manage lists using drag and drop."
-msgstr ""
-
-#: inc/customizer/options/custom-post/Zenvy_Customize_Agent_Post_Fields.php:42
-#: inc/customizer/options/custom-post/Zenvy_Customize_Property_Post_Fields.php:61
-msgid "To reorder elements drag and drop them."
-msgstr ""
-
-#: inc/customizer/options/custom-post/Zenvy_Customize_Agent_Post_Fields.php:46
-#: inc/customizer/Zenvy_Customizer.php:977
-msgid "Contact Info"
-msgstr ""
-
-#: inc/customizer/options/custom-post/Zenvy_Customize_Agent_Post_Fields.php:47
-msgid "Content"
-msgstr ""
-
-#: inc/customizer/options/custom-post/Zenvy_Customize_Agent_Post_Fields.php:48
-msgid "Social Profile"
-msgstr ""
-
-#: inc/customizer/options/custom-post/Zenvy_Customize_Agent_Post_Fields.php:49
-#: inc/customizer/Zenvy_Customizer.php:616
-#: inc/customizer/Zenvy_Customizer.php:637
-msgid "Related Properties"
-msgstr ""
-
-#: inc/customizer/options/custom-post/Zenvy_Customize_Agent_Post_Fields.php:62
-msgid "Posts Per Page"
-msgstr ""
-
-#: inc/customizer/options/custom-post/Zenvy_Customize_Property_Post_Fields.php:24
-msgid "Enable Social Share elements and sort list by drag and drop."
-msgstr ""
-
-#: inc/customizer/options/custom-post/Zenvy_Customize_Property_Post_Fields.php:39
-msgid "Enable Post Meta Elements and sort their order by drag and drop."
-msgstr ""
-
-#: inc/customizer/options/custom-post/Zenvy_Customize_Property_Post_Fields.php:44
-#: inc/customizer/options/single-page/Zenvy_Customize_Single_Page_Content_Fields.php:38
-#: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Content_Fields.php:44
-#: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Header_Fields.php:43
-msgid "Comments"
-msgstr ""
-
-#: inc/customizer/options/custom-post/Zenvy_Customize_Property_Post_Fields.php:45
-#: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Header_Fields.php:46
-msgid "Post Date"
-msgstr ""
-
-#: inc/customizer/options/custom-post/Zenvy_Customize_Property_Post_Fields.php:46
-msgid "Property Location"
-msgstr ""
-
-#: inc/customizer/options/custom-post/Zenvy_Customize_Property_Post_Fields.php:47
-msgid "Property Status"
-msgstr ""
-
-#: inc/customizer/options/custom-post/Zenvy_Customize_Property_Post_Fields.php:48
-#: inc/customizer/Zenvy_Customizer.php:925
-msgid "Property Type"
-msgstr ""
-
-#: inc/customizer/options/custom-post/Zenvy_Customize_Property_Post_Fields.php:65
-msgid "Address"
-msgstr ""
-
-#: inc/customizer/options/custom-post/Zenvy_Customize_Property_Post_Fields.php:66
-msgid "Main Detail"
-msgstr ""
-
-#: inc/customizer/options/custom-post/Zenvy_Customize_Property_Post_Fields.php:67
-msgid "Other Detail"
-msgstr ""
-
-#: inc/customizer/options/custom-post/Zenvy_Customize_Property_Post_Fields.php:68
-msgid "Gallery"
-msgstr ""
-
-#: inc/customizer/options/custom-post/Zenvy_Customize_Property_Post_Fields.php:69
-msgid "Features"
-msgstr ""
-
-#: inc/customizer/options/custom-post/Zenvy_Customize_Property_Post_Fields.php:70
-msgid "Floor Plan"
-msgstr ""
-
-#: inc/customizer/options/custom-post/Zenvy_Customize_Property_Post_Fields.php:71
-msgid "Video"
-msgstr ""
-
-#: inc/customizer/options/custom-post/Zenvy_Customize_Property_Post_Fields.php:72
-#: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Content_Fields.php:46
-msgid "Author Box"
-msgstr ""
-
-#: inc/customizer/options/custom-post/Zenvy_Customize_Property_Post_Fields.php:95
-msgid "No. of Posts"
-msgstr ""
-
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Banner_Slider_Fields.php:22
-msgid "Slider"
-msgstr ""
-
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Banner_Slider_Fields.php:31
-msgid "Slides Limit"
-msgstr ""
-
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Clients_Logo_Fields.php:44
-#: template-parts/front-page/content-clients.php:14
-msgid "our partners"
-msgstr ""
-
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Clients_Logo_Fields.php:46
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_News_Blog_Fields.php:42
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Property_Features_Fields.php:40
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Property_Locations_Fields.php:48
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Services_Fields.php:46
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Explore_Section_Fields.php:44
 msgid "Section Heading"
 msgstr ""
 
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Clients_Logo_Fields.php:53
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Property_Features_Fields.php:62
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Property_Locations_Fields.php:87
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Property_Type_Fields.php:69
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Services_Fields.php:53
-msgid "SECTION STYLING"
-msgstr ""
-
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Clients_Logo_Fields.php:63
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Explore_Section_Fields.php:55
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Featured_Section_Fields.php:128
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Latest_Posts_Fields.php:135
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Quote_Fields.php:63
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Shop_Section_Fields.php:123
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Trending_Posts_Fields.php:135
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Youtube_Promotion_Fields.php:157
 msgid "Set Background Image for container."
 msgstr ""
 
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Clients_Logo_Fields.php:79
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_News_Blog_Fields.php:116
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Property_Features_Fields.php:88
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Property_Locations_Fields.php:112
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Property_Type_Fields.php:95
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Services_Fields.php:94
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Explore_Section_Fields.php:77
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Featured_Section_Fields.php:150
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Latest_Posts_Fields.php:157
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Quote_Fields.php:85
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Shop_Section_Fields.php:146
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Trending_Posts_Fields.php:157
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Youtube_Promotion_Fields.php:179
 msgid "Set background overlay color for container."
 msgstr ""
 
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Featured_Section_Fields.php:46
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Featured_Section_Fields.php:48
+msgid "Tag to be Featured"
+msgstr ""
+
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Featured_Section_Fields.php:49
+msgid "Set post query to load with specific tag. It will load the latest post by default."
+msgstr ""
+
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Featured_Section_Fields.php:60
+msgid "Number of Featured Posts"
+msgstr ""
+
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Featured_Section_Fields.php:61
+msgid "Set the number of featured posts to display. It will display 1 post by default."
+msgstr ""
+
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Featured_Section_Fields.php:88
+msgid "Post Elements"
+msgstr ""
+
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Featured_Section_Fields.php:89
+msgid "Set post elements to display for featured posts."
+msgstr ""
+
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Featured_Section_Fields.php:95
+msgid "Excerpt"
+msgstr ""
+
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Featured_Section_Fields.php:103
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Latest_Posts_Fields.php:91
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Shop_Section_Fields.php:77
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Trending_Posts_Fields.php:92
+msgid "READ MORE BUTTON"
+msgstr ""
+
 #: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_General_Fields.php:18
-#: inc/customizer/Zenvy_Customizer.php:430
-#: inc/customizer/Zenvy_Customizer.php:485
-msgid "Why Us?"
+#: inc/customizer/Zenvy_Customizer.php:370
+msgid "Featured Section"
 msgstr ""
 
 #: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_General_Fields.php:19
-#: inc/customizer/Zenvy_Customizer.php:444
-msgid "News & Blog"
+msgid "Explore Categories"
 msgstr ""
 
 #: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_General_Fields.php:20
-#: inc/customizer/Zenvy_Customizer.php:450
-#: template-parts/front-page/content-clients.php:33
-msgid "Clients Logo"
+msgid "Latest Posts"
 msgstr ""
 
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_General_Fields.php:25
-#: inc/customizer/Zenvy_Customizer.php:412
-msgid "Property Types"
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_General_Fields.php:21
+msgid "Quote Section"
 msgstr ""
 
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_General_Fields.php:26
-#: inc/customizer/Zenvy_Customizer.php:418
-msgid "Property Locations"
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_General_Fields.php:22
+#: template-parts/front-page/content-trending-posts.php:48
+msgid "Trending Posts"
 msgstr ""
 
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_General_Fields.php:27
-#: inc/customizer/Zenvy_Customizer.php:406
-msgid "Property Featured"
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_General_Fields.php:23
+msgid "YouTube Promotion"
 msgstr ""
 
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_General_Fields.php:39
-#: inc/customizer/Zenvy_Customizer.php:287
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_General_Fields.php:24
+#: inc/customizer/Zenvy_Customizer.php:413
+msgid "Shop Section"
+msgstr ""
+
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_General_Fields.php:37
+#: inc/customizer/Zenvy_Customizer.php:252
 msgid "Front Page"
 msgstr ""
 
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_General_Fields.php:40
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_General_Fields.php:38
 msgid "To set <strong>Front Page</strong> enable the option. Else WordPress Static Page will be your <a data-type=\"section\" data-id=\"static_front_page\" class=\"customizer-focus\"><strong> Front Page</strong></a>."
 msgstr ""
 
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_General_Fields.php:42
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_General_Fields.php:40
 msgid "Enable"
 msgstr ""
 
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_General_Fields.php:43
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_General_Fields.php:41
 msgid "Disable [ use WordPress Static Page ]"
 msgstr ""
 
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_General_Fields.php:52
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_General_Fields.php:50
 msgid "Enable Page Header Elements and sort them by Drag and Drop."
 msgstr ""
 
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_News_Blog_Fields.php:40
-#: template-parts/front-page/content-news.php:33
-msgid "latest news and blog"
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Latest_Posts_Fields.php:49
+#: inc/widgets/class-zenvy-sidebar-posts-widget.php:128
+msgid "Number of Posts"
 msgstr ""
 
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_News_Blog_Fields.php:51
-msgid "Posts by Category"
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Latest_Posts_Fields.php:50
+msgid "Set the number of posts to be displayed in the latest posts section."
 msgstr ""
 
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_News_Blog_Fields.php:52
-msgid "Set post query to load with specific category. It will load the latest post by default."
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Latest_Posts_Fields.php:113
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Trending_Posts_Fields.php:114
+msgid "SIDEBAR"
 msgstr ""
 
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_News_Blog_Fields.php:62
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Property_Features_Fields.php:49
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Property_Locations_Fields.php:57
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Property_Type_Fields.php:48
-msgid "Posts Limit"
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Latest_Posts_Fields.php:123
+msgid "Enable Sidebar"
 msgstr ""
 
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_News_Blog_Fields.php:77
-msgid "Elements"
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Latest_Posts_Fields.php:124
+msgid "Show section specific sidebar for this section. Sidebar Name: Latest Posts Sidebar"
 msgstr ""
 
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_News_Blog_Fields.php:78
-msgid "Enable blog post content elements and rearrange the list by drag and drop."
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Quote_Fields.php:40
+msgid "People often say that motivation doesn't come from within."
 msgstr ""
 
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_News_Blog_Fields.php:83
-msgid "Categories/Author"
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Quote_Fields.php:42
+msgid "Testimonial Quote"
 msgstr ""
 
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_News_Blog_Fields.php:90
-msgid "SECTION STYLE"
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Quote_Fields.php:43
+msgid "Add testimonial quote to be displayed in quote section."
 msgstr ""
 
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_News_Blog_Fields.php:100
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Property_Features_Fields.php:72
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Property_Locations_Fields.php:97
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Property_Type_Fields.php:79
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Services_Fields.php:78
-msgid "Set background image for container."
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Quote_Fields.php:52
+msgid "Quote By"
 msgstr ""
 
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Property_Features_Fields.php:38
-#: template-parts/front-page/content-featured.php:15
-msgid "Feature Listings"
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Shop_Section_Fields.php:47
+msgid "Shop my favouritess from my Awesome collection"
 msgstr ""
 
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Property_Locations_Fields.php:46
-#: template-parts/front-page/content-property-location.php:41
-msgid "Reality Property Location"
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Shop_Section_Fields.php:50
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Youtube_Promotion_Fields.php:56
+msgid "Section Title"
 msgstr ""
 
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Property_Locations_Fields.php:70
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Property_Type_Fields.php:61
-#: template-parts/front-page/content-property-location.php:96
-#: template-parts/front-page/content-property-types.php:128
-msgid "View All"
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Shop_Section_Fields.php:57
+msgid "Don't laugh, guys, but I've turned into the person who maps out a detailed plan for how her makeup collection will look in the next year!"
 msgstr ""
 
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Property_Locations_Fields.php:71
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Property_Type_Fields.php:62
-msgid "Toggle to show/hide view all button."
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Shop_Section_Fields.php:60
+msgid "Section Description"
 msgstr ""
 
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Property_Locations_Fields.php:80
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Shop_Section_Fields.php:70
+msgid "Section Image"
+msgstr ""
+
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Shop_Section_Fields.php:71
+msgid "Upload an image for the shop section."
+msgstr ""
+
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Shop_Section_Fields.php:86
+msgid "Shop more"
+msgstr ""
+
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Shop_Section_Fields.php:89
+msgid "Button Text"
+msgstr ""
+
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Shop_Section_Fields.php:99
 msgid "Button Link"
 msgstr ""
 
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Services_Fields.php:44
-#: template-parts/front-page/content-why-us.php:20
-msgid "why people choose us"
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Trending_Posts_Fields.php:51
+msgid "Number of Trending Posts"
 msgstr ""
 
-#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Services_Fields.php:62
-msgid "Select Page"
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Trending_Posts_Fields.php:52
+msgid "Set the number of trending posts to display. It will display 3 posts by default."
 msgstr ""
 
-#: inc/customizer/options/global/Zenvy_Customize_Global_Body_Fields.php:22
-#: inc/customizer/options/global/Zenvy_Customize_Global_Color_Fields.php:94
-msgid "Background"
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Trending_Posts_Fields.php:123
+msgid "Show Trending Posts Sidebar Section"
+msgstr ""
+
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Trending_Posts_Fields.php:124
+msgid "Enable this option to show sidebar in trending posts section. Sidebar Name: Trending Posts Sidebar"
+msgstr ""
+
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Youtube_Promotion_Fields.php:53
+#: template-parts/front-page/content-youtube-promotion.php:9
+msgid "ME @ YOUTUBE"
+msgstr ""
+
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Youtube_Promotion_Fields.php:66
+msgid "Primary Video URL"
+msgstr ""
+
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Youtube_Promotion_Fields.php:74
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Youtube_Promotion_Fields.php:75
+msgid "Primary Video Title"
+msgstr ""
+
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Youtube_Promotion_Fields.php:83
+msgid "Primary Video Category"
+msgstr ""
+
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Youtube_Promotion_Fields.php:94
+msgid "Second Video URL"
+msgstr ""
+
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Youtube_Promotion_Fields.php:102
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Youtube_Promotion_Fields.php:103
+msgid "Second Video Title"
+msgstr ""
+
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Youtube_Promotion_Fields.php:111
+msgid "Second Video Category"
+msgstr ""
+
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Youtube_Promotion_Fields.php:119
+msgid "Third Video URL"
+msgstr ""
+
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Youtube_Promotion_Fields.php:128
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Youtube_Promotion_Fields.php:129
+msgid "Third Video Title"
+msgstr ""
+
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Youtube_Promotion_Fields.php:136
+msgid "Third Video Category"
+msgstr ""
+
+#: inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Youtube_Promotion_Fields.php:145
+msgid "Video Channel URL"
 msgstr ""
 
 #: inc/customizer/options/global/Zenvy_Customize_Global_Body_Fields.php:23
 msgid "Color or Image as the background of your site."
 msgstr ""
 
-#: inc/customizer/options/global/Zenvy_Customize_Global_Color_Fields.php:25
+#: inc/customizer/options/global/Zenvy_Customize_Global_Button_Fields.php:22
+msgid "Font Color"
+msgstr ""
+
+#: inc/customizer/options/global/Zenvy_Customize_Global_Button_Fields.php:85
+msgid "Button Arrow"
+msgstr ""
+
+#: inc/customizer/options/global/Zenvy_Customize_Global_Button_Fields.php:86
+msgid "Info::- Enable Arrow Icon after Text and this works only if button type is text."
+msgstr ""
+
+#: inc/customizer/options/global/Zenvy_Customize_Global_Color_Fields.php:21
 msgid "Accent"
 msgstr ""
 
-#: inc/customizer/options/global/Zenvy_Customize_Global_Color_Fields.php:29
+#: inc/customizer/options/global/Zenvy_Customize_Global_Color_Fields.php:25
 msgid "Primary"
 msgstr ""
 
-#: inc/customizer/options/global/Zenvy_Customize_Global_Color_Fields.php:30
+#: inc/customizer/options/global/Zenvy_Customize_Global_Color_Fields.php:26
 msgid "Secondary"
 msgstr ""
 
-#: inc/customizer/options/global/Zenvy_Customize_Global_Color_Fields.php:44
+#: inc/customizer/options/global/Zenvy_Customize_Global_Color_Fields.php:27
+msgid "Tertiary"
+msgstr ""
+
+#: inc/customizer/options/global/Zenvy_Customize_Global_Color_Fields.php:39
 msgid "H1 -H6"
 msgstr ""
 
-#: inc/customizer/options/global/Zenvy_Customize_Global_Color_Fields.php:58
+#: inc/customizer/options/global/Zenvy_Customize_Global_Color_Fields.php:50
 msgid "Base Text"
 msgstr ""
 
-#: inc/customizer/options/global/Zenvy_Customize_Global_Color_Fields.php:62
+#: inc/customizer/options/global/Zenvy_Customize_Global_Color_Fields.php:54
+#: inc/customizer/options/global/Zenvy_Customize_Global_Color_Fields.php:103
+msgid "Color 1"
+msgstr ""
+
+#: inc/customizer/options/global/Zenvy_Customize_Global_Color_Fields.php:55
+#: inc/customizer/options/global/Zenvy_Customize_Global_Color_Fields.php:104
 msgid "Color 2"
 msgstr ""
 
-#: inc/customizer/options/global/Zenvy_Customize_Global_Color_Fields.php:73
-#: inc/customizer/Zenvy_Customizer.php:857
+#: inc/customizer/options/global/Zenvy_Customize_Global_Color_Fields.php:67
+#: inc/customizer/Zenvy_Customizer.php:726
 msgid "Link"
 msgstr ""
 
-#: inc/customizer/options/global/Zenvy_Customize_Global_Color_Fields.php:79
-msgid "Visited"
+#: inc/customizer/options/global/Zenvy_Customize_Global_Color_Fields.php:83
+msgid "Border & Shadow"
 msgstr ""
 
-#: inc/customizer/options/global/Zenvy_Customize_Global_Color_Fields.php:98
-msgid "BG Color"
+#: inc/customizer/options/global/Zenvy_Customize_Global_Color_Fields.php:88
+msgid "Shadow"
 msgstr ""
 
-#: inc/customizer/options/global/Zenvy_Customize_Global_Container_Fields.php:26
+#: inc/customizer/options/global/Zenvy_Customize_Global_Color_Fields.php:105
+msgid "Color 3"
+msgstr ""
+
+#: inc/customizer/options/global/Zenvy_Customize_Global_Container_Fields.php:25
 msgid "Max Width"
 msgstr ""
 
-#: inc/customizer/options/global/Zenvy_Customize_Global_Container_Fields.php:27
+#: inc/customizer/options/global/Zenvy_Customize_Global_Container_Fields.php:26
 msgid "Set Max width for container. Default value is 1170px."
 msgstr ""
 
@@ -1955,7 +2295,7 @@ msgstr ""
 msgid "To set the background image for the page header container."
 msgstr ""
 
-#: inc/customizer/options/global/Zenvy_Customize_Global_Page_Header_Fields.php:34
+#: inc/customizer/options/global/Zenvy_Customize_Global_Page_Header_Fields.php:40
 msgid "Set Background overlay color on page header container."
 msgstr ""
 
@@ -1968,14 +2308,37 @@ msgid "Set color in placeholder if there isn’t a featured image."
 msgstr ""
 
 #: inc/customizer/options/global/Zenvy_Customize_Global_Placeholder_Fields.php:34
-#: inc/customizer/Zenvy_Customizer.php:368
-#: inc/template-tags.php:181
-#: inc/template-tags.php:183
+#: inc/customizer/Zenvy_Customizer.php:342
+#: inc/template-tags.php:250
+#: inc/template-tags.php:252
 msgid "Placeholder Image"
 msgstr ""
 
 #: inc/customizer/options/global/Zenvy_Customize_Global_Placeholder_Fields.php:35
 msgid "Set placeholder image for no featured image. It will replace the placeholder color."
+msgstr ""
+
+#: inc/customizer/options/global/Zenvy_Customize_Global_Post_Meta_Fields.php:22
+msgid "Post Meta Elements"
+msgstr ""
+
+#: inc/customizer/options/global/Zenvy_Customize_Global_Post_Meta_Fields.php:23
+msgid "Enable Post Meta elements and rearrange lists using drag and drop."
+msgstr ""
+
+#: inc/customizer/options/global/Zenvy_Customize_Global_Post_Meta_Fields.php:28
+#: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Content_Fields.php:28
+msgid "Categories"
+msgstr ""
+
+#: inc/customizer/options/global/Zenvy_Customize_Global_Post_Meta_Fields.php:30
+msgid "Publish Date"
+msgstr ""
+
+#: inc/customizer/options/global/Zenvy_Customize_Global_Post_Meta_Fields.php:31
+#: inc/customizer/options/single-page/Zenvy_Customize_Single_Page_Content_Fields.php:38
+#: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Content_Fields.php:63
+msgid "Comments"
 msgstr ""
 
 #: inc/customizer/options/global/Zenvy_Customize_Global_Sidebar_Fields.php:22
@@ -1990,14 +2353,6 @@ msgstr ""
 msgid "SOCIAL ICONS"
 msgstr ""
 
-#: inc/customizer/options/global/Zenvy_Customize_Global_Social_Fields.php:32
-msgid "SOCIAL SHARE"
-msgstr ""
-
-#: inc/customizer/options/global/Zenvy_Customize_Global_Social_Fields.php:41
-msgid "Enable Social Share lists and re-arrange them by drag and drop."
-msgstr ""
-
 #: inc/customizer/options/global/Zenvy_Customize_Global_Typography_Fields.php:22
 msgid "Base"
 msgstr ""
@@ -2006,13 +2361,21 @@ msgstr ""
 msgid "Set Typography for the base of your website."
 msgstr ""
 
+#: inc/customizer/options/global/Zenvy_Customize_Global_Typography_Fields.php:37
+msgid "H1 - H6"
+msgstr ""
+
+#: inc/customizer/options/global/Zenvy_Customize_Global_Typography_Fields.php:38
+msgid "Set heading H1 - H6 typography for page content."
+msgstr ""
+
 #: inc/customizer/options/single-page/Zenvy_Customize_Single_Page_Content_Fields.php:22
 #: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Content_Fields.php:23
 msgid "Header Elements"
 msgstr ""
 
 #: inc/customizer/options/single-page/Zenvy_Customize_Single_Page_Content_Fields.php:34
-#: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Content_Fields.php:38
+#: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Content_Fields.php:57
 msgid "Footer Elements"
 msgstr ""
 
@@ -2029,318 +2392,364 @@ msgstr ""
 msgid "Select sidebar layout for single page."
 msgstr ""
 
+#: inc/customizer/options/single-page/Zenvy_Customize_Single_Page_Title_Fields.php:22
+#: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Title_Fields.php:22
+msgid "Heading Tag"
+msgstr ""
+
 #: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Content_Fields.php:24
 msgid "Enable to show Header elements in posts and rearrange them by drag and drop."
 msgstr ""
 
 #: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Content_Fields.php:39
+msgid "Top Spacing"
+msgstr ""
+
+#: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Content_Fields.php:40
+msgid "Info:- This option effect only if page header elements are empty."
+msgstr ""
+
+#: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Content_Fields.php:58
 msgid "To display lists of Footer Elements, enable them. And sort them by drag and drop."
 msgstr ""
 
-#: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Content_Fields.php:45
+#: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Content_Fields.php:64
 msgid "Post Navigation"
 msgstr ""
 
-#: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Header_Fields.php:38
-msgid "To display post meta data and rearrange them with drag and drop."
+#: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Content_Fields.php:65
+msgid "Author Box"
 msgstr ""
 
 #: inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Sidebar_Fields.php:23
 msgid "Choose Sidebar Layout for single post."
 msgstr ""
 
-#: inc/customizer/Zenvy_Customizer.php:257
+#: inc/customizer/Zenvy_Customizer.php:243
 msgid "Archive Posts"
 msgstr ""
 
-#: inc/customizer/Zenvy_Customizer.php:261
+#: inc/customizer/Zenvy_Customizer.php:247
 msgid "Single Post"
 msgstr ""
 
-#: inc/customizer/Zenvy_Customizer.php:266
-msgid "Property Archive Posts"
-msgstr ""
-
-#: inc/customizer/Zenvy_Customizer.php:270
-msgid "Property Single Post"
-msgstr ""
-
-#: inc/customizer/Zenvy_Customizer.php:274
-msgid "Agent Archive Posts"
-msgstr ""
-
-#: inc/customizer/Zenvy_Customizer.php:278
-msgid "Agent Single Post"
-msgstr ""
-
-#: inc/customizer/Zenvy_Customizer.php:282
-msgid "Agency Single Post"
-msgstr ""
-
-#: inc/customizer/Zenvy_Customizer.php:291
+#: inc/customizer/Zenvy_Customizer.php:256
 msgid "Single Page"
 msgstr ""
 
-#: inc/customizer/Zenvy_Customizer.php:295
+#: inc/customizer/Zenvy_Customizer.php:260
 msgid "About Page"
 msgstr ""
 
-#: inc/customizer/Zenvy_Customizer.php:325
+#: inc/customizer/Zenvy_Customizer.php:291
 msgid "Typography"
 msgstr ""
 
-#: inc/customizer/Zenvy_Customizer.php:331
+#: inc/customizer/Zenvy_Customizer.php:297
 msgid "Body"
 msgstr ""
 
-#: inc/customizer/Zenvy_Customizer.php:337
+#: inc/customizer/Zenvy_Customizer.php:303
 msgid "Container"
 msgstr ""
 
-#: inc/customizer/Zenvy_Customizer.php:343
-#: inc/customizer/Zenvy_Customizer.php:501
-#: inc/customizer/Zenvy_Customizer.php:547
-#: inc/customizer/Zenvy_Customizer.php:582
-#: inc/customizer/Zenvy_Customizer.php:604
-#: inc/customizer/Zenvy_Customizer.php:625
-#: inc/customizer/Zenvy_Customizer.php:674
-#: inc/customizer/Zenvy_Customizer.php:710
+#: inc/customizer/Zenvy_Customizer.php:310
+msgid "Buttons"
+msgstr ""
+
+#: inc/customizer/Zenvy_Customizer.php:317
+#: inc/customizer/Zenvy_Customizer.php:460
+#: inc/customizer/Zenvy_Customizer.php:507
+#: inc/customizer/Zenvy_Customizer.php:543
+#: inc/customizer/Zenvy_Customizer.php:580
+#: inc/meta-boxes/Zenvy_Meta_Boxes.php:365
 msgid "Page Header"
 msgstr ""
 
-#: inc/customizer/Zenvy_Customizer.php:361
-#: inc/customizer/Zenvy_Customizer.php:867
+#: inc/customizer/Zenvy_Customizer.php:335
+#: inc/customizer/Zenvy_Customizer.php:736
 msgid "Social"
 msgstr ""
 
-#: inc/customizer/Zenvy_Customizer.php:377
+#: inc/customizer/Zenvy_Customizer.php:352
 msgid "Header General"
 msgstr ""
 
-#: inc/customizer/Zenvy_Customizer.php:394
-msgid "Property Slider"
+#: inc/customizer/Zenvy_Customizer.php:377
+msgid "Explore Categories Section"
+msgstr ""
+
+#: inc/customizer/Zenvy_Customizer.php:384
+msgid "Latest Posts Section"
+msgstr ""
+
+#: inc/customizer/Zenvy_Customizer.php:391
+msgid "Testimonial Quote Section"
+msgstr ""
+
+#: inc/customizer/Zenvy_Customizer.php:398
+msgid "Trending Posts Section"
 msgstr ""
 
 #: inc/customizer/Zenvy_Customizer.php:400
-msgid "Property Search"
+msgid "The trending posts section will display the most popular posts based on the number of comments. You can set the number of posts to display in this section."
+msgstr ""
+
+#: inc/customizer/Zenvy_Customizer.php:406
+msgid "YouTube Promotion Section"
 msgstr ""
 
 #: inc/customizer/Zenvy_Customizer.php:424
-#: inc/customizer/Zenvy_Customizer.php:491
-msgid "Property Agents"
-msgstr ""
-
-#: inc/customizer/Zenvy_Customizer.php:437
-msgid "Testimonials"
-msgstr ""
-
-#: inc/customizer/Zenvy_Customizer.php:456
-msgid "Subscribe Form"
-msgstr ""
-
-#: inc/customizer/Zenvy_Customizer.php:466
 msgid "Sortable Elements"
 msgstr ""
 
-#: inc/customizer/Zenvy_Customizer.php:473
+#: inc/customizer/Zenvy_Customizer.php:431
 msgid "Our Mission"
 msgstr ""
 
-#: inc/customizer/Zenvy_Customizer.php:479
+#: inc/customizer/Zenvy_Customizer.php:437
 msgid "Work Process"
 msgstr ""
 
-#: inc/customizer/Zenvy_Customizer.php:507
-#: inc/customizer/Zenvy_Customizer.php:553
-#: inc/customizer/Zenvy_Customizer.php:588
-#: inc/customizer/Zenvy_Customizer.php:610
-#: inc/customizer/Zenvy_Customizer.php:631
+#: inc/customizer/Zenvy_Customizer.php:443
+msgid "Why Us?"
+msgstr ""
+
+#: inc/customizer/Zenvy_Customizer.php:449
+msgid "Property Agents"
+msgstr ""
+
+#: inc/customizer/Zenvy_Customizer.php:466
+#: inc/customizer/Zenvy_Customizer.php:513
 msgid "Post Content"
 msgstr ""
 
-#: inc/customizer/Zenvy_Customizer.php:513
-#: inc/customizer/Zenvy_Customizer.php:566
-#: inc/customizer/Zenvy_Customizer.php:694
+#: inc/customizer/Zenvy_Customizer.php:472
+#: inc/customizer/Zenvy_Customizer.php:527
+#: inc/customizer/Zenvy_Customizer.php:563
 msgid "Featured Image"
 msgstr ""
 
-#: inc/customizer/Zenvy_Customizer.php:531
+#: inc/customizer/Zenvy_Customizer.php:490
 msgid "Pagination"
 msgstr ""
 
-#: inc/customizer/Zenvy_Customizer.php:594
-msgid "Property Listing"
-msgstr ""
-
-#: inc/customizer/Zenvy_Customizer.php:646
-msgid "Property"
-msgstr ""
-
-#: inc/customizer/Zenvy_Customizer.php:652
-msgid "Agency"
-msgstr ""
-
-#: inc/customizer/Zenvy_Customizer.php:658
-msgid "Agent"
-msgstr ""
-
-#: inc/customizer/Zenvy_Customizer.php:681
-#: inc/customizer/Zenvy_Customizer.php:716
+#: inc/customizer/Zenvy_Customizer.php:550
+#: inc/customizer/Zenvy_Customizer.php:586
 msgid "Page Content"
 msgstr ""
 
-#: inc/customizer/Zenvy_Customizer.php:851
+#: inc/customizer/Zenvy_Customizer.php:720
 msgid "Select Network"
 msgstr ""
 
-#: inc/customizer/Zenvy_Customizer.php:861
+#: inc/customizer/Zenvy_Customizer.php:730
 msgid "Custom Icon"
 msgstr ""
 
-#: inc/customizer/Zenvy_Customizer.php:862
+#: inc/customizer/Zenvy_Customizer.php:731
 msgid "To replace the default social icon, Click below input field and choose the icon. Example: fa-facebook-f"
 msgstr ""
 
-#: inc/customizer/Zenvy_Customizer.php:892
-#: inc/customizer/Zenvy_Customizer.php:897
-msgid "Logo"
+#: inc/customizer/Zenvy_Customizer.php:763
+msgid "Select Category"
 msgstr ""
 
-#: inc/customizer/Zenvy_Customizer.php:931
-msgid "Item"
+#: inc/customizer/Zenvy_Customizer.php:765
+msgid "Category to be displayed"
 msgstr ""
 
-#: inc/customizer/Zenvy_Customizer.php:947
+#: inc/customizer/Zenvy_Customizer.php:769
+msgid "Category Image"
+msgstr ""
+
+#: inc/customizer/Zenvy_Customizer.php:774
+msgid "Category"
+msgstr ""
+
+#: inc/customizer/Zenvy_Customizer.php:790
 msgid "0123456789"
 msgstr ""
 
-#: inc/customizer/Zenvy_Customizer.php:948
+#: inc/customizer/Zenvy_Customizer.php:791
 msgid "phone number"
 msgstr ""
 
-#: inc/customizer/Zenvy_Customizer.php:954
+#: inc/customizer/Zenvy_Customizer.php:797
 msgid "youremail@gmail.com"
 msgstr ""
 
-#: inc/customizer/Zenvy_Customizer.php:955
+#: inc/customizer/Zenvy_Customizer.php:798
 msgid "email address"
 msgstr ""
 
-#: inc/customizer/Zenvy_Customizer.php:961
+#: inc/customizer/Zenvy_Customizer.php:804
 msgid "address"
 msgstr ""
 
-#: inc/customizer/Zenvy_Customizer.php:962
+#: inc/customizer/Zenvy_Customizer.php:805
 msgid "find us"
 msgstr ""
 
-#: inc/customizer/Zenvy_Customizer.php:978
+#: inc/customizer/Zenvy_Customizer.php:820
+msgid "Contact Info"
+msgstr ""
+
+#: inc/customizer/Zenvy_Customizer.php:821
 msgid "Click add button to add new contact item."
 msgstr ""
 
-#: inc/customizer/Zenvy_Customizer.php:984
-#: inc/customizer/Zenvy_Customizer.php:1050
-msgid "Icon"
-msgstr ""
-
-#: inc/customizer/Zenvy_Customizer.php:985
-#: inc/customizer/Zenvy_Customizer.php:1051
+#: inc/customizer/Zenvy_Customizer.php:828
+#: inc/customizer/Zenvy_Customizer.php:894
 msgid "Example: fa fa-facebook-f"
 msgstr ""
 
-#: inc/customizer/Zenvy_Customizer.php:998
+#: inc/customizer/Zenvy_Customizer.php:841
 msgid "Link Type"
 msgstr ""
 
-#: inc/customizer/Zenvy_Customizer.php:1001
+#: inc/customizer/Zenvy_Customizer.php:844
 msgid "Tel"
 msgstr ""
 
-#: inc/customizer/Zenvy_Customizer.php:1002
+#: inc/customizer/Zenvy_Customizer.php:845
 msgid "Email"
 msgstr ""
 
-#: inc/customizer/Zenvy_Customizer.php:1003
+#: inc/customizer/Zenvy_Customizer.php:846
+#: inc/meta-boxes/Zenvy_Meta_Boxes.php:374
 msgid "Disable"
 msgstr ""
 
-#: inc/customizer/Zenvy_Customizer.php:1014
+#: inc/customizer/Zenvy_Customizer.php:857
 msgid "Contact"
 msgstr ""
 
-#: inc/customizer/Zenvy_Customizer.php:1029
+#: inc/customizer/Zenvy_Customizer.php:872
 msgid "log in / register"
 msgstr ""
 
-#: inc/customizer/Zenvy_Customizer.php:1043
+#: inc/customizer/Zenvy_Customizer.php:886
 msgid "Buttons List"
 msgstr ""
 
-#: inc/customizer/Zenvy_Customizer.php:1044
+#: inc/customizer/Zenvy_Customizer.php:887
 msgid "Click add button to add new button item."
 msgstr ""
 
 #. translators: %s: Name of current post. Only visible to screen readers
-#: inc/hooks/functions.php:469
-#: inc/hooks/functions.php:648
+#: inc/hooks/functions.php:544
+#: inc/hooks/functions.php:721
 #, php-format
 msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
 msgstr ""
 
-#: inc/hooks/functions.php:485
-#: inc/hooks/functions.php:664
+#: inc/hooks/functions.php:560
+#: inc/hooks/functions.php:737
 msgid "Pages:"
 msgstr ""
 
-#: inc/hooks/functions.php:742
+#: inc/hooks/functions.php:818
 msgid "Go to Top"
 msgstr ""
 
+#: inc/meta-boxes/Zenvy_Meta_Boxes.php:108
+msgid "Settings"
+msgstr ""
+
+#: inc/meta-boxes/Zenvy_Meta_Boxes.php:134
+msgid "No meta settings available for this post type or user."
+msgstr ""
+
+#: inc/meta-boxes/Zenvy_Meta_Boxes.php:172
+msgid "Other"
+msgstr ""
+
+#: inc/meta-boxes/Zenvy_Meta_Boxes.php:368
+#: inc/tgm/class-tgm-plugin-activation.php:2776
+msgid "Activate"
+msgstr ""
+
+#: inc/meta-boxes/Zenvy_Meta_Boxes.php:369
+#: inc/meta-boxes/Zenvy_Meta_Boxes.php:406
+msgid "Default value is inherit from customizer saved value."
+msgstr ""
+
+#: inc/meta-boxes/Zenvy_Meta_Boxes.php:373
+msgid "Default From Customizer"
+msgstr ""
+
+#: inc/meta-boxes/Zenvy_Meta_Boxes.php:405
+msgid "Sidebar Layout"
+msgstr ""
+
+#: inc/meta-boxes/Zenvy_Meta_Boxes.php:410
+msgid "From Customizer"
+msgstr ""
+
+#: inc/meta-boxes/Zenvy_Meta_Boxes.php:411
+msgid "Left Sidebar"
+msgstr ""
+
+#: inc/meta-boxes/Zenvy_Meta_Boxes.php:412
+msgid "Right Sidebar"
+msgstr ""
+
+#: inc/meta-boxes/Zenvy_Meta_Boxes.php:413
+msgid "Full Width"
+msgstr ""
+
 #. translators: %s: post author.
-#: inc/template-tags.php:34
+#: inc/template-tags.php:37
 #, php-format
 msgctxt "post author"
 msgid "by %s"
 msgstr ""
 
+#. translators: %s: Post title. Only visible to screen readers.
+#: inc/template-tags.php:54
+#, php-format
+msgid "Leave a comment<span class=\"screen-reader-text\"> on %s</span>"
+msgstr ""
+
 #. translators: used between list items, there is a space after the comma
-#: inc/template-tags.php:67
+#: inc/template-tags.php:96
 msgctxt "list item separator"
 msgid ", "
 msgstr ""
 
 #. translators: %s: Name of current post. Only visible to screen readers
-#: inc/template-tags.php:91
+#: inc/template-tags.php:154
 #, php-format
 msgid "Edit <span class=\"screen-reader-text\">%s</span>"
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:327
+#: inc/tgm/class-tgm-plugin-activation.php:325
 msgid "Install Required Plugins"
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:328
+#: inc/tgm/class-tgm-plugin-activation.php:326
 msgid "Install Plugins"
 msgstr ""
 
 #. translators: %s: plugin name.
-#: inc/tgm/class-tgm-plugin-activation.php:330
+#: inc/tgm/class-tgm-plugin-activation.php:328
 #, php-format
 msgid "Installing Plugin: %s"
 msgstr ""
 
 #. translators: %s: plugin name.
-#: inc/tgm/class-tgm-plugin-activation.php:332
+#: inc/tgm/class-tgm-plugin-activation.php:330
 #, php-format
 msgid "Updating Plugin: %s"
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:333
+#: inc/tgm/class-tgm-plugin-activation.php:331
 msgid "Something went wrong with the plugin API."
 msgstr ""
 
 #. translators: 1: plugin name(s).
-#: inc/tgm/class-tgm-plugin-activation.php:334
+#: inc/tgm/class-tgm-plugin-activation.php:332
 #, php-format
 msgid "This theme requires the following plugin: %1$s."
 msgid_plural "This theme requires the following plugins: %1$s."
@@ -2348,7 +2757,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: 1: plugin name(s).
-#: inc/tgm/class-tgm-plugin-activation.php:340
+#: inc/tgm/class-tgm-plugin-activation.php:338
 #, php-format
 msgid "This theme recommends the following plugin: %1$s."
 msgid_plural "This theme recommends the following plugins: %1$s."
@@ -2356,7 +2765,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: 1: plugin name(s).
-#: inc/tgm/class-tgm-plugin-activation.php:346
+#: inc/tgm/class-tgm-plugin-activation.php:344
 #, php-format
 msgid "The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s."
 msgid_plural "The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s."
@@ -2364,7 +2773,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: 1: plugin name(s).
-#: inc/tgm/class-tgm-plugin-activation.php:352
+#: inc/tgm/class-tgm-plugin-activation.php:350
 #, php-format
 msgid "There is an update available for: %1$s."
 msgid_plural "There are updates available for the following plugins: %1$s."
@@ -2372,7 +2781,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: 1: plugin name(s).
-#: inc/tgm/class-tgm-plugin-activation.php:358
+#: inc/tgm/class-tgm-plugin-activation.php:356
 #, php-format
 msgid "The following required plugin is currently inactive: %1$s."
 msgid_plural "The following required plugins are currently inactive: %1$s."
@@ -2380,170 +2789,170 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: 1: plugin name(s).
-#: inc/tgm/class-tgm-plugin-activation.php:364
+#: inc/tgm/class-tgm-plugin-activation.php:362
 #, php-format
 msgid "The following recommended plugin is currently inactive: %1$s."
 msgid_plural "The following recommended plugins are currently inactive: %1$s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:370
+#: inc/tgm/class-tgm-plugin-activation.php:368
 msgid "Begin installing plugin"
 msgid_plural "Begin installing plugins"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:375
+#: inc/tgm/class-tgm-plugin-activation.php:373
 msgid "Begin updating plugin"
 msgid_plural "Begin updating plugins"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:380
+#: inc/tgm/class-tgm-plugin-activation.php:378
 msgid "Begin activating plugin"
 msgid_plural "Begin activating plugins"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:385
+#: inc/tgm/class-tgm-plugin-activation.php:383
 msgid "Return to Required Plugins Installer"
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:386
-#: inc/tgm/class-tgm-plugin-activation.php:827
-#: inc/tgm/class-tgm-plugin-activation.php:2533
-#: inc/tgm/class-tgm-plugin-activation.php:3580
+#: inc/tgm/class-tgm-plugin-activation.php:384
+#: inc/tgm/class-tgm-plugin-activation.php:824
+#: inc/tgm/class-tgm-plugin-activation.php:2581
+#: inc/tgm/class-tgm-plugin-activation.php:3646
 msgid "Return to the Dashboard"
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:387
-#: inc/tgm/class-tgm-plugin-activation.php:3159
+#: inc/tgm/class-tgm-plugin-activation.php:385
+#: inc/tgm/class-tgm-plugin-activation.php:3219
 msgid "Plugin activated successfully."
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:388
-#: inc/tgm/class-tgm-plugin-activation.php:2952
+#: inc/tgm/class-tgm-plugin-activation.php:386
+#: inc/tgm/class-tgm-plugin-activation.php:3006
 msgid "The following plugin was activated successfully:"
 msgid_plural "The following plugins were activated successfully:"
 msgstr[0] ""
 msgstr[1] ""
 
 #. translators: 1: plugin name.
-#: inc/tgm/class-tgm-plugin-activation.php:390
+#: inc/tgm/class-tgm-plugin-activation.php:388
 #, php-format
 msgid "No action taken. Plugin %1$s was already active."
 msgstr ""
 
 #. translators: 1: plugin name.
-#: inc/tgm/class-tgm-plugin-activation.php:392
+#: inc/tgm/class-tgm-plugin-activation.php:390
 #, php-format
 msgid "Plugin not activated. A higher version of %s is needed for this theme. Please update the plugin."
 msgstr ""
 
 #. translators: 1: dashboard link.
-#: inc/tgm/class-tgm-plugin-activation.php:394
+#: inc/tgm/class-tgm-plugin-activation.php:392
 #, php-format
 msgid "All plugins installed and activated successfully. %1$s"
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:395
+#: inc/tgm/class-tgm-plugin-activation.php:393
 msgid "Dismiss this notice"
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:396
+#: inc/tgm/class-tgm-plugin-activation.php:394
 msgid "There are one or more required or recommended plugins to install, update or activate."
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:397
+#: inc/tgm/class-tgm-plugin-activation.php:395
 msgid "Please contact the administrator of this site for help."
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:522
+#: inc/tgm/class-tgm-plugin-activation.php:518
 msgid "This plugin needs to be updated to be compatible with your theme."
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:523
+#: inc/tgm/class-tgm-plugin-activation.php:519
 msgid "Update Required"
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:934
+#: inc/tgm/class-tgm-plugin-activation.php:936
 msgid "The remote plugin package does not contain a folder with the desired slug and renaming did not work."
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:934
-#: inc/tgm/class-tgm-plugin-activation.php:937
+#: inc/tgm/class-tgm-plugin-activation.php:936
+#: inc/tgm/class-tgm-plugin-activation.php:947
 msgid "Please contact the plugin provider and ask them to package their plugin according to the WordPress guidelines."
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:937
+#: inc/tgm/class-tgm-plugin-activation.php:947
 msgid "The remote plugin package consists of more than one file, but the files are not packaged in a folder."
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:1121
-#: inc/tgm/class-tgm-plugin-activation.php:2948
+#: inc/tgm/class-tgm-plugin-activation.php:1135
+#: inc/tgm/class-tgm-plugin-activation.php:3002
 msgctxt "plugin A *and* plugin B"
 msgid "and"
 msgstr ""
 
 #. translators: %s: version number
-#: inc/tgm/class-tgm-plugin-activation.php:1982
+#: inc/tgm/class-tgm-plugin-activation.php:2027
 #, php-format
 msgid "TGMPA v%s"
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:2273
+#: inc/tgm/class-tgm-plugin-activation.php:2322
 msgid "Required"
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:2276
+#: inc/tgm/class-tgm-plugin-activation.php:2325
 msgid "Recommended"
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:2292
+#: inc/tgm/class-tgm-plugin-activation.php:2341
 msgid "WordPress Repository"
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:2295
+#: inc/tgm/class-tgm-plugin-activation.php:2344
 msgid "External Source"
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:2298
+#: inc/tgm/class-tgm-plugin-activation.php:2347
 msgid "Pre-Packaged"
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:2315
+#: inc/tgm/class-tgm-plugin-activation.php:2364
 msgid "Not Installed"
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:2319
+#: inc/tgm/class-tgm-plugin-activation.php:2368
 msgid "Installed But Not Activated"
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:2321
+#: inc/tgm/class-tgm-plugin-activation.php:2370
 msgid "Active"
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:2327
+#: inc/tgm/class-tgm-plugin-activation.php:2376
 msgid "Required Update not Available"
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:2330
+#: inc/tgm/class-tgm-plugin-activation.php:2378
 msgid "Requires Update"
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:2333
+#: inc/tgm/class-tgm-plugin-activation.php:2380
 msgid "Update recommended"
 msgstr ""
 
 #. translators: 1: install status, 2: update status
-#: inc/tgm/class-tgm-plugin-activation.php:2342
+#: inc/tgm/class-tgm-plugin-activation.php:2389
 #, php-format
 msgctxt "Install/Update Status"
 msgid "%1$s, %2$s"
 msgstr ""
 
 #. translators: 1: number of plugins.
-#: inc/tgm/class-tgm-plugin-activation.php:2388
+#: inc/tgm/class-tgm-plugin-activation.php:2435
 #, php-format
 msgctxt "plugins"
 msgid "All <span class=\"count\">(%s)</span>"
@@ -2552,7 +2961,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: 1: number of plugins.
-#: inc/tgm/class-tgm-plugin-activation.php:2392
+#: inc/tgm/class-tgm-plugin-activation.php:2439
 #, php-format
 msgid "To Install <span class=\"count\">(%s)</span>"
 msgid_plural "To Install <span class=\"count\">(%s)</span>"
@@ -2560,7 +2969,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: 1: number of plugins.
-#: inc/tgm/class-tgm-plugin-activation.php:2396
+#: inc/tgm/class-tgm-plugin-activation.php:2443
 #, php-format
 msgid "Update Available <span class=\"count\">(%s)</span>"
 msgid_plural "Update Available <span class=\"count\">(%s)</span>"
@@ -2568,182 +2977,178 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. translators: 1: number of plugins.
-#: inc/tgm/class-tgm-plugin-activation.php:2400
+#: inc/tgm/class-tgm-plugin-activation.php:2447
 #, php-format
 msgid "To Activate <span class=\"count\">(%s)</span>"
 msgid_plural "To Activate <span class=\"count\">(%s)</span>"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:2482
+#: inc/tgm/class-tgm-plugin-activation.php:2530
 msgctxt "as in: \"version nr unknown\""
 msgid "unknown"
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:2490
+#: inc/tgm/class-tgm-plugin-activation.php:2538
 msgid "Installed version:"
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:2498
+#: inc/tgm/class-tgm-plugin-activation.php:2546
 msgid "Minimum required version:"
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:2510
+#: inc/tgm/class-tgm-plugin-activation.php:2558
 msgid "Available version:"
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:2533
+#: inc/tgm/class-tgm-plugin-activation.php:2581
 msgid "No plugins to install, update or activate."
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:2547
+#: inc/tgm/class-tgm-plugin-activation.php:2595
 msgid "Plugin"
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:2548
+#: inc/tgm/class-tgm-plugin-activation.php:2596
 msgid "Source"
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:2549
+#: inc/tgm/class-tgm-plugin-activation.php:2597
 msgid "Type"
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:2553
+#: inc/tgm/class-tgm-plugin-activation.php:2601
 msgid "Version"
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:2554
+#: inc/tgm/class-tgm-plugin-activation.php:2602
 msgid "Status"
 msgstr ""
 
 #. translators: %2$s: plugin name in screen reader markup
-#: inc/tgm/class-tgm-plugin-activation.php:2603
+#: inc/tgm/class-tgm-plugin-activation.php:2651
 #, php-format
 msgid "Install %2$s"
 msgstr ""
 
 #. translators: %2$s: plugin name in screen reader markup
-#: inc/tgm/class-tgm-plugin-activation.php:2608
+#: inc/tgm/class-tgm-plugin-activation.php:2656
 #, php-format
 msgid "Update %2$s"
 msgstr ""
 
 #. translators: %2$s: plugin name in screen reader markup
-#: inc/tgm/class-tgm-plugin-activation.php:2614
+#: inc/tgm/class-tgm-plugin-activation.php:2662
 #, php-format
 msgid "Activate %2$s"
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:2684
+#: inc/tgm/class-tgm-plugin-activation.php:2732
 msgid "Upgrade message from the plugin author:"
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:2717
+#: inc/tgm/class-tgm-plugin-activation.php:2767
 msgid "Install"
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:2723
+#: inc/tgm/class-tgm-plugin-activation.php:2773
 msgid "Update"
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:2726
-msgid "Activate"
-msgstr ""
-
-#: inc/tgm/class-tgm-plugin-activation.php:2757
+#: inc/tgm/class-tgm-plugin-activation.php:2806
 msgid "No plugins were selected to be installed. No action taken."
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:2759
+#: inc/tgm/class-tgm-plugin-activation.php:2808
 msgid "No plugins were selected to be updated. No action taken."
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:2800
+#: inc/tgm/class-tgm-plugin-activation.php:2851
 msgid "No plugins are available to be installed at this time."
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:2802
+#: inc/tgm/class-tgm-plugin-activation.php:2853
 msgid "No plugins are available to be updated at this time."
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:2908
+#: inc/tgm/class-tgm-plugin-activation.php:2960
 msgid "No plugins were selected to be activated. No action taken."
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:2934
+#: inc/tgm/class-tgm-plugin-activation.php:2988
 msgid "No plugins are available to be activated at this time."
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:3158
+#: inc/tgm/class-tgm-plugin-activation.php:3218
 msgid "Plugin activation failed."
 msgstr ""
 
 #. translators: 1: plugin name, 2: action number 3: total number of actions.
-#: inc/tgm/class-tgm-plugin-activation.php:3498
+#: inc/tgm/class-tgm-plugin-activation.php:3564
 #, php-format
 msgid "Updating Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
 #. translators: 1: plugin name, 2: error message.
-#: inc/tgm/class-tgm-plugin-activation.php:3501
+#: inc/tgm/class-tgm-plugin-activation.php:3567
 #, php-format
 msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
 msgstr ""
 
 #. translators: 1: plugin name.
-#: inc/tgm/class-tgm-plugin-activation.php:3503
+#: inc/tgm/class-tgm-plugin-activation.php:3569
 #, php-format
 msgid "The installation of %1$s failed."
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:3507
+#: inc/tgm/class-tgm-plugin-activation.php:3573
 msgid "The installation and activation process is starting. This process may take a while on some hosts, so please be patient."
 msgstr ""
 
 #. translators: 1: plugin name.
-#: inc/tgm/class-tgm-plugin-activation.php:3509
+#: inc/tgm/class-tgm-plugin-activation.php:3575
 #, php-format
 msgid "%1$s installed and activated successfully."
 msgstr ""
 
 #. translators: 1: plugin name.
-#: inc/tgm/class-tgm-plugin-activation.php:3509
-#: inc/tgm/class-tgm-plugin-activation.php:3517
+#: inc/tgm/class-tgm-plugin-activation.php:3575
+#: inc/tgm/class-tgm-plugin-activation.php:3583
 msgid "Show Details"
 msgstr ""
 
 #. translators: 1: plugin name.
-#: inc/tgm/class-tgm-plugin-activation.php:3509
-#: inc/tgm/class-tgm-plugin-activation.php:3517
+#: inc/tgm/class-tgm-plugin-activation.php:3575
+#: inc/tgm/class-tgm-plugin-activation.php:3583
 msgid "Hide Details"
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:3510
+#: inc/tgm/class-tgm-plugin-activation.php:3576
 msgid "All installations and activations have been completed."
 msgstr ""
 
 #. translators: 1: plugin name, 2: action number 3: total number of actions.
-#: inc/tgm/class-tgm-plugin-activation.php:3512
+#: inc/tgm/class-tgm-plugin-activation.php:3578
 #, php-format
 msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:3515
+#: inc/tgm/class-tgm-plugin-activation.php:3581
 msgid "The installation process is starting. This process may take a while on some hosts, so please be patient."
 msgstr ""
 
 #. translators: 1: plugin name.
-#: inc/tgm/class-tgm-plugin-activation.php:3517
+#: inc/tgm/class-tgm-plugin-activation.php:3583
 #, php-format
 msgid "%1$s installed successfully."
 msgstr ""
 
-#: inc/tgm/class-tgm-plugin-activation.php:3518
+#: inc/tgm/class-tgm-plugin-activation.php:3584
 msgid "All installations have been completed."
 msgstr ""
 
 #. translators: 1: plugin name, 2: action number 3: total number of actions.
-#: inc/tgm/class-tgm-plugin-activation.php:3520
+#: inc/tgm/class-tgm-plugin-activation.php:3586
 #, php-format
 msgid "Installing Plugin %1$s (%2$d/%3$d)"
 msgstr ""
@@ -2752,16 +3157,171 @@ msgstr ""
 msgid "Aarambha Demo Sites"
 msgstr ""
 
-#: inc/tgm/tgm.php:26
-msgid "Crucial Real Estate"
+#: inc/widgets/class-zenvy-advertisement-widget.php:14
+msgid "Zenvy Advertisement"
 msgstr ""
 
-#. Template Name of the theme
-msgid "Location Listing Page"
+#: inc/widgets/class-zenvy-advertisement-widget.php:15
+msgid "Displays an advertisement."
 msgstr ""
 
-#. Template Name of the theme
-msgid "Page Builder"
+#: inc/widgets/class-zenvy-advertisement-widget.php:56
+msgid "Advertisement Image"
+msgstr ""
+
+#: inc/widgets/class-zenvy-advertisement-widget.php:62
+#: inc/widgets/class-zenvy-author-info-widget.php:88
+msgid "Upload Image"
+msgstr ""
+
+#: inc/widgets/class-zenvy-author-info-widget.php:10
+msgid "Zenvy Author Info"
+msgstr ""
+
+#: inc/widgets/class-zenvy-author-info-widget.php:11
+msgid "Displays authors profile, name and title."
+msgstr ""
+
+#: inc/widgets/class-zenvy-author-info-widget.php:70
+#: inc/widgets/class-zenvy-sidebar-categories-widget.php:66
+msgid "Name"
+msgstr ""
+
+#: inc/widgets/class-zenvy-author-info-widget.php:76
+msgid "Author's Title"
+msgstr ""
+
+#: inc/widgets/class-zenvy-author-info-widget.php:82
+msgid "Author's Image"
+msgstr ""
+
+#: inc/widgets/class-zenvy-search-widget.php:10
+msgid "Zenvy Search"
+msgstr ""
+
+#: inc/widgets/class-zenvy-search-widget.php:11
+msgid "A search form widget to match theme style."
+msgstr ""
+
+#: inc/widgets/class-zenvy-search-widget.php:31
+msgid "Search for more"
+msgstr ""
+
+#: inc/widgets/class-zenvy-sidebar-archive-widget.php:10
+msgid "Zenvy Sidebar Archive"
+msgstr ""
+
+#: inc/widgets/class-zenvy-sidebar-archive-widget.php:11
+msgid "Displays a list of archive links in the sidebar."
+msgstr ""
+
+#: inc/widgets/class-zenvy-sidebar-archive-widget.php:32
+msgid "Archives List"
+msgstr ""
+
+#: inc/widgets/class-zenvy-sidebar-archive-widget.php:52
+msgid "Number of Archives"
+msgstr ""
+
+#: inc/widgets/class-zenvy-sidebar-categories-widget.php:10
+msgid "Zenvy Sidebar Categories"
+msgstr ""
+
+#: inc/widgets/class-zenvy-sidebar-categories-widget.php:11
+msgid "Displays a list of categories in the sidebar."
+msgstr ""
+
+#: inc/widgets/class-zenvy-sidebar-categories-widget.php:30
+msgid "Categories List"
+msgstr ""
+
+#: inc/widgets/class-zenvy-sidebar-categories-widget.php:56
+#: inc/widgets/class-zenvy-sidebar-posts-widget.php:134
+msgid "Order"
+msgstr ""
+
+#: inc/widgets/class-zenvy-sidebar-categories-widget.php:58
+#: inc/widgets/class-zenvy-sidebar-posts-widget.php:136
+msgid "Descending"
+msgstr ""
+
+#: inc/widgets/class-zenvy-sidebar-categories-widget.php:59
+#: inc/widgets/class-zenvy-sidebar-posts-widget.php:137
+msgid "Ascending"
+msgstr ""
+
+#: inc/widgets/class-zenvy-sidebar-categories-widget.php:64
+#: inc/widgets/class-zenvy-sidebar-posts-widget.php:142
+msgid "Order By"
+msgstr ""
+
+#: inc/widgets/class-zenvy-sidebar-categories-widget.php:67
+msgid "Count"
+msgstr ""
+
+#: inc/widgets/class-zenvy-sidebar-posts-widget.php:10
+msgid "Zenvy Sidebar Posts"
+msgstr ""
+
+#: inc/widgets/class-zenvy-sidebar-posts-widget.php:11
+msgid "Displays a list of dynamic posts in the sidebar."
+msgstr ""
+
+#: inc/widgets/class-zenvy-sidebar-posts-widget.php:26
+msgid "Don't Miss it"
+msgstr ""
+
+#: inc/widgets/class-zenvy-sidebar-posts-widget.php:115
+#: template-parts/front-page/content-latest-posts.php:36
+msgid "Recent Posts"
+msgstr ""
+
+#: inc/widgets/class-zenvy-sidebar-posts-widget.php:144
+msgid "Date"
+msgstr ""
+
+#: inc/widgets/class-zenvy-sidebar-posts-widget.php:146
+msgid "Comment Count"
+msgstr ""
+
+#: inc/widgets/class-zenvy-sidebar-posts-widget.php:147
+msgid "Random"
+msgstr ""
+
+#: inc/widgets/class-zenvy-sidebar-tags-widget.php:10
+msgid "Zenvy Sidebar Tags"
+msgstr ""
+
+#: inc/widgets/class-zenvy-sidebar-tags-widget.php:11
+msgid "Displays a list of tags in the sidebar."
+msgstr ""
+
+#: inc/widgets/class-zenvy-sidebar-tags-widget.php:51
+msgid "Number of tags to display"
+msgstr ""
+
+#: inc/widgets/class-zenvy-social-links-widget.php:10
+msgid "Zenvy Social Links"
+msgstr ""
+
+#: inc/widgets/class-zenvy-social-links-widget.php:11
+msgid "Displays social links of facebook, twitter, instagram and youtube."
+msgstr ""
+
+#: inc/widgets/class-zenvy-social-links-widget.php:89
+msgid "Facebook Link"
+msgstr ""
+
+#: inc/widgets/class-zenvy-social-links-widget.php:95
+msgid "Twitter Link"
+msgstr ""
+
+#: inc/widgets/class-zenvy-social-links-widget.php:101
+msgid "Instagram Link"
+msgstr ""
+
+#: inc/widgets/class-zenvy-social-links-widget.php:107
+msgid "Youtube Link"
 msgstr ""
 
 #: template-parts/content-none.php:14
@@ -2769,16 +3329,16 @@ msgid "Nothing Found"
 msgstr ""
 
 #. translators: 1: link to WP admin new post page.
-#: template-parts/content-none.php:24
+#: template-parts/content-none.php:23
 #, php-format
 msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
-#: template-parts/content-none.php:37
+#: template-parts/content-none.php:35
 msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
 msgstr ""
 
-#: template-parts/content-none.php:44
+#: template-parts/content-none.php:41
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
 msgstr ""
 
@@ -2793,23 +3353,27 @@ msgstr ""
 msgid " -  Powered by %1$s"
 msgstr ""
 
-#: template-parts/front-page/content-banner.php:92
-#: template-parts/front-page/content-featured.php:102
-msgid "bedroom"
+#: template-parts/front-page/content-shop-section.php:79
+#: woocommerce/content-product.php:23
+msgid "Sale"
 msgstr ""
 
-#: template-parts/front-page/content-banner.php:102
-#: template-parts/front-page/content-featured.php:112
-msgid "bathroom"
+#: template-parts/front-page/content-shop-section.php:120
+msgid "Shop"
 msgstr ""
 
-#: template-parts/front-page/content-banner.php:112
-#: template-parts/front-page/content-featured.php:122
-msgid "garage"
+#: template-parts/front-page/content-trending-posts.php:137
+msgid "View all"
 msgstr ""
 
-#. translators: 1: title.
-#: template-parts/front-page/content-property-location.php:78
-#, php-format
-msgid "%1$d Properties"
+#: template-parts/front-page/content-youtube-promotion.php:145
+msgid "All Videos"
+msgstr ""
+
+#: template-parts/header/woocommerce/wc_cart.php:18
+msgid "View your shopping cart"
+msgstr ""
+
+#: template-parts/header/woocommerce/wc_cart.php:24
+msgid "Your Cart"
 msgstr ""
