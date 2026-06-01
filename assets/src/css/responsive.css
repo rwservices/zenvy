@@ -313,6 +313,9 @@
 	.site-content .site-main > section {
   padding: 0 0 50px;
 }
+	.site-content .site-main > section.video-post-section {
+  padding-top: 50px;
+}
  .section-wrap-inner .section-left {
     margin-bottom: 20px;
   }

@@ -7,7 +7,7 @@ Description: Zenvy is a sleek, minimalist WordPress theme designed for bloggers,
 Version: 1.0.0
 Requires at least: 6.0
 Requires PHP: 7.4
-Tested up to: 7.0
+Tested up to: 6.9
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 Text Domain: zenvy
@@ -648,7 +648,7 @@ article {
 	bottom: 70px;
 	position: fixed;
 	right: 30px;
-	z-index: 2;
+	z-index: 99;
 }
 
 .back-to-top a {
@@ -4047,6 +4047,8 @@ ul.products {
 	-o-transition: all 0.3s ease 0s;
 	transition: all 0.3s ease 0s;
 	z-index: 9;
+	opacity: 0;
+	visibility: hidden;
 }
 
 .element-item:hover .image-icon-wrapper .icons,
@@ -4055,6 +4057,8 @@ ul.products {
 	-webkit-transition: all 0.3s ease 0s;
 	-o-transition: all 0.3s ease 0s;
 	transition: all 0.3s ease 0s;
+	opacity: 1;
+	visibility: visible;
 }
 
 .image-icon-wrapper .featured-image {
@@ -4063,6 +4067,7 @@ ul.products {
 
 .add_to_cart_button,
 .image-icon-wrapper .icons button,
+.image-icon-wrapper .icons .button,
 .added_to_cart {
 	background: var(--color-bg);
 	text-transform: uppercase;
@@ -4076,6 +4081,7 @@ ul.products {
 
 .add_to_cart_button:hover,
 .image-icon-wrapper .icons button:hover,
+.image-icon-wrapper .icons .button:hover,
 .added_to_cart:hover {
 	background: var(--color-primary);
 	color: var(--color-white);
@@ -4712,7 +4718,9 @@ content-post-tags {
 .main-navigation ul li li.menu-item-has-children:hover::before {
   color: var(--color-white);
 }
-.zenvy-btn-arrow .mc4wp-form input[type="submit"] {
+.zenvy-btn-arrow .mc4wp-form input[type="submit"],
+.zenvy-btn-arrow #sb_instagram #sbi_load .sbi_load_btn,
+.zenvy-btn-arrow .wpcf7-form input[type="submit"] {
   color: var(--color-gray-900);
   text-transform: capitalize;
   font-size: 22px;
@@ -4726,7 +4734,22 @@ content-post-tags {
   margin-bottom: 0;
   padding: 0;
   background-image: url("assets/build/images/read-more-icon.png");
+  background-repeat: no-repeat;
+  background-size: 38px;
+  background-position: 100% 0px;
+  padding: 22px 44px 0 0;
+  height: auto;
 }
+.zenvy-btn-arrow .mc4wp-form input[type="submit"]:hover,
+.zenvy-btn-arrow #sb_instagram #sbi_load .sbi_load_btn:hover,
+.zenvy-btn-arrow .wpcf7-form input[type="submit"]:hover {
+  background-position: 97% 10px;
+}
+.page-wrapper {
+  position: relative;
+  z-index: 0;
+}
+
 
 /*  10.0 ===== Footer =====   */
 
