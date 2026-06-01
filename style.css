@@ -4749,6 +4749,12 @@ content-post-tags {
   position: relative;
   z-index: 0;
 }
+#sb_instagram #sbi_load .sbi_follow_btn {
+  display: block;
+}
+.wp-block-social-links.alignright, .wp-block-social-links.alignleft {
+  float: none;
+}
 
 
 /*  10.0 ===== Footer =====   */
