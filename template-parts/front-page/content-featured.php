@@ -26,7 +26,7 @@ if ($featured_posts->have_posts()):
     $posts_elements = get_theme_mod('zenvy_front_page_featured_section_post_elements', ['post-meta', 'title', 'excerpt', 'read_more']);
     ?>
     <!-- featured posts slider -->
-    <section class="featured-slider">
+    <section class="featured-slider post">
         <div class="container">
             <div class="owl-carousel owl-theme owl-slider-demo">
                 <?php

@@ -84,7 +84,7 @@ class Zenvy_Customize_Header_Primary_Menu_Fields extends Zenvy_Customize_Base_Fi
                 ],
                 'inherits'            => [
                     'color_1'           => 'var(--color-text)',
-                    'color_2'           => 'var(--color-link-hover)',
+                    'color_2'           => 'var(--color-secondary)',
                 ],
                 'priority'          => 55,
             ],

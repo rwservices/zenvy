@@ -6,6 +6,7 @@ const path = require( 'path' );
 const CssMinimizerPlugin = require( 'css-minimizer-webpack-plugin' );
 const RemoveEmptyScriptsPlugin = require( 'webpack-remove-empty-scripts' );
 const CopyPlugin = require( 'copy-webpack-plugin' );
+const MiniCssExtractPlugin = require( 'mini-css-extract-plugin' );
 
 /**
  * WordPress dependencies
@@ -16,23 +17,26 @@ const defaultConfig = require( '@wordpress/scripts/config/webpack.config' );
 const SRC_DIR = path.resolve( __dirname, 'assets/src' );
 const BUILD_DIR = path.resolve( __dirname, 'assets/build' );
 
+// Production flag
+const isProduction = process.env.NODE_ENV === 'production';
+
 // Ensure build directory exists
 if ( ! fs.existsSync( BUILD_DIR ) ) {
 	fs.mkdirSync( BUILD_DIR, { recursive: true } );
 }
 
-// Extend the default config.
+// Shared base config
 const sharedConfig = {
 	...defaultConfig,
 	output: {
-		path: BUILD_DIR, // Use BUILD_DIR directly
+		path: BUILD_DIR,
 		filename: '[name].js',
 		chunkFilename: '[name].js',
 	},
+	devtool: isProduction ? false : defaultConfig.devtool,
 	plugins: [
 		...defaultConfig.plugins,
 		new RemoveEmptyScriptsPlugin(),
-		// Copy static assets
 		new CopyPlugin( {
 			patterns: [
 				{
@@ -62,18 +66,18 @@ const sharedConfig = {
 	},
 };
 
-// Generate a webpack config which includes setup for CSS extraction.
+// Styles config
 const styles = {
 	...sharedConfig,
 	output: {
-		path: path.join( BUILD_DIR, 'css' ), // Consistent with sharedConfig
+		path: path.join( BUILD_DIR, 'css' ),
 		filename: '[name].js',
 		chunkFilename: '[name].js',
 	},
 	entry: () => {
 		const entries = {};
-
 		const dir = path.join( SRC_DIR, 'css' );
+
 		if ( fs.existsSync( dir ) ) {
 			fs.readdirSync( dir ).forEach( ( fileName ) => {
 				const fullPath = path.join( dir, fileName );
@@ -88,17 +92,47 @@ const styles = {
 
 		return entries;
 	},
+	module: {
+		rules: [
+			// Keep all non-CSS/SCSS rules from sharedConfig
+			...( sharedConfig?.module?.rules?.filter( ( rule ) => {
+				return (
+					! rule.test ||
+					( ! rule.test.toString().includes( 'scss' ) &&
+						! rule.test.toString().includes( 'css' ) )
+				);
+			} ) || [] ),
+			// Custom SCSS/CSS rule with url() rewriting disabled
+			{
+				test: /\.(scss|css)$/,
+				use: [
+					MiniCssExtractPlugin.loader,
+					{
+						loader: 'css-loader',
+						options: {
+							url: false, // Preserve relative url() paths as-is (e.g. ../images/)
+							importLoaders: 1,
+						},
+					},
+					'sass-loader',
+				],
+			},
+		],
+	},
 	plugins: [
 		...sharedConfig.plugins.filter(
-			( plugin ) => plugin.constructor.name !== 'DependencyExtractionWebpackPlugin',
+			( plugin ) =>
+				plugin.constructor.name !== 'DependencyExtractionWebpackPlugin' &&
+				plugin.constructor.name !== 'CopyPlugin', // Images already copied by scripts config
 		),
 	],
 };
 
+// Scripts config
 const scripts = {
 	...sharedConfig,
 	output: {
-		path: path.join( BUILD_DIR, 'js' ), // Consistent with sharedConfig
+		path: path.join( BUILD_DIR, 'js' ),
 		filename: '[name].js',
 		chunkFilename: '[name].js',
 	},
@@ -131,7 +165,4 @@ const scripts = {
 	},
 };
 
-module.exports = [
-	scripts,
-	styles,
-];
+module.exports = [ scripts, styles ];

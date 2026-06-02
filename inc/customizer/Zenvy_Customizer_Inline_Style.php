@@ -264,7 +264,7 @@ class Zenvy_Customizer_Inline_Style
 			// Parent Menu Colors
 			self::color(
 				[
-					'
+				'
                 .site-header .primary-navbar .menu-top-menu-container>ul>li>a,
                 .site-header .main-navigation .menu-item-has-children::before,
                 .main-navigation.enable-submenu .menu-top-menu-container>ul>li.menu-item-has-children::before
@@ -346,6 +346,15 @@ class Zenvy_Customizer_Inline_Style
                     '],
 					['color'],
 					$child_menu_color['color_2']
+				);
+			}
+			if (!empty($child_menu_color['color_1'])) {
+				self::generate_css(
+					['
+                    .main-navigation ul ul li:hover ul, .main-navigation ul ul ul li:hover ul, .main-navigation ul ul ul ul li:hover ul, .main-navigation ul ul ul ul ul li:hover ul, .main-navigation ul li ul
+                    '],
+					['border-color'],
+					$child_menu_color['color_1']
 				);
 			}
 			if (!empty($child_menu_background['color_2'])) {
@@ -805,6 +814,22 @@ class Zenvy_Customizer_Inline_Style
 			/*--------------------------------------------------------------
             # Global -> Button
             --------------------------------------------------------------*/
+			// text color
+			self::color(
+				[
+					'.zenvy-btn-text .text-button,
+				.zenvy-btn-text.zenvy-btn-arrow .mc4wp-form input[type="submit"],
+				.zenvy-btn-text.zenvy-btn-arrow #sb_instagram #sbi_load .sbi_load_btn,
+				.zenvy-btn-text.zenvy-btn-arrow .wpcf7-form input[type="submit"]',
+					'.zenvy-btn-text .text-button:hover,
+				.zenvy-btn-text.zenvy-btn-arrow .mc4wp-form input[type="submit"]:hover,
+				.zenvy-btn-text.zenvy-btn-arrow #sb_instagram #sbi_load .sbi_load_btn:hover,
+				.zenvy-btn-text.zenvy-btn-arrow .wpcf7-form input[type="submit"]:hover'
+				],
+				'zenvy_button_text_color',
+				'',
+				'--color-text'
+			);
 			// color
 			self::color(
 				['
@@ -815,6 +840,7 @@ class Zenvy_Customizer_Inline_Style
                 .mc4wp-form input[type=submit],
                 button:not(.components-button),
                 a.button,
+				.comment-reply-link,
                 .wp-block-button__link,
                 input[type="button"],
                 input[type="reset"],
@@ -828,6 +854,7 @@ class Zenvy_Customizer_Inline_Style
                 .mc4wp-form input[type=submit]:hover,
                 button:not(.components-button):hover,
                 a.button:hover,
+				.comment-reply-link:hover,
                 .wp-block-button__link:hover,
                 input[type="button"]:hover,
                 input[type="reset"]:hover,
@@ -848,6 +875,7 @@ class Zenvy_Customizer_Inline_Style
                 .mc4wp-form input[type=submit],
                 button:not(.components-button),
                 a.button,
+				.comment-reply-link,
                 .wp-block-button__link,
                 input[type="button"],
                 input[type="reset"],
@@ -861,6 +889,7 @@ class Zenvy_Customizer_Inline_Style
                 .mc4wp-form input[type=submit]:hover,
                 button:not(.components-button):hover,
                 a.button:hover,
+				.comment-reply-link:hover,
                 .wp-block-button__link:hover,
                 input[type="button"]:hover,
                 input[type="reset"]:hover,
@@ -873,18 +902,7 @@ class Zenvy_Customizer_Inline_Style
 			// Border
 			self::border(
 				['
-                .box-button, .read-more-wrap .read-more-button, .wpcf7-submit[type="submit"], input[type="submit"], button[type="submit"], .comment-form input[type="submit"],
-                .post-navigation .nav-links .nav-previous a, .pagination-wrap .nav-links .nav-previous a,
-                .post-navigation .nav-links .nav-next a, .pagination-wrap .nav-links .nav-next a,
-                .back-to-top a,
-                .wp-block-search .wp-block-search__button,
-                .mc4wp-form input[type=submit],
-                button:not(.components-button),
-                a.button,
-                .wp-block-button__link,
-                input[type="button"],
-                input[type="reset"],
-                input[type="submit"]
+                .box-button, .woocommerce-button, .woocommerce-Button, .wc-block-components-button, .wc-block-checkout__form .wc-block-components-checkout-return-to-cart-button, .comment-reply-link, .woocommerce .woocommerce-form-login .woocommerce-form-login__submit, .woocommerce #respond .form-submit input#submit, .mc4wp-form input[type=submit], .widget_search .search-form input[type=submit], #sb_instagram #sbi_load .sbi_load_btn, #sb_instagram .sbi_follow_btn a,.wp-block-search__inside-wrapper .wp-block-search__button,input[type=reset], input[type=button], input[type=submit], .wpcf7-form input[type=submit],.back-to-top a,.post-navigation .nav-links a, .posts-navigation .nav-links a, .navigation.post-navigation .nav-links a
                 '],
 				'zenvy_button_border',
 				''
@@ -984,7 +1002,7 @@ class Zenvy_Customizer_Inline_Style
 				self::range(
 					['.single .content-area.no-has-page-header'],
 					'zenvy_single_post_content_entry_header_elements_gap',
-					['desktop' => '-120px','tablet' => '-215px','mobile' => '-180px'],
+					['desktop' => '-120px', 'tablet' => '-215px', 'mobile' => '-180px'],
 					'margin-top'
 				);
 				// Background Color
