@@ -5,7 +5,9 @@ module.exports = function( grunt ) {
 		'**', // include everything
 		'!node_modules/**', // exclude node_modules
 		'!vendor/**', // exclude vendor directory
-		'!assets/src/**', // exclude source assets
+		'!assets/src/images/**', // exclude source assets/images
+		'!assets/src/library/**', // exclude source assets/library
+		'!assets/src/webfonts/**', // exclude source assets/webfonts
 		'!cypress/**', // exclude Cypress tests
 		'!tests/**', // exclude unit tests
 		'!build/**', // exclude build output

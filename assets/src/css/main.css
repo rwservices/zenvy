@@ -1,8 +1,7 @@
 :root {
-	--color-primary: #f9b189;
-	--color-secondary: #ff80c0;
+	--color-primary: #201f1f;
+	--color-secondary: #f9b189;
 	--color-tertiary: #8792f4;
-	--color-gray-900: #201f1f;
 	--color-gray-800: #444444;
 	--color-gray-700: #6d707d;
 	--color-gray-600: #9ea0a8;
@@ -11,18 +10,25 @@
 	--color-white: #ffffff;
 
 	/* Semantic Colors */
-	--color-heading: var(--color-gray-900);
+	--color-heading: var(--color-primary);
 	--color-text: var(--color-gray-800);
 	--color-text-light: var(--color-gray-700);
 	--color-border: var(--color-gray-500);
 	--color-box-shadow: #00000066;
 	--color-bg: var(--color-white);
 	--color-bg-light: var(--color-gray-200);
-	--color-bg-dark: var(--color-gray-900);
+	--color-bg-dark: var(--color-primary);
 
 	/* Link Colors */
-	--color-link: var(--color-primary);
-	--color-link-hover: var(--color-secondary);
+	--color-link: var(--color-secondary);
+	--color-link-hover: var(--color-primary);
+
+	/* Buttons Colors */
+	--color-button: var(--color-white);
+	--color-button-hover: var(--color-white);
+	--color-border-button: var(--color-border);	
+	--bg-button: var(--color-primary);
+	--bg-button-hover: var(--color-secondary);
 
 	/* Layout */
 	--container-width: 1170px;
@@ -32,7 +38,7 @@
 	--font-heading: "Cormorant Garamond", serif;
 }
 html[data-theme="dark"] {
-	--color-gray-900: #f2f2f2;
+	--color-primary: #f2f2f2;
 	--color-gray-800: #cecfd4;
 	--color-gray-700: #9ea0a8;
 	--color-gray-600: #6d707d;
@@ -41,7 +47,6 @@ html[data-theme="dark"] {
 	--color-white: #000000;
 	--color-box-shadow: #ffffff66;
 }
-
 body {
 	color: var(--color-text);
 	background-color: var(--color-bg);
@@ -424,7 +429,6 @@ input[type="submit"],
 	-ms-transition: all 0.3s ease-out;
 	-o-transition: all 0.3s ease-out;
 	-webkit-transition: all 0.3s ease-out;
-	border: none;
 	cursor: pointer;
 	display: block;
 	font-size: 16px;
@@ -435,7 +439,9 @@ input[type="submit"],
 	text-transform: capitalize;
 	transition: all 0.3s ease-out;
 	font-family: var(--font-heading);
-	background: var(--color-link);
+	color: var(--color-button);
+	background: var(--bg-button);
+	border: 1px solid var(--color-border-button);
 }
 
 .wpcf7-form p label {
@@ -445,7 +451,8 @@ input[type="submit"],
 input[type="reset"]:hover,
 input[type="button"]:hover,
 input[type="submit"]:hover {
-	background: var(--color-link-hover);
+	color: var(--color-button-hover);
+	background: var(--bg-button-hover);
 }
 
 select {
@@ -588,8 +595,8 @@ article {
 	-webkit-font-smoothing: antialiased;
 	-webkit-transition: all 0.5s ease-out;
 	border-radius: 3px;
-	border: 1px solid var(--color-white);
-	color: var(--color-white);
+	border: 1px solid var(--color-border-button);
+	color: var(--color-button);
 	display: block;
 	font-family: "FontAwesome";
 	font-size: 16px;
@@ -598,12 +605,14 @@ article {
 	text-align: center;
 	transition: all 0.5s ease-out;
 	width: 40px;
-	background: var(--color-bg-dark);
+	background: var(--bg-button);
 }
 
-.back-to-top a:hover {
-	border: 1px solid var(--color-white);
-	background: var(--color-link-hover);
+.back-to-top a:hover,
+.back-to-top a:active,
+.back-to-top a:focus {
+	color: var(--color-button-hover);
+	background: var(--bg-button-hover);
 }
 
 /*   -- "box-button" (These are the styles for the box-button) --   */
@@ -625,7 +634,7 @@ article {
 	-ms-transition: all 0.4s ease 0s;
 	-o-transition: all 0.4s ease 0s;
 	-webkit-transition: all 0.4s ease 0s;
-	color: var(--color-white);
+	color: var(--color-button);
 	display: inline-block;
 	font-size: 16px;
 	line-height: 1.2;
@@ -634,8 +643,8 @@ article {
 	text-align: center;
 	text-transform: capitalize;
 	position: relative;
-	background: var(--color-link);
-	border: 1px solid var(--color-link);
+	background: var(--bg-button);
+	border: 1px solid var(--color-border-button);
 	height: auto;
 }
 
@@ -652,25 +661,24 @@ article {
 .widget_search .search-form input[type="submit"]:hover,
 #sb_instagram #sbi_load .sbi_load_btn:hover,
 #sb_instagram .sbi_follow_btn a:hover {
-	color: var(--color-white);
+	color: var(--color-button-hover);
 	transition: all 0.4s ease 0s;
 	-moz-transition: all 0.4s ease 0s;
 	-ms-transition: all 0.4s ease 0s;
 	-o-transition: all 0.4s ease 0s;
 	-webkit-transition: all 0.4s ease 0s;
-	background: var(--color-link-hover);
-	border-color: var(--color-link-hover);
+	background: var(--bg-button-hover);
 }
 
-.box-button:hover,
+/* .box-button:hover,
 .box-button:active,
 .box-button:focus {
-	color: var(--color-white);
-	background: var(--color-link-hover);
-}
+	color: var(--color-button);
+	background: var(--bg-button);
+} */
 
 .text-button {
-	color: var(--color-gray-900);
+	color: var(--color-text);
 	text-transform: capitalize;
 	font-size: 22px;
 	position: relative;
@@ -678,6 +686,10 @@ article {
 	display: inline-block;
 	margin-top: 25px;
 	position: relative;
+}
+.text-button:hover {
+	--color-text: var(--color-secondary);
+	color: var(--color-text);
 }
 
 .zenvy-btn-arrow .text-button::before {
@@ -786,7 +798,7 @@ img#wpstats {
 /*   -- "Horizontal Row" (These are the styles for the Horizontal Row) --   */
 
 hr {
-	border-color: var(--color-gray-600);
+	border-color: var(--border-color);
 	border-style: solid none none;
 	border-width: 1px 0 0;
 	clear: both;
@@ -1732,13 +1744,18 @@ iframe {
 	font-size: 42px;
 	line-height: 1.2;
 	margin-bottom: 15px;
-	color: var(--color-bg-dark);
+}
+.slider-title a {
+	color: var(--color-heading);
+}
+.slider-title a:hover {
+	color: var(--color-secondary);
 }
 
 .slider-subtitle {
 	font-size: 18px;
 	text-transform: uppercase;
-	color: var(----color-bg-dark);
+	color: var(--color-heading);
 	display: inline-block;
 	position: relative;
 	padding: 10px 10px 10px 0;
@@ -1984,7 +2001,7 @@ iframe {
 
 .entry-meta,
 .entry-meta a {
-	color: var(--color-text);
+	color: var(--color-link);
 	font-size: 12px;
 }
 
@@ -1993,7 +2010,7 @@ iframe {
 }
 
 .entry-meta a:hover {
-	color: var(--color-secondary);
+	color: var(--color-link-hover);
 }
 
 .entry-meta .cat-links a {
@@ -2337,7 +2354,7 @@ iframe {
 
 .comment-meta,
 .comment-meta a {
-	color: var(--color-gray-900);
+	color: var(--text-color);
 	font-size: 13px;
 }
 
@@ -2502,6 +2519,15 @@ iframe {
 
 .wp-block-search__inside-wrapper .wp-block-search__button {
 	margin-left: 0;
+	color: var(--color-button);
+	background-color: var(--bg-button);
+	border: 1px solid var(--color-border-button);
+}
+.wp-block-search__inside-wrapper .wp-block-search__button:hover,
+.wp-block-search__inside-wrapper .wp-block-search__button:active,
+.wp-block-search__inside-wrapper .wp-block-search__button:focus {
+	color: var(--color-button-hover);
+	background-color: var(--bg-button-hover);
 }
 
 .wp-block-rss li {
@@ -2541,7 +2567,6 @@ ol.wp-block-latest-comments {
 .wpcf7-submit[type="submit"],
 .form-submit input[type="submit"],
 .page-content .search-form .search-submit {
-	color: var(--color-white);
 	margin: 0;
 	text-transform: uppercase;
 }
@@ -2831,15 +2856,17 @@ div.bbp-submit-wrapper button {
 .post-navigation .nav-links a,
 .posts-navigation .nav-links a,
 .navigation.post-navigation .nav-links a {
-	background: var(--color-link);
-	color: var(--color-white);
+	background: var(--bg-button);
+	color: var(--color-button);
 	display: block;
 	padding: 15px;
+	border: 1px solid var(--color-border-button);
 }
 .post-navigation .nav-links a:hover,
 .posts-navigation .nav-links a:hover,
 .navigation .nav-links a:hover {
-	background: var(--color-link-hover);
+	color: var(--color-button-hover);
+	background: var(--bg-button-hover);
 }
 
 .post-navigation .nav-links .nav-next a,
@@ -2927,7 +2954,7 @@ div.bbp-submit-wrapper button {
 	position: relative;
 }
 
-#secondary .widget li:not(.wp-social-link) a,
+/* #secondary .widget li:not(.wp-social-link) a,
 #primary .widget li:not(.wp-social-link) a {
 	color: var(--color-text);
 }
@@ -2935,7 +2962,7 @@ div.bbp-submit-wrapper button {
 #secondary .widget li:not(.wp-social-link) a:hover,
 #primary .widget li:not(.wp-social-link) a:hover {
 	color: var(--color-secondary);
-}
+} */
 
 .widget_media_image .featured-image {
 	margin-bottom: 0;
@@ -3118,9 +3145,8 @@ div.bbp-submit-wrapper button {
 }
 
 #secondary .widget .tagcloud a:hover {
-	color: var(--color-white);
-	background: var(--color-primary);
-	border-color: var(--color-primary);
+	color: var(--color-button-hover);
+	background: var(--bg-button-hover);
 }
 
 /*   -- "Recent Entries/Comments widget" section (These are the styles for the Recent Entries/Comments widget section) --   */
@@ -4609,10 +4635,13 @@ p.no-comments {
 }
 .woocommerce div.product form.cart .button {
 	height: 36px;
-	background: var(--color-link);
+	color: var(--color-button);
+	background: var(--bg-button);
+	border: 1px solid var(--color-border-button);
 }
 .woocommerce div.product form.cart .button:hover {
-	background: var(--color-link-hover);
+	color: var(--color-button-hover);
+	background: var(--bg-button-hover);
 }
 .woocommerce table.shop_attributes td {
 	padding: 0 10px;
@@ -4698,10 +4727,10 @@ table.wc-block-cart-items {
 .main-navigation ul li li.menu-item-has-children:hover::before {
 	color: var(--color-white);
 }
-.zenvy-btn-arrow .mc4wp-form input[type="submit"],
-.zenvy-btn-arrow #sb_instagram #sbi_load .sbi_load_btn,
-.zenvy-btn-arrow .wpcf7-form input[type="submit"] {
-	color: var(--color-gray-900);
+.zenvy-btn-text.zenvy-btn-arrow .mc4wp-form input[type="submit"],
+.zenvy-btn-text.zenvy-btn-arrow #sb_instagram #sbi_load .sbi_load_btn,
+.zenvy-btn-text.zenvy-btn-arrow .wpcf7-form input[type="submit"] {
+	color: var(--color-text);
 	text-transform: capitalize;
 	font-size: 22px;
 	position: relative;
@@ -4720,9 +4749,11 @@ table.wc-block-cart-items {
 	padding: 22px 44px 0 0;
 	height: auto;
 }
-.zenvy-btn-arrow .mc4wp-form input[type="submit"]:hover,
-.zenvy-btn-arrow #sb_instagram #sbi_load .sbi_load_btn:hover,
-.zenvy-btn-arrow .wpcf7-form input[type="submit"]:hover {
+.zenvy-btn-text.zenvy-btn-arrow .mc4wp-form input[type="submit"]:hover,
+.zenvy-btn-text.zenvy-btn-arrow #sb_instagram #sbi_load .sbi_load_btn:hover,
+.zenvy-btn-text.zenvy-btn-arrow .wpcf7-form input[type="submit"]:hover {
+	--text-color: var(--color-secondary);
+	color: var(--text-color);
 	background-position: 97% 10px;
 }
 .page-wrapper {

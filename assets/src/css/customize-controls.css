@@ -1,8 +1,7 @@
 :root {
-	--color-primary: #f9b189;
-	--color-secondary: #ff80c0;
+	--color-primary: #201f1f;
+	--color-secondary: #f9b189;
 	--color-tertiary: #8792f4;
-	--color-gray-900: #201f1f;
 	--color-gray-800: #444444;
 	--color-gray-700: #6d707d;
 	--color-gray-600: #9ea0a8;
@@ -11,18 +10,25 @@
 	--color-white: #ffffff;
 
 	/* Semantic Colors */
-	--color-heading: var(--color-gray-900);
+	--color-heading: var(--color-primary);
 	--color-text: var(--color-gray-800);
 	--color-text-light: var(--color-gray-700);
 	--color-border: var(--color-gray-500);
-	--color-box-shadow: var(--color-gray-900);
+	--color-box-shadow: #00000066;
 	--color-bg: var(--color-white);
 	--color-bg-light: var(--color-gray-200);
-	--color-bg-dark: var(--color-gray-900);
+	--color-bg-dark: var(--color-primary);
 
 	/* Link Colors */
-	--color-link: var(--color-primary);
-	--color-link-hover: var(--color-secondary);
+	--color-link: var(--color-secondary);
+	--color-link-hover: var(--color-primary);
+
+	/* Buttons Colors */
+	--color-button: var(--color-white);
+	--color-button-hover: var(--color-white);
+	--color-border-button: var(--color-border);
+	--bg-button: var(--color-primary);
+	--bg-button-hover: var(--color-secondary);
 
 	/* Layout */
 	--container-width: 1170px;
@@ -32,7 +38,7 @@
 	--font-heading: "Cormorant Garamond", serif;
 }
 html[data-theme="dark"] {
-	--color-gray-900: #f2f2f2;
+	--color-primary: #f2f2f2;
 	--color-gray-800: #cecfd4;
 	--color-gray-700: #9ea0a8;
 	--color-gray-600: #6d707d;
