@@ -160,7 +160,40 @@ if (! function_exists('zenvy_content_before_wrapper_start')) :
 
 	endif;
 
+
+	if (! function_exists('zenvy_posts_wrapper_start')) :
+
+		/**
+		 * Blog Posts Wrapper Start
+		 */
+		function zenvy_posts_wrapper_start()
+		{
+			if ( Zenvy_Helper::front_page_enable() ) {
+				return;
+			}
+			?>
+			<div <?php Zenvy_Helper::posts_layout_class(); ?>>
+			<?php
+		}
+
+	endif;
+
 	/* ------------------------------ AFTER CONTENT ------------------------------ */
+	if (! function_exists('zenvy_posts_wrapper_end')) :
+
+		/**
+		 * Close custom wrapper div after content
+		 */
+		function zenvy_posts_wrapper_end()
+		{
+			if ( Zenvy_Helper::front_page_enable() ) {
+				return;
+			}
+			echo '</div><! -- .posts-wrapper -->';
+		}
+
+	endif;
+
 	if (! function_exists('zenvy_content_after_wrapper_end')) :
 
 		/**

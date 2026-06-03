@@ -25,7 +25,7 @@ do_action( 'zenvy_content_before' );
 ?>
 
 <div id="primary" <?php Zenvy_Helper::primary_class(); ?>>
-	<main id="main" class="site-main <?php echo esc_attr( Zenvy_Helper::get_post_layout_class()); ?>">
+	<main id="main" class="site-main">
 
 		<?php
 		/**
@@ -35,12 +35,6 @@ do_action( 'zenvy_content_before' );
 		?>
 
 		<?php if ( have_posts() ) : ?>
-
-			<?php if ( is_home() && ! is_front_page() ) : ?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
-			<?php endif; ?>
 
 			<?php
 			/**

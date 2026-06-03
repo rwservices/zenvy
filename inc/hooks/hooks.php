@@ -45,10 +45,19 @@ add_action('zenvy_content_after', 'zenvy_content_after_wrapper_end', 10);
 /* ------------------------------ BLOG/ARCHIVE PAGE ------------------------------ */
 
 /**
- * After content loop
+ * Before content loop
  *
  * @see zenvy_posts_navigation()
  */
+add_action('zenvy_posts_content_loop_before', 'zenvy_posts_wrapper_start', 10);
+
+/**
+ * After content loop
+ *
+ * @see zenvy_posts_wrapper_end()
+ * @see zenvy_posts_navigation()
+ */
+add_action('zenvy_posts_content_loop_after', 'zenvy_posts_wrapper_end', 5);
 add_action('zenvy_posts_content_loop_after', 'zenvy_posts_navigation', 10);
 
 /**

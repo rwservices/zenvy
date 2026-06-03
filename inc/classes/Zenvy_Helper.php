@@ -926,30 +926,67 @@ class Zenvy_Helper
     }
 
     /**
-     * Post Layout classes for archives page
+     * Get post layout classes for archives page
      * 
+     * @param string|array $additional_classes Additional CSS classes to add
      * @return string Class names for post layout
      */
-    public static function get_post_layout_class()
+    public static function get_post_layout_classes($additional_classes = '')
     {
+        $classes = ['posts-wrapper'];
+
+        // Add additional classes
+        if (!empty($additional_classes)) {
+            if (!is_array($additional_classes)) {
+                $additional_classes = preg_split('#\s+#', $additional_classes);
+            }
+            $classes = array_merge($classes, $additional_classes);
+        }
+
+        // Add layout-specific class for archive pages
         if (is_archive() || is_search() || is_home()) {
             $post_layout = get_theme_mod('zenvy_blog_posts_layout', 'alt');
+
             switch ($post_layout) {
                 case 'alt':
-                    return 'alternative-post';
+                    $classes[] = 'alternative-post';
+                    break;
                 case 'right':
-                    return 'right-post';
+                    $classes[] = 'right-post';
+                    break;
                 case 'left':
-                    return 'left-post';
+                    $classes[] = 'left-post';
+                    break;
                 case 'grid':
-                    return 'overlap-post post-item-has-2column';
+                    $classes[] = 'overlap-post';
+                    $classes[] = 'post-item-has-2column';
+                    break;
                 case 'list':
-                    return 'overlap-post';
+                    $classes[] = 'overlap-post';
+                    break;
                 default:
-                    return 'alternative-post';
+                    $classes[] = 'alternative-post';
+                    break;
             }
         }
-        return '';
+
+        // Sanitize classes
+        $classes = array_map('sanitize_html_class', $classes);
+        $classes = apply_filters('zenvy_post_layout_classes', $classes);
+        $classes = array_unique($classes);
+
+        return implode(' ', $classes);
+    }
+
+    /**
+     * Display post layout classes for archives page
+     * 
+     * @param string|array $class Additional CSS classes to add
+     * @return void Echoes class attribute
+     */
+    public static function posts_layout_class($class = '')
+    {
+        echo 'class="' . esc_attr(self::get_post_layout_classes($class)) . '"';
     }
 
     /**
