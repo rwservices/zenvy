@@ -2705,9 +2705,9 @@ div.bbp-submit-wrapper button {
 }
 
 .pagination .nav-links {
-  float: right;
   display: flex;
   gap: 10px;
+  justify-content: center;
 }
 
 .pagination a,
