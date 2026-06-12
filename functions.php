@@ -29,8 +29,8 @@ if (! defined('ZENVY_THEME_DIR')) {
 if (! defined('ZENVY_THEME_URI')) {
 	define('ZENVY_THEME_URI', trailingslashit(esc_url(get_template_directory_uri())));
 }
-if ( ! defined( 'ZENY_RTL_SUFFIX' ) ) {
-    define( 'ZENY_RTL_SUFFIX', ( is_rtl() ) ? '-rtl' : '' );
+if ( ! defined( 'ZENVY_RTL_SUFFIX' ) ) {
+    define( 'ZENVY_RTL_SUFFIX', ( is_rtl() ) ? '-rtl' : '' );
 }
 
 if (! function_exists('zenvy_setup')) :

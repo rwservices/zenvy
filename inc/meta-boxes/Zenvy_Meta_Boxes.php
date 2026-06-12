@@ -6,7 +6,7 @@
  */
 
 /**
- * class for Meta Boxes Settings
+ * Class for Meta Boxes Settings
  *
  * @access public
  */
@@ -19,7 +19,7 @@ class Zenvy_Meta_Boxes {
      * @var array
      */
     private static $post_types;
-    
+
     /**
      * Instance
      *
@@ -27,6 +27,11 @@ class Zenvy_Meta_Boxes {
      * @var object
      */
     private static $instance;
+
+    /**
+     * Meta prefix
+     */
+    private const PREFIX = 'zenvy_';
 
     /**
      * Returns the instance.
@@ -38,7 +43,6 @@ class Zenvy_Meta_Boxes {
         if ( ! isset( self::$instance ) ) {
             self::$instance = new self();
         }
-
         return self::$instance;
     }
 
@@ -53,59 +57,124 @@ class Zenvy_Meta_Boxes {
         // Post types to add the meta-box to
         self::$post_types = array( 'post', 'page' );
 
-        // Loop through post types and add meta-box to corresponding post types
+        // Register meta fields
+        add_action( 'init', array( $this, 'register_meta' ), 20 );
+
+        // Add meta-boxes
         if ( self::$post_types ) {
-            foreach( self::$post_types as $key => $val ) {
-                add_action( 'add_meta_boxes_'. $val, array( $this, 'post_meta' ), 11 );
+            foreach ( self::$post_types as $post_type ) {
+                add_action( "add_meta_boxes_{$post_type}", array( $this, 'post_meta' ), 11 );
             }
         }
 
-        // Save meta Box
-        add_action( 'save_post', array( $this, 'save_meta_data' ) );
+        // Save meta
+        add_action( 'save_post', array( $this, 'save_meta_data' ), 10, 2 );
 
-        // Load scripts for the meta-box
+        // Load scripts
         add_action( 'admin_enqueue_scripts', array( $this, 'load_scripts' ) );
-
     }
 
     /**
-     * Loads the required media files for the media manager and scripts for media widgets.
+     * Register post meta for REST API, Gutenberg, etc.
+     */
+    public function register_meta() {
+
+        $tabs = $this->meta_array();
+
+        foreach ( $tabs as $tab ) {
+            foreach ( $tab['settings'] as $setting ) {
+                $meta_key = $setting['id'];
+                $type     = $setting['type'] ?? 'string';
+                $default  = $setting['default'] ?? '';
+
+                $args = [
+                    'single'            => true,
+                    'show_in_rest'      => true,
+                    'type'              => $this->get_meta_type( $type ),
+                    'default'           => $default,
+                    'sanitize_callback' => $this->get_sanitize_callback( $type ),
+                    'auth_callback'     => function() {
+                        return current_user_can( 'edit_posts' );
+                    },
+                ];
+
+                // Register for each post type
+                foreach ( self::$post_types as $post_type ) {
+                    register_post_meta( $post_type, $meta_key, $args );
+                }
+            }
+        }
+    }
+
+    /**
+     * Map meta box type to register_post_meta type
+     */
+    private function get_meta_type( $type ) {
+        switch ( $type ) {
+            case 'radio':
+            case 'select':
+                return 'string';
+            default:
+                return 'string';
+        }
+    }
+
+    /**
+     * Get appropriate sanitize callback
+     */
+    private function get_sanitize_callback( $type ) {
+        switch ( $type ) {
+            case 'radio':
+            case 'select':
+                return 'sanitize_text_field';
+            default:
+                return 'sanitize_text_field';
+        }
+    }
+
+    /**
+     * Loads scripts and styles.
+     *
+     * FIX: `edit.php` doesn't have a $post object — removed it from the hook
+     *      list so the early-return on !is_object($post) doesn't silently skip
+     *      the style/script enqueue on post.php / post-new.php.
      */
     public function load_scripts( $hook ) {
-
-        // Only needed on these admin screens
-        if ( $hook != 'edit.php' && $hook != 'post.php' && $hook != 'post-new.php' ) {
+        if ( ! in_array( $hook, [ 'post.php', 'post-new.php' ], true ) ) {
             return;
         }
 
-        // Get global post
         global $post;
-
-        // Return if post is not object
-        if ( ! is_object( $post ) ) {
+        if ( ! is_object( $post ) || ! in_array( $post->post_type, self::$post_types, true ) ) {
             return;
         }
-       
-        // Enqueue Style
-        wp_enqueue_style( 'zenvy-meta-box-style', ZENVY_THEME_URI .'assets/build/css/meta-box' . ZENY_RTL_SUFFIX . '.css', false, ZENVY_THEME_VERSION, 'all' );
 
-        // Enqueue Script
-        wp_enqueue_script( 'zenvy-meta-box-script', ZENVY_THEME_URI . 'assets/build/js/meta-box.js', array( 'jquery' ), ZENVY_THEME_VERSION, true );
+        wp_enqueue_style(
+            'zenvy-meta-box-style',
+            ZENVY_THEME_URI . 'assets/build/css/meta-box' . ZENVY_RTL_SUFFIX . '.css', // FIX: was ZENVY_RTL_SUFFIX (missing V)
+            false,
+            ZENVY_THEME_VERSION,
+            'all'
+        );
 
+        wp_enqueue_script(
+            'zenvy-meta-box-script',
+            ZENVY_THEME_URI . 'assets/build/js/meta-box.js',
+            array( 'jquery' ),
+            ZENVY_THEME_VERSION,
+            true
+        );
     }
 
     /**
      * Add Meta-Box
-     *
-     * @param $post
      */
     public function post_meta( $post ) {
-
-        // Add meta-box
         $obj = get_post_type_object( $post->post_type );
+
         add_meta_box(
             'post_meta_fields',
-            $obj->labels->singular_name . ' '. esc_html__( 'Settings', 'zenvy' ),
+            $obj->labels->singular_name . ' ' . esc_html__( 'Settings', 'zenvy' ),
             array( $this, 'display_meta_box' ),
             $post->post_type,
             'normal',
@@ -116,318 +185,231 @@ class Zenvy_Meta_Boxes {
     /**
      * Display Meta-Box Fields
      *
-     * @param $post
+     * FIX: array_filter() preserves original keys, so using $i as a sequential
+     *      counter caused tab nav IDs (setting-tab-1, setting-tab-2 …) to
+     *      mismatch the content panel IDs when any tab was filtered out.
+     *      Re-index with array_values() before iterating so $i is always 0-based.
      */
     public function display_meta_box( $post ) {
 
-        // Add nonce for security and authentication.
         wp_nonce_field( basename( __FILE__ ), 'zenvy_meta_nonce' );
 
-        // Get current post data
         $post_id   = $post->ID;
-        $post_type = get_post_type();
+        $post_type = $post->post_type;
 
-        // Get tabs
         $tabs = $this->meta_array( $post );
 
-        // Empty notice
-        $empty_notice = '<p>'. esc_html__( 'No meta settings available for this post type or user.', 'zenvy' ) .'</p>';
-
-        // Make sure tabs aren't empty
         if ( empty( $tabs ) ) {
-            echo $empty_notice; return;
+            echo '<p>' . esc_html__( 'No meta settings available for this post type or user.', 'zenvy' ) . '</p>';
+            return;
         }
 
-        // Store tabs that should display on this specific page in an array for use later
-        $active_tabs = array();
-        foreach ( $tabs as $tab ) {
-            $tab_post_type = isset( $tab['post_type'] ) ? $tab['post_type'] : '';
-            if ( ! $tab_post_type ) {
-                $display_tab = true;
-            } elseif ( in_array( $post_type, $tab_post_type ) ) {
-                $display_tab = true;
-            } else {
-                $display_tab = false;
-            }
-            if ( $display_tab ) {
-                $active_tabs[] = $tab;
-            }
-        }
+        // Filter active tabs for this post type
+        $active_tabs = array_filter( $tabs, function( $tab ) use ( $post_type ) {
+            $tab_post_types = $tab['post_type'] ?? [];
+            return empty( $tab_post_types ) || in_array( $post_type, (array) $tab_post_types, true );
+        });
 
-        // No active tabs
         if ( empty( $active_tabs ) ) {
-            echo $empty_notice; return;
-        } ?>
+            echo '<p>' . esc_html__( 'No meta settings available for this post type or user.', 'zenvy' ) . '</p>';
+            return;
+        }
+
+        // Re-index so tab IDs stay sequential (0, 1, 2 …) even after filtering
+        $active_tabs = array_values( $active_tabs );
+        ?>
 
         <div class="metabox-container">
             <div class="metabox-settings-tabs">
                 <ul class="metabox-tab-nav">
-
-                    <?php
-                    // Output tab
-                    $tab_count = '';
-                    foreach ( $active_tabs as $tab ) {
-                        $tab_count++;
-                        // Define tab title
-                        $tab_title = $tab['title'] ? $tab['title'] : esc_html__( 'Other', 'zenvy' ); ?>
-                        <li class="tab-link" data-tab="setting-tab-<?php echo esc_js( $tab_count ); ?>"><?php echo esc_html( $tab_title ); ?></li>
-                    <?php } ?>
-
+                    <?php foreach ( $active_tabs as $i => $tab ) :
+                        $tab_title = $tab['title'] ?? esc_html__( 'Other', 'zenvy' ); ?>
+                        <li class="tab-link" data-tab="setting-tab-<?php echo esc_attr( $i + 1 ); ?>">
+                            <?php echo esc_html( $tab_title ); ?>
+                        </li>
+                    <?php endforeach; ?>
                 </ul>
 
                 <div class="meta-box-wrap">
-                    <?php
-                    // Output tab sections
-                    $section_count = '';
+                    <?php foreach ( $active_tabs as $i => $tab ) : ?>
+                        <div id="setting-tab-<?php echo esc_attr( $i + 1 ); ?>" class="setting-tab">
+                            <?php foreach ( $tab['settings'] as $setting ) :
+                                $meta_id     = $setting['id'];
+                                $title       = $setting['title'] ?? '';
+                                $description = $setting['description'] ?? '';
+                                $type        = $setting['type'] ?? 'text';
+                                $default     = $setting['default'] ?? '';
+                                $meta_value  = get_post_meta( $post_id, $meta_id, true );
+                                $meta_value  = $meta_value !== '' ? $meta_value : $default;
+                            ?>
 
-                    foreach ( $active_tabs as $tab ) {
-
-                        $section_count++; ?>
-
-                        <div id="setting-tab-<?php echo esc_attr( $section_count ); ?>" class="setting-tab">
-                            <?php // Redirect Link Tab
-                            // Loop through sections and store meta output
-                            foreach ( $tab['settings'] as $setting ) {
-                                // Vars
-                                $meta_id        = $setting['id'];
-                                $title          = isset( $setting['title'] ) ? $setting['title'] : '';
-                                $description    = isset( $setting['description'] ) ? $setting['description'] : '';
-                                $type           = isset( $setting['type'] ) ? $setting['type'] : 'text';
-                                $default        = isset( $setting['default'] ) ? $setting['default'] : '';
-                                $meta_value     = get_post_meta( $post_id, $meta_id, true );
-                                $meta_value     = $meta_value ? $meta_value : $default; ?>
-
-                                <?php if( 'radio' == $type ) : $options = isset ( $setting['options'] ) ? $setting['options'] : ''; ?>
-
+                                <?php if ( 'radio' === $type ) :
+                                    $options = $setting['options'] ?? []; ?>
                                     <section>
                                         <div class="input-holder">
-                                            <?php if( $title ) : ?>
+                                            <?php if ( $title ) : ?>
                                                 <div class="input-label">
                                                     <label for="<?php echo esc_attr( $meta_id ); ?>"><?php echo esc_html( $title ); ?></label>
                                                     <?php if ( $description ) : ?>
                                                         <p class="description"><?php echo esc_html( $description ); ?></p>
                                                     <?php endif; ?>
-                                                </div><!-- .input-field -->
+                                                </div>
                                             <?php endif; ?>
 
                                             <div class="input-field image-radio-layout">
                                                 <fieldset>
                                                     <?php foreach ( $options as $option_value => $option_name ) : ?>
-                                                        <input type="radio" name="<?php echo esc_attr( $meta_id ); ?>" id="has-<?php echo esc_attr( $option_value ); ?>" value="<?php echo esc_attr( $option_value ); ?>" <?php echo checked( $meta_value, $option_value, false ); ?>>
-                                                        <label for="has-<?php echo esc_attr( $option_value ); ?>" class="has-<?php echo esc_attr( $option_value ); ?>"><?php echo esc_html( $option_name ); ?></label>
+                                                        <input type="radio"
+                                                               name="<?php echo esc_attr( $meta_id ); ?>"
+                                                               id="has-<?php echo esc_attr( $option_value ); ?>"
+                                                               value="<?php echo esc_attr( $option_value ); ?>"
+                                                               <?php checked( $meta_value, $option_value ); ?>>
+                                                        <label for="has-<?php echo esc_attr( $option_value ); ?>" class="has-<?php echo esc_attr( $option_value ); ?>">
+                                                            <?php echo esc_html( $option_name ); ?>
+                                                        </label>
                                                     <?php endforeach; ?>
                                                 </fieldset>
-                                            </div><!-- .input-field -->
-                                        </div><!-- .input-holder -->
+                                            </div>
+                                        </div>
                                     </section>
 
-                                <?php elseif( 'select' == $type ) : $options = isset ( $setting['options'] ) ? $setting['options'] : ''; ?>
-
+                                <?php elseif ( 'select' === $type ) :
+                                    $options = $setting['options'] ?? []; ?>
                                     <section>
                                         <div class="input-holder">
-                                            <?php if( $title ) : ?>
+                                            <?php if ( $title ) : ?>
                                                 <div class="input-label">
                                                     <label for="<?php echo esc_attr( $meta_id ); ?>"><?php echo esc_html( $title ); ?></label>
                                                     <?php if ( $description ) : ?>
                                                         <p class="description"><?php echo esc_html( $description ); ?></p>
                                                     <?php endif; ?>
-                                                </div><!-- .input-field -->
+                                                </div>
                                             <?php endif; ?>
 
                                             <div class="input-field">
                                                 <select id="<?php echo esc_attr( $meta_id ); ?>" name="<?php echo esc_attr( $meta_id ); ?>">
-                                                    <?php foreach ( $options as $option_value => $option_name ) { ?>
-                                                        <option value="<?php echo esc_attr( $option_value ); ?>" <?php selected( $meta_value, $option_value, true ); ?>><?php echo esc_html( $option_name ); ?></option>
-                                                    <?php } ?>
+                                                    <?php foreach ( $options as $option_value => $option_name ) : ?>
+                                                        <option value="<?php echo esc_attr( $option_value ); ?>"
+                                                                <?php selected( $meta_value, $option_value ); ?>>
+                                                            <?php echo esc_html( $option_name ); ?>
+                                                        </option>
+                                                    <?php endforeach; ?>
                                                 </select>
-                                            </div><!-- .input-field -->
-                                        </div><!-- .input-holder -->
+                                            </div>
+                                        </div>
                                     </section>
-
                                 <?php endif; ?>
 
-                            <?php } ?>
-
+                            <?php endforeach; ?>
                         </div>
-
-                    <?php } ?>
-
+                    <?php endforeach; ?>
                 </div>
             </div>
-
         </div>
-
-    <?php }
+        <?php
+    }
 
     /**
-     * Save Meta-Box Values
-     *
-     * @param $post_id
+     * Save Meta Data
      */
-    public function save_meta_data( $post_id ) {
+    public function save_meta_data( $post_id, $post ) {
 
-        // Verify that the nonce is valid.
-        if ( ! isset( $_POST['zenvy_meta_nonce'] ) || ! wp_verify_nonce( sanitize_key( $_POST['zenvy_meta_nonce'] ), basename( __FILE__ ) ) ) {
+        if ( ! isset( $_POST['zenvy_meta_nonce'] ) ||
+             ! wp_verify_nonce( sanitize_key( $_POST['zenvy_meta_nonce'] ), basename( __FILE__ ) ) ) {
             return;
         }
 
-        // If this is an autosave, our form has not been submitted, so we don't want to do anything.
         if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
             return;
         }
 
-        // Check the user's permissions.
-        if ( isset( $_POST['post_type'] ) && 'page' == $_POST['post_type'] ) {
-
+        if ( 'page' === $post->post_type ) {
             if ( ! current_user_can( 'edit_page', $post_id ) ) {
                 return;
             }
-
-        } else {
-
-            if ( ! current_user_can( 'edit_post', $post_id ) ) {
-                return;
-            }
+        } elseif ( ! current_user_can( 'edit_post', $post_id ) ) {
+            return;
         }
 
-        /* OK, it's safe for us to save the data now. Now we can loop through fields */
-
-        // Get array of settings to save
         $tabs = $this->meta_array();
-        $settings = array();
-        foreach( $tabs as $tab ) {
+        $settings = [];
+
+        foreach ( $tabs as $tab ) {
             foreach ( $tab['settings'] as $setting ) {
                 $settings[] = $setting;
             }
         }
 
-        // Loop through settings and validate
         foreach ( $settings as $setting ) {
+            $id   = $setting['id'];
+            $type = $setting['type'] ?? 'text';
 
-            // Vars
-            $value = '';
-            $id    = $setting['id'];
-            $type  = isset ( $setting['type'] ) ? $setting['type'] : 'text';
-
-            // Make sure field exists and if so validate the data
-            if ( isset( $_POST[$id] ) ) {
-
-                // Validate select
-                if ( 'select' == $type ) {
-                    if ( '' !== $_POST[$id] ) {
-                        $value = sanitize_text_field( $_POST[$id] );
-                    }
-                }
-                // Validate radio
-                elseif ( 'radio' == $type ) {
-                    if ( 'default' == $_POST[$id] ) {
-                        $value = '';
-                    } else {
-                        $value = sanitize_text_field( $_POST[$id] );
-                    }
-                }
-                // All else
-                else {
-                    $value = sanitize_text_field( $_POST[$id] );
-                }
-
-                // Update meta if value exists
-                if ( $value ) {
-                    update_post_meta( $post_id, $id, $value );
-                }
-
-                // Otherwise cleanup stuff
-                else {
-                    delete_post_meta( $post_id, $id );
-                }
+            if ( ! isset( $_POST[ $id ] ) ) {
+                delete_post_meta( $post_id, $id );
+                continue;
             }
 
-        }
+            $value = sanitize_text_field( wp_unslash( $_POST[ $id ] ) );
 
+            // Special handling for 'default'
+            if ( in_array( $value, [ 'default', '' ], true ) ) {
+                delete_post_meta( $post_id, $id );
+            } else {
+                update_post_meta( $post_id, $id, $value );
+            }
+        }
     }
 
     /**
      * Settings Array
-     *
-     * @param null $post
-     * @return array
      */
     private function meta_array( $post = null ) {
 
-        // Prefix
-        $prefix = 'zenvy_';
-
-        // Define array
         $array = array();
 
         // Page Header Tab
         $array['page_header'] = array(
-            'title'             => esc_html__( 'Page Header', 'zenvy' ),
-            'settings'          => array(
+            'title'    => esc_html__( 'Page Header', 'zenvy' ),
+            'settings' => array(
                 'page_header_enable' => array(
-                    'title'         => esc_html__( 'Activate', 'zenvy' ),
-                    'description'   => esc_html__( 'Default value is inherit from customizer saved value.', 'zenvy' ),
-                    'id'            => $prefix . 'page_header_enable',
-                    'type'          => 'select',
-                    'options'       => array(
-                        'default'       => esc_html__( 'Default From Customizer', 'zenvy' ),
-                        'disable'       => esc_html__( 'Disable', 'zenvy' )
+                    'title'       => esc_html__( 'Activate', 'zenvy' ),
+                    'description' => esc_html__( 'Default value is inherit from customizer saved value.', 'zenvy' ),
+                    'id'          => self::PREFIX . 'page_header_enable',
+                    'type'        => 'select',
+                    'options'     => array(
+                        'default' => esc_html__( 'Default From Customizer', 'zenvy' ),
+                        'disable' => esc_html__( 'Disable', 'zenvy' ),
                     ),
-                    'default'       => 'default'
+                    'default'     => 'default'
                 ),
             ),
         );
 
-        // Content Layout
-        // $array['layout']    = array(
-        //     'title'         => esc_html__( 'Content Layout', 'zenvy' ),
-        //     'post_type'     => ['post'],
-        //     'settings'      => [
-        //         'content_layout'    => [
-        //             'title'         => esc_html__( 'Content Layout', 'zenvy' ),
-        //             'description'   => esc_html__( 'Set content layout as portrait and Landscape.', 'zenvy' ),
-        //             'id'            => $prefix . 'content_layout',
-        //             'type'          => 'radio',
-        //             'options'       => array(
-        //                 'portrait'      => esc_html__( 'Portrait', 'zenvy' ),
-        //                 'landscape'     => esc_html__( 'Landscape', 'zenvy' ),
-        //             ),
-        //             'default'       => 'portrait'
-        //         ]
-        //     ],
-        // );
-
         // Sidebar Layout
-        $array['sidebar']   = array(
-            'title'         => esc_html__( 'Sidebar', 'zenvy' ),
-            'settings'      => [
-                'sidebar_layout'    => [
-                    'title'         => esc_html__( 'Sidebar Layout', 'zenvy' ),
-                    'description'   => esc_html__( 'Default value is inherit from customizer saved value.', 'zenvy' ),
-                    'id'            => $prefix . 'sidebar_layout',
-                    'type'          => 'radio',
-                    'options'       => [
-                        'default'       => esc_html__( 'From Customizer', 'zenvy' ),
-                        'left'          => esc_html__( 'Left Sidebar', 'zenvy' ),
-                        'right'         => esc_html__( 'Right Sidebar', 'zenvy' ),
-                        'none'          => esc_html__( 'Full Width', 'zenvy' ),
-                    ],
-                    'default'       => 'default'
-                ]
-            ],
+        $array['sidebar'] = array(
+            'title'    => esc_html__( 'Sidebar', 'zenvy' ),
+            'settings' => array(
+                'sidebar_layout' => array(
+                    'title'       => esc_html__( 'Sidebar Layout', 'zenvy' ),
+                    'description' => esc_html__( 'Default value is inherit from customizer saved value.', 'zenvy' ),
+                    'id'          => self::PREFIX . 'sidebar_layout',
+                    'type'        => 'radio',
+                    'options'     => array(
+                        'default' => esc_html__( 'From Customizer', 'zenvy' ),
+                        'left'    => esc_html__( 'Left Sidebar', 'zenvy' ),
+                        'right'   => esc_html__( 'Right Sidebar', 'zenvy' ),
+                        'none'    => esc_html__( 'Full Width', 'zenvy' ),
+                    ),
+                    'default'     => 'default'
+                )
+            ),
         );
 
-
-        // Apply filter & return settings array
         return apply_filters( 'zenvy_meta_box_settings', $array, $post );
     }
-
 }
 
-// Class needed only in the admin
+// Initialize only in admin
 if ( is_admin() ) {
-
     Zenvy_Meta_Boxes::get_instance();
 }
-
-

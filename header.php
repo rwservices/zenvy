@@ -53,14 +53,14 @@ do_action( 'zenvy_html_before' );
 
 <body <?php body_class(); ?>>
 
+<?php wp_body_open(); ?>
+
 <?php
 /**
  * Functions hooked into zenvy_body_top action
  */
 do_action( 'zenvy_body_top' );
 ?>
-
-<?php wp_body_open(); ?>
 
 <div id="page" <?php Zenvy_Helper::site_class(); ?>>
 

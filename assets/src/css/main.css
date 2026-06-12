@@ -1,6 +1,9 @@
 /*!**********************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].use[1]!./node_modules/sass-loader/dist/cjs.js!./assets/src/css/main.css ***!
   \**********************************************************************************************************************************************/
+/*!**********************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].use[1]!./node_modules/sass-loader/dist/cjs.js!./assets/src/css/main.css ***!
+  \**********************************************************************************************************************************************/
 :root {
   --color-primary: #201f1f;
   --color-secondary: #f9b189;
@@ -350,14 +353,20 @@ a {
   color: var(--color-link);
   text-decoration: none;
 }
+a:hover {
+  color: var(--color-link-hover);
+}
 
 a:focus,
 a:active,
-a:hover {
-  color: var(--color-link-hover);
-  outline: none;
+.post .entry-title a:focus,
+.post .entry-title a:active,
+.entry-title a:focus,
+.entry-title a:active,
+.site-title a:focus {
+  color: var(--color-secondary);
+  outline: 1px dotted;
   text-decoration: none;
-  transition: all 0.3s ease-in 0s;
 }
 
 /*   -- "Forms" (These are the styles for the Forms) --   */
@@ -557,6 +566,14 @@ input[type=checkbox] {
 article {
   font-size: 14px;
   line-height: 1.25;
+}
+article p a{
+  text-decoration: underline;
+}
+article p a:hover,
+article p a:focus,
+article p a:active{
+  text-decoration: none;
 }
 
 /*    ===== Buttons =====   */
@@ -1561,6 +1578,22 @@ iframe {
   transition: all 0.5s ease 0s;
   visibility: visible;
 }
+.main-navigation ul li:focus ul, 
+.main-navigation ul ul li:focus ul, 
+.main-navigation ul ul ul li:focus ul, 
+.main-navigation ul ul ul ul li:focus ul, 
+.main-navigation ul ul ul ul ul li:focus ul, 
+.main-navigation ul li:focus-within ul, 
+.main-navigation ul ul li:focus-within ul, 
+.main-navigation ul ul ul li:focus-within ul, 
+.main-navigation ul ul ul ul li:focus-within ul, 
+.main-navigation ul ul ul ul ul li:focus-within ul {
+  visibility: visible;
+  opacity: 1;
+  top: 28px;
+  -webkit-transition: opacity 0.5s linear;
+  transition: all 0.5s ease 0s;
+}
 
 .main-navigation ul li ul {
   -moz-transition: all 0.3s ease 0s;
@@ -2482,9 +2515,42 @@ iframe {
 
 .wp-block-search__inside-wrapper .wp-block-search__button:hover,
 .wp-block-search__inside-wrapper .wp-block-search__button:active,
-.wp-block-search__inside-wrapper .wp-block-search__button:focus {
+.wp-block-search__inside-wrapper .wp-block-search__button:focus,
+.box-button:active, 
+.box-button:focus, 
+.woocommerce-button:active,
+.woocommerce-button:focus, 
+.woocommerce-Button:active, 
+.woocommerce-Button:focus, 
+.wc-block-components-button:active, 
+.wc-block-components-button:focus, 
+.wc-block-checkout__form .wc-block-components-checkout-return-to-cart-button:active,
+.wc-block-checkout__form .wc-block-components-checkout-return-to-cart-button:focus, 
+.comment-reply-link:active, 
+.comment-reply-link:focus, 
+.woocommerce .woocommerce-form-login .woocommerce-form-login__submit:active, 
+.woocommerce .woocommerce-form-login .woocommerce-form-login__submit:focus, 
+.woocommerce #respond .form-submit input#submit:active, 
+.woocommerce #respond .form-submit input#submit:focus, 
+.mc4wp-form input[type="submit"]:active,
+.mc4wp-form input[type="submit"]:focus, 
+.widget_search .search-form input[type="submit"]:active, 
+.widget_search .search-form input[type="submit"]:focus, 
+#sb_instagram #sbi_load .sbi_load_btn:active,
+#sb_instagram #sbi_load .sbi_load_btn:focus, 
+#sb_instagram .sbi_follow_btn a:active,
+#sb_instagram .sbi_follow_btn a:focus,
+input[type="submit"]:active,
+input[type="submit"]:focus {
   color: var(--color-button-hover);
   background-color: var(--bg-button-hover);
+}
+input[type="search"]:focus,
+input:focus,
+textarea:focus,
+.mean-container .mean-nav ul li a:focus,
+.mean-container .mean-nav ul li a:active {
+  outline: 1px dotted;
 }
 
 .wp-block-rss li {
@@ -2968,7 +3034,6 @@ div.bbp-submit-wrapper button {
   width: 57px;
 }
 
-
 /*   -- "Widget Calendar" section (These are the styles for the Widgete calendar section) --   */
 .wp-block-calendar {
   text-align: center;
@@ -3277,6 +3342,7 @@ div.bbp-submit-wrapper button {
   padding-right: 55px;
   height: 46px;
 }
+
 .no-results .search-form {
   margin: 0;
 }
@@ -5074,7 +5140,8 @@ table.wc-block-cart-items {
   margin-bottom: 0;
   height: 46px;
 }
-.site-header .header-search-section .search-form input[type="search"] {
+
+.site-header .header-search-section .search-form input[type=search] {
   padding-right: 57px;
 }
 

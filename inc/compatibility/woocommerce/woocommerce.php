@@ -171,7 +171,7 @@ if ( ! class_exists( 'Zenvy_WooCommerce' ) ) :
          */
         public function woocommerce_scripts() {
 
-            wp_enqueue_style( 'zenvy-woocommerce', ZENVY_THEME_URI . 'assets/build/css/woocommerce' . ZENY_RTL_SUFFIX . '.css', null, ZENVY_THEME_VERSION, 'all' );
+            wp_enqueue_style( 'zenvy-woocommerce', ZENVY_THEME_URI . 'assets/build/css/woocommerce' . ZENVY_RTL_SUFFIX . '.css', null, ZENVY_THEME_VERSION, 'all' );
         }
 
         /**
