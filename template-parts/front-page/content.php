@@ -18,35 +18,35 @@ if ( $sortable_elements ) {
 	foreach ( $sortable_elements as $element ) :
 		switch ( $element ) :
 			case 'featured-section':
-                get_template_part( 'template-parts/front-page/content', 'featured' );
-                break;
+				get_template_part( 'template-parts/front-page/content', 'featured' );
+				break;
 
-            case 'explore-categories':
-                get_template_part( 'template-parts/front-page/content', 'explore-categories' );
-                break;
-            
-            case 'latest-posts':
-                get_template_part( 'template-parts/front-page/content', 'latest-posts' );
-                break;
+			case 'explore-categories':
+				get_template_part( 'template-parts/front-page/content', 'explore-categories' );
+				break;
+			
+			case 'latest-posts':
+				get_template_part( 'template-parts/front-page/content', 'latest-posts' );
+				break;
 
-            case 'quote-section':
-                get_template_part( 'template-parts/front-page/content', 'quote' );
-                break;
+			case 'quote-section':
+				get_template_part( 'template-parts/front-page/content', 'quote' );
+				break;
 
-            case 'trending-posts':
-                get_template_part( 'template-parts/front-page/content', 'trending-posts' );
-                break;
+			case 'trending-posts':
+				get_template_part( 'template-parts/front-page/content', 'trending-posts' );
+				break;
 
-            case 'youtube-promotion':
-                get_template_part( 'template-parts/front-page/content', 'youtube-promotion' );
-                break;
+			case 'youtube-promotion':
+				get_template_part( 'template-parts/front-page/content', 'youtube-promotion' );
+				break;
 
-            case 'shop-section':
-                if ( class_exists( 'WooCommerce' ) ) {
-                    get_template_part( 'template-parts/front-page/content', 'shop-section' );
-                }
-                break;
+			case 'shop-section':
+				if ( class_exists( 'WooCommerce' ) ) {
+					get_template_part( 'template-parts/front-page/content', 'shop-section' );
+				}
+				break;
 
-        endswitch;
+		endswitch;
 	endforeach;
 }

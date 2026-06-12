@@ -14,14 +14,14 @@ class Zenvy_Customize_Front_Page_General_Fields extends Zenvy_Customize_Base_Fie
 	 */
 	public function init() {
 
-		$sortable_list    = [
-			'featured-section'  => esc_html__( 'Featured Section', 'zenvy' ),
-			'explore-categories'    => esc_html__( 'Explore Categories', 'zenvy' ),
-			'latest-posts' => esc_html__( 'Latest Posts', 'zenvy' ),
-			'quote-section' => esc_html__( 'Quote Section', 'zenvy' ),
-			'trending-posts' => esc_html__( 'Trending Posts', 'zenvy' ),
-			'youtube-promotion' => esc_html__( 'YouTube Promotion', 'zenvy' ),
-			'shop-section' => esc_html__( 'Shop Section', 'zenvy' ),
+		$sortable_list = [
+			'featured-section'   => esc_html__( 'Featured Section', 'zenvy' ),
+			'explore-categories' => esc_html__( 'Explore Categories', 'zenvy' ),
+			'latest-posts'       => esc_html__( 'Latest Posts', 'zenvy' ),
+			'quote-section'      => esc_html__( 'Quote Section', 'zenvy' ),
+			'trending-posts'     => esc_html__( 'Trending Posts', 'zenvy' ),
+			'youtube-promotion'  => esc_html__( 'YouTube Promotion', 'zenvy' ),
+			'shop-section'       => esc_html__( 'Shop Section', 'zenvy' ),
 		];
 
 		$sortable_default = [ 'featured-section', 'explore-categories', 'latest-posts' ];

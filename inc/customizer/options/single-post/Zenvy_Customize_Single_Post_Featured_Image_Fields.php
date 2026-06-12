@@ -48,7 +48,7 @@ class Zenvy_Customize_Single_Post_Featured_Image_Fields extends Zenvy_Customize_
 				],
 			],
 			// Enable/Disable Tags
-			'zenvy_single_post_featured_image_tags' => [
+			'zenvy_single_post_featured_image_tags'  => [
 				'type'              => 'toggle',
 				'default'           => [ 'desktop' => 'true' ],
 				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_toggle' ],

@@ -10,9 +10,9 @@
 
 $elements = get_theme_mod(
 	'zenvy_single_post_content_entry_header_elements',
-	['post-meta', 'post-title']
+	[ 'post-meta', 'post-title' ]
 );
-$classes = array();
+$classes  = [];
 if ( empty( $elements ) ) {
 	$classes[] = 'has-empty-header';
 }

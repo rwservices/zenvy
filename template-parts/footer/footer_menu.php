@@ -12,14 +12,16 @@
 	<!-- navbar starting from here -->
 	<div class="menu-content-wrapper">
 		<?php
-		wp_nav_menu(array(
-			'theme_location'	=> 'footer-menu',
-			'menu_class'        => 'menu-wrapper d-flex flex-wrap',
-			'container_class'   => 'menu-top-menu-container footer-menu',
-			'items_wrap'        => '<ul id="footer-menu-list" class="%2$s">%3$s</ul>',
-			'fallback_cb'       => 'zenvy_menu_fallback',
-			'depth'             => 1
-		));
+		wp_nav_menu(
+			[
+				'theme_location'  => 'footer-menu',
+				'menu_class'      => 'menu-wrapper d-flex flex-wrap',
+				'container_class' => 'menu-top-menu-container footer-menu',
+				'items_wrap'      => '<ul id="footer-menu-list" class="%2$s">%3$s</ul>',
+				'fallback_cb'     => 'zenvy_menu_fallback',
+				'depth'           => 1,
+			]
+		);
 		?>
 	</div>
 </div><!-- #navbar -->

@@ -30,6 +30,7 @@ module.exports = function( grunt ) {
 		'!**/*.map', // exclude source maps
 		'!**/.DS_Store', // exclude macOS metadata
 		'!**/*.tmp', // exclude temporary files
+		'!.phpcs-cache.json', // exclude phpcs cache
 	];
 
 	const excludeCopyFilesPro = copyFiles.slice( 0 ).concat( [ '!changelog.txt' ] );

@@ -41,10 +41,10 @@ class Zenvy_Customize_Front_Page_Featured_Section_Fields extends Zenvy_Customize
 				],
 			],
 			// Tag to be featured 
-			'zenvy_front_page_featured_section_tag' => [
+			'zenvy_front_page_featured_section_tag'        => [
 				'type'              => 'select',
 				'default'           => esc_html__( 'Tag to be Featured', 'zenvy' ),
-				'sanitize_callback' => ['Zenvy_Customizer_Sanitize_Callback', 'sanitize_choices'],
+				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_choices' ],
 				'label'             => esc_html__( 'Tag to be Featured', 'zenvy' ),
 				'description'       => esc_html__( 'Set post query to load with specific tag. It will load the latest post by default.', 'zenvy' ),
 				'section'           => 'zenvy_front_page_featured_section',
@@ -61,8 +61,8 @@ class Zenvy_Customize_Front_Page_Featured_Section_Fields extends Zenvy_Customize
 				'description'       => esc_html__( 'Set the number of featured posts to display. It will display 1 post by default.', 'zenvy' ),
 				'section'           => 'zenvy_front_page_featured_section',
 				'priority'          => 20,
-				'units' 		   => [],
-				'input_attrs'           => [
+				'units'             => [],
+				'input_attrs'       => [
 					'min'  => 1,
 					'step' => 1,
 					'max'  => 10,
@@ -77,19 +77,19 @@ class Zenvy_Customize_Front_Page_Featured_Section_Fields extends Zenvy_Customize
 				'label'             => esc_html__( 'Tags', 'zenvy' ),
 				'description'       => esc_html__( 'Enable / Disable tags on featured image.', 'zenvy' ),
 				'section'           => 'zenvy_front_page_featured_section',
-				'priority'			=> 23,
+				'priority'          => 23,
 			],
 
 			// Post elements
 			'zenvy_front_page_featured_section_post_elements' => [
-				'type'			  => 'sortable',
-				'default'		  => [ 'post-meta', 'title', 'excerpt', 'read_more' ],
+				'type'              => 'sortable',
+				'default'           => [ 'post-meta', 'title', 'excerpt', 'read_more' ],
 				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_sortable' ],
-				'label'			  => esc_html__( 'Post Elements', 'zenvy' ),
-				'description'	  => esc_html__( 'Set post elements to display for featured posts.', 'zenvy' ),
-				'section'		  => 'zenvy_front_page_featured_section',
-				'priority'		  => 25,
-				'choices'		  => [
+				'label'             => esc_html__( 'Post Elements', 'zenvy' ),
+				'description'       => esc_html__( 'Set post elements to display for featured posts.', 'zenvy' ),
+				'section'           => 'zenvy_front_page_featured_section',
+				'priority'          => 25,
+				'choices'           => [
 					'post-meta' => esc_html__( 'Post Meta', 'zenvy' ),
 					'title'     => esc_html__( 'Title', 'zenvy' ),
 					'excerpt'   => esc_html__( 'Excerpt', 'zenvy' ),
@@ -98,14 +98,14 @@ class Zenvy_Customize_Front_Page_Featured_Section_Fields extends Zenvy_Customize
 			],
 
 			// Note One
-            'zenvy_front_page_featured_section_note_one' => [
-                'type'              => 'heading',
-                'label'             => esc_html__( 'READ MORE BUTTON', 'zenvy' ),
-                'section'           => 'zenvy_front_page_featured_section',
-                'priority'          => 29,
-            ],
-            // Type
-			'zenvy_featured_section_read_btn_type'       => [
+			'zenvy_front_page_featured_section_note_one'   => [
+				'type'     => 'heading',
+				'label'    => esc_html__( 'READ MORE BUTTON', 'zenvy' ),
+				'section'  => 'zenvy_front_page_featured_section',
+				'priority' => 29,
+			],
+			// Type
+			'zenvy_featured_section_read_btn_type'         => [
 				'type'              => 'buttonset',
 				'default'           => [ 'desktop' => 'default' ],
 				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_buttonset' ],
@@ -113,9 +113,9 @@ class Zenvy_Customize_Front_Page_Featured_Section_Fields extends Zenvy_Customize
 				'section'           => 'zenvy_front_page_featured_section',
 				'priority'          => 30,
 				'choices'           => [
-					'default' => esc_html__('Default', 'zenvy'),
-					'text'   => esc_html__('Text', 'zenvy'),
-					'button' => esc_html__('Button', 'zenvy'),
+					'default' => esc_html__( 'Default', 'zenvy' ),
+					'text'    => esc_html__( 'Text', 'zenvy' ),
+					'button'  => esc_html__( 'Button', 'zenvy' ),
 				],
 			],
 

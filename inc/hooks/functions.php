@@ -9,107 +9,104 @@
 
 /* ------------------------------ HEADER ------------------------------ */
 
-if (! function_exists('zenvy_head_meta')) :
+if ( ! function_exists( 'zenvy_head_meta' ) ) :
 
 	/**
 	 * Meta head
 	 */
-	function zenvy_head_meta()
-	{
-?>
-		<meta charset="<?php bloginfo('charset'); ?>">
+	function zenvy_head_meta() {
+		?>
+		<meta charset="<?php bloginfo( 'charset' ); ?>">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="profile" href="https://gmpg.org/xfn/11">
-	<?php
+		<?php
 	}
 
 endif;
 
-if (! function_exists('zenvy_header_featured_slider')) :
+if ( ! function_exists( 'zenvy_header_featured_slider' ) ) :
 
 	/**
 	 * Header Featured Slider
 	 */
-	function zenvy_header_featured_slider()
-	{
+	function zenvy_header_featured_slider() {
 
-		if (! Zenvy_Helper::front_page_enable()) {
+		if ( ! Zenvy_Helper::front_page_enable() ) {
 			return;
 		}
 
-		get_template_part('template-parts/front-page/content', 'featured');
+		get_template_part( 'template-parts/front-page/content', 'featured' );
 	}
 
 endif;
 
 /* ------------------------------ BEFORE CONTENT ------------------------------ */
-if (! function_exists('zenvy_content_before_page_header')) :
+if ( ! function_exists( 'zenvy_content_before_page_header' ) ) :
 
 	/**
 	 * Featured page content page header
 	 */
-	function zenvy_content_before_page_header()
-	{
+	function zenvy_content_before_page_header() {
 
-		if (is_front_page() && is_home() || Zenvy_Helper::front_page_enable()) {
+		if ( is_front_page() && is_home() || Zenvy_Helper::front_page_enable() ) {
 			return;
 		}
 
 		// Check meta first to override and return (prevents filters from overriding meta)
-        $page_header_enable = get_post_meta( Zenvy_Helper::get_post_id(), 'zenvy_page_header_enable', true );
-        if ( $page_header_enable && $page_header_enable != 'default' ) {
-            return;
-        }
+		$page_header_enable = get_post_meta( Zenvy_Helper::get_post_id(), 'zenvy_page_header_enable', true );
+		if ( $page_header_enable && $page_header_enable !== 'default' ) {
+			return;
+		}
 
 		// Blog
 		$elements = get_theme_mod(
 			'zenvy_blog_page_header_elements',
-			['post-title']
+			[ 'post-title' ]
 		);
 
-		if (is_single()) {
+		if ( is_single() ) {
 			$elements = get_theme_mod(
 				'zenvy_single_post_header_elements',
 			);
 			// Is Product Page (WooCommerce)
-			if (function_exists('is_product') && is_product()) {
+			if ( function_exists( 'is_product' ) && is_product() ) {
 				$elements = get_theme_mod(
 					'zenvy_product_page_header_elements',
-					['post-title']
+					[ 'post-title' ]
 				);
 			}
 		}
 
 		// Is Single Page
-		elseif (is_page()) {
+		elseif ( is_page() ) {
 			$elements = get_theme_mod(
 				'zenvy_single_page_header_elements',
-				['post-title']
+				[ 'post-title' ]
 			);
 		}
 		// Is 404 Page
-		elseif (is_404()) {
+		elseif ( is_404() ) {
 			$elements = get_theme_mod(
 				'zenvy_404_page_header_elements',
-				['post-title']
+				[ 'post-title' ]
 			);
 		}
 
-		$page_class = ['page-title-wrap rabindra'];
-		if (empty($elements)) {
+		$page_class = [ 'page-title-wrap rabindra' ];
+		if ( empty( $elements ) ) {
 			$page_class[] = 'empty-page-title-wrap';
 		}
 
 		// Container Class
-		$container_class = ['container d-flex flex-column align-items-start text-left'];
-	?>
+		$container_class = [ 'container d-flex flex-column align-items-start text-left' ];
+		?>
 
-		<div class="<?php echo esc_attr(implode(' ', $page_class)); ?>">
-			<div class="<?php echo esc_attr(implode(' ', $container_class)); ?>">
+		<div class="<?php echo esc_attr( implode( ' ', $page_class ) ); ?>">
+			<div class="<?php echo esc_attr( implode( ' ', $container_class ) ); ?>">
 				<?php
-				if (! empty($elements)) :
-					foreach ($elements as $element) :
-						switch ($element):
+				if ( ! empty( $elements ) ) :
+					foreach ( $elements as $element ) :
+						switch ( $element ) :
 							case 'post-title':
 								Zenvy_Helper::page_header();
 								break;
@@ -120,13 +117,13 @@ if (! function_exists('zenvy_content_before_page_header')) :
 
 							case 'post-meta':
 								echo '<div class="post-meta-wrapper header-post-meta">';
-								Zenvy_Helper::post_meta(get_the_ID());
+								Zenvy_Helper::post_meta( get_the_ID() );
 								echo '</div><!-- .header-post-meta -->';
 								break;
 
 							case 'post-desc':
-								if (! is_404()) {
-									the_archive_description('<div class="archive-description">', '</div>');
+								if ( ! is_404() ) {
+									the_archive_description( '<div class="archive-description">', '</div>' );
 								}
 								break;
 						endswitch;
@@ -136,184 +133,176 @@ if (! function_exists('zenvy_content_before_page_header')) :
 			</div>
 		</div>
 
-	<?php
-
+		<?php
 	}
 
 endif;
-if (! function_exists('zenvy_content_before_wrapper_start')) :
+if ( ! function_exists( 'zenvy_content_before_wrapper_start' ) ) :
 
 	/**
 	 * Add custom wrapper div before content start
 	 */
-	function zenvy_content_before_wrapper_start()
-	{
-		if (is_404() || Zenvy_Helper::front_page_enable()) {
+	function zenvy_content_before_wrapper_start() {
+		if ( is_404() || Zenvy_Helper::front_page_enable() ) {
 			return;
 		}
 		$section_class = is_single() ? 'page-wrapper single-post-wrapper' : 'page-wrapper';
-	?>
-		<section class="<?php echo esc_attr($section_class); ?>">
+		?>
+		<section class="<?php echo esc_attr( $section_class ); ?>">
 			<div class="container d-flex flex-wrap">
 			<?php
-		}
+	}
 
 	endif;
 
 
-	if (! function_exists('zenvy_posts_wrapper_start')) :
+if ( ! function_exists( 'zenvy_posts_wrapper_start' ) ) :
 
-		/**
-		 * Blog Posts Wrapper Start
-		 */
-		function zenvy_posts_wrapper_start()
-		{
-			if ( Zenvy_Helper::front_page_enable() ) {
-				return;
-			}
-			?>
+	/**
+	 * Blog Posts Wrapper Start
+	 */
+	function zenvy_posts_wrapper_start() {
+		if ( Zenvy_Helper::front_page_enable() ) {
+			return;
+		}
+		?>
 			<div <?php Zenvy_Helper::posts_layout_class(); ?>>
 			<?php
-		}
+	}
 
 	endif;
 
 	/* ------------------------------ AFTER CONTENT ------------------------------ */
-	if (! function_exists('zenvy_posts_wrapper_end')) :
+if ( ! function_exists( 'zenvy_posts_wrapper_end' ) ) :
 
-		/**
-		 * Close custom wrapper div after content
-		 */
-		function zenvy_posts_wrapper_end()
-		{
-			if ( Zenvy_Helper::front_page_enable() ) {
-				return;
-			}
-			echo '</div><! -- .posts-wrapper -->';
+	/**
+	 * Close custom wrapper div after content
+	 */
+	function zenvy_posts_wrapper_end() {
+		if ( Zenvy_Helper::front_page_enable() ) {
+			return;
 		}
+		echo '</div><! -- .posts-wrapper -->';
+	}
 
 	endif;
 
-	if (! function_exists('zenvy_content_after_wrapper_end')) :
+if ( ! function_exists( 'zenvy_content_after_wrapper_end' ) ) :
 
-		/**
-		 * Close custom wrapper div after content
-		 */
-		function zenvy_content_after_wrapper_end()
-		{
-			if (is_404() || Zenvy_Helper::front_page_enable()) {
-				return;
-			}
-			get_sidebar();
-			echo '</div><! -- .container -->';
-			echo '</section><! -- .page-wrapper -->';
+	/**
+	 * Close custom wrapper div after content
+	 */
+	function zenvy_content_after_wrapper_end() {
+		if ( is_404() || Zenvy_Helper::front_page_enable() ) {
+			return;
 		}
+		get_sidebar();
+		echo '</div><! -- .container -->';
+		echo '</section><! -- .page-wrapper -->';
+	}
 
 	endif;
 	/* ------------------------------ BLOG PAGE CONTENT ------------------------------ */
 
-	if (! function_exists('zenvy_posts_navigation')) :
+if ( ! function_exists( 'zenvy_posts_navigation' ) ) :
 
-		/**
-		 * Blog Posts navigation
-		 */
-		function zenvy_posts_navigation()
-		{
+	/**
+	 * Blog Posts navigation
+	 */
+	function zenvy_posts_navigation() {
 
-			Zenvy_Helper::post_pagination();
-		}
+		Zenvy_Helper::post_pagination();
+	}
 
 	endif;
 
-	if (! function_exists('zenvy_blog_post_content')) :
+if ( ! function_exists( 'zenvy_blog_post_content' ) ) :
 
-		/**
-		 * Blog post content
-		 */
-		function zenvy_blog_post_content()
-		{
+	/**
+	 * Blog post content
+	 */
+	function zenvy_blog_post_content() {
 
-			$posts_elements = get_theme_mod(
-				'zenvy_blog_posts_elements',
-				['post-meta', 'post-title', 'post-excerpt', 'read-more']
-			);
-			$meta_elements  = get_theme_mod(
-				'zenvy_meta_elements',
-				['date', 'categories']
-			);
+		$posts_elements = get_theme_mod(
+			'zenvy_blog_posts_elements',
+			[ 'post-meta', 'post-title', 'post-excerpt', 'read-more' ]
+		);
+		$meta_elements  = get_theme_mod(
+			'zenvy_meta_elements',
+			[ 'date', 'categories' ]
+		);
 
-			if (! empty($posts_elements)) :
-				echo '<div class="post-content d-flex flex-column text-left">';
+		if ( ! empty( $posts_elements ) ) :
+			echo '<div class="post-content d-flex flex-column text-left">';
 
-				foreach ($posts_elements as $post_element) :
+			foreach ( $posts_elements as $post_element ) :
 
-					switch ($post_element):
+				switch ( $post_element ) :
 
-						case 'post-title':
-							Zenvy_Helper::post_title();
-							break;
+					case 'post-title':
+						Zenvy_Helper::post_title();
+						break;
 
-						case 'post-excerpt':
-							Zenvy_Helper::post_content();
-							break;
+					case 'post-excerpt':
+						Zenvy_Helper::post_content();
+						break;
 
-						case 'read-more':
-							Zenvy_Helper::read_more('blog_post');
-							break;
+					case 'read-more':
+						Zenvy_Helper::read_more( 'blog_post' );
+						break;
 
-						case 'post-meta':
-							echo '<div class="entry-meta">';
+					case 'post-meta':
+						echo '<div class="entry-meta">';
 
-							if ($meta_elements) {
-								foreach ($meta_elements as $val) {
-									if ($val === 'author') {
-										zenvy_posted_by();
-									} elseif ($val === 'categories') {
-										zenvy_posted_cats();
-									} elseif ($val === 'tags') {
-										zenvy_posted_tags();
-									} elseif ($val === 'date') {
-										zenvy_posted_on();
-									} elseif ($val === 'comment') {
-										zenvy_comment_count();
-									}
+						if ( $meta_elements ) {
+							foreach ( $meta_elements as $val ) {
+								if ( $val === 'author' ) {
+									zenvy_posted_by();
+								} elseif ( $val === 'categories' ) {
+									zenvy_posted_cats();
+								} elseif ( $val === 'tags' ) {
+									zenvy_posted_tags();
+								} elseif ( $val === 'date' ) {
+									zenvy_posted_on();
+								} elseif ( $val === 'comment' ) {
+									zenvy_comment_count();
 								}
 							}
-							echo '</div><!-- .entry-meta -->';
-							break;
+						}
+						echo '</div><!-- .entry-meta -->';
+						break;
 					endswitch;
 				endforeach;
 
-				echo '</div><!-- .post-details-wrap -->';
+			echo '</div><!-- .post-details-wrap -->';
 			endif;
-		}
+	}
 
 	endif;
 
 	/* ------------------------------ SEARCH PAGE CONTENT ------------------------------ */
 
-	if (! function_exists('zenvy_search_posts_header')) :
+if ( ! function_exists( 'zenvy_search_posts_header' ) ) :
 
-		/**
-		 * Posts Header
-		 */
-		function zenvy_search_posts_header()
-		{
-			?>
+	/**
+	 * Posts Header
+	 */
+	function zenvy_search_posts_header() {
+		?>
 				<header class="entry-header">
 
-					<?php
-					/**
-					 * Functions hooked in to zenvy_search_posts_header_top action.
-					 */
-					do_action('zenvy_search_posts_header_top');
-					?>
+				<?php
+				/**
+				 * Functions hooked in to zenvy_search_posts_header_top action.
+				 */
+				do_action( 'zenvy_search_posts_header_top' );
+				?>
 
-					<?php the_title(sprintf('<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url(get_permalink())), '</a></h2>'); ?>
+				<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 
 					<?php
-					if ('post' === get_post_type()) :
-					?>
+					if ( 'post' === get_post_type() ) :
+						?>
 						<div class="entry-meta">
 							<?php
 							zenvy_posted_on();
@@ -328,505 +317,494 @@ if (! function_exists('zenvy_content_before_wrapper_start')) :
 					/**
 					 * Functions hooked in to zenvy_search_posts_header_bottom action.
 					 */
-					do_action('zenvy_search_posts_header_bottom');
+					do_action( 'zenvy_search_posts_header_bottom' );
 					?>
 
 				</header><!-- .entry-header -->
 			<?php
-		}
+	}
 
 	endif;
 
-	if (! function_exists('zenvy_search_posts_content')) :
+if ( ! function_exists( 'zenvy_search_posts_content' ) ) :
 
-		/**
-		 * Posts Content
-		 */
-		function zenvy_search_posts_content()
-		{
-			?>
+	/**
+	 * Posts Content
+	 */
+	function zenvy_search_posts_content() {
+		?>
 				<div class="entry-summary">
 
-					<?php
-					/**
-					 * Functions hooked in to zenvy_search_posts_content_top action.
-					 */
-					do_action('zenvy_search_posts_content_top');
-					?>
+				<?php
+				/**
+				 * Functions hooked in to zenvy_search_posts_content_top action.
+				 */
+				do_action( 'zenvy_search_posts_content_top' );
+				?>
 
-					<?php the_excerpt(); ?>
+				<?php the_excerpt(); ?>
 
 					<?php
 					/**
 					 * Functions hooked in to zenvy_search_posts_content_bottom action.
 					 */
-					do_action('zenvy_search_posts_content_bottom');
+					do_action( 'zenvy_search_posts_content_bottom' );
 					?>
 				</div><!-- .entry-summary -->
 
 			<?php
-		}
+	}
 
 	endif;
 
-	if (! function_exists('zenvy_search_posts_footer')) :
+if ( ! function_exists( 'zenvy_search_posts_footer' ) ) :
 
-		/**
-		 * Posts Footer
-		 */
-		function zenvy_search_posts_footer()
-		{
-			?>
+	/**
+	 * Posts Footer
+	 */
+	function zenvy_search_posts_footer() {
+		?>
 				<footer class="entry-footer">
 
-					<?php
-					/**
-					 * Functions hooked in to zenvy_search_posts_footer_top action.
-					 */
-					do_action('zenvy_search_posts_footer_top');
-					?>
+				<?php
+				/**
+				 * Functions hooked in to zenvy_search_posts_footer_top action.
+				 */
+				do_action( 'zenvy_search_posts_footer_top' );
+				?>
 
-					<?php zenvy_entry_footer(); ?>
+				<?php zenvy_entry_footer(); ?>
 
 					<?php
 					/**
 					 * Functions hooked in to zenvy_search_posts_footer_bottom action.
 					 */
-					do_action('zenvy_search_posts_footer_bottom');
+					do_action( 'zenvy_search_posts_footer_bottom' );
 					?>
 
 				</footer><!-- .entry-footer -->
 
 			<?php
-		}
+	}
 
 	endif;
 
 	/* ------------------------------ POST CONTENT ------------------------------ */
 
-	if (! function_exists('zenvy_featured_image_wrapper_start')) {
+if ( ! function_exists( 'zenvy_featured_image_wrapper_start' ) ) {
 
-		/**
-		 * Featured Image Wrapper Start
-		 */
-		function zenvy_featured_image_wrapper_start()
-		{
-			echo '<div class="featured-image-wrapper">';
-		}
+	/**
+	 * Featured Image Wrapper Start
+	 */
+	function zenvy_featured_image_wrapper_start() {
+		echo '<div class="featured-image-wrapper">';
 	}
+}
 
-	if (! function_exists('zenvy_get_post_thumbnail')) :
+if ( ! function_exists( 'zenvy_get_post_thumbnail' ) ) :
 
-		/**
-		 * Post Thumbnail
-		 */
-		function zenvy_get_post_thumbnail()
-		{
-			// Is Singular
-			if (is_singular()) {
+	/**
+	 * Post Thumbnail
+	 */
+	function zenvy_get_post_thumbnail() {
+		// Is Singular
+		if ( is_singular() ) {
 
-				$img_ratio = is_single() ? get_theme_mod('zenvy_single_post_featured_image_ratio', ['desktop' => '16x9']) : get_theme_mod('zenvy_single_page_featured_image_ratio', ['desktop' => '16x9']);
+			$img_ratio = is_single() ? get_theme_mod( 'zenvy_single_post_featured_image_ratio', [ 'desktop' => '16x9' ] ) : get_theme_mod( 'zenvy_single_page_featured_image_ratio', [ 'desktop' => '16x9' ] );
 
-				$img_size = is_single() ? get_theme_mod('zenvy_single_post_featured_image_size', ['desktop' => 'medium_large']) : get_theme_mod('zenvy_single_page_featured_image_size', ['desktop' => 'medium_large']);
+			$img_size = is_single() ? get_theme_mod( 'zenvy_single_post_featured_image_size', [ 'desktop' => 'medium_large' ] ) : get_theme_mod( 'zenvy_single_page_featured_image_size', [ 'desktop' => 'medium_large' ] );
 
-				$ratio = in_array('auto', $img_ratio) ? '16x9' : $img_ratio['desktop'];
+			$ratio = in_array( 'auto', $img_ratio ) ? '16x9' : $img_ratio['desktop'];
 
-				zenvy_singular_post_thumbnail($img_size['desktop'], $ratio);
+			zenvy_singular_post_thumbnail( $img_size['desktop'], $ratio );
 
-				$enable_tags = get_theme_mod('zenvy_single_post_featured_image_tags', ['desktop' => 'true']);
+			$enable_tags = get_theme_mod( 'zenvy_single_post_featured_image_tags', [ 'desktop' => 'true' ] );
 
-				if ($enable_tags && array_key_exists('desktop', $enable_tags) && has_post_thumbnail()) {
-					zenvy_posted_first_tag();
-				}
-			} else {
-				$img_ratio = get_theme_mod('zenvy_blog_post_featured_image_ratio', ['desktop' => '1x1']);
+			if ( $enable_tags && array_key_exists( 'desktop', $enable_tags ) && has_post_thumbnail() ) {
+				zenvy_posted_first_tag();
+			}
+		} else {
+			$img_ratio = get_theme_mod( 'zenvy_blog_post_featured_image_ratio', [ 'desktop' => '1x1' ] );
 
-				$img_size = get_theme_mod('zenvy_blog_post_featured_image_size', ['desktop' => 'medium_large']);
+			$img_size = get_theme_mod( 'zenvy_blog_post_featured_image_size', [ 'desktop' => 'medium_large' ] );
 
-				$ratio = in_array('auto', $img_ratio) ? '16x9' : $img_ratio['desktop'];
+			$ratio = in_array( 'auto', $img_ratio ) ? '16x9' : $img_ratio['desktop'];
 
-				zenvy_post_thumbnail($img_size['desktop'], $ratio);
+			zenvy_post_thumbnail( $img_size['desktop'], $ratio );
 
-				$enable_tags = get_theme_mod('zenvy_blog_post_featured_image_tags', ['desktop' => 'true']);
+			$enable_tags = get_theme_mod( 'zenvy_blog_post_featured_image_tags', [ 'desktop' => 'true' ] );
 
-				if ($enable_tags && array_key_exists('desktop', $enable_tags)) {
-					zenvy_posted_first_tag();
-				}
+			if ( $enable_tags && array_key_exists( 'desktop', $enable_tags ) ) {
+				zenvy_posted_first_tag();
 			}
 		}
+	}
 
 	endif;
 
-	if (! function_exists('zenvy_featured_image_wrapper_end')) {
+if ( ! function_exists( 'zenvy_featured_image_wrapper_end' ) ) {
 
-		/**
-		 * Featured Image Wrapper End
-		 */
-		function zenvy_featured_image_wrapper_end()
-		{
-			echo '</div><!-- .featured-image-wrapper -->';
-		}
+	/**
+	 * Featured Image Wrapper End
+	 */
+	function zenvy_featured_image_wrapper_end() {
+		echo '</div><!-- .featured-image-wrapper -->';
 	}
+}
 
-	if (! function_exists('zenvy_post_header')) :
+if ( ! function_exists( 'zenvy_post_header' ) ) :
 
-		/**
-		 * Post Header
-		 */
-		function zenvy_post_header()
-		{
-			?>
+	/**
+	 * Post Header
+	 */
+	function zenvy_post_header() {
+		?>
 				<header class="entry-header">
 
-					<?php
-					/**
-					 * Functions hooked in to zenvy_post_header_top action.
-					 */
-					do_action('zenvy_post_header_top');
-					?>
+				<?php
+				/**
+				 * Functions hooked in to zenvy_post_header_top action.
+				 */
+				do_action( 'zenvy_post_header_top' );
+				?>
 
-					<?php
-					$elements = get_theme_mod(
-						'zenvy_single_post_content_entry_header_elements',
-						['post-meta', 'post-title']
-					);
-					if (! empty($elements)) :
-						foreach ($elements as $element) :
-							switch ($element):
-								case 'post-title':
-									$html_tag = get_theme_mod(
-										'zenvy_single_post_title_tag',
-										['desktop' => 'h1']
-									);
-									the_title('<' . esc_attr($html_tag['desktop']) . ' class="entry-title">', '</' . esc_attr($html_tag['desktop']) . '>');
-									break;
+				<?php
+				$elements = get_theme_mod(
+					'zenvy_single_post_content_entry_header_elements',
+					[ 'post-meta', 'post-title' ]
+				);
+				if ( ! empty( $elements ) ) :
+					foreach ( $elements as $element ) :
+						switch ( $element ) :
+							case 'post-title':
+								$html_tag = get_theme_mod(
+									'zenvy_single_post_title_tag',
+									[ 'desktop' => 'h1' ]
+								);
+								the_title( '<' . esc_attr( $html_tag['desktop'] ) . ' class="entry-title">', '</' . esc_attr( $html_tag['desktop'] ) . '>' );
+								break;
 
-								case 'post-cats':
-									echo '<div class="entry-meta">';
-									zenvy_posted_cats();
-									echo '</div><!-- .entry-meta -->';
+							case 'post-cats':
+								echo '<div class="entry-meta">';
+								zenvy_posted_cats();
+								echo '</div><!-- .entry-meta -->';
 
-									break;
+								break;
 
-								case 'post-meta':
-									echo '<div class="entry-meta">';
-									$meta_elements  = get_theme_mod(
-										'zenvy_meta_elements',
-										['date', 'categories']
-									);
-									if ($meta_elements) {
-										foreach ($meta_elements as $val) {
-											if ($val === 'author') {
-												zenvy_posted_by();
-											} elseif ($val === 'categories') {
-												zenvy_posted_cats();
-											} elseif ($val === 'tags') {
-												zenvy_posted_tags();
-											} elseif ($val === 'date') {
-												zenvy_posted_on();
-											} elseif ($val === 'comments') {
-												zenvy_comment_count();
-											}
+							case 'post-meta':
+								echo '<div class="entry-meta">';
+								$meta_elements = get_theme_mod(
+									'zenvy_meta_elements',
+									[ 'date', 'categories' ]
+								);
+								if ( $meta_elements ) {
+									foreach ( $meta_elements as $val ) {
+										if ( $val === 'author' ) {
+											zenvy_posted_by();
+										} elseif ( $val === 'categories' ) {
+											zenvy_posted_cats();
+										} elseif ( $val === 'tags' ) {
+											zenvy_posted_tags();
+										} elseif ( $val === 'date' ) {
+											zenvy_posted_on();
+										} elseif ( $val === 'comments' ) {
+											zenvy_comment_count();
 										}
 									}
-									echo '</div><!-- .entry-meta -->';
-									break;
+								}
+								echo '</div><!-- .entry-meta -->';
+								break;
 
 							endswitch;
 						endforeach;
 					endif;
 
-					?>
+				?>
 
-					<?php
-					/**
-					 * Functions hooked in to zenvy_post_header_bottom action.
-					 */
-					do_action('zenvy_post_header_bottom');
-					?>
+				<?php
+				/**
+				 * Functions hooked in to zenvy_post_header_bottom action.
+				 */
+				do_action( 'zenvy_post_header_bottom' );
+				?>
 
 				</header><!-- .entry-header -->
 
 			<?php
-		}
+	}
 
 	endif;
 
-	if (! function_exists('zenvy_post_content')) :
+if ( ! function_exists( 'zenvy_post_content' ) ) :
 
-		/**
-		 * Post Content
-		 */
-		function zenvy_post_content()
-		{
-			?>
+	/**
+	 * Post Content
+	 */
+	function zenvy_post_content() {
+		?>
 				<div class="entry-content">
 
-					<?php
-					/**
-					 * Functions hooked in to zenvy_post_content_top action.
-					 */
-					do_action('zenvy_post_content_top');
-					?>
+				<?php
+				/**
+				 * Functions hooked in to zenvy_post_content_top action.
+				 */
+				do_action( 'zenvy_post_content_top' );
+				?>
 
-					<?php
-					the_content(
-						sprintf(
-							wp_kses(
-								/* translators: %s: Name of current post. Only visible to screen readers */
-								__('Continue reading<span class="screen-reader-text"> "%s"</span>', 'zenvy'),
-								[
-									'span' => [
-										'class' => [],
-									],
-								]
-							),
-							wp_kses_post(get_the_title())
-						)
-					);
-					?>
+				<?php
+				the_content(
+					sprintf(
+						wp_kses(
+							/* translators: %s: Name of current post. Only visible to screen readers */
+							__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'zenvy' ),
+							[
+								'span' => [
+									'class' => [],
+								],
+							]
+						),
+						wp_kses_post( get_the_title() )
+					)
+				);
+				?>
 
-					<?php
+				<?php
 
-					wp_link_pages(
-						[
-							'before' => '<div class="page-links">' . esc_html__('Pages:', 'zenvy'),
-							'after'  => '</div>',
-						]
-					);
-					?>
+				wp_link_pages(
+					[
+						'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'zenvy' ),
+						'after'  => '</div>',
+					]
+				);
+				?>
 
-					<?php
-					/**
-					 * Functions hooked in to zenvy_post_content_bottom action.
-					 */
-					do_action('zenvy_post_content_bottom');
-					?>
+				<?php
+				/**
+				 * Functions hooked in to zenvy_post_content_bottom action.
+				 */
+				do_action( 'zenvy_post_content_bottom' );
+				?>
 
 				</div><!-- .entry-content -->
 
 			<?php
-		}
+	}
 
 	endif;
 
-	if (! function_exists('zenvy_post_footer')) :
+if ( ! function_exists( 'zenvy_post_footer' ) ) :
 
-		/**
-		 * Post Footer for extra elements
-		 */
-		function zenvy_post_footer()
-		{
+	/**
+	 * Post Footer for extra elements
+	 */
+	function zenvy_post_footer() {
 
-			?>
+		?>
 				<footer class="entry-footer">
 
-					<?php
-					/**
-					 * Functions hooked in to zenvy_post_content_top action.
-					 */
-					do_action('zenvy_post_footer_top');
-					?>
-					<?php
-					$elements = get_theme_mod(
-						'zenvy_single_post_content_entry_footer_elements',
-						['post-comments', 'post-navigation']
-					);
+				<?php
+				/**
+				 * Functions hooked in to zenvy_post_content_top action.
+				 */
+				do_action( 'zenvy_post_footer_top' );
+				?>
+				<?php
+				$elements = get_theme_mod(
+					'zenvy_single_post_content_entry_footer_elements',
+					[ 'post-comments', 'post-navigation' ]
+				);
 
-					if (! empty($elements)) :
-						foreach ($elements as $element) :
-							switch ($element):
-								case 'post-comments':
-									Zenvy_Helper::post_comment();
-									break;
+				if ( ! empty( $elements ) ) :
+					foreach ( $elements as $element ) :
+						switch ( $element ) :
+							case 'post-comments':
+								Zenvy_Helper::post_comment();
+								break;
 
-								case 'post-navigation':
-									Zenvy_Helper::post_navigation();
-									break;
+							case 'post-navigation':
+								Zenvy_Helper::post_navigation();
+								break;
 
-								case 'tags':
-									echo '<div class="post-meta-wrapper content-post-tags">';
-									zenvy_posted_tags();
-									echo '</div><!-- .content-post-tags -->';
+							case 'tags':
+								echo '<div class="post-meta-wrapper content-post-tags">';
+								zenvy_posted_tags();
+								echo '</div><!-- .content-post-tags -->';
 
-									break;
+								break;
 
-								case 'author-box':
-									Zenvy_Helper::author_box();
-									break;
+							case 'author-box':
+								Zenvy_Helper::author_box();
+								break;
 
-								case 'related-posts':
-									Zenvy_Helper::related_posts();
-									break;
+							case 'related-posts':
+								Zenvy_Helper::related_posts();
+								break;
 							endswitch;
 						endforeach;
 					endif;
 
-					?>
-					<?php zenvy_entry_footer(); ?>
+				?>
+				<?php zenvy_entry_footer(); ?>
 
 					<?php
 					/**
 					 * Functions hooked in to zenvy_post_content_bottom action.
 					 */
-					do_action('zenvy_post_footer_bottom');
+					do_action( 'zenvy_post_footer_bottom' );
 					?>
 
 				</footer><!-- .entry-footer -->
 
 			<?php
-		}
+	}
 
 	endif;
 
 
 	/* ------------------------------ PAGE CONTENT ------------------------------ */
 
-	if (! function_exists('zenvy_page_post_header')) :
+if ( ! function_exists( 'zenvy_page_post_header' ) ) :
 
-		/**
-		 * Post Header
-		 */
-		function zenvy_page_post_header()
-		{
-			?>
+	/**
+	 * Post Header
+	 */
+	function zenvy_page_post_header() {
+		?>
 				<header class="entry-header">
 
-					<?php
-					/**
-					 * Functions hooked in to zenvy_page_header_top action.
-					 */
-					do_action('zenvy_page_header_top');
-					?>
+				<?php
+				/**
+				 * Functions hooked in to zenvy_page_header_top action.
+				 */
+				do_action( 'zenvy_page_header_top' );
+				?>
 
-					<?php
-					$elements = get_theme_mod(
-						'zenvy_single_page_content_entry_header_elements',
-						''
+				<?php
+				$elements = get_theme_mod(
+					'zenvy_single_page_content_entry_header_elements',
+					''
+				);
+
+				if ( ! empty( $elements ) ) :
+					$html_tag = get_theme_mod(
+						'zenvy_single_page_title_tag',
+						[ 'desktop' => 'h1' ]
 					);
+					the_title( '<' . esc_attr( $html_tag['desktop'] ) . ' class="entry-title">', '</' . esc_attr( $html_tag['desktop'] ) . '>' );
+				endif;
 
-					if (! empty($elements)) :
-						$html_tag = get_theme_mod(
-							'zenvy_single_page_title_tag',
-							['desktop' => 'h1']
-						);
-						the_title('<' . esc_attr($html_tag['desktop']) . ' class="entry-title">', '</' . esc_attr($html_tag['desktop']) . '>');
-					endif;
+				?>
 
-					?>
-
-					<?php
-					/**
-					 * Functions hooked in to zenvy_page_header_bottom action.
-					 */
-					do_action('zenvy_page_header_bottom');
-					?>
+				<?php
+				/**
+				 * Functions hooked in to zenvy_page_header_bottom action.
+				 */
+				do_action( 'zenvy_page_header_bottom' );
+				?>
 
 				</header><!-- .entry-header -->
 
 			<?php
-		}
+	}
 
 	endif;
 
-	if (! function_exists('zenvy_page_content')) :
+if ( ! function_exists( 'zenvy_page_content' ) ) :
 
-		/**
-		 * Post Content
-		 */
-		function zenvy_page_content()
-		{
-			?>
+	/**
+	 * Post Content
+	 */
+	function zenvy_page_content() {
+		?>
 				<div class="entry-content">
 
-					<?php
-					/**
-					 * Functions hooked in to zenvy_page_content_top action.
-					 */
-					do_action('zenvy_page_content_top');
-					?>
+				<?php
+				/**
+				 * Functions hooked in to zenvy_page_content_top action.
+				 */
+				do_action( 'zenvy_page_content_top' );
+				?>
 
-					<?php
-					the_content(
-						sprintf(
-							wp_kses(
-								/* translators: %s: Name of current post. Only visible to screen readers */
-								__('Continue reading<span class="screen-reader-text"> "%s"</span>', 'zenvy'),
-								[
-									'span' => [
-										'class' => [],
-									],
-								]
-							),
-							wp_kses_post(get_the_title())
-						)
-					);
-					?>
+				<?php
+				the_content(
+					sprintf(
+						wp_kses(
+							/* translators: %s: Name of current post. Only visible to screen readers */
+							__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'zenvy' ),
+							[
+								'span' => [
+									'class' => [],
+								],
+							]
+						),
+						wp_kses_post( get_the_title() )
+					)
+				);
+				?>
 
-					<?php
+				<?php
 
-					wp_link_pages(
-						[
-							'before' => '<div class="page-links">' . esc_html__('Pages:', 'zenvy'),
-							'after'  => '</div>',
-						]
-					);
-					?>
+				wp_link_pages(
+					[
+						'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'zenvy' ),
+						'after'  => '</div>',
+					]
+				);
+				?>
 
-					<?php
-					/**
-					 * Functions hooked in to zenvy_page_content_bottom action.
-					 */
-					do_action('zenvy_page_content_bottom');
-					?>
+				<?php
+				/**
+				 * Functions hooked in to zenvy_page_content_bottom action.
+				 */
+				do_action( 'zenvy_page_content_bottom' );
+				?>
 
 				</div><!-- .entry-content -->
 
 			<?php
-		}
+	}
 
 	endif;
 
-	if (! function_exists('zenvy_page_footer')) :
+if ( ! function_exists( 'zenvy_page_footer' ) ) :
 
-		/**
-		 * Post Footer for extra elements
-		 */
-		function zenvy_page_footer()
-		{
+	/**
+	 * Post Footer for extra elements
+	 */
+	function zenvy_page_footer() {
 
-			?>
+		?>
 				<footer class="entry-footer">
 
-					<?php
-					/**
-					 * Functions hooked in to zenvy_page_footer_top action.
-					 */
-					do_action('zenvy_page_footer_top');
-					?>
-					<?php
-					$elements = get_theme_mod(
-						'zenvy_single_page_content_entry_footer_elements',
-						['post-comments']
-					);
+				<?php
+				/**
+				 * Functions hooked in to zenvy_page_footer_top action.
+				 */
+				do_action( 'zenvy_page_footer_top' );
+				?>
+				<?php
+				$elements = get_theme_mod(
+					'zenvy_single_page_content_entry_footer_elements',
+					[ 'post-comments' ]
+				);
 
-					if (! empty($elements)) :
-						Zenvy_Helper::post_comment();
+				if ( ! empty( $elements ) ) :
+					Zenvy_Helper::post_comment();
 					endif;
-					?>
-					<?php zenvy_entry_footer(); ?>
+				?>
+				<?php zenvy_entry_footer(); ?>
 
 					<?php
 					/**
 					 * Functions hooked in to zenvy_page_footer_bottom action.
 					 */
-					do_action('zenvy_page_footer_bottom');
+					do_action( 'zenvy_page_footer_bottom' );
 					?>
 
 				</footer><!-- .entry-footer -->
 
 				<?php
-			}
+	}
 
 		endif;
 
@@ -834,69 +812,67 @@ if (! function_exists('zenvy_content_before_wrapper_start')) :
 
 		/* ------------------------------ FOOTER ------------------------------ */
 
-		if (! function_exists('zenvy_footer_back_to_top')) :
+if ( ! function_exists( 'zenvy_footer_back_to_top' ) ) :
 
-			/**
-			 * Footer Back to Top
-			 */
-			function zenvy_footer_back_to_top()
-			{
-				$back_to_top = get_theme_mod(
-					'zenvy_footer_back_to_top_enable',
-					['desktop' => 'true']
-				);
-				if ($back_to_top && array_key_exists('desktop', $back_to_top)) :
-				?>
+	/**
+	 * Footer Back to Top
+	 */
+	function zenvy_footer_back_to_top() {
+		$back_to_top = get_theme_mod(
+			'zenvy_footer_back_to_top_enable',
+			[ 'desktop' => 'true' ]
+		);
+		if ( $back_to_top && array_key_exists( 'desktop', $back_to_top ) ) :
+			?>
 					<div class="back-to-top">
-						<a href="#masthead" title="<?php esc_attr_e('Go to Top', 'zenvy'); ?>"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
+						<a href="#masthead" title="<?php esc_attr_e( 'Go to Top', 'zenvy' ); ?>"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
 					</div><!-- .back-to-top -->
-		<?php
-				endif;
-			}
+			<?php
+		endif;
+	}
 
 		endif;
 
 		/* ------------------------------ CONTENT ------------------------------ */
-		if (! function_exists('zenvy_menu_fallback')) :
+if ( ! function_exists( 'zenvy_menu_fallback' ) ) :
 
-			/**
-			 * Menu fallback for primary menu.
-			 *
-			 * Contains wp_list_pages to display pages created,
-			 *
-			 * @param array $args Array of wp_nav_menu arguments.
-			 */
-			function zenvy_menu_fallback($args = array())
-			{
-				// Get the container class from args or use default
-				$container_class = ! empty($args['container_class']) ? $args['container_class'] : 'menu-top-menu-container';
+	/**
+	 * Menu fallback for primary menu.
+	 *
+	 * Contains wp_list_pages to display pages created,
+	 *
+	 * @param array $args Array of wp_nav_menu arguments.
+	 */
+	function zenvy_menu_fallback( $args = [] ) {
+		// Get the container class from args or use default
+		$container_class = ! empty( $args['container_class'] ) ? $args['container_class'] : 'menu-top-menu-container';
 
-				// Get the menu class from args or use default
-				$menu_class = ! empty($args['menu_class']) ? $args['menu_class'] : 'menu-wrapper';
+		// Get the menu class from args or use default
+		$menu_class = ! empty( $args['menu_class'] ) ? $args['menu_class'] : 'menu-wrapper';
 
-				// Get the menu ID from items_wrap or use default
-				$menu_id = 'primary-menu-list';
-				if (! empty($args['items_wrap']) && preg_match('/id="([^"]+)"/', $args['items_wrap'], $matches)) {
-					$menu_id = $matches[1];
-				}
+		// Get the menu ID from items_wrap or use default
+		$menu_id = 'primary-menu-list';
+		if ( ! empty( $args['items_wrap'] ) && preg_match( '/id="([^"]+)"/', $args['items_wrap'], $matches ) ) {
+			$menu_id = $matches[1];
+		}
 
-				$output  = '';
-				$output .= '<div class="' . esc_attr($container_class) . '">';
-				$output .= '<ul id="' . esc_attr($menu_id) . '" class="' . esc_attr($menu_class) . '">';
+		$output  = '';
+		$output .= '<div class="' . esc_attr( $container_class ) . '">';
+		$output .= '<ul id="' . esc_attr( $menu_id ) . '" class="' . esc_attr( $menu_class ) . '">';
 
-				$output .= wp_list_pages(
-					array(
-						'echo'     => false,
-						'title_li' => false,
-					)
-				);
+		$output .= wp_list_pages(
+			[
+				'echo'     => false,
+				'title_li' => false,
+			]
+		);
 
-				$output .= '</ul>';
-				$output .= '</div>';
+		$output .= '</ul>';
+		$output .= '</div>';
 
-				// @codingStandardsIgnoreStart
-				echo $output;
-				// @codingStandardsIgnoreEnd
-			}
+		// @codingStandardsIgnoreStart
+		echo $output;
+		// @codingStandardsIgnoreEnd
+	}
 
 		endif;

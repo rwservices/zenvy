@@ -125,7 +125,7 @@ class Zenvy_Customizer {
 		wp_enqueue_script( 'wp-color-picker-alpha', ZENVY_THEME_URI . 'assets/build/library/wp-color-picker-alpha.js', [ 'jquery', 'wp-color-picker' ], '2.1.4', true );
 
 		// Enqueue the font awesome style.
-		wp_enqueue_style( 'font-awesome', ZENVY_THEME_URI . 'assets/build/library/all.min.css');
+		wp_enqueue_style( 'font-awesome', ZENVY_THEME_URI . 'assets/build/library/all.min.css' );
 
 		// Enqueue the scripts.
 		wp_enqueue_script( 'zenvy-customize-controls', ZENVY_THEME_URI . 'assets/build/js/customize-controls.js', [ 'jquery', 'customize-controls', 'customize-base', 'wp-color-picker-alpha', 'jquery-ui-sortable' ], ZENVY_THEME_VERSION, true );
@@ -235,32 +235,32 @@ class Zenvy_Customizer {
 	public static function zenvy_add_panels( $wp_customize ) {
 
 		$panels = [
-			'global'                 => [
+			'global'      => [
 				'title'    => esc_html__( 'Global', 'zenvy' ),
 				'priority' => 10,
 			],
-			'blog_posts'             => [
+			'blog_posts'  => [
 				'title'    => esc_html__( 'Archive Posts', 'zenvy' ),
 				'priority' => 30,
 			],
-			'single_post'            => [
+			'single_post' => [
 				'title'    => esc_html__( 'Single Post', 'zenvy' ),
 				'priority' => 35,
 			],
 
-			'front_page'             => [
+			'front_page'  => [
 				'title'    => esc_html__( 'Front Page', 'zenvy' ),
 				'priority' => 50,
 			],
-			'single_page'            => [
+			'single_page' => [
 				'title'    => esc_html__( 'Single Page', 'zenvy' ),
 				'priority' => 55,
 			],
-			'about_page'             => [
+			'about_page'  => [
 				'title'    => esc_html__( 'About Page', 'zenvy' ),
 				'priority' => 60,
 			],
-			'404_page'               => [
+			'404_page'    => [
 				'title'    => esc_html__( '404 Page', 'zenvy' ),
 				'priority' => 60,
 			],
@@ -395,10 +395,10 @@ class Zenvy_Customizer {
 
 		// Trending Posts
 		$sections['front_page_trending_posts'] = [
-			'title'    => esc_html__( 'Trending Posts Section', 'zenvy' ),
-			'panel'    => 'zenvy_front_page_panel',
+			'title'       => esc_html__( 'Trending Posts Section', 'zenvy' ),
+			'panel'       => 'zenvy_front_page_panel',
 			'description' => esc_html__( 'The trending posts section will display the most popular posts based on the number of comments. You can set the number of posts to display in this section.', 'zenvy' ),
-			'priority' => 35,
+			'priority'    => 35,
 		];
 
 		// Youtube Promotion Section
@@ -409,7 +409,7 @@ class Zenvy_Customizer {
 		];
 
 		// Woocommerce shop Section
-		$sections['front_page_shop'] = [		
+		$sections['front_page_shop'] = [        
 			'title'    => esc_html__( 'Shop Section', 'zenvy' ),
 			'panel'    => 'zenvy_front_page_panel',
 			'priority' => 45,
@@ -758,16 +758,16 @@ class Zenvy_Customizer {
 				[
 					'section'   => 'zenvy_front_page_explore_section',
 					'fields'    => [
-						'category_slug' => array(
-                            'type' => 'select',
-                            'label' => esc_html__('Select Category', 'zenvy'),
-                            'choices' => Zenvy_Helper::get_terms('category'),
-                            'default' => __('Category to be displayed', 'zenvy'),
-                        ),
-                        'category_image' => array(
-                            'type' => 'image',
-                            'label' => esc_html__('Category Image', 'zenvy'),
-                        ),
+						'category_slug'  => [
+							'type'    => 'select',
+							'label'   => esc_html__( 'Select Category', 'zenvy' ),
+							'choices' => Zenvy_Helper::get_terms( 'category' ),
+							'default' => __( 'Category to be displayed', 'zenvy' ),
+						],
+						'category_image' => [
+							'type'  => 'image',
+							'label' => esc_html__( 'Category Image', 'zenvy' ),
+						],
 					],
 					'row_label' => [
 						'type'  => 'field',

@@ -11,32 +11,33 @@ $social_icons = get_theme_mod(
 	'zenvy_social_icons',
 	[
 		[
-			'network'   => 'facebook',
-			'icon'      => '',
-			'link'      => '#'
+			'network' => 'facebook',
+			'icon'    => '',
+			'link'    => '#',
 		],
 		[
-			'network'   => 'twitter',
-			'icon'      => '',
-			'link'      => '#'
-		]
+			'network' => 'twitter',
+			'icon'    => '',
+			'link'    => '#',
+		],
 	]
 );
 
 if ( $social_icons ) :
-    $link_open = get_theme_mod(
-        'zenvy_footer_social_icon_link_open',
-        ''
-    );
-    $link_target = ( $link_open && array_key_exists( 'desktop', $link_open ) ) ? '_blank' : '_self'
-    ?>
+	$link_open   = get_theme_mod(
+		'zenvy_footer_social_icon_link_open',
+		''
+	);
+	$link_target = ( $link_open && array_key_exists( 'desktop', $link_open ) ) ? '_blank' : '_self'
+	?>
 
 	<div class="footer-social-container">
 		<ul class="footer-social-wrap d-flex align-items-center">
 
-			<?php foreach ( $social_icons as $social ) :
-				$network 	= ($social['network'] != '') ? $social['network'] : 'facebook';
-				$icon		= ($social['icon'] != '') ? $social['icon'] : 'fab fa-'.$network;
+			<?php
+			foreach ( $social_icons as $social ) :
+				$network = ( $social['network'] !== '' ) ? $social['network'] : 'facebook';
+				$icon    = ( $social['icon'] !== '' ) ? $social['icon'] : 'fab fa-' . $network;
 				?>
 				<li>
 					<a href="<?php echo esc_url( $social['link'] ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
@@ -48,9 +49,9 @@ if ( $social_icons ) :
 		</ul><!-- .social-icons -->
 	</div>
 
-    
+	
 
-<?php
+	<?php
 
 endif;
 

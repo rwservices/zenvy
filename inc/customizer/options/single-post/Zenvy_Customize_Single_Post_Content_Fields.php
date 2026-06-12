@@ -18,7 +18,7 @@ class Zenvy_Customize_Single_Post_Content_Fields extends Zenvy_Customize_Base_Fi
 			// Entry Header
 			'zenvy_single_post_content_entry_header_elements' => [
 				'type'              => 'sortable',
-				'default'           => ['post-meta', 'post-title'],
+				'default'           => [ 'post-meta', 'post-title' ],
 				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_sortable' ],
 				'label'             => esc_html__( 'Header Elements', 'zenvy' ),
 				'description'       => esc_html__( 'Enable to show Header elements in posts and rearrange them by drag and drop.', 'zenvy' ),
@@ -34,19 +34,23 @@ class Zenvy_Customize_Single_Post_Content_Fields extends Zenvy_Customize_Base_Fi
 			// Top Spacing
 			'zenvy_single_post_content_entry_header_elements_gap' => [
 				'type'              => 'range',
-				'default'           => ['desktop' => '-120px','tablet' => '-215px','mobile' => '-180px'],
-				'sanitize_callback' => ['Zenvy_Customizer_Sanitize_Callback', 'sanitize_range' ],
+				'default'           => [
+					'desktop' => '-120px',
+					'tablet'  => '-215px',
+					'mobile'  => '-180px',
+				],
+				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_range' ],
 				'label'             => esc_html__( 'Top Spacing', 'zenvy' ),
 				'description'       => esc_html__( 'Info:- This option effect only if page header elements are empty.', 'zenvy' ),
 				'section'           => 'zenvy_single_post_content_section',
 				'priority'          => 8,
 				'responsive'        => [ 'desktop', 'tablet', 'mobile' ],
 				'input_attrs'       => [
-					'min'               => -300,
-					'max'               => 300,
-					'step'              => 1,
-					'unit'              => 'px',
-				]
+					'min'  => -300,
+					'max'  => 300,
+					'step' => 1,
+					'unit' => 'px',
+				],
 			],
 
 			// Entry Footer

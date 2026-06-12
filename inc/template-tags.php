@@ -18,7 +18,7 @@ if ( ! function_exists( 'zenvy_posted_on' ) ) :
 		$time_string = sprintf(
 			$time_string,
 			esc_attr( get_the_date( DATE_W3C ) ),
-			esc_html( get_the_date('d M') )
+			esc_html( get_the_date( 'd M' ) )
 		);
 
 		printf( '<div class="posted-on"><a href="%1$s" rel="bookmark">%2$s</a></div>', esc_url( get_permalink() ), $time_string ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -43,19 +43,19 @@ if ( ! function_exists( 'zenvy_posted_by' ) ) :
 endif;
 
 if ( ! function_exists( 'zenvy_comment_count' ) ) :
-    /**
-     * Prints HTML with the comment count for the current post.
-     */
-    function zenvy_comment_count() {
-        if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-            echo '<div class="comments-link">';
+	/**
+	 * Prints HTML with the comment count for the current post.
+	 */
+	function zenvy_comment_count() {
+		if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
+			echo '<div class="comments-link">';
 
-            /* translators: %s: Post title. Only visible to screen readers. */
-            comments_popup_link( sprintf( __( 'Leave a comment<span class="screen-reader-text"> on %s</span>', 'zenvy' ), get_the_title() ) );
+			/* translators: %s: Post title. Only visible to screen readers. */
+			comments_popup_link( sprintf( __( 'Leave a comment<span class="screen-reader-text"> on %s</span>', 'zenvy' ), get_the_title() ) );
 
-            echo '</div>';
-        }
-    }
+			echo '</div>';
+		}
+	}
 endif;
 
 if ( ! function_exists( 'zenvy_posted_cats' ) ) :
@@ -126,9 +126,9 @@ if ( ! function_exists( 'zenvy_posted_first_tag' ) ) :
 
 		// Get only the first tag
 		$single_tag = $tags[0];
-		$tag_link = get_tag_link( $single_tag->term_id );
-		$tag_name = esc_html( $single_tag->name );
-		$tag_list = sprintf( '<a href="%s" rel="tag">%s</a>', esc_url( $tag_link ), $tag_name );
+		$tag_link   = get_tag_link( $single_tag->term_id );
+		$tag_name   = esc_html( $single_tag->name );
+		$tag_list   = sprintf( '<a href="%s" rel="tag">%s</a>', esc_url( $tag_link ), $tag_name );
 
 		/* translators: 1: list of tags. */
 		if ( is_singular() ) {

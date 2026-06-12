@@ -37,7 +37,7 @@ class Zenvy_Customize_Front_Page_Explore_Section_Fields extends Zenvy_Customize_
 				],
 			],
 			// Heading
-			'zenvy_front_page_explore_section_heading' => [
+			'zenvy_front_page_explore_section_heading'    => [
 				'type'              => 'text',
 				'default'           => esc_html__( 'Explore our topics', 'zenvy' ),
 				'sanitize_callback' => 'sanitize_text_field',

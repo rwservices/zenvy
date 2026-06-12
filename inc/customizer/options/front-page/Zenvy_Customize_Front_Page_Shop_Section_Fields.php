@@ -30,18 +30,18 @@ class Zenvy_Customize_Front_Page_Shop_Section_Fields extends Zenvy_Customize_Bas
 							'zenvy_front_page_shop_button_link',
 						],
 					],
-					'style' => [
+					'style'  => [
 						'tab-title' => esc_html__( 'Style', 'zenvy' ),
 						'controls'  => [
 							'zenvy_front_page_shop_section_background',
-							'zenvy_front_page_shop_section_background_overlay'
+							'zenvy_front_page_shop_section_background_overlay',
 						],
 					],
 				],
 			],
 
 			// Section Title
-			'zenvy_front_page_shop_title' => [
+			'zenvy_front_page_shop_title'                  => [
 				'type'              => 'text',
 				'section'           => 'zenvy_front_page_shop_section',
 				'default'           => esc_html__( 'Shop my favouritess from my Awesome collection', 'zenvy' ),
@@ -51,7 +51,7 @@ class Zenvy_Customize_Front_Page_Shop_Section_Fields extends Zenvy_Customize_Bas
 			],
 
 			// Section Description
-			'zenvy_front_page_shop_desc' => [
+			'zenvy_front_page_shop_desc'                   => [
 				'type'              => 'textarea',
 				'section'           => 'zenvy_front_page_shop_section',
 				'default'           => esc_html__( 'Don\'t laugh, guys, but I\'ve turned into the person who maps out a detailed plan for how her makeup collection will look in the next year!', 'zenvy' ),
@@ -61,7 +61,7 @@ class Zenvy_Customize_Front_Page_Shop_Section_Fields extends Zenvy_Customize_Bas
 			],
 
 			// Section Image
-			'zenvy_front_page_shop_image' => [
+			'zenvy_front_page_shop_image'                  => [
 				'type'              => 'image',
 				'section'           => 'zenvy_front_page_shop_section',
 				'default'           => get_template_directory_uri() . '/assets/build/images/shop-title-image.jpg',
@@ -72,15 +72,15 @@ class Zenvy_Customize_Front_Page_Shop_Section_Fields extends Zenvy_Customize_Bas
 			],
 
 			// Note One
-            'zenvy_front_page_trending_posts_note_one' => [
-                'type'              => 'heading',
-                'label'             => esc_html__( 'READ MORE BUTTON', 'zenvy' ),
-                'section'           => 'zenvy_front_page_trending_posts_section',
-                'priority'          => 19,
-            ],
+			'zenvy_front_page_trending_posts_note_one'     => [
+				'type'     => 'heading',
+				'label'    => esc_html__( 'READ MORE BUTTON', 'zenvy' ),
+				'section'  => 'zenvy_front_page_trending_posts_section',
+				'priority' => 19,
+			],
 
 			// Button Text
-			'zenvy_front_page_shop_button_text' => [
+			'zenvy_front_page_shop_button_text'            => [
 				'type'              => 'text',
 				'section'           => 'zenvy_front_page_shop_section',
 				'default'           => esc_html__( 'Shop more', 'zenvy' ),
@@ -90,7 +90,7 @@ class Zenvy_Customize_Front_Page_Shop_Section_Fields extends Zenvy_Customize_Bas
 			],
 
 			// Button Link
-			'zenvy_front_page_shop_button_link' => [
+			'zenvy_front_page_shop_button_link'            => [
 				'type'              => 'text',
 				'section'           => 'zenvy_front_page_shop_section',
 				'default'           => '#',
@@ -99,8 +99,8 @@ class Zenvy_Customize_Front_Page_Shop_Section_Fields extends Zenvy_Customize_Bas
 				'label'             => esc_html__( 'Button Link', 'zenvy' ),
 			],
 
-			//// Type
-			'zenvy_trending_posts_read_btn_type'       => [
+			// Type
+			'zenvy_trending_posts_read_btn_type'           => [
 				'type'              => 'buttonset',
 				'default'           => [ 'desktop' => 'default' ],
 				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_buttonset' ],
@@ -108,14 +108,14 @@ class Zenvy_Customize_Front_Page_Shop_Section_Fields extends Zenvy_Customize_Bas
 				'section'           => 'zenvy_front_page_trending_posts_section',
 				'priority'          => 20,
 				'choices'           => [
-					'default' => esc_html__('Default', 'zenvy'),
-					'text'   => esc_html__('Text', 'zenvy'),
-					'button' => esc_html__('Button', 'zenvy'),
+					'default' => esc_html__( 'Default', 'zenvy' ),
+					'text'    => esc_html__( 'Text', 'zenvy' ),
+					'button'  => esc_html__( 'Button', 'zenvy' ),
 				],
 			],
 
 			// Background Image
-			'zenvy_front_page_shop_section_background' => [
+			'zenvy_front_page_shop_section_background'     => [
 				'type'              => 'background',
 				'default'           => '',
 				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_background' ],

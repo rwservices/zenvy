@@ -9,8 +9,8 @@
 ?>
 
 <div class="header-color-mode-wrap">
-    <button id="theme-toggle" class="theme-color-mode" type="button">
-        <span class="color-light"><i class="fas fa-moon"></i></span>
-        <span class="color-dark"><i class="fas fa-sun"></i></span>
-    </button>
+	<button id="theme-toggle" class="theme-color-mode" type="button">
+		<span class="color-light"><i class="fas fa-moon"></i></span>
+		<span class="color-dark"><i class="fas fa-sun"></i></span>
+	</button>
 </div><!-- .header-html-wrap -->

@@ -11,7 +11,7 @@ $elements = get_theme_mod(
 	'zenvy_single_page_content_entry_header_elements',
 	''
 );
-$classes = array();
+$classes  = [];
 if ( empty( $elements ) ) {
 	$classes[] = 'has-empty-header';
 }

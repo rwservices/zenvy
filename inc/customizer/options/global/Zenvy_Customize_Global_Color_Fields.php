@@ -15,7 +15,7 @@ class Zenvy_Customize_Global_Color_Fields extends Zenvy_Customize_Base_Field {
 	public function init() {
 		$this->args = [
 			// Accent Color
-			'zenvy_accent_color'     => [
+			'zenvy_accent_color'        => [
 				'type'              => 'color',
 				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_color' ],
 				'label'             => esc_html__( 'Accent', 'zenvy' ),
@@ -33,7 +33,7 @@ class Zenvy_Customize_Global_Color_Fields extends Zenvy_Customize_Base_Field {
 				],
 			],
 			// H1-H6 Color
-			'zenvy_heading_color'    => [
+			'zenvy_heading_color'       => [
 				'type'              => 'color',
 				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_color' ],
 				'label'             => esc_html__( 'H1 -H6', 'zenvy' ),
@@ -44,7 +44,7 @@ class Zenvy_Customize_Global_Color_Fields extends Zenvy_Customize_Base_Field {
 				],
 			],
 			// Text Color
-			'zenvy_text_color'       => [
+			'zenvy_text_color'          => [
 				'type'              => 'color',
 				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_color' ],
 				'label'             => esc_html__( 'Base Text', 'zenvy' ),
@@ -60,7 +60,7 @@ class Zenvy_Customize_Global_Color_Fields extends Zenvy_Customize_Base_Field {
 				],
 			],
 			// Link Color
-			'zenvy_link_color'       => [
+			'zenvy_link_color'          => [
 				'type'              => 'color',
 				'default'           => '',
 				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_color' ],
@@ -77,7 +77,7 @@ class Zenvy_Customize_Global_Color_Fields extends Zenvy_Customize_Base_Field {
 				],
 			],
 			// Border & Shadow Color
-			'zenvy_border_shadow_color'       => [
+			'zenvy_border_shadow_color' => [
 				'type'              => 'color',
 				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_color' ],
 				'label'             => esc_html__( 'Border & Shadow', 'zenvy' ),
@@ -93,7 +93,7 @@ class Zenvy_Customize_Global_Color_Fields extends Zenvy_Customize_Base_Field {
 				],
 			],
 			// Background Color
-			'zenvy_background_color' => [
+			'zenvy_background_color'    => [
 				'type'              => 'color',
 				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_color' ],
 				'label'             => esc_html__( 'Background', 'zenvy' ),

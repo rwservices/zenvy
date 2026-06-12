@@ -8,20 +8,20 @@
  */
 
 $content_display = get_theme_mod(
-    'zenvy_header_button_type',
-    ['desktop'=> 'text']
+	'zenvy_header_button_type',
+	[ 'desktop' => 'text' ]
 );
-$button_text = get_theme_mod(
-        'zenvy_header_button_text',
-    esc_html__( 'ENG', 'zenvy' )
+$button_text     = get_theme_mod(
+	'zenvy_header_button_text',
+	esc_html__( 'ENG', 'zenvy' )
 );
-$button_url = get_theme_mod(
-    'zenvy_header_button_url',
-    '#'
+$button_url      = get_theme_mod(
+	'zenvy_header_button_url',
+	'#'
 );
-$link_open = get_theme_mod(
-    'zenvy_header_button_url_target',
-    ''
+$link_open       = get_theme_mod(
+	'zenvy_header_button_url_target',
+	''
 );
 
 $link_target = ( $link_open && array_key_exists( 'desktop', $link_open ) ) ? '_blank' : '_self';
@@ -29,9 +29,9 @@ $link_target = ( $link_open && array_key_exists( 'desktop', $link_open ) ) ? '_b
 ?>
 
 <div class="header-button-wrap d-flex">
-    <a href="<?php echo esc_url( $button_url ); ?>" class="box-button d-flex align-items-center" target="<?php echo esc_attr( $link_target ); ?>">
-        <?php if ( $content_display && ( $content_display['desktop'] == 'text' || $content_display['desktop'] == 'both' ) ) : ?>
-            <label><?php echo esc_html( $button_text ); ?></label>
-        <?php endif; ?>
-    </a>
+	<a href="<?php echo esc_url( $button_url ); ?>" class="box-button d-flex align-items-center" target="<?php echo esc_attr( $link_target ); ?>">
+		<?php if ( $content_display && ( $content_display['desktop'] === 'text' || $content_display['desktop'] === 'both' ) ) : ?>
+			<label><?php echo esc_html( $button_text ); ?></label>
+		<?php endif; ?>
+	</a>
 </div><!-- .header-button-wrap -->
