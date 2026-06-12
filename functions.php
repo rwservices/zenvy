@@ -351,11 +351,6 @@ require ZENVY_THEME_DIR . 'inc/tgm/tgm.php';
 /** 
  * Widgets
  */
-require ZENVY_THEME_DIR . 'inc/widgets/class-zenvy-author-info-widget.php';
 require ZENVY_THEME_DIR . 'inc/widgets/class-zenvy-social-links-widget.php';
-require ZENVY_THEME_DIR . 'inc/widgets/class-zenvy-advertisement-widget.php';
 require ZENVY_THEME_DIR . 'inc/widgets/class-zenvy-sidebar-posts-widget.php';
-require ZENVY_THEME_DIR . 'inc/widgets/class-zenvy-search-widget.php';
-require ZENVY_THEME_DIR . 'inc/widgets/class-zenvy-sidebar-categories-widget.php';
-require ZENVY_THEME_DIR . 'inc/widgets/class-zenvy-sidebar-archive-widget.php';
 require ZENVY_THEME_DIR . 'inc/widgets/class-zenvy-sidebar-tags-widget.php';
