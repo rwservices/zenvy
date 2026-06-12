@@ -5,6 +5,11 @@
  * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Customize_Blog_Post_Read_More_Fields
+ *
+ * Handles customizer blog post read more button fields for the Zenvy theme.
+ */
 class Zenvy_Customize_Blog_Post_Read_More_Fields extends Zenvy_Customize_Base_Field {
 
 	/**
@@ -14,7 +19,7 @@ class Zenvy_Customize_Blog_Post_Read_More_Fields extends Zenvy_Customize_Base_Fi
 	 */
 	public function init() {
 		$this->args = [
-			// Type
+			// Display type settings.
 			'zenvy_blog_post_read_btn_type' => [
 				'type'              => 'buttonset',
 				'default'           => [ 'desktop' => 'default' ],

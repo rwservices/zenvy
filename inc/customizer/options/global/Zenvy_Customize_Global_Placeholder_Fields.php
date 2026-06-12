@@ -5,6 +5,11 @@
  * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Customize_Global_Placeholder_Fields
+ *
+ * Handles customizer placeholder fields for the Zenvy theme.
+ */
 class Zenvy_Customize_Global_Placeholder_Fields extends Zenvy_Customize_Base_Field {
 
 	/**
@@ -14,7 +19,7 @@ class Zenvy_Customize_Global_Placeholder_Fields extends Zenvy_Customize_Base_Fie
 	 */
 	public function init() {
 		$this->args = [
-			// Color
+			// Color settings.
 			'zenvy_placeholder_color' => [
 				'type'              => 'color',
 				'default'           => [
@@ -26,7 +31,7 @@ class Zenvy_Customize_Global_Placeholder_Fields extends Zenvy_Customize_Base_Fie
 				'section'           => 'zenvy_placeholder_section',
 				'priority'          => 10,
 			],
-			// Image
+			// Image settings.
 			'zenvy_placeholder_image' => [
 				'type'              => 'image',
 				'default'           => '',

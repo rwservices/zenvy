@@ -5,6 +5,11 @@
  * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Customize_Blog_Pagination_Fields
+ *
+ * Handles customizer blog pagination fields for the Zenvy theme.
+ */
 class Zenvy_Customize_Blog_Pagination_Fields extends Zenvy_Customize_Base_Field {
 
 	/**
@@ -14,7 +19,7 @@ class Zenvy_Customize_Blog_Pagination_Fields extends Zenvy_Customize_Base_Field 
 	 */
 	public function init() {
 		$this->args = [
-			// Pagination Type
+			// Pagination Type settings.
 			'zenvy_blog_pagination_type' => [
 				'type'              => 'select',
 				'default'           => 'nxt-prv',

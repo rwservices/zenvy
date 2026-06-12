@@ -5,6 +5,11 @@
  * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Customize_Single_Post_Sidebar_Fields
+ *
+ * Handles customizer single post sidebar layout fields for the Zenvy theme.
+ */
 class Zenvy_Customize_Single_Post_Sidebar_Fields extends Zenvy_Customize_Base_Field {
 
 	/**
@@ -14,7 +19,7 @@ class Zenvy_Customize_Single_Post_Sidebar_Fields extends Zenvy_Customize_Base_Fi
 	 */
 	public function init() {
 		$this->args = [
-			// Sidebar
+			// Sidebar layout settings.
 			'zenvy_single_post_sidebar_layout' => [
 				'type'              => 'radio_image',
 				'default'           => 'right',

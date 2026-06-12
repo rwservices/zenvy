@@ -5,6 +5,11 @@
  * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Customize_Blog_Post_Featured_Image_Fields
+ *
+ * Handles customizer blog post featured image fields for the Zenvy theme.
+ */
 class Zenvy_Customize_Blog_Post_Featured_Image_Fields extends Zenvy_Customize_Base_Field {
 
 	/**
@@ -14,7 +19,7 @@ class Zenvy_Customize_Blog_Post_Featured_Image_Fields extends Zenvy_Customize_Ba
 	 */
 	public function init() {
 		$this->args = [
-			// Image Ratio
+			// Image Ratio settings.
 			'zenvy_blog_post_featured_image_ratio' => [
 				'type'              => 'buttonset',
 				'default'           => [ 'desktop' => '1x1' ],
@@ -31,7 +36,7 @@ class Zenvy_Customize_Blog_Post_Featured_Image_Fields extends Zenvy_Customize_Ba
 					'3x4'  => esc_html__( '3:4', 'zenvy' ),
 				],
 			],
-			// Image Size
+			// Image Size settings.
 			'zenvy_blog_post_featured_image_size'  => [
 				'type'              => 'buttonset',
 				'default'           => [ 'desktop' => 'medium_large' ],
@@ -47,7 +52,7 @@ class Zenvy_Customize_Blog_Post_Featured_Image_Fields extends Zenvy_Customize_Ba
 					'large'        => esc_html__( 'Large', 'zenvy' ),
 				],
 			],
-			// Enable/Disable Tags
+			// Enable/Disable Tags settings.
 			'zenvy_blog_post_featured_image_tags'  => [
 				'type'              => 'toggle',
 				'default'           => [ 'desktop' => 'true' ],
