@@ -5,6 +5,9 @@
  * @package Zenvy
  */
 
+/**
+ * Provides Functions for font awesome icons.
+ */
 class Zenvy_Font_Awesome_Icons {
 	/**
 	 * Font Awesome Icons
@@ -1529,7 +1532,7 @@ class Zenvy_Font_Awesome_Icons {
 
 		ob_start();
 
-		if ( in_array( $icon, $arr ) ) {
+		if ( in_array( $icon, $arr, true ) ) {
 
 			echo '<span class="icon"><i class="' . esc_attr( $icon ) . '" aria-hidden="true"></i></span>';
 		}

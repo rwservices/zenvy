@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The template for displaying 404 pages (not found)
  *
@@ -23,12 +22,12 @@ do_action( 'zenvy_content_before' );
 
 <section class="error-404 not-found">
 	<?php
-	$content_elements = get_theme_mod(
+	$zenvy_content_elements = get_theme_mod(
 		'zenvy_404_error_page_content_elements',
 		[ 'title', 'subtitle', 'button' ]
 	);
-	if ( ! empty( $content_elements ) ) :
-		$error_image = get_theme_mod(
+	if ( ! empty( $zenvy_content_elements ) ) :
+		$zenvy_error_image = get_theme_mod(
 			'zenvy_404_error_image',
 			''
 		);
@@ -36,12 +35,12 @@ do_action( 'zenvy_content_before' );
 		<div class="error-page-content">
 
 			<?php
-			foreach ( $content_elements as $content ) :
-				switch ( $content ) :
+			foreach ( $zenvy_content_elements as $zenvy_content ) :
+				switch ( $zenvy_content ) :
 					case 'image':
 						?>
 						<figure>
-							<img src="<?php echo esc_url( $error_image ); ?>" alt="<?php esc_attr_e( '404 Error Image', 'zenvy' ); ?>">
+							<img src="<?php echo esc_url( $zenvy_error_image ); ?>" alt="<?php esc_attr_e( '404 Error Image', 'zenvy' ); ?>">
 						</figure>
 						<?php
 						break;
@@ -59,23 +58,23 @@ do_action( 'zenvy_content_before' );
 						break;
 
 					case 'button':
-						$btn_type = get_theme_mod(
+						$zenvy_btn_type = get_theme_mod(
 							'zenvy_button_type',
 							[ 'desktop' => 'button' ]
 						);
 
-						$read_more_class = [ 'read-more' ];
-						// Fixed: Check if btn_type is array and has 'desktop' key
-						if ( is_array( $btn_type ) && isset( $btn_type['desktop'] ) && $btn_type['desktop'] === 'button' ) {
-							$read_more_class[] = 'box-button';
+						$zenvy_read_more_class = [ 'read-more' ];
+						// Check if btn_type is array and has 'desktop' key.
+						if ( is_array( $zenvy_btn_type ) && isset( $zenvy_btn_type['desktop'] ) && 'button' === $zenvy_btn_type['desktop'] ) {
+							$zenvy_read_more_class[] = 'box-button';
 						}
 
-						// Fixed: Check if btn_type is array and has 'desktop' key
-						if ( is_array( $btn_type ) && isset( $btn_type['desktop'] ) && $btn_type['desktop'] === 'text' ) {
-							$read_more_class[] = 'text-button';
+						// Check if btn_type is array and has 'desktop' key.
+						if ( is_array( $zenvy_btn_type ) && isset( $zenvy_btn_type['desktop'] ) && 'text' === $zenvy_btn_type['desktop'] ) {
+							$zenvy_read_more_class[] = 'text-button';
 						}
 						?>
-						<a class="<?php echo esc_attr( implode( ' ', $read_more_class ) ); ?>" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php esc_html_e( 'Return Home', 'zenvy' ); ?></a>
+						<a class="<?php echo esc_attr( implode( ' ', $zenvy_read_more_class ) ); ?>" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php esc_html_e( 'Return Home', 'zenvy' ); ?></a>
 						<?php
 						break;
 

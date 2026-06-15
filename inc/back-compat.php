@@ -16,7 +16,7 @@
  */
 function zenvy_switch_theme() {
 	switch_theme( WP_DEFAULT_THEME );
-	unset( $_GET['activated'] );
+	unset( $_GET['activated'] ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 	add_action( 'admin_notices', 'zenvy_upgrade_notice' );
 }
 
@@ -31,8 +31,9 @@ add_action( 'after_switch_theme', 'zenvy_switch_theme' );
  * @global string $wp_version WordPress version.
  */
 function zenvy_upgrade_notice() {
-	$message = sprintf( esc_html__( 'Zenvy requires at least WordPress version 5.6. You are running version %s. Please upgrade and try again.', 'zenvy' ), $GLOBALS['wp_version'] );
-	printf( '<div class="error"><p>%s</p></div>', $message );
+	/* translators: %s: current WordPress version number */
+	$message = sprintf( esc_html__( 'Zenvy requires at least WordPress version 5.6. You are running version %s. Please upgrade and try again.', 'zenvy' ), esc_html( $GLOBALS['wp_version'] ) );
+	printf( '<div class="error"><p>%s</p></div>', wp_kses_post( $message ) );
 }
 
 /**
@@ -42,7 +43,8 @@ function zenvy_upgrade_notice() {
  */
 function zenvy_customize() {
 	wp_die(
-		sprintf( esc_html__( 'Zenvy requires at least WordPress version 5.6. You are running version %s. Please upgrade and try again.', 'zenvy' ), $GLOBALS['wp_version'] ),
+		/* translators: %s: current WordPress version number */
+		sprintf( esc_html__( 'Zenvy requires at least WordPress version 5.6. You are running version %s. Please upgrade and try again.', 'zenvy' ), esc_html( $GLOBALS['wp_version'] ) ),
 		'',
 		[
 			'back_link' => true,
@@ -58,11 +60,12 @@ add_action( 'load-customize.php', 'zenvy_customize' );
  * @global string $wp_version WordPress version.
  */
 function zenvy_preview() {
-	if ( ! isset( $_GET['preview'] ) ) {
+	if ( ! isset( $_GET['preview'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		return;
 	}
 
-	wp_die( sprintf( esc_html__( 'Zenvy requires at least WordPress version 5.6. You are running version %s. Please upgrade and try again.', 'zenvy' ), $GLOBALS['wp_version'] ) );
+	/* translators: %s: current WordPress version number */
+	wp_die( sprintf( esc_html__( 'Zenvy requires at least WordPress version 5.6. You are running version %s. Please upgrade and try again.', 'zenvy' ), esc_html( $GLOBALS['wp_version'] ) ) );
 }
 
 add_action( 'template_redirect', 'zenvy_preview' );
