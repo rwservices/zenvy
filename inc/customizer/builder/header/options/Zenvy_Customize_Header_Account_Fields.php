@@ -1,12 +1,16 @@
 <?php
 /**
- * Blogin Aarambha Theme Customizer Header Account settings
+ * Zenvy Theme Customizer Header Account settings.
  *
  * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Customize_Header_Account_Fields
+ *
+ * Registers customizer fields for the header account.
+ */
 class Zenvy_Customize_Header_Account_Fields extends Zenvy_Customize_Base_Field {
-
 
 	/**
 	 * Arguments for fields.
@@ -15,7 +19,7 @@ class Zenvy_Customize_Header_Account_Fields extends Zenvy_Customize_Base_Field {
 	 */
 	public function init() {
 		$this->args = [
-			// Grouping Settings
+			// Grouping Settings.
 			'zenvy_header_account_group_settings'    => [
 				'type'     => 'group',
 				'section'  => 'account',
@@ -47,14 +51,14 @@ class Zenvy_Customize_Header_Account_Fields extends Zenvy_Customize_Base_Field {
 					],
 				],
 			],
-			// Note One
+			// Note One.
 			'zenvy_header_account_note_one'          => [
 				'type'     => 'heading',
 				'label'    => esc_html__( 'LOGIN', 'zenvy' ),
 				'section'  => 'account',
 				'priority' => 15,
 			],
-			// Login Text
+			// Login Text.
 			'zenvy_header_account_login_text'        => [
 				'type'              => 'text',
 				'default'           => esc_html__( 'My Account', 'zenvy' ),
@@ -63,7 +67,7 @@ class Zenvy_Customize_Header_Account_Fields extends Zenvy_Customize_Base_Field {
 				'section'           => 'account',
 				'priority'          => 20,
 			],
-			// Account URL
+			// Account URL.
 			'zenvy_header_account_login_url'         => [
 				'type'              => 'url',
 				'default'           => '#',
@@ -72,14 +76,14 @@ class Zenvy_Customize_Header_Account_Fields extends Zenvy_Customize_Base_Field {
 				'section'           => 'account',
 				'priority'          => 25,
 			],
-			// Note Two
+			// Note Two.
 			'zenvy_header_account_note_two'          => [
 				'type'     => 'heading',
 				'label'    => esc_html__( 'LOGOUT', 'zenvy' ),
 				'section'  => 'account',
 				'priority' => 30,
 			],
-			// Logout Text
+			// Logout Text.
 			'zenvy_header_account_logout_text'       => [
 				'type'              => 'text',
 				'default'           => esc_html__( 'Log In', 'zenvy' ),
@@ -88,7 +92,7 @@ class Zenvy_Customize_Header_Account_Fields extends Zenvy_Customize_Base_Field {
 				'section'           => 'account',
 				'priority'          => 35,
 			],
-			// Logout URL
+			// Logout URL.
 			'zenvy_header_account_logout_url'        => [
 				'type'              => 'url',
 				'default'           => wp_login_url(),
@@ -97,14 +101,14 @@ class Zenvy_Customize_Header_Account_Fields extends Zenvy_Customize_Base_Field {
 				'section'           => 'account',
 				'priority'          => 40,
 			],
-			// Note Three
+			// Note Three.
 			'zenvy_header_account_note_three'        => [
 				'type'     => 'heading',
 				'label'    => esc_html__( 'SETTINGS', 'zenvy' ),
 				'section'  => 'account',
 				'priority' => 45,
 			],
-			// Link Open
+			// Link Open.
 			'zenvy_header_account_url_target'        => [
 				'type'              => 'toggle',
 				'default'           => '',
@@ -114,7 +118,7 @@ class Zenvy_Customize_Header_Account_Fields extends Zenvy_Customize_Base_Field {
 				'label'             => esc_html__( 'Link Open', 'zenvy' ),
 				'description'       => esc_html__( 'Toggle to enable link open in new window tab.', 'zenvy' ),
 			],
-			// Padding
+			// Container Padding.
 			'zenvy_header_account_container_padding' => [
 				'type'              => 'dimensions',
 				'default'           => '',
@@ -125,7 +129,7 @@ class Zenvy_Customize_Header_Account_Fields extends Zenvy_Customize_Base_Field {
 				'responsive'        => [ 'desktop', 'tablet', 'mobile' ],
 				'priority'          => 55,
 			],
-			// Margin
+			// Container Margin.
 			'zenvy_header_account_container_margin'  => [
 				'type'              => 'dimensions',
 				'default'           => '',
@@ -136,7 +140,7 @@ class Zenvy_Customize_Header_Account_Fields extends Zenvy_Customize_Base_Field {
 				'responsive'        => [ 'desktop', 'tablet', 'mobile' ],
 				'priority'          => 55,
 			],
-			// Icon Color
+			// Icon Color.
 			'zenvy_header_account_icon_color'        => [
 				'type'              => 'color',
 				'default'           => [
@@ -157,8 +161,7 @@ class Zenvy_Customize_Header_Account_Fields extends Zenvy_Customize_Base_Field {
 					'color_2' => 'var(--color-white)',
 				],
 			],
-
-			// Background
+			// Background.
 			'zenvy_header_account_background'        => [
 				'type'              => 'color',
 				'default'           => [
@@ -179,8 +182,7 @@ class Zenvy_Customize_Header_Account_Fields extends Zenvy_Customize_Base_Field {
 					'color_2' => 'var(--color-link-hover)',
 				],
 			],
-		
-			// Padding
+			// Account Padding.
 			'zenvy_header_account_padding'           => [
 				'type'              => 'dimensions',
 				'default'           => [
@@ -202,4 +204,5 @@ class Zenvy_Customize_Header_Account_Fields extends Zenvy_Customize_Base_Field {
 		];
 	}
 }
+
 new Zenvy_Customize_Header_Account_Fields();

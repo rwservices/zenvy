@@ -5,6 +5,11 @@
  * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Customize_404_Page_Content_Fields
+ *
+ * Handles customizer 404 page content fields for the Zenvy theme.
+ */
 class Zenvy_Customize_404_Page_Content_Fields extends Zenvy_Customize_Base_Field {
 
 	/**
@@ -14,7 +19,7 @@ class Zenvy_Customize_404_Page_Content_Fields extends Zenvy_Customize_Base_Field
 	 */
 	public function init() {
 		$this->args = [
-			// Grouping Settings
+			// Grouping Settings.
 			'zenvy_404_error_grouping_settings'     => [
 				'type'     => 'group',
 				'section'  => 'zenvy_404_page_content_section',
@@ -35,7 +40,7 @@ class Zenvy_Customize_404_Page_Content_Fields extends Zenvy_Customize_Base_Field
 					],
 				],
 			],
-			// Error Page Content
+			// Error Page Content.
 			'zenvy_404_error_page_content_elements' => [
 				'type'              => 'sortable',
 				'default'           => [ 'title', 'subtitle', 'button' ],
@@ -52,7 +57,7 @@ class Zenvy_Customize_404_Page_Content_Fields extends Zenvy_Customize_Base_Field
 					'search'   => esc_html__( 'Search', 'zenvy' ),
 				],
 			],
-			// Image
+			// Image.
 			'zenvy_404_error_image'                 => [
 				'type'              => 'image',
 				'default'           => '',
@@ -61,7 +66,7 @@ class Zenvy_Customize_404_Page_Content_Fields extends Zenvy_Customize_Base_Field
 				'section'           => 'zenvy_404_page_content_section',
 				'priority'          => 20,
 			],
-			// Background Image
+			// Background Image.
 			'zenvy_404_error_background'            => [
 				'type'              => 'background',
 				'default'           => '',

@@ -5,6 +5,11 @@
  * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Customize_Global_Social_Fields
+ *
+ * Handles customizer global social fields for the Zenvy theme.
+ */
 class Zenvy_Customize_Global_Social_Fields extends Zenvy_Customize_Base_Field {
 
 	/**
@@ -14,7 +19,7 @@ class Zenvy_Customize_Global_Social_Fields extends Zenvy_Customize_Base_Field {
 	 */
 	public function init() {
 		$this->args = [
-			// Heading One
+			// Heading One.
 			'zenvy_social_icon_note' => [
 				'type'     => 'heading',
 				'label'    => esc_html__( 'SOCIAL ICONS', 'zenvy' ),

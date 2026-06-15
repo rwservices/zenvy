@@ -1,16 +1,19 @@
 <?php
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
-
 /**
  * WooCommerce Header Cart Header Customizer Options
  *
  * @package Zenvy
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 if ( ! class_exists( 'Zenvy_WooCommerce_Cart_Header' ) ) :
 
+	/**
+	 * WooCommerce Cart Header Builder class.
+	 */
 	class Zenvy_WooCommerce_Cart_Header {
 
 		/**
@@ -28,36 +31,36 @@ if ( ! class_exists( 'Zenvy_WooCommerce_Cart_Header' ) ) :
 		 * Insures that only one instance of Zenvy_WooCommerce_Cart_Header exists in memory at any one
 		 * time. Also prevents needing to define globals all over the place.
 		 *
-		 * @since    1.0.0
-		 * @access   public
+		 * @since  1.0.0
+		 * @access public
 		 *
 		 * @return object
 		 */
 		public static function instance() {
 
-			// Store the instance locally to avoid private static replication
+			// Store the instance locally to avoid private static replication.
 			static $instance = null;
 
-			// Only run these methods if they haven't been ran previously
+			// Only run these methods if they haven't been ran previously.
 			if ( null === $instance ) {
 				$instance = new Zenvy_WooCommerce_Cart_Header();
 			}
 
-			// Always return the instance
+			// Always return the instance.
 			return $instance;
 		}
 
 		/**
-		 *  Run functionality with hooks
+		 * Run functionality with hooks.
 		 *
-		 * @since    1.0.0
-		 * @access   public
+		 * @since  1.0.0
+		 * @access public
 		 *
 		 * @return void
 		 */
 		public function run() {
 
-			add_filter( 'Zenvy_Customizer_Header_Builder_items', [ $this, 'add_zenvy_header_builder_item' ] );
+			add_filter( 'zenvy_customizer_header_builder_items', [ $this, 'add_zenvy_header_builder_item' ] );
 			add_action( 'customize_register', [ $this, 'customize_register' ], 3 );
 			add_filter( 'zenvy_get_template_part', [ $this, 'get_template_part' ], 10, 2 );
 		}
@@ -65,9 +68,10 @@ if ( ! class_exists( 'Zenvy_WooCommerce_Cart_Header' ) ) :
 		/**
 		 * Add Item on Header Builder.
 		 *
-		 * @param $zenvy_header_builder_item
+		 * @since  1.0.0
+		 *
+		 * @param array $zenvy_header_builder_item Existing header builder items array.
 		 * @return array
-		 * @since    1.0.0
 		 */
 		public function add_zenvy_header_builder_item( $zenvy_header_builder_item ) {
 			$zenvy_header_builder_item[ $this->element ] = [
@@ -81,18 +85,18 @@ if ( ! class_exists( 'Zenvy_WooCommerce_Cart_Header' ) ) :
 		}
 
 		/**
-		 * Callback functions for customize_register
+		 * Callback functions for customize_register.
 		 *
-		 * @since    1.0.2
-		 * @access   public
+		 * @since  1.0.2
+		 * @access public
 		 *
-		 * @param WP_Customize_Manager $wp_customize
+		 * @param WP_Customize_Manager $wp_customize WP Customizer Manager instance.
 		 * @return void
 		 */
 		public function customize_register( $wp_customize ) {
 
 			$wp_customize->add_section(
-				Zenvy_WooCommerce_Cart_Header()->element,
+				zenvy_woocommerce_cart_header()->element,
 				[
 					'title'    => esc_html__( 'WC Cart', 'zenvy' ),
 					'priority' => 80,
@@ -103,14 +107,15 @@ if ( ! class_exists( 'Zenvy_WooCommerce_Cart_Header' ) ) :
 		}
 
 		/**
-		 * Load template part
+		 * Load template part.
 		 *
-		 * @param $template
-		 * @param $id
-		 * @return void
-		 * @since    1.0.0
+		 * @since  1.0.0
+		 *
+		 * @param string $template Template file path.
+		 * @param string $id       Template ID slug.
+		 * @return string
 		 */
-		function get_template_part( $template, $id ) {
+		public function get_template_part( $template, $id ) {
 			if ( ! $template && file_exists( ZENVY_THEME_DIR . "/template-parts/header/woocommerce/{$id}.php" ) ) {
 				$template = ZENVY_THEME_DIR . "/template-parts/header/woocommerce/{$id}.php";
 			}
@@ -119,21 +124,21 @@ if ( ! class_exists( 'Zenvy_WooCommerce_Cart_Header' ) ) :
 	}
 endif;
 
-/**
- * Create Instance for Zenvy_WooCommerce_Cart_Header
- *
- * @since    1.0.0
- * @access   public
- *
- * @param
- * @return object
- */
-if ( ! function_exists( 'Zenvy_WooCommerce_Cart_Header' ) ) {
+if ( ! function_exists( 'zenvy_woocommerce_cart_header' ) ) {
 
-	function Zenvy_WooCommerce_Cart_Header() {
+	/**
+	 * Create Instance for Zenvy_WooCommerce_Cart_Header.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 *
+	 * @return object
+	 */
+	function zenvy_woocommerce_cart_header() {
 		return Zenvy_WooCommerce_Cart_Header::instance();
 	}
+
 	if ( Zenvy_Helper::is_woocommerce() ) {
-		Zenvy_WooCommerce_Cart_Header()->run();
+		zenvy_woocommerce_cart_header()->run();
 	}
 }

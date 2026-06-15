@@ -5,6 +5,11 @@
  * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Customize_Global_Sidebar_Fields
+ *
+ * Handles customizer global sidebar fields for the Zenvy theme.
+ */
 class Zenvy_Customize_Global_Sidebar_Fields extends Zenvy_Customize_Base_Field {
 
 	/**
@@ -14,7 +19,7 @@ class Zenvy_Customize_Global_Sidebar_Fields extends Zenvy_Customize_Base_Field {
 	 */
 	public function init() {
 		$this->args = [
-			// Sticky Sidebar
+			// Sticky Sidebar.
 			'zenvy_sidebar_sticky' => [
 				'type'              => 'toggle',
 				'default'           => '',

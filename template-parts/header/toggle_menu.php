@@ -6,6 +6,7 @@
  *
  * @package Zenvy
  */
+
 ?>
 
 <div class="header-toggle-menu-wrap d-flex">
@@ -21,7 +22,7 @@
 						'container_class' => 'menu-top-menu-container',
 						'items_wrap'      => '<ul id="mobile-menu-list" class="%2$s">%3$s</ul>',
 						'fallback_cb'     => 'zenvy_menu_fallback',
-					] 
+					]
 				);
 				?>
 			</div>

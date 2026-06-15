@@ -1,10 +1,15 @@
 <?php
 /**
- * Blogin Aarambha Theme Customizer Footer Widget settings
+ * Zenvy Theme Customizer Footer Widget settings.
  *
  * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Customize_Footer_Widget_Fields
+ *
+ * Registers customizer fields for the footer widget.
+ */
 class Zenvy_Customize_Footer_Widget_Fields extends Zenvy_Customize_Base_Field {
 
 	/**
@@ -14,7 +19,7 @@ class Zenvy_Customize_Footer_Widget_Fields extends Zenvy_Customize_Base_Field {
 	 */
 	public function init() {
 		$this->args = [
-			// Widgets Title
+			// Widgets Title.
 			'zenvy_footer_builder_widget_title_typo'   => [
 				'type'              => 'typography',
 				'default'           => '',
@@ -27,7 +32,7 @@ class Zenvy_Customize_Footer_Widget_Fields extends Zenvy_Customize_Base_Field {
 				],
 				'fields'            => [ 'colors' => true ],
 			],
-			// Widgets Content
+			// Widgets Content.
 			'zenvy_footer_builder_widget_content_typo' => [
 				'type'              => 'typography',
 				'default'           => '',
@@ -45,7 +50,7 @@ class Zenvy_Customize_Footer_Widget_Fields extends Zenvy_Customize_Base_Field {
 				],
 				'fields'            => [ 'colors' => true ],
 			],
-			// Padding
+			// Padding.
 			'zenvy_footer_builder_widget_padding'      => [
 				'type'              => 'dimensions',
 				'default'           => '',
@@ -59,4 +64,5 @@ class Zenvy_Customize_Footer_Widget_Fields extends Zenvy_Customize_Base_Field {
 		];
 	}
 }
+
 new Zenvy_Customize_Footer_Widget_Fields();

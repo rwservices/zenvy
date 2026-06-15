@@ -1,10 +1,15 @@
 <?php
 /**
- * Blogin Aarambha Theme Customizer Header WooCommerce Cart settings
+ * Zenvy Theme Customizer Header WooCommerce Cart settings.
  *
  * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Customize_Header_WooCommerce_Cart_Fields
+ *
+ * Registers customizer fields for the header WooCommerce cart.
+ */
 class Zenvy_Customize_Header_WooCommerce_Cart_Fields extends Zenvy_Customize_Base_Field {
 
 	/**
@@ -15,7 +20,7 @@ class Zenvy_Customize_Header_WooCommerce_Cart_Fields extends Zenvy_Customize_Bas
 	public function init() {
 
 		$this->args = [
-			// Grouping Settings
+			// Grouping Settings.
 			'zenvy_header_woocommerce_cart_group_settings' => [
 				'type'     => 'group',
 				'section'  => Zenvy_WooCommerce_Cart_Header()->element,
@@ -37,12 +42,11 @@ class Zenvy_Customize_Header_WooCommerce_Cart_Fields extends Zenvy_Customize_Bas
 							'zenvy_header_woocommerce_cart_count_background',
 							'zenvy_header_woocommerce_cart_padding',
 							'zenvy_header_woocommerce_cart_margin',
-
 						],
 					],
 				],
 			],
-			// Icon
+			// Icon.
 			'zenvy_header_woocommerce_cart_icon'           => [
 				'type'              => 'icon_select',
 				'default'           => 'fas fa-shopping-basket',
@@ -59,7 +63,7 @@ class Zenvy_Customize_Header_WooCommerce_Cart_Fields extends Zenvy_Customize_Bas
 					'fas fa-truck'           => 'fas fa-truck',
 				],
 			],
-			// Icon Size
+			// Icon Size.
 			'zenvy_header_woocommerce_cart_icon_size'      => [
 				'type'              => 'range',
 				'default'           => [ 'desktop' => '16px' ],
@@ -70,8 +74,7 @@ class Zenvy_Customize_Header_WooCommerce_Cart_Fields extends Zenvy_Customize_Bas
 				'priority'          => 10,
 				'responsive'        => [ 'desktop', 'tablet', 'mobile' ],
 			],
-
-			// Icon Color
+			// Icon Color.
 			'zenvy_header_woocommerce_cart_icon_color'     => [
 				'type'              => 'color',
 				'default'           => '',
@@ -89,7 +92,7 @@ class Zenvy_Customize_Header_WooCommerce_Cart_Fields extends Zenvy_Customize_Bas
 					'color_2' => 'var(--color-link-hover)',
 				],
 			],
-			// Background
+			// Background.
 			'zenvy_header_woocommerce_cart_icon_background' => [
 				'type'              => 'color',
 				'default'           => '',
@@ -107,7 +110,7 @@ class Zenvy_Customize_Header_WooCommerce_Cart_Fields extends Zenvy_Customize_Bas
 					'color_2' => 'var(--color-bg)',
 				],
 			],
-			// Count Color
+			// Count Color.
 			'zenvy_header_woocommerce_cart_count_color'    => [
 				'type'              => 'color',
 				'default'           => '',
@@ -123,7 +126,7 @@ class Zenvy_Customize_Header_WooCommerce_Cart_Fields extends Zenvy_Customize_Bas
 					'color_1' => 'var(--color-white)',
 				],
 			],
-			// Count Background 
+			// Count Background.
 			'zenvy_header_woocommerce_cart_count_background' => [
 				'type'              => 'color',
 				'default'           => '',
@@ -139,7 +142,7 @@ class Zenvy_Customize_Header_WooCommerce_Cart_Fields extends Zenvy_Customize_Bas
 					'color_1' => 'var(--color-bg-dark)',
 				],
 			],
-			// Padding
+			// Padding.
 			'zenvy_header_woocommerce_cart_padding'        => [
 				'type'              => 'dimensions',
 				'default'           => [
@@ -158,7 +161,7 @@ class Zenvy_Customize_Header_WooCommerce_Cart_Fields extends Zenvy_Customize_Bas
 				'priority'          => 75,
 				'responsive'        => [ 'desktop', 'tablet', 'mobile' ],
 			],
-			// Margin
+			// Margin.
 			'zenvy_header_woocommerce_cart_margin'         => [
 				'type'              => 'dimensions',
 				'default'           => '',
@@ -172,4 +175,5 @@ class Zenvy_Customize_Header_WooCommerce_Cart_Fields extends Zenvy_Customize_Bas
 		];
 	}
 }
+
 new Zenvy_Customize_Header_WooCommerce_Cart_Fields();

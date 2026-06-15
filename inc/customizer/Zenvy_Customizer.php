@@ -6,7 +6,7 @@
  */
 
 /**
- * Zenvy_Customizer class
+ * Zenvy_Customizer class.
  */
 class Zenvy_Customizer {
 
@@ -37,7 +37,7 @@ class Zenvy_Customizer {
 		$wp_customize->remove_control( 'header_textcolor' );
 		$wp_customize->remove_control( 'header_image' );
 
-		/** Move default sections to global panel */
+		/** Move default sections to global panel. */
 
 		$wp_customize->get_section( 'colors' )->panel    = 'zenvy_global_panel';
 		$wp_customize->get_section( 'colors' )->priority = 5;
@@ -51,53 +51,50 @@ class Zenvy_Customizer {
 		$wp_customize->get_control( 'blogdescription' )->priority = 45;
 		$wp_customize->get_control( 'blogdescription' )->label    = '';
 
-		// customizer dir path.
-		$customizer_dir = ZENVY_THEME_DIR . 'inc/customizer';
+		// Customizer dir path.
+		require ZENVY_THEME_DIR . 'inc/customizer/selective-refresh.php';
 
-		// Selective refresh
-		require $customizer_dir . '/selective-refresh.php';
+		// Customizer sanitize callback functions.
+		require_once ZENVY_THEME_DIR . 'inc/customizer/Zenvy_Customizer_Sanitize_Callback.php';
 
-		// Customizer sanitize callback functions
-		require_once $customizer_dir . '/Zenvy_Customizer_Sanitize_Callback.php';
-
-		// Custom Section
-		require_once $customizer_dir . '/sections/Zenvy_Customize_Custom_Section.php';
+		// Custom Section.
+		require_once ZENVY_THEME_DIR . 'inc/customizer/sections/Zenvy_Customize_Custom_Section.php';
 
 		// Load base class for controls.
-		require_once $customizer_dir . '/controls/base/Zenvy_Customize_Base_Control.php';
+		require_once ZENVY_THEME_DIR . 'inc/customizer/controls/base/Zenvy_Customize_Base_Control.php';
 		// Load custom control classes.
-		require_once $customizer_dir . '/controls/background/Zenvy_Customize_Background_Control.php';
-		require_once $customizer_dir . '/controls/border/Zenvy_Customize_Border_Control.php';
-		require_once $customizer_dir . '/controls/box-shadow/Zenvy_Customize_Box_Shadow_Control.php';
-		require_once $customizer_dir . '/controls/typography/Zenvy_Customize_Typography_Control.php';
-		require_once $customizer_dir . '/controls/sortable/Zenvy_Customize_Sortable_Control.php';
-		require_once $customizer_dir . '/controls/group/Zenvy_Customize_Group_Control.php';
-		require_once $customizer_dir . '/controls/toggle/Zenvy_Customize_Toggle_Control.php';
-		require_once $customizer_dir . '/controls/color/Zenvy_Customize_Color_Control.php';
-		require_once $customizer_dir . '/controls/buttonset/Zenvy_Customize_Buttonset_Control.php';
-		require_once $customizer_dir . '/controls/range/Zenvy_Customize_Range_Control.php';
-		require_once $customizer_dir . '/controls/dimensions/Zenvy_Customize_Dimensions_Control.php';
-		require_once $customizer_dir . '/controls/editor/Zenvy_Customize_Editor_Control.php';
-		require_once $customizer_dir . '/controls/radio-image/Zenvy_Customize_Radio_Image_Control.php';
-		require_once $customizer_dir . '/controls/heading/Zenvy_Customize_Heading_Control.php';
-		require_once $customizer_dir . '/controls/select/Zenvy_Customize_Select_Control.php';
-		require_once $customizer_dir . '/controls/select/Zenvy_Customize_Multi_Select_Control.php';
-		require_once $customizer_dir . '/controls/select/Zenvy_Customize_Icon_Select_Control.php';
-		require_once $customizer_dir . '/controls/repeater/Zenvy_Customize_Repeater_Control.php';
-		require_once $customizer_dir . '/controls/repeater/Zenvy_Customize_Repeater_Setting.php';
+		require_once ZENVY_THEME_DIR . 'inc/customizer/controls/background/Zenvy_Customize_Background_Control.php';
+		require_once ZENVY_THEME_DIR . 'inc/customizer/controls/border/Zenvy_Customize_Border_Control.php';
+		require_once ZENVY_THEME_DIR . 'inc/customizer/controls/box-shadow/Zenvy_Customize_Box_Shadow_Control.php';
+		require_once ZENVY_THEME_DIR . 'inc/customizer/controls/typography/Zenvy_Customize_Typography_Control.php';
+		require_once ZENVY_THEME_DIR . 'inc/customizer/controls/sortable/Zenvy_Customize_Sortable_Control.php';
+		require_once ZENVY_THEME_DIR . 'inc/customizer/controls/group/Zenvy_Customize_Group_Control.php';
+		require_once ZENVY_THEME_DIR . 'inc/customizer/controls/toggle/Zenvy_Customize_Toggle_Control.php';
+		require_once ZENVY_THEME_DIR . 'inc/customizer/controls/color/Zenvy_Customize_Color_Control.php';
+		require_once ZENVY_THEME_DIR . 'inc/customizer/controls/buttonset/Zenvy_Customize_Buttonset_Control.php';
+		require_once ZENVY_THEME_DIR . 'inc/customizer/controls/range/Zenvy_Customize_Range_Control.php';
+		require_once ZENVY_THEME_DIR . 'inc/customizer/controls/dimensions/Zenvy_Customize_Dimensions_Control.php';
+		require_once ZENVY_THEME_DIR . 'inc/customizer/controls/editor/Zenvy_Customize_Editor_Control.php';
+		require_once ZENVY_THEME_DIR . 'inc/customizer/controls/radio-image/Zenvy_Customize_Radio_Image_Control.php';
+		require_once ZENVY_THEME_DIR . 'inc/customizer/controls/heading/Zenvy_Customize_Heading_Control.php';
+		require_once ZENVY_THEME_DIR . 'inc/customizer/controls/select/Zenvy_Customize_Select_Control.php';
+		require_once ZENVY_THEME_DIR . 'inc/customizer/controls/select/Zenvy_Customize_Multi_Select_Control.php';
+		require_once ZENVY_THEME_DIR . 'inc/customizer/controls/select/Zenvy_Customize_Icon_Select_Control.php';
+		require_once ZENVY_THEME_DIR . 'inc/customizer/controls/repeater/Zenvy_Customize_Repeater_Control.php';
+		require_once ZENVY_THEME_DIR . 'inc/customizer/controls/repeater/Zenvy_Customize_Repeater_Setting.php';
 
 		/**
-		 * Add Panels
+		 * Add Panels.
 		 */
 		self::zenvy_add_panels( $wp_customize );
 
 		/**
-		 * Add Sections
+		 * Add Sections.
 		 */
 		self::zenvy_add_sections( $wp_customize );
 
 		/**
-		 * Add Repeater Fields
+		 * Add Repeater Fields.
 		 */
 		self::zenvy_add_repeater_fields( $wp_customize );
 	}
@@ -111,7 +108,7 @@ class Zenvy_Customizer {
 	}
 
 	/**
-	 * heme Customizer JS
+	 * Theme Customizer JS.
 	 */
 	public function zenvy_customize_js() {
 
@@ -121,11 +118,11 @@ class Zenvy_Customizer {
 		// Add output of Customizer settings as inline style.
 		wp_add_inline_style( 'zenvy-customize-controls', Zenvy_Customizer_Inline_Style::css_output( 'customizer' ) );
 
-		// Enqueue alpha color picker script
+		// Enqueue alpha color picker script.
 		wp_enqueue_script( 'wp-color-picker-alpha', ZENVY_THEME_URI . 'assets/build/library/wp-color-picker-alpha.js', [ 'jquery', 'wp-color-picker' ], '2.1.4', true );
 
 		// Enqueue the font awesome style.
-		wp_enqueue_style( 'font-awesome', ZENVY_THEME_URI . 'assets/build/library/all.min.css' );
+		wp_enqueue_style( 'font-awesome', ZENVY_THEME_URI . 'assets/build/library/all.min.css', [], ZENVY_THEME_VERSION, 'all' );
 
 		// Enqueue the scripts.
 		wp_enqueue_script( 'zenvy-customize-controls', ZENVY_THEME_URI . 'assets/build/js/customize-controls.js', [ 'jquery', 'customize-controls', 'customize-base', 'wp-color-picker-alpha', 'jquery-ui-sortable' ], ZENVY_THEME_VERSION, true );
@@ -155,7 +152,7 @@ class Zenvy_Customizer {
 	public function zenvy_customize_option_fields() {
 
 		/**
-		 * Customizer outputs
+		 * Customizer outputs.
 		 */
 		require ZENVY_THEME_DIR . 'inc/customizer/Zenvy_Customizer_Inline_Style.php';
 
@@ -165,7 +162,7 @@ class Zenvy_Customizer {
 		require ZENVY_THEME_DIR . 'inc/customizer/options/Zenvy_Customize_Base_Field.php';
 
 		/**
-		 * Global Fields
+		 * Global Fields.
 		 */
 		require ZENVY_THEME_DIR . 'inc/customizer/options/global/Zenvy_Customize_Global_Social_Fields.php';
 		require ZENVY_THEME_DIR . 'inc/customizer/options/global/Zenvy_Customize_Global_Placeholder_Fields.php';
@@ -179,7 +176,7 @@ class Zenvy_Customizer {
 		require ZENVY_THEME_DIR . 'inc/customizer/options/global/Zenvy_Customize_Global_Color_Fields.php';
 
 		/**
-		 * Front Page Fields
+		 * Front Page Fields.
 		 */
 		require ZENVY_THEME_DIR . 'inc/customizer/options/front-page/Zenvy_Customize_Front_Page_General_Fields.php';
 		require ZENVY_THEME_DIR . 'inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Featured_Section_Fields.php';
@@ -191,7 +188,7 @@ class Zenvy_Customizer {
 		require ZENVY_THEME_DIR . 'inc/customizer/options/front-page/Zenvy_Customize_Front_Page_Shop_Section_Fields.php';
 
 		/**
-		 * Blog Posts Fields
+		 * Blog Posts Fields.
 		 */
 		require ZENVY_THEME_DIR . 'inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Page_Header_Fields.php';
 		require ZENVY_THEME_DIR . 'inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Posts_Layout_Fields.php';
@@ -202,7 +199,7 @@ class Zenvy_Customizer {
 		require ZENVY_THEME_DIR . 'inc/customizer/options/blog-posts/Zenvy_Customize_Blog_Sidebar_Fields.php';
 
 		/**
-		 * Single Posts Fields
+		 * Single Posts Fields.
 		 */
 		require ZENVY_THEME_DIR . 'inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Content_Fields.php';
 		require ZENVY_THEME_DIR . 'inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Header_Fields.php';
@@ -211,25 +208,26 @@ class Zenvy_Customizer {
 		require ZENVY_THEME_DIR . 'inc/customizer/options/single-post/Zenvy_Customize_Single_Post_Sidebar_Fields.php';
 
 		/**
-		 * Single Page Fields
+		 * Single Page Fields.
 		 */
 		require ZENVY_THEME_DIR . 'inc/customizer/options/single-page/Zenvy_Customize_Single_Page_Content_Fields.php';
 		require ZENVY_THEME_DIR . 'inc/customizer/options/single-page/Zenvy_Customize_Single_Page_Header_Fields.php';
 		require ZENVY_THEME_DIR . 'inc/customizer/options/single-page/Zenvy_Customize_Single_Page_Featured_Image_Fields.php';
 		require ZENVY_THEME_DIR . 'inc/customizer/options/single-page/Zenvy_Customize_Single_Page_Title_Fields.php';
 		require ZENVY_THEME_DIR . 'inc/customizer/options/single-page/Zenvy_Customize_Single_Page_Sidebar_Fields.php';
+
 		/**
-		 * 404 Page Fields
+		 * 404 Page Fields.
 		 */
 		require ZENVY_THEME_DIR . 'inc/customizer/options/404-page/Zenvy_Customize_404_Page_Header_Fields.php';
 		require ZENVY_THEME_DIR . 'inc/customizer/options/404-page/Zenvy_Customize_404_Page_Content_Fields.php';
 	}
 
 	/**
-	 * Add customizer panels
+	 * Add customizer panels.
 	 *
 	 * @access public
-	 * @param object $wp_customize the object.
+	 * @param object $wp_customize The object.
 	 * @return void
 	 */
 	public static function zenvy_add_panels( $wp_customize ) {
@@ -272,10 +270,10 @@ class Zenvy_Customizer {
 	}
 
 	/**
-	 * Add customizer sections
+	 * Add customizer sections.
 	 *
 	 * @access public
-	 * @param object $wp_customize the object.
+	 * @param object $wp_customize The object.
 	 * @return void
 	 */
 	public static function zenvy_add_sections( $wp_customize ) {
@@ -284,70 +282,75 @@ class Zenvy_Customizer {
 
 		/*
 		--------------------------------------------------------------
-		# Global Sections
-		--------------------------------------------------------------*/
-		// Typography
+		# Global Sections.
+		--------------------------------------------------------------
+		*/
+
+		// Typography.
 		$sections['typography'] = [
 			'title'    => esc_html__( 'Typography', 'zenvy' ),
 			'panel'    => 'zenvy_global_panel',
 			'priority' => 10,
 		];
-		// Body
+		// Body.
 		$sections['body'] = [
 			'title'    => esc_html__( 'Body', 'zenvy' ),
 			'panel'    => 'zenvy_global_panel',
 			'priority' => 10,
 		];
-		// Container
+		// Container.
 		$sections['container'] = [
 			'title'    => esc_html__( 'Container', 'zenvy' ),
 			'panel'    => 'zenvy_global_panel',
 			'priority' => 15,
 		];
 
-		// Buttons
+		// Buttons.
 		$sections['button'] = [
 			'title'    => esc_html__( 'Buttons', 'zenvy' ),
 			'panel'    => 'zenvy_global_panel',
 			'priority' => 20,
 		];
 
-		// Page Header
+		// Page Header.
 		$sections['page_header'] = [
 			'title'    => esc_html__( 'Page Header', 'zenvy' ),
 			'panel'    => 'zenvy_global_panel',
 			'priority' => 30,
 		];
-		// Post Meta
+		// Post Meta.
 		$sections['post_meta'] = [
 			'title'    => esc_html__( 'Post Meta', 'zenvy' ),
 			'panel'    => 'zenvy_global_panel',
 			'priority' => 35,
 		];
-		// Sidebar
+		// Sidebar.
 		$sections['sidebar'] = [
 			'title'    => esc_html__( 'Sidebar', 'zenvy' ),
 			'panel'    => 'zenvy_global_panel',
 			'priority' => 40,
 		];
-		// Social
+		// Social.
 		$sections['social'] = [
 			'title'    => esc_html__( 'Social', 'zenvy' ),
 			'panel'    => 'zenvy_global_panel',
 			'priority' => 45,
 		];
 
-		// Placeholder
+		// Placeholder.
 		$sections['placeholder'] = [
 			'title'    => esc_html__( 'Placeholder Image', 'zenvy' ),
 			'panel'    => 'zenvy_global_panel',
 			'priority' => 50,
 		];
+
 		/*
 		--------------------------------------------------------------
-		# Header Sections
-		--------------------------------------------------------------*/
-		// Header General
+		# Header Sections.
+		--------------------------------------------------------------
+		*/
+
+		// Header General.
 		$sections['header_general'] = [
 			'title'    => esc_html__( 'Header General', 'zenvy' ),
 			'panel'    => 'zenvy_header_panel',
@@ -356,44 +359,46 @@ class Zenvy_Customizer {
 
 		/*
 		--------------------------------------------------------------
-		# Front Page Sections
-		--------------------------------------------------------------*/
-		// General Settings
+		# Front Page Sections.
+		--------------------------------------------------------------
+		*/
+
+		// General Settings.
 		$sections['front_page_general'] = [
 			'title'    => esc_html__( 'General', 'zenvy' ),
 			'panel'    => 'zenvy_front_page_panel',
 			'priority' => 10,
 		];
 
-		// Featured Section
+		// Featured Section.
 		$sections['front_page_featured'] = [
 			'title'    => esc_html__( 'Featured Section', 'zenvy' ),
 			'panel'    => 'zenvy_front_page_panel',
 			'priority' => 15,
 		];
 
-		// Explore Section
+		// Explore Section.
 		$sections['front_page_explore'] = [
 			'title'    => esc_html__( 'Explore Categories Section', 'zenvy' ),
 			'panel'    => 'zenvy_front_page_panel',
 			'priority' => 20,
 		];
 
-		// Latest Posts
+		// Latest Posts.
 		$sections['front_page_latest_posts'] = [
 			'title'    => esc_html__( 'Latest Posts Section', 'zenvy' ),
 			'panel'    => 'zenvy_front_page_panel',
 			'priority' => 25,
 		];
 
-		// Testimonial
+		// Testimonial.
 		$sections['front_page_quote'] = [
 			'title'    => esc_html__( 'Testimonial Quote Section', 'zenvy' ),
 			'panel'    => 'zenvy_front_page_panel',
 			'priority' => 30,
 		];
 
-		// Trending Posts
+		// Trending Posts.
 		$sections['front_page_trending_posts'] = [
 			'title'       => esc_html__( 'Trending Posts Section', 'zenvy' ),
 			'panel'       => 'zenvy_front_page_panel',
@@ -401,15 +406,15 @@ class Zenvy_Customizer {
 			'priority'    => 35,
 		];
 
-		// Youtube Promotion Section
+		// Youtube Promotion Section.
 		$sections['front_page_youtube_promotion'] = [
 			'title'    => esc_html__( 'YouTube Promotion Section', 'zenvy' ),
 			'panel'    => 'zenvy_front_page_panel',
 			'priority' => 40,
 		];
 
-		// Woocommerce shop Section
-		$sections['front_page_shop'] = [        
+		// Woocommerce shop Section.
+		$sections['front_page_shop'] = [
 			'title'    => esc_html__( 'Shop Section', 'zenvy' ),
 			'panel'    => 'zenvy_front_page_panel',
 			'priority' => 45,
@@ -417,34 +422,36 @@ class Zenvy_Customizer {
 
 		/*
 		--------------------------------------------------------------
-		# About Page Sections
-		--------------------------------------------------------------*/
-		// Sortable Elements
+		# About Page Sections.
+		--------------------------------------------------------------
+		*/
+
+		// Sortable Elements.
 		$sections['about_page_elements'] = [
 			'title'    => esc_html__( 'Sortable Elements', 'zenvy' ),
 			'panel'    => 'zenvy_about_page_panel',
 			'priority' => 10,
 		];
 
-		// Mission Section
+		// Mission Section.
 		$sections['about_page_mission'] = [
 			'title'    => esc_html__( 'Our Mission', 'zenvy' ),
 			'panel'    => 'zenvy_about_page_panel',
 			'priority' => 15,
 		];
-		// Process Section
+		// Process Section.
 		$sections['about_page_process'] = [
 			'title'    => esc_html__( 'Work Process', 'zenvy' ),
 			'panel'    => 'zenvy_about_page_panel',
 			'priority' => 20,
 		];
-		// Why Us Section
+		// Why Us Section.
 		$sections['about_page_services'] = [
 			'title'    => esc_html__( 'Why Us?', 'zenvy' ),
 			'panel'    => 'zenvy_about_page_panel',
 			'priority' => 20,
 		];
-		// Agent Section
+		// Agent Section.
 		$sections['about_page_agents'] = [
 			'title'    => esc_html__( 'Property Agents', 'zenvy' ),
 			'panel'    => 'zenvy_about_page_panel',
@@ -453,45 +460,47 @@ class Zenvy_Customizer {
 
 		/*
 		--------------------------------------------------------------
-		# Blog Posts Sections
-		--------------------------------------------------------------*/
-		// Page Header
+		# Blog Posts Sections.
+		--------------------------------------------------------------
+		*/
+
+		// Page Header.
 		$sections['blog_page_header'] = [
 			'title'    => esc_html__( 'Page Header', 'zenvy' ),
 			'panel'    => 'zenvy_blog_posts_panel',
 			'priority' => 10,
 		];
-		// Posts layout
+		// Posts layout.
 		$sections['blog_posts_layout'] = [
 			'title'    => esc_html__( 'Post Content', 'zenvy' ),
 			'panel'    => 'zenvy_blog_posts_panel',
 			'priority' => 15,
 		];
-		// Featured Image
+		// Featured Image.
 		$sections['blog_post_featured_image'] = [
 			'title'    => esc_html__( 'Featured Image', 'zenvy' ),
 			'panel'    => 'zenvy_blog_posts_panel',
 			'priority' => 20,
 		];
-		// Post title
+		// Post title.
 		$sections['blog_post_title'] = [
 			'title'    => esc_html__( 'Page Title', 'zenvy' ),
 			'panel'    => 'zenvy_blog_posts_panel',
 			'priority' => 25,
 		];
-		// Read More
+		// Read More.
 		$sections['blog_post_read_more'] = [
 			'title'    => esc_html__( 'Read More', 'zenvy' ),
 			'panel'    => 'zenvy_blog_posts_panel',
 			'priority' => 40,
 		];
-		// Pagination
+		// Pagination.
 		$sections['blog_pagination'] = [
 			'title'    => esc_html__( 'Pagination', 'zenvy' ),
 			'panel'    => 'zenvy_blog_posts_panel',
 			'priority' => 45,
 		];
-		// Sidebar
+		// Sidebar.
 		$sections['blog_sidebar'] = [
 			'title'    => esc_html__( 'Sidebar', 'zenvy' ),
 			'panel'    => 'zenvy_blog_posts_panel',
@@ -500,71 +509,76 @@ class Zenvy_Customizer {
 
 		/*
 		--------------------------------------------------------------
-		# Single Post Sections
-		--------------------------------------------------------------*/
-		// Post Header
+		# Single Post Sections.
+		--------------------------------------------------------------
+		*/
+
+		// Post Header.
 		$sections['single_post_header'] = [
 			'title'    => esc_html__( 'Page Header', 'zenvy' ),
 			'panel'    => 'zenvy_single_post_panel',
 			'priority' => 10,
 		];
-		// Post Content
+		// Post Content.
 		$sections['single_post_content'] = [
 			'title'    => esc_html__( 'Post Content', 'zenvy' ),
 			'panel'    => 'zenvy_single_post_panel',
 			'priority' => 10,
 		];
 
-		// Post Title
+		// Post Title.
 		$sections['single_post_title'] = [
 			'title'    => esc_html__( 'Post Title', 'zenvy' ),
 			'panel'    => 'zenvy_single_post_panel',
 			'priority' => 20,
 		];
-		
-		// Featured Image
+
+		// Featured Image.
 		$sections['single_post_featured_image'] = [
 			'title'    => esc_html__( 'Featured Image', 'zenvy' ),
 			'panel'    => 'zenvy_single_post_panel',
 			'priority' => 25,
 		];
-		// Sidebar
+		// Sidebar.
 		$sections['single_post_sidebar'] = [
 			'title'    => esc_html__( 'Sidebar', 'zenvy' ),
 			'panel'    => 'zenvy_single_post_panel',
 			'priority' => 45,
 		];
+
 		/*
 		--------------------------------------------------------------
-		# Single Page Sections
-		--------------------------------------------------------------*/
-		// Page Header
+		# Single Page Sections.
+		--------------------------------------------------------------
+		*/
+
+		// Page Header.
 		$sections['single_page_header'] = [
 			'title'    => esc_html__( 'Page Header', 'zenvy' ),
 			'panel'    => 'zenvy_single_page_panel',
 			'priority' => 10,
 		];
 
-		// Page Content
+		// Page Content.
 		$sections['single_page_content'] = [
 			'title'    => esc_html__( 'Page Content', 'zenvy' ),
 			'panel'    => 'zenvy_single_page_panel',
 			'priority' => 15,
 		];
 
-		// Page Title
+		// Page Title.
 		$sections['single_page_title'] = [
 			'title'    => esc_html__( 'Page Title', 'zenvy' ),
 			'panel'    => 'zenvy_single_page_panel',
 			'priority' => 20,
 		];
-		// Featured Image
+		// Featured Image.
 		$sections['single_page_featured_image'] = [
 			'title'    => esc_html__( 'Featured Image', 'zenvy' ),
 			'panel'    => 'zenvy_single_page_panel',
 			'priority' => 25,
 		];
-		// Sidebar
+		// Sidebar.
 		$sections['single_page_sidebar'] = [
 			'title'    => esc_html__( 'Sidebar', 'zenvy' ),
 			'panel'    => 'zenvy_single_page_panel',
@@ -573,15 +587,17 @@ class Zenvy_Customizer {
 
 		/*
 		--------------------------------------------------------------
-		# Error Page Sections
-		--------------------------------------------------------------*/
-		// 404 Page Header
+		# Error Page Sections.
+		--------------------------------------------------------------
+		*/
+
+		// 404 Page Header.
 		$sections['404_page_header'] = [
 			'title'    => esc_html__( 'Page Header', 'zenvy' ),
 			'panel'    => 'zenvy_404_page_panel',
 			'priority' => 10,
 		];
-		// 404 Page Header
+		// 404 Page Content.
 		$sections['404_page_content'] = [
 			'title'    => esc_html__( 'Page Content', 'zenvy' ),
 			'panel'    => 'zenvy_404_page_panel',
@@ -593,7 +609,7 @@ class Zenvy_Customizer {
 			$wp_customize->add_section( 'zenvy_' . str_replace( '-', '_', $section_id ) . '_section', $section_args );
 		}
 
-		// Register sections.
+		// Register custom sections.
 		$wp_customize->add_section(
 			new Zenvy_Customize_Custom_Section(
 				$wp_customize,
@@ -625,7 +641,7 @@ class Zenvy_Customizer {
 			)
 		);
 
-		// Header Builder
+		// Header Builder.
 		$wp_customize->add_section(
 			new Zenvy_Customize_Custom_Section(
 				$wp_customize,
@@ -638,7 +654,7 @@ class Zenvy_Customizer {
 			)
 		);
 
-		// Footer Builder
+		// Footer Builder.
 		$wp_customize->add_section(
 			new Zenvy_Customize_Custom_Section(
 				$wp_customize,
@@ -662,7 +678,7 @@ class Zenvy_Customizer {
 			)
 		);
 
-		// Front Page
+		// Front Page.
 		$wp_customize->add_section(
 			new Zenvy_Customize_Custom_Section(
 				$wp_customize,
@@ -677,15 +693,15 @@ class Zenvy_Customizer {
 	}
 
 	/**
-	 * Add customizer repeater fields
+	 * Add customizer repeater fields.
 	 *
 	 * @access public
-	 * @param object $wp_customize the object.
+	 * @param object $wp_customize The object.
 	 * @return void
 	 */
 	public static function zenvy_add_repeater_fields( $wp_customize ) {
 
-		// Global Social Icons
+		// Global Social Icons.
 		$wp_customize->add_setting(
 			new Zenvy_Customize_Repeater_Setting(
 				$wp_customize,
@@ -740,7 +756,7 @@ class Zenvy_Customizer {
 			)
 		);
 
-		// Front Page: Explore Section Repeater
+		// Front Page: Explore Section Repeater.
 		$wp_customize->add_setting(
 			new Zenvy_Customize_Repeater_Setting(
 				$wp_customize,
@@ -775,139 +791,6 @@ class Zenvy_Customizer {
 						'field' => 'category_slug',
 					],
 					'priority'  => 15,
-				]
-			)
-		);
-
-		// Header Builder: Contact Info
-		$wp_customize->add_setting(
-			new Zenvy_Customize_Repeater_Setting(
-				$wp_customize,
-				'zenvy_header_contact_info_list',
-				[
-					'default'           => [
-						[
-							'title'     => esc_html__( '0123456789', 'zenvy' ),
-							'subtitle'  => esc_html__( 'phone number', 'zenvy' ),
-							'icon'      => 'fa-phone',
-							'link_type' => 'tel',
-							'link'      => '#',
-						],
-						[
-							'title'     => esc_html__( 'youremail@gmail.com', 'zenvy' ),
-							'subtitle'  => esc_html__( 'email address', 'zenvy' ),
-							'icon'      => 'fa-envelope',
-							'link_type' => 'email',
-							'link'      => '#',
-						],
-						[
-							'title'     => esc_html__( 'address', 'zenvy' ),
-							'subtitle'  => esc_html__( 'find us', 'zenvy' ),
-							'icon'      => 'fa-map-marker',
-							'link_type' => 'disable',
-							'link'      => '#',
-						],
-					],
-					'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_repeater' ],
-				]
-			)
-		);
-		$wp_customize->add_control(
-			new Zenvy_Customize_Repeater_Control(
-				$wp_customize,
-				'zenvy_header_contact_info_list',
-				[
-					'label'       => esc_html__( 'Contact Info', 'zenvy' ),
-					'description' => esc_html__( 'Click add button to add new contact item.', 'zenvy' ),
-					'section'     => 'contact_info',
-					'priority'    => 15,
-					'fields'      => [
-						'icon'      => [
-							'type'        => 'font',
-							'label'       => esc_html__( 'Icon', 'zenvy' ),
-							'description' => esc_html__( 'Example: fa fa-facebook-f', 'zenvy' ),
-						],
-						'title'     => [
-							'type'  => 'text',
-							'label' => esc_html__( 'Title', 'zenvy' ),
-						],
-						'subtitle'  => [
-							'type'  => 'text',
-							'label' => esc_html__( 'Sub Title', 'zenvy' ),
-						],
-						'link_type' => [
-							'type'    => 'select',
-							'default' => '#',
-							'label'   => esc_html__( 'Link Type', 'zenvy' ),
-							'choices' => [
-								'url'     => esc_html__( 'URL', 'zenvy' ),
-								'tel'     => esc_html__( 'Tel', 'zenvy' ),
-								'email'   => esc_html__( 'Email', 'zenvy' ),
-								'disable' => esc_html__( 'Disable', 'zenvy' ),
-							],
-						],
-						'link'      => [
-							'type'    => 'url',
-							'default' => '#',
-							'label'   => esc_html__( 'URL', 'zenvy' ),
-						],
-					],
-					'row_label'   => [
-						'type'  => 'field',
-						'value' => esc_html__( 'Contact', 'zenvy' ),
-						'field' => 'title',
-					],
-				]
-			)
-		);
-
-		// Footer Builder: Multi Button
-		$wp_customize->add_setting(
-			new Zenvy_Customize_Repeater_Setting(
-				$wp_customize,
-				'zenvy_footer_multi_buttons_list',
-				[
-					'default'           => [
-						[
-							'title' => esc_html__( 'log in / register', 'zenvy' ),
-							'icon'  => 'fa-user-circle-o',
-							'link'  => '#',
-						],
-					],
-					'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_repeater' ],
-				]
-			)
-		);
-		$wp_customize->add_control(
-			new Zenvy_Customize_Repeater_Control(
-				$wp_customize,
-				'zenvy_footer_multi_buttons_list',
-				[
-					'label'       => esc_html__( 'Buttons List', 'zenvy' ),
-					'description' => esc_html__( 'Click add button to add new button item.', 'zenvy' ),
-					'section'     => 'footer_multi_buttons',
-					'priority'    => 15,
-					'fields'      => [
-						'icon'  => [
-							'type'        => 'font',
-							'label'       => esc_html__( 'Icon', 'zenvy' ),
-							'description' => esc_html__( 'Example: fa fa-facebook-f', 'zenvy' ),
-						],
-						'title' => [
-							'type'  => 'text',
-							'label' => esc_html__( 'Title', 'zenvy' ),
-						],
-						'link'  => [
-							'type'    => 'url',
-							'default' => '#',
-							'label'   => esc_html__( 'URL', 'zenvy' ),
-						],
-					],
-					'row_label'   => [
-						'type'  => 'field',
-						'value' => esc_html__( 'Button', 'zenvy' ),
-						'field' => 'title',
-					],
 				]
 			)
 		);

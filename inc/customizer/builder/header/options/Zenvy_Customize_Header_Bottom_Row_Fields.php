@@ -1,10 +1,15 @@
 <?php
 /**
- * Blogin Aarambha Theme Customizer Header Bottom Row settings
+ * Zenvy Theme Customizer Header Bottom Row settings
  *
  * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Customize_Header_Bottom_Row_Fields
+ *
+ * Header bottom row customizer fields.
+ */
 class Zenvy_Customize_Header_Bottom_Row_Fields extends Zenvy_Customize_Base_Field {
 
 	/**
@@ -14,7 +19,7 @@ class Zenvy_Customize_Header_Bottom_Row_Fields extends Zenvy_Customize_Base_Fiel
 	 */
 	public function init() {
 		$this->args = [
-			// Grouping Settings
+			// Grouping Settings.
 			'zenvy_header_bottom_row_group_settings'     => [
 				'type'     => 'group',
 				'section'  => 'zenvy_header_bottom',
@@ -37,7 +42,7 @@ class Zenvy_Customize_Header_Bottom_Row_Fields extends Zenvy_Customize_Base_Fiel
 					],
 				],
 			],
-			// Min Height
+			// Min Height.
 			'zenvy_header_bottom_row_height'             => [
 				'type'              => 'range',
 				'default'           => [ 'desktop' => '0px' ],
@@ -52,7 +57,7 @@ class Zenvy_Customize_Header_Bottom_Row_Fields extends Zenvy_Customize_Base_Fiel
 					'max' => 400,
 				],
 			],
-			// Left Column Justify Content
+			// Left Column Justify Content.
 			'zenvy_header_bottom_row_left_col_content_justify' => [
 				'type'              => 'buttonset',
 				'default'           => [
@@ -72,7 +77,7 @@ class Zenvy_Customize_Header_Bottom_Row_Fields extends Zenvy_Customize_Base_Fiel
 				],
 				'responsive'        => [ 'desktop', 'tablet', 'mobile' ],
 			],
-			// Center Column Justify Content
+			// Center Column Justify Content.
 			'zenvy_header_bottom_row_center_col_content_justify' => [
 				'type'              => 'buttonset',
 				'default'           => [
@@ -92,7 +97,7 @@ class Zenvy_Customize_Header_Bottom_Row_Fields extends Zenvy_Customize_Base_Fiel
 				],
 				'responsive'        => [ 'desktop', 'tablet', 'mobile' ],
 			],
-			// Right Column Justify Content
+			// Right Column Justify Content.
 			'zenvy_header_bottom_row_right_col_content_justify' => [
 				'type'              => 'buttonset',
 				'default'           => [
@@ -112,7 +117,7 @@ class Zenvy_Customize_Header_Bottom_Row_Fields extends Zenvy_Customize_Base_Fiel
 				],
 				'responsive'        => [ 'desktop', 'tablet', 'mobile' ],
 			],
-			// Background Overlay
+			// Background Overlay.
 			'zenvy_header_bottom_row_background_overlay' => [
 				'type'              => 'background',
 				'default'           => '',

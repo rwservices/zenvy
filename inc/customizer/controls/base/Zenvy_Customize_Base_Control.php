@@ -19,7 +19,7 @@ class Zenvy_Customize_Base_Control extends WP_Customize_Control {
 	public $l10n = [];
 
 	/**
-	 * Add custom class
+	 * Add custom class.
 	 *
 	 * @access public
 	 * @var string
@@ -27,7 +27,7 @@ class Zenvy_Customize_Base_Control extends WP_Customize_Control {
 	public $css_class = '';
 
 	/**
-	 * array of units choices
+	 * Array of units choices.
 	 *
 	 * @access public
 	 * @var array
@@ -35,7 +35,7 @@ class Zenvy_Customize_Base_Control extends WP_Customize_Control {
 	public $units = [ 'px' ];
 
 	/**
-	 * array of responsive devices
+	 * Array of responsive devices.
 	 *
 	 * @access public
 	 * @var array
@@ -43,7 +43,7 @@ class Zenvy_Customize_Base_Control extends WP_Customize_Control {
 	public $responsive = [ 'desktop' ];
 
 	/**
-	 * array of disable sides for dimensions
+	 * Array of disable sides for dimensions.
 	 *
 	 * @access public
 	 * @var array
@@ -51,7 +51,7 @@ class Zenvy_Customize_Base_Control extends WP_Customize_Control {
 	public $off_sides = [];
 
 	/**
-	 * array of Settings fields
+	 * Array of settings fields.
 	 *
 	 * @access public
 	 * @var array
@@ -59,7 +59,7 @@ class Zenvy_Customize_Base_Control extends WP_Customize_Control {
 	public $fields = [];
 
 	/**
-	 * array of Settings for colors
+	 * Array of settings for colors.
 	 *
 	 * @access public
 	 * @var array
@@ -67,7 +67,7 @@ class Zenvy_Customize_Base_Control extends WP_Customize_Control {
 	public $colors = [ 'color_1' => 'Normal' ];
 
 	/**
-	 * array of Settings for inherits values
+	 * Array of settings for inherits values.
 	 *
 	 * @access public
 	 * @var array
@@ -113,22 +113,22 @@ class Zenvy_Customize_Base_Control extends WP_Customize_Control {
 		// Choices.
 		$this->json['choices'] = $this->choices;
 
-		// style class
+		// Style class.
 		$this->json['css_class'] = $this->css_class;
 
-		// Units Choices
+		// Units choices.
 		$this->json['units'] = $this->units;
 
-		// Off Sides
+		// Off sides.
 		$this->json['off_sides'] = $this->off_sides;
 
-		// Colors
+		// Colors.
 		$this->json['colors'] = $this->colors;
 
-		// Inherits
+		// Inherits.
 		$this->json['inherits'] = $this->inherits;
 
-		// Responsive Devices
+		// Responsive devices.
 		$this->json['responsive'] = $this->responsive;
 	}
 

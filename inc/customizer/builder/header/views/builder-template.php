@@ -1,19 +1,13 @@
 <?php
 /**
- * Add Header Builder Template
+ * Add Header Builder Template.
  *
  * @package Zenvy
  */
 
-/*
-----------------------------------------------------------------------
-// Exit if accessed directly
--------------------------------------------------------------------------*/
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-
-
 
 ?>
 

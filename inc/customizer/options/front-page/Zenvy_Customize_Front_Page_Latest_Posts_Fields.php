@@ -5,6 +5,11 @@
  * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Customize_Front_Page_Latest_Posts_Fields
+ * 
+ * Handles customizer front page latest posts fields for the Zenvy theme.
+ */
 class Zenvy_Customize_Front_Page_Latest_Posts_Fields extends Zenvy_Customize_Base_Field {
 	/**
 	 * Arguments for fields.
@@ -13,7 +18,7 @@ class Zenvy_Customize_Front_Page_Latest_Posts_Fields extends Zenvy_Customize_Bas
 	 */
 	public function init() {
 		$this->args = [
-			// Grouping Settings
+			// Grouping Settings.
 			'zenvy_front_page_latest_posts_group_settings' => [
 				'type'     => 'group',
 				'section'  => 'zenvy_front_page_latest_posts_section',
@@ -41,7 +46,7 @@ class Zenvy_Customize_Front_Page_Latest_Posts_Fields extends Zenvy_Customize_Bas
 				],
 			],
 
-			// Number of posts to be displayed in latest posts section
+			// Number of posts to be displayed in latest posts section.
 			'zenvy_front_page_latest_posts_number'         => [
 				'type'              => 'range',
 				'default'           => [ 'desktop' => 3 ],
@@ -58,7 +63,7 @@ class Zenvy_Customize_Front_Page_Latest_Posts_Fields extends Zenvy_Customize_Bas
 				],
 			],
 
-			// Enable/Disable Tags
+			// Enable/Disable Tags.
 			'zenvy_front_page_latest_posts_featured_image_tags' => [
 				'type'              => 'toggle',
 				'default'           => [ 'desktop' => 'true' ],
@@ -68,7 +73,7 @@ class Zenvy_Customize_Front_Page_Latest_Posts_Fields extends Zenvy_Customize_Bas
 				'section'           => 'zenvy_front_page_latest_posts_section',
 				'priority'          => 10,
 			],
-			// Posts Elements
+			// Posts Elements.
 			'zenvy_front_page_latest_posts_elements'       => [
 				'type'              => 'sortable',
 				'default'           => [ 'post-meta', 'post-title', 'post-excerpt', 'read-more' ],
@@ -85,14 +90,14 @@ class Zenvy_Customize_Front_Page_Latest_Posts_Fields extends Zenvy_Customize_Bas
 				],
 			],
 
-			// Note One
+			// Note One.
 			'zenvy_front_page_latest_posts_note_one'       => [
 				'type'     => 'heading',
 				'label'    => esc_html__( 'READ MORE BUTTON', 'zenvy' ),
 				'section'  => 'zenvy_front_page_latest_posts_section',
 				'priority' => 19,
 			],
-			// Type
+			// Type.
 			'zenvy_latest_posts_read_btn_type'             => [
 				'type'              => 'buttonset',
 				'default'           => [ 'desktop' => 'default' ],
@@ -107,7 +112,7 @@ class Zenvy_Customize_Front_Page_Latest_Posts_Fields extends Zenvy_Customize_Bas
 				],
 			],
 
-			// Note Two
+			// Note Two.
 			'zenvy_front_page_latest_posts_note_two'       => [
 				'type'     => 'heading',
 				'label'    => esc_html__( 'SIDEBAR', 'zenvy' ),
@@ -115,7 +120,7 @@ class Zenvy_Customize_Front_Page_Latest_Posts_Fields extends Zenvy_Customize_Bas
 				'priority' => 29,
 			],
 
-			// Show section specific sidebar for this section
+			// Show section specific sidebar for this section.
 			'zenvy_front_page_latest_posts_enable_sidebar' => [
 				'type'              => 'toggle',
 				'default'           => '',
@@ -126,7 +131,7 @@ class Zenvy_Customize_Front_Page_Latest_Posts_Fields extends Zenvy_Customize_Bas
 				'priority'          => 30,
 			],
 
-			// Background Image
+			// Background Image.
 			'zenvy_front_page_latest_posts_background'     => [
 				'type'              => 'background',
 				'default'           => '',
@@ -143,7 +148,7 @@ class Zenvy_Customize_Front_Page_Latest_Posts_Fields extends Zenvy_Customize_Bas
 					'size'       => true,
 				],
 			],
-			// Background Overlay
+			// Background Overlay.
 			'zenvy_front_page_latest_posts_background_overlay' => [
 				'type'              => 'background',
 				'default'           => [

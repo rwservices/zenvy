@@ -5,6 +5,11 @@
  * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Customize_Global_Typography_Fields
+ *
+ * Handles customizer global typography fields for the Zenvy theme.
+ */
 class Zenvy_Customize_Global_Typography_Fields extends Zenvy_Customize_Base_Field {
 
 	/**
@@ -14,7 +19,7 @@ class Zenvy_Customize_Global_Typography_Fields extends Zenvy_Customize_Base_Fiel
 	 */
 	public function init() {
 		$this->args = [
-			// Base Typography
+			// Base Typography.
 			'zenvy_base_typography'    => [
 				'type'              => 'typography',
 				'default'           => '',
@@ -29,7 +34,7 @@ class Zenvy_Customize_Global_Typography_Fields extends Zenvy_Customize_Base_Fiel
 				],
 			],
 
-			// Heading Typography
+			// Heading Typography.
 			'zenvy_heading_typography' => [
 				'type'              => 'typography',
 				'default'           => '',

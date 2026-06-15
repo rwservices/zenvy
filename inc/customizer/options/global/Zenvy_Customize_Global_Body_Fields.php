@@ -5,6 +5,11 @@
  * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Customize_Global_Body_Fields
+ *
+ * Handles customizer global body fields for the Zenvy theme.
+ */
 class Zenvy_Customize_Global_Body_Fields extends Zenvy_Customize_Base_Field {
 
 	/**
@@ -13,7 +18,7 @@ class Zenvy_Customize_Global_Body_Fields extends Zenvy_Customize_Base_Field {
 	 * @return void
 	 */
 	public function init() {
-		// Background
+		// Background.
 		$this->args = [
 			'zenvy_body_background' => [
 				'type'              => 'background',

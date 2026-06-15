@@ -1,10 +1,15 @@
-<?php 
+<?php
 /**
  * Zenvy Customizer Global Button Fields
- * 
+ *
  * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Customize_Global_Button_Fields
+ *
+ * Handles customizer global button fields for the Zenvy theme.
+ */
 class Zenvy_Customize_Global_Button_Fields extends Zenvy_Customize_Base_Field {
 
 	/**
@@ -14,7 +19,7 @@ class Zenvy_Customize_Global_Button_Fields extends Zenvy_Customize_Base_Field {
 	 */
 	public function init() {
 		$this->args = [
-			// Type
+			// Type.
 			'zenvy_button_type'       => [
 				'type'              => 'buttonset',
 				'default'           => [ 'desktop' => 'button' ],
@@ -27,7 +32,7 @@ class Zenvy_Customize_Global_Button_Fields extends Zenvy_Customize_Base_Field {
 					'button' => esc_html__( 'Button', 'zenvy' ),
 				],
 			],
-			// Button Arrow
+			// Button arrow.
 			'zenvy_button_arrow'      => [
 				'type'              => 'toggle',
 				'default'           => [ 'desktop' => 'true' ],
@@ -37,7 +42,7 @@ class Zenvy_Customize_Global_Button_Fields extends Zenvy_Customize_Base_Field {
 				'section'           => 'zenvy_button_section',
 				'priority'          => 10,
 			],
-			// Color
+			// Color.
 			'zenvy_button_text_color' => [
 				'type'              => 'color',
 				'default'           => '',
@@ -70,7 +75,7 @@ class Zenvy_Customize_Global_Button_Fields extends Zenvy_Customize_Base_Field {
 					'color_2' => 'var(--color-button-hover)',
 				],
 			],
-			// Background Color
+			// Background color.
 			'zenvy_button_bg_color'   => [
 				'type'              => 'color',
 				'default'           => '',
@@ -87,7 +92,7 @@ class Zenvy_Customize_Global_Button_Fields extends Zenvy_Customize_Base_Field {
 					'color_2' => 'var(--bg-button-hover)',
 				],
 			],
-			// Border
+			// Border.
 			'zenvy_button_border'     => [
 				'type'              => 'border',
 				'default'           => '',
@@ -102,7 +107,6 @@ class Zenvy_Customize_Global_Button_Fields extends Zenvy_Customize_Base_Field {
 					'color_1' => 'var(--color-border-button)',
 				],
 			],
-			
 		];
 	}
 }

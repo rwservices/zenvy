@@ -2540,6 +2540,12 @@ iframe {
 #sb_instagram #sbi_load .sbi_load_btn:focus, 
 #sb_instagram .sbi_follow_btn a:active,
 #sb_instagram .sbi_follow_btn a:focus,
+.post-navigation .nav-links a:active,
+.post-navigation .nav-links a:focus, 
+.posts-navigation .nav-links a:active, 
+.posts-navigation .nav-links a:focus, 
+.navigation.post-navigation .nav-links a:active,
+.navigation.post-navigation .nav-links a:focus,
 input[type="submit"]:active,
 input[type="submit"]:focus {
   color: var(--color-button-hover);
@@ -2549,7 +2555,10 @@ input[type="search"]:focus,
 input:focus,
 textarea:focus,
 .mean-container .mean-nav ul li a:focus,
-.mean-container .mean-nav ul li a:active {
+.mean-container .mean-nav ul li a:active,
+.post-navigation .nav-links a:focus, 
+.posts-navigation .nav-links a:focus, 
+.navigation.post-navigation .nav-links a:focus {
   outline: 1px dotted;
 }
 

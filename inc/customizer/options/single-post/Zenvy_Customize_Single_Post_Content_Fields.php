@@ -5,6 +5,11 @@
  * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Customize_Single_Post_Content_Fields
+ *
+ * Handles customizer single post content fields for the Zenvy theme.
+ */
 class Zenvy_Customize_Single_Post_Content_Fields extends Zenvy_Customize_Base_Field {
 
 	/**
@@ -15,7 +20,7 @@ class Zenvy_Customize_Single_Post_Content_Fields extends Zenvy_Customize_Base_Fi
 	public function init() {
 		$this->args = [
 
-			// Entry Header
+			// Entry header.
 			'zenvy_single_post_content_entry_header_elements' => [
 				'type'              => 'sortable',
 				'default'           => [ 'post-meta', 'post-title' ],
@@ -31,7 +36,7 @@ class Zenvy_Customize_Single_Post_Content_Fields extends Zenvy_Customize_Base_Fi
 				],
 			],
 
-			// Top Spacing
+			// Top spacing.
 			'zenvy_single_post_content_entry_header_elements_gap' => [
 				'type'              => 'range',
 				'default'           => [
@@ -53,7 +58,7 @@ class Zenvy_Customize_Single_Post_Content_Fields extends Zenvy_Customize_Base_Fi
 				],
 			],
 
-			// Entry Footer
+			// Entry footer.
 			'zenvy_single_post_content_entry_footer_elements' => [
 				'type'              => 'sortable',
 				'default'           => [ 'post-comments', 'post-navigation' ],

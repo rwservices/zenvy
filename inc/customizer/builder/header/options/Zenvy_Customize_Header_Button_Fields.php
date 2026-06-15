@@ -1,10 +1,15 @@
 <?php
 /**
- * Blogin Aarambha Theme Customizer Header Button settings
+ * Zenvy Theme Customizer Header Button settings
  *
  * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Customize_Header_Button_Fields
+ *
+ * Header button customizer fields.
+ */
 class Zenvy_Customize_Header_Button_Fields extends Zenvy_Customize_Base_Field {
 
 	/**
@@ -14,7 +19,7 @@ class Zenvy_Customize_Header_Button_Fields extends Zenvy_Customize_Base_Field {
 	 */
 	public function init() {
 		$this->args = [
-			// Grouping Settings
+			// Grouping Settings.
 			'zenvy_header_button_group_settings'    => [
 				'type'     => 'group',
 				'section'  => 'button_one',
@@ -41,7 +46,7 @@ class Zenvy_Customize_Header_Button_Fields extends Zenvy_Customize_Base_Field {
 					],
 				],
 			],
-			// Text
+			// Text.
 			'zenvy_header_button_text'              => [
 				'type'              => 'text',
 				'default'           => esc_html__( 'ENG', 'zenvy' ),
@@ -50,7 +55,7 @@ class Zenvy_Customize_Header_Button_Fields extends Zenvy_Customize_Base_Field {
 				'section'           => 'button_one',
 				'priority'          => 20,
 			],
-			// URL
+			// URL.
 			'zenvy_header_button_url'               => [
 				'type'              => 'url',
 				'default'           => '#',
@@ -59,7 +64,7 @@ class Zenvy_Customize_Header_Button_Fields extends Zenvy_Customize_Base_Field {
 				'section'           => 'button_one',
 				'priority'          => 25,
 			],
-			// Link Open
+			// Link Open.
 			'zenvy_header_button_url_target'        => [
 				'type'              => 'toggle',
 				'default'           => '',
@@ -69,7 +74,7 @@ class Zenvy_Customize_Header_Button_Fields extends Zenvy_Customize_Base_Field {
 				'label'             => esc_html__( 'Link Open', 'zenvy' ),
 				'description'       => esc_html__( 'Enable to open the link in the new tab.', 'zenvy' ),
 			],
-			// Button Color
+			// Button Color.
 			'zenvy_header_button_color'             => [
 				'type'              => 'color',
 				'default'           => [
@@ -90,7 +95,7 @@ class Zenvy_Customize_Header_Button_Fields extends Zenvy_Customize_Base_Field {
 					'color_2' => 'var(--color-white)',
 				],
 			],
-			// Background
+			// Background.
 			'zenvy_header_button_background'        => [
 				'type'              => 'color',
 				'default'           => [
@@ -112,7 +117,7 @@ class Zenvy_Customize_Header_Button_Fields extends Zenvy_Customize_Base_Field {
 				],
 			],
 			
-			// Padding
+			// Padding.
 			'zenvy_header_button_padding'           => [
 				'type'              => 'dimensions',
 				'default'           => [
@@ -132,7 +137,7 @@ class Zenvy_Customize_Header_Button_Fields extends Zenvy_Customize_Base_Field {
 				'responsive'        => [ 'desktop', 'tablet', 'mobile' ],
 			],
 
-			// Margin
+			// Margin.
 			'zenvy_header_button_container_margin'  => [
 				'type'              => 'dimensions',
 				'default'           => '',
@@ -144,7 +149,7 @@ class Zenvy_Customize_Header_Button_Fields extends Zenvy_Customize_Base_Field {
 				'responsive'        => [ 'desktop', 'tablet', 'mobile' ],
 			],
 
-			// Padding
+			// Padding.
 			'zenvy_header_button_container_padding' => [
 				'type'              => 'dimensions',
 				'default'           => '',

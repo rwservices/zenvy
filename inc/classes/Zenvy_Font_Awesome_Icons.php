@@ -5,6 +5,11 @@
  * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Font_Awesome_Icons
+ *
+ * Provides Font Awesome icon utilities for the Zenvy theme.
+ */
 class Zenvy_Font_Awesome_Icons {
 	/**
 	 * Font Awesome Icons
@@ -1518,7 +1523,7 @@ class Zenvy_Font_Awesome_Icons {
 		}
 
 		/**
-		 * Filters Blogin Aarambha array of icons.
+		 * Filters Zenvy array of icons.
 		 *
 		 * The dynamic portion of the hook name, `$group`, refers to
 		 * the name of the group of icons, either "ui" or "social".
@@ -1529,7 +1534,7 @@ class Zenvy_Font_Awesome_Icons {
 
 		ob_start();
 
-		if ( in_array( $icon, $arr ) ) {
+		if ( in_array( $icon, $arr, true ) ) {
 
 			echo '<span class="icon"><i class="' . esc_attr( $icon ) . '" aria-hidden="true"></i></span>';
 		}

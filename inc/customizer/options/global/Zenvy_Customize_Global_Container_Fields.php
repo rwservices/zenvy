@@ -5,6 +5,11 @@
  * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Customize_Global_Container_Fields
+ *
+ * Handles customizer global container fields for the Zenvy theme.
+ */
 class Zenvy_Customize_Global_Container_Fields extends Zenvy_Customize_Base_Field {
 
 	/**
@@ -15,7 +20,7 @@ class Zenvy_Customize_Global_Container_Fields extends Zenvy_Customize_Base_Field
 	public function init() {
 
 		$this->args = [
-			// Max Width
+			// Max width.
 			'zenvy_container_max_width' => [
 				'type'              => 'range',
 				'default'           => [ 'desktop' => '1170px' ],

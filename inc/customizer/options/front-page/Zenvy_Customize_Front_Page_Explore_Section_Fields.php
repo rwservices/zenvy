@@ -5,6 +5,11 @@
  * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Customize_Front_Page_Explore_Section_Fields
+ * 
+ * Handles customizer front page explore section fields for the Zenvy theme.
+ */
 class Zenvy_Customize_Front_Page_Explore_Section_Fields extends Zenvy_Customize_Base_Field {
 	/**
 	 * Arguments for fields.
@@ -13,7 +18,7 @@ class Zenvy_Customize_Front_Page_Explore_Section_Fields extends Zenvy_Customize_
 	 */
 	public function init() {
 		$this->args = [
-			// Grouping Settings
+			// Grouping Settings.
 			'zenvy_front_page_explore_section_group_settings' => [
 				'type'     => 'group',
 				'section'  => 'zenvy_front_page_explore_section',
@@ -36,7 +41,7 @@ class Zenvy_Customize_Front_Page_Explore_Section_Fields extends Zenvy_Customize_
 					],
 				],
 			],
-			// Heading
+			// Heading.
 			'zenvy_front_page_explore_section_heading'    => [
 				'type'              => 'text',
 				'default'           => esc_html__( 'Explore our topics', 'zenvy' ),
@@ -46,7 +51,7 @@ class Zenvy_Customize_Front_Page_Explore_Section_Fields extends Zenvy_Customize_
 				'priority'          => 14,
 			],
 
-			// Background Image
+			// Background Image.
 			'zenvy_front_page_explore_section_background' => [
 				'type'              => 'background',
 				'default'           => '',
@@ -63,7 +68,7 @@ class Zenvy_Customize_Front_Page_Explore_Section_Fields extends Zenvy_Customize_
 					'size'       => true,
 				],
 			],
-			// Background Overlay
+			// Background Overlay.
 			'zenvy_front_page_explore_section_background_overlay' => [
 				'type'              => 'background',
 				'default'           => [

@@ -5,6 +5,11 @@
  * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Customize_Blog_Post_Title_Fields
+ *
+ * Handles customizer blog post title fields for the Zenvy theme.
+ */
 class Zenvy_Customize_Blog_Post_Title_Fields extends Zenvy_Customize_Base_Field {
 
 	/**
@@ -14,7 +19,7 @@ class Zenvy_Customize_Blog_Post_Title_Fields extends Zenvy_Customize_Base_Field 
 	 */
 	public function init() {
 		$this->args = [
-			// Title Tag
+			// Title tag.
 			'zenvy_blog_post_title_tag' => [
 				'type'              => 'buttonset',
 				'default'           => [ 'desktop' => 'h1' ],

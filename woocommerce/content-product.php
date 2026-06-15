@@ -1,4 +1,10 @@
 <?php
+/**
+ * Product list item template
+ *
+ * @package Zenvy
+ */
+
 defined( 'ABSPATH' ) || exit;
 
 global $product;
@@ -13,7 +19,7 @@ global $product;
 		<div class="featured-image-wrapper">
 			<figure class="featured-image" data-ratio="auto">
 				<a href="<?php the_permalink(); ?>">
-					<?php echo woocommerce_get_product_thumbnail(); ?>
+					<?php echo wp_kses_post( woocommerce_get_product_thumbnail() ); ?>
 				</a>
 			</figure>
 		</div>
@@ -39,7 +45,7 @@ global $product;
 		</header>
 
 		<span class="price">
-			<?php echo $product->get_price_html(); ?>
+			<?php echo wp_kses_post( $product->get_price_html() ); ?>
 		</span>
 
 	</div>

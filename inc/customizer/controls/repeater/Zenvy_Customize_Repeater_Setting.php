@@ -5,9 +5,10 @@
  * @package Zenvy
  */
 
-
 /**
- * Repeater Settings.
+ * Class Zenvy_Customize_Repeater_Setting
+ * 
+ * Handles the repeater customizer setting for the Zenvy theme.
  */
 class Zenvy_Customize_Repeater_Setting extends WP_Customize_Setting {
 

@@ -5,6 +5,11 @@
  * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Customize_Blog_Posts_Layout_Fields
+ *
+ * Handles customizer blog posts layout fields for the Zenvy theme.
+ */
 class Zenvy_Customize_Blog_Posts_Layout_Fields extends Zenvy_Customize_Base_Field {
 
 	/**
@@ -37,7 +42,7 @@ class Zenvy_Customize_Blog_Posts_Layout_Fields extends Zenvy_Customize_Base_Fiel
 					'list'  => esc_html__( 'List', 'zenvy' ),
 				],
 			],
-			// Posts Elements
+			// Posts elements.
 			'zenvy_blog_posts_elements' => [
 				'type'              => 'sortable',
 				'default'           => [ 'post-meta', 'post-title', 'post-excerpt', 'read-more' ],

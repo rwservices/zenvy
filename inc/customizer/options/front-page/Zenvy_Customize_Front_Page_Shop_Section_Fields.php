@@ -1,10 +1,15 @@
-<?php 
+<?php
 /**
  * Zenvy Theme Customizer Front Page Shop Section settings
  *
- * @package Zenvy 
+ * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Customize_Front_Page_Shop_Section_Fields
+ *
+ * Handles customizer front page shop section fields for the Zenvy theme.
+ */
 class Zenvy_Customize_Front_Page_Shop_Section_Fields extends Zenvy_Customize_Base_Field {
 
 	/**
@@ -14,7 +19,7 @@ class Zenvy_Customize_Front_Page_Shop_Section_Fields extends Zenvy_Customize_Bas
 	 */
 	public function init() {
 		$this->args = [
-			// Grouping Settings
+			// Grouping settings.
 			'zenvy_front_page_shop_section_group_settings' => [
 				'type'     => 'group',
 				'section'  => 'zenvy_front_page_shop_section',
@@ -40,7 +45,7 @@ class Zenvy_Customize_Front_Page_Shop_Section_Fields extends Zenvy_Customize_Bas
 				],
 			],
 
-			// Section Title
+			// Section title.
 			'zenvy_front_page_shop_title'                  => [
 				'type'              => 'text',
 				'section'           => 'zenvy_front_page_shop_section',
@@ -50,7 +55,7 @@ class Zenvy_Customize_Front_Page_Shop_Section_Fields extends Zenvy_Customize_Bas
 				'label'             => esc_html__( 'Section Title', 'zenvy' ),
 			],
 
-			// Section Description
+			// Section description.
 			'zenvy_front_page_shop_desc'                   => [
 				'type'              => 'textarea',
 				'section'           => 'zenvy_front_page_shop_section',
@@ -60,7 +65,7 @@ class Zenvy_Customize_Front_Page_Shop_Section_Fields extends Zenvy_Customize_Bas
 				'label'             => esc_html__( 'Section Description', 'zenvy' ),
 			],
 
-			// Section Image
+			// Section image.
 			'zenvy_front_page_shop_image'                  => [
 				'type'              => 'image',
 				'section'           => 'zenvy_front_page_shop_section',
@@ -71,7 +76,7 @@ class Zenvy_Customize_Front_Page_Shop_Section_Fields extends Zenvy_Customize_Bas
 				'description'       => esc_html__( 'Upload an image for the shop section.', 'zenvy' ),
 			],
 
-			// Note One
+			// Note one.
 			'zenvy_front_page_trending_posts_note_one'     => [
 				'type'     => 'heading',
 				'label'    => esc_html__( 'READ MORE BUTTON', 'zenvy' ),
@@ -79,7 +84,7 @@ class Zenvy_Customize_Front_Page_Shop_Section_Fields extends Zenvy_Customize_Bas
 				'priority' => 19,
 			],
 
-			// Button Text
+			// Button text.
 			'zenvy_front_page_shop_button_text'            => [
 				'type'              => 'text',
 				'section'           => 'zenvy_front_page_shop_section',
@@ -89,7 +94,7 @@ class Zenvy_Customize_Front_Page_Shop_Section_Fields extends Zenvy_Customize_Bas
 				'label'             => esc_html__( 'Button Text', 'zenvy' ),
 			],
 
-			// Button Link
+			// Button link.
 			'zenvy_front_page_shop_button_link'            => [
 				'type'              => 'text',
 				'section'           => 'zenvy_front_page_shop_section',
@@ -99,7 +104,7 @@ class Zenvy_Customize_Front_Page_Shop_Section_Fields extends Zenvy_Customize_Bas
 				'label'             => esc_html__( 'Button Link', 'zenvy' ),
 			],
 
-			// Type
+			// Type.
 			'zenvy_trending_posts_read_btn_type'           => [
 				'type'              => 'buttonset',
 				'default'           => [ 'desktop' => 'default' ],
@@ -114,7 +119,7 @@ class Zenvy_Customize_Front_Page_Shop_Section_Fields extends Zenvy_Customize_Bas
 				],
 			],
 
-			// Background Image
+			// Background image.
 			'zenvy_front_page_shop_section_background'     => [
 				'type'              => 'background',
 				'default'           => '',
@@ -132,7 +137,7 @@ class Zenvy_Customize_Front_Page_Shop_Section_Fields extends Zenvy_Customize_Bas
 				],
 			],
 
-			// Background Overlay
+			// Background overlay.
 			'zenvy_front_page_shop_section_background_overlay' => [
 				'type'              => 'background',
 				'default'           => [

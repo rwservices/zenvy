@@ -5,6 +5,11 @@
  * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Customize_Global_Color_Fields
+ *
+ * Handles customizer global color fields for the Zenvy theme.
+ */
 class Zenvy_Customize_Global_Color_Fields extends Zenvy_Customize_Base_Field {
 
 	/**
@@ -14,7 +19,7 @@ class Zenvy_Customize_Global_Color_Fields extends Zenvy_Customize_Base_Field {
 	 */
 	public function init() {
 		$this->args = [
-			// Accent Color
+			// Accent Color.
 			'zenvy_accent_color'        => [
 				'type'              => 'color',
 				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_color' ],
@@ -32,7 +37,7 @@ class Zenvy_Customize_Global_Color_Fields extends Zenvy_Customize_Base_Field {
 					'color_3' => 'var(--color-tertiary)',
 				],
 			],
-			// H1-H6 Color
+			// H1-H6 Color.
 			'zenvy_heading_color'       => [
 				'type'              => 'color',
 				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_color' ],
@@ -43,7 +48,7 @@ class Zenvy_Customize_Global_Color_Fields extends Zenvy_Customize_Base_Field {
 					'color_1' => 'var(--color-heading)',
 				],
 			],
-			// Text Color
+			// Text Color.
 			'zenvy_text_color'          => [
 				'type'              => 'color',
 				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_color' ],
@@ -59,7 +64,7 @@ class Zenvy_Customize_Global_Color_Fields extends Zenvy_Customize_Base_Field {
 					'color_2' => 'var(--color-text-light)',
 				],
 			],
-			// Link Color
+			// Link Color.
 			'zenvy_link_color'          => [
 				'type'              => 'color',
 				'default'           => '',
@@ -76,7 +81,7 @@ class Zenvy_Customize_Global_Color_Fields extends Zenvy_Customize_Base_Field {
 					'color_2' => 'var(--color-link-hover)',
 				],
 			],
-			// Border & Shadow Color
+			// Border & Shadow Color.
 			'zenvy_border_shadow_color' => [
 				'type'              => 'color',
 				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_color' ],
@@ -92,7 +97,7 @@ class Zenvy_Customize_Global_Color_Fields extends Zenvy_Customize_Base_Field {
 					'color_2' => 'var(--color-box-shadow)',
 				],
 			],
-			// Background Color
+			// Background Color.
 			'zenvy_background_color'    => [
 				'type'              => 'color',
 				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_color' ],

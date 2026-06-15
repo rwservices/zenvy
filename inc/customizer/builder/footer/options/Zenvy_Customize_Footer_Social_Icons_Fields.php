@@ -1,10 +1,15 @@
 <?php
 /**
- * Blogin Aarambha Theme Customizer Footer Social Icons settings
+ * Zenvy Theme Customizer Footer Social Icons settings.
  *
  * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Customize_Footer_Social_Icons_Fields
+ *
+ * Registers customizer fields for the footer social icons.
+ */
 class Zenvy_Customize_Footer_Social_Icons_Fields extends Zenvy_Customize_Base_Field {
 
 	/**
@@ -14,7 +19,7 @@ class Zenvy_Customize_Footer_Social_Icons_Fields extends Zenvy_Customize_Base_Fi
 	 */
 	public function init() {
 		$this->args = [
-			// Grouping Settings
+			// Grouping Settings.
 			'zenvy_footer_social_icon_group_settings'  => [
 				'type'     => 'group',
 				'section'  => 'footer_social',
@@ -41,14 +46,14 @@ class Zenvy_Customize_Footer_Social_Icons_Fields extends Zenvy_Customize_Base_Fi
 					],
 				],
 			],
-			// Heading One
+			// Heading One.
 			'zenvy_footer_social_icon_note_one'        => [
 				'type'        => 'heading',
 				'description' => sprintf( __( 'Configure social icons in Global &raquo; Social &raquo; <a data-type="control" data-id="zenvy_social_icons" class="customizer-focus"><strong> Social Icons </strong></a>.', 'zenvy' ) ),
 				'section'     => 'footer_social',
 				'priority'    => 15,
 			],
-			// Item Gap
+			// Item Gap.
 			'zenvy_footer_social_icon_gap'             => [
 				'type'              => 'range',
 				'default'           => [ 'desktop' => '2px' ],
@@ -63,7 +68,7 @@ class Zenvy_Customize_Footer_Social_Icons_Fields extends Zenvy_Customize_Base_Fi
 				],
 				'responsive'        => [ 'desktop', 'tablet', 'mobile' ],
 			],
-			// Link Open
+			// Link Open.
 			'zenvy_footer_social_icon_link_open'       => [
 				'type'              => 'toggle',
 				'default'           => '',
@@ -73,7 +78,7 @@ class Zenvy_Customize_Footer_Social_Icons_Fields extends Zenvy_Customize_Base_Fi
 				'label'             => esc_html__( 'Link Open', 'zenvy' ),
 				'description'       => esc_html__( 'Enable to open the link in the new tab.', 'zenvy' ),
 			],
-			// Padding
+			// Padding.
 			'zenvy_footer_social_icon_padding'         => [
 				'type'              => 'dimensions',
 				'default'           => '',
@@ -84,7 +89,7 @@ class Zenvy_Customize_Footer_Social_Icons_Fields extends Zenvy_Customize_Base_Fi
 				'priority'          => 42,
 				'responsive'        => [ 'desktop', 'tablet', 'mobile' ],
 			],
-			// Margin
+			// Margin.
 			'zenvy_footer_social_icon_margin'          => [
 				'type'              => 'dimensions',
 				'default'           => '',
@@ -95,14 +100,14 @@ class Zenvy_Customize_Footer_Social_Icons_Fields extends Zenvy_Customize_Base_Fi
 				'priority'          => 45,
 				'responsive'        => [ 'desktop', 'tablet', 'mobile' ],
 			],
-			// Heading One
+			// Heading Two.
 			'zenvy_footer_social_icon_note_two'        => [
 				'type'     => 'heading',
 				'label'    => esc_html__( 'ITEM', 'zenvy' ),
 				'section'  => 'footer_social',
 				'priority' => 50,
 			],
-			// Icon Color
+			// Icon Color.
 			'zenvy_footer_social_icon_item_icon_color' => [
 				'type'              => 'color',
 				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_color' ],
@@ -119,7 +124,7 @@ class Zenvy_Customize_Footer_Social_Icons_Fields extends Zenvy_Customize_Base_Fi
 				],
 				'priority'          => 55,
 			],
-			// Background Color
+			// Background Color.
 			'zenvy_footer_social_icon_item_background' => [
 				'type'              => 'color',
 				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_color' ],
@@ -136,7 +141,7 @@ class Zenvy_Customize_Footer_Social_Icons_Fields extends Zenvy_Customize_Base_Fi
 				],
 				'priority'          => 60,
 			],
-			// Padding
+			// Item Padding.
 			'zenvy_footer_social_icon_item_padding'    => [
 				'type'              => 'dimensions',
 				'default'           => [
@@ -158,4 +163,5 @@ class Zenvy_Customize_Footer_Social_Icons_Fields extends Zenvy_Customize_Base_Fi
 		];
 	}
 }
+
 new Zenvy_Customize_Footer_Social_Icons_Fields();

@@ -5,6 +5,11 @@
  * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Customize_Front_Page_General_Fields
+ * 
+ * Handles customizer front page general fields for the Zenvy theme.
+ */
 class Zenvy_Customize_Front_Page_General_Fields extends Zenvy_Customize_Base_Field {
 
 	/**
@@ -27,7 +32,7 @@ class Zenvy_Customize_Front_Page_General_Fields extends Zenvy_Customize_Base_Fie
 		$sortable_default = [ 'featured-section', 'explore-categories', 'latest-posts' ];
 		
 		$this->args = [
-			// Active Front Page
+			// Active Front Page.
 			'zenvy_front_page_enable'   => [
 				'type'              => 'radio',
 				'default'           => 'disable',
@@ -41,7 +46,7 @@ class Zenvy_Customize_Front_Page_General_Fields extends Zenvy_Customize_Base_Fie
 					'disable' => esc_html__( 'Disable [ use WordPress Static Page ]', 'zenvy' ),
 				],
 			],
-			// Elements
+			// Elements.
 			'zenvy_front_page_elements' => [
 				'type'              => 'sortable',
 				'default'           => $sortable_default,

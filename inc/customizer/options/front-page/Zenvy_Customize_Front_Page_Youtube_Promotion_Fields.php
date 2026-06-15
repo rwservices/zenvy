@@ -5,6 +5,11 @@
  * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Customize_Front_Page_Youtube_Promotion_Fields
+ * 
+ * Handles customizer front page youtube promotion fields for the Zenvy theme.
+ */
 class Zenvy_Customize_Front_Page_Youtube_Promotion_Fields extends Zenvy_Customize_Base_Field {
 
 	/**
@@ -14,7 +19,7 @@ class Zenvy_Customize_Front_Page_Youtube_Promotion_Fields extends Zenvy_Customiz
 	 */
 	public function init() {
 		$this->args = [
-			// Grouping Settings
+			// Grouping Settings.
 			'zenvy_front_page_youtube_promotion_group_settings' => [
 				'type'     => 'group',
 				'section'  => 'zenvy_front_page_youtube_promotion_section',
@@ -46,7 +51,7 @@ class Zenvy_Customize_Front_Page_Youtube_Promotion_Fields extends Zenvy_Customiz
 				],
 			],
 
-			// Section Title
+			// Section Title.
 			'zenvy_front_page_youtube_promotion_section_title' => [
 				'type'              => 'text',
 				'section'           => 'zenvy_front_page_youtube_promotion_section',
@@ -56,7 +61,7 @@ class Zenvy_Customize_Front_Page_Youtube_Promotion_Fields extends Zenvy_Customiz
 				'label'             => esc_html__( 'Section Title', 'zenvy' ),
 			],
 
-			// Primary Video URL
+			// Primary Video URL.
 			'zenvy_video_url_1'       => [
 				'type'              => 'text',
 				'section'           => 'zenvy_front_page_youtube_promotion_section',
@@ -66,7 +71,7 @@ class Zenvy_Customize_Front_Page_Youtube_Promotion_Fields extends Zenvy_Customiz
 				'label'             => esc_html__( 'Primary Video URL', 'zenvy' ),
 			],
 
-			// Primary Video Title
+			// Primary Video Title.
 			'zenvy_video_title_1'     => [
 				'type'     => 'text',
 				'section'  => 'zenvy_front_page_youtube_promotion_section',
@@ -75,7 +80,7 @@ class Zenvy_Customize_Front_Page_Youtube_Promotion_Fields extends Zenvy_Customiz
 				'label'    => esc_html__( 'Primary Video Title', 'zenvy' ),
 			],
 
-			// Primary Video Category
+			// Primary Video Category.
 			'zenvy_video_category_1'  => [
 				'type'     => 'select',
 				'section'  => 'zenvy_front_page_youtube_promotion_section',
@@ -84,7 +89,7 @@ class Zenvy_Customize_Front_Page_Youtube_Promotion_Fields extends Zenvy_Customiz
 				'choices'  => Zenvy_Helper::get_terms( 'category' ),
 			],
 
-			// Secondary Videos URL
+			// Secondary Videos URL.
 			'zenvy_video_url_2'       => [
 				'type'              => 'text',
 				'section'           => 'zenvy_front_page_youtube_promotion_section',
@@ -94,7 +99,7 @@ class Zenvy_Customize_Front_Page_Youtube_Promotion_Fields extends Zenvy_Customiz
 				'label'             => esc_html__( 'Second Video URL', 'zenvy' ),
 			],
 
-			// Secondary Video Title
+			// Secondary Video Title.
 			'zenvy_video_title_2'     => [
 				'type'     => 'text',
 				'section'  => 'zenvy_front_page_youtube_promotion_section',
@@ -103,7 +108,7 @@ class Zenvy_Customize_Front_Page_Youtube_Promotion_Fields extends Zenvy_Customiz
 				'default'  => esc_html__( 'Second Video Title', 'zenvy' ),
 			],
 
-			// Secondary Video Category
+			// Secondary Video Category.
 			'zenvy_video_category_2'  => [
 				'type'     => 'select',
 				'section'  => 'zenvy_front_page_youtube_promotion_section',
@@ -137,7 +142,7 @@ class Zenvy_Customize_Front_Page_Youtube_Promotion_Fields extends Zenvy_Customiz
 				'choices'  => Zenvy_Helper::get_terms( 'category' ),
 			],
 
-			// Video Channel URL
+			// Video Channel URL.
 			'zenvy_video_channel_url' => [
 				'type'              => 'text',
 				'section'           => 'zenvy_front_page_youtube_promotion_section',
@@ -148,7 +153,7 @@ class Zenvy_Customize_Front_Page_Youtube_Promotion_Fields extends Zenvy_Customiz
 			],
 
 
-			// Background Image
+			// Background Image.
 			'zenvy_front_page_youtube_promotion_background' => [
 				'type'              => 'background',
 				'default'           => '',
@@ -165,7 +170,7 @@ class Zenvy_Customize_Front_Page_Youtube_Promotion_Fields extends Zenvy_Customiz
 					'size'       => true,
 				],
 			],
-			// Background Overlay
+			// Background Overlay.
 			'zenvy_front_page_youtube_promotion_background_overlay' => [
 				'type'              => 'background',
 				'default'           => [

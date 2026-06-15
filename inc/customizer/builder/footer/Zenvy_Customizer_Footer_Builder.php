@@ -1,127 +1,153 @@
 <?php
 /**
- * Blogin Aarambha Theme Customizer Footer Builder
+ * Zenvy Theme Customizer Footer Builder.
  *
  * @package Zenvy
  */
 
 /**
- * Header Builder and Customizer Options
+ * Class Zenvy_Customizer_Footer_Builder
+ *
+ * Handles footer builder and customizer options.
  */
-
 class Zenvy_Customizer_Footer_Builder {
 
 	/**
-	 * Panel ID, use for builder ID too
+	 * Panel ID, use for builder ID too.
 	 *
 	 * @var string
 	 */
 	public $panel = 'zenvy_footer';
 
 	/**
-	 * Builder Sections and Controller ID
+	 * Builder Sections and Controller ID.
 	 *
 	 * @var string
 	 */
 	public $builder_section_controller = 'zenvy_footer_builder_controller_section';
 
-	/*Builder Rows and Customizer Settings*/
-
 	/**
-	 * Header Top Row and Its setting
+	 * Footer Top Row and its setting.
 	 *
 	 * @var string
 	 */
 	public $footer_top = 'zenvy_footer_top';
 
 	/**
-	 * Header Main Row and Its setting
+	 * Footer Main Row and its setting.
 	 *
 	 * @var string
 	 */
 	public $footer_main = 'zenvy_footer_main';
 
 	/**
-	 * Header Bottom Row and Its setting
+	 * Footer Bottom Row and its setting.
 	 *
 	 * @var string
 	 */
 	public $footer_bottom = 'zenvy_footer_bottom';
 
-
 	/**
-	 * Footer HTML Row and Its setting
+	 * Footer HTML Row and its setting.
 	 *
 	 * @var string
 	 */
 	public $footer_html = 'footer_html';
 
-	/*Footer Elements Section, Setting and Control ID*/
 	/**
-	 * Copyright Section/Setting/Control ID
+	 * Copyright Section/Setting/Control ID.
 	 *
 	 * @var string
 	 */
 	public $footer_copyright = 'footer_copyright';
 
 	/**
-	 * Footer Menu Section/Setting/Control ID
+	 * Footer Menu Section/Setting/Control ID.
 	 *
 	 * @var string
 	 */
 	public $footer_menu = 'footer_menu';
 
 	/**
-	 * Footer Socials Section/Setting/Control ID
+	 * Footer Socials Section/Setting/Control ID.
 	 *
 	 * @var string
 	 */
 	public $footer_social = 'footer_social';
 
 	/**
-	 * Footer Socials Section/Setting/Control ID
+	 * Footer Button Section/Setting/Control ID.
 	 *
 	 * @var string
 	 */
 	public $footer_button = 'footer_button';
 
 	/**
-	 * Footer Sidebars Section/Setting/Control ID
+	 * Footer Sidebar 1 Section/Setting/Control ID.
 	 *
 	 * @var string
 	 */
 	public $footer_sidebar_1 = 'sidebar-widgets-footer-sidebar-1';
-	public $footer_sidebar_2 = 'sidebar-widgets-footer-sidebar-2';
-	public $footer_sidebar_3 = 'sidebar-widgets-footer-sidebar-3';
-	public $footer_sidebar_4 = 'sidebar-widgets-footer-sidebar-4';
-	public $footer_sidebar_5 = 'sidebar-widgets-footer-sidebar-5';
-	public $footer_sidebar_6 = 'sidebar-widgets-footer-sidebar-6';
-
 
 	/**
-	 * Main Instance
+	 * Footer Sidebar 2 Section/Setting/Control ID.
 	 *
-	 * Insures that only one instance of Zenvy_Customizer_Footer_Builder exists in memory at any one
+	 * @var string
+	 */
+	public $footer_sidebar_2 = 'sidebar-widgets-footer-sidebar-2';
+
+	/**
+	 * Footer Sidebar 3 Section/Setting/Control ID.
+	 *
+	 * @var string
+	 */
+	public $footer_sidebar_3 = 'sidebar-widgets-footer-sidebar-3';
+
+	/**
+	 * Footer Sidebar 4 Section/Setting/Control ID.
+	 *
+	 * @var string
+	 */
+	public $footer_sidebar_4 = 'sidebar-widgets-footer-sidebar-4';
+
+	/**
+	 * Footer Sidebar 5 Section/Setting/Control ID.
+	 *
+	 * @var string
+	 */
+	public $footer_sidebar_5 = 'sidebar-widgets-footer-sidebar-5';
+
+	/**
+	 * Footer Sidebar 6 Section/Setting/Control ID.
+	 *
+	 * @var string
+	 */
+	public $footer_sidebar_6 = 'sidebar-widgets-footer-sidebar-6';
+
+	/**
+	 * Main Instance.
+	 *
+	 * Ensures that only one instance of Zenvy_Customizer_Footer_Builder exists in memory at any one
 	 * time. Also prevents needing to define globals all over the place.
 	 *
 	 * @return object
 	 */
 	public static function instance() {
 
-		// Store the instance locally to avoid private static replication
+		// Store the instance locally to avoid private static replication.
 		static $instance = null;
 
-		// Only run these methods if they haven't been ran previously
+		// Only run these methods if they haven't been run previously.
 		if ( null === $instance ) {
 			$instance = new Zenvy_Customizer_Footer_Builder();
 		}
 
-		// Always return the instance
+		// Always return the instance.
 		return $instance;
 	}
 
 	/**
-	 *  Run functionality with hooks
+	 * Run functionality with hooks.
 	 *
 	 * @return void
 	 */
@@ -138,25 +164,23 @@ class Zenvy_Customizer_Footer_Builder {
 	}
 
 	/**
-	 * Callback functions for customize_register,
-	 * Fixed previous array issue
+	 * Callback functions for customize_register.
+	 * Fixed previous array issue.
 	 *
-	 * @param null
 	 * @return void
 	 */
 	public function set_customizer() {
 		$builder = zenvy_get_footer_builder_options( Zenvy_Customizer_Footer_Builder()->builder_section_controller );
 		if ( is_array( $builder ) ) {
-			$builder = json_encode( urldecode_deep( $builder ), true );
+			$builder = wp_json_encode( urldecode_deep( $builder ) );
 		}
 		set_theme_mod( Zenvy_Customizer_Footer_Builder()->builder_section_controller, $builder );
 	}
 
 	/**
-	 * Get footer builder
+	 * Get footer builder.
 	 *
-	 * @param null
-	 * @return void
+	 * @return array|mixed
 	 */
 	public function get_builder() {
 		$builder = zenvy_get_footer_builder_options( Zenvy_Customizer_Footer_Builder()->builder_section_controller );
@@ -166,18 +190,16 @@ class Zenvy_Customizer_Footer_Builder {
 		return $builder;
 	}
 
-
 	/**
-	 * Callback functions for zenvy_default_theme_options,
-	 * Add Footer Builder defaults values
+	 * Callback functions for zenvy_default_theme_options.
+	 * Add Footer Builder default values.
 	 *
-	 * @param array $default_options
+	 * @param array $default_options Default options array.
 	 * @return array
 	 */
 	public function footer_defaults( $default_options = [] ) {
 
 		$footer_defaults = [
-
 			$this->builder_section_controller => [
 				'desktop' => [
 					'bottom' => [
@@ -195,27 +217,28 @@ class Zenvy_Customizer_Footer_Builder {
 				],
 			],
 		];
+
 		return array_merge( $default_options, $footer_defaults );
 	}
 
 	/**
-	 * Callback functions for zenvy_builders,
-	 * Add Header Builder elements
+	 * Callback functions for zenvy_builders.
+	 * Add Footer Builder elements.
 	 *
-	 * @param array $builder builder fields
+	 * @param array $builder Builder fields.
 	 * @return array
 	 */
 	public function footer_builder( $builder ) {
 
 		$items = apply_filters(
-			'Zenvy_Customizer_Footer_Builder_items',
+			'zenvy_customizer_footer_builder_items',
 			[
-				Zenvy_Customizer_Footer_Builder()->footer_copyright   => [
+				Zenvy_Customizer_Footer_Builder()->footer_copyright => [
 					'name'    => esc_html__( 'Copyright', 'zenvy' ),
 					'id'      => Zenvy_Customizer_Footer_Builder()->footer_copyright,
 					'section' => Zenvy_Customizer_Footer_Builder()->footer_copyright,
 				],
-				Zenvy_Customizer_Footer_Builder()->footer_menu => [
+				Zenvy_Customizer_Footer_Builder()->footer_menu      => [
 					'name'    => esc_html__( 'Footer Menu', 'zenvy' ),
 					'id'      => Zenvy_Customizer_Footer_Builder()->footer_menu,
 					'section' => Zenvy_Customizer_Footer_Builder()->footer_menu,
@@ -230,37 +253,37 @@ class Zenvy_Customizer_Footer_Builder {
 					'id'      => Zenvy_Customizer_Footer_Builder()->footer_button,
 					'section' => Zenvy_Customizer_Footer_Builder()->footer_button,
 				],
-				Zenvy_Customizer_Footer_Builder()->footer_html  => [
+				Zenvy_Customizer_Footer_Builder()->footer_html      => [
 					'name'    => esc_html__( 'HTML', 'zenvy' ),
 					'id'      => Zenvy_Customizer_Footer_Builder()->footer_html,
 					'section' => Zenvy_Customizer_Footer_Builder()->footer_html,
 				],
-				Zenvy_Customizer_Footer_Builder()->footer_sidebar_1   => [
+				Zenvy_Customizer_Footer_Builder()->footer_sidebar_1 => [
 					'name'    => esc_html__( 'Footer Sidebar 1', 'zenvy' ),
 					'id'      => Zenvy_Customizer_Footer_Builder()->footer_sidebar_1,
 					'section' => Zenvy_Customizer_Footer_Builder()->footer_sidebar_1,
 				],
-				Zenvy_Customizer_Footer_Builder()->footer_sidebar_2   => [
+				Zenvy_Customizer_Footer_Builder()->footer_sidebar_2 => [
 					'name'    => esc_html__( 'Footer Sidebar 2', 'zenvy' ),
 					'id'      => Zenvy_Customizer_Footer_Builder()->footer_sidebar_2,
 					'section' => Zenvy_Customizer_Footer_Builder()->footer_sidebar_2,
 				],
-				Zenvy_Customizer_Footer_Builder()->footer_sidebar_3   => [
+				Zenvy_Customizer_Footer_Builder()->footer_sidebar_3 => [
 					'name'    => esc_html__( 'Footer Sidebar 3', 'zenvy' ),
 					'id'      => Zenvy_Customizer_Footer_Builder()->footer_sidebar_3,
 					'section' => Zenvy_Customizer_Footer_Builder()->footer_sidebar_3,
 				],
-				Zenvy_Customizer_Footer_Builder()->footer_sidebar_4   => [
+				Zenvy_Customizer_Footer_Builder()->footer_sidebar_4 => [
 					'name'    => esc_html__( 'Footer Sidebar 4', 'zenvy' ),
 					'id'      => Zenvy_Customizer_Footer_Builder()->footer_sidebar_4,
 					'section' => Zenvy_Customizer_Footer_Builder()->footer_sidebar_4,
 				],
-				Zenvy_Customizer_Footer_Builder()->footer_sidebar_5   => [
+				Zenvy_Customizer_Footer_Builder()->footer_sidebar_5 => [
 					'name'    => esc_html__( 'Footer Sidebar 5', 'zenvy' ),
 					'id'      => Zenvy_Customizer_Footer_Builder()->footer_sidebar_5,
 					'section' => Zenvy_Customizer_Footer_Builder()->footer_sidebar_5,
 				],
-				Zenvy_Customizer_Footer_Builder()->footer_sidebar_6   => [
+				Zenvy_Customizer_Footer_Builder()->footer_sidebar_6 => [
 					'name'    => esc_html__( 'Footer Sidebar 6', 'zenvy' ),
 					'id'      => Zenvy_Customizer_Footer_Builder()->footer_sidebar_6,
 					'section' => Zenvy_Customizer_Footer_Builder()->footer_sidebar_6,
@@ -291,35 +314,36 @@ class Zenvy_Customizer_Footer_Builder {
 				],
 			],
 		];
-		$footer_builder = apply_filters( 'Zenvy_Customizer_Footer_Builder', $footer_builder );
+
+		$footer_builder = apply_filters( 'zenvy_customizer_footer_builder', $footer_builder );
 		return array_merge( $builder, $footer_builder );
 	}
 
 	/**
-	 * Callback functions for customize_register,
-	 * Add Panel Section control
+	 * Callback functions for customize_register.
+	 * Add Panel Section control.
 	 *
-	 * @param object $wp_customize
+	 * @param object $wp_customize WP Customize Manager instance.
 	 * @return void
 	 */
 	public function customize_register( $wp_customize ) {
 
 		$footer_defaults = self::footer_defaults();
+
 		/**
-		 * Add Panels
+		 * Add Panels.
 		 */
 		$wp_customize->add_panel(
 			$this->panel,
 			[
 				'title'    => esc_html__( 'Footer Builder', 'zenvy' ),
 				'priority' => 20,
-			] 
+			]
 		);
 
 		/**
 		 * Add Sections.
 		 */
-
 		$wp_customize->add_section(
 			$this->builder_section_controller,
 			[
@@ -337,6 +361,7 @@ class Zenvy_Customizer_Footer_Builder {
 				'panel'    => $this->panel,
 			]
 		);
+
 		$wp_customize->add_section(
 			$this->footer_main,
 			[
@@ -345,6 +370,7 @@ class Zenvy_Customizer_Footer_Builder {
 				'panel'    => $this->panel,
 			]
 		);
+
 		$wp_customize->add_section(
 			$this->footer_bottom,
 			[
@@ -362,6 +388,7 @@ class Zenvy_Customizer_Footer_Builder {
 				'panel'    => $this->panel,
 			]
 		);
+
 		$wp_customize->add_section(
 			$this->footer_social,
 			[
@@ -370,6 +397,7 @@ class Zenvy_Customizer_Footer_Builder {
 				'panel'    => $this->panel,
 			]
 		);
+
 		$wp_customize->add_section(
 			$this->footer_button,
 			[
@@ -378,6 +406,7 @@ class Zenvy_Customizer_Footer_Builder {
 				'panel'    => $this->panel,
 			]
 		);
+
 		$wp_customize->add_section(
 			$this->footer_html,
 			[
@@ -386,6 +415,7 @@ class Zenvy_Customizer_Footer_Builder {
 				'panel'    => $this->panel,
 			]
 		);
+
 		$wp_customize->add_section(
 			$this->footer_menu,
 			[
@@ -414,7 +444,7 @@ class Zenvy_Customizer_Footer_Builder {
 		);
 
 		/**
-		 * Builder control and setting
+		 * Builder control and setting.
 		 */
 		$wp_customize->add_setting(
 			$this->builder_section_controller,
@@ -435,7 +465,7 @@ class Zenvy_Customizer_Footer_Builder {
 			]
 		);
 
-		// Footer Builder Options
+		// Footer Builder Options.
 		require ZENVY_THEME_DIR . 'inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Top_Row_Fields.php';
 		require ZENVY_THEME_DIR . 'inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Main_Row_Fields.php';
 		require ZENVY_THEME_DIR . 'inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Bottom_Row_Fields.php';
@@ -446,15 +476,16 @@ class Zenvy_Customizer_Footer_Builder {
 		require ZENVY_THEME_DIR . 'inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Menu_Fields.php';
 		require ZENVY_THEME_DIR . 'inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Html_Fields.php';
 
-		// Back to top
+		// Back to Top.
 		require ZENVY_THEME_DIR . 'inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Widget_Fields.php';
 		require ZENVY_THEME_DIR . 'inc/customizer/builder/footer/options/Zenvy_Customize_Footer_Back_To_Top_Fields.php';
 	}
 
 	/**
-	 * Column Element
+	 * Column Element.
 	 *
-	 * @param $column_elements
+	 * @param array $column_elements Column elements array.
+	 * @return void
 	 */
 	public function column_elements( $column_elements ) {
 		foreach ( $column_elements as $element ) {
@@ -468,8 +499,8 @@ class Zenvy_Customizer_Footer_Builder {
 	}
 
 	/**
-	 * Callback Function For zenvy_action_footer
-	 * Display Header Content
+	 * Callback Function for zenvy_action_footer.
+	 * Display Footer Content.
 	 *
 	 * @return void
 	 */
@@ -493,23 +524,24 @@ class Zenvy_Customizer_Footer_Builder {
 
 							$footer_builder_data[ $key ][ $col_key ] = $columns;
 							$active_sidebar[]                        = $columns[0]['id'];
-						}                   
-					}               
-				}           
+						}
+					}
+				}
 			}
-			if ( ! empty( $footer_builder_data ) ) {
 
+			if ( ! empty( $footer_builder_data ) ) {
 				$this->footer_content( $footer_builder_data );
 			}
-			// Load sidebar template parts
+
+			// Load sidebar template parts.
 			self::get_elements( $active_sidebar );
 		}
 	}
 
 	/**
-	 * Display Desktop Header Content
+	 * Display Desktop Footer Content.
 	 *
-	 * @param $footer_builder
+	 * @param array $footer_builder Footer builder data.
 	 * @return void
 	 */
 	public function footer_content( $footer_builder ) {
@@ -531,7 +563,7 @@ class Zenvy_Customizer_Footer_Builder {
 						<div class="row columns"<?php Zenvy_Helper::get_data_columns( $top_col_per_row ); ?>>
 							<?php
 							if ( array_key_exists( 'col-0', $top_elements ) ) :
-								// Left Column Content Justify
+								// Left Column Content Justify.
 								$top_row_left_col    = get_theme_mod(
 									'zenvy_footer_top_row_left_col_content_justify',
 									[
@@ -549,7 +581,7 @@ class Zenvy_Customizer_Footer_Builder {
 							<?php endif; ?>
 							<?php
 							if ( array_key_exists( 'col-1', $top_elements ) ) :
-								// Center Column Content Justify
+								// Center Column Content Justify.
 								$top_row_center_col     = get_theme_mod(
 									'zenvy_footer_top_row_center_col_content_justify',
 									[
@@ -567,7 +599,7 @@ class Zenvy_Customizer_Footer_Builder {
 							<?php endif; ?>
 							<?php
 							if ( array_key_exists( 'col-2', $top_elements ) ) :
-								// Right Column Content Justify
+								// Right Column Content Justify.
 								$top_row_right_col     = get_theme_mod(
 									'zenvy_footer_top_row_right_col_content_justify',
 									[
@@ -587,8 +619,8 @@ class Zenvy_Customizer_Footer_Builder {
 					</div>
 				</div><!-- .top-footer -->
 				<?php
-
 			}
+
 			if ( isset( $footer_builder['main'] ) ) {
 				$main_elements       = $footer_builder['main'];
 				$main_elements_count = count( $main_elements );
@@ -603,7 +635,7 @@ class Zenvy_Customizer_Footer_Builder {
 						<div class="row columns"<?php Zenvy_Helper::get_data_columns( $main_col_per_row ); ?>>
 							<?php
 							if ( array_key_exists( 'col-0', $main_elements ) ) :
-								// Left Column Content Justify
+								// Left Column Content Justify.
 								$main_row_left_col    = get_theme_mod(
 									'zenvy_footer_main_row_left_col_content_justify',
 									[
@@ -621,7 +653,7 @@ class Zenvy_Customizer_Footer_Builder {
 							<?php endif; ?>
 							<?php
 							if ( array_key_exists( 'col-1', $main_elements ) ) :
-								// Center Column Content Justify
+								// Center Column Content Justify.
 								$main_row_center_col     = get_theme_mod(
 									'zenvy_footer_main_row_center_col_content_justify',
 									[
@@ -639,7 +671,7 @@ class Zenvy_Customizer_Footer_Builder {
 							<?php endif; ?>
 							<?php
 							if ( array_key_exists( 'col-2', $main_elements ) ) :
-								// Right Column Content Justify
+								// Right Column Content Justify.
 								$main_row_right_col     = get_theme_mod(
 									'zenvy_footer_main_row_right_col_content_justify',
 									[
@@ -659,8 +691,8 @@ class Zenvy_Customizer_Footer_Builder {
 					</div>
 				</div><!-- .main-footer -->
 				<?php
-
 			}
+
 			if ( isset( $footer_builder['bottom'] ) ) {
 				$bottom_elements       = $footer_builder['bottom'];
 				$bottom_elements_count = count( $bottom_elements );
@@ -675,7 +707,7 @@ class Zenvy_Customizer_Footer_Builder {
 						<div class="row columns"<?php Zenvy_Helper::get_data_columns( $bottom_col_per_row ); ?>>
 							<?php
 							if ( array_key_exists( 'col-0', $bottom_elements ) ) :
-								// Left Column Content Justify
+								// Left Column Content Justify.
 								$bottom_row_left_col    = get_theme_mod(
 									'zenvy_footer_bottom_row_left_col_content_justify',
 									[
@@ -693,7 +725,7 @@ class Zenvy_Customizer_Footer_Builder {
 							<?php endif; ?>
 							<?php
 							if ( array_key_exists( 'col-1', $bottom_elements ) ) :
-								// Center Column Content Justify
+								// Center Column Content Justify.
 								$bottom_row_center_col     = get_theme_mod(
 									'zenvy_footer_bottom_row_center_col_content_justify',
 									[
@@ -711,7 +743,7 @@ class Zenvy_Customizer_Footer_Builder {
 							<?php endif; ?>
 							<?php
 							if ( array_key_exists( 'col-2', $bottom_elements ) ) :
-								// Right Column Content Justify
+								// Right Column Content Justify.
 								$bottom_row_right_col     = get_theme_mod(
 									'zenvy_footer_bottom_row_right_col_content_justify',
 									[
@@ -737,11 +769,10 @@ class Zenvy_Customizer_Footer_Builder {
 		<?php
 	}
 
-
 	/**
-	 * Footer get_elements only for the sidebar so that we can see sidebar in customizer
+	 * Footer get_elements only for the sidebar so that we can see sidebar in customizer.
 	 *
-	 * @param $sidebar_elements array
+	 * @param array $sidebar_elements Sidebar elements array.
 	 * @return void
 	 */
 	public function get_elements( $sidebar_elements ) {
@@ -769,15 +800,18 @@ class Zenvy_Customizer_Footer_Builder {
 }
 
 /**
- * Create Instance for Zenvy_Customizer_Footer_Builder
+ * Create Instance for Zenvy_Customizer_Footer_Builder.
  *
- * @param
  * @return object
  */
 if ( ! function_exists( 'zenvy_customizer_footer_builder' ) ) {
 
+	/**
+	 * Return the Zenvy_Customizer_Footer_Builder instance.
+	 *
+	 * @return object
+	 */
 	function zenvy_customizer_footer_builder() {
-
 		return Zenvy_Customizer_Footer_Builder::instance();
 	}
 
@@ -785,12 +819,19 @@ if ( ! function_exists( 'zenvy_customizer_footer_builder' ) ) {
 }
 
 /**
- * Get footer builder default options
+ * Get footer builder default options.
  *
- * @param null
- * @return mixed zenvy_theme_options
+ * @param string $key Option key.
+ * @return mixed
  */
 if ( ! function_exists( 'zenvy_get_footer_builder_options' ) ) :
+
+	/**
+	 * Get footer builder default options.
+	 *
+	 * @param string $key Option key to retrieve.
+	 * @return mixed
+	 */
 	function zenvy_get_footer_builder_options( $key = '' ) {
 		if ( ! empty( $key ) ) {
 			$footer_default_values = Zenvy_Customizer_Footer_Builder()->footer_defaults();
@@ -800,5 +841,3 @@ if ( ! function_exists( 'zenvy_get_footer_builder_options' ) ) :
 		return false;
 	}
 endif;
-
-

@@ -1,10 +1,15 @@
 <?php
 /**
- * Blogin Aarambha Theme Customizer Header Search Icon settings
+ * Zenvy Theme Customizer Header Search Icon settings
  *
  * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Customize_Header_Search_Icon_Fields
+ * 
+ * Header search icon customizer fields.
+ */
 class Zenvy_Customize_Header_Search_Icon_Fields extends Zenvy_Customize_Base_Field {
 
 	/**
@@ -14,7 +19,7 @@ class Zenvy_Customize_Header_Search_Icon_Fields extends Zenvy_Customize_Base_Fie
 	 */
 	public function init() {
 		$this->args = [
-			// Grouping Settings
+			// Grouping Settings.
 			'zenvy_header_search_icon_group_settings'    => [
 				'type'     => 'group',
 				'section'  => 'search_icon',
@@ -39,7 +44,7 @@ class Zenvy_Customize_Header_Search_Icon_Fields extends Zenvy_Customize_Base_Fie
 					],
 				],
 			],
-			// Placeholder
+			// Placeholder.
 			'zenvy_header_search_icon_placeholder'       => [
 				'type'              => 'text',
 				'default'           => esc_html__( 'Search...', 'zenvy' ),
@@ -49,7 +54,7 @@ class Zenvy_Customize_Header_Search_Icon_Fields extends Zenvy_Customize_Base_Fie
 				'section'           => 'search_icon',
 				'priority'          => 15,
 			],
-			// Padding
+			// Padding.
 			'zenvy_header_search_icon_container_padding' => [
 				'type'              => 'dimensions',
 				'default'           => '',
@@ -60,7 +65,7 @@ class Zenvy_Customize_Header_Search_Icon_Fields extends Zenvy_Customize_Base_Fie
 				'priority'          => 20,
 				'responsive'        => [ 'desktop', 'tablet', 'mobile' ],
 			],
-			// Margin
+			// Margin.
 			'zenvy_header_search_icon_container_margin'  => [
 				'type'              => 'dimensions',
 				'default'           => '',
@@ -71,7 +76,7 @@ class Zenvy_Customize_Header_Search_Icon_Fields extends Zenvy_Customize_Base_Fie
 				'priority'          => 25,
 				'responsive'        => [ 'desktop', 'tablet', 'mobile' ],
 			],
-			// Icon Color
+			// Icon Color.
 			'zenvy_header_search_icon_color'             => [
 				'type'              => 'color',
 				'default'           => '',
@@ -89,7 +94,7 @@ class Zenvy_Customize_Header_Search_Icon_Fields extends Zenvy_Customize_Base_Fie
 					'color_2' => 'var(--color-link)',
 				],
 			],
-			// Background
+			// Background.
 			'zenvy_header_search_icon_background'        => [
 				'type'              => 'color',
 				'default'           => '',
@@ -107,7 +112,7 @@ class Zenvy_Customize_Header_Search_Icon_Fields extends Zenvy_Customize_Base_Fie
 					'color_2' => 'var(--color-bg)',
 				],
 			],
-			// Button Background
+			// Button Background.
 			'zenvy_header_search_button_background'      => [
 				'type'              => 'color',
 				'default'           => '',
@@ -125,7 +130,7 @@ class Zenvy_Customize_Header_Search_Icon_Fields extends Zenvy_Customize_Base_Fie
 					'color_2' => 'var(--color-link-hover)',
 				],
 			],
-			// Padding
+			// Padding.
 			'zenvy_header_search_icon_padding'           => [
 				'type'              => 'dimensions',
 				'default'           => [

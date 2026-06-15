@@ -1,10 +1,15 @@
 <?php
 /**
- * Blogin Aarambha Theme Customizer Header Site Identify settings
+ * Zenvy Theme Customizer Header Site Identify settings
  *
  * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Customize_Header_Site_Identity_Fields
+ * 
+ * Header site identity customizer fields.
+ */
 class Zenvy_Customize_Header_Site_Identity_Fields extends Zenvy_Customize_Base_Field {
 
 	/**
@@ -14,7 +19,7 @@ class Zenvy_Customize_Header_Site_Identity_Fields extends Zenvy_Customize_Base_F
 	 */
 	public function init() {
 		$this->args = [
-			// Grouping Settings
+			// Grouping Settings.
 			'zenvy_header_site_identity_group_settings' => [
 				'type'     => 'group',
 				'section'  => 'title_tagline',
@@ -44,7 +49,7 @@ class Zenvy_Customize_Header_Site_Identity_Fields extends Zenvy_Customize_Base_F
 					],
 				],
 			],
-			// Site title
+			// Site title.
 			'zenvy_header_site_title_enable'            => [
 				'type'              => 'toggle',
 				'default'           => [ 'desktop' => 'true' ],
@@ -53,7 +58,7 @@ class Zenvy_Customize_Header_Site_Identity_Fields extends Zenvy_Customize_Base_F
 				'section'           => 'title_tagline',
 				'priority'          => 30,
 			],
-			// Site tagline
+			// Site tagline.
 			'zenvy_header_site_tagline_enable'          => [
 				'type'              => 'toggle',
 				'default'           => [ 'desktop' => 'true' ],
@@ -62,14 +67,14 @@ class Zenvy_Customize_Header_Site_Identity_Fields extends Zenvy_Customize_Base_F
 				'section'           => 'title_tagline',
 				'priority'          => 40,
 			],
-			// Note Two
+			// Note Two.
 			'zenvy_header_site_identify_note_two'       => [
 				'type'     => 'heading',
 				'label'    => esc_html__( 'SITE TITLE & TAGLINE', 'zenvy' ),
 				'section'  => 'title_tagline',
 				'priority' => 65,
 			],
-			// Site Title
+			// Site Title.
 			'zenvy_header_site_title_typo'              => [
 				'type'              => 'typography',
 				'default'           => '',
@@ -95,7 +100,7 @@ class Zenvy_Customize_Header_Site_Identity_Fields extends Zenvy_Customize_Base_F
 					'colors'         => true,
 				],
 			],
-			// Site Tagline
+			// Site Tagline.
 			'zenvy_header_site_tagline_typo'            => [
 				'type'              => 'typography',
 				'default'           => '',
@@ -113,14 +118,14 @@ class Zenvy_Customize_Header_Site_Identity_Fields extends Zenvy_Customize_Base_F
 					'colors'    => true,
 				],
 			],
-			// Note Three
+			// Note Three.
 			'zenvy_header_site_identify_note_three'     => [
 				'type'     => 'heading',
 				'label'    => esc_html__( 'SITE IDENTIFY CONTAINER', 'zenvy' ),
 				'section'  => 'title_tagline',
 				'priority' => 80,
 			],
-			// Padding
+			// Padding.
 			'zenvy_header_site_identify_padding'        => [
 				'type'              => 'dimensions',
 				'default'           => '',
@@ -131,7 +136,7 @@ class Zenvy_Customize_Header_Site_Identity_Fields extends Zenvy_Customize_Base_F
 				'priority'          => 85,
 				'responsive'        => [ 'desktop', 'tablet', 'mobile' ],
 			],
-			// Margin
+			// Margin.
 			'zenvy_header_site_identify_margin'         => [
 				'type'              => 'dimensions',
 				'default'           => '',

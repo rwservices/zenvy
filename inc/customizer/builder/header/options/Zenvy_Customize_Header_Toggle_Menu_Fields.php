@@ -1,10 +1,15 @@
 <?php
 /**
- * Blogin Aarambha Theme Customizer Header Toggle Menu settings
+ * Zenvy Theme Customizer Header Toggle Menu settings
  *
  * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Customize_Header_Toggle_Menu_Fields
+ * 
+ * Header toggle menu customizer fields.
+ */
 class Zenvy_Customize_Header_Toggle_Menu_Fields extends Zenvy_Customize_Base_Field {
 
 	/**
@@ -15,7 +20,7 @@ class Zenvy_Customize_Header_Toggle_Menu_Fields extends Zenvy_Customize_Base_Fie
 	public function init() {
 
 		$this->args = [
-			// Grouping Settings
+			// Grouping Settings.
 			'zenvy_header_toggle_menu_group_settings' => [
 				'type'     => 'group',
 				'section'  => 'toggle_menu',
@@ -43,21 +48,21 @@ class Zenvy_Customize_Header_Toggle_Menu_Fields extends Zenvy_Customize_Base_Fie
 					],
 				],
 			],
-			// Note One
+			// Note One.
 			'zenvy_header_toggle_menu_note_one'       => [
 				'type'        => 'heading',
 				'description' => sprintf( __( 'To set menu, go to <a data-type="section" data-id="menu_locations" class="customizer-focus"><strong>Mobile Menu</strong></a>', 'zenvy' ) ),
 				'section'     => 'toggle_menu',
 				'priority'    => 10,
 			],
-			// Note two
+			// Note two.
 			'zenvy_header_toggle_menu_note_two'       => [
 				'type'        => 'heading',
 				'description' => esc_html__( 'Menu Icon', 'zenvy' ),
 				'section'     => 'toggle_menu',
 				'priority'    => 40,
 			],
-			// Icon Color
+			// Icon Color.
 			'zenvy_header_toggle_menu_icon_color'     => [
 				'type'              => 'color',
 				'default'           => [
@@ -72,7 +77,7 @@ class Zenvy_Customize_Header_Toggle_Menu_Fields extends Zenvy_Customize_Base_Fie
 					'color_1' => 'var(--color-bg-dark)',
 				],
 			],
-			// Icon Background Color
+			// Icon Background Color.
 			'zenvy_header_toggle_menu_icon_background_color' => [
 				'type'              => 'color',
 				'default'           => '',
@@ -85,14 +90,14 @@ class Zenvy_Customize_Header_Toggle_Menu_Fields extends Zenvy_Customize_Base_Fie
 					'color_1' => 'var(--color-bg)',
 				],
 			],
-			// Note three
+			// Note three.
 			'zenvy_header_toggle_menu_note_three'     => [
 				'type'        => 'heading',
 				'description' => esc_html__( 'Dropdown Container', 'zenvy' ),
 				'section'     => 'toggle_menu',
 				'priority'    => 60,
 			],
-			// Menu Typography
+			// Menu Typography.
 			'zenvy_header_toggle_menu_text_typo'      => [
 				'type'              => 'typography',
 				'default'           => '',
@@ -107,7 +112,7 @@ class Zenvy_Customize_Header_Toggle_Menu_Fields extends Zenvy_Customize_Base_Fie
 				],
 				'fields'            => [ 'colors' => true ],
 			],
-			// Menu Background
+			// Menu Background.
 			'zenvy_header_toggle_menu_dropdown_container_menu_background' => [
 				'type'              => 'color',
 				'default'           => '',
@@ -125,7 +130,7 @@ class Zenvy_Customize_Header_Toggle_Menu_Fields extends Zenvy_Customize_Base_Fie
 					'color_2' => '#ca77b4',
 				],
 			],
-			// Container Padding
+			// Container Padding.
 			'zenvy_header_toggle_menu_padding'        => [
 				'type'              => 'dimensions',
 				'default'           => '',
@@ -136,7 +141,7 @@ class Zenvy_Customize_Header_Toggle_Menu_Fields extends Zenvy_Customize_Base_Fie
 				'responsive'        => [ 'desktop', 'tablet', 'mobile' ],
 				'priority'          => 70,
 			],
-			// Container Margin
+			// Container Margin.
 			'zenvy_header_toggle_menu_margin'         => [
 				'type'              => 'dimensions',
 				'default'           => '',

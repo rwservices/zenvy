@@ -1,10 +1,15 @@
 <?php
 /**
- * Blogin Aarambha Theme Customizer Header Primary Menu settings
+ * Zenvy Theme Customizer Header Primary Menu settings
  *
  * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Customize_Header_Primary_Menu_Fields
+ * 
+ * Header primary menu customizer fields.
+ */
 class Zenvy_Customize_Header_Primary_Menu_Fields extends Zenvy_Customize_Base_Field {
 
 	/**
@@ -14,7 +19,7 @@ class Zenvy_Customize_Header_Primary_Menu_Fields extends Zenvy_Customize_Base_Fi
 	 */
 	public function init() {
 		$this->args = [
-			// Grouping Settings
+			// Grouping Settings.
 			'zenvy_header_primary_menu_group_settings'    => [
 				'type'     => 'group',
 				'section'  => 'primary_menu',
@@ -45,14 +50,14 @@ class Zenvy_Customize_Header_Primary_Menu_Fields extends Zenvy_Customize_Base_Fi
 					],
 				],
 			],
-			// Note One
+			// Note One.
 			'zenvy_header_primary_menu_note_one'          => [
 				'type'        => 'heading',
 				'description' => sprintf( __( 'To set menu, go to <a data-type="section" data-id="menu_locations" class="customizer-focus"><strong>Primary Menu</strong></a>', 'zenvy' ) ),
 				'section'     => 'primary_menu',
 				'priority'    => 10,
 			],
-			// Items Spacing
+			// Items Spacing.
 			'zenvy_header_primary_parent_menu_spacing'    => [
 				'type'              => 'range',
 				'default'           => '',
@@ -63,14 +68,14 @@ class Zenvy_Customize_Header_Primary_Menu_Fields extends Zenvy_Customize_Base_Fi
 				'responsive'        => [ 'desktop', 'tablet', 'mobile' ],
 				'priority'          => 20,
 			],
-			// Heading Three
+			// Heading Three.
 			'zenvy_header_primary_menu_note_five'         => [
 				'type'     => 'heading',
 				'label'    => esc_html__( 'PARENT MENU', 'zenvy' ),
 				'section'  => 'primary_menu',
 				'priority' => 53,
 			],
-			// Menu Colors
+			// Menu Colors.
 			'zenvy_header_primary_parent_menu_colors'     => [
 				'type'              => 'color',
 				'default'           => '',
@@ -88,7 +93,7 @@ class Zenvy_Customize_Header_Primary_Menu_Fields extends Zenvy_Customize_Base_Fi
 				],
 				'priority'          => 55,
 			],
-			// Menu Background
+			// Menu Background.
 			'zenvy_header_primary_parent_menu_background_color' => [
 				'type'              => 'color',
 				'default'           => '',
@@ -106,14 +111,14 @@ class Zenvy_Customize_Header_Primary_Menu_Fields extends Zenvy_Customize_Base_Fi
 					'color_2' => 'var(--color-bg)',
 				],
 			],
-			// Heading Three
+			// Heading Three.
 			'zenvy_header_primary_menu_note_three'        => [
 				'type'     => 'heading',
 				'label'    => esc_html__( 'CHILD MENU', 'zenvy' ),
 				'section'  => 'primary_menu',
 				'priority' => 70,
 			],
-			// Child Menu Colors
+			// Child Menu Colors.
 			'zenvy_header_primary_child_menu_colors'      => [
 				'type'              => 'color',
 				'default'           => '',
@@ -131,7 +136,7 @@ class Zenvy_Customize_Header_Primary_Menu_Fields extends Zenvy_Customize_Base_Fi
 				],
 				'priority'          => 75,
 			],
-			// SubMenu Background
+			// SubMenu Background.
 			'zenvy_header_primary_child_menu_background_colors' => [
 				'type'              => 'color',
 				'default'           => '',
@@ -149,14 +154,14 @@ class Zenvy_Customize_Header_Primary_Menu_Fields extends Zenvy_Customize_Base_Fi
 					'color_2' => 'var(--color-secondary)',
 				],
 			],
-			// Heading four
+			// Heading four.
 			'zenvy_header_primary_menu_note_four'         => [
 				'type'     => 'heading',
 				'label'    => esc_html__( 'CONTAINER', 'zenvy' ),
 				'section'  => 'primary_menu',
 				'priority' => 105,
 			],
-			// Container Padding
+			// Container Padding.
 			'zenvy_header_primary_menu_container_padding' => [
 				'type'              => 'dimensions',
 				'default'           => '',
@@ -167,7 +172,7 @@ class Zenvy_Customize_Header_Primary_Menu_Fields extends Zenvy_Customize_Base_Fi
 				'responsive'        => [ 'desktop', 'tablet', 'mobile' ],
 				'priority'          => 110,
 			],
-			// Container Margin
+			// Container Margin.
 			'zenvy_header_primary_menu_container_margin'  => [
 				'type'              => 'dimensions',
 				'default'           => '',

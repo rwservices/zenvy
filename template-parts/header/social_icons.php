@@ -7,7 +7,7 @@
  * @package Zenvy
  */
 
-$social_icons = get_theme_mod(
+$zenvy_social_icons = get_theme_mod(
 	'zenvy_social_icons',
 	[
 		[
@@ -23,29 +23,29 @@ $social_icons = get_theme_mod(
 	]
 );
 
-if ( $social_icons ) :
+if ( $zenvy_social_icons ) :
 
-	$content_class = [ 'd-flex align-items-center' ];
+	$zenvy_content_class = [ 'd-flex align-items-center' ];
 
-	$content_class = array_unique( $content_class );
+	$zenvy_content_class = array_unique( $zenvy_content_class );
 
-	$link_open   = get_theme_mod(
+	$zenvy_link_open   = get_theme_mod(
 		'zenvy_header_social_icon_link_open',
 		''
 	);
-	$link_target = ( $link_open && array_key_exists( 'desktop', $link_open ) ) ? '_blank' : '_self';
+	$zenvy_link_target = ( $zenvy_link_open && array_key_exists( 'desktop', $zenvy_link_open ) ) ? '_blank' : '_self';
 	?>
 	<div class="header-social-container">
 		<ul class="header-social-wrap d-flex">
 
 		<?php
-		foreach ( $social_icons as $social ) :
-			$network = ( $social['network'] !== '' ) ? $social['network'] : 'facebook';
-			$icon    = ( $social['icon'] !== '' ) ? $social['icon'] : 'fab fa-' . $network;
+		foreach ( $zenvy_social_icons as $zenvy_social ) :
+			$zenvy_network = ( '' !== $zenvy_social['network'] ) ? $zenvy_social['network'] : 'facebook';
+			$zenvy_icon    = ( '' !== $zenvy_social['icon'] ) ? $zenvy_social['icon'] : 'fab fa-' . $zenvy_network;
 			?>
 			<li>
-				<a href="<?php echo esc_url( $social['link'] ); ?>" class="<?php echo esc_attr( join( ' ', $content_class ) ); ?>" target="<?php echo esc_attr( $link_target ); ?>">
-					<?php Zenvy_Font_Awesome_Icons::get_icon( 'ui', $icon ); ?>
+				<a href="<?php echo esc_url( $zenvy_social['link'] ); ?>" class="<?php echo esc_attr( join( ' ', $zenvy_content_class ) ); ?>" target="<?php echo esc_attr( $zenvy_link_target ); ?>">
+					<?php Zenvy_Font_Awesome_Icons::get_icon( 'ui', $zenvy_icon ); ?>
 				</a>
 			</li>
 		<?php endforeach; ?>

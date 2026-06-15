@@ -6,6 +6,8 @@
  */
 
 /**
+ * Class Zenvy_Customize_Repeater_Control
+ * 
  * Repeater control
  */
 class Zenvy_Customize_Repeater_Control extends WP_Customize_Control {

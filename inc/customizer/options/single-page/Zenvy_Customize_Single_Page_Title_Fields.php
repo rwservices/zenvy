@@ -5,6 +5,11 @@
  * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Customize_Single_Page_Title_Fields
+ *
+ * Handles customizer single page title fields for the Zenvy theme.
+ */
 class Zenvy_Customize_Single_Page_Title_Fields extends Zenvy_Customize_Base_Field {
 
 	/**
@@ -14,7 +19,7 @@ class Zenvy_Customize_Single_Page_Title_Fields extends Zenvy_Customize_Base_Fiel
 	 */
 	public function init() {
 		$this->args = [
-			// Title Tag
+			// Title tag.
 			'zenvy_single_page_title_tag' => [
 				'type'              => 'buttonset',
 				'default'           => [ 'desktop' => 'h1' ],

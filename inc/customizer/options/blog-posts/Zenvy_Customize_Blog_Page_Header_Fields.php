@@ -5,6 +5,11 @@
  * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Customize_Blog_Page_Header_Fields
+ *
+ * Handles customizer blog page header fields for the Zenvy theme.
+ */
 class Zenvy_Customize_Blog_Page_Header_Fields extends Zenvy_Customize_Base_Field {
 
 	/**
@@ -14,7 +19,7 @@ class Zenvy_Customize_Blog_Page_Header_Fields extends Zenvy_Customize_Base_Field
 	 */
 	public function init() {
 		$this->args = [
-			// Page Header
+			// Page header.
 			'zenvy_blog_page_header_elements' => [
 				'type'              => 'sortable',
 				'default'           => [ 'post-title' ],
