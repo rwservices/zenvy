@@ -22,7 +22,7 @@ Zenvy is a super flexible and modernized free WordPress Theme for real estate ag
 
 = Does this theme support any plugins? =
 
-Zenvy includes support for Crucial Real Estate and for Infinite Scroll in Jetpack.
+Zenvy includes support for WooCommerce and for Infinite Scroll in Jetpack.
 
 == Copyright ==
 
