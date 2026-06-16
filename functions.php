@@ -356,6 +356,4 @@ require ZENVY_THEME_DIR . 'inc/tgm/tgm.php';
 /**
  * Widgets.
  */
-require ZENVY_THEME_DIR . 'inc/widgets/class-zenvy-social-links-widget.php';
 require ZENVY_THEME_DIR . 'inc/widgets/class-zenvy-sidebar-posts-widget.php';
-require ZENVY_THEME_DIR . 'inc/widgets/class-zenvy-sidebar-tags-widget.php';

@@ -7,7 +7,6 @@
  * @package Zenvy
  */
 
-
 if ( is_active_sidebar( 'footer-sidebar-5' ) ) : ?>
 	<div class="footer-sidebar-wrap footer-sidebar-5">
 		<?php dynamic_sidebar( 'footer-sidebar-5' ); ?>
