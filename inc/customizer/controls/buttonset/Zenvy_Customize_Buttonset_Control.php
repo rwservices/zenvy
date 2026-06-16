@@ -39,7 +39,7 @@ class Zenvy_Customize_Buttonset_Control extends Zenvy_Customize_Base_Control {
 		// Get the basics from the parent class.
 		parent::to_json();
 
-		// Button Type
+		// Button Type.
 		$this->json['button_type'] = $this->button_type;
 	}
 
@@ -60,7 +60,7 @@ class Zenvy_Customize_Buttonset_Control extends Zenvy_Customize_Base_Control {
 
 		<div class="d-flex justify-content-between align-items-center">
 			<span class="customize-control-title position-relative">
-				{{{ data.label }}}
+				{{ data.label }}
 				<span class="reset-value"><i class="dashicons dashicons-image-rotate d-flex justify-content-center align-items-center"></i></span>
 			</span>
 
@@ -86,7 +86,7 @@ class Zenvy_Customize_Buttonset_Control extends Zenvy_Customize_Base_Control {
 		</div>
 
 		<# if ( data.description ) { #>
-		<span class="description customize-control-description">{{{ data.description }}}</span>
+		<span class="description customize-control-description">{{ data.description }}</span>
 		<# } #>
 
 		<# Object.keys( data.responsive ).forEach( function( key ) {

@@ -30,7 +30,7 @@ class Zenvy_Customize_Box_Shadow_Control extends Zenvy_Customize_Base_Control {
 		// Get the basics from the parent class.
 		parent::to_json();
 
-		// default fields
+		// default fields.
 		$default_fields = [
 			'inset'    => false,
 			'h_length' => false,
@@ -50,7 +50,7 @@ class Zenvy_Customize_Box_Shadow_Control extends Zenvy_Customize_Base_Control {
 
 		$fields = wp_parse_args( $fields, $default_fields );
 
-		// Fields
+		// Fields.
 		$this->json['fields'] = $fields;
 	}
 

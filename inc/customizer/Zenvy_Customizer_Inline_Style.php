@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Zenvy Customizer Styles
  *
@@ -245,7 +244,7 @@ class Zenvy_Customizer_Inline_Style {
 			);
 			// Parent Menu Spacing
 			$primary_menu_spacing = get_theme_mod( 'zenvy_header_primary_parent_menu_spacing', '' );
-			if ( $primary_menu_spacing && ( $primary_menu_spacing['desktop'] === '0px' ) ) {
+			if ( $primary_menu_spacing && ( '0px' === $primary_menu_spacing['desktop'] ) ) {
 				self::generate_css(
 					[ '.site-header .primary-navbar .main-navigation div>ul>li' ],
 					[ 'margin' ],
@@ -1028,16 +1027,6 @@ class Zenvy_Customizer_Inline_Style {
 					],
 					'margin-top'
 				);
-				// Background Color
-				// self::color(
-				// ['.single .single-post-wrapper .post .post-navigation .nav-links a', '.single .single-post-wrapper .post .post-navigation .nav-links a::before,.single .single-post-wrapper .post .post-navigation .nav-links a:hover'],
-				// 'zenvy_single_post_navigation_background',
-				// [
-				// 'color_1' => '#F8F5FC',
-				// 'color_2' => 'var(--color-bg-2)',
-				// ],
-				// 'background-color'
-				// );
 			}
 
 			// Is 404 Page
@@ -1087,7 +1076,7 @@ class Zenvy_Customizer_Inline_Style {
 					''
 				);
 
-				// Background Overlay   
+				// Background Overlay.
 				self::background(
 					[ '.zenvy-front-page .featured-slider::before' ],
 					'zenvy_front_page_featured_section_background_overlay',
@@ -1256,7 +1245,7 @@ class Zenvy_Customizer_Inline_Style {
 					'@media only screen and (min-width: 1024px)'
 				);
 				// Sidebar Gap
-				if ( Zenvy_Helper::get_sidebar_layout() === 'right' ) {
+				if ( 'right' === Zenvy_Helper::get_sidebar_layout() ) {
 					self::generate_css(
 						[ '.have-sidebar #secondary.right-sidebar' ],
 						[ 'padding-left' ],
@@ -1273,7 +1262,7 @@ class Zenvy_Customizer_Inline_Style {
 						'',
 						'@media only screen and (min-width: 1024px)'
 					);
-				} elseif ( Zenvy_Helper::get_sidebar_layout() === 'left' ) {
+				} elseif ( 'left' === Zenvy_Helper::get_sidebar_layout() ) {
 					self::generate_css(
 						[ '.have-sidebar #secondary.left-sidebar' ],
 						[ 'padding-right' ],
@@ -1292,6 +1281,7 @@ class Zenvy_Customizer_Inline_Style {
 					);
 				}
 			}
+
 			/*
 			--------------------------------------------------------------
 			# Footer Builder -> Top Row
@@ -1319,6 +1309,7 @@ class Zenvy_Customizer_Inline_Style {
 					],
 				]
 			);
+
 			/*
 			--------------------------------------------------------------
 			# Footer Builder -> Main Row
@@ -1350,6 +1341,7 @@ class Zenvy_Customizer_Inline_Style {
 					],
 				]
 			);
+
 			/*
 			--------------------------------------------------------------
 			# Footer Builder -> Bottom Row
@@ -1370,6 +1362,7 @@ class Zenvy_Customizer_Inline_Style {
 				'zenvy_footer_bottom_row_padding',
 				''
 			);
+
 			/*
 			--------------------------------------------------------------
 			# Footer Builder -> Footer HTML
@@ -1605,20 +1598,6 @@ class Zenvy_Customizer_Inline_Style {
 				'',
 				'background-color'
 			);
-			// Item Border
-			// self::border(
-			// ['.site-footer .footer-social-wrap li'],
-			// 'zenvy_footer_social_icon_item_border',
-			// [
-			// 'width' => [
-			// 'side_1' => '0px',
-			// 'side_2' => '0px',
-			// 'side_3' => '0px',
-			// 'side_4' => '0px',
-			// 'linked' => 'on',
-			// ],
-			// ]
-			// );
 			// Item Padding
 			self::dimensions(
 				[ '.site-footer .footer-social-wrap li' ],
@@ -1638,7 +1617,8 @@ class Zenvy_Customizer_Inline_Style {
 		/*
 		--------------------------------------------------------------
 		# Footer Builder -> Sidebar 1, Sidebar 2, Sidebar 3, Sidebar 4, Sidebar 5, Sidebar 6
-		--------------------------------------------------------------*/
+		--------------------------------------------------------------
+		*/
 		// Sidebar Widgets Typography
 		self::typography(
 			[
@@ -1702,11 +1682,17 @@ class Zenvy_Customizer_Inline_Style {
 		return ob_get_clean();
 	}
 
+	/**
+	 * Output root CSS custom properties.
+	 *
+	 * @return void
+	 */
 	public static function root_output() {
 		/*
 		--------------------------------------------------------------
 		# Root
-		--------------------------------------------------------------*/
+		--------------------------------------------------------------
+		*/
 		// Accent Colors
 		self::customizer_inherit_colors(
 			'zenvy_accent_color',
@@ -1774,42 +1760,42 @@ class Zenvy_Customizer_Inline_Style {
 	}
 
 	/**
-	 * Inherit Color for the root
+	 * Inherit Color for the root.
 	 *
 	 * @access static public
-	 * @param string $setting
-	 * @param null   $default
-	 * @param array  $inheritColors
-	 * @return void echo style
+	 * @param string $setting The theme mod setting key.
+	 * @param mixed  $default The default value.
+	 * @param array  $inherit_colors Map of value keys to CSS custom property names.
+	 * @return void
 	 */
-	public static function customizer_inherit_colors( $setting, $default = null, $inheritColors = [] ) {
+	public static function customizer_inherit_colors( $setting, $default = null, $inherit_colors = [] ) {
 
 		$values = get_theme_mod( $setting, $default );
 		$output = '';
 		if ( $values && $values !== $default ) {
 			foreach ( $values as $index => $val ) {
-				if ( ! isset( $inheritColors[ $index ] ) ) {
+				if ( ! isset( $inherit_colors[ $index ] ) ) {
 					continue;
 				}
 
-				$output .= $inheritColors[ $index ] . ':' . esc_attr( $val ) . ';';
+				$output .= $inherit_colors[ $index ] . ':' . esc_attr( $val ) . ';';
 			}
 		}
 
-		// Output
-		$output = $output !== '' ? ':root{ ' . $output . ' }' : '';
+		// Output.
+		$output = '' !== $output ? ':root{ ' . $output . ' }' : '';
 
-		echo $output; // // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 	/**
-	 * Background control value output
+	 * Background control value output.
 	 *
 	 * @access static public
-	 * @param array  $selectors
-	 * @param string $setting
-	 * @param null   $default
-	 * @return void echo style
+	 * @param array  $selectors CSS selectors to target.
+	 * @param string $setting The theme mod setting key.
+	 * @param mixed  $default The default value.
+	 * @return void
 	 */
 	public static function background( $selectors, $setting, $default = null ) {
 
@@ -1818,7 +1804,7 @@ class Zenvy_Customizer_Inline_Style {
 
 		if ( $values ) {
 
-			// Execute only sectors is array type
+			// Execute only sectors is array type.
 			if ( is_array( $selectors ) ) {
 				$display_type = isset( $values['background'] )
 					? $values['background']
@@ -1827,12 +1813,12 @@ class Zenvy_Customizer_Inline_Style {
 				foreach ( $selectors as $s_index => $selector ) {
 					++$s_index;
 
-					// for color
-					if ( $display_type === 'color' && isset( $values['colors'] ) ) {
+					// For color.
+					if ( 'color' === $display_type && isset( $values['colors'] ) ) {
 						$output .= isset( $values['colors'][ 'color_' . $s_index ] ) ? $selector . '{ background-color:' . esc_attr( $values['colors'][ 'color_' . $s_index ] ) . ';}' : '';
 					}
-					// for gradient
-					elseif ( $display_type === 'gradient' && isset( $values['gradient'] ) ) {
+					// For gradient.
+					elseif ( 'gradient' === $display_type && isset( $values['gradient'] ) ) {
 						$output .= $selector . '{';
 
 						$output .= 'background:';
@@ -1851,8 +1837,8 @@ class Zenvy_Customizer_Inline_Style {
 
 						$output .= '}';
 					}
-					// for image
-					elseif ( $display_type === 'image' && isset( $values['image'] ) ) {
+					// For image.
+					elseif ( 'image' === $display_type && isset( $values['image'] ) ) {
 						$output .= $selector . '{ background-image:url("' . esc_url( $values['image'] ) . '");';
 						$output .= isset( $values['position'] ) ? 'background-position:' . esc_attr( $values['position'] ) . ';' : '';
 						$output .= isset( $values['size'] ) ? 'background-size:' . esc_attr( $values['size'] ) . ';' : '';
@@ -1868,13 +1854,13 @@ class Zenvy_Customizer_Inline_Style {
 	}
 
 	/**
-	 * Border control value output
+	 * Border control value output.
 	 *
 	 * @access static public
-	 * @param array  $selectors
-	 * @param string $setting
-	 * @param null   $default
-	 * @return void echo style
+	 * @param array  $selectors CSS selectors to target.
+	 * @param string $setting The theme mod setting key.
+	 * @param mixed  $default The default value.
+	 * @return void
 	 */
 	public static function border( $selectors, $setting, $default = null ) {
 
@@ -1884,13 +1870,13 @@ class Zenvy_Customizer_Inline_Style {
 
 		if ( $values ) {
 
-			// border radius
+			// Border radius.
 			$properties .= isset( $values['radius'] ) ? 'border-radius: ' . esc_attr( $values['radius'] ) . ';' : '';
 
-			// execute if linked is "on"
-			if ( isset( $values['width'] ) && ( count( $values['width'] ) > 4 ) && $values['width']['linked'] === 'on' ) {
+			// Execute if linked is "on".
+			if ( isset( $values['width'] ) && ( count( $values['width'] ) > 4 ) && 'on' === $values['width']['linked'] ) {
 				$properties .= isset( $values['style'] ) && ( isset( $values['colors'] ) && ! empty( $values['colors'] ) ) ? 'border: ' : 'border-width: ';
-				// width
+				// Width.
 				$width = '';
 				foreach ( [ 'side_1', 'side_2', 'side_3', 'side_4' ] as $side ) {
 					if ( isset( $values['width'] ) && isset( $values['width'][ $side ] ) ) {
@@ -1899,30 +1885,30 @@ class Zenvy_Customizer_Inline_Style {
 					}
 				}
 
-				// Width
+				// Width.
 				$properties .= esc_attr( $width ) . ' ';
 
-				// style
+				// Style.
 				$properties .= isset( $values['style'] ) ? esc_attr( $values['style'] ) . ' ' : '';
 
 				$properties .= ';';
 			}
-			// Execute if linked is "off"
+			// Execute if linked is "off".
 			else {
 
-				// border width
+				// Border width.
 				$widths = '';
 				foreach ( [ 'top', 'right', 'bottom', 'left' ] as $index => $key ) {
 					++$index;
 					$widths .= isset( $values['width'] ) && isset( $values['width'][ 'side_' . $index ] ) ? 'border-' . $key . '-width: ' . esc_attr( $values['width'][ 'side_' . $index ] ) . ';' : '';
 				}
-				$properties .= $widths !== '' ? 'border-width: 0;' : '';
+				$properties .= '' !== $widths ? 'border-width: 0;' : '';
 				$properties .= esc_attr( $widths );
-				// border style
+				// Border style.
 				$properties .= isset( $values['style'] ) ? 'border-style: ' . esc_attr( $values['style'] ) . ';' : '';
 			}
 
-			// Execute only sectors is array type
+			// Execute only sectors is array type.
 			if ( is_array( $selectors ) ) {
 				foreach ( $selectors as $s_index => $selector ) {
 					++$s_index;
@@ -1932,20 +1918,20 @@ class Zenvy_Customizer_Inline_Style {
 			}
 		}
 
-		// output
+		// Output.
 		$output = '' !== $output ? $output : '';
 
 		echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 	/**
-	 * Box Shadow control value output
+	 * Box Shadow control value output.
 	 *
 	 * @access static public
-	 * @param array  $selectors
-	 * @param string $setting
-	 * @param null   $default
-	 * @return void echo style
+	 * @param array  $selectors CSS selectors to target.
+	 * @param string $setting The theme mod setting key.
+	 * @param mixed  $default The default value.
+	 * @return void
 	 */
 	public static function box_shadow( $selectors, $setting, $default = null ) {
 
@@ -1955,25 +1941,25 @@ class Zenvy_Customizer_Inline_Style {
 
 		if ( $values ) {
 
-			// Execute only if blur value is set and value > 0
+			// Execute only if blur value is set and value > 0.
 			if ( isset( $values['blur'] ) ) {
 
-				// Inset
+				// Inset.
 				$properties .= isset( $values['inset'] ) ? 'inset ' : '';
 
-				// Horizontal Length
+				// Horizontal Length.
 				$properties .= isset( $values['h_length'] ) && floatval( $values['h_length'] ) !== 0 ? esc_attr( $values['h_length'] ) . ' ' : '0 ';
 
-				// Vertical Length
+				// Vertical Length.
 				$properties .= isset( $values['v_length'] ) && floatval( $values['v_length'] ) !== 0 ? esc_attr( $values['v_length'] ) . ' ' : '0 ';
 
-				// Blur
-				$properties .= floatval( $values['blur'] ) !== 0 ? esc_attr( $values['blur'] ) . ' ' : '0 ';
+				// Blur.
+				$properties .= 0 !== floatval( $values['blur'] ) ? esc_attr( $values['blur'] ) . ' ' : '0 ';
 
-				// spread
+				// Spread.
 				$properties .= isset( $values['spread'] ) && floatval( $values['spread'] ) !== 0 ? esc_attr( $values['spread'] ) . ' ' : '0 ';
 
-				// Execute only sectors is array type
+				// Execute only sectors is array type.
 				if ( is_array( $selectors ) ) {
 					foreach ( $selectors as $s_index => $selector ) {
 						++$s_index;
@@ -1987,20 +1973,20 @@ class Zenvy_Customizer_Inline_Style {
 			}
 		}
 
-		// Output
+		// Output.
 		$output = '' !== $output ? $output : '';
 
 		echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 	/**
-	 * Typography control value output
+	 * Typography control value output.
 	 *
-	 * @param   array  $selectors
-	 * @param   string $control
-	 * @param   null   $default
-	 * @param   null   $media_query
-	 * @return  void echo style
+	 * @param array  $selectors CSS selectors to target.
+	 * @param string $control The theme mod setting key.
+	 * @param mixed  $default The default value.
+	 * @param mixed  $media_query Optional media query override.
+	 * @return void
 	 */
 	public static function typography( $selectors, $control, $default = null, $media_query = null ) {
 
@@ -2016,18 +2002,18 @@ class Zenvy_Customizer_Inline_Style {
 				foreach ( $selectors as $s_index => $selector ) {
 					++$s_index;
 
-					// Font Family
+					// Font Family.
 					$sm_css .= isset( $values['font_family'] ) ? 'font-family: ' . esc_attr( $values['font_family'] ) . ';' : '';
-					// Font Weight
+					// Font Weight.
 					$sm_css .= isset( $values['weight'] ) ? 'font-weight: ' . esc_attr( $values['weight'] ) . ';' : '';
-					// Font Style
+					// Font Style.
 					$sm_css .= isset( $values['style'] ) ? 'font-style: ' . esc_attr( $values['style'] ) . ';' : '';
-					// Text Transform
+					// Text Transform.
 					$sm_css .= isset( $values['text_transform'] ) ? 'text-transform: ' . esc_attr( $values['text_transform'] ) . ';' : '';
-					// Text Decoration
+					// Text Decoration.
 					$sm_css .= isset( $values['text_decoration'] ) ? 'text-decoration: ' . esc_attr( $values['text_decoration'] ) . ';' : '';
 
-					// font size
+					// Font size.
 					$sm_css .= isset( $values['font_size']['mobile'] )
 						? 'font-size: ' . esc_attr( $values['font_size']['mobile'] ) . ';'
 						: ( isset( $values['font_size']['tablet'] )
@@ -2049,7 +2035,7 @@ class Zenvy_Customizer_Inline_Style {
 						? 'font-size: ' . esc_attr( $values['font_size']['desktop'] ) . ';'
 						: '';
 
-					// letter spacing
+					// Letter spacing.
 					$sm_css .= isset( $values['letter_spacing']['mobile'] )
 						? 'letter-spacing: ' . esc_attr( $values['letter_spacing']['mobile'] ) . ';'
 						: ( isset( $values['letter_spacing']['tablet'] )
@@ -2071,7 +2057,7 @@ class Zenvy_Customizer_Inline_Style {
 						? 'letter-spacing: ' . esc_attr( $values['letter_spacing']['desktop'] ) . ';'
 						: '';
 
-					// Line Height
+					// Line Height.
 					$sm_css .= isset( $values['line_height']['mobile'] )
 						? 'line-height: ' . esc_attr( $values['line_height']['mobile'] ) . ';'
 						: ( isset( $values['line_height']['tablet'] )
@@ -2093,47 +2079,47 @@ class Zenvy_Customizer_Inline_Style {
 						? 'line-height: ' . esc_attr( $values['line_height']['desktop'] ) . ';'
 						: '';
 
-					if ( $s_index === 1 ) {
-						// Color
+					if ( 1 === $s_index ) {
+						// Color.
 						$sm_css .= isset( $values['colors'] ) && isset( $values['colors'][ 'color_' . $s_index ] ) ? 'color: ' . esc_attr( $values['colors'][ 'color_' . $s_index ] ) . ';' : '';
 
-						// Base CSS
-						if ( $sm_css !== '' ) {
+						// Base CSS.
+						if ( '' !== $sm_css ) {
 							$output .= $selector . '{' . $sm_css . '}';
 						}
-						// For Medium Device
-						if ( $md_css !== '' ) {
+						// For Medium Device.
+						if ( '' !== $md_css ) {
 							$output .= $media_query[0] . '{' . $selector . '{' . $md_css . '}}';
 						}
-						// For Large Device
-						if ( $lg_css !== '' ) {
+						// For Large Device.
+						if ( '' !== $lg_css ) {
 							$output .= $media_query[1] . '{' . $selector . '{' . $lg_css . '}}';
 						}
 					} else {
-						// Base CSS
+						// Base CSS.
 						$output .= isset( $values['colors'] ) && isset( $values['colors'][ 'color_' . $s_index ] ) ? $selector . '{color: ' . esc_attr( $values['colors'][ 'color_' . $s_index ] ) . ';}' : '';
 					}
 				}
 			}
 		}
 
-		// Output
+		// Output.
 		$output = '' !== $output ? $output : '';
 
 		echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 	/**
-	 * Color control value output
+	 * Color control value output.
 	 *
 	 * @access static public
-	 * @param array  $selectors
-	 * @param string $setting
-	 * @param null   $default
-	 * @param string $property default is 'color'
-	 * @param string $prefix
-	 * @param string $suffix
-	 * @return void echo style
+	 * @param array  $selectors CSS selectors to target.
+	 * @param string $setting The theme mod setting key.
+	 * @param mixed  $default The default value.
+	 * @param string $property The CSS property; default is 'color'.
+	 * @param string $prefix Optional CSS value prefix.
+	 * @param string $suffix Optional CSS value suffix.
+	 * @return void
 	 */
 	public static function color( $selectors, $setting, $default = null, $property = 'color', $prefix = '', $suffix = '' ) {
 
@@ -2142,7 +2128,7 @@ class Zenvy_Customizer_Inline_Style {
 
 		if ( $values ) {
 
-			// Execute only sectors is array type
+			// Execute only sectors is array type.
 			if ( is_array( $selectors ) ) {
 				foreach ( $selectors as $s_index => $selector ) {
 					++$s_index;
@@ -2152,23 +2138,23 @@ class Zenvy_Customizer_Inline_Style {
 			}
 		}
 
-		// Output
+		// Output.
 		$output = '' !== $output ? $output : '';
 
 		echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 	/**
-	 * Range control value output
+	 * Range control value output.
 	 *
-	 * @param   string|array $selector
-	 * @param   string       $control
-	 * @param   null         $default
-	 * @param   string       $property default is 'padding'
-	 * @param   string       $prefix
-	 * @param   string       $suffix
-	 * @param   null         $media_query
-	 * @return  void echo style
+	 * @param string|array $selector CSS selector(s).
+	 * @param string       $control The theme mod setting key.
+	 * @param mixed        $default The default value.
+	 * @param string       $property The CSS property; default is 'padding'.
+	 * @param string       $prefix Optional CSS value prefix.
+	 * @param string       $suffix Optional CSS value suffix.
+	 * @param mixed        $media_query Optional media query override.
+	 * @return void
 	 */
 	public static function range( $selector, $control, $default = null, $property = 'padding', $prefix = '', $suffix = '', $media_query = null ) {
 
@@ -2182,7 +2168,7 @@ class Zenvy_Customizer_Inline_Style {
 		if ( $values ) {
 			$selector = is_array( $selector ) ? join( ',', $selector ) : $selector;
 
-			// font size
+			// Font size.
 			$sm_css .= isset( $values['mobile'] )
 				? $property . ': ' . esc_attr( $prefix . $values['mobile'] . $suffix ) . ';'
 				: ( isset( $values['tablet'] )
@@ -2204,37 +2190,37 @@ class Zenvy_Customizer_Inline_Style {
 				? $property . ': ' . esc_attr( $prefix . $values['desktop'] . $suffix ) . ';'
 				: '';
 
-			// Base CSS
-			if ( $sm_css !== '' ) {
+			// Base CSS.
+			if ( '' !== $sm_css ) {
 				$output .= $selector . '{' . $sm_css . '}';
 			}
-			// For Medium Device
-			if ( $md_css !== '' ) {
+			// For Medium Device.
+			if ( '' !== $md_css ) {
 				$output .= $media_query[0] . '{' . $selector . '{' . $md_css . '}}';
 			}
-			// For Large Device
-			if ( $lg_css !== '' ) {
+			// For Large Device.
+			if ( '' !== $lg_css ) {
 				$output .= $media_query[1] . '{' . $selector . '{' . $lg_css . '}}';
 			}
 		}
 
-		// Output
+		// Output.
 		$output = '' !== $output ? $output : '';
 
 		echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 	/**
-	 * Dimensions control value output
+	 * Dimensions control value output.
 	 *
-	 * @param   string|array $selector
-	 * @param   string       $control
-	 * @param   null         $default
-	 * @param   string       $property default is 'padding'
-	 * @param   string       $prefix
-	 * @param   string       $suffix
-	 * @param   null         $media_query
-	 * @return  void echo style
+	 * @param string|array $selector CSS selector(s).
+	 * @param string       $control The theme mod setting key.
+	 * @param mixed        $default The default value.
+	 * @param string       $property The CSS property; default is 'padding'.
+	 * @param string       $prefix Optional CSS value prefix.
+	 * @param string       $suffix Optional CSS value suffix.
+	 * @param mixed        $media_query Optional media query override.
+	 * @return void
 	 */
 	public static function dimensions( $selector, $control, $default = null, $property = 'padding', $prefix = '', $suffix = '', $media_query = null ) {
 
@@ -2248,7 +2234,7 @@ class Zenvy_Customizer_Inline_Style {
 		if ( $values ) {
 			$selector = is_array( $selector ) ? join( ',', $selector ) : $selector;
 
-			// width
+			// Width.
 			foreach ( [ 'top', 'right', 'bottom', 'left' ] as $index => $key ) {
 				++$index;
 
@@ -2274,21 +2260,21 @@ class Zenvy_Customizer_Inline_Style {
 					: '';
 			}
 
-			// Base CSS
-			if ( $sm_css !== '' ) {
+			// Base CSS.
+			if ( '' !== $sm_css ) {
 				$output .= $selector . '{' . $sm_css . '}';
 			}
-			// For Medium Device
-			if ( $md_css !== '' ) {
+			// For Medium Device.
+			if ( '' !== $md_css ) {
 				$output .= $media_query[0] . '{' . $selector . '{' . $md_css . '}}';
 			}
-			// For Large Device
-			if ( $lg_css !== '' ) {
+			// For Large Device.
+			if ( '' !== $lg_css ) {
 				$output .= $media_query[1] . '{' . $selector . '{' . $lg_css . '}}';
 			}
 		}
 
-		// Output
+		// Output.
 		$output = '' !== $output ? $output : '';
 
 		echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -2297,12 +2283,13 @@ class Zenvy_Customizer_Inline_Style {
 	/**
 	 * Generate CSS.
 	 *
-	 * @param array|string    $selector The CSS selector.
-	 * @param array           $property  The CSS style.
-	 * @param string          $values The CSS value.
-	 * @param string          $prefix The CSS prefix.
-	 * @param string          $suffix The CSS suffix.
-	 * @param void echo style
+	 * @param array|string $selector The CSS selector.
+	 * @param array        $property The CSS style properties.
+	 * @param string       $values The CSS value.
+	 * @param string       $prefix The CSS prefix.
+	 * @param string       $suffix The CSS suffix.
+	 * @param mixed        $media Optional media query wrapper.
+	 * @return void
 	 */
 	public static function generate_css( $selector, $property, $values, $prefix = '', $suffix = '', $media = null ) {
 
@@ -2322,7 +2309,7 @@ class Zenvy_Customizer_Inline_Style {
 		$selector = is_array( $selector ) ? join( ',', $selector ) : $selector;
 
 		$output .= $selector . '{';
-		foreach ( $property  as $key => $style ) {
+		foreach ( $property as $key => $style ) {
 			$output .= $style . ':' . esc_attr( $prefix . $values . $suffix ) . ';';
 		}
 		$output .= '}';

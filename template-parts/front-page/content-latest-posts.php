@@ -38,82 +38,82 @@ if ( $zenvy_recent_posts->have_posts() ) :
 					<section class="blog-section">
 						<div class="post-wrapper alternative-post">
 							<?php
-						while ( $zenvy_recent_posts->have_posts() ) :
-							$zenvy_recent_posts->the_post();
-							$zenvy_post_class = [ 'post' ];
-							if ( ! has_post_thumbnail() ) {
-								$zenvy_post_class[] = 'no-featured-image';
-							}
-							?>
+							while ( $zenvy_recent_posts->have_posts() ) :
+								$zenvy_recent_posts->the_post();
+								$zenvy_post_class = [ 'post' ];
+								if ( ! has_post_thumbnail() ) {
+									$zenvy_post_class[] = 'no-featured-image';
+								}
+								?>
 							<article id="post-<?php the_ID(); ?>" <?php post_class( $zenvy_post_class ); ?>>
 									<div class="featured-image-wrapper">
 										<?php
 										zenvy_post_thumbnail( 'medium_large', '1x1' );
-									$zenvy_enable_tags = get_theme_mod( 'zenvy_front_page_latest_posts_featured_image_tags', [ 'desktop' => 'true' ] );
+										$zenvy_enable_tags = get_theme_mod( 'zenvy_front_page_latest_posts_featured_image_tags', [ 'desktop' => 'true' ] );
 
-									if ( $zenvy_enable_tags && array_key_exists( 'desktop', $zenvy_enable_tags ) ) {
-										zenvy_posted_first_tag();
-									}
-									?>
+										if ( $zenvy_enable_tags && array_key_exists( 'desktop', $zenvy_enable_tags ) ) {
+											zenvy_posted_first_tag();
+										}
+										?>
 								</div>
-								<?php
-								$zenvy_posts_elements = get_theme_mod(
-									'zenvy_front_page_latest_posts_elements',
-									[ 'post-meta', 'post-title', 'post-excerpt', 'read-more' ]
-								);
-								$zenvy_meta_elements  = get_theme_mod(
-									'zenvy_meta_elements',
-									[ 'date', 'categories' ]
-								);
+									<?php
+									$zenvy_posts_elements = get_theme_mod(
+										'zenvy_front_page_latest_posts_elements',
+										[ 'post-meta', 'post-title', 'post-excerpt', 'read-more' ]
+									);
+									$zenvy_meta_elements  = get_theme_mod(
+										'zenvy_meta_elements',
+										[ 'date', 'categories' ]
+									);
 
-								if ( ! empty( $zenvy_posts_elements ) ) :
-									echo '<div class="post-content d-flex flex-column text-left">';
+									if ( ! empty( $zenvy_posts_elements ) ) :
+										echo '<div class="post-content d-flex flex-column text-left">';
 
-									foreach ( $zenvy_posts_elements as $zenvy_post_element ) :
+										foreach ( $zenvy_posts_elements as $zenvy_post_element ) :
 
-										switch ( $zenvy_post_element ) :
+											switch ( $zenvy_post_element ) :
 
-											case 'post-title':
-												Zenvy_Helper::post_title();
-												break;
+												case 'post-title':
+													Zenvy_Helper::post_title();
+													break;
 
-											case 'post-excerpt':
-												Zenvy_Helper::post_content();
-												break;
+												case 'post-excerpt':
+													Zenvy_Helper::post_content();
+													break;
 
-											case 'read-more':
-												Zenvy_Helper::read_more( 'latest_posts' );
-												break;
+												case 'read-more':
+													Zenvy_Helper::read_more( 'latest_posts' );
+													break;
 
-											case 'post-meta':
-												echo '<div class="entry-meta">';
+												case 'post-meta':
+													echo '<div class="entry-meta">';
 
-												if ( $zenvy_meta_elements ) {
-													foreach ( $zenvy_meta_elements as $zenvy_val ) {
-														if ( 'author' === $zenvy_val ) {
-															zenvy_posted_by();
-														} elseif ( 'categories' === $zenvy_val ) {
-															zenvy_posted_cats();
-														} elseif ( 'tags' === $zenvy_val ) {
-															zenvy_posted_tags();
-														} elseif ( 'date' === $zenvy_val ) {
-															zenvy_posted_on();
-														} elseif ( 'comment' === $zenvy_val ) {
-															zenvy_comment_count();
+													if ( $zenvy_meta_elements ) {
+														foreach ( $zenvy_meta_elements as $zenvy_val ) {
+															if ( 'author' === $zenvy_val ) {
+																zenvy_posted_by();
+															} elseif ( 'categories' === $zenvy_val ) {
+																zenvy_posted_cats();
+															} elseif ( 'tags' === $zenvy_val ) {
+																zenvy_posted_tags();
+															} elseif ( 'date' === $zenvy_val ) {
+																zenvy_posted_on();
+															} elseif ( 'comment' === $zenvy_val ) {
+																zenvy_comment_count();
+															}
 														}
 													}
-												}
-												echo '</div><!-- .entry-meta -->';
-												break;
-										endswitch;
-									endforeach;
+													echo '</div><!-- .entry-meta -->';
+													break;
+											endswitch;
+										endforeach;
 
 										echo '</div><!-- .post-details-wrap -->';
-									endif;
+										endif;
 
 									?>
 								</article><!--#post-<?php the_ID(); ?> -->
-								<?php
+									<?php
 							endwhile;
 							?>
 						</div>

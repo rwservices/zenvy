@@ -12,6 +12,7 @@
  */
 class Zenvy_Customize_Repeater_Control extends WP_Customize_Control {
 
+
 	/**
 	 * The control type.
 	 *
@@ -53,13 +54,13 @@ class Zenvy_Customize_Repeater_Control extends WP_Customize_Control {
 	public $row_label = [];
 
 	/**
-	 * Constructor.
-	 * Supplied `$args` override class property defaults.
-	 * If `$args['settings']` is not defined, use the $id as the setting ID.
+	 * Set up our control.
 	 *
-	 * @param \WP_Customize_Manager $manager Customizer bootstrap instance.
-	 * @param string                $id      Control ID.
-	 * @param array                 $args    {@see WP_Customize_Control::__construct}.
+	 * @access public
+	 * @param  object $manager Customizer manager instance.
+	 * @param  string $id      Control ID.
+	 * @param  array  $args    Optional. Control arguments. Default empty array.
+	 * @return void
 	 */
 	public function __construct( $manager, $id, $args = [] ) {
 
@@ -76,7 +77,11 @@ class Zenvy_Customize_Repeater_Control extends WP_Customize_Control {
 		$this->row_label( $args );
 
 		if ( empty( $this->button_label ) ) {
-			$this->button_label = sprintf( __( 'Add new %s', 'zenvy' ), esc_html( $this->row_label['value'] ) );
+			$this->button_label = sprintf(
+				// translators: %s is the row label.
+				__( 'Add new %s', 'zenvy' ),
+				esc_html( $this->row_label['value'] ) 
+			);
 		}
 
 		if ( empty( $args['fields'] ) || ! is_array( $args['fields'] ) ) {
@@ -212,11 +217,12 @@ class Zenvy_Customize_Repeater_Control extends WP_Customize_Control {
 					wp_enqueue_script( 'wp-color-picker' );
 					wp_enqueue_style( 'wp-color-picker' );
 				} elseif ( 'font' === $field['type'] ) {
-					wp_enqueue_style( 'font-awesome', ZENVY_THEME_URI . 'assets/build/library/all.min.css' );
+					// Font Awesome Style.
+					wp_enqueue_style( 'fontawesome', ZENVY_THEME_URI . 'assets/build/library/all.min.css', [], '6.1.1' );
 				}
 			}
 		}
-		wp_enqueue_script( 'zenvy-repeater', ZENVY_THEME_URI . 'assets/build/js/customize-repeater.js', [ 'jquery', 'jquery-ui-core', 'jquery-ui-sortable' ], false, true );
+		wp_enqueue_script( 'zenvy-repeater', ZENVY_THEME_URI . 'assets/build/js/customize-repeater.js', [ 'jquery', 'jquery-ui-core', 'jquery-ui-sortable' ], ZENVY_THEME_VERSION, true );
 
 		wp_localize_script(
 			'zenvy-repeater',
@@ -248,7 +254,15 @@ class Zenvy_Customize_Repeater_Control extends WP_Customize_Control {
 		<ul class="repeater-fields"></ul>
 
 		<?php if ( isset( $this->choices['limit'] ) ) : ?>
-			<p class="limit"><?php printf( esc_html__( 'Limit: %s rows', 'zenvy' ), esc_html( $this->choices['limit'] ) ); ?></p>
+			<p class="limit">
+			<?php
+			printf( 
+				// translators: %s = limit.
+				esc_html__( 'Limit: %s rows', 'zenvy' ),
+				esc_html( $this->choices['limit'] ) 
+			);
+			?>
+				</p>
 		<?php endif; ?>
 		<button class="button-secondary repeater-add"><?php echo esc_html( $this->button_label ); ?></button>
 
@@ -266,241 +280,243 @@ class Zenvy_Customize_Repeater_Control extends WP_Customize_Control {
 	public function repeater_js_template() {
 		?>
 		<script type="text/html" class="customize-control-repeater-content">
-			<# var field; var index = data.index; #>
+			<# var field; var index=data.index; #>
 
-			<li class="repeater-row minimized" data-row="{{{ index }}}">
+				<li class="repeater-row minimized" data-row="{{{ index }}}">
 
-				<div class="repeater-row-header">
-					<span class="repeater-row-label"></span>
-					<i class="dashicons dashicons-arrow-down repeater-minimize"></i>
-				</div>
-				<div class="repeater-row-content">
-					<# _.each( data, function( field, i ) { #>
-
-					<div class="repeater-field repeater-field-{{{ field.type }}}">
-
-						<# if ( 'text' === field.type || 'font' === field.type || 'url' === field.type || 'link' === field.type || 'email' === field.type || 'tel' === field.type || 'date' === field.type ) { #>
-
-						<# if ( 'link' === field.type ) { #>
-						<# field.type = 'url' #>
-						<# } #>
-
-						<label>
-							<# if ( field.label ) { #>
-							<span class="customize-control-title">{{ field.label }}</span>
-							<# } #>
-							<# if ( field.description ) { #>
-							<span class="description customize-control-description">{{ field.description }}</span>
-							<# } #>
-							<input type="{{field.type}}" name="" value="{{{ field.default }}}" data-field="{{{ field.id }}}">
-						</label>
-
-						<# } else if ( 'number' === field.type ) { #>
-
-						<# var fieldExtras = ''; #>
-
-						<# if ( ! _.isUndefined( field.choices ) && ! _.isUndefined( field.choices.min ) ) { #>
-						<# fieldExtras += ' min="' + field.choices.min + '"'; #>
-						<# } #>
-						<# if ( ! _.isUndefined( field.choices ) && ! _.isUndefined( field.choices.max ) ) { #>
-						<# fieldExtras += ' max="' + field.choices.max + '"'; #>
-						<# } #>
-						<# if ( ! _.isUndefined( field.choices ) && ! _.isUndefined( field.choices.step ) ) { #>
-						<# fieldExtras += ' step="' + field.choices.step + '"'; #>
-						<# } #>
-
-						<label>
-							<# if ( field.label ) { #><span class="customize-control-title">{{{ field.label }}}</span><# } #>
-							<# if ( field.description ) { #><span class="description customize-control-description">{{{ field.description }}}</span><# } #>
-							<input type="{{ field.type }}" name="" value="{{{ field.default }}}" data-field="{{{ field.id }}}" {{{ fieldExtras }}}>
-						</label>
-
-						<# } else if ( 'hidden' === field.type ) { #>
-
-						<input type="hidden" data-field="{{{ field.id }}}" <# if ( field.default ) { #> value="{{{ field.default }}}" <# } #> />
-
-						<# } else if ( 'checkbox' === field.type ) { #>
-
-						<label>
-							<input type="checkbox" value="true" data-field="{{{ field.id }}}" <# if ( field.default ) { #> checked="checked" <# } #> /> {{ field.label }}
-							<# if ( field.description ) { #>
-							{{ field.description }}
-							<# } #>
-						</label>
-
-						<# } else if ( 'select' === field.type ) { #>
-
-						<label>
-							<# if ( field.label ) { #>
-							<span class="customize-control-title">{{ field.label }}</span>
-							<# } #>
-							<# if ( field.description ) { #>
-							<span class="description customize-control-description">{{ field.description }}</span>
-							<# } #>
-							<select data-field="{{{ field.id }}}">
-								<# _.each( field.choices, function( choice, i ) { #>
-								<option value="{{{ i }}}" <# if ( field.default == i ) { #> selected="selected" <# } #>>{{ choice }}</option>
-								<# }); #>
-							</select>
-						</label>
-
-						<# } else if ( 'radio' === field.type ) { #>
-
-						<label>
-							<# if ( field.label ) { #>
-							<span class="customize-control-title">{{ field.label }}</span>
-							<# } #>
-							<# if ( field.description ) { #>
-							<span class="description customize-control-description">{{ field.description }}</span>
-							<# } #>
-
-							<# _.each( field.choices, function( choice, i ) { #>
-							<label>
-								<input type="radio" name="{{{ field.id }}}{{ index }}" data-field="{{{ field.id }}}" value="{{{ i }}}" <# if ( field.default == i ) { #> checked="checked" <# } #>> {{ choice }} <br/>
-							</label>
-							<# }); #>
-						</label>
-
-						<# } else if ( 'radio-image' === field.type ) { #>
-
-						<label>
-							<# if ( field.label ) { #>
-							<span class="customize-control-title">{{ field.label }}</span>
-							<# } #>
-							<# if ( field.description ) { #>
-							<span class="description customize-control-description">{{ field.description }}</span>
-							<# } #>
-
-							<# _.each( field.choices, function( choice, i ) { #>
-							<input type="radio" id="{{{ field.id }}}_{{ index }}_{{{ i }}}" name="{{{ field.id }}}{{ index }}" data-field="{{{ field.id }}}" value="{{{ i }}}" <# if ( field.default == i ) { #> checked="checked" <# } #>>
-							<label for="{{{ field.id }}}_{{ index }}_{{{ i }}}">
-								<img src="{{ choice }}">
-							</label>
-							</input>
-							<# }); #>
-						</label>
-
-						<# } else if ( 'color' === field.type ) { #>
-
-						<# var defaultValue = '';
-						if ( field.default ) {
-						if ( '#' !== field.default.substring( 0, 1 ) ) {
-						defaultValue = '#' + field.default;
-						} else {
-						defaultValue = field.default;
-						}
-						defaultValue = ' data-default-color=' + defaultValue; // Quotes added automatically.
-						} #>
-						<label>
-							<# if ( field.label ) { #>
-							<span class="customize-control-title">{{{ field.label }}}</span>
-							<# } #>
-							<# if ( field.description ) { #>
-							<span class="description customize-control-description">{{{ field.description }}}</span>
-							<# } #>
-							<input class="color-picker-hex" type="text" maxlength="7" placeholder="<?php echo esc_attr__( 'Hex Value', 'zenvy' ); ?>"  value="{{{ field.default }}}" data-field="{{{ field.id }}}" {{ defaultValue }} />
-
-						</label>
-
-						<# } else if ( 'textarea' === field.type ) { #>
-
-						<# if ( field.label ) { #>
-						<span class="customize-control-title">{{ field.label }}</span>
-						<# } #>
-						<# if ( field.description ) { #>
-						<span class="description customize-control-description">{{ field.description }}</span>
-						<# } #>
-						<textarea rows="5" data-field="{{{ field.id }}}">{{ field.default }}</textarea>
-
-						<# } else if ( field.type === 'image' || field.type === 'cropped_image' ) { #>
-
-						<label>
-							<# if ( field.label ) { #>
-							<span class="customize-control-title">{{ field.label }}</span>
-							<# } #>
-							<# if ( field.description ) { #>
-							<span class="description customize-control-description">{{ field.description }}</span>
-							<# } #>
-						</label>
-
-						<figure class="zenvy-image-attachment" data-placeholder="<?php esc_attr_e( 'No Image Selected', 'zenvy' ); ?>" >
-							<# if ( field.default ) { #>
-							<# var defaultImageURL = ( field.default.url ) ? field.default.url : field.default; #>
-							<img src="{{{ defaultImageURL }}}">
-							<# } else { #>
-							<?php esc_attr_e( 'No Image Selected', 'zenvy' ); ?>
-							<# } #>
-						</figure>
-
-						<div class="actions">
-							<button type="button" class="button remove-button<# if ( ! field.default ) { #> hidden<# } #>"><?php esc_html_e( 'Remove', 'zenvy' ); ?></button>
-							<button type="button" class="button upload-button" data-label=" <?php esc_attr_e( 'Add Image', 'zenvy' ); ?>" data-alt-label="<?php esc_attr_e( 'Change Image', 'zenvy' ); ?>" >
-								<# if ( field.default ) { #>
-								<?php esc_attr_e( 'Change Image', 'zenvy' ); ?>
-								<# } else { #>
-								<?php esc_attr_e( 'Add Image', 'zenvy' ); ?>
-								<# } #>
-							</button>
-							<# if ( field.default.id ) { #>
-							<input type="hidden" class="hidden-field" value="{{{ field.default.id }}}" data-field="{{{ field.id }}}" >
-							<# } else { #>
-							<input type="hidden" class="hidden-field" value="{{{ field.default }}}" data-field="{{{ field.id }}}" >
-							<# } #>
-						</div>
-
-						<# } else if ( field.type === 'upload' ) { #>
-
-						<label>
-							<# if ( field.label ) { #>
-							<span class="customize-control-title">{{ field.label }}</span>
-							<# } #>
-							<# if ( field.description ) { #>
-							<span class="description customize-control-description">{{ field.description }}</span>
-							<# } #>
-						</label>
-
-						<figure class="zenvy-file-attachment" data-placeholder="<?php esc_attr_e( 'No File Selected', 'zenvy' ); ?>" >
-							<# if ( field.default ) { #>
-							<# var defaultFilename = ( field.default.filename ) ? field.default.filename : field.default; #>
-							<span class="file"><span class="dashicons dashicons-media-default"></span> {{ defaultFilename }}</span>
-							<# } else { #>
-							<?php esc_attr_e( 'No File Selected', 'zenvy' ); ?>
-							<# } #>
-						</figure>
-
-						<div class="actions">
-							<button type="button" class="button remove-button<# if ( ! field.default ) { #> hidden<# } #>"></button>
-							<button type="button" class="button upload-button" data-label="<?php esc_attr_e( 'Add File', 'zenvy' ); ?>" data-alt-label="<?php esc_attr_e( 'Change File', 'zenvy' ); ?>" >
-								<# if ( field.default ) { #>
-								<?php esc_attr_e( 'Change File', 'zenvy' ); ?>
-								<# } else { #>
-								<?php esc_attr_e( 'Add File', 'zenvy' ); ?>
-								<# } #>
-							</button>
-							<# if ( field.default.id ) { #>
-							<input type="hidden" class="hidden-field" value="{{{ field.default.id }}}" data-field="{{{ field.id }}}" >
-							<# } else { #>
-							<input type="hidden" class="hidden-field" value="{{{ field.default }}}" data-field="{{{ field.id }}}" >
-							<# } #>
-						</div>
-
-						<# } else if ( 'custom' === field.type ) { #>
-
-						<# if ( field.label ) { #>
-						<span class="customize-control-title">{{ field.label }}</span>
-						<# } #>
-						<# if ( field.description ) { #>
-						<span class="description customize-control-description">{{ field.description }}</span>
-						<# } #>
-						<div data-field="{{{ field.id }}}">{{{ field.default }}}</div>
-
-						<# } #>
-
+					<div class="repeater-row-header">
+						<span class="repeater-row-label"></span>
+						<i class="dashicons dashicons-arrow-down repeater-minimize"></i>
 					</div>
-					<# }); #>
-					<button type="button" class="button-link repeater-row-remove"><?php esc_html_e( 'Remove', 'zenvy' ); ?></button>
-				</div>
-			</li>
+					<div class="repeater-row-content">
+						<# _.each( data, function( field, i ) { #>
+
+							<div class="repeater-field repeater-field-{{{ field.type }}}">
+
+								<# if ( 'text'===field.type || 'font'===field.type || 'url'===field.type || 'link'===field.type || 'email'===field.type || 'tel'===field.type || 'date'===field.type ) { #>
+
+									<# if ( 'link'===field.type ) { #>
+										<# field.type='url' #>
+											<# } #>
+
+												<label>
+													<# if ( field.label ) { #>
+														<span class="customize-control-title">{{ field.label }}</span>
+														<# } #>
+															<# if ( field.description ) { #>
+																<span class="description customize-control-description">{{ field.description }}</span>
+																<# } #>
+																	<input type="{{field.type}}" name="" value="{{{ field.default }}}" data-field="{{{ field.id }}}">
+												</label>
+
+												<# } else if ( 'number'===field.type ) { #>
+
+													<# var fieldExtras='' ; #>
+
+														<# if ( ! _.isUndefined( field.choices ) && ! _.isUndefined( field.choices.min ) ) { #>
+															<# fieldExtras +=' min="' + field.choices.min + '"' ; #>
+																<# } #>
+																	<# if ( ! _.isUndefined( field.choices ) && ! _.isUndefined( field.choices.max ) ) { #>
+																		<# fieldExtras +=' max="' + field.choices.max + '"' ; #>
+																			<# } #>
+																				<# if ( ! _.isUndefined( field.choices ) && ! _.isUndefined( field.choices.step ) ) { #>
+																					<# fieldExtras +=' step="' + field.choices.step + '"' ; #>
+																						<# } #>
+
+																							<label>
+																								<# if ( field.label ) { #><span class="customize-control-title">{{{ field.label }}}</span>
+																									<# } #>
+																										<# if ( field.description ) { #><span class="description customize-control-description">{{{ field.description }}}</span>
+																											<# } #>
+																												<input type="{{ field.type }}" name="" value="{{{ field.default }}}" data-field="{{{ field.id }}}" {{{ fieldExtras }}}>
+																							</label>
+
+																							<# } else if ( 'hidden'===field.type ) { #>
+
+																								<input type="hidden" data-field="{{{ field.id }}}" <# if ( field.default ) { #> value="{{{ field.default }}}" <# } #> />
+
+																									<# } else if ( 'checkbox'===field.type ) { #>
+
+																										<label>
+																											<input type="checkbox" value="true" data-field="{{{ field.id }}}" <# if ( field.default ) { #> checked="checked" <# } #> /> {{ field.label }}
+																												<# if ( field.description ) { #>
+																													{{ field.description }}
+																													<# } #>
+																										</label>
+
+																										<# } else if ( 'select'===field.type ) { #>
+
+																											<label>
+																												<# if ( field.label ) { #>
+																													<span class="customize-control-title">{{ field.label }}</span>
+																													<# } #>
+																														<# if ( field.description ) { #>
+																															<span class="description customize-control-description">{{ field.description }}</span>
+																															<# } #>
+																																<select data-field="{{{ field.id }}}">
+																																	<# _.each( field.choices, function( choice, i ) { #>
+																																		<option value="{{{ i }}}" <# if ( field.default==i ) { #> selected="selected" <# } #>>{{ choice }}</option>
+																																		<# }); #>
+																																</select>
+																											</label>
+
+																											<# } else if ( 'radio'===field.type ) { #>
+
+																												<label>
+																													<# if ( field.label ) { #>
+																														<span class="customize-control-title">{{ field.label }}</span>
+																														<# } #>
+																															<# if ( field.description ) { #>
+																																<span class="description customize-control-description">{{ field.description }}</span>
+																																<# } #>
+
+																																	<# _.each( field.choices, function( choice, i ) { #>
+																																		<label>
+																																			<input type="radio" name="{{{ field.id }}}{{ index }}" data-field="{{{ field.id }}}" value="{{{ i }}}" <# if ( field.default==i ) { #> checked="checked" <# } #>> {{ choice }} <br />
+																																		</label>
+																																		<# }); #>
+																												</label>
+
+																												<# } else if ( 'radio-image'===field.type ) { #>
+
+																													<label>
+																														<# if ( field.label ) { #>
+																															<span class="customize-control-title">{{ field.label }}</span>
+																															<# } #>
+																																<# if ( field.description ) { #>
+																																	<span class="description customize-control-description">{{ field.description }}</span>
+																																	<# } #>
+
+																																		<# _.each( field.choices, function( choice, i ) { #>
+																																			<input type="radio" id="{{{ field.id }}}_{{ index }}_{{{ i }}}" name="{{{ field.id }}}{{ index }}" data-field="{{{ field.id }}}" value="{{{ i }}}" <# if ( field.default==i ) { #> checked="checked" <# } #>>
+																																				<label for="{{{ field.id }}}_{{ index }}_{{{ i }}}">
+																																					<img src="{{ choice }}">
+																																				</label>
+																																				</input>
+																																				<# }); #>
+																													</label>
+
+																													<# } else if ( 'color'===field.type ) { #>
+
+																														<# var defaultValue='' ;
+																															if ( field.default ) {
+																															if ( '#' !==field.default.substring( 0, 1 ) ) {
+																															defaultValue='#' + field.default;
+																															} else {
+																															defaultValue=field.default;
+																															}
+																															defaultValue=' data-default-color=' + defaultValue; // Quotes added automatically.
+																															} #>
+																															<label>
+																																<# if ( field.label ) { #>
+																																	<span class="customize-control-title">{{{ field.label }}}</span>
+																																	<# } #>
+																																		<# if ( field.description ) { #>
+																																			<span class="description customize-control-description">{{{ field.description }}}</span>
+																																			<# } #>
+																																				<input class="color-picker-hex" type="text" maxlength="7" placeholder="<?php echo esc_attr__( 'Hex Value', 'zenvy' ); ?>" value="{{{ field.default }}}" data-field="{{{ field.id }}}" {{ defaultValue }} />
+
+																															</label>
+
+																															<# } else if ( 'textarea'===field.type ) { #>
+
+																																<# if ( field.label ) { #>
+																																	<span class="customize-control-title">{{ field.label }}</span>
+																																	<# } #>
+																																		<# if ( field.description ) { #>
+																																			<span class="description customize-control-description">{{ field.description }}</span>
+																																			<# } #>
+																																				<textarea rows="5" data-field="{{{ field.id }}}">{{ field.default }}</textarea>
+
+																																				<# } else if ( field.type==='image' || field.type==='cropped_image' ) { #>
+
+																																					<label>
+																																						<# if ( field.label ) { #>
+																																							<span class="customize-control-title">{{ field.label }}</span>
+																																							<# } #>
+																																								<# if ( field.description ) { #>
+																																									<span class="description customize-control-description">{{ field.description }}</span>
+																																									<# } #>
+																																					</label>
+
+																																					<figure class="zenvy-image-attachment" data-placeholder="<?php esc_attr_e( 'No Image Selected', 'zenvy' ); ?>">
+																																						<# if ( field.default ) { #>
+																																							<# var defaultImageURL=( field.default.url ) ? field.default.url : field.default; #>
+																																								<img src="{{{ defaultImageURL }}}">
+																																								<# } else { #>
+																																									<?php esc_attr_e( 'No Image Selected', 'zenvy' ); ?>
+																																									<# } #>
+																																					</figure>
+
+																																					<div class="actions">
+																																						<button type="button" class="button remove-button<# if ( ! field.default ) { #> hidden<# } #>"><?php esc_html_e( 'Remove', 'zenvy' ); ?></button>
+																																						<button type="button" class="button upload-button" data-label=" <?php esc_attr_e( 'Add Image', 'zenvy' ); ?>" data-alt-label="<?php esc_attr_e( 'Change Image', 'zenvy' ); ?>">
+																																							<# if ( field.default ) { #>
+																																								<?php esc_attr_e( 'Change Image', 'zenvy' ); ?>
+																																								<# } else { #>
+																																									<?php esc_attr_e( 'Add Image', 'zenvy' ); ?>
+																																									<# } #>
+																																						</button>
+																																						<# if ( field.default.id ) { #>
+																																							<input type="hidden" class="hidden-field" value="{{{ field.default.id }}}" data-field="{{{ field.id }}}">
+																																							<# } else { #>
+																																								<input type="hidden" class="hidden-field" value="{{{ field.default }}}" data-field="{{{ field.id }}}">
+																																								<# } #>
+																																					</div>
+
+																																					<# } else if ( field.type==='upload' ) { #>
+
+																																						<label>
+																																							<# if ( field.label ) { #>
+																																								<span class="customize-control-title">{{ field.label }}</span>
+																																								<# } #>
+																																									<# if ( field.description ) { #>
+																																										<span class="description customize-control-description">{{ field.description }}</span>
+																																										<# } #>
+																																						</label>
+
+																																						<figure class="zenvy-file-attachment" data-placeholder="<?php esc_attr_e( 'No File Selected', 'zenvy' ); ?>">
+																																							<# if ( field.default ) { #>
+																																								<# var defaultFilename=( field.default.filename ) ? field.default.filename : field.default; #>
+																																									<span class="file"><span class="dashicons dashicons-media-default"></span> {{ defaultFilename }}</span>
+																																									<# } else { #>
+																																										<?php esc_attr_e( 'No File Selected', 'zenvy' ); ?>
+																																										<# } #>
+																																						</figure>
+
+																																						<div class="actions">
+																																							<button type="button" class="button remove-button<# if ( ! field.default ) { #> hidden<# } #>"></button>
+																																							<button type="button" class="button upload-button" data-label="<?php esc_attr_e( 'Add File', 'zenvy' ); ?>" data-alt-label="<?php esc_attr_e( 'Change File', 'zenvy' ); ?>">
+																																								<# if ( field.default ) { #>
+																																									<?php esc_attr_e( 'Change File', 'zenvy' ); ?>
+																																									<# } else { #>
+																																										<?php esc_attr_e( 'Add File', 'zenvy' ); ?>
+																																										<# } #>
+																																							</button>
+																																							<# if ( field.default.id ) { #>
+																																								<input type="hidden" class="hidden-field" value="{{{ field.default.id }}}" data-field="{{{ field.id }}}">
+																																								<# } else { #>
+																																									<input type="hidden" class="hidden-field" value="{{{ field.default }}}" data-field="{{{ field.id }}}">
+																																									<# } #>
+																																						</div>
+
+																																						<# } else if ( 'custom'===field.type ) { #>
+
+																																							<# if ( field.label ) { #>
+																																								<span class="customize-control-title">{{ field.label }}</span>
+																																								<# } #>
+																																									<# if ( field.description ) { #>
+																																										<span class="description customize-control-description">{{ field.description }}</span>
+																																										<# } #>
+																																											<div data-field="{{{ field.id }}}">{{{ field.default }}}</div>
+
+																																											<# } #>
+
+							</div>
+							<# }); #>
+								<button type="button" class="button-link repeater-row-remove"><?php esc_html_e( 'Remove', 'zenvy' ); ?></button>
+					</div>
+				</li>
 		</script>
 		<?php
 	}

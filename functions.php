@@ -186,10 +186,13 @@ function zenvy_widgets_init() {
 	);
 
 	for ( $sidebar = 1; $sidebar <= 6; $sidebar++ ) {
-		// translators: %d is the sidebar number.
 		register_sidebar(
 			[
-				'name'          => sprintf( esc_html__( 'Footer Sidebar %d ', 'zenvy' ), absint( $sidebar ) ),
+				'name'          => sprintf( 
+					// translators: %d is the sidebar number.
+					esc_html__( 'Footer Sidebar %d ', 'zenvy' ),
+					absint( $sidebar ) 
+				),
 				'id'            => 'footer-sidebar-' . absint( $sidebar ),
 				'description'   => esc_html__( 'Display widgets footer section of the site.', 'zenvy' ),
 				'before_widget' => '<section id="%1$s" class="widget %2$s">',

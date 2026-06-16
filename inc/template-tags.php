@@ -124,7 +124,7 @@ if ( ! function_exists( 'zenvy_posted_first_tag' ) ) :
 			return;
 		}
 
-		// Get only the first tag
+		// Get only the first tag.
 		$single_tag = $tags[0];
 		$tag_link   = get_tag_link( $single_tag->term_id );
 		$tag_name   = esc_html( $single_tag->name );
@@ -172,12 +172,14 @@ if ( ! function_exists( 'zenvy_singular_post_thumbnail' ) ) :
 	/**
 	 * Displays singular an optional post thumbnail.
 	 *
-	 * @param string $size
-	 * @param string $ratio
 	 * Wraps the post thumbnail in an anchor element on index views, or a div
 	 * element when on single views.
+	 *
+	 * @param string $size  The image size to display. Default 'full'.
+	 * @param string $ratio The aspect ratio data attribute value. Default '16x9'.
+	 * @return void
 	 */
-	function zenvy_singular_post_thumbnail( $size = 'full', $ratio = '16x9', $post = null ) {
+	function zenvy_singular_post_thumbnail( $size = 'full', $ratio = '16x9' ) {
 
 		if ( post_password_required() || is_attachment() ) {
 			return;
@@ -208,14 +210,16 @@ if ( ! function_exists( 'zenvy_post_thumbnail' ) ) :
 	/**
 	 * Displays an optional post thumbnail.
 	 *
-	 * @param string $size
-	 * @param string $ratio
 	 * Wraps the post thumbnail in an anchor element on index views, or a div
 	 * element when on single views.
+	 *
+	 * @param string $size  The image size to display. Default 'full'.
+	 * @param string $ratio The aspect ratio data attribute value. Default '16x9'.
+	 * @return void
 	 */
 	function zenvy_post_thumbnail( $size = 'full', $ratio = '16x9' ) {
 
-		// Default Placeholder
+		// Default placeholder.
 		$placeholder_image = get_theme_mod(
 			'zenvy_placeholder_image',
 			''
@@ -246,7 +250,7 @@ if ( ! function_exists( 'zenvy_post_thumbnail' ) ) :
 		<?php else : ?>
 			<figure class="featured-image" data-ratio="<?php echo esc_attr( $ratio ); ?>">
 				<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
-					<?php if ( $placeholder_image && $placeholder_image !== '' ) : ?>
+					<?php if ( '' !== $placeholder_image ) : ?>
 						<img src="<?php echo esc_url( $placeholder_image ); ?>" alt="<?php esc_attr_e( 'Placeholder Image', 'zenvy' ); ?>" />
 					<?php else : ?>
 						<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt="<?php esc_attr_e( 'Placeholder Image', 'zenvy' ); ?>" />
@@ -266,10 +270,8 @@ if ( ! function_exists( 'wp_body_open' ) ) :
 	 *
 	 * @link https://core.trac.wordpress.org/ticket/12563
 	 */
-	function wp_body_open() {
-		do_action( 'wp_body_open' );
+	function wp_body_open() { // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
+		do_action( 'wp_body_open' ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
 	}
 
 endif;
-
-

@@ -54,28 +54,30 @@ class Zenvy_Meta_Boxes {
 	 */
 	private function __construct() {
 
-		// Post types to add the meta-box to
+		// Post types to add the meta-box to.
 		self::$post_types = [ 'post', 'page' ];
 
-		// Register meta fields
+		// Register meta fields.
 		add_action( 'init', [ $this, 'register_meta' ], 20 );
 
-		// Add meta-boxes
+		// Add meta-boxes.
 		if ( self::$post_types ) {
 			foreach ( self::$post_types as $post_type ) {
 				add_action( "add_meta_boxes_{$post_type}", [ $this, 'post_meta' ], 11 );
 			}
 		}
 
-		// Save meta
+		// Save meta.
 		add_action( 'save_post', [ $this, 'save_meta_data' ], 10, 2 );
 
-		// Load scripts
+		// Load scripts.
 		add_action( 'admin_enqueue_scripts', [ $this, 'load_scripts' ] );
 	}
 
 	/**
 	 * Register post meta for REST API, Gutenberg, etc.
+	 *
+	 * @return void
 	 */
 	public function register_meta() {
 
@@ -98,7 +100,7 @@ class Zenvy_Meta_Boxes {
 					},
 				];
 
-				// Register for each post type
+				// Register for each post type.
 				foreach ( self::$post_types as $post_type ) {
 					register_post_meta( $post_type, $meta_key, $args );
 				}
@@ -107,7 +109,10 @@ class Zenvy_Meta_Boxes {
 	}
 
 	/**
-	 * Map meta box type to register_post_meta type
+	 * Map meta box type to register_post_meta type.
+	 *
+	 * @param string $type The meta box field type.
+	 * @return string
 	 */
 	private function get_meta_type( $type ) {
 		switch ( $type ) {
@@ -120,7 +125,10 @@ class Zenvy_Meta_Boxes {
 	}
 
 	/**
-	 * Get appropriate sanitize callback
+	 * Get appropriate sanitize callback.
+	 *
+	 * @param string $type The meta box field type.
+	 * @return string
 	 */
 	private function get_sanitize_callback( $type ) {
 		switch ( $type ) {
@@ -138,6 +146,9 @@ class Zenvy_Meta_Boxes {
 	 * FIX: `edit.php` doesn't have a $post object — removed it from the hook
 	 *      list so the early-return on !is_object($post) doesn't silently skip
 	 *      the style/script enqueue on post.php / post-new.php.
+	 *
+	 * @param string $hook The current admin page hook suffix.
+	 * @return void
 	 */
 	public function load_scripts( $hook ) {
 		if ( ! in_array( $hook, [ 'post.php', 'post-new.php' ], true ) ) {
@@ -151,7 +162,7 @@ class Zenvy_Meta_Boxes {
 
 		wp_enqueue_style(
 			'zenvy-meta-box-style',
-			ZENVY_THEME_URI . 'assets/build/css/meta-box' . ZENVY_RTL_SUFFIX . '.css', // FIX: was ZENVY_RTL_SUFFIX (missing V)
+			ZENVY_THEME_URI . 'assets/build/css/meta-box' . ZENVY_RTL_SUFFIX . '.css',
 			false,
 			ZENVY_THEME_VERSION,
 			'all'
@@ -167,7 +178,10 @@ class Zenvy_Meta_Boxes {
 	}
 
 	/**
-	 * Add Meta-Box
+	 * Add Meta-Box.
+	 *
+	 * @param WP_Post $post The current post object.
+	 * @return void
 	 */
 	public function post_meta( $post ) {
 		$obj = get_post_type_object( $post->post_type );
@@ -183,12 +197,15 @@ class Zenvy_Meta_Boxes {
 	}
 
 	/**
-	 * Display Meta-Box Fields
+	 * Display Meta-Box Fields.
 	 *
 	 * FIX: array_filter() preserves original keys, so using $i as a sequential
 	 *      counter caused tab nav IDs (setting-tab-1, setting-tab-2 …) to
 	 *      mismatch the content panel IDs when any tab was filtered out.
 	 *      Re-index with array_values() before iterating so $i is always 0-based.
+	 *
+	 * @param WP_Post $post The current post object.
+	 * @return void
 	 */
 	public function display_meta_box( $post ) {
 
@@ -204,7 +221,7 @@ class Zenvy_Meta_Boxes {
 			return;
 		}
 
-		// Filter active tabs for this post type
+		// Filter active tabs for this post type.
 		$active_tabs = array_filter(
 			$tabs,
 			function ( $tab ) use ( $post_type ) {
@@ -218,7 +235,7 @@ class Zenvy_Meta_Boxes {
 			return;
 		}
 
-		// Re-index so tab IDs stay sequential (0, 1, 2 …) even after filtering
+		// Re-index so tab IDs stay sequential (0, 1, 2 …) even after filtering.
 		$active_tabs = array_values( $active_tabs );
 		?>
 
@@ -246,7 +263,7 @@ class Zenvy_Meta_Boxes {
 								$type        = $setting['type'] ?? 'text';
 								$default     = $setting['default'] ?? '';
 								$meta_value  = get_post_meta( $post_id, $meta_id, true );
-								$meta_value  = $meta_value !== '' ? $meta_value : $default;
+								$meta_value  = '' !== $meta_value ? $meta_value : $default;
 								?>
 
 								<?php
@@ -320,7 +337,11 @@ class Zenvy_Meta_Boxes {
 	}
 
 	/**
-	 * Save Meta Data
+	 * Save Meta Data.
+	 *
+	 * @param int     $post_id The post ID being saved.
+	 * @param WP_Post $post    The current post object.
+	 * @return void
 	 */
 	public function save_meta_data( $post_id, $post ) {
 
@@ -361,7 +382,7 @@ class Zenvy_Meta_Boxes {
 
 			$value = sanitize_text_field( wp_unslash( $_POST[ $id ] ) );
 
-			// Special handling for 'default'
+			// Special handling for 'default'.
 			if ( in_array( $value, [ 'default', '' ], true ) ) {
 				delete_post_meta( $post_id, $id );
 			} else {
@@ -371,13 +392,16 @@ class Zenvy_Meta_Boxes {
 	}
 
 	/**
-	 * Settings Array
+	 * Settings Array.
+	 *
+	 * @param WP_Post|null $post Optional. The current post object. Default null.
+	 * @return array
 	 */
 	private function meta_array( $post = null ) {
 
 		$array = [];
 
-		// Page Header Tab
+		// Page Header Tab.
 		$array['page_header'] = [
 			'title'    => esc_html__( 'Page Header', 'zenvy' ),
 			'settings' => [
@@ -395,7 +419,7 @@ class Zenvy_Meta_Boxes {
 			],
 		];
 
-		// Sidebar Layout
+		// Sidebar Layout.
 		$array['sidebar'] = [
 			'title'    => esc_html__( 'Sidebar', 'zenvy' ),
 			'settings' => [
@@ -419,7 +443,7 @@ class Zenvy_Meta_Boxes {
 	}
 }
 
-// Initialize only in admin
+// Initialize only in admin.
 if ( is_admin() ) {
 	Zenvy_Meta_Boxes::get_instance();
 }
