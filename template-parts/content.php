@@ -7,13 +7,13 @@
  * @package Zenvy
  */
 
-$post_class = [ 'post' ];
+$zenvy_post_class = [ 'post' ];
 if ( ! has_post_thumbnail() ) {
-	$post_class[] = 'no-featured-image';
+	$zenvy_post_class[] = 'no-featured-image';
 }
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( $post_class ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( $zenvy_post_class ); ?>>
 
 	<?php
 	/**

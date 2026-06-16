@@ -7,13 +7,12 @@
  * @package Zenvy
  */
 
-
-$content = get_theme_mod(
+$zenvy_content = get_theme_mod(
 	'zenvy_header_html_text',
 	''
 );
 ?>
 
 <div class="header-html-wrap">
-	<?php echo wp_kses_post( $content ); ?>
+	<?php echo wp_kses_post( $zenvy_content ); ?>
 </div><!-- .header-html-wrap -->

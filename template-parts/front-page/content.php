@@ -7,16 +7,15 @@
  * @package Zenvy
  */
 
-
-$sortable_default  = [ 'featured-section', 'explore-categories', 'latest-posts' ];
-$sortable_elements = get_theme_mod(
+$zenvy_sortable_default  = [ 'featured-section', 'explore-categories', 'latest-posts' ];
+$zenvy_sortable_elements = get_theme_mod(
 	'zenvy_front_page_elements',
-	$sortable_default
+	$zenvy_sortable_default
 );
 
-if ( $sortable_elements ) {
-	foreach ( $sortable_elements as $element ) :
-		switch ( $element ) :
+if ( $zenvy_sortable_elements ) {
+	foreach ( $zenvy_sortable_elements as $zenvy_element ) :
+		switch ( $zenvy_element ) :
 			case 'featured-section':
 				get_template_part( 'template-parts/front-page/content', 'featured' );
 				break;

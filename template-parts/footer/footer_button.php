@@ -7,23 +7,23 @@
  * @package Zenvy
  */
 
-$button_text = get_theme_mod(
+$zenvy_button_text = get_theme_mod(
 	'zenvy_footer_button_text',
 	esc_html__( 'Button', 'zenvy' )
 );
-$button_url  = get_theme_mod(
+$zenvy_button_url  = get_theme_mod(
 	'zenvy_footer_button_url',
 	'#'
 );
-$link_open   = get_theme_mod(
+$zenvy_link_open   = get_theme_mod(
 	'zenvy_footer_button_url_target',
 	''
 );
-$link_target = ( $link_open && array_key_exists( 'desktop', $link_open ) ) ? '_blank' : '_self';
+$zenvy_link_target = ( $zenvy_link_open && array_key_exists( 'desktop', $zenvy_link_open ) ) ? '_blank' : '_self';
 ?>
 
 <div class="footer-button-wrap d-flex align-items-center">
-	<a href="<?php echo esc_url( $button_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>" class="box-button d-flex align-items-center">
-		<label><?php echo esc_html( $button_text ); ?></label>
+	<a href="<?php echo esc_url( $zenvy_button_url ); ?>" target="<?php echo esc_attr( $zenvy_link_target ); ?>" class="box-button d-flex align-items-center">
+		<label><?php echo esc_html( $zenvy_button_text ); ?></label>
 	</a>
 </div><!-- .footer-button-wrap -->

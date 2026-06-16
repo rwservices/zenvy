@@ -25,10 +25,10 @@ $zenvy_video_channel_url = get_theme_mod( 'zenvy_video_channel_url', '#' );
 
 $zenvy_btn_type = get_theme_mod(
 	'zenvy_button_type',
-	array( 'desktop' => 'button' )
+	[ 'desktop' => 'button' ]
 );
 
-$zenvy_read_more_class = array( 'read-more' );
+$zenvy_read_more_class = [ 'read-more' ];
 // Fixed: Check if btn_type is array and has 'desktop' key.
 if ( is_array( $zenvy_btn_type ) && isset( $zenvy_btn_type['desktop'] ) && 'button' === $zenvy_btn_type['desktop'] ) {
 	$zenvy_read_more_class[] = 'box-button';
@@ -38,10 +38,6 @@ if ( is_array( $zenvy_btn_type ) && isset( $zenvy_btn_type['desktop'] ) && 'butt
 if ( is_array( $zenvy_btn_type ) && isset( $zenvy_btn_type['desktop'] ) && 'text' === $zenvy_btn_type['desktop'] ) {
 	$zenvy_read_more_class[] = 'text-button';
 }
-
-$zenvy_term_link_1 = is_object( $zenvy_video_category_1 ) ? get_term_link( $zenvy_video_category_1->term_id ) : '';
-$zenvy_term_link_2 = is_object( $zenvy_video_category_2 ) ? get_term_link( $zenvy_video_category_2->term_id ) : '';
-$zenvy_term_link_3 = is_object( $zenvy_video_category_3 ) ? get_term_link( $zenvy_video_category_3->term_id ) : '';
 ?>
 <section class="video-post-section">
 	<div class="container">
@@ -56,7 +52,7 @@ $zenvy_term_link_3 = is_object( $zenvy_video_category_3 ) ? get_term_link( $zenv
 					<div class="featured-image-wrapper">
 						<figure class="featured-image" data-ratio="auto">
 							<a href="<?php echo esc_url( $zenvy_video_url_1 ); ?>" target="_blank">
-								<img src="<?php echo esc_url( Zenvy_Helper::get_video_thumbnail_url( $zenvy_video_url_1 ) ); ?>" alt="">
+								<img src="<?php echo esc_url( Zenvy_Helper::get_video_thumbnail_url( $zenvy_video_url_1 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>" alt="">
 							</a>
 						</figure>
 					</div>
@@ -64,10 +60,13 @@ $zenvy_term_link_3 = is_object( $zenvy_video_category_3 ) ? get_term_link( $zenv
 						<div class="entry-meta">
 							<div class="post-cat-list">
 								<span class="cat-link">
-									<?php if ( $zenvy_video_category_1 && ! is_wp_error( $zenvy_term_link_1 ) ) : ?>
-										<a href="<?php echo esc_url( $zenvy_term_link_1 ); ?>">
-											<?php echo esc_html( $zenvy_video_category_1->name ); ?>
-										</a>
+									<?php if ( $zenvy_video_category_1 ) : ?>
+										<?php $zenvy_term_link = get_term_link( $zenvy_video_category_1->term_id ); ?>
+										<?php if ( ! is_wp_error( $zenvy_term_link ) ) : ?>
+											<a href="<?php echo esc_url( $zenvy_term_link ); ?>">
+												<?php echo esc_html( $zenvy_video_category_1->name ); ?>
+											</a>
+										<?php endif; ?>
 									<?php endif; ?>
 								</span>
 							</div>
@@ -87,7 +86,7 @@ $zenvy_term_link_3 = is_object( $zenvy_video_category_3 ) ? get_term_link( $zenv
 					<div class="featured-image-wrapper">
 						<figure class="featured-image" data-ratio="auto">
 							<a href="<?php echo esc_url( $zenvy_video_url_2 ); ?>" target="_blank">
-								<img src="<?php echo esc_url( Zenvy_Helper::get_video_thumbnail_url( $zenvy_video_url_2 ) ); ?>" alt="">
+								<img src="<?php echo esc_url( Zenvy_Helper::get_video_thumbnail_url( $zenvy_video_url_2 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>" alt="">
 							</a>
 						</figure>
 					</div>
@@ -95,10 +94,13 @@ $zenvy_term_link_3 = is_object( $zenvy_video_category_3 ) ? get_term_link( $zenv
 						<div class="entry-meta">
 							<div class="post-cat-list">
 								<span class="cat-link">
-									<?php if ( $zenvy_video_category_2 && ! is_wp_error( $zenvy_term_link_2 ) ) : ?>
-										<a href="<?php echo esc_url( $zenvy_term_link_2 ); ?>">
-											<?php echo esc_html( $zenvy_video_category_2->name ); ?>
-										</a>
+									<?php if ( $zenvy_video_category_2 ) : ?>
+										<?php $zenvy_term_link = get_term_link( $zenvy_video_category_2->term_id ); ?>
+										<?php if ( ! is_wp_error( $zenvy_term_link ) ) : ?>
+											<a href="<?php echo esc_url( $zenvy_term_link ); ?>">
+												<?php echo esc_html( $zenvy_video_category_2->name ); ?>
+											</a>
+										<?php endif; ?>
 									<?php endif; ?>
 								</span>
 							</div>
@@ -116,7 +118,7 @@ $zenvy_term_link_3 = is_object( $zenvy_video_category_3 ) ? get_term_link( $zenv
 					<div class="featured-image-wrapper">
 						<figure class="featured-image" data-ratio="auto">
 							<a href="<?php echo esc_url( $zenvy_video_url_3 ); ?>" target="_blank">
-								<img src="<?php echo esc_url( Zenvy_Helper::get_video_thumbnail_url( $zenvy_video_url_3 ) ); ?>" alt="">
+								<img src="<?php echo esc_url( Zenvy_Helper::get_video_thumbnail_url( $zenvy_video_url_3 ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>" alt="">
 							</a>
 						</figure>
 					</div>
@@ -124,10 +126,13 @@ $zenvy_term_link_3 = is_object( $zenvy_video_category_3 ) ? get_term_link( $zenv
 						<div class="entry-meta">
 							<div class="post-cat-list">
 								<span class="cat-link">
-									<?php if ( $zenvy_video_category_3 && ! is_wp_error( $zenvy_term_link_3 ) ) : ?>
-										<a href="<?php echo esc_url( $zenvy_term_link_3 ); ?>">
-											<?php echo esc_html( $zenvy_video_category_3->name ); ?>
-										</a>
+									<?php if ( $zenvy_video_category_3 ) : ?>
+										<?php $zenvy_term_link = get_term_link( $zenvy_video_category_3->term_id ); ?>
+										<?php if ( ! is_wp_error( $zenvy_term_link ) ) : ?>
+											<a href="<?php echo esc_url( $zenvy_term_link ); ?>">
+												<?php echo esc_html( $zenvy_video_category_3->name ); ?>
+											</a>
+										<?php endif; ?>
 									<?php endif; ?>
 								</span>
 							</div>

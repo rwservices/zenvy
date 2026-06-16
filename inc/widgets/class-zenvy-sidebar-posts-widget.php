@@ -6,20 +6,18 @@
  */
 
 /**
- * Class Zenvy_Sidebar_Posts_Widget
- *
- * Displays a list of dynamic posts in the sidebar.
+ * Class for displaying a list of dynamic posts in the sidebar.
  */
 class Zenvy_Sidebar_Posts_Widget extends WP_Widget {
 
 	/**
-	 * Constructor — registers the widget with WordPress.
+	 * Constructor method.
 	 */
 	public function __construct() {
 		parent::__construct(
 			'zenvy_sidebar_posts_widget',
 			esc_html__( 'Zenvy Sidebar Posts', 'zenvy' ),
-			array( 'description' => esc_html__( 'Displays a list of dynamic posts in the sidebar.', 'zenvy' ) )
+			[ 'description' => esc_html__( 'Displays a list of dynamic posts in the sidebar.', 'zenvy' ) ]
 		);
 		// Remove the widget registration from constructor to avoid duplication.
 	}
@@ -32,10 +30,11 @@ class Zenvy_Sidebar_Posts_Widget extends WP_Widget {
 	}
 
 	/**
-	 * Outputs the widget content on the front end.
+	 * Outputs the content of the widget.
 	 *
 	 * @param array $args     Display arguments.
-	 * @param array $instance Saved widget settings.
+	 * @param array $instance Settings for the current instance.
+	 * @return void
 	 */
 	public function widget( $args, $instance ) {
 		$title           = ! empty( $instance['title'] ) ? $instance['title'] : esc_html__( 'Don\'t Miss it', 'zenvy' );
@@ -43,21 +42,18 @@ class Zenvy_Sidebar_Posts_Widget extends WP_Widget {
 		$order           = ! empty( $instance['order'] ) ? $instance['order'] : 'DESC';
 		$orderby         = ! empty( $instance['orderby'] ) ? $instance['orderby'] : 'date';
 
-		$fallback = get_theme_mod( 'zenvy_featured_post_fallback_image', get_template_directory_uri() . '/assets/build/images/default-post.jpg' );
-
-		$query_args = array(
+		$query_args = [
 			'post_type'           => 'post',
-			'posts_per_page'      => absint( $number_of_posts ),
-			'order'               => sanitize_text_field( $order ),
-			'orderby'             => sanitize_text_field( $orderby ),
+			'posts_per_page'      => $number_of_posts,
+			'order'               => $order,
+			'orderby'             => $orderby,
 			'no_found_rows'       => true, // Performance improvement.
 			'ignore_sticky_posts' => true, // Don't force sticky posts.
-		);
+		];
 
 		$posts_query = new WP_Query( $query_args );
 
-		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- before_widget is registered by WordPress core and is safe.
-		echo $args['before_widget'];
+		echo $args['before_widget']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		?>
 		<aside class="widget widget_recent-post">
 			<?php if ( $title ) : ?>
@@ -68,7 +64,7 @@ class Zenvy_Sidebar_Posts_Widget extends WP_Widget {
 				if ( $posts_query->have_posts() ) :
 					while ( $posts_query->have_posts() ) :
 						$posts_query->the_post();
-						$post_class = array( 'post' );
+						$post_class = [ 'post' ];
 						if ( ! has_post_thumbnail() ) {
 							$post_class[] = 'no-featured-image';
 						}
@@ -79,8 +75,8 @@ class Zenvy_Sidebar_Posts_Widget extends WP_Widget {
 							</div>
 
 							<?php
-							$posts_elements = array( 'post-meta', 'post-title' );
-							$meta_elements  = array( 'date', 'categories' );
+							$posts_elements = [ 'post-meta', 'post-title' ];
+							$meta_elements  = [ 'date', 'categories' ];
 
 							if ( ! empty( $posts_elements ) ) :
 								echo '<div class="post-content d-flex flex-column text-left">';
@@ -123,14 +119,14 @@ class Zenvy_Sidebar_Posts_Widget extends WP_Widget {
 			</div>
 		</aside>
 		<?php
-		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- after_widget is registered by WordPress core and is safe.
-		echo $args['after_widget'];
+		echo $args['after_widget']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 	/**
-	 * Outputs the widget settings form in the admin.
+	 * Outputs the settings form for the widget.
 	 *
-	 * @param array $instance Current widget settings.
+	 * @param array $instance Current settings.
+	 * @return void
 	 */
 	public function form( $instance ) {
 		$title           = ! empty( $instance['title'] ) ? $instance['title'] : esc_html__( 'Recent Posts', 'zenvy' );
@@ -173,19 +169,19 @@ class Zenvy_Sidebar_Posts_Widget extends WP_Widget {
 	}
 
 	/**
-	 * Handles updating settings for the widget instance.
+	 * Handles updating settings for the current widget instance.
 	 *
 	 * @param array $new_instance New settings for this instance.
 	 * @param array $old_instance Old settings for this instance.
 	 * @return array Updated settings.
 	 */
 	public function update( $new_instance, $old_instance ) {
-		$instance = array();
+		$instance = [];
 
 		$instance['title']           = sanitize_text_field( $new_instance['title'] );
 		$instance['number_of_posts'] = absint( $new_instance['number_of_posts'] );
-		$instance['order']           = in_array( $new_instance['order'], array( 'ASC', 'DESC' ), true ) ? $new_instance['order'] : 'DESC';
-		$instance['orderby']         = in_array( $new_instance['orderby'], array( 'date', 'title', 'comment_count', 'rand' ), true ) ? $new_instance['orderby'] : 'date';
+		$instance['order']           = in_array( $new_instance['order'], [ 'ASC', 'DESC' ], true ) ? $new_instance['order'] : 'DESC';
+		$instance['orderby']         = in_array( $new_instance['orderby'], [ 'date', 'title', 'comment_count', 'rand' ], true ) ? $new_instance['orderby'] : 'date';
 
 		return $instance;
 	}
