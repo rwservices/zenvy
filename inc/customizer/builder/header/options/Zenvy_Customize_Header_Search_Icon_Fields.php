@@ -90,8 +90,8 @@ class Zenvy_Customize_Header_Search_Icon_Fields extends Zenvy_Customize_Base_Fie
 				],
 				'priority'          => 30,
 				'inherits'          => [
-					'color_1' => 'var(--color-bg-dark)',
-					'color_2' => 'var(--color-link)',
+					'color_1' => 'var(--color-link)',
+					'color_2' => 'var(--color-link-hover)',
 				],
 			],
 			// Background.
@@ -126,8 +126,8 @@ class Zenvy_Customize_Header_Search_Icon_Fields extends Zenvy_Customize_Base_Fie
 				],
 				'priority'          => 37,
 				'inherits'          => [
-					'color_1' => 'var(--color-link)',
-					'color_2' => 'var(--color-link-hover)',
+					'color_1' => 'var(--color-bg)',
+					'color_2' => 'var(--color-bg)',
 				],
 			],
 			// Padding.
