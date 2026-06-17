@@ -5,7 +5,13 @@
  * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Customizer_Inline_Style
+ *
+ * Handles dynamic inline styles for the Zenvy theme.
+ */
 class Zenvy_Customizer_Inline_Style {
+
 
 
 	/**
@@ -22,14 +28,15 @@ class Zenvy_Customizer_Inline_Style {
 		// Front-End Styles.
 		if ( 'front-end' === $type ) {
 
-			// Root
+			// Root.
 			self::root_output();
 
 			/*
 			--------------------------------------------------------------
-			# Header Builder -> Top Row
-			--------------------------------------------------------------*/
-			// Min Height
+			# Header Builder -> Top Row.
+			--------------------------------------------------------------
+			*/
+			// Min Height.
 			self::range(
 				[ '.site-header .top-header .site-header-row' ],
 				'zenvy_header_top_row_height',
@@ -41,11 +48,13 @@ class Zenvy_Customizer_Inline_Style {
 				'zenvy_header_top_row_background_overlay',
 				''
 			);
+
 			/*
 			--------------------------------------------------------------
-			# Header Builder -> Main Row
-			--------------------------------------------------------------*/
-			// Min Height
+			# Header Builder -> Main Row.
+			--------------------------------------------------------------
+			*/
+			// Min Height.
 			self::range(
 				[ '.site-header .main-header .site-header-row' ],
 				'zenvy_header_main_row_height',
@@ -56,11 +65,13 @@ class Zenvy_Customizer_Inline_Style {
 				[ '.site-header .main-header::before' ],
 				'zenvy_header_main_row_background_overlay'
 			);
+
 			/*
 			--------------------------------------------------------------
-			# Header Builder -> Bottom Row
-			--------------------------------------------------------------*/
-			// Min Height
+			# Header Builder -> Bottom Row.
+			--------------------------------------------------------------
+			*/
+			// Min Height.
 			self::range(
 				[ '.site-header .bottom-header .site-header-row' ],
 				'zenvy_header_bottom_row_height',
@@ -71,24 +82,26 @@ class Zenvy_Customizer_Inline_Style {
 				[ '.site-header .bottom-header::before' ],
 				'zenvy_header_bottom_row_background_overlay'
 			);
+
 			/*
 			--------------------------------------------------------------
-			# Header Builder -> HTML
-			--------------------------------------------------------------*/
-			// Text Typography
+			# Header Builder -> HTML.
+			--------------------------------------------------------------
+			*/
+			// Text Typography.
 			self::typography(
 				[ '.site-header .header-html-wrap' ],
 				'zenvy_header_html_text_typo',
 				''
 			);
-			// Link Color
+			// Link Color.
 			self::color(
 				[ '.site-header .header-html-wrap a', '.site-header .header-html-wrap a:hover' ],
 				'zenvy_header_html_text_link_color',
 				''
 			);
 
-			// Container Padding
+			// Container Padding.
 			self::dimensions(
 				[ '.site-header .header-html-wrap' ],
 				'zenvy_header_html_padding',
@@ -100,7 +113,7 @@ class Zenvy_Customizer_Inline_Style {
 					],
 				]
 			);
-			// Container Margin
+			// Container Margin.
 			self::dimensions(
 				[ '.site-header .header-html-wrap' ],
 				'zenvy_header_html_margin',
@@ -110,21 +123,22 @@ class Zenvy_Customizer_Inline_Style {
 
 			/*
 			--------------------------------------------------------------
-			# Header Builder -> Site Identify
-			--------------------------------------------------------------*/
-			// logo margin
+			# Header Builder -> Site Identify.
+			--------------------------------------------------------------
+			*/
+			// logo margin.
 			self::generate_css(
 				[ '.site-header .site-branding.flex-row .site-logo' ],
 				[ 'margin-right' ],
 				'10px'
 			);
-			// Logo Width
+			// Logo Width.
 			self::generate_css(
 				[ '.site-header .site-branding .site-logo .custom-logo' ],
 				[ 'width' ],
 				'185px'
 			);
-			// Site Title
+			// Site Title.
 			self::typography(
 				[
 					'.site-title a',
@@ -133,43 +147,45 @@ class Zenvy_Customizer_Inline_Style {
 				'zenvy_header_site_title_typo',
 				''
 			);
-			// Site Tagline
+			// Site Tagline.
 			self::typography(
 				[ '.site-header .site-branding .site-title-wrap .site-description' ],
 				'zenvy_header_site_tagline_typo',
 				''
 			);
-			// Site Identify Padding
+			// Site Identify Padding.
 			self::dimensions(
 				[ '.site-header .site-branding' ],
 				'zenvy_header_site_identify_padding',
 				''
 			);
-			// Site Identify Margin
+			// Site Identify Margin.
 			self::dimensions(
 				[ '.site-header .site-branding' ],
 				'zenvy_header_site_identify_margin',
 				'',
 				'margin'
 			);
+
 			/*
 			--------------------------------------------------------------
-			# Header Builder -> Social Icons
-			--------------------------------------------------------------*/
-			// Container Padding
+			# Header Builder -> Social Icons.
+			--------------------------------------------------------------
+			*/
+			// Container Padding.
 			self::dimensions(
 				[ '.site-header .header-social-wrap' ],
 				'zenvy_header_social_icon_padding',
 				''
 			);
-			// Container Margin
+			// Container Margin.
 			self::dimensions(
 				[ '.site-header .header-social-wrap' ],
 				'zenvy_header_social_icon_margin',
 				'',
 				'margin'
 			);
-			// Icon color
+			// Icon color.
 			self::color(
 				[ '.site-header .header-social-wrap li a', '.site-header .header-social-wrap li:hover a' ],
 				'zenvy_header_social_icon_item_icon_color',
@@ -178,7 +194,7 @@ class Zenvy_Customizer_Inline_Style {
 					'color_2' => 'var(--color-link-hover)',
 				]
 			);
-			// Item Background color
+			// Item Background color.
 			self::color(
 				[ '.site-header .header-social-wrap li a', '.site-header .header-social-wrap li:hover a' ],
 				'zenvy_header_social_icon_item_background',
@@ -188,7 +204,7 @@ class Zenvy_Customizer_Inline_Style {
 				],
 				'background-color'
 			);
-			// Item Border
+			// Item Border.
 			self::border(
 				[ '.site-header .header-social-wrap li a' ],
 				'zenvy_header_social_icon_item_border',
@@ -202,7 +218,7 @@ class Zenvy_Customizer_Inline_Style {
 					],
 				]
 			);
-			// Item Padding
+			// Item Padding.
 			self::dimensions(
 				[ '.site-header .header-social-wrap li a' ],
 				'zenvy_header_social_icon_item_padding',
@@ -217,7 +233,7 @@ class Zenvy_Customizer_Inline_Style {
 				]
 			);
 
-			// Item Gap
+			// Item Gap.
 			self::range(
 				[ '.site-header ul.header-social-wrap >*:not(:last-child)' ],
 				'zenvy_header_social_icon_gap',
@@ -227,22 +243,23 @@ class Zenvy_Customizer_Inline_Style {
 
 			/*
 			--------------------------------------------------------------
-			# Header Builder -> Primary Menu
-			--------------------------------------------------------------*/
-			// Container Padding
+			# Header Builder -> Primary Menu.
+			--------------------------------------------------------------
+			*/
+			// Container Padding.
 			self::dimensions(
 				[ '.site-header .primary-navbar' ],
 				'zenvy_header_primary_menu_container_padding',
 				''
 			);
-			// Container Margin
+			// Container Margin.
 			self::dimensions(
 				[ '.site-header .primary-navbar' ],
 				'zenvy_header_primary_menu_container_margin',
 				'',
 				'margin'
 			);
-			// Parent Menu Spacing
+			// Parent Menu Spacing.
 			$primary_menu_spacing = get_theme_mod( 'zenvy_header_primary_parent_menu_spacing', '' );
 			if ( $primary_menu_spacing && ( '0px' === $primary_menu_spacing['desktop'] ) ) {
 				self::generate_css(
@@ -259,7 +276,7 @@ class Zenvy_Customizer_Inline_Style {
 				);
 			}
 
-			// Parent Menu Colors
+			// Parent Menu Colors.
 			self::color(
 				[
 					'
@@ -300,7 +317,7 @@ class Zenvy_Customizer_Inline_Style {
 					$parent_menu_background['color_2']
 				);
 			}
-			// Parent Menu Background
+			// Parent Menu Background.
 			self::color(
 				[ '.site-header .primary-navbar .menu-top-menu-container>ul>li>a', '.site-header .primary-navbar .menu-top-menu-container>ul>li:hover>a' ],
 				'zenvy_header_primary_parent_menu_background_color',
@@ -308,7 +325,7 @@ class Zenvy_Customizer_Inline_Style {
 				'background-color'
 			);
 
-			// child Menu Colors
+			// child Menu Colors.
 			self::color(
 				[
 					'
@@ -324,7 +341,7 @@ class Zenvy_Customizer_Inline_Style {
 				'color'
 			);
 
-			// Child Menu Background
+			// Child Menu Background.
 			self::color(
 				[
 					'.site-header .primary-navbar .main-navigation ul li ul li a',
@@ -376,9 +393,10 @@ class Zenvy_Customizer_Inline_Style {
 
 			/*
 			--------------------------------------------------------------
-			# Header Builder -> Toggle Menu
-			--------------------------------------------------------------*/
-			// Icon Color
+			# Header Builder -> Toggle Menu.
+			--------------------------------------------------------------
+			*/
+			// Icon Color.
 			self::color(
 				[
 					'
@@ -391,45 +409,47 @@ class Zenvy_Customizer_Inline_Style {
 				[ 'color_1' => 'var(--color-bg-dark)' ],
 				'background'
 			);
-			// Icon background color
+			// Icon background color.
 			self::color(
 				[ '.site-header .mobile-navbar .mean-container a.meanmenu-reveal' ],
 				'zenvy_header_toggle_menu_icon_background_color',
 				'',
 				'background-color'
 			);
-			// Menu Typography
+			// Menu Typography.
 			self::typography(
 				[ '.site-header .mobile-navbar .mean-container .mean-nav ul li a' ],
 				'zenvy_header_toggle_menu_text_typo',
 				''
 			);
-			// Menu Background
+			// Menu Background.
 			self::color(
 				[ '.site-header .mobile-navbar .mean-container .mean-nav>ul,.site-header .mobile-navbar .main-navigation ul li ul li:hover>a', '.site-header .mobile-navbar .mean-container .mean-nav>ul>li>a:hover' ],
 				'zenvy_header_toggle_menu_dropdown_container_menu_background',
 				'',
 				'background-color'
 			);
-			// Container Padding
+			// Container Padding.
 			self::dimensions(
 				[ '.site-header .header-toggle-menu-wrap' ],
 				'zenvy_header_toggle_menu_padding',
 				'',
 				'padding'
 			);
-			// Container Padding
+			// Container Padding.
 			self::dimensions(
 				[ '.site-header .header-toggle-menu-wrap' ],
 				'zenvy_header_toggle_menu_margin',
 				'',
 				'margin'
 			);
+
 			/*
 			--------------------------------------------------------------
-			# Header Builder -> Button
-			--------------------------------------------------------------*/
-			// Icon color
+			# Header Builder -> Button.
+			--------------------------------------------------------------
+			*/
+			// Icon color.
 			self::color(
 				[ '.site-header .header-button-wrap a', '.site-header .header-button-wrap a:hover' ],
 				'zenvy_header_button_color',
@@ -438,7 +458,7 @@ class Zenvy_Customizer_Inline_Style {
 					'color_2' => 'var(--color-white)',
 				]
 			);
-			// Background color
+			// Background color.
 			self::color(
 				[ '.site-header .header-button-wrap a', '.site-header .header-button-wrap a:hover' ],
 				'zenvy_header_button_background',
@@ -448,7 +468,7 @@ class Zenvy_Customizer_Inline_Style {
 				],
 				'background-color'
 			);
-			// Padding
+			// Padding.
 			self::dimensions(
 				[ '.site-header .header-button-wrap a' ],
 				'zenvy_header_button_padding',
@@ -463,14 +483,14 @@ class Zenvy_Customizer_Inline_Style {
 				]
 			);
 
-			// Padding
+			// Padding.
 			self::dimensions(
 				[ '.site-header .header-button-wrap' ],
 				'zenvy_header_button_container_padding',
 				'',
 				'padding'
 			);
-			// Margin
+			// Margin.
 			self::dimensions(
 				[ '.site-header .header-button-wrap a' ],
 				'zenvy_header_button_container_margin',
@@ -480,9 +500,10 @@ class Zenvy_Customizer_Inline_Style {
 
 			/*
 			--------------------------------------------------------------
-			# Header Builder -> Account
-			--------------------------------------------------------------*/
-			// Icon text color
+			# Header Builder -> Account.
+			--------------------------------------------------------------
+			*/
+			// Icon text color.
 			self::color(
 				[ '.site-header .header-account-wrap a', '.site-header .header-account-wrap a:hover' ],
 				'zenvy_header_account_icon_color',
@@ -491,7 +512,7 @@ class Zenvy_Customizer_Inline_Style {
 					'color_2' => 'var(--color-white)',
 				]
 			);
-			// Background color
+			// Background color.
 			self::color(
 				[ '.site-header .header-account-wrap a', '.site-header .header-account-wrap a:hover' ],
 				'zenvy_header_account_background',
@@ -502,7 +523,7 @@ class Zenvy_Customizer_Inline_Style {
 				'background-color'
 			);
 
-			// Padding
+			// Padding.
 			self::dimensions(
 				[ '.site-header .header-account-wrap a' ],
 				'zenvy_header_account_padding',
@@ -516,7 +537,7 @@ class Zenvy_Customizer_Inline_Style {
 					],
 				]
 			);
-			// Container Margin
+			// Container Margin.
 			self::dimensions(
 				[ '.site-header .header-account-wrap a' ],
 				'zenvy_header_account_container_margin',
@@ -524,7 +545,7 @@ class Zenvy_Customizer_Inline_Style {
 				'margin'
 			);
 
-			// Container Padding
+			// Container Padding.
 			self::dimensions(
 				[ '.site-header .header-account-wrap' ],
 				'zenvy_header_account_container_padding',
@@ -534,9 +555,10 @@ class Zenvy_Customizer_Inline_Style {
 
 			/*
 			--------------------------------------------------------------
-			# Header Builder -> Menu Trigger
-			--------------------------------------------------------------*/
-			// Icon Text Gap
+			# Header Builder -> Menu Trigger.
+			--------------------------------------------------------------
+			*/
+			// Icon Text Gap.
 			self::range(
 				[ '.site-header .header-menu-trigger-wrap a.flex-row-reverse .icon' ],
 				'zenvy_header_menu_trigger_icon_text_gap',
@@ -549,51 +571,51 @@ class Zenvy_Customizer_Inline_Style {
 				'',
 				'padding-right'
 			);
-			// Icon Size
+			// Icon Size.
 			self::range(
 				[ '.site-header .header-menu-trigger-wrap a .icon' ],
 				'zenvy_header_menu_trigger_icon_size',
 				'',
 				'font-size'
 			);
-			// Text Size
+			// Text Size.
 			self::range(
 				[ '.site-header .header-menu-trigger-wrap a label' ],
 				'zenvy_header_menu_trigger_text_size',
 				'',
 				'font-size'
 			);
-			// Icon color
+			// Icon color.
 			self::color(
 				[ '.site-header .header-menu-trigger-wrap a', '.site-header .header-menu-trigger-wrap a:hover' ],
 				'zenvy_header_menu_trigger_color'
 			);
-			// Background color
+			// Background color.
 			self::color(
 				[ '.site-header .header-menu-trigger-wrap a', '.site-header .header-menu-trigger-wrap a:hover' ],
 				'zenvy_header_menu_trigger_background',
 				'',
 				'background-color'
 			);
-			// Border
+			// Border.
 			self::border(
 				[ '.site-header .header-menu-trigger-wrap a' ],
 				'zenvy_header_menu_trigger_border',
 				''
 			);
-			// box shadow
+			// box shadow.
 			self::box_shadow(
 				[ '.site-header .header-menu-trigger-wrap a' ],
 				'zenvy_header_menu_trigger_box_shadow',
 				''
 			);
-			// Padding
+			// Padding.
 			self::dimensions(
 				[ '.site-header .header-menu-trigger-wrap a' ],
 				'zenvy_header_menu_trigger_padding',
 				''
 			);
-			// Margin
+			// Margin.
 			self::dimensions(
 				[ '.site-header .header-menu-trigger-wrap a' ],
 				'zenvy_header_menu_trigger_margin',
@@ -603,23 +625,24 @@ class Zenvy_Customizer_Inline_Style {
 
 			/*
 			--------------------------------------------------------------
-			# Header Builder -> Color Mode Icon
-			--------------------------------------------------------------*/
-			// Icon Size
+			# Header Builder -> Color Mode Icon.
+			--------------------------------------------------------------
+			*/
+			// Icon Size.
 			self::range(
 				[ '.site-header .header-color-mode-wrap #theme-toggle span' ],
 				'zenvy_header_color_mode_icon_size',
 				[ 'desktop' => '13px' ],
 				'font-size'
 			);
-			// Background color
+			// Background color.
 			self::color(
 				[ '.site-header .header-color-mode-wrap #theme-toggle span' ],
 				'zenvy_header_color_mode_icon_bg_color',
 				'',
 				'background-color'
 			);
-			// Icon color
+			// Icon color.
 			self::color(
 				[ '.site-header .header-color-mode-wrap #theme-toggle span i' ],
 				'zenvy_header_color_mode_icon_color',
@@ -628,13 +651,13 @@ class Zenvy_Customizer_Inline_Style {
 				],
 				'color'
 			);
-			// Padding
+			// Padding.
 			self::dimensions(
 				[ '.site-header .header-color-mode-wrap #theme-toggle span' ],
 				'zenvy_header_color_mode_padding',
 				''
 			);
-			// Margin
+			// Margin.
 			self::dimensions(
 				[ '.site-header .header-color-mode-wrap' ],
 				'zenvy_header_color_mode_margin',
@@ -644,42 +667,43 @@ class Zenvy_Customizer_Inline_Style {
 
 			/*
 			--------------------------------------------------------------
-			# Header Builder -> Search Icon
-			--------------------------------------------------------------*/
-			// Icon color
+			# Header Builder -> Search Icon.
+			--------------------------------------------------------------
+			*/
+			// Icon color.
 			self::color(
 				[ '.site-header .site-header-section .header-search-icon-wrap .search-toggle', '.site-header .site-header-section .header-search-icon-wrap .search-toggle:hover' ],
 				'zenvy_header_search_icon_color',
 				''
 			);
-			// Background color
+			// Background color.
 			self::color(
 				[ '.site-header .site-header-section .header-search-icon-wrap .search-toggle', '.site-header .site-header-section .header-search-icon-wrap .search-toggle:hover' ],
 				'zenvy_header_search_icon_background',
 				'',
 				'background-color'
 			);
-			// Button Background color
+			// Button Background color.
 			self::color(
 				[ '.site-header .header-search-section .search-form input[type="submit"]', '.site-header .header-search-section .search-form input[type="submit"]:hover' ],
 				'zenvy_header_search_button_background',
 				'',
 				'background-color'
 			);
-			// Container Padding
+			// Container Padding.
 			self::dimensions(
 				[ '.site-header .header-search-icon-wrap' ],
 				'zenvy_header_search_icon_container_padding',
 				''
 			);
-			// Container Margin
+			// Container Margin.
 			self::dimensions(
 				[ '.site-header .header-search-icon-wrap' ],
 				'zenvy_header_search_icon_container_margin',
 				'',
 				'margin'
 			);
-			// Padding
+			// Padding.
 			self::dimensions(
 				[ '.site-header .header-search-icon-wrap .search-toggle' ],
 				'zenvy_header_search_icon_padding',
@@ -697,9 +721,10 @@ class Zenvy_Customizer_Inline_Style {
 			if ( class_exists( 'WooCommerce' ) ) {
 				/*
 				--------------------------------------------------------------
-				# Header Builder -> WC Cart
-				--------------------------------------------------------------*/
-				// Icon Size
+				# Header Builder -> WC Cart.
+				--------------------------------------------------------------
+				*/
+				// Icon Size.
 				self::range(
 					[ '.site-header .header-wc-cart-wrap .wc-icon i' ],
 					'zenvy_header_woocommerce_cart_icon_size',
@@ -707,7 +732,7 @@ class Zenvy_Customizer_Inline_Style {
 					'font-size'
 				);
 
-				// Icon color
+				// Icon color.
 				self::color(
 					[ '.site-header .header-wc-cart-wrap .wc-icon i', '.site-header .header-wc-cart-wrap .wc-icon i:hover' ],
 					'zenvy_header_woocommerce_cart_icon_color',
@@ -715,14 +740,14 @@ class Zenvy_Customizer_Inline_Style {
 					'color'
 				);
 
-				// Background color
+				// Background color.
 				self::color(
 					[ '.site-header .header-wc-cart-wrap', '.site-header .header-wc-cart-wrap:hover' ],
 					'zenvy_header_woocommerce_cart_icon_background',
 					'',
 					'background-color'
 				);
-				// Count Color
+				// Count Color.
 				self::color(
 					[ '.site-header .header-wc-cart-wrap .wc-icon .cart-value' ],
 					'zenvy_header_woocommerce_cart_count_color',
@@ -730,7 +755,7 @@ class Zenvy_Customizer_Inline_Style {
 					'color'
 				);
 
-				// Background color
+				// Background color.
 				self::color(
 					[ '.site-header .header-wc-cart-wrap .wc-icon .cart-value' ],
 					'zenvy_header_woocommerce_cart_count_background',
@@ -738,13 +763,13 @@ class Zenvy_Customizer_Inline_Style {
 					'background-color'
 				);
 
-				// Padding
+				// Padding.
 				self::dimensions(
 					[ '.site-header .header-wc-cart-wrap' ],
 					'zenvy_header_woocommerce_cart_padding',
 					''
 				);
-				// Margin
+				// Margin.
 				self::dimensions(
 					[ '.site-header .header-wc-cart-wrap' ],
 					'zenvy_header_woocommerce_cart_margin',
@@ -752,24 +777,27 @@ class Zenvy_Customizer_Inline_Style {
 					'margin'
 				);
 			}
+
 			/*
 			--------------------------------------------------------------
-			# Global -> Body
-			--------------------------------------------------------------*/
+			# Global -> Body.
+			--------------------------------------------------------------
+			*/
 			self::background( [ 'body' ], 'zenvy_body_background' );
 
 			/*
 			--------------------------------------------------------------
-			# Global -> Typography
-			--------------------------------------------------------------*/
-			// Base
+			# Global -> Typography.
+			--------------------------------------------------------------
+			*/
+			// Base.
 			self::typography(
 				[ 'body' ],
 				'zenvy_base_typography',
 				''
 			);
 
-			// Heading
+			// Heading.
 			self::typography(
 				[ 'h1, h2, h3, h4, h5, h6' ],
 				'zenvy_heading_typography',
@@ -778,9 +806,10 @@ class Zenvy_Customizer_Inline_Style {
 
 			/*
 			--------------------------------------------------------------
-			# Global -> Featured Image Color
-			--------------------------------------------------------------*/
-			// Background Overlay Color
+			# Global -> Featured Image Color.
+			--------------------------------------------------------------
+			*/
+			// Background Overlay Color.
 			self::color(
 				[ '.featured-image,.featured-image a::before' ],
 				'zenvy_placeholder_color',
@@ -790,9 +819,10 @@ class Zenvy_Customizer_Inline_Style {
 
 			/*
 			--------------------------------------------------------------
-			# Global -> Page Header
-			--------------------------------------------------------------*/
-			// Container Background Image
+			# Global -> Page Header.
+			--------------------------------------------------------------
+			*/
+			// Container Background Image.
 			self::background(
 				[ '.page-title-wrap' ],
 				'zenvy_page_header_background',
@@ -812,7 +842,7 @@ class Zenvy_Customizer_Inline_Style {
 					$overlay_color
 				);
 			} else {
-				// Container Background Overlay
+				// Container Background Overlay.
 				self::background(
 					[ '.page-title-wrap::before' ],
 					'zenvy_page_header_background_overlay',
@@ -822,9 +852,10 @@ class Zenvy_Customizer_Inline_Style {
 
 			/*
 			--------------------------------------------------------------
-			# Global -> Button
-			--------------------------------------------------------------*/
-			// text color
+			# Global -> Button.
+			--------------------------------------------------------------
+			*/
+			// text color.
 			self::color(
 				[
 					'.zenvy-btn-text .text-button,
@@ -840,7 +871,7 @@ class Zenvy_Customizer_Inline_Style {
 				'',
 				'--color-text'
 			);
-			// color
+			// color.
 			self::color(
 				[
 					'
@@ -877,7 +908,7 @@ class Zenvy_Customizer_Inline_Style {
 				'',
 				'color'
 			);
-			// Background color
+			// Background color.
 			self::color(
 				[
 					'
@@ -915,7 +946,7 @@ class Zenvy_Customizer_Inline_Style {
 				'',
 				'background-color'
 			);
-			// Border
+			// Border.
 			self::border(
 				[
 					'
@@ -926,7 +957,7 @@ class Zenvy_Customizer_Inline_Style {
 				''
 			);
 
-			// Item Gap
+			// Item Gap.
 			self::generate_css(
 				[ '.site-header .page-title-wrap .text-left .breadcrumbs ul li,.site-header .page-title-wrap .text-center .breadcrumbs ul li' ],
 				[ 'margin-right' ],
@@ -949,7 +980,7 @@ class Zenvy_Customizer_Inline_Style {
 				'@media only screen and (min-width: 1024px)'
 			);
 
-			// Item Separator Spacing
+			// Item Separator Spacing.
 			self::generate_css(
 				[ '.site-header .page-title-wrap .container>.breadcrumbs ul li::before' ],
 				[ 'right' ],
@@ -972,8 +1003,8 @@ class Zenvy_Customizer_Inline_Style {
 				'',
 				'@media only screen and (min-width: 1024px)'
 			);
-			// Post meta
-			// Bottom Spacing
+			// Post meta.
+			// Bottom Spacing.
 			self::range(
 				[ '.site-header .page-title-wrap .container>.header-post-meta' ],
 				'zenvy_page_header_post_meta_spacing',
@@ -982,24 +1013,26 @@ class Zenvy_Customizer_Inline_Style {
 				],
 				'margin-bottom'
 			);
-			// Is Home Page or archive page or search page
+			// Is Home Page or archive page or search page.
 			if ( is_home() || is_archive() || is_search() || is_404() ) {
-
 				/*
 				--------------------------------------------------------------
-				# Post Content
-				--------------------------------------------------------------*/
-				// Read More button icon gap
+				# Post Content.
+				--------------------------------------------------------------
+				*/
+				// Read More button icon gap.
 				self::generate_css(
 					[ '.zenvy-blog #primary .post .post-content .read-more-wrap a .icon' ],
 					[ 'margin-left' ],
 					'10px'
 				);
+
 				/*
 				--------------------------------------------------------------
-				# Pagination
-				--------------------------------------------------------------*/
-				// is archive type agent
+				# Pagination.
+				--------------------------------------------------------------
+				*/
+				// is archive type agent.
 				if ( is_post_type_archive( 'agent' ) ) {
 					self::generate_css(
 						[ '.post-type-archive-agent .site-header .page-title-wrap .archive-description' ],
@@ -1009,14 +1042,14 @@ class Zenvy_Customizer_Inline_Style {
 				}
 			}
 
-			// Is Single Post
+			// Is Single Post.
 			if ( 'post' === get_post_type() ) {
-
 				/*
 				--------------------------------------------------------------
-				# Post Content
-				--------------------------------------------------------------*/
-				// Top Spacing
+				# Post Content.
+				--------------------------------------------------------------
+				*/
+				// Top Spacing.
 				self::range(
 					[ '.single .content-area.no-has-page-header' ],
 					'zenvy_single_post_content_entry_header_elements_gap',
@@ -1029,20 +1062,20 @@ class Zenvy_Customizer_Inline_Style {
 				);
 			}
 
-			// Is 404 Page
+			// Is 404 Page.
 			if ( is_404() ) {
-
 				/*
 				--------------------------------------------------------------
-				# Page Content
-				--------------------------------------------------------------*/
-				// Image Height
+				# Page Content.
+				--------------------------------------------------------------
+				*/
+				// Image Height.
 				self::generate_css(
 					[ '.error404 .error-404 .error-page-content figure img' ],
 					[ 'height' ],
 					'150px'
 				);
-				// Spacing
+				// Spacing.
 				self::generate_css(
 					[ '.error404 .error-404 .error-page-content figure' ],
 					[ 'margin-bottom' ],
@@ -1058,18 +1091,18 @@ class Zenvy_Customizer_Inline_Style {
 					[ 'margin-bottom' ],
 					'15px'
 				);
-				// Background
+				// Background.
 				self::background(
 					[ '.error404 .error-404.not-found' ],
 					'zenvy_404_error_background'
 				);
 			}
 
-			// Is Static Front Page Enable
+			// Is Static Front Page Enable.
 			if ( Zenvy_Helper::front_page_enable() ) {
 
-				// Front page : Featured Section
-				// Background
+				// Front page : Featured Section.
+				// Background.
 				self::background(
 					[ '.zenvy-front-page .featured-slider' ],
 					'zenvy_front_page_featured_section_background',
@@ -1088,15 +1121,15 @@ class Zenvy_Customizer_Inline_Style {
 					]
 				);
 
-				// Front page : Explore Section
-				// Background
+				// Front page : Explore Section.
+				// Background.
 				self::background(
 					[ '.zenvy-front-page .explore-section' ],
 					'zenvy_front_page_explore_section_background',
 					''
 				);
 
-				// Background Overlay
+				// Background Overlay.
 				self::background(
 					[ '.zenvy-front-page .explore-section::before' ],
 					'zenvy_front_page_explore_section_background_overlay',
@@ -1108,15 +1141,15 @@ class Zenvy_Customizer_Inline_Style {
 					]
 				);
 
-				// Front page : Latest Posts Section
-				// Background
+				// Front page : Latest Posts Section.
+				// Background.
 				self::background(
 					[ '.zenvy-front-page .latest-posts-section' ],
 					'zenvy_front_page_latest_posts_background',
 					''
 				);
 
-				// Background Overlay
+				// Background Overlay.
 				self::background(
 					[ '.zenvy-front-page .latest-posts-section::before' ],
 					'zenvy_front_page_latest_posts_background_overlay',
@@ -1128,15 +1161,15 @@ class Zenvy_Customizer_Inline_Style {
 					]
 				);
 
-				// Front page : Quote Section
-				// Background
+				// Front page : Quote Section.
+				// Background.
 				self::background(
 					[ '.zenvy-front-page .testimonial-quote-section .testimonial-quote-content-wrap' ],
 					'zenvy_front_page_quote_background',
 					''
 				);
 
-				// Background Overlay
+				// Background Overlay.
 				self::background(
 					[ '.zenvy-front-page .testimonial-quote-section .testimonial-quote-content-wrap' ],
 					'zenvy_front_page_quote_background_overlay',
@@ -1149,15 +1182,15 @@ class Zenvy_Customizer_Inline_Style {
 				);
 
 
-				// Front page : Trending Posts Section
-				// Background
+				// Front page : Trending Posts Section.
+				// Background.
 				self::background(
 					[ '.zenvy-front-page .trending-posts-section' ],
 					'zenvy_front_page_trending_posts_background',
 					''
 				);
 
-				// Background Overlay
+				// Background Overlay.
 				self::background(
 					[ '.zenvy-front-page .trending-posts-section::before' ],
 					'zenvy_front_page_trending_posts_background_overlay',
@@ -1169,15 +1202,15 @@ class Zenvy_Customizer_Inline_Style {
 					]
 				);
 
-				// Front page : Youtube Promotion Section
-				// Background
+				// Front page : Youtube Promotion Section.
+				// Background.
 				self::background(
 					[ '.zenvy-front-page .video-post-section' ],
 					'zenvy_front_page_youtube_promotion_background',
 					''
 				);
 
-				// Background Overlay
+				// Background Overlay.
 				self::background(
 					[ '.zenvy-front-page .video-post-section::before' ],
 					'zenvy_front_page_youtube_promotion_background_overlay',
@@ -1189,15 +1222,15 @@ class Zenvy_Customizer_Inline_Style {
 					]
 				);
 
-				// Front page : Shop Section
-				// Background
+				// Front page : Shop Section.
+				// Background.
 				self::background(
 					[ '.zenvy-front-page .shop-section' ],
 					'zenvy_front_page_shop_section_background',
 					''
 				);
 
-				// Background Overlay
+				// Background Overlay.
 				self::background(
 					[ '.zenvy-front-page .shop-section::before' ],
 					'zenvy_front_page_shop_section_background_overlay',
@@ -1211,23 +1244,24 @@ class Zenvy_Customizer_Inline_Style {
 
 				/*
 				--------------------------------------------------------------
-				# Post Content
-				--------------------------------------------------------------*/
-				// Read More button icon gap
+				# Post Content.
+				--------------------------------------------------------------
+				*/
+				// Read More button icon gap.
 				self::generate_css(
 					[ '.zenvy-front-page #page .latest-news-section .post .post-content .read-more-wrap a .icon' ],
 					[ 'margin-left' ],
 					'10px'
 				);
 			}
-			// Sidebar
+			// Sidebar.
 			if ( is_active_sidebar( 'sidebar-1' ) && Zenvy_Helper::get_sidebar_layout() ) {
-
 				/*
 				--------------------------------------------------------------
-				# Sidebar Container
-				--------------------------------------------------------------*/
-				// Sidebar Width
+				# Sidebar Container.
+				--------------------------------------------------------------
+				*/
+				// Sidebar Width.
 				self::generate_css(
 					[ '.have-sidebar #secondary' ],
 					[ 'width' ],
@@ -1244,7 +1278,7 @@ class Zenvy_Customizer_Inline_Style {
 					')',
 					'@media only screen and (min-width: 1024px)'
 				);
-				// Sidebar Gap
+				// Sidebar Gap.
 				if ( 'right' === Zenvy_Helper::get_sidebar_layout() ) {
 					self::generate_css(
 						[ '.have-sidebar #secondary.right-sidebar' ],
@@ -1284,9 +1318,10 @@ class Zenvy_Customizer_Inline_Style {
 
 			/*
 			--------------------------------------------------------------
-			# Footer Builder -> Top Row
-			--------------------------------------------------------------*/
-			// Background
+			# Footer Builder -> Top Row.
+			--------------------------------------------------------------
+			*/
+			// Background.
 			self::background(
 				[ '.site-footer .top-footer' ],
 				'zenvy_footer_top_row_background',
@@ -1297,7 +1332,7 @@ class Zenvy_Customizer_Inline_Style {
 				'zenvy_footer_top_row_background_overlay',
 				''
 			);
-			// Padding
+			// Padding.
 			self::dimensions(
 				[ '.site-footer .top-footer .container>.row.columns' ],
 				'zenvy_footer_top_row_padding',
@@ -1312,9 +1347,10 @@ class Zenvy_Customizer_Inline_Style {
 
 			/*
 			--------------------------------------------------------------
-			# Footer Builder -> Main Row
-			--------------------------------------------------------------*/
-			// Background
+			# Footer Builder -> Main Row.
+			--------------------------------------------------------------
+			*/
+			// Background.
 			self::background(
 				[ '.site-footer .main-footer' ],
 				'zenvy_footer_main_row_background'
@@ -1329,7 +1365,7 @@ class Zenvy_Customizer_Inline_Style {
 					],
 				]
 			);
-			// Padding
+			// Padding.
 			self::dimensions(
 				[ '.site-footer .main-footer .container>.row.columns' ],
 				'zenvy_footer_main_row_padding',
@@ -1344,8 +1380,9 @@ class Zenvy_Customizer_Inline_Style {
 
 			/*
 			--------------------------------------------------------------
-			# Footer Builder -> Bottom Row
-			--------------------------------------------------------------*/
+			# Footer Builder -> Bottom Row.
+			--------------------------------------------------------------
+			*/
 			self::background(
 				[ '.site-footer .bottom-footer::before' ],
 				'zenvy_footer_bottom_row_background_overlay',
@@ -1356,7 +1393,7 @@ class Zenvy_Customizer_Inline_Style {
 					],
 				]
 			);
-			// Padding
+			// Padding.
 			self::dimensions(
 				[ '.site-footer .bottom-footer .container>.row.columns' ],
 				'zenvy_footer_bottom_row_padding',
@@ -1365,9 +1402,10 @@ class Zenvy_Customizer_Inline_Style {
 
 			/*
 			--------------------------------------------------------------
-			# Footer Builder -> Footer HTML
-			--------------------------------------------------------------*/
-			// Text Typography
+			# Footer Builder -> Footer HTML.
+			--------------------------------------------------------------
+			*/
+			// Text Typography.
 			self::typography(
 				[ '.site-footer .footer-html-wrap' ],
 				'zenvy_footer_html_text_typo',
@@ -1377,14 +1415,14 @@ class Zenvy_Customizer_Inline_Style {
 					],
 				]
 			);
-			// Link Color
+			// Link Color.
 			self::color(
 				[ '.site-footer .footer-html-wrap a', '.site-footer .footer-html-wrap a:hover' ],
 				'zenvy_footer_html_text_link_color',
 				''
 			);
 
-			// Container Padding
+			// Container Padding.
 			self::dimensions(
 				[ '.site-footer .footer-html-wrap' ],
 				'zenvy_footer_html_padding',
@@ -1396,7 +1434,7 @@ class Zenvy_Customizer_Inline_Style {
 					],
 				]
 			);
-			// Container Margin
+			// Container Margin.
 			self::dimensions(
 				[ '.site-footer .footer-html-wrap' ],
 				'zenvy_footer_html_margin',
@@ -1406,9 +1444,10 @@ class Zenvy_Customizer_Inline_Style {
 
 			/*
 			--------------------------------------------------------------
-			# Footer Builder -> Footer Menu
-			--------------------------------------------------------------*/
-			// Container Padding
+			# Footer Builder -> Footer Menu.
+			--------------------------------------------------------------
+			*/
+			// Container Padding.
 			self::dimensions(
 				[ '.site-footer .footer-navbar' ],
 				'zenvy_footer_menu_container_padding',
@@ -1421,21 +1460,21 @@ class Zenvy_Customizer_Inline_Style {
 				],
 				'padding'
 			);
-			// Container Margin
+			// Container Margin.
 			self::dimensions(
 				[ '.site-footer .footer-navbar' ],
 				'zenvy_footer_menu_container_margin',
 				'',
 				'margin'
 			);
-			// Item Gap
+			// Item Gap.
 			self::range(
 				[ '.site-footer .footer-navbar ul.menu-wrapper >*:not(:last-child)' ],
 				'zenvy_footer_menu_spacing',
 				'',
 				'margin-right'
 			);
-			// Menu Colors
+			// Menu Colors.
 			self::color(
 				[
 					'.site-footer .footer-navbar ul.menu-wrapper li,
@@ -1445,7 +1484,7 @@ class Zenvy_Customizer_Inline_Style {
 				'zenvy_footer_menu_font_colors',
 				''
 			);
-			// Menu Background
+			// Menu Background.
 			self::color(
 				[
 					'.site-footer .footer-navbar ul.menu-wrapper li,
@@ -1459,22 +1498,23 @@ class Zenvy_Customizer_Inline_Style {
 
 			/*
 			--------------------------------------------------------------
-			# Footer Builder -> Button
-			--------------------------------------------------------------*/
-			// Icon color
+			# Footer Builder -> Button.
+			--------------------------------------------------------------
+			*/
+			// Icon color.
 			self::color(
 				[ '.site-footer .footer-button-wrap a', '.site-footer .footer-button-wrap a:hover' ],
 				'zenvy_footer_button_color',
 				'',
 			);
-			// Background color
+			// Background color.
 			self::color(
 				[ '.site-footer .footer-button-wrap a', '.site-footer .footer-button-wrap a:hover' ],
 				'zenvy_footer_button_background',
 				'',
 				'background-color'
 			);
-			// Border
+			// Border.
 			self::border(
 				[ '.site-footer .footer-button-wrap a' ],
 				'zenvy_footer_button_border',
@@ -1488,7 +1528,7 @@ class Zenvy_Customizer_Inline_Style {
 					],
 				]
 			);
-			// Padding
+			// Padding.
 			self::dimensions(
 				[ '.site-footer .footer-button-wrap a' ],
 				'zenvy_footer_button_padding',
@@ -1502,7 +1542,7 @@ class Zenvy_Customizer_Inline_Style {
 					],
 				]
 			);
-			// Margin
+			// Margin.
 			self::dimensions(
 				[ '.site-footer .footer-button-wrap a' ],
 				'zenvy_footer_button_margin',
@@ -1520,9 +1560,10 @@ class Zenvy_Customizer_Inline_Style {
 
 			/*
 			--------------------------------------------------------------
-			# Footer Builder -> Copyright Text
-			--------------------------------------------------------------*/
-			// Text Typography
+			# Footer Builder -> Copyright Text.
+			--------------------------------------------------------------
+			*/
+			// Text Typography.
 			self::typography(
 				[ '.site-footer .site-info,.site-footer .site-info a', '.site-footer .site-info a:hover' ],
 				'zenvy_footer_copyright_text_typo',
@@ -1534,7 +1575,7 @@ class Zenvy_Customizer_Inline_Style {
 				]
 			);
 
-			// Padding
+			// Padding.
 			self::dimensions(
 				[ '.site-footer .site-info' ],
 				'zenvy_footer_copyright_padding',
@@ -1547,7 +1588,7 @@ class Zenvy_Customizer_Inline_Style {
 				],
 				'padding'
 			);
-			// Margin
+			// Margin.
 			self::dimensions(
 				[ '.site-footer .site-info' ],
 				'zenvy_footer_copyright_margin',
@@ -1557,48 +1598,49 @@ class Zenvy_Customizer_Inline_Style {
 
 			/*
 			--------------------------------------------------------------
-			# Footer Builder -> Social Icons
-			--------------------------------------------------------------*/
-			// Icon Size
+			# Footer Builder -> Social Icons.
+			--------------------------------------------------------------
+			*/
+			// Icon Size.
 			self::generate_css(
 				[ '.site-footer .footer-social-wrap li a .icon' ],
 				[ 'font-size' ],
 				'18px'
 			);
-			// Container Padding
+			// Container Padding.
 			self::dimensions(
 				[ '.site-footer .footer-social-wrap' ],
 				'zenvy_footer_social_icon_padding',
 				''
 			);
-			// Container Margin
+			// Container Margin.
 			self::dimensions(
 				[ '.site-footer .footer-social-wrap' ],
 				'zenvy_footer_social_icon_margin',
 				'',
 				'margin'
 			);
-			// Item Gap
+			// Item Gap.
 			self::range(
 				[ '.site-footer ul.footer-social-wrap >*:not(:last-child)' ],
 				'zenvy_footer_social_icon_gap',
 				[ 'desktop' => '2px' ],
 				'margin-right'
 			);
-			// Icon color
+			// Icon color.
 			self::color(
 				[ '.site-footer .footer-social-wrap li a span', '.site-footer .footer-social-wrap li:hover a span' ],
 				'zenvy_footer_social_icon_item_icon_color',
 				''
 			);
-			// Item Background color
+			// Item Background color.
 			self::color(
 				[ '.site-footer .footer-social-wrap li', '.site-footer .footer-social-wrap li:hover' ],
 				'zenvy_footer_social_icon_item_background',
 				'',
 				'background-color'
 			);
-			// Item Padding
+			// Item Padding.
 			self::dimensions(
 				[ '.site-footer .footer-social-wrap li' ],
 				'zenvy_footer_social_icon_item_padding',
@@ -1616,10 +1658,10 @@ class Zenvy_Customizer_Inline_Style {
 
 		/*
 		--------------------------------------------------------------
-		# Footer Builder -> Sidebar 1, Sidebar 2, Sidebar 3, Sidebar 4, Sidebar 5, Sidebar 6
+		# Footer Builder -> Sidebar 1, Sidebar 2, Sidebar 3, Sidebar 4, Sidebar 5, Sidebar 6.
 		--------------------------------------------------------------
 		*/
-		// Sidebar Widgets Typography
+		// Sidebar Widgets Typography.
 		self::typography(
 			[
 				'
@@ -1632,7 +1674,7 @@ class Zenvy_Customizer_Inline_Style {
 			'zenvy_footer_builder_widget_title_typo',
 			''
 		);
-		// Sidebar Widget Content
+		// Sidebar Widget Content.
 		self::typography(
 			[
 				'
@@ -1664,7 +1706,7 @@ class Zenvy_Customizer_Inline_Style {
 			'zenvy_footer_builder_widget_content_typo',
 			''
 		);
-		// Widget Padding
+		// Widget Padding.
 		self::dimensions(
 			[ '.site-footer .footer-sidebar-wrap .widget' ],
 			'zenvy_footer_builder_widget_padding',
@@ -1674,7 +1716,7 @@ class Zenvy_Customizer_Inline_Style {
 		// Customizer Styles.
 		if ( 'customizer' === $type ) {
 
-			// Root
+			// Root.
 			self::root_output();
 		}
 
@@ -1690,10 +1732,10 @@ class Zenvy_Customizer_Inline_Style {
 	public static function root_output() {
 		/*
 		--------------------------------------------------------------
-		# Root
+		# Root.
 		--------------------------------------------------------------
 		*/
-		// Accent Colors
+		// Accent Colors.
 		self::customizer_inherit_colors(
 			'zenvy_accent_color',
 			null,
@@ -1703,7 +1745,7 @@ class Zenvy_Customizer_Inline_Style {
 				'color_3' => '--color-tertiary',
 			]
 		);
-		// Heading H1-H6 Colors
+		// Heading H1-H6 Colors.
 		self::customizer_inherit_colors(
 			'zenvy_heading_color',
 			null,
@@ -1711,7 +1753,7 @@ class Zenvy_Customizer_Inline_Style {
 				'color_1' => '--color-heading',
 			]
 		);
-		// Text Colors
+		// Text Colors.
 		self::customizer_inherit_colors(
 			'zenvy_text_color',
 			null,
@@ -1720,7 +1762,7 @@ class Zenvy_Customizer_Inline_Style {
 				'color_2' => '--color-text-light',
 			]
 		);
-		// Link Colors
+		// Link Colors.
 		self::customizer_inherit_colors(
 			'zenvy_link_color',
 			null,
@@ -1729,7 +1771,7 @@ class Zenvy_Customizer_Inline_Style {
 				'color_2' => '--color-link-hover',
 			]
 		);
-		// Border & Shadow Colors
+		// Border & Shadow Colors.
 		self::customizer_inherit_colors(
 			'zenvy_border_shadow_color',
 			null,
@@ -1738,7 +1780,7 @@ class Zenvy_Customizer_Inline_Style {
 				'color_2' => '--color-box-shadow',
 			]
 		);
-		// Background Colors
+		// Background Colors.
 		self::customizer_inherit_colors(
 			'zenvy_background_color',
 			null,
@@ -1749,7 +1791,7 @@ class Zenvy_Customizer_Inline_Style {
 			]
 		);
 
-		// Container Width
+		// Container Width.
 		self::customizer_inherit_colors(
 			'zenvy_container_max_width',
 			[ 'desktop' => '1170px' ],
@@ -1815,8 +1857,11 @@ class Zenvy_Customizer_Inline_Style {
 
 					// For color.
 					if ( 'color' === $display_type && isset( $values['colors'] ) ) {
-						$output .= isset( $values['colors'][ 'color_' . $s_index ] ) ? $selector . '{ background-color:' . esc_attr( $values['colors'][ 'color_' . $s_index ] ) . ';}' : '';
+						if ( isset( $values['colors'][ 'color_' . $s_index ] ) ) {
+							$output .= $selector . '{ background-color:' . esc_attr( $values['colors'][ 'color_' . $s_index ] ) . ';}';
+						}
 					}
+
 					// For gradient.
 					elseif ( 'gradient' === $display_type && isset( $values['gradient'] ) ) {
 						$output .= $selector . '{';
@@ -1837,6 +1882,7 @@ class Zenvy_Customizer_Inline_Style {
 
 						$output .= '}';
 					}
+
 					// For image.
 					elseif ( 'image' === $display_type && isset( $values['image'] ) ) {
 						$output .= $selector . '{ background-image:url("' . esc_url( $values['image'] ) . '");';
@@ -1893,6 +1939,7 @@ class Zenvy_Customizer_Inline_Style {
 
 				$properties .= ';';
 			}
+
 			// Execute if linked is "off".
 			else {
 
