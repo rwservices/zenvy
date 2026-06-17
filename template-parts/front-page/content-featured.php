@@ -21,9 +21,7 @@ $zenvy_meta_elements  = get_theme_mod(
 	[ 'date', 'categories' ]
 );
 
-echo '<div>This file is loading but the condition is not</div>';
 if ( $zenvy_featured_posts->have_posts() ) :
-	echo '<div>This file is loading but the condition is working now</div>';
 
 	$zenvy_posts_elements = get_theme_mod( 'zenvy_front_page_featured_section_post_elements', [ 'post-meta', 'title', 'excerpt', 'read_more' ] );
 	?>

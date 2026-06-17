@@ -48,7 +48,7 @@ class Zenvy_Customize_Front_Page_Featured_Section_Fields extends Zenvy_Customize
 			// Tag to be featured.
 			'zenvy_front_page_featured_section_tag'        => [
 				'type'              => 'select',
-				'default'           => esc_html__( 'Tag to be Featured', 'zenvy' ),
+				'default'           => '',
 				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_choices' ],
 				'label'             => esc_html__( 'Tag to be Featured', 'zenvy' ),
 				'description'       => esc_html__( 'Set post query to load with specific tag. It will load the latest post by default.', 'zenvy' ),

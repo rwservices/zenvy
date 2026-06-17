@@ -778,7 +778,7 @@ class Zenvy_Customizer {
 							'type'    => 'select',
 							'label'   => esc_html__( 'Select Category', 'zenvy' ),
 							'choices' => Zenvy_Helper::get_terms( 'category' ),
-							'default' => __( 'Category to be displayed', 'zenvy' ),
+							'default' => '',
 						],
 						'category_image' => [
 							'type'  => 'image',
