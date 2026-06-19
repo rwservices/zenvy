@@ -114,6 +114,7 @@ class Zenvy_Customizer {
 
 		// Enqueue the style.
 		wp_enqueue_style( 'zenvy-customize-controls', ZENVY_THEME_URI . 'assets/build/css/customize-controls.css', [], ZENVY_THEME_VERSION, 'all' );
+		wp_style_add_data( 'zenvy-customize-controls', 'rtl', 'replace' );
 
 		// Add output of Customizer settings as inline style.
 		wp_add_inline_style( 'zenvy-customize-controls', Zenvy_Customizer_Inline_Style::css_output( 'customizer' ) );

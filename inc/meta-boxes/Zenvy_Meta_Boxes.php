@@ -162,11 +162,12 @@ class Zenvy_Meta_Boxes {
 
 		wp_enqueue_style(
 			'zenvy-meta-box-style',
-			ZENVY_THEME_URI . 'assets/build/css/meta-box' . ZENVY_RTL_SUFFIX . '.css',
+			ZENVY_THEME_URI . 'assets/build/css/meta-box.css',
 			false,
 			ZENVY_THEME_VERSION,
 			'all'
 		);
+		wp_style_add_data( 'zenvy-meta-box-style', 'rtl', 'replace' );
 
 		wp_enqueue_script(
 			'zenvy-meta-box-script',

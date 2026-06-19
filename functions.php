@@ -28,9 +28,6 @@ if ( ! defined( 'ZENVY_THEME_DIR' ) ) {
 if ( ! defined( 'ZENVY_THEME_URI' ) ) {
 	define( 'ZENVY_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 }
-if ( ! defined( 'ZENVY_RTL_SUFFIX' ) ) {
-	define( 'ZENVY_RTL_SUFFIX', ( is_rtl() ) ? '-rtl' : '' );
-}
 
 if ( ! function_exists( 'zenvy_setup' ) ) :
 
@@ -222,9 +219,11 @@ function zenvy_scripts() {
 
 	// Main Style.
 	wp_enqueue_style( 'zenvy-main-style', ZENVY_THEME_URI . 'assets/build/css/main.css', null, ZENVY_THEME_VERSION, 'all' );
+	wp_style_add_data( 'zenvy-main-style', 'rtl', 'replace' );
 
 	// Responsive Style.
 	wp_enqueue_style( 'zenvy-responsive', ZENVY_THEME_URI . 'assets/build/css/responsive.css', null, ZENVY_THEME_VERSION, 'all' );
+	wp_style_add_data( 'zenvy-responsive', 'rtl', 'replace' );
 
 	// Add output of Customizer settings as inline style.
 	wp_add_inline_style( 'zenvy-main-style', Zenvy_Customizer_Inline_Style::css_output( 'front-end' ) );

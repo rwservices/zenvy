@@ -971,7 +971,7 @@ html {
   width: 100%;
 }
 
-ul li {
+ul li:not(#main ul li) {
   list-style: none;
 }
 
@@ -2306,8 +2306,8 @@ iframe {
 
 #comments ol,
 #comments ul {
-  list-style-type: none !important;
   margin-left: 0;
+  padding-left: 15px;
 }
 
 .comment-body,
@@ -2469,15 +2469,13 @@ iframe {
   position: relative;
 }
 
-.comments-area ul,
-.comments-area ol {
-  list-style: none;
-}
-
 .comment-form-comment,
 .form-submit {
   padding: 0 !important;
   width: 100% !important;
+}
+.entry-content ul, .entry-content ol {
+  padding-left: 15px;
 }
 
 .form-submit {

@@ -115,15 +115,16 @@ class Zenvy_Customizer_Builder {
 
 		// Enqueue customizer styles.
 		wp_enqueue_style(
-			'customizer-builder',
+			'zenvy-customizer-builder',
 			ZENVY_THEME_URI . 'assets/build/css/customize-builder.css',
 			[],
 			ZENVY_THEME_VERSION,
 			'all'
 		);
+		wp_style_add_data( 'zenvy-customizer-builder', 'rtl', 'replace' );
 
 		wp_enqueue_script(
-			'customizer-builder',
+			'zenvy-customizer-builder',
 			ZENVY_THEME_URI . 'assets/build/js/customize-builder.js',
 			[
 				'customize-controls',
@@ -134,7 +135,7 @@ class Zenvy_Customizer_Builder {
 		);
 
 		wp_localize_script(
-			'customizer-builder',
+			'zenvy-customizer-builder',
 			'Zenvy_Customizer_Builder',
 			[
 				'footer_moved_widgets_text' => '',

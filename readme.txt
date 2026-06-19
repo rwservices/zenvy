@@ -5,7 +5,7 @@ Tags: translation-ready, blog, two-columns, right-sidebar, left-sidebar, grid-la
 Requires at least: 5.6
 Requires PHP: 7.4
 Tested up to: 7.0
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 
@@ -143,6 +143,9 @@ Source:	Self Created
 
 == Changelog ==
 
-= 1.0.0 - Jun 19 2026 =
+= 1.0.1 - Jun 19 2026 =
+* Fixed issues.
+
+= 1.0.0 - Jun 01 2026 =
 * Initial release.
 
