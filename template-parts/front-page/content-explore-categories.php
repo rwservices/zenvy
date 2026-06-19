@@ -5,10 +5,7 @@
  * @package Zenvy
  */
 
-?>
-<?php
-
-$zenvy_categories = get_theme_mod( 'zenvy_front_page_explore_section_lists', '' );
+$zenvy_categories = get_theme_mod( 'zenvy_front_page_explore_section_lists' );
 
 if ( $zenvy_categories ) :
 	$zenvy_title = get_theme_mod( 'zenvy_front_page_explore_section_heading', esc_html__( 'Explore our topics', 'zenvy' ) );

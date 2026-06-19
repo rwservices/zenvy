@@ -1,4 +1,3 @@
-<!-- featured-slider ends here -->
 <?php
 /**
  * Template part for displaying featured content on the front page.

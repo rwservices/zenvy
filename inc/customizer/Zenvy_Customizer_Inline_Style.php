@@ -672,7 +672,7 @@ class Zenvy_Customizer_Inline_Style {
 			*/
 			// Icon color.
 			self::color(
-				[ '.site-header .site-header-section .header-search-icon-wrap .search-toggle', '.site-header .site-header-section .header-search-icon-wrap .search-toggle:hover' ],
+				[ '.site-header .site-header-section .header-search-icon-wrap .search-toggle:before', '.site-header .site-header-section .header-search-icon-wrap .search-toggle:hover:before' ],
 				'zenvy_header_search_icon_color',
 				''
 			);
