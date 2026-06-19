@@ -4539,7 +4539,6 @@ ul.products li.product {
 .woocommerce-noreviews,
 p.no-comments {
   padding: 7px;
-  color: var(--color-white);
 }
 
 .edit-account p:last-child {
