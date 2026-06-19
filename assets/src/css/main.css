@@ -1,6 +1,9 @@
 /*!**********************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].use[1]!./node_modules/sass-loader/dist/cjs.js!./assets/src/css/main.css ***!
   \**********************************************************************************************************************************************/
+/*!**********************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].use[1]!./node_modules/sass-loader/dist/cjs.js!./assets/src/css/main.css ***!
+  \**********************************************************************************************************************************************/
 :root {
   --color-primary: #201f1f;
   --color-secondary: #f9b189;
@@ -350,14 +353,22 @@ a {
   color: var(--color-link);
   text-decoration: none;
 }
+a:hover {
+  color: var(--color-link-hover);
+}
 
 a:focus,
 a:active,
-a:hover {
-  color: var(--color-link-hover);
-  outline: none;
+.post .entry-title a:focus,
+.post .entry-title a:active,
+.entry-title a:focus,
+.entry-title a:active,
+.site-title a:focus,
+.wp-block-button__link:focus,
+.wp-block-button__link:active {
+  color: var(--color-secondary);
+  outline: 1px dotted;
   text-decoration: none;
-  transition: all 0.3s ease-in 0s;
 }
 
 /*   -- "Forms" (These are the styles for the Forms) --   */
@@ -551,12 +562,42 @@ input[type=checkbox] {
 .page-links {
   clear: both;
   margin: 0 0 1.5em;
+  font-size: 0;
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  padding: 15px 0;
 }
+.page-links span, .page-links a {
+  font-size: 14px;
+  height: 30px;
+  width: 30px;
+  border: 1px solid var(--bg-button);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-link);
+}
+.page-links span.current,
+.page-links a:hover {
+  background: var(--bg-button);
+  color: var(--color-white);
+}
+
 
 /*   -- "Article" (These are the styles for the Article) --   */
 article {
   font-size: 14px;
   line-height: 1.25;
+}
+article p a,
+.site-content .widget p a{
+  text-decoration: underline;
+}
+article p a:hover,
+article p a:focus,
+article p a:active{
+  text-decoration: none;
 }
 
 /*    ===== Buttons =====   */
@@ -610,7 +651,8 @@ article {
 .mc4wp-form input[type=submit],
 .widget_search .search-form input[type=submit],
 #sb_instagram #sbi_load .sbi_load_btn,
-#sb_instagram .sbi_follow_btn a {
+#sb_instagram .sbi_follow_btn a ,
+.wp-block-button__link{
   transition: all 0.4s ease 0s;
   -moz-transition: all 0.4s ease 0s;
   -ms-transition: all 0.4s ease 0s;
@@ -628,6 +670,7 @@ article {
   background: var(--bg-button);
   border: 1px solid var(--color-border-button);
   height: auto;
+  border-radius: 0;
 }
 
 .box-button:hover,
@@ -641,7 +684,8 @@ article {
 .mc4wp-form input[type=submit]:hover,
 .widget_search .search-form input[type=submit]:hover,
 #sb_instagram #sbi_load .sbi_load_btn:hover,
-#sb_instagram .sbi_follow_btn a:hover {
+#sb_instagram .sbi_follow_btn a:hover,
+.wp-block-button__link:hover {
   color: var(--color-button-hover);
   transition: all 0.4s ease 0s;
   -moz-transition: all 0.4s ease 0s;
@@ -720,6 +764,7 @@ article {
   margin-left: auto;
   margin-right: auto;
   position: relative;
+  text-align: center;
 }
 
 .alignleft > a img,
@@ -879,6 +924,7 @@ hr {
 .wp-caption {
   margin-bottom: 1.6em;
   max-width: 100%;
+  position: relative;
 }
 
 .wp-caption img[class*=wp-image-] {
@@ -1561,6 +1607,22 @@ iframe {
   transition: all 0.5s ease 0s;
   visibility: visible;
 }
+.main-navigation ul li:focus ul, 
+.main-navigation ul ul li:focus ul, 
+.main-navigation ul ul ul li:focus ul, 
+.main-navigation ul ul ul ul li:focus ul, 
+.main-navigation ul ul ul ul ul li:focus ul, 
+.main-navigation ul li:focus-within ul, 
+.main-navigation ul ul li:focus-within ul, 
+.main-navigation ul ul ul li:focus-within ul, 
+.main-navigation ul ul ul ul li:focus-within ul, 
+.main-navigation ul ul ul ul ul li:focus-within ul {
+  visibility: visible;
+  opacity: 1;
+  top: 28px;
+  -webkit-transition: opacity 0.5s linear;
+  transition: all 0.5s ease 0s;
+}
 
 .main-navigation ul li ul {
   -moz-transition: all 0.3s ease 0s;
@@ -2153,7 +2215,7 @@ iframe {
 /*   -- "Entry Content" section (These are the styles for the Entry Content section) --   */
 .entry-content {
   display: block;
-  overflow: hidden;
+  /*overflow: hidden;*/
   padding-bottom: 15px;
   width: 100%;
 }
@@ -2391,7 +2453,6 @@ iframe {
   font-size: 20px;
   font-style: italic;
   margin: 0 auto;
-  max-width: 604px;
   padding: 20px 0 30px;
   width: 100%;
 }
@@ -2482,9 +2543,54 @@ iframe {
 
 .wp-block-search__inside-wrapper .wp-block-search__button:hover,
 .wp-block-search__inside-wrapper .wp-block-search__button:active,
-.wp-block-search__inside-wrapper .wp-block-search__button:focus {
+.wp-block-search__inside-wrapper .wp-block-search__button:focus,
+.box-button:active, 
+.box-button:focus, 
+.woocommerce-button:active,
+.woocommerce-button:focus, 
+.woocommerce-Button:active, 
+.woocommerce-Button:focus, 
+.wc-block-components-button:active, 
+.wc-block-components-button:focus, 
+.wc-block-checkout__form .wc-block-components-checkout-return-to-cart-button:active,
+.wc-block-checkout__form .wc-block-components-checkout-return-to-cart-button:focus, 
+.comment-reply-link:active, 
+.comment-reply-link:focus, 
+.woocommerce .woocommerce-form-login .woocommerce-form-login__submit:active, 
+.woocommerce .woocommerce-form-login .woocommerce-form-login__submit:focus, 
+.woocommerce #respond .form-submit input#submit:active, 
+.woocommerce #respond .form-submit input#submit:focus, 
+.mc4wp-form input[type="submit"]:active,
+.mc4wp-form input[type="submit"]:focus, 
+.widget_search .search-form input[type="submit"]:active, 
+.widget_search .search-form input[type="submit"]:focus, 
+#sb_instagram #sbi_load .sbi_load_btn:active,
+#sb_instagram #sbi_load .sbi_load_btn:focus, 
+#sb_instagram .sbi_follow_btn a:active,
+#sb_instagram .sbi_follow_btn a:focus,
+.post-navigation .nav-links a:active,
+.post-navigation .nav-links a:focus, 
+.comment-navigation .nav-links a:active,
+.comment-navigation .nav-links a:focus, 
+.posts-navigation .nav-links a:active, 
+.posts-navigation .nav-links a:focus, 
+.navigation.post-navigation .nav-links a:active,
+.navigation.post-navigation .nav-links a:focus,
+input[type="submit"]:active,
+input[type="submit"]:focus {
   color: var(--color-button-hover);
   background-color: var(--bg-button-hover);
+}
+input[type="search"]:focus,
+input:focus,
+textarea:focus,
+.mean-container .mean-nav ul li a:focus,
+.mean-container .mean-nav ul li a:active,
+.post-navigation .nav-links a:focus, 
+.posts-navigation .nav-links a:focus, 
+.comment-navigation .nav-links a:focus, 
+.navigation.post-navigation .nav-links a:focus {
+  outline: 1px dotted;
 }
 
 .wp-block-rss li {
@@ -2806,7 +2912,8 @@ div.bbp-submit-wrapper button {
 
 .post-navigation .nav-links a,
 .posts-navigation .nav-links a,
-.navigation.post-navigation .nav-links a {
+.navigation.post-navigation .nav-links a,
+.comment-navigation .nav-links a {
   background: var(--bg-button);
   color: var(--color-button);
   display: block;
@@ -2816,18 +2923,21 @@ div.bbp-submit-wrapper button {
 
 .post-navigation .nav-links a:hover,
 .posts-navigation .nav-links a:hover,
-.navigation .nav-links a:hover {
+.navigation .nav-links a:hover,
+.comment-navigation .nav-links a:hover {
   color: var(--color-button-hover);
   background: var(--bg-button-hover);
 }
 
 .post-navigation .nav-links .nav-next a,
-.posts-navigation .nav-links .nav-next a {
+.posts-navigation .nav-links .nav-next a,
+.comment-navigation .nav-links .nav-next a {
   padding-right: 40px;
 }
 
 .post-navigation .nav-links .nav-previous a,
-.posts-navigation .nav-links .nav-previous a {
+.posts-navigation .nav-links .nav-previous a,
+.comment-navigation .nav-links .nav-previous a {
   padding-left: 40px;
 }
 
@@ -2967,7 +3077,6 @@ div.bbp-submit-wrapper button {
   top: 0;
   width: 57px;
 }
-
 
 /*   -- "Widget Calendar" section (These are the styles for the Widgete calendar section) --   */
 .wp-block-calendar {
@@ -3277,6 +3386,7 @@ div.bbp-submit-wrapper button {
   padding-right: 55px;
   height: 46px;
 }
+
 .no-results .search-form {
   margin: 0;
 }
@@ -4690,6 +4800,13 @@ table.wc-block-cart-items {
   float: none;
 }
 
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.d-flex {
+  display: flex;
+}
+
 /*  10.0 ===== Footer =====   */
 /*   -- "Footer" section (These are the styles for the Footer section) --   */
 .site-footer {
@@ -5074,7 +5191,8 @@ table.wc-block-cart-items {
   margin-bottom: 0;
   height: 46px;
 }
-.site-header .header-search-section .search-form input[type="search"] {
+
+.site-header .header-search-section .search-form input[type=search] {
   padding-right: 57px;
 }
 
