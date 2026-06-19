@@ -139,8 +139,7 @@ if ( ! class_exists( 'Zenvy_WooCommerce' ) ) :
 		 * @return void
 		 */
 		public function load_file() {
-			require ZENVY_THEME_DIR . 'inc/customizer/builder/header/options/woocommerce/cart/class-zenvy-woocommerce-cart-header.php';
-			require ZENVY_THEME_DIR . 'inc/customizer/builder/header/options/woocommerce/cart/functions-zenvy-woocommerce-cart-header.php';
+			require ZENVY_THEME_DIR . 'inc/customizer/builder/header/options/woocommerce/cart/Zenvy_WooCommerce_Cart_Header.php';
 		}
 
 		/**
