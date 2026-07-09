@@ -7,48 +7,47 @@
  * @package Zenvy
  */
 
-// Login
-$login_text = get_theme_mod(
+// Login.
+$zenvy_login_text = get_theme_mod(
 	'zenvy_header_account_login_text',
 	esc_html__( 'My Account', 'zenvy' )
 );
-$login_url  = get_theme_mod(
+$zenvy_login_url  = get_theme_mod(
 	'zenvy_header_account_login_url',
 	'#'
 );
 
-// Logout
-$logout_text = get_theme_mod(
+// Logout.
+$zenvy_logout_text = get_theme_mod(
 	'zenvy_header_account_logout_text',
 	esc_html__( 'Log In', 'zenvy' )
 );
-$logout_url  = get_theme_mod(
+$zenvy_logout_url  = get_theme_mod(
 	'zenvy_header_account_logout_url',
 	wp_login_url()
 );
 
-$link_open = get_theme_mod(
+$zenvy_link_open = get_theme_mod(
 	'zenvy_header_account_url_target',
 	''
 );
 
-$link_target = ( $link_open && array_key_exists( 'desktop', $link_open ) ) ? '_blank' : '_self';
+$zenvy_link_target = ( $zenvy_link_open && array_key_exists( 'desktop', $zenvy_link_open ) ) ? '_blank' : '_self';
 
-// Login
+// Set account URL and label based on login state.
 if ( is_user_logged_in() || is_customize_preview() ) {
-
-	$account_url  = $login_url;
-	$account_text = $login_text;
+	$zenvy_account_url  = $zenvy_login_url;
+	$zenvy_account_text = $zenvy_login_text;
 } else {
-	$account_url  = $logout_url;
-	$account_text = $logout_text;
+	$zenvy_account_url  = $zenvy_logout_url;
+	$zenvy_account_text = $zenvy_logout_text;
 }
 ?>
 
 <div class="header-account-wrap d-flex">
-	<a href="<?php echo esc_url( $account_url ); ?>" class="box-button d-flex align-items-center" target="<?php echo esc_attr( $link_target ); ?>">
-		<?php if ( $account_text !== '' ) : ?>
-			<label><?php echo esc_html( $account_text ); ?></label>
+	<a href="<?php echo esc_url( $zenvy_account_url ); ?>" class="box-button d-flex align-items-center" target="<?php echo esc_attr( $zenvy_link_target ); ?>">
+		<?php if ( '' !== $zenvy_account_text ) : ?>
+			<label><?php echo esc_html( $zenvy_account_text ); ?></label>
 		<?php endif; ?>
 	</a>
 </div><!-- .header-account-wrap -->

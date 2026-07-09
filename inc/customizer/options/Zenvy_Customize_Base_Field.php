@@ -5,7 +5,6 @@
  * @package Zenvy
  */
 
-
 /**
  * This is a simple abstraction which makes adding simple controls to the Customizer.
  *
@@ -71,9 +70,9 @@ abstract class Zenvy_Customize_Base_Field {
 			);
 
 			$control_type = implode( '_', array_map( 'ucfirst', explode( '_', $field_data['type'] ) ) );
-			$classname    = in_array( $control_type, [ 'Image','Upload' ] ) ? 'WP_Customize_' . $control_type . '_Control' : 'Zenvy_Customize_' . $control_type . '_Control';
+			$classname    = in_array( $control_type, [ 'Image', 'Upload' ], true ) ? 'WP_Customize_' . $control_type . '_Control' : 'Zenvy_Customize_' . $control_type . '_Control';
 
-			// Field Control
+			// Field Control.
 			$control_args = [
 				'type'        => isset( $field_data['type'] ) ? $field_data['type'] : 'text',
 				'label'       => isset( $field_data['label'] ) ? $field_data['label'] : '',
@@ -83,82 +82,82 @@ abstract class Zenvy_Customize_Base_Field {
 				'priority'    => isset( $field_data['priority'] ) ? $field_data['priority'] : '',
 			];
 
-			// active_callback
+			// Active callback.
 			if ( isset( $field_data['active_callback'] ) ) {
 				$control_args['active_callback'] = $field_data['active_callback'];
 			}
 
-			// Input Attributes
+			// Input Attributes.
 			if ( isset( $field_data['input_attrs'] ) ) {
 				$control_args['input_attrs'] = $field_data['input_attrs'];
 			}
 
-			// Choices
+			// Choices.
 			if ( isset( $field_data['choices'] ) ) {
 				$control_args['choices'] = $field_data['choices'];
 			}
 
-			// l10n
+			// l10n.
 			if ( isset( $field_data['l10n'] ) ) {
 				$control_args['l10n'] = $field_data['l10n'];
 			}
 
-			// Check custom customize control class exist
+			// Check custom customize control class exist.
 			if ( class_exists( $classname ) ) {
 
-				// Unset control type for the custom control
+				// Unset control type for the custom control.
 				unset( $control_args['type'] );
 
-				// Colors
+				// Colors.
 				if ( isset( $field_data['colors'] ) ) {
 					$control_args['colors'] = $field_data['colors'];
 				}
 
-				// Inherits
+				// Inherits.
 				if ( isset( $field_data['inherits'] ) ) {
 					$control_args['inherits'] = $field_data['inherits'];
 				}
 
-				// Disable Sides
+				// Disable Sides.
 				if ( isset( $field_data['off_sides'] ) ) {
 					$control_args['off_sides'] = $field_data['off_sides'];
 				}
 
-				// Responsive Devices
+				// Responsive Devices.
 				if ( isset( $field_data['responsive'] ) ) {
 					$control_args['responsive'] = $field_data['responsive'];
 				}
 
-				// Unit Choices
+				// Unit Choices.
 				if ( isset( $field_data['units'] ) ) {
 					$control_args['units'] = $field_data['units'];
 				}
 
-				// fields
+				// Fields.
 				if ( isset( $field_data['fields'] ) ) {
 					$control_args['fields'] = $field_data['fields'];
 				}
 
-				// live_title_id
+				// live_title_id.
 				if ( isset( $field_data['live_title_id'] ) ) {
 					$control_args['live_title_id'] = $field_data['live_title_id'];
 				}
 
-				// title_format
+				// title_format.
 				if ( isset( $field_data['title_format'] ) ) {
 					$control_args['title_format'] = $field_data['title_format'];
 				}
 
-				// button_type
+				// button_type.
 				if ( isset( $field_data['button_type'] ) ) {
 					$control_args['button_type'] = $field_data['button_type'];
 				}
 
-				// add control
+				// Add control.
 				$wp_customize->add_control( new $classname( $wp_customize, $field_key, $control_args ) );
 			} else {
 
-				// add control
+				// Add control.
 				$wp_customize->add_control( $field_key, $control_args );
 			}
 		}

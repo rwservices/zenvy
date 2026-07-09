@@ -5,6 +5,11 @@
  * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Customize_Global_Post_Meta_Fields
+ *
+ * Handles customizer global post meta fields for the Zenvy theme.
+ */
 class Zenvy_Customize_Global_Post_Meta_Fields extends Zenvy_Customize_Base_Field {
 
 	/**
@@ -14,7 +19,7 @@ class Zenvy_Customize_Global_Post_Meta_Fields extends Zenvy_Customize_Base_Field
 	 */
 	public function init() {
 		$this->args = [
-			// Meta Elements
+			// Meta elements.
 			'zenvy_meta_elements' => [
 				'type'              => 'sortable',
 				'default'           => [ 'date', 'categories' ],

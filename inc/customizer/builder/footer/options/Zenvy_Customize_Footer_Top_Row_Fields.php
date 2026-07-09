@@ -1,10 +1,15 @@
 <?php
 /**
- * Blogin Aarambha Theme Customizer Footer Top Row settings
+ * Zenvy Theme Customizer Footer Top Row settings.
  *
  * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Customize_Footer_Top_Row_Fields
+ *
+ * Registers customizer fields for the footer top row.
+ */
 class Zenvy_Customize_Footer_Top_Row_Fields extends Zenvy_Customize_Base_Field {
 
 	/**
@@ -14,7 +19,7 @@ class Zenvy_Customize_Footer_Top_Row_Fields extends Zenvy_Customize_Base_Field {
 	 */
 	public function init() {
 		$this->args = [
-			// Grouping Settings
+			// Grouping Settings.
 			'zenvy_footer_top_row_group_settings'     => [
 				'type'     => 'group',
 				'section'  => 'zenvy_footer_top',
@@ -37,8 +42,7 @@ class Zenvy_Customize_Footer_Top_Row_Fields extends Zenvy_Customize_Base_Field {
 					],
 				],
 			],
-
-			// Left Column Justify Content
+			// Left Column Justify Content.
 			'zenvy_footer_top_row_left_col_content_justify' => [
 				'type'              => 'buttonset',
 				'default'           => [
@@ -58,7 +62,7 @@ class Zenvy_Customize_Footer_Top_Row_Fields extends Zenvy_Customize_Base_Field {
 				],
 				'responsive'        => [ 'desktop', 'tablet', 'mobile' ],
 			],
-			// Center Column Justify Content
+			// Center Column Justify Content.
 			'zenvy_footer_top_row_center_col_content_justify' => [
 				'type'              => 'buttonset',
 				'default'           => [
@@ -78,7 +82,7 @@ class Zenvy_Customize_Footer_Top_Row_Fields extends Zenvy_Customize_Base_Field {
 				],
 				'responsive'        => [ 'desktop', 'tablet', 'mobile' ],
 			],
-			// Right Column Justify Content
+			// Right Column Justify Content.
 			'zenvy_footer_top_row_right_col_content_justify' => [
 				'type'              => 'buttonset',
 				'default'           => [
@@ -98,7 +102,7 @@ class Zenvy_Customize_Footer_Top_Row_Fields extends Zenvy_Customize_Base_Field {
 				],
 				'responsive'        => [ 'desktop', 'tablet', 'mobile' ],
 			],
-			// Background Overlay
+			// Background Overlay.
 			'zenvy_footer_top_row_background_overlay' => [
 				'type'              => 'background',
 				'default'           => [
@@ -117,7 +121,7 @@ class Zenvy_Customize_Footer_Top_Row_Fields extends Zenvy_Customize_Base_Field {
 				],
 				'fields'            => [ 'colors' => true ],
 			],
-			// Padding
+			// Padding.
 			'zenvy_footer_top_row_padding'            => [
 				'type'              => 'dimensions',
 				'default'           => [
@@ -137,4 +141,5 @@ class Zenvy_Customize_Footer_Top_Row_Fields extends Zenvy_Customize_Base_Field {
 		];
 	}
 }
+
 new Zenvy_Customize_Footer_Top_Row_Fields();

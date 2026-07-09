@@ -1,10 +1,15 @@
 <?php
 /**
- * Blogin Aarambha Theme Customizer Footer Back to Top Button settings
+ * Zenvy Theme Customizer Footer Back to Top Button settings.
  *
  * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Customize_Footer_Back_To_Top_Fields
+ *
+ * Registers customizer fields for the footer back to top button.
+ */
 class Zenvy_Customize_Footer_Back_To_Top_Fields extends Zenvy_Customize_Base_Field {
 
 	/**
@@ -14,7 +19,7 @@ class Zenvy_Customize_Footer_Back_To_Top_Fields extends Zenvy_Customize_Base_Fie
 	 */
 	public function init() {
 		$this->args = [
-			// Enable
+			// Enable.
 			'zenvy_footer_back_to_top_enable' => [
 				'type'              => 'toggle',
 				'default'           => [ 'desktop' => 'true' ],
@@ -27,4 +32,5 @@ class Zenvy_Customize_Footer_Back_To_Top_Fields extends Zenvy_Customize_Base_Fie
 		];
 	}
 }
+
 new Zenvy_Customize_Footer_Back_To_Top_Fields();

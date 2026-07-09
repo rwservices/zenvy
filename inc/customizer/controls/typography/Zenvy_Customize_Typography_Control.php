@@ -30,7 +30,7 @@ class Zenvy_Customize_Typography_Control extends Zenvy_Customize_Base_Control {
 		// Get the basics from the parent class.
 		parent::to_json();
 
-		// default fields
+		// default fields.
 		$default_fields = [
 			'font_family'     => false,
 			'font_variant'    => false,
@@ -52,7 +52,7 @@ class Zenvy_Customize_Typography_Control extends Zenvy_Customize_Base_Control {
 
 		$fields = wp_parse_args( $fields, $default_fields );
 
-		// Fields
+		// Fields.
 		$this->json['fields'] = $fields;
 	}
 
@@ -60,9 +60,9 @@ class Zenvy_Customize_Typography_Control extends Zenvy_Customize_Base_Control {
 	 * Set up our control.
 	 *
 	 * @access public
-	 * @param  object $manager
-	 * @param  string $id
-	 * @param  array  $args
+	 * @param  object $manager Customizer manager instance.
+	 * @param  string $id      Control ID.
+	 * @param  array  $args    Optional. Control arguments. Default empty array.
 	 * @return void
 	 */
 	public function __construct( $manager, $id, $args = [] ) {

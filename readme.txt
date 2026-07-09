@@ -5,24 +5,24 @@ Tags: translation-ready, blog, two-columns, right-sidebar, left-sidebar, grid-la
 Requires at least: 5.6
 Requires PHP: 7.4
 Tested up to: 7.0
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 
 Zenvy WordPress Theme, Copyright 2021 Aarambha Themes
 Zenvy is distributed under the terms of the GNU General Public License v3
 
-Zenvy is beautiful, fast, lightweight, responsive, extremely customizable for the creating real estate agencies and brokers design.
+Elegant & Minimal WordPress Theme for Personal and Lifestyle Blogs
 
 == Description ==
 
-Zenvy is a super flexible and modernized free WordPress Theme for real estate agents and companies. It facilitates purpose oriented designs with innumerable powerful features that a real estate business can benefit from. Zenvy is gracefully handicraft to beautifully present properties information to website visitors and smoothens its structure for making property management easier. It is a unique theme with multiple varieties which saves both time and money when creating your seller/rental platforms.
+Zenvy is a sleek, minimalist WordPress theme designed for bloggers, creatives, and storytellers. With clean layouts, fast performance, and a focus on readability, Zenvy makes your content shine and keeps readers engaged.
 
 == Frequently Asked Questions ==
 
 = Does this theme support any plugins? =
 
-Zenvy includes support for Crucial Real Estate and for Infinite Scroll in Jetpack.
+Zenvy includes support for WooCommerce and for Infinite Scroll in Jetpack.
 
 == Copyright ==
 
@@ -131,11 +131,21 @@ search-icon.png:
 subscribe-icon1.svg:
 xsearch-icon1.svg
 search-icon.png:
+default-sidebar.svg:
+landscape.svg:
+left-sidebar.svg:
+no-sidebar.svg:
+portrait.svg:
+right-sidebar.svg:
 License: Creative Commons Zero (CC0) license - https://creativecommons.org/about/cc0
 Source:	Self Created
 
 
 == Changelog ==
 
+= 1.0.1 - Jun 19 2026 =
+* Fixed issues.
+
 = 1.0.0 - Jun 01 2026 =
 * Initial release.
+

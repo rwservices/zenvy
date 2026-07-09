@@ -5,7 +5,6 @@
  * @package Zenvy
  */
 
-
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
@@ -26,7 +25,7 @@ if ( isset( $wp_customize->selective_refresh ) ) {
 		]
 	);
 
-	// Header Builder
+	// Header Builder.
 	$wp_customize->selective_refresh->add_partial(
 		'zenvy_header',
 		[
@@ -40,7 +39,7 @@ if ( isset( $wp_customize->selective_refresh ) ) {
 		]
 	);
 
-	// Footer Builder
+	// Footer Builder.
 	$wp_customize->selective_refresh->add_partial(
 		'zenvy_footer',
 		[

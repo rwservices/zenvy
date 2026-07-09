@@ -11,6 +11,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 if ( ! function_exists( 'zenvy_sanitize_field_recursive' ) ) {
 
+	/**
+	 * Recursively sanitize a field value.
+	 *
+	 * @param mixed $value Value to sanitize.
+	 * @return mixed
+	 */
 	function zenvy_sanitize_field_recursive( $value ) {
 		if ( ! is_array( $value ) ) {
 			$value = wp_kses_post( $value );
@@ -25,19 +31,25 @@ if ( ! function_exists( 'zenvy_sanitize_field_recursive' ) ) {
 
 if ( ! function_exists( 'zenvy_sanitize_field' ) ) {
 
+	/**
+	 * Sanitize a customizer field input.
+	 *
+	 * @param mixed $input Raw input value to sanitize.
+	 * @return string
+	 */
 	function zenvy_sanitize_field( $input ) {
 		$input = wp_unslash( $input );
 		if ( ! is_array( $input ) ) {
 			$input = json_decode( urldecode_deep( $input ), true );
 		}
 		$output = zenvy_sanitize_field_recursive( $input );
-		$output = json_encode( $output );
+		$output = wp_json_encode( $output );
 		return $output;
 	}
 }
 
 /**
- * Add Builder to WP Customize
+ * Add Builder to WP Customize.
  *
  * Class Zenvy_Customizer_Builder
  */
@@ -53,24 +65,24 @@ class Zenvy_Customizer_Builder {
 	 */
 	public static function instance() {
 
-		// Store the instance locally to avoid private static replication
+		// Store the instance locally to avoid private static replication.
 		static $instance = null;
 
-		// Only run these methods if they haven't been ran previously
+		// Only run these methods if they haven't been ran previously.
 		if ( null === $instance ) {
 			$instance = new self();
 		}
 
-		// Always return the instance
+		// Always return the instance.
 		return $instance;
 	}
 
 	/**
-	 * Run functionality with hooks
+	 * Run functionality with hooks.
 	 *
 	 * @return void
 	 */
-	function run() {
+	public function run() {
 
 		if ( ! is_admin() ) {
 			return;
@@ -83,7 +95,7 @@ class Zenvy_Customizer_Builder {
 	/**
 	 * Get all builders registered.
 	 *
-	 * Insures that every builder is registered by zenvy_builders filter
+	 * Insures that every builder is registered by zenvy_builders filter.
 	 *
 	 * @return array
 	 */
@@ -94,24 +106,25 @@ class Zenvy_Customizer_Builder {
 	}
 
 	/**
-	 * Callback functions for customize_controls_enqueue_scripts,
-	 * Enqueue script and style for builder
+	 * Callback functions for customize_controls_enqueue_scripts.
+	 * Enqueue script and style for builder.
 	 *
 	 * @return void
 	 */
-	function enqueue() {
+	public function enqueue() {
 
 		// Enqueue customizer styles.
 		wp_enqueue_style(
-			'customizer-builder',
+			'zenvy-customizer-builder',
 			ZENVY_THEME_URI . 'assets/build/css/customize-builder.css',
 			[],
 			ZENVY_THEME_VERSION,
 			'all'
 		);
+		wp_style_add_data( 'zenvy-customizer-builder', 'rtl', 'replace' );
 
 		wp_enqueue_script(
-			'customizer-builder',
+			'zenvy-customizer-builder',
 			ZENVY_THEME_URI . 'assets/build/js/customize-builder.js',
 			[
 				'customize-controls',
@@ -122,7 +135,7 @@ class Zenvy_Customizer_Builder {
 		);
 
 		wp_localize_script(
-			'customizer-builder',
+			'zenvy-customizer-builder',
 			'Zenvy_Customizer_Builder',
 			[
 				'footer_moved_widgets_text' => '',
@@ -134,14 +147,14 @@ class Zenvy_Customizer_Builder {
 	}
 
 	/**
-	 * Callback functions for customize_controls_print_footer_scripts,
-	 * Add Builder Template
+	 * Callback functions for customize_controls_print_footer_scripts.
+	 * Add Builder Template.
 	 *
-	 * @access   public
+	 * @access public
 	 *
 	 * @return void
 	 */
-	function builder_template() {
+	public function builder_template() {
 
 		require ZENVY_THEME_DIR . 'inc/customizer/builder/header/views/builder-template.php';
 	}
@@ -149,6 +162,11 @@ class Zenvy_Customizer_Builder {
 
 if ( ! function_exists( 'zenvy_customizer_builder' ) ) {
 
+	/**
+	 * Create instance for Zenvy_Customizer_Builder.
+	 *
+	 * @return object
+	 */
 	function zenvy_customizer_builder() {
 
 		return Zenvy_Customizer_Builder::instance();

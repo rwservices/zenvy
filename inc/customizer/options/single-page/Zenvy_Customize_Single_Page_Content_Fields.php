@@ -5,6 +5,11 @@
  * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Customize_Single_Page_Content_Fields
+ *
+ * Handles customizer single page content fields for the Zenvy theme.
+ */
 class Zenvy_Customize_Single_Page_Content_Fields extends Zenvy_Customize_Base_Field {
 
 	/**
@@ -14,7 +19,7 @@ class Zenvy_Customize_Single_Page_Content_Fields extends Zenvy_Customize_Base_Fi
 	 */
 	public function init() {
 		$this->args = [
-			// Entry Header
+			// Entry header.
 			'zenvy_single_page_content_entry_header_elements' => [
 				'type'              => 'sortable',
 				'default'           => '',
@@ -26,7 +31,7 @@ class Zenvy_Customize_Single_Page_Content_Fields extends Zenvy_Customize_Base_Fi
 					'post-title' => esc_html__( 'Post Title', 'zenvy' ),
 				],
 			],
-			// Page Content
+			// Page content.
 			'zenvy_single_page_content_entry_footer_elements' => [
 				'type'              => 'sortable',
 				'default'           => [ 'post-comments' ],

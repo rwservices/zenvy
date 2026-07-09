@@ -5,6 +5,11 @@
  * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Customize_Single_Post_Featured_Image_Fields
+ *
+ * Handles customizer single post featured image fields for the Zenvy theme.
+ */
 class Zenvy_Customize_Single_Post_Featured_Image_Fields extends Zenvy_Customize_Base_Field {
 
 	/**
@@ -14,7 +19,7 @@ class Zenvy_Customize_Single_Post_Featured_Image_Fields extends Zenvy_Customize_
 	 */
 	public function init() {
 		$this->args = [
-			// Image Ratio
+			// Image ratio.
 			'zenvy_single_post_featured_image_ratio' => [
 				'type'              => 'buttonset',
 				'default'           => [ 'desktop' => '16x9' ],
@@ -31,7 +36,7 @@ class Zenvy_Customize_Single_Post_Featured_Image_Fields extends Zenvy_Customize_
 					'3x4'  => esc_html__( '3:4', 'zenvy' ),
 				],
 			],
-			// Image Size
+			// Image size.
 			'zenvy_single_post_featured_image_size'  => [
 				'type'              => 'buttonset',
 				'default'           => [ 'desktop' => 'medium_large' ],
@@ -47,7 +52,7 @@ class Zenvy_Customize_Single_Post_Featured_Image_Fields extends Zenvy_Customize_
 					'large'        => esc_html__( 'Large', 'zenvy' ),
 				],
 			],
-			// Enable/Disable Tags
+			// Enable/Disable tags.
 			'zenvy_single_post_featured_image_tags'  => [
 				'type'              => 'toggle',
 				'default'           => [ 'desktop' => 'true' ],

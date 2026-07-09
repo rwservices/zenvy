@@ -1,11 +1,9 @@
 <?php
-
 /**
  * Zenvy functions to be hooked
  *
  * @package Zenvy
  */
-
 
 /* ------------------------------ HEADER ------------------------------ */
 
@@ -48,17 +46,17 @@ if ( ! function_exists( 'zenvy_content_before_page_header' ) ) :
 	 */
 	function zenvy_content_before_page_header() {
 
-		if ( is_front_page() && is_home() || Zenvy_Helper::front_page_enable() ) {
+		if ( ( is_front_page() && is_home() ) || Zenvy_Helper::front_page_enable() ) {
 			return;
 		}
 
-		// Check meta first to override and return (prevents filters from overriding meta)
+		// Check meta first to override and return (prevents filters from overriding meta).
 		$page_header_enable = get_post_meta( Zenvy_Helper::get_post_id(), 'zenvy_page_header_enable', true );
-		if ( $page_header_enable && $page_header_enable !== 'default' ) {
+		if ( $page_header_enable && 'default' !== $page_header_enable ) {
 			return;
 		}
 
-		// Blog
+		// Blog.
 		$elements = get_theme_mod(
 			'zenvy_blog_page_header_elements',
 			[ 'post-title' ]
@@ -68,24 +66,21 @@ if ( ! function_exists( 'zenvy_content_before_page_header' ) ) :
 			$elements = get_theme_mod(
 				'zenvy_single_post_header_elements',
 			);
-			// Is Product Page (WooCommerce)
+			// Is Product Page (WooCommerce).
 			if ( function_exists( 'is_product' ) && is_product() ) {
 				$elements = get_theme_mod(
 					'zenvy_product_page_header_elements',
 					[ 'post-title' ]
 				);
 			}
-		}
-
-		// Is Single Page
-		elseif ( is_page() ) {
+		} elseif ( is_page() ) {
+			// Is Single Page.
 			$elements = get_theme_mod(
 				'zenvy_single_page_header_elements',
 				[ 'post-title' ]
 			);
-		}
-		// Is 404 Page
-		elseif ( is_404() ) {
+		} elseif ( is_404() ) {
+			// Is 404 Page.
 			$elements = get_theme_mod(
 				'zenvy_404_page_header_elements',
 				[ 'post-title' ]
@@ -97,7 +92,7 @@ if ( ! function_exists( 'zenvy_content_before_page_header' ) ) :
 			$page_class[] = 'empty-page-title-wrap';
 		}
 
-		// Container Class
+		// Container Class.
 		$container_class = [ 'container d-flex flex-column align-items-start text-left' ];
 		?>
 
@@ -137,6 +132,7 @@ if ( ! function_exists( 'zenvy_content_before_page_header' ) ) :
 	}
 
 endif;
+
 if ( ! function_exists( 'zenvy_content_before_wrapper_start' ) ) :
 
 	/**
@@ -153,7 +149,7 @@ if ( ! function_exists( 'zenvy_content_before_wrapper_start' ) ) :
 			<?php
 	}
 
-	endif;
+endif;
 
 
 if ( ! function_exists( 'zenvy_posts_wrapper_start' ) ) :
@@ -170,9 +166,9 @@ if ( ! function_exists( 'zenvy_posts_wrapper_start' ) ) :
 			<?php
 	}
 
-	endif;
+endif;
 
-	/* ------------------------------ AFTER CONTENT ------------------------------ */
+/* ------------------------------ AFTER CONTENT ------------------------------ */
 if ( ! function_exists( 'zenvy_posts_wrapper_end' ) ) :
 
 	/**
@@ -182,10 +178,10 @@ if ( ! function_exists( 'zenvy_posts_wrapper_end' ) ) :
 		if ( Zenvy_Helper::front_page_enable() ) {
 			return;
 		}
-		echo '</div><! -- .posts-wrapper -->';
+		echo '</div><!-- .posts-wrapper -->';
 	}
 
-	endif;
+endif;
 
 if ( ! function_exists( 'zenvy_content_after_wrapper_end' ) ) :
 
@@ -197,12 +193,13 @@ if ( ! function_exists( 'zenvy_content_after_wrapper_end' ) ) :
 			return;
 		}
 		get_sidebar();
-		echo '</div><! -- .container -->';
-		echo '</section><! -- .page-wrapper -->';
+		echo '</div><!-- .container -->';
+		echo '</section><!-- .page-wrapper -->';
 	}
 
-	endif;
-	/* ------------------------------ BLOG PAGE CONTENT ------------------------------ */
+endif;
+
+/* ------------------------------ BLOG PAGE CONTENT ------------------------------ */
 
 if ( ! function_exists( 'zenvy_posts_navigation' ) ) :
 
@@ -214,7 +211,7 @@ if ( ! function_exists( 'zenvy_posts_navigation' ) ) :
 		Zenvy_Helper::post_pagination();
 	}
 
-	endif;
+endif;
 
 if ( ! function_exists( 'zenvy_blog_post_content' ) ) :
 
@@ -256,15 +253,15 @@ if ( ! function_exists( 'zenvy_blog_post_content' ) ) :
 
 						if ( $meta_elements ) {
 							foreach ( $meta_elements as $val ) {
-								if ( $val === 'author' ) {
+								if ( 'author' === $val ) {
 									zenvy_posted_by();
-								} elseif ( $val === 'categories' ) {
+								} elseif ( 'categories' === $val ) {
 									zenvy_posted_cats();
-								} elseif ( $val === 'tags' ) {
+								} elseif ( 'tags' === $val ) {
 									zenvy_posted_tags();
-								} elseif ( $val === 'date' ) {
+								} elseif ( 'date' === $val ) {
 									zenvy_posted_on();
-								} elseif ( $val === 'comment' ) {
+								} elseif ( 'comment' === $val ) {
 									zenvy_comment_count();
 								}
 							}
@@ -278,9 +275,9 @@ if ( ! function_exists( 'zenvy_blog_post_content' ) ) :
 			endif;
 	}
 
-	endif;
+endif;
 
-	/* ------------------------------ SEARCH PAGE CONTENT ------------------------------ */
+/* ------------------------------ SEARCH PAGE CONTENT ------------------------------ */
 
 if ( ! function_exists( 'zenvy_search_posts_header' ) ) :
 
@@ -324,7 +321,7 @@ if ( ! function_exists( 'zenvy_search_posts_header' ) ) :
 			<?php
 	}
 
-	endif;
+endif;
 
 if ( ! function_exists( 'zenvy_search_posts_content' ) ) :
 
@@ -355,7 +352,7 @@ if ( ! function_exists( 'zenvy_search_posts_content' ) ) :
 			<?php
 	}
 
-	endif;
+endif;
 
 if ( ! function_exists( 'zenvy_search_posts_footer' ) ) :
 
@@ -387,9 +384,9 @@ if ( ! function_exists( 'zenvy_search_posts_footer' ) ) :
 			<?php
 	}
 
-	endif;
+endif;
 
-	/* ------------------------------ POST CONTENT ------------------------------ */
+/* ------------------------------ POST CONTENT ------------------------------ */
 
 if ( ! function_exists( 'zenvy_featured_image_wrapper_start' ) ) {
 
@@ -407,14 +404,14 @@ if ( ! function_exists( 'zenvy_get_post_thumbnail' ) ) :
 	 * Post Thumbnail
 	 */
 	function zenvy_get_post_thumbnail() {
-		// Is Singular
+		// Is Singular.
 		if ( is_singular() ) {
 
 			$img_ratio = is_single() ? get_theme_mod( 'zenvy_single_post_featured_image_ratio', [ 'desktop' => '16x9' ] ) : get_theme_mod( 'zenvy_single_page_featured_image_ratio', [ 'desktop' => '16x9' ] );
 
 			$img_size = is_single() ? get_theme_mod( 'zenvy_single_post_featured_image_size', [ 'desktop' => 'medium_large' ] ) : get_theme_mod( 'zenvy_single_page_featured_image_size', [ 'desktop' => 'medium_large' ] );
 
-			$ratio = in_array( 'auto', $img_ratio ) ? '16x9' : $img_ratio['desktop'];
+			$ratio = in_array( 'auto', $img_ratio, true ) ? '16x9' : $img_ratio['desktop'];
 
 			zenvy_singular_post_thumbnail( $img_size['desktop'], $ratio );
 
@@ -428,7 +425,7 @@ if ( ! function_exists( 'zenvy_get_post_thumbnail' ) ) :
 
 			$img_size = get_theme_mod( 'zenvy_blog_post_featured_image_size', [ 'desktop' => 'medium_large' ] );
 
-			$ratio = in_array( 'auto', $img_ratio ) ? '16x9' : $img_ratio['desktop'];
+			$ratio = in_array( 'auto', $img_ratio, true ) ? '16x9' : $img_ratio['desktop'];
 
 			zenvy_post_thumbnail( $img_size['desktop'], $ratio );
 
@@ -440,7 +437,7 @@ if ( ! function_exists( 'zenvy_get_post_thumbnail' ) ) :
 		}
 	}
 
-	endif;
+endif;
 
 if ( ! function_exists( 'zenvy_featured_image_wrapper_end' ) ) {
 
@@ -499,15 +496,15 @@ if ( ! function_exists( 'zenvy_post_header' ) ) :
 								);
 								if ( $meta_elements ) {
 									foreach ( $meta_elements as $val ) {
-										if ( $val === 'author' ) {
+										if ( 'author' === $val ) {
 											zenvy_posted_by();
-										} elseif ( $val === 'categories' ) {
+										} elseif ( 'categories' === $val ) {
 											zenvy_posted_cats();
-										} elseif ( $val === 'tags' ) {
+										} elseif ( 'tags' === $val ) {
 											zenvy_posted_tags();
-										} elseif ( $val === 'date' ) {
+										} elseif ( 'date' === $val ) {
 											zenvy_posted_on();
-										} elseif ( $val === 'comments' ) {
+										} elseif ( 'comments' === $val ) {
 											zenvy_comment_count();
 										}
 									}
@@ -533,7 +530,7 @@ if ( ! function_exists( 'zenvy_post_header' ) ) :
 			<?php
 	}
 
-	endif;
+endif;
 
 if ( ! function_exists( 'zenvy_post_content' ) ) :
 
@@ -590,7 +587,7 @@ if ( ! function_exists( 'zenvy_post_content' ) ) :
 			<?php
 	}
 
-	endif;
+endif;
 
 if ( ! function_exists( 'zenvy_post_footer' ) ) :
 
@@ -658,10 +655,10 @@ if ( ! function_exists( 'zenvy_post_footer' ) ) :
 			<?php
 	}
 
-	endif;
+endif;
 
 
-	/* ------------------------------ PAGE CONTENT ------------------------------ */
+/* ------------------------------ PAGE CONTENT ------------------------------ */
 
 if ( ! function_exists( 'zenvy_page_post_header' ) ) :
 
@@ -707,7 +704,7 @@ if ( ! function_exists( 'zenvy_page_post_header' ) ) :
 			<?php
 	}
 
-	endif;
+endif;
 
 if ( ! function_exists( 'zenvy_page_content' ) ) :
 
@@ -764,7 +761,7 @@ if ( ! function_exists( 'zenvy_page_content' ) ) :
 			<?php
 	}
 
-	endif;
+endif;
 
 if ( ! function_exists( 'zenvy_page_footer' ) ) :
 
@@ -806,11 +803,11 @@ if ( ! function_exists( 'zenvy_page_footer' ) ) :
 				<?php
 	}
 
-		endif;
+endif;
 
-		/* ------------------------------ 404 PAGE ------------------------------ */
+/* ------------------------------ 404 PAGE ------------------------------ */
 
-		/* ------------------------------ FOOTER ------------------------------ */
+/* ------------------------------ FOOTER ------------------------------ */
 
 if ( ! function_exists( 'zenvy_footer_back_to_top' ) ) :
 
@@ -831,9 +828,9 @@ if ( ! function_exists( 'zenvy_footer_back_to_top' ) ) :
 		endif;
 	}
 
-		endif;
+endif;
 
-		/* ------------------------------ CONTENT ------------------------------ */
+/* ------------------------------ CONTENT ------------------------------ */
 if ( ! function_exists( 'zenvy_menu_fallback' ) ) :
 
 	/**
@@ -844,13 +841,13 @@ if ( ! function_exists( 'zenvy_menu_fallback' ) ) :
 	 * @param array $args Array of wp_nav_menu arguments.
 	 */
 	function zenvy_menu_fallback( $args = [] ) {
-		// Get the container class from args or use default
+		// Get the container class from args or use default.
 		$container_class = ! empty( $args['container_class'] ) ? $args['container_class'] : 'menu-top-menu-container';
 
-		// Get the menu class from args or use default
+		// Get the menu class from args or use default.
 		$menu_class = ! empty( $args['menu_class'] ) ? $args['menu_class'] : 'menu-wrapper';
 
-		// Get the menu ID from items_wrap or use default
+		// Get the menu ID from items_wrap or use default.
 		$menu_id = 'primary-menu-list';
 		if ( ! empty( $args['items_wrap'] ) && preg_match( '/id="([^"]+)"/', $args['items_wrap'], $matches ) ) {
 			$menu_id = $matches[1];
@@ -875,4 +872,4 @@ if ( ! function_exists( 'zenvy_menu_fallback' ) ) :
 		// @codingStandardsIgnoreEnd
 	}
 
-		endif;
+endif;

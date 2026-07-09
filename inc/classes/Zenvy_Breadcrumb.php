@@ -6,7 +6,7 @@
  */
 
 /**
- * class for breadcrumb
+ * Class for breadcrumb.
  *
  * @access public
  */
@@ -42,10 +42,15 @@ class Zenvy_Breadcrumb {
 	 */
 	private function __construct() {
 
-		// Include trial breadcrumb
+		// Include trial breadcrumb.
 		require ZENVY_THEME_DIR . 'inc/classes/Zenvy_Breadcrumb_Trail.php';
 	}
 
+	/**
+	 * Get the breadcrumb trail output.
+	 *
+	 * @return mixed
+	 */
 	public static function get_breadcrumb() {
 
 		$defaults = [
@@ -53,9 +58,9 @@ class Zenvy_Breadcrumb {
 			'echo'        => true,
 		];
 
-		$args = apply_filters( 'breadcrumb_trail_args', $defaults );
+		$args = apply_filters( 'zenvy_breadcrumb_trail_args', $defaults );
 
-		$breadcrumb = apply_filters( 'breadcrumb_trail_object', null, $args );
+		$breadcrumb = apply_filters( 'zenvy_breadcrumb_trail_object', null, $args );
 
 		if ( ! is_object( $breadcrumb ) ) {
 			$breadcrumb = new Zenvy_Breadcrumb_Trail( $args );

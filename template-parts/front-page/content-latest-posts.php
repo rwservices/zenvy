@@ -1,78 +1,77 @@
 <?php
-
 /**
  * Template part for displaying explore categories section on the front page
- * 
+ *
  * @package Zenvy
  */
 
 ?>
 <?php
-$latest_posts_count        = get_theme_mod( 'zenvy_front_page_latest_posts_number', [ 'desktop' => 3 ] );
-$show_latest_posts_sidebar = get_theme_mod( 'zenvy_front_page_latest_posts_enable_sidebar', '' );
+$zenvy_latest_posts_count        = get_theme_mod( 'zenvy_front_page_latest_posts_number', [ 'desktop' => 3 ] );
+$zenvy_show_latest_posts_sidebar = get_theme_mod( 'zenvy_front_page_latest_posts_enable_sidebar', '' );
 
-// Exclude featured posts from recent posts
+// Exclude featured posts from recent posts.
 if ( isset( $featured_posts ) && $featured_posts->have_posts() ) {
-	$featured_ids = wp_list_pluck( $featured_posts->posts, 'ID' );
+	$zenvy_featured_ids = wp_list_pluck( $featured_posts->posts, 'ID' );
 } else {
-	$featured_ids = [];
+	$zenvy_featured_ids = [];
 }
-$args = [
+$zenvy_args = [
 	'post_type'           => 'post',
-	'posts_per_page'      => $latest_posts_count['desktop'],
-	'post__not_in'        => $featured_ids,
+	'posts_per_page'      => $zenvy_latest_posts_count['desktop'],
+	'post__not_in'        => $zenvy_featured_ids,
 	'ignore_sticky_posts' => true,
 ];
 
-$recent_posts = new WP_Query( $args );
+$zenvy_recent_posts = new WP_Query( $zenvy_args );
 
-$sidebar_class = ( $show_latest_posts_sidebar && array_key_exists( 'desktop', $show_latest_posts_sidebar ) && is_active_sidebar( 'sidebar-latest-posts' ) ) ? 'section-left' : '';
+$zenvy_sidebar_class = ( $zenvy_show_latest_posts_sidebar && array_key_exists( 'desktop', $zenvy_show_latest_posts_sidebar ) && is_active_sidebar( 'sidebar-latest-posts' ) ) ? 'section-left' : '';
 
-if ( $recent_posts->have_posts() ) :
+if ( $zenvy_recent_posts->have_posts() ) :
 	?>
 	<!-- recent posts sections -->
 	<section class="section-wrap">
 		<div class="container">
 			<h2 class="screen-reader-text"><?php esc_html_e( 'Recent Posts', 'zenvy' ); ?></h2>
 			<div class="section-wrap-inner">
-				<div class="<?php echo esc_attr( $sidebar_class ); ?>">
+				<div class="<?php echo esc_attr( $zenvy_sidebar_class ); ?>">
 					<section class="blog-section">
 						<div class="post-wrapper alternative-post">
 							<?php
-							while ( $recent_posts->have_posts() ) :
-								$recent_posts->the_post();
-								$post_class = [ 'post' ];
+							while ( $zenvy_recent_posts->have_posts() ) :
+								$zenvy_recent_posts->the_post();
+								$zenvy_post_class = [ 'post' ];
 								if ( ! has_post_thumbnail() ) {
-									$post_class[] = 'no-featured-image';
+									$zenvy_post_class[] = 'no-featured-image';
 								}
 								?>
-								<article id="post-<?php the_ID(); ?>" <?php post_class( $post_class ); ?>>
+							<article id="post-<?php the_ID(); ?>" <?php post_class( $zenvy_post_class ); ?>>
 									<div class="featured-image-wrapper">
 										<?php
 										zenvy_post_thumbnail( 'medium_large', '1x1' );
-										$enable_tags = get_theme_mod( 'zenvy_front_page_latest_posts_featured_image_tags', [ 'desktop' => 'true' ] );
+										$zenvy_enable_tags = get_theme_mod( 'zenvy_front_page_latest_posts_featured_image_tags', [ 'desktop' => 'true' ] );
 
-										if ( $enable_tags && array_key_exists( 'desktop', $enable_tags ) ) {
+										if ( $zenvy_enable_tags && array_key_exists( 'desktop', $zenvy_enable_tags ) ) {
 											zenvy_posted_first_tag();
 										}
 										?>
-									</div>
+								</div>
 									<?php
-									$posts_elements = get_theme_mod(
+									$zenvy_posts_elements = get_theme_mod(
 										'zenvy_front_page_latest_posts_elements',
 										[ 'post-meta', 'post-title', 'post-excerpt', 'read-more' ]
 									);
-									$meta_elements  = get_theme_mod(
+									$zenvy_meta_elements  = get_theme_mod(
 										'zenvy_meta_elements',
 										[ 'date', 'categories' ]
 									);
 
-									if ( ! empty( $posts_elements ) ) :
+									if ( ! empty( $zenvy_posts_elements ) ) :
 										echo '<div class="post-content d-flex flex-column text-left">';
 
-										foreach ( $posts_elements as $post_element ) :
+										foreach ( $zenvy_posts_elements as $zenvy_post_element ) :
 
-											switch ( $post_element ) :
+											switch ( $zenvy_post_element ) :
 
 												case 'post-title':
 													Zenvy_Helper::post_title();
@@ -89,17 +88,17 @@ if ( $recent_posts->have_posts() ) :
 												case 'post-meta':
 													echo '<div class="entry-meta">';
 
-													if ( $meta_elements ) {
-														foreach ( $meta_elements as $val ) {
-															if ( $val === 'author' ) {
+													if ( $zenvy_meta_elements ) {
+														foreach ( $zenvy_meta_elements as $zenvy_val ) {
+															if ( 'author' === $zenvy_val ) {
 																zenvy_posted_by();
-															} elseif ( $val === 'categories' ) {
+															} elseif ( 'categories' === $zenvy_val ) {
 																zenvy_posted_cats();
-															} elseif ( $val === 'tags' ) {
+															} elseif ( 'tags' === $zenvy_val ) {
 																zenvy_posted_tags();
-															} elseif ( $val === 'date' ) {
+															} elseif ( 'date' === $zenvy_val ) {
 																zenvy_posted_on();
-															} elseif ( $val === 'comment' ) {
+															} elseif ( 'comment' === $zenvy_val ) {
 																zenvy_comment_count();
 															}
 														}
@@ -110,17 +109,17 @@ if ( $recent_posts->have_posts() ) :
 										endforeach;
 
 										echo '</div><!-- .post-details-wrap -->';
-									endif;
+										endif;
 
 									?>
 								</article><!--#post-<?php the_ID(); ?> -->
-								<?php
+									<?php
 							endwhile;
 							?>
 						</div>
 					</section>
 				</div>
-				<?php if ( $show_latest_posts_sidebar && array_key_exists( 'desktop', $show_latest_posts_sidebar ) && is_active_sidebar( 'sidebar-latest-posts' ) ) : ?>
+				<?php if ( $zenvy_show_latest_posts_sidebar && array_key_exists( 'desktop', $zenvy_show_latest_posts_sidebar ) && is_active_sidebar( 'sidebar-latest-posts' ) ) : ?>
 					<div class="section-wrap-sidebar widget-area">
 						<?php dynamic_sidebar( 'sidebar-latest-posts' ); ?>
 					</div>

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Customizer Controls Sanitize functions
  *
@@ -7,7 +6,7 @@
  */
 
 /**
- * class for customize controls sanitize values
+ * Class for customize controls sanitize values.
  *
  * @access public
  */
@@ -47,7 +46,7 @@ class Zenvy_Customizer_Sanitize_Callback {
 	/**
 	 * Sanitize Background control.
 	 *
-	 * @param $input
+	 * @param mixed $input The raw value to sanitize.
 	 * @return mixed|string|array
 	 */
 	public static function sanitize_background( $input ) {
@@ -78,7 +77,7 @@ class Zenvy_Customizer_Sanitize_Callback {
 
 				case 'colors':
 				case 'gradient':
-					// if is multiple array
+					// If is multiple array.
 					if ( is_array( $val ) ) {
 						foreach ( $val as $k => $v ) {
 							if ( ! isset( $fields[ $key ][ $v ] ) ) {
@@ -104,7 +103,7 @@ class Zenvy_Customizer_Sanitize_Callback {
 	/**
 	 * Sanitize Border control.
 	 *
-	 * @param $input
+	 * @param mixed $input The raw value to sanitize.
 	 * @return mixed|string|array
 	 */
 	public static function sanitize_border( $input ) {
@@ -127,7 +126,7 @@ class Zenvy_Customizer_Sanitize_Callback {
 					break;
 
 				case 'colors':
-					// if is multiple array
+					// If is multiple array.
 					if ( is_array( $val ) ) {
 						foreach ( $val as $k => $v ) {
 							if ( ! isset( $fields[ $key ][ $v ] ) ) {
@@ -146,7 +145,7 @@ class Zenvy_Customizer_Sanitize_Callback {
 					break;
 
 				case 'width':
-					// if is multiple array
+					// If is multiple array.
 					if ( is_array( $val ) ) {
 						foreach ( $val as $k => $v ) {
 							if ( ! isset( $fields[ $key ][ $v ] ) ) {
@@ -167,7 +166,7 @@ class Zenvy_Customizer_Sanitize_Callback {
 	/**
 	 * Sanitize Typography control.
 	 *
-	 * @param $input
+	 * @param mixed $input The raw value to sanitize.
 	 * @return mixed|string|array
 	 */
 	public static function sanitize_typography( $input ) {
@@ -192,7 +191,7 @@ class Zenvy_Customizer_Sanitize_Callback {
 					break;
 
 				case 'colors':
-					// if is multiple array
+					// If is multiple array.
 					if ( is_array( $val ) ) {
 						foreach ( $val as $k => $v ) {
 							if ( ! isset( $fields[ $key ][ $v ] ) ) {
@@ -213,7 +212,7 @@ class Zenvy_Customizer_Sanitize_Callback {
 				case 'font_size':
 				case 'line_height':
 				case 'letter_spacing':
-					// if is multiple array
+					// If is multiple array.
 					if ( is_array( $val ) ) {
 						foreach ( $val as $k => $v ) {
 							if ( ! isset( $fields[ $key ][ $v ] ) ) {
@@ -232,10 +231,10 @@ class Zenvy_Customizer_Sanitize_Callback {
 	}
 
 	/**
-	 * Sanitize Typography control.
+	 * Sanitize Color control.
 	 *
-	 * @param $input
-	 * @return array
+	 * @param mixed $input The raw value to sanitize.
+	 * @return array|false
 	 */
 	public static function sanitize_color( $input ) {
 
@@ -265,9 +264,9 @@ class Zenvy_Customizer_Sanitize_Callback {
 	/**
 	 * Sanitize Sortable control.
 	 *
-	 * @param mixed $input the value before sanitized.
-	 * @param $setting
-	 * @return array
+	 * @param mixed  $input   The value before sanitization.
+	 * @param object $setting The WP_Customize_Setting instance.
+	 * @return array|false
 	 */
 	public static function sanitize_sortable( $input, $setting ) {
 
@@ -299,8 +298,8 @@ class Zenvy_Customizer_Sanitize_Callback {
 	/**
 	 * Sanitize Toggle control.
 	 *
-	 * @param $input
-	 * @return array
+	 * @param mixed $input The raw value to sanitize.
+	 * @return array|false
 	 */
 	public static function sanitize_toggle( $input ) {
 
@@ -315,7 +314,7 @@ class Zenvy_Customizer_Sanitize_Callback {
 		}
 
 		foreach ( $data as $key => $val ) {
-			// Convert string 'true'/'false' to boolean if needed
+			// Convert string 'true'/'false' to boolean if needed.
 			if ( is_string( $val ) ) {
 				$val = filter_var( $val, FILTER_VALIDATE_BOOLEAN );
 			}
@@ -328,8 +327,8 @@ class Zenvy_Customizer_Sanitize_Callback {
 	/**
 	 * Sanitize Range control.
 	 *
-	 * @param $input
-	 * @return array
+	 * @param mixed $input The raw value to sanitize.
+	 * @return array|false
 	 */
 	public static function sanitize_range( $input ) {
 
@@ -353,8 +352,8 @@ class Zenvy_Customizer_Sanitize_Callback {
 	/**
 	 * Sanitize Dimensions control.
 	 *
-	 * @param $input
-	 * @return array
+	 * @param mixed $input The raw value to sanitize.
+	 * @return array|false
 	 */
 	public static function sanitize_dimensions( $input ) {
 
@@ -385,9 +384,9 @@ class Zenvy_Customizer_Sanitize_Callback {
 	/**
 	 * Sanitize Buttonset control.
 	 *
-	 * @param mixed $input the value before sanitized.
-	 * @param $setting
-	 * @return array
+	 * @param mixed  $input   The value before sanitization.
+	 * @param object $setting The WP_Customize_Setting instance.
+	 * @return array|false
 	 */
 	public static function sanitize_buttonset( $input, $setting ) {
 
@@ -417,9 +416,9 @@ class Zenvy_Customizer_Sanitize_Callback {
 	}
 
 	/**
-	 * Boolean value sanitize
+	 * Boolean value sanitize.
 	 *
-	 * @param mixed $value the value before sanitized.
+	 * @param mixed $value The value before sanitization.
 	 *
 	 * @return bool
 	 */
@@ -429,12 +428,12 @@ class Zenvy_Customizer_Sanitize_Callback {
 	}
 
 	/**
-	 * Choices or Options value sanitize
+	 * Choices or Options value sanitize.
 	 *
-	 * @param mixed $value the value before sanitized.
-	 * @param $setting
+	 * @param mixed  $value   The value before sanitization.
+	 * @param object $setting The WP_Customize_Setting instance.
 	 *
-	 * @return string
+	 * @return string|false
 	 */
 	public static function sanitize_choices( $value, $setting ) {
 
@@ -453,17 +452,17 @@ class Zenvy_Customizer_Sanitize_Callback {
 	}
 
 	/**
-	 * Sanitize Repeater control
+	 * Sanitize Repeater control.
 	 *
-	 * @param $value
-	 * @param $setting object $wp_customize
+	 * @param mixed  $value   The value before sanitization.
+	 * @param object $setting The WP_Customize_Setting instance.
 	 * @return bool|mixed|string|void
 	 */
 	public static function sanitize_repeater( $value, $setting ) {
 
 		$control = $setting->manager->get_control( $setting->id );
 
-		// is the value formatted as a string?
+		// Is the value formatted as a string?
 		if ( is_string( $value ) ) {
 			$value = rawurldecode( $value );
 			$value = json_decode( $value, true );
@@ -555,7 +554,7 @@ class Zenvy_Customizer_Sanitize_Callback {
 							$subfield_value = sanitize_text_field( $subfield_value );
 							break;
 						case 'textarea':
-							$subfield_value = html_entity_decode( wp_kses_post( $subfield_value ) );
+							$subfield_value = html_entity_decode( wp_kses_post( $subfield_value ), ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401 );
 					}
 				}
 				$value[ $row_id ][ $subfield_id ] = $subfield_value;

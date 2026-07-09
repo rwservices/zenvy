@@ -1,10 +1,15 @@
 <?php
 /**
- * Blogin Aarambha Theme Customizer Footer Menu settings
+ * Zenvy Theme Customizer Footer Menu settings.
  *
  * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Customize_Footer_Menu_Fields
+ *
+ * Registers customizer fields for the footer menu.
+ */
 class Zenvy_Customize_Footer_Menu_Fields extends Zenvy_Customize_Base_Field {
 
 	/**
@@ -14,7 +19,7 @@ class Zenvy_Customize_Footer_Menu_Fields extends Zenvy_Customize_Base_Field {
 	 */
 	public function init() {
 		$this->args = [
-			// Grouping Settings
+			// Grouping Settings.
 			'zenvy_footer_menu_group_settings'    => [
 				'type'     => 'group',
 				'section'  => 'footer_menu',
@@ -39,14 +44,14 @@ class Zenvy_Customize_Footer_Menu_Fields extends Zenvy_Customize_Base_Field {
 					],
 				],
 			],
-			// Note One
+			// Note One.
 			'zenvy_footer_menu_note_one'          => [
 				'type'        => 'heading',
 				'description' => sprintf( __( 'To set menu, go to <a data-type="section" data-id="menu_locations" class="customizer-focus"><strong>Footer Menu</strong></a>', 'zenvy' ) ),
 				'section'     => 'footer_menu',
 				'priority'    => 10,
 			],
-			// Items Spacing
+			// Items Spacing.
 			'zenvy_footer_menu_spacing'           => [
 				'type'              => 'range',
 				'default'           => '',
@@ -57,7 +62,7 @@ class Zenvy_Customize_Footer_Menu_Fields extends Zenvy_Customize_Base_Field {
 				'responsive'        => [ 'desktop', 'tablet', 'mobile' ],
 				'priority'          => 20,
 			],
-			// Menu font color
+			// Menu Font Color.
 			'zenvy_footer_menu_font_colors'       => [
 				'type'              => 'color',
 				'default'           => '',
@@ -75,7 +80,7 @@ class Zenvy_Customize_Footer_Menu_Fields extends Zenvy_Customize_Base_Field {
 					'color_2' => 'var(--color-gray-500)',
 				],
 			],
-			// Menu Background
+			// Menu Background.
 			'zenvy_footer_menu_background_color'  => [
 				'type'              => 'color',
 				'default'           => '',
@@ -93,14 +98,14 @@ class Zenvy_Customize_Footer_Menu_Fields extends Zenvy_Customize_Base_Field {
 					'color_2' => 'var(--color-bg-dark)',
 				],
 			],
-			// Heading four
+			// Heading Four.
 			'zenvy_footer_menu_note_six'          => [
 				'type'     => 'heading',
 				'label'    => esc_html__( 'CONTAINER', 'zenvy' ),
 				'section'  => 'footer_menu',
 				'priority' => 65,
 			],
-			// Container Padding
+			// Container Padding.
 			'zenvy_footer_menu_container_padding' => [
 				'type'              => 'dimensions',
 				'default'           => [
@@ -117,7 +122,7 @@ class Zenvy_Customize_Footer_Menu_Fields extends Zenvy_Customize_Base_Field {
 				'responsive'        => [ 'desktop', 'tablet', 'mobile' ],
 				'priority'          => 70,
 			],
-			// Container Margin
+			// Container Margin.
 			'zenvy_footer_menu_container_margin'  => [
 				'type'              => 'dimensions',
 				'default'           => '',
@@ -131,4 +136,5 @@ class Zenvy_Customize_Footer_Menu_Fields extends Zenvy_Customize_Base_Field {
 		];
 	}
 }
+
 new Zenvy_Customize_Footer_Menu_Fields();

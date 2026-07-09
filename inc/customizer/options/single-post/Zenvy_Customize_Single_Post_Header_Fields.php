@@ -5,6 +5,11 @@
  * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Customize_Single_Post_Header_Fields
+ *
+ * Handles customizer single post header fields for the Zenvy theme.
+ */
 class Zenvy_Customize_Single_Post_Header_Fields extends Zenvy_Customize_Base_Field {
 
 	/**
@@ -14,7 +19,7 @@ class Zenvy_Customize_Single_Post_Header_Fields extends Zenvy_Customize_Base_Fie
 	 */
 	public function init() {
 		$this->args = [
-			// Post Header
+			// Post header.
 			'zenvy_single_post_header_elements' => [
 				'type'              => 'sortable',
 				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_sortable' ],

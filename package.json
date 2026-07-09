@@ -1,6 +1,6 @@
 {
 	"name": "zenvy",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "A WordPress plugin with a custom post type, meta fields, shortcode, and REST API settings.",
 	"author": "Rabindra Tharu",
 	"license": "GPL-2.0-or-later",

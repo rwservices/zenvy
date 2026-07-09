@@ -5,6 +5,11 @@
  * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Customize_Front_Page_Quote_Fields
+ * 
+ * Handles customizer front page quote fields for the Zenvy theme.
+ */
 class Zenvy_Customize_Front_Page_Quote_Fields extends Zenvy_Customize_Base_Field {
 	/**
 	 * Arguments for fields.
@@ -34,7 +39,7 @@ class Zenvy_Customize_Front_Page_Quote_Fields extends Zenvy_Customize_Base_Field
 					],
 				],
 			],
-			// Quote Section Title
+			// Quote Section Title.
 			'zenvy_front_page_quote'                    => [
 				'type'              => 'text',
 				'default'           => esc_html__( 'People often say that motivation doesn\'t come from within.', 'zenvy' ),
@@ -47,14 +52,14 @@ class Zenvy_Customize_Front_Page_Quote_Fields extends Zenvy_Customize_Base_Field
 
 			'zenvy_front_page_quote_by'                 => [
 				'type'              => 'text',
-				'default'           => esc_html__( '', 'zenvy' ),
+				'default'           => '',
 				'sanitize_callback' => 'sanitize_text_field',
 				'label'             => esc_html__( 'Quote By', 'zenvy' ),
 				'section'           => 'zenvy_front_page_quote_section',
 				'priority'          => 15,
 			],
 
-			// Background Image
+			// Background Image.
 			'zenvy_front_page_quote_background'         => [
 				'type'              => 'background',
 				'default'           => '',
@@ -71,7 +76,7 @@ class Zenvy_Customize_Front_Page_Quote_Fields extends Zenvy_Customize_Base_Field
 					'size'       => true,
 				],
 			],
-			// Background Overlay
+			// Background Overlay.
 			'zenvy_front_page_quote_background_overlay' => [
 				'type'              => 'background',
 				'default'           => [

@@ -87,7 +87,7 @@ class Zenvy_Breadcrumb_Trail {
 	 * @since  0.6.0
 	 * @access public
 	 * @param  array $args  {
-	 *     @type string    $container      Container HTML element. nav|div
+	 *     @type string    $container      Container HTML element. nav|div.
 	 *     @type string    $before         String to output before breadcrumb menu.
 	 *     @type string    $after          String to output after breadcrumb menu.
 	 *     @type string    $browse_tag     The HTML tag to use to wrap the "Browse" header text.

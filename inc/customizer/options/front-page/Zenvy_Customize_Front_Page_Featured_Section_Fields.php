@@ -5,6 +5,11 @@
  * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Customize_Front_Page_Featured_Section_Fields
+ *
+ * Handles customizer front page featured section fields for the Zenvy theme.
+ */
 class Zenvy_Customize_Front_Page_Featured_Section_Fields extends Zenvy_Customize_Base_Field {
 
 	/**
@@ -14,7 +19,7 @@ class Zenvy_Customize_Front_Page_Featured_Section_Fields extends Zenvy_Customize
 	 */
 	public function init() {
 		$this->args = [
-			// Grouping Settings
+			// Grouping settings.
 			'zenvy_front_page_featured_section_group_settings' => [
 				'type'     => 'group',
 				'section'  => 'zenvy_front_page_featured_section',
@@ -40,19 +45,19 @@ class Zenvy_Customize_Front_Page_Featured_Section_Fields extends Zenvy_Customize
 					],
 				],
 			],
-			// Tag to be featured 
+			// Tag to be featured.
 			'zenvy_front_page_featured_section_tag'        => [
 				'type'              => 'select',
-				'default'           => esc_html__( 'Tag to be Featured', 'zenvy' ),
+				'default'           => '',
 				'sanitize_callback' => [ 'Zenvy_Customizer_Sanitize_Callback', 'sanitize_choices' ],
 				'label'             => esc_html__( 'Tag to be Featured', 'zenvy' ),
 				'description'       => esc_html__( 'Set post query to load with specific tag. It will load the latest post by default.', 'zenvy' ),
 				'section'           => 'zenvy_front_page_featured_section',
 				'priority'          => 15,
-				'choices'           => Zenvy_Helper::get_terms( 'post_tag' ), 
+				'choices'           => Zenvy_Helper::get_terms( 'post_tag' ),
 			],
 
-			// Featured post limit
+			// Featured post limit.
 			'zenvy_front_page_featured_section_posts_limit' => [
 				'type'              => 'range',
 				'default'           => [ 'desktop' => 3 ],
@@ -69,7 +74,7 @@ class Zenvy_Customize_Front_Page_Featured_Section_Fields extends Zenvy_Customize
 				],
 			],
 
-			// Enable/Disable Tags
+			// Enable/Disable tags.
 			'zenvy_front_page_featured_section_image_tags' => [
 				'type'              => 'toggle',
 				'default'           => [ 'desktop' => 'true' ],
@@ -80,7 +85,7 @@ class Zenvy_Customize_Front_Page_Featured_Section_Fields extends Zenvy_Customize
 				'priority'          => 23,
 			],
 
-			// Post elements
+			// Post elements.
 			'zenvy_front_page_featured_section_post_elements' => [
 				'type'              => 'sortable',
 				'default'           => [ 'post-meta', 'title', 'excerpt', 'read_more' ],
@@ -97,14 +102,14 @@ class Zenvy_Customize_Front_Page_Featured_Section_Fields extends Zenvy_Customize
 				],
 			],
 
-			// Note One
+			// Note one.
 			'zenvy_front_page_featured_section_note_one'   => [
 				'type'     => 'heading',
 				'label'    => esc_html__( 'READ MORE BUTTON', 'zenvy' ),
 				'section'  => 'zenvy_front_page_featured_section',
 				'priority' => 29,
 			],
-			// Type
+			// Type.
 			'zenvy_featured_section_read_btn_type'         => [
 				'type'              => 'buttonset',
 				'default'           => [ 'desktop' => 'default' ],
@@ -119,7 +124,7 @@ class Zenvy_Customize_Front_Page_Featured_Section_Fields extends Zenvy_Customize
 				],
 			],
 
-			// Background Image
+			// Background image.
 			'zenvy_front_page_featured_section_background' => [
 				'type'              => 'background',
 				'default'           => '',
@@ -136,7 +141,7 @@ class Zenvy_Customize_Front_Page_Featured_Section_Fields extends Zenvy_Customize
 					'size'       => true,
 				],
 			],
-			// Background Overlay
+			// Background overlay.
 			'zenvy_front_page_featured_section_background_overlay' => [
 				'type'              => 'background',
 				'default'           => [

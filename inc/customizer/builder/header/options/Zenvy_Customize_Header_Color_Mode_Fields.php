@@ -1,8 +1,14 @@
 <?php
 /**
- * Blogin Aarambha Theme Customizer Header Color Mode settings
+ * Zenvy Theme Customizer Header Color Mode settings
  *
  * @package Zenvy
+ */
+
+/**
+ * Class Zenvy_Customize_Header_Color_Mode_Fields
+ *
+ * Header color mode customizer fields.
  */
 class Zenvy_Customize_Header_Color_Mode_Fields extends Zenvy_Customize_Base_Field {
 

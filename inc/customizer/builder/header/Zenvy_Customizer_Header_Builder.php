@@ -1,6 +1,6 @@
 <?php
 /**
- * Blogin Aarambha Theme Customizer Builder
+ * Zenvy Theme Customizer Builder
  *
  * @package Zenvy
  */
@@ -8,7 +8,6 @@
 /**
  * Header Builder and Customizer Options
  */
-
 class Zenvy_Customizer_Header_Builder {
 
 	/**
@@ -112,7 +111,7 @@ class Zenvy_Customizer_Header_Builder {
 	 * @var string
 	 */
 	public $color_mode = 'color_mode';
-	
+
 
 	/**
 	 * Main Instance
@@ -124,15 +123,15 @@ class Zenvy_Customizer_Header_Builder {
 	 */
 	public static function instance() {
 
-		// Store the instance locally to avoid private static replication
+		// Store the instance locally to avoid private static replication.
 		static $instance = null;
 
-		// Only run these methods if they haven't been ran previously
+		// Only run these methods if they haven't been ran previously.
 		if ( null === $instance ) {
 			$instance = new Zenvy_Customizer_Header_Builder();
 		}
 
-		// Always return the instance
+		// Always return the instance.
 		return $instance;
 	}
 
@@ -155,24 +154,22 @@ class Zenvy_Customizer_Header_Builder {
 
 	/**
 	 * Callback functions for customize_register,
-	 * Fixed previous array issue
+	 * Fixed previous array issue.
 	 *
-	 * @param null
 	 * @return void
 	 */
 	public function set_customizer() {
 		$builder = zenvy_get_header_builder_options( Zenvy_Customizer_Header_Builder()->builder_section_controller );
 		if ( is_array( $builder ) ) {
-			$builder = json_encode( urldecode_deep( $builder ), true );
+			$builder = wp_json_encode( urldecode_deep( $builder ), true );
 		}
 		set_theme_mod( Zenvy_Customizer_Header_Builder()->builder_section_controller, $builder );
 	}
 
 	/**
-	 * Get header builder
+	 * Get header builder.
 	 *
-	 * @param null
-	 * @return void
+	 * @return mixed
 	 */
 	public function get_builder() {
 		$builder = zenvy_get_header_builder_options( Zenvy_Customizer_Header_Builder()->builder_section_controller );
@@ -184,9 +181,9 @@ class Zenvy_Customizer_Header_Builder {
 
 	/**
 	 * Callback functions for zenvy_default_theme_options,
-	 * Add Header Builder defaults values
+	 * Add Header Builder defaults values.
 	 *
-	 * @param array $default_options
+	 * @param array $default_options Default options array.
 	 * @return array
 	 */
 	public function header_defaults( $default_options = [] ) {
@@ -229,15 +226,15 @@ class Zenvy_Customizer_Header_Builder {
 
 	/**
 	 * Callback functions for zenvy_builders,
-	 * Add Header Builder elements
+	 * Add Header Builder elements.
 	 *
-	 * @param array $builder builder fields
+	 * @param array $builder Builder fields.
 	 * @return array
 	 */
 	public function header_builder( $builder ) {
 
 		$items = apply_filters(
-			'Zenvy_Customizer_Header_Builder_items',
+			'zenvy_customizer_header_builder_items',
 			[
 				Zenvy_Customizer_Header_Builder()->site_identity => [
 					'name'    => esc_html__( 'Site Identity', 'zenvy' ),
@@ -311,15 +308,15 @@ class Zenvy_Customizer_Header_Builder {
 				],
 			],
 		];
-		$header_builder = apply_filters( 'Zenvy_Customizer_Header_Builder', $header_builder );
+		$header_builder = apply_filters( 'zenvy_customizer_header_builder', $header_builder );
 		return array_merge( $builder, $header_builder );
 	}
 
 	/**
 	 * Callback functions for customize_register,
-	 * Add Panel Section control
+	 * Add Panel Section control.
 	 *
-	 * @param object $wp_customize
+	 * @param object $wp_customize WP_Customize_Manager instance.
 	 * @return void
 	 */
 	public function customize_register( $wp_customize ) {
@@ -333,7 +330,7 @@ class Zenvy_Customizer_Header_Builder {
 			[
 				'title'    => esc_html__( 'Header Builder', 'zenvy' ),
 				'priority' => 15,
-			] 
+			]
 		);
 
 		/**
@@ -462,7 +459,7 @@ class Zenvy_Customizer_Header_Builder {
 		);
 
 
-		// Header Builder Options
+		// Header Builder Options.
 		require ZENVY_THEME_DIR . 'inc/customizer/builder/header/options/Zenvy_Customize_Header_Top_Row_Fields.php';
 		require ZENVY_THEME_DIR . 'inc/customizer/builder/header/options/Zenvy_Customize_Header_Main_Row_Fields.php';
 		require ZENVY_THEME_DIR . 'inc/customizer/builder/header/options/Zenvy_Customize_Header_Bottom_Row_Fields.php';
@@ -479,9 +476,10 @@ class Zenvy_Customizer_Header_Builder {
 	}
 
 	/**
-	 * Column Element
+	 * Column Element.
 	 *
-	 * @param $column_elements
+	 * @param array $column_elements Column elements array.
+	 * @return void
 	 */
 	public function column_elements( $column_elements ) {
 		foreach ( $column_elements as $element ) {
@@ -492,8 +490,8 @@ class Zenvy_Customizer_Header_Builder {
 	}
 
 	/**
-	 * Callback Function For zenvy_action_header
-	 * Display Header Content
+	 * Callback Function For zenvy_action_header.
+	 * Display Header Content.
 	 *
 	 * @return void
 	 */
@@ -502,7 +500,7 @@ class Zenvy_Customizer_Header_Builder {
 		$builder        = $this->get_builder();
 		$active_sidebar = [];
 
-		// Desktop Display
+		// Desktop Display.
 		if ( isset( $builder['desktop'] ) && ! empty( $builder['desktop'] ) ) {
 
 			$desktop_builder_data = [];
@@ -518,15 +516,15 @@ class Zenvy_Customizer_Header_Builder {
 
 							$desktop_builder_data[ $key ][ $col_key ] = $columns;
 							$active_sidebar[]                         = $columns[0]['id'];
-						}                   
-					}               
-				}           
+						}
+					}
+				}
 			}
 			if ( ! empty( $desktop_builder_data ) ) {
 				$this->desktop_header( $desktop_builder_data );
-			}       
+			}
 		}
-		// Tablet/Mobile Display
+		// Tablet/Mobile Display.
 		if ( isset( $builder['mobile'] ) && ! empty( $builder['mobile'] ) ) {
 
 			$mobile_builder_data = [];
@@ -541,22 +539,23 @@ class Zenvy_Customizer_Header_Builder {
 						if ( ! empty( $columns ) ) {
 
 							$mobile_builder_data[ $key ][ $col_key ] = $columns;
-						}                   
-					}               
-				}           
+						}
+					}
+				}
 			}
 			if ( ! empty( $mobile_builder_data ) ) {
 				$this->mobile_header( $mobile_builder_data );
 			}
 		}
 
-		// Load sidebar template parts
+		// Load sidebar template parts.
 		self::get_elements( $active_sidebar );
 	}
 
 	/**
-	 * Display Desktop Header Content
+	 * Display Desktop Header Content.
 	 *
+	 * @param array $desktop_builder Desktop builder data array.
 	 * @return void
 	 */
 	public function desktop_header( $desktop_builder ) {
@@ -571,7 +570,7 @@ class Zenvy_Customizer_Header_Builder {
 					if ( isset( $desktop_builder['top'] ) ) {
 						$top_elements = $desktop_builder['top'];
 
-						// Left Column Content Justify
+						// Left Column Content Justify.
 						$top_row_left_col = get_theme_mod(
 							'zenvy_header_top_row_left_col_content_justify',
 							[
@@ -580,7 +579,7 @@ class Zenvy_Customizer_Header_Builder {
 								'mobile'  => 'start',
 							]
 						);
-						// Center Column Content Justify
+						// Center Column Content Justify.
 						$top_row_center_col = get_theme_mod(
 							'zenvy_header_top_row_center_col_content_justify',
 							[
@@ -589,7 +588,7 @@ class Zenvy_Customizer_Header_Builder {
 								'mobile'  => 'center',
 							]
 						);
-						// Right Column Content Justify
+						// Right Column Content Justify.
 						$top_row_right_col = get_theme_mod(
 							'zenvy_header_top_row_right_col_content_justify',
 							[
@@ -599,25 +598,25 @@ class Zenvy_Customizer_Header_Builder {
 							]
 						);
 
-						// Top Header Class
+						// Top Header Class.
 						$top_header_class = [ 'd-flex align-items-center top-header' ];
 						if ( count( $top_elements ) === 1 && zenvy_find_array_key_value( $top_elements, 'id', 'search_icon' ) ) {
 							$top_header_class[] = 'only-search-section';
 						}
-						// Top Header Row Class
+						// Top Header Row Class.
 						$top_row_class = [ 'site-header-row' ];
-						// Check left and right column exits
+						// Check left and right column exits.
 						if ( array_key_exists( 'col-0', $top_elements ) || array_key_exists( 'col-2', $top_elements ) ) {
 							$top_row_class[] = ( array_key_exists( 'col-0', $top_elements ) && array_key_exists( 'col-2', $top_elements ) ) ? 'has-sides-column' : 'has-sides-column has-no-sides-column';
 						}
-						// Check center column exits
+						// Check center column exits.
 						if ( array_key_exists( 'col-1', $top_elements ) ) {
 							$top_row_class[] = ( ! array_key_exists( 'col-0', $top_elements ) && ! array_key_exists( 'col-2', $top_elements ) ) ? 'has-only-center-column has-center-column' : 'has-center-column';
 						} else {
 							$top_row_class[] = 'has-no-center-column';
 						}
 
-						// Top Column Class
+						// Top Column Class.
 						$top_col_class = [ 'd-flex flex-wrap align-items-center' ];
 
 						?>
@@ -709,7 +708,7 @@ class Zenvy_Customizer_Header_Builder {
 					if ( isset( $desktop_builder['main'] ) ) {
 						$main_elements = $desktop_builder['main'];
 
-						// Left Column Content Justify
+						// Left Column Content Justify.
 						$main_row_left_col = get_theme_mod(
 							'zenvy_header_main_row_left_col_content_justify',
 							[
@@ -718,7 +717,7 @@ class Zenvy_Customizer_Header_Builder {
 								'mobile'  => 'start',
 							]
 						);
-						// Center Column Content Justify
+						// Center Column Content Justify.
 						$main_row_center_col = get_theme_mod(
 							'zenvy_header_main_row_center_col_content_justify',
 							[
@@ -727,7 +726,7 @@ class Zenvy_Customizer_Header_Builder {
 								'mobile'  => 'center',
 							]
 						);
-						// Right Column Content Justify
+						// Right Column Content Justify.
 						$main_row_right_col = get_theme_mod(
 							'zenvy_header_main_row_right_col_content_justify',
 							[
@@ -737,26 +736,26 @@ class Zenvy_Customizer_Header_Builder {
 							]
 						);
 
-						// Main Header Class
+						// Main Header Class.
 						$main_header_class = [ 'd-flex align-items-center main-header' ];
 						if ( count( $main_elements ) === 1 && zenvy_find_array_key_value( $main_elements, 'id', 'search_icon' ) ) {
 							$main_header_class[] = 'only-search-section';
 						}
 
-						// Main Header Row Class
+						// Main Header Row Class.
 						$main_row_class = [ 'site-header-row' ];
-						// Check left and right column exits
+						// Check left and right column exits.
 						if ( array_key_exists( 'col-0', $main_elements ) || array_key_exists( 'col-2', $main_elements ) ) {
 							$main_row_class[] = ( array_key_exists( 'col-0', $main_elements ) && array_key_exists( 'col-2', $main_elements ) ) ? 'has-sides-column' : 'has-sides-column has-no-sides-column';
 						}
-						// Check center column exits
+						// Check center column exits.
 						if ( array_key_exists( 'col-1', $main_elements ) ) {
 							$main_row_class[] = ( ! array_key_exists( 'col-0', $main_elements ) && ! array_key_exists( 'col-2', $main_elements ) ) ? 'has-only-center-column has-center-column' : 'has-center-column';
 						} else {
 							$main_row_class[] = 'has-no-center-column';
 						}
 
-						// Main Column Class
+						// Main Column Class.
 						$main_col_class = [ 'd-flex flex-wrap align-items-center' ];
 						?>
 						<div class="<?php echo esc_attr( implode( ' ', $main_header_class ) ); ?>">
@@ -849,7 +848,7 @@ class Zenvy_Customizer_Header_Builder {
 				if ( isset( $desktop_builder['bottom'] ) ) {
 					$bottom_elements = $desktop_builder['bottom'];
 
-					// Left Column Content Justify
+					// Left Column Content Justify.
 					$bottom_row_left_col = get_theme_mod(
 						'zenvy_header_bottom_row_left_col_content_justify',
 						[
@@ -858,7 +857,7 @@ class Zenvy_Customizer_Header_Builder {
 							'mobile'  => 'start',
 						]
 					);
-					// Center Column Content Justify
+					// Center Column Content Justify.
 					$bottom_row_center_col = get_theme_mod(
 						'zenvy_header_bottom_row_center_col_content_justify',
 						[
@@ -867,7 +866,7 @@ class Zenvy_Customizer_Header_Builder {
 							'mobile'  => 'center',
 						]
 					);
-					// Right Column Content Justify
+					// Right Column Content Justify.
 					$bottom_row_right_col = get_theme_mod(
 						'zenvy_header_bottom_row_right_col_content_justify',
 						[
@@ -877,27 +876,27 @@ class Zenvy_Customizer_Header_Builder {
 						]
 					);
 
-					// Bottom Header Class
+					// Bottom Header Class.
 					$header_bottom_wrap_class = [ 'site-header-bottom-wrap' ];
 					$bottom_header_class      = [ 'd-flex align-items-center bottom-header' ];
 					if ( count( $bottom_elements ) === 1 && zenvy_find_array_key_value( $bottom_elements, 'id', 'search_icon' ) ) {
 						$bottom_header_class[] = 'only-search-section';
 					}
 
-					// Main Header Row Class
+					// Main Header Row Class.
 					$bottom_row_class = [ 'site-header-row' ];
-					// Check left and right column exits
+					// Check left and right column exits.
 					if ( array_key_exists( 'col-0', $bottom_elements ) || array_key_exists( 'col-2', $bottom_elements ) ) {
 						$bottom_row_class[] = ( array_key_exists( 'col-0', $bottom_elements ) && array_key_exists( 'col-2', $bottom_elements ) ) ? 'has-sides-column' : 'has-sides-column has-no-sides-column';
 					}
-					// Check center column exits
+					// Check center column exits.
 					if ( array_key_exists( 'col-1', $bottom_elements ) ) {
 						$bottom_row_class[] = ( ! array_key_exists( 'col-0', $bottom_elements ) && ! array_key_exists( 'col-2', $bottom_elements ) ) ? 'has-only-center-column has-center-column' : 'has-center-column';
 					} else {
 						$bottom_row_class[] = 'has-no-center-column';
 					}
 
-					// Bottom Column Class
+					// Bottom Column Class.
 					$bottom_col_class = [ 'd-flex flex-wrap align-items-center' ];
 					?>
 					<div class="<?php echo esc_attr( implode( ' ', $header_bottom_wrap_class ) ); ?>">
@@ -994,8 +993,9 @@ class Zenvy_Customizer_Header_Builder {
 	}
 
 	/**
-	 * Display Mobile Header Content
+	 * Display Mobile Header Content.
 	 *
+	 * @param array $mobile_builder Mobile builder data array.
 	 * @return void
 	 */
 	public function mobile_header( $mobile_builder ) {
@@ -1006,7 +1006,7 @@ class Zenvy_Customizer_Header_Builder {
 			if ( isset( $mobile_builder['top'] ) ) {
 				$top_elements = $mobile_builder['top'];
 
-				// Left Column Content Justify
+				// Left Column Content Justify.
 				$top_row_left_col = get_theme_mod(
 					'zenvy_header_top_row_left_col_content_justify',
 					[
@@ -1015,7 +1015,7 @@ class Zenvy_Customizer_Header_Builder {
 						'mobile'  => 'start',
 					]
 				);
-				// Center Column Content Justify
+				// Center Column Content Justify.
 				$top_row_center_col = get_theme_mod(
 					'zenvy_header_top_row_center_col_content_justify',
 					[
@@ -1024,7 +1024,7 @@ class Zenvy_Customizer_Header_Builder {
 						'mobile'  => 'center',
 					]
 				);
-				// Right Column Content Justify
+				// Right Column Content Justify.
 				$top_row_right_col = get_theme_mod(
 					'zenvy_header_top_row_right_col_content_justify',
 					[
@@ -1034,26 +1034,26 @@ class Zenvy_Customizer_Header_Builder {
 					]
 				);
 
-				// Top Header Class
+				// Top Header Class.
 				$top_header_class = [ 'top-header d-flex align-items-center' ];
 				if ( count( $top_elements ) === 1 && zenvy_find_array_key_value( $top_elements, 'id', 'search_icon' ) ) {
 					$top_header_class[] = 'only-search-section';
 				}
 
-				// Top Header Row Class
+				// Top Header Row Class.
 				$top_row_class = [ 'site-header-row' ];
-				// Check left and right column exits
+				// Check left and right column exits.
 				if ( array_key_exists( 'col-0', $top_elements ) || array_key_exists( 'col-2', $top_elements ) ) {
 					$top_row_class[] = ( array_key_exists( 'col-0', $top_elements ) && array_key_exists( 'col-2', $top_elements ) ) ? 'has-sides-column' : 'has-sides-column has-no-sides-column';
 				}
-				// Check center column exits
+				// Check center column exits.
 				if ( array_key_exists( 'col-1', $top_elements ) ) {
 					$top_row_class[] = ( ! array_key_exists( 'col-0', $top_elements ) && ! array_key_exists( 'col-2', $top_elements ) ) ? 'has-only-center-column has-center-column' : 'has-center-column';
 				} else {
 					$top_row_class[] = 'has-no-center-column';
 				}
 
-				// Top Column Class
+				// Top Column Class.
 				$top_col_class = [ 'd-flex flex-wrap align-items-center' ];
 				?>
 				<div class="<?php echo esc_attr( implode( ' ', $top_header_class ) ); ?>">
@@ -1145,7 +1145,7 @@ class Zenvy_Customizer_Header_Builder {
 			if ( isset( $mobile_builder['main'] ) ) {
 				$main_elements = $mobile_builder['main'];
 
-				// Left Column Content Justify
+				// Left Column Content Justify.
 				$main_row_left_col = get_theme_mod(
 					'zenvy_header_main_row_left_col_content_justify',
 					[
@@ -1154,7 +1154,7 @@ class Zenvy_Customizer_Header_Builder {
 						'mobile'  => 'start',
 					]
 				);
-				// Center Column Content Justify
+				// Center Column Content Justify.
 				$main_row_center_col = get_theme_mod(
 					'zenvy_header_main_row_center_col_content_justify',
 					[
@@ -1163,7 +1163,7 @@ class Zenvy_Customizer_Header_Builder {
 						'mobile'  => 'center',
 					]
 				);
-				// Right Column Content Justify
+				// Right Column Content Justify.
 				$main_row_right_col = get_theme_mod(
 					'zenvy_header_main_row_right_col_content_justify',
 					[
@@ -1173,25 +1173,25 @@ class Zenvy_Customizer_Header_Builder {
 					]
 				);
 
-				// Main Header Class
+				// Main Header Class.
 				$main_header_class = [ 'main-header d-flex align-items-center' ];
 				if ( count( $main_elements ) === 1 && zenvy_find_array_key_value( $main_elements, 'id', 'search_icon' ) ) {
 					$main_header_class[] = 'only-search-section';
 				}
 
-				// Main Header Row Class
+				// Main Header Row Class.
 				$main_row_class = [ 'site-header-row' ];
-				// Check left and right column exits
+				// Check left and right column exits.
 				if ( array_key_exists( 'col-0', $main_elements ) || array_key_exists( 'col-2', $main_elements ) ) {
 					$main_row_class[] = ( array_key_exists( 'col-0', $main_elements ) && array_key_exists( 'col-2', $main_elements ) ) ? 'has-sides-column' : 'has-sides-column has-no-sides-column';
 				}
-				// Check center column exits
+				// Check center column exits.
 				if ( array_key_exists( 'col-1', $main_elements ) ) {
 					$main_row_class[] = ( ! array_key_exists( 'col-0', $main_elements ) && ! array_key_exists( 'col-2', $main_elements ) ) ? 'has-only-center-column has-center-column' : 'has-center-column';
 				} else {
 					$main_row_class[] = 'has-no-center-column';
 				}
-				// Main Column Class
+				// Main Column Class.
 				$main_col_class = [ 'd-flex flex-wrap align-items-center' ];
 				?>
 				<div class="<?php echo esc_attr( implode( ' ', $main_header_class ) ); ?>">
@@ -1283,7 +1283,7 @@ class Zenvy_Customizer_Header_Builder {
 			if ( isset( $mobile_builder['bottom'] ) ) {
 				$bottom_elements = $mobile_builder['bottom'];
 
-				// Left Column Content Justify
+				// Left Column Content Justify.
 				$bottom_row_left_col = get_theme_mod(
 					'zenvy_header_bottom_row_left_col_content_justify',
 					[
@@ -1292,7 +1292,7 @@ class Zenvy_Customizer_Header_Builder {
 						'mobile'  => 'start',
 					]
 				);
-				// Center Column Content Justify
+				// Center Column Content Justify.
 				$bottom_row_center_col = get_theme_mod(
 					'zenvy_header_bottom_row_center_col_content_justify',
 					[
@@ -1301,7 +1301,7 @@ class Zenvy_Customizer_Header_Builder {
 						'mobile'  => 'center',
 					]
 				);
-				// Right Column Content Justify
+				// Right Column Content Justify.
 				$bottom_row_right_col = get_theme_mod(
 					'zenvy_header_bottom_row_right_col_content_justify',
 					[
@@ -1311,26 +1311,26 @@ class Zenvy_Customizer_Header_Builder {
 					]
 				);
 
-				// Main Header Class
+				// Main Header Class.
 				$bottom_header_class = [ 'bottom-header d-flex align-items-center' ];
 				if ( count( $bottom_elements ) === 1 && zenvy_find_array_key_value( $bottom_elements, 'id', 'search_icon' ) ) {
 					$bottom_header_class[] = 'only-search-section';
 				}
 
-				// Main Header Row Class
+				// Main Header Row Class.
 				$bottom_row_class = [ 'site-header-row' ];
-				// Check left and right column exits
+				// Check left and right column exits.
 				if ( array_key_exists( 'col-0', $bottom_elements ) || array_key_exists( 'col-2', $bottom_elements ) ) {
 					$bottom_row_class[] = ( array_key_exists( 'col-0', $bottom_elements ) && array_key_exists( 'col-2', $bottom_elements ) ) ? 'has-sides-column' : 'has-sides-column has-no-sides-column';
 				}
-				// Check center column exits
+				// Check center column exits.
 				if ( array_key_exists( 'col-1', $bottom_elements ) ) {
 					$bottom_row_class[] = ( ! array_key_exists( 'col-0', $bottom_elements ) && ! array_key_exists( 'col-2', $bottom_elements ) ) ? 'has-only-center-column has-center-column' : 'has-center-column';
 				} else {
 					$bottom_row_class[] = 'has-no-center-column';
 				}
 
-				// Main Column Class
+				// Main Column Class.
 				$bottom_col_class = [ 'd-flex flex-wrap align-items-center' ];
 				?>
 				<div class="<?php echo esc_attr( implode( ' ', $bottom_header_class ) ); ?>">
@@ -1423,9 +1423,9 @@ class Zenvy_Customizer_Header_Builder {
 	}
 
 	/**
-	 * Footer get_elements only for the sidebar so that we can see sidebar in customizer
+	 * Footer get_elements only for the sidebar so that we can see sidebar in customizer.
 	 *
-	 * @param $sidebar_elements array
+	 * @param array $sidebar_elements Sidebar elements array.
 	 * @return void
 	 */
 	public function get_elements( $sidebar_elements ) {
@@ -1447,14 +1447,13 @@ class Zenvy_Customizer_Header_Builder {
 	}
 }
 
-/**
- * Create Instance for Zenvy_Customizer_Header_Builder
- *
- * @param
- * @return object
- */
 if ( ! function_exists( 'zenvy_customizer_header_builder' ) ) {
 
+	/**
+	 * Create Instance for Zenvy_Customizer_Header_Builder.
+	 *
+	 * @return object
+	 */
 	function zenvy_customizer_header_builder() {
 
 		return Zenvy_Customizer_Header_Builder::instance();
@@ -1463,13 +1462,13 @@ if ( ! function_exists( 'zenvy_customizer_header_builder' ) ) {
 	zenvy_customizer_header_builder()->run();
 }
 
-/**
- * Get header builder default options
- *
- * @param null
- * @return mixed zenvy_theme_options
- */
 if ( ! function_exists( 'zenvy_get_header_builder_options' ) ) :
+	/**
+	 * Get header builder default options.
+	 *
+	 * @param string $key Option key to retrieve.
+	 * @return mixed
+	 */
 	function zenvy_get_header_builder_options( $key = '' ) {
 		if ( ! empty( $key ) ) {
 			$header_default_values = Zenvy_Customizer_Header_Builder()->header_defaults();
@@ -1480,18 +1479,17 @@ if ( ! function_exists( 'zenvy_get_header_builder_options' ) ) :
 	}
 endif;
 
-/**
- * Check array key and value exist.
- *
- * @param $array array
- * @param $key string
- * @param $val string
- *
- * @return boolean
- */
 if ( ! function_exists( 'zenvy_find_array_key_value' ) ) :
-	function zenvy_find_array_key_value( $array, $key, $val ) {
-		foreach ( $array as $item ) {
+	/**
+	 * Check array key and value exist.
+	 *
+	 * @param array  $items Array to search.
+	 * @param string $key   Key to look for.
+	 * @param string $val   Value to match.
+	 * @return boolean
+	 */
+	function zenvy_find_array_key_value( $items, $key, $val ) {
+		foreach ( $items as $item ) {
 			if ( is_array( $item ) && zenvy_find_array_key_value( $item, $key, $val ) ) {
 				return true;
 			}
@@ -1505,33 +1503,26 @@ if ( ! function_exists( 'zenvy_find_array_key_value' ) ) :
 	}
 endif;
 
-
-
-/**
- * Get data columns with values.
- *
- * @access public
- * @param array $values
- * @param string $prefix
- * @return string
- */
 if ( ! function_exists( 'zenvy_get_classes' ) ) :
+	/**
+	 * Get data columns with values.
+	 *
+	 * @param array  $values Responsive values array with mobile, tablet, desktop keys.
+	 * @param string $prefix CSS class prefix.
+	 * @return string
+	 */
 	function zenvy_get_classes( $values = [], $prefix = '' ) {
 		$return = '';
 		if ( ! empty( $values ) ) {
 
-			// Base or Mobile
+			// Base or Mobile.
 			$return .= isset( $values['mobile'] ) ? esc_attr( $prefix . $values['mobile'] ) : '';
-			// Tablet
+			// Tablet.
 			$return .= isset( $values['tablet'] ) ? ' ' . esc_attr( $prefix ) . 'md-' . esc_attr( $values['tablet'] ) : '';
-			// Desktop
+			// Desktop.
 			$return .= isset( $values['desktop'] ) ? ' ' . esc_attr( $prefix ) . 'lg-' . esc_attr( $values['desktop'] ) : '';
 		}
 
 		return $return;
 	}
 endif;
-
-
-
-

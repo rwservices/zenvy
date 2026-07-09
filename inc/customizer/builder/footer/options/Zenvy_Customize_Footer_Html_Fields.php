@@ -1,10 +1,15 @@
 <?php
 /**
- * Blogin Aarambha Theme Customizer Footer HTML settings
+ * Zenvy Theme Customizer Footer HTML settings.
  *
  * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Customize_Footer_Html_Fields
+ *
+ * Registers customizer fields for the footer HTML.
+ */
 class Zenvy_Customize_Footer_Html_Fields extends Zenvy_Customize_Base_Field {
 
 	/**
@@ -14,7 +19,7 @@ class Zenvy_Customize_Footer_Html_Fields extends Zenvy_Customize_Base_Field {
 	 */
 	public function init() {
 		$this->args = [
-			// Grouping Settings
+			// Grouping Settings.
 			'zenvy_footer_html_group_settings'  => [
 				'type'     => 'group',
 				'section'  => 'footer_html',
@@ -38,7 +43,7 @@ class Zenvy_Customize_Footer_Html_Fields extends Zenvy_Customize_Base_Field {
 					],
 				],
 			],
-			// Textarea
+			// Textarea.
 			'zenvy_footer_html_text'            => [
 				'type'              => 'editor',
 				'default'           => '',
@@ -48,7 +53,7 @@ class Zenvy_Customize_Footer_Html_Fields extends Zenvy_Customize_Base_Field {
 				'section'           => 'footer_html',
 				'priority'          => 15,
 			],
-			// Text Typo
+			// Text Typo.
 			'zenvy_footer_html_text_typo'       => [
 				'type'              => 'typography',
 				'default'           => [
@@ -63,7 +68,7 @@ class Zenvy_Customize_Footer_Html_Fields extends Zenvy_Customize_Base_Field {
 				],
 				'fields'            => [ 'colors' => true ],
 			],
-			// link color
+			// Link Color.
 			'zenvy_footer_html_text_link_color' => [
 				'type'              => 'color',
 				'default'           => '',
@@ -80,7 +85,7 @@ class Zenvy_Customize_Footer_Html_Fields extends Zenvy_Customize_Base_Field {
 					'color_2' => 'var(--color-gray-600)',
 				],
 			],
-			// Padding
+			// Padding.
 			'zenvy_footer_html_padding'         => [
 				'type'              => 'dimensions',
 				'default'           => [
@@ -97,7 +102,7 @@ class Zenvy_Customize_Footer_Html_Fields extends Zenvy_Customize_Base_Field {
 				'priority'          => 55,
 				'responsive'        => [ 'desktop', 'tablet', 'mobile' ],
 			],
-			// Margin
+			// Margin.
 			'zenvy_footer_html_margin'          => [
 				'type'              => 'dimensions',
 				'default'           => '',
@@ -111,4 +116,5 @@ class Zenvy_Customize_Footer_Html_Fields extends Zenvy_Customize_Base_Field {
 		];
 	}
 }
+
 new Zenvy_Customize_Footer_Html_Fields();

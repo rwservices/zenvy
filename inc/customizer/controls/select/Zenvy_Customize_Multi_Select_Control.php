@@ -22,9 +22,9 @@ class Zenvy_Customize_Multi_Select_Control extends Zenvy_Customize_Base_Control 
 	 * Set up our control.
 	 *
 	 * @access public
-	 * @param  object $manager
-	 * @param  string $id
-	 * @param  array  $args
+	 * @param  object $manager Customizer manager instance.
+	 * @param  string $id      Control ID.
+	 * @param  array  $args    Optional. Control arguments. Default empty array.
 	 * @return void
 	 */
 	public function __construct( $manager, $id, $args = [] ) {
@@ -46,7 +46,7 @@ class Zenvy_Customize_Multi_Select_Control extends Zenvy_Customize_Base_Control 
 		// Enqueue style.
 		wp_enqueue_style( 'select2', ZENVY_THEME_URI . 'assets/build/library/select2.css', [], '4.1.0' );
 
-		// Enqueue script
+		// Enqueue script.
 		wp_enqueue_script( 'select2', ZENVY_THEME_URI . 'assets/build/library/select2.js', [ 'jquery' ], '4.1.0', true );
 	}
 

@@ -1,10 +1,15 @@
 <?php
 /**
- * Blogin Aarambha Theme Customizer Header HTML settings
+ * Zenvy Theme Customizer Header HTML settings
  *
  * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Customize_Header_Html_Fields
+ *
+ * Header HTML customizer fields.
+ */
 class Zenvy_Customize_Header_Html_Fields extends Zenvy_Customize_Base_Field {
 
 	/**
@@ -14,7 +19,7 @@ class Zenvy_Customize_Header_Html_Fields extends Zenvy_Customize_Base_Field {
 	 */
 	public function init() {
 		$this->args = [
-			// Grouping Settings
+			// Grouping Settings.
 			'zenvy_header_html_group_settings'  => [
 				'type'     => 'group',
 				'section'  => 'html',
@@ -37,7 +42,7 @@ class Zenvy_Customize_Header_Html_Fields extends Zenvy_Customize_Base_Field {
 					],
 				],
 			],
-			// Textarea
+			// Textarea.
 			'zenvy_header_html_text'            => [
 				'type'              => 'editor',
 				'default'           => '',
@@ -47,7 +52,7 @@ class Zenvy_Customize_Header_Html_Fields extends Zenvy_Customize_Base_Field {
 				'section'           => 'html',
 				'priority'          => 15,
 			],
-			// Text Typo
+			// Text Typo.
 			'zenvy_header_html_text_typo'       => [
 				'type'              => 'typography',
 				'default'           => '',
@@ -60,7 +65,7 @@ class Zenvy_Customize_Header_Html_Fields extends Zenvy_Customize_Base_Field {
 				],
 				'fields'            => [ 'colors' => true ],
 			],
-			// link color
+			// link color.
 			'zenvy_header_html_text_link_color' => [
 				'type'              => 'color',
 				'default'           => '',
@@ -77,7 +82,7 @@ class Zenvy_Customize_Header_Html_Fields extends Zenvy_Customize_Base_Field {
 					'color_2' => 'var(--color-link-hover)',
 				],
 			],
-			// Padding
+			// Padding.
 			'zenvy_header_html_padding'         => [
 				'type'              => 'dimensions',
 				'default'           => [
@@ -94,7 +99,7 @@ class Zenvy_Customize_Header_Html_Fields extends Zenvy_Customize_Base_Field {
 				'priority'          => 55,
 				'responsive'        => [ 'desktop', 'tablet', 'mobile' ],
 			],
-			// Margin
+			// Margin.
 			'zenvy_header_html_margin'          => [
 				'type'              => 'dimensions',
 				'default'           => '',

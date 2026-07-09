@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Template part for displaying Search Icon
  *
@@ -8,8 +7,8 @@
  * @package Zenvy
  */
 
-// Placeholder
-$placeholder = get_theme_mod(
+// Placeholder text.
+$zenvy_placeholder = get_theme_mod(
 	'zenvy_header_search_icon_placeholder',
 	esc_html__( 'Search...', 'zenvy' )
 );
@@ -19,7 +18,7 @@ $placeholder = get_theme_mod(
 	</a>
 	<div class="search-section">
 		<form action="<?php echo esc_url( home_url( '/' ) ); ?>" class="search-form">
-			<input type="search" class="search-field" name='s' placeholder="<?php echo esc_attr( $placeholder ); ?>" value="<?php echo esc_attr( get_search_query() ); ?>">
+			<input type="search" class="search-field" name='s' placeholder="<?php echo esc_attr( $zenvy_placeholder ); ?>" value="<?php echo esc_attr( get_search_query() ); ?>">
 			<input class="search-submit" value="Search" type="submit">
 		</form>
 		<span class="search-arrow"></span>

@@ -6,6 +6,12 @@
  * @license https://opensource.org/licenses/MIT
  */
 
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
+// phpcs:disable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedConstantFound
+// phpcs:disable Universal.Files.SeparateFunctionsFromOO.Mixed
+
 if ( ! class_exists( 'WPTT_WebFont_Loader' ) ) {
 	/**
 	 * Download webfonts locally.
@@ -232,7 +238,7 @@ if ( ! class_exists( 'WPTT_WebFont_Loader' ) ) {
 			}
 
 			ob_start();
-			include $local_path;
+			include $local_path; // phpcs:ignore WordPressVIPMinimum.Files.IncludingFile.UsingVariable
 			return ob_get_clean();
 		}
 
@@ -259,7 +265,7 @@ if ( ! class_exists( 'WPTT_WebFont_Loader' ) ) {
 			}
 
 			// Get the response.
-			$response = wp_remote_get( $this->remote_url, [ 'user-agent' => $user_agent ] );
+			$response = wp_remote_get( $this->remote_url, [ 'user-agent' => $user_agent ] ); // phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.wp_remote_get_wp_remote_get
 
 			// Early exit if there was an error.
 			if ( is_wp_error( $response ) ) {
@@ -283,7 +289,7 @@ if ( ! class_exists( 'WPTT_WebFont_Loader' ) ) {
 			$change     = false; // If in the end this is true, we need to update the cache option.
 
 			if ( ! defined( 'FS_CHMOD_DIR' ) ) {
-				define( 'FS_CHMOD_DIR', 0755 & ~ umask() );
+				define( 'FS_CHMOD_DIR', 0755 & ~ umask() ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedConstantFound
 			}
 
 			// If the fonts folder don't exist, create it.
@@ -327,9 +333,9 @@ if ( ! class_exists( 'WPTT_WebFont_Loader' ) ) {
 					 * If we got this far, we need to download the file.
 					 */
 
-					// require file.php if the download_url function doesn't exist.
+					// Require file.php if the download_url function doesn't exist.
 					if ( ! function_exists( 'download_url' ) ) {
-						require_once wp_normalize_path( ABSPATH . '/wp-admin/includes/file.php' );
+						require_once wp_normalize_path( ABSPATH . '/wp-admin/includes/file.php' ); // phpcs:ignore WordPressVIPMinimum.Files.IncludingFile.UsingCustomFunction
 					}
 
 					// Download file to temporary location.
@@ -448,7 +454,7 @@ if ( ! class_exists( 'WPTT_WebFont_Loader' ) ) {
 			$filesystem = $this->get_filesystem();
 
 			if ( ! defined( 'FS_CHMOD_DIR' ) ) {
-				define( 'FS_CHMOD_DIR', 0755 & ~ umask() );
+				define( 'FS_CHMOD_DIR', 0755 & ~ umask() ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedConstantFound
 			}
 
 			// If the folder doesn't exist, create it.
@@ -633,7 +639,7 @@ if ( ! class_exists( 'WPTT_WebFont_Loader' ) ) {
 			// If the filesystem has not been instantiated yet, do it here.
 			if ( ! $wp_filesystem ) {
 				if ( ! function_exists( 'WP_Filesystem' ) ) {
-					require_once wp_normalize_path( ABSPATH . '/wp-admin/includes/file.php' );
+					require_once wp_normalize_path( ABSPATH . '/wp-admin/includes/file.php' ); // phpcs:ignore WordPressVIPMinimum.Files.IncludingFile.UsingCustomFunction
 				}
 				WP_Filesystem();
 			}
@@ -653,7 +659,7 @@ if ( ! class_exists( 'WPTT_WebFont_Loader' ) ) {
 
 			// If dealing with a root-relative URL.
 			if ( 0 === stripos( $url, '/' ) ) {
-				$parsed_url = parse_url( $this->remote_url );
+				$parsed_url = wp_parse_url( $this->remote_url );
 				return $parsed_url['scheme'] . '://' . $parsed_url['hostname'] . $url;
 			}
 
@@ -704,3 +710,8 @@ if ( ! function_exists( 'wptt_get_webfont_url' ) ) {
 		return $font->get_url();
 	}
 }
+// phpcs:enable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
+// phpcs:enable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound
+// phpcs:enable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound
+// phpcs:enable WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedConstantFound
+// phpcs:enable Universal.Files.SeparateFunctionsFromOO.Mixed

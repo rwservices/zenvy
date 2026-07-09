@@ -1,11 +1,15 @@
 <?php
-
 /**
  * Zenvy Theme Customizer Front Page Trending Posts settings
  * 
  * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Customize_Front_Page_Trending_Posts_Fields
+ * 
+ * Handles customizer front page trending posts fields for the Zenvy theme.
+ */
 class Zenvy_Customize_Front_Page_Trending_Posts_Fields extends Zenvy_Customize_Base_Field {
 
 	/**
@@ -15,7 +19,7 @@ class Zenvy_Customize_Front_Page_Trending_Posts_Fields extends Zenvy_Customize_B
 	 */
 	public function init() {
 		$this->args = [
-			// Grouping Settings
+			// Grouping Settings.
 			'zenvy_front_page_trending_posts_group_settings' => [
 				'type'     => 'group',
 				'section'  => 'zenvy_front_page_trending_posts_section',
@@ -42,7 +46,7 @@ class Zenvy_Customize_Front_Page_Trending_Posts_Fields extends Zenvy_Customize_B
 					],
 				],
 			],
-			// Trending post limit
+			// Trending post limit.
 			'zenvy_front_page_trending_posts_limit'      => [
 				'type'              => 'range',
 				'default'           => [ 'desktop' => 3 ],
@@ -58,7 +62,7 @@ class Zenvy_Customize_Front_Page_Trending_Posts_Fields extends Zenvy_Customize_B
 					'step' => 1,
 				],
 			],
-			// Enable/Disable Tags
+			// Enable/Disable Tags.
 			'zenvy_front_page_trending_posts_featured_image_tags' => [
 				'type'              => 'toggle',
 				'default'           => [ 'desktop' => 'true' ],
@@ -68,7 +72,7 @@ class Zenvy_Customize_Front_Page_Trending_Posts_Fields extends Zenvy_Customize_B
 				'section'           => 'zenvy_front_page_trending_posts_section',
 				'priority'          => 10,
 			],
-			// Posts Elements
+			// Posts Elements.
 			'zenvy_front_page_trending_posts_elements'   => [
 				'type'              => 'sortable',
 				'default'           => [ 'post-meta', 'post-title', 'post-excerpt', 'read-more' ],
@@ -85,14 +89,14 @@ class Zenvy_Customize_Front_Page_Trending_Posts_Fields extends Zenvy_Customize_B
 				],
 			],
 
-			// Note One
+			// Note One.
 			'zenvy_front_page_trending_posts_note_one'   => [
 				'type'     => 'heading',
 				'label'    => esc_html__( 'READ MORE BUTTON', 'zenvy' ),
 				'section'  => 'zenvy_front_page_trending_posts_section',
 				'priority' => 19,
 			],
-			// Type
+			// Type.
 			'zenvy_trending_posts_read_btn_type'         => [
 				'type'              => 'buttonset',
 				'default'           => [ 'desktop' => 'default' ],
@@ -107,14 +111,14 @@ class Zenvy_Customize_Front_Page_Trending_Posts_Fields extends Zenvy_Customize_B
 				],
 			],
 
-			// Note Two
+			// Note Two.
 			'zenvy_front_page_trending_posts_note_two'   => [
 				'type'     => 'heading',
 				'label'    => esc_html__( 'SIDEBAR', 'zenvy' ),
 				'section'  => 'zenvy_front_page_trending_posts_section',
 				'priority' => 29,
 			],
-			// Show Trending Posts Sidebar Section
+			// Show Trending Posts Sidebar Section.
 			'zenvy_front_page_trending_posts_enable_sidebar' => [
 				'type'              => 'toggle',
 				'default'           => '',
@@ -125,7 +129,7 @@ class Zenvy_Customize_Front_Page_Trending_Posts_Fields extends Zenvy_Customize_B
 				'priority'          => 30,
 			],
 
-			// Background Image
+			// Background Image.
 			'zenvy_front_page_trending_posts_background' => [
 				'type'              => 'background',
 				'default'           => '',
@@ -142,7 +146,7 @@ class Zenvy_Customize_Front_Page_Trending_Posts_Fields extends Zenvy_Customize_B
 					'size'       => true,
 				],
 			],
-			// Background Overlay
+			// Background Overlay.
 			'zenvy_front_page_trending_posts_background_overlay' => [
 				'type'              => 'background',
 				'default'           => [

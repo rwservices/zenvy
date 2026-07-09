@@ -1,10 +1,15 @@
 <?php
 /**
- * Blogin Aarambha Theme Customizer Footer Copyright settings
+ * Zenvy Theme Customizer Footer Copyright settings.
  *
  * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Customize_Footer_Copyright_Fields
+ *
+ * Registers customizer fields for the footer copyright.
+ */
 class Zenvy_Customize_Footer_Copyright_Fields extends Zenvy_Customize_Base_Field {
 
 	/**
@@ -14,7 +19,7 @@ class Zenvy_Customize_Footer_Copyright_Fields extends Zenvy_Customize_Base_Field
 	 */
 	public function init() {
 		$this->args = [
-			// Grouping Settings
+			// Grouping Settings.
 			'zenvy_footer_copyright_group_settings' => [
 				'type'     => 'group',
 				'section'  => 'footer_copyright',
@@ -37,7 +42,7 @@ class Zenvy_Customize_Footer_Copyright_Fields extends Zenvy_Customize_Base_Field
 					],
 				],
 			],
-			// Textarea
+			// Textarea.
 			'zenvy_footer_copyright_text'           => [
 				'type'              => 'editor',
 				'default'           => __( 'Copyright {copyright} {current_year} {site_title}', 'zenvy' ),
@@ -47,7 +52,7 @@ class Zenvy_Customize_Footer_Copyright_Fields extends Zenvy_Customize_Base_Field
 				'section'           => 'footer_copyright',
 				'priority'          => 15,
 			],
-			// Link Open
+			// Link Open.
 			'zenvy_footer_copyright_link_target'    => [
 				'type'              => 'toggle',
 				'default'           => [ 'desktop' => 'true' ],
@@ -57,7 +62,7 @@ class Zenvy_Customize_Footer_Copyright_Fields extends Zenvy_Customize_Base_Field
 				'label'             => esc_html__( 'Link Open', 'zenvy' ),
 				'description'       => esc_html__( 'Toggle to enable link open in new window tab.', 'zenvy' ),
 			],
-			// Text Typo
+			// Text Typo.
 			'zenvy_footer_copyright_text_typo'      => [
 				'type'              => 'typography',
 				'default'           => [
@@ -80,7 +85,7 @@ class Zenvy_Customize_Footer_Copyright_Fields extends Zenvy_Customize_Base_Field
 				],
 				'fields'            => [ 'colors' => true ],
 			],
-			// Padding
+			// Padding.
 			'zenvy_footer_copyright_padding'        => [
 				'type'              => 'dimensions',
 				'default'           => [
@@ -96,7 +101,7 @@ class Zenvy_Customize_Footer_Copyright_Fields extends Zenvy_Customize_Base_Field
 				'priority'          => 55,
 				'responsive'        => [ 'desktop', 'tablet', 'mobile' ],
 			],
-			// Margin
+			// Margin.
 			'zenvy_footer_copyright_margin'         => [
 				'type'              => 'dimensions',
 				'default'           => '',
@@ -109,4 +114,5 @@ class Zenvy_Customize_Footer_Copyright_Fields extends Zenvy_Customize_Base_Field
 		];
 	}
 }
+
 new Zenvy_Customize_Footer_Copyright_Fields();

@@ -5,6 +5,11 @@
  * @package Zenvy
  */
 
+/**
+ * Class Zenvy_Customize_Global_Page_Header_Fields
+ *
+ * Handles customizer global page header fields for the Zenvy theme.
+ */
 class Zenvy_Customize_Global_Page_Header_Fields extends Zenvy_Customize_Base_Field {
 
 	/**
@@ -14,7 +19,7 @@ class Zenvy_Customize_Global_Page_Header_Fields extends Zenvy_Customize_Base_Fie
 	 */
 	public function init() {
 		$this->args = [
-			// Background Image
+			// Background image.
 			'zenvy_page_header_background'         => [
 				'type'              => 'background',
 				'default'           => '',
@@ -31,7 +36,7 @@ class Zenvy_Customize_Global_Page_Header_Fields extends Zenvy_Customize_Base_Fie
 					'size'       => true,
 				],
 			],
-			// Background Overlay
+			// Background overlay.
 			'zenvy_page_header_background_overlay' => [
 				'type'              => 'background',
 				'default'           => '',

@@ -31,6 +31,7 @@ module.exports = function( grunt ) {
 		'!**/.DS_Store', // exclude macOS metadata
 		'!**/*.tmp', // exclude temporary files
 		'!.phpcs-cache.json', // exclude phpcs cache
+		'!clean-errors.txt',
 	];
 
 	const excludeCopyFilesPro = copyFiles.slice( 0 ).concat( [ '!changelog.txt' ] );

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Template part for displaying footer menu
  *
@@ -7,6 +6,7 @@
  *
  * @package Zenvy
  */
+
 ?>
 <div id="navbar" class="navbar footer-navbar">
 	<!-- navbar starting from here -->

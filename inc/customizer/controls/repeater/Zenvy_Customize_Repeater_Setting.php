@@ -5,21 +5,21 @@
  * @package Zenvy
  */
 
-
 /**
- * Repeater Settings.
+ * Class Zenvy_Customize_Repeater_Setting
+ * 
+ * Handles the repeater customizer setting for the Zenvy theme.
  */
 class Zenvy_Customize_Repeater_Setting extends WP_Customize_Setting {
 
 	/**
-	 * Constructor.
-	 *
-	 * Any supplied $args override class property defaults.
+	 * Set up our control.
 	 *
 	 * @access public
-	 * @param \WP_Customize_Manager $manager The WordPress WP_Customize_Manager object.
-	 * @param string                $id       A specific ID of the setting. Can be a theme mod or option name.
-	 * @param array                 $args     Setting arguments.
+	 * @param  object $manager Customizer manager instance.
+	 * @param  string $id      Control ID.
+	 * @param  array  $args    Optional. Control arguments. Default empty array.
+	 * @return void
 	 */
 	public function __construct( $manager, $id, $args = [] ) {
 		parent::__construct( $manager, $id, $args );

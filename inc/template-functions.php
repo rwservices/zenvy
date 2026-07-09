@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Functions which enhance the theme by hooking into WordPress
  *
@@ -23,13 +22,13 @@ function zenvy_body_classes( $classes ) {
 		$classes[] = 'no-sidebar';
 	}
 
-	// Fixed: Added parentheses to clarify logical grouping
+	// Added parentheses to clarify logical grouping.
 	if ( ( is_front_page() && is_home() ) || is_home() || is_search() || is_archive() || is_404() ) {
 		$custom_class = 'zenvy-blog';
 		$classes[]    = esc_attr( $custom_class );
 	}
 
-	// Is Sticky Sidebar
+	// Is Sticky Sidebar.
 	$is_sticky_sidebar = get_theme_mod(
 		'zenvy_sidebar_sticky',
 		''
@@ -38,12 +37,12 @@ function zenvy_body_classes( $classes ) {
 		$classes[] = 'has-sticky-sidebar';
 	}
 
-	// Enable static Front Page
+	// Enable static Front Page.
 	if ( Zenvy_Helper::front_page_enable() ) {
 		$classes[] = 'zenvy-front-page';
 	}
 
-	// Placeholder or Thumbnail
+	// Placeholder or Thumbnail.
 	if ( is_singular() ) {
 		if ( has_post_thumbnail() ) {
 			$classes[] = 'has-thumbnail';
@@ -52,7 +51,7 @@ function zenvy_body_classes( $classes ) {
 		$classes[] = 'has-blog-thumbnail';
 	}
 
-	// button type
+	// Button type.
 	$button_type = get_theme_mod(
 		'zenvy_button_type',
 		[ 'desktop' => 'button' ]
@@ -61,12 +60,12 @@ function zenvy_body_classes( $classes ) {
 		$classes[] = 'zenvy-btn-' . esc_attr( $button_type['desktop'] );
 	}
 
-	// Button Arrow
+	// Button Arrow.
 	$button_arrow = get_theme_mod(
 		'zenvy_button_arrow',
 		[ 'desktop' => 'true' ]
 	);
-	// Fixed: Added check for 'desktop' key and value
+	// Added check for 'desktop' key and value.
 	if (
 		is_array( $button_arrow ) &&
 		array_key_exists( 'desktop', $button_arrow )
@@ -96,20 +95,20 @@ add_action( 'wp_head', 'zenvy_pingback_header' );
  * Return an array of all icons.
  */
 function zenvy_get_fontawesome() {
-	// Bail if the nonce doesn't check out
+	// Bail if the nonce doesn't check out.
 	if ( ! isset( $_POST['zenvy_customize_nonce'] ) || ! wp_verify_nonce( sanitize_key( $_POST['zenvy_customize_nonce'] ), 'zenvy_customize_nonce' ) ) {
 		wp_die();
 	}
 
-	// Do another nonce check
+	// Do another nonce check.
 	check_ajax_referer( 'zenvy_customize_nonce', 'zenvy_customize_nonce' );
 
-	// Bail if user can't edit theme options
+	// Bail if user can't edit theme options.
 	if ( ! current_user_can( 'edit_theme_options' ) ) {
 		wp_die();
 	}
 
-	// Get all of our fonts
+	// Get all of our fonts.
 	$fonts = Zenvy_Font_Awesome_Icons::$icons;
 
 	ob_start();
@@ -126,7 +125,7 @@ function zenvy_get_fontawesome() {
 	$output = ob_get_clean();
 	echo apply_filters( 'zenvy_get_fontawesome', $output ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
-	// Exit
+	// Exit.
 	wp_die();
 }
 
@@ -135,11 +134,12 @@ add_action( 'wp_ajax_zenvy_get_fontawesome', 'zenvy_get_fontawesome' );
 if ( ! function_exists( 'zenvy_get_template_part' ) ) {
 
 	/**
-	 * zenvy_get_template_part
+	 * Load a template part with optional name suffix.
 	 *
-	 * @param      $id
-	 * @param      $slug
-	 * @param null $name
+	 * @param string      $id   Template ID used for filter hooks.
+	 * @param string      $slug Template slug (file path without extension).
+	 * @param string|null $name Optional name suffix for the template.
+	 * @return void
 	 */
 	function zenvy_get_template_part( $id, $slug, $name = null ) {
 

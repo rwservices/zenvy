@@ -30,7 +30,7 @@ class Zenvy_Customize_Background_Control extends Zenvy_Customize_Base_Control {
 		// Get the basics from the parent class.
 		parent::to_json();
 
-		// default fields
+		// default fields.
 		$default_fields = [
 			'background' => false,
 			'image'      => false,
@@ -52,7 +52,7 @@ class Zenvy_Customize_Background_Control extends Zenvy_Customize_Base_Control {
 
 		$fields = wp_parse_args( $fields, $default_fields );
 
-		// Fields
+		// Fields.
 		$this->json['fields'] = $fields;
 	}
 

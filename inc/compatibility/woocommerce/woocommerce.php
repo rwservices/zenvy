@@ -7,6 +7,11 @@
 
 if ( ! class_exists( 'Zenvy_WooCommerce' ) ) :
 
+	/**
+	 * Class Zenvy_WooCommerce
+	 *
+	 * Handles WooCommerce compatibility for the Zenvy theme.
+	 */
 	class Zenvy_WooCommerce {
 
 		/**
@@ -22,20 +27,20 @@ if ( ! class_exists( 'Zenvy_WooCommerce' ) ) :
 		 */
 		public static function instance() {
 
-			// Store the instance locally to avoid private static replication
+			// Store the instance locally to avoid private static replication.
 			static $instance = null;
 
-			// Only run these methods if they haven't been ran previously
+			// Only run these methods if they haven't been ran previously.
 			if ( null === $instance ) {
 				$instance = new Zenvy_WooCommerce();
 			}
 
-			// Always return the instance
+			// Always return the instance.
 			return $instance;
 		}
 
 		/**
-		 *  Run functionality with hooks
+		 * Run functionality with hooks.
 		 *
 		 * @since    1.0.0
 		 * @access   public
@@ -45,43 +50,39 @@ if ( ! class_exists( 'Zenvy_WooCommerce' ) ) :
 		public function run() {
 			if ( Zenvy_Helper::is_woocommerce() ) {
 
-				// Load required files
+				// Load required files.
 				$this->load_file();
 
-				// WooCommerce setup function
+				// WooCommerce setup function.
 				add_action( 'after_setup_theme', [ $this, 'woocommerce_setup' ] );
 
-				// WooCommerce specific scripts & stylesheets
+				// WooCommerce specific scripts & stylesheets.
 				add_action( 'wp_enqueue_scripts', [ $this, 'woocommerce_scripts' ] );
 
 				// Add 'woocommerce-active' class to the body tag.
 				add_filter( 'body_class', [ $this, 'woocommerce_body_class' ] );
 
-				/*https://gist.github.com/mikejolley/2044109*/
+				// See https://gist.github.com/mikejolley/2044109.
 				add_filter( 'woocommerce_add_to_cart_fragments', [ $this, 'cart_fragment' ], 10, 1 );
 
 				/**
-				 * Remove WooCommerce Default hooks
+				 * Remove WooCommerce Default hooks.
 				 */
 				add_filter( 'woocommerce_show_page_title', '__return_null' );
-				
+
 				add_action( 'woocommerce_before_main_content', [ $this, 'woocommerce_output_content_wrapper' ], 5 );
 				add_action( 'zenvy_sidebar_after', [ $this, 'woocommerce_output_content_wrapper_end' ], 9999 );
 				remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
 
 				/**
-				 * Woocommerce tabs titles
+				 * WooCommerce tabs titles.
 				 */
 				add_filter( 'woocommerce_product_additional_information_heading', '__return_false' );
 				add_filter( 'woocommerce_product_description_heading', '__return_false' );
 
 				/**
-				 * Shop Page action
+				 * Shop Page action.
 				 */
-
-				// add_action( 'woocommerce_before_shop_loop_item', function() { echo '<div class="product-wrapper">'; }, 5 );
-				// add_action( 'woocommerce_after_shop_loop_item', function() { echo '</div>'; }, 10 );
-
 				add_filter(
 					'loop_shop_columns',
 					function () {
@@ -89,21 +90,17 @@ if ( ! class_exists( 'Zenvy_WooCommerce' ) ) :
 					}
 				);
 
-				// add_action( 'woocommerce_before_shop_loop', 'woocommerce_output_all_notices', 10 );
 				add_action( 'woocommerce_before_shop_loop', [ $this, 'products_results_ordering_before' ], 19 );
 				add_action( 'woocommerce_before_shop_loop', [ $this, 'products_results_ordering_after' ], 31 );
 
 				/**
-				 * Checkout Page action
+				 * Checkout Page action.
 				 */
 				add_action( 'woocommerce_checkout_before_order_review_heading', [ $this, 'wrap_order_review_before' ], 5 );
 				add_action( 'woocommerce_checkout_after_order_review', [ $this, 'wrap_order_review_after' ], 15 );
 
-
-
-
 				/**
-				 * Single Product filters
+				 * Single Product filters.
 				 */
 				add_action( 'woocommerce_before_single_product_summary', [ $this, 'single_product_wrap_before' ], -99 );
 				add_action( 'woocommerce_after_single_product_summary', [ $this, 'single_product_wrap_after' ], 9 );
@@ -113,18 +110,28 @@ if ( ! class_exists( 'Zenvy_WooCommerce' ) ) :
 			}
 		}
 
+		/**
+		 * Output the opening woocommerce content wrapper.
+		 *
+		 * @return void
+		 */
 		public function woocommerce_output_content_wrapper() {
 			echo '<section class="page-wrapper">';
 			echo '<div class="container d-flex flex-wrap">';
 		}
 
+		/**
+		 * Output the closing woocommerce content wrapper.
+		 *
+		 * @return void
+		 */
 		public function woocommerce_output_content_wrapper_end() {
-			echo '</div><! -- .container -->';
-			echo '</section><! -- .page-wrapper -->';
+			echo '</div><!-- .container -->';
+			echo '</section><!-- .page-wrapper -->';
 		}
 
 		/**
-		 *  Load required files
+		 * Load required files.
 		 *
 		 * @since    1.0.0
 		 * @access   public
@@ -164,15 +171,14 @@ if ( ! class_exists( 'Zenvy_WooCommerce' ) ) :
 			add_theme_support( 'wc-product-gallery-slider' );
 		}
 
-
 		/**
 		 * WooCommerce specific scripts & stylesheets.
 		 *
 		 * @return void
 		 */
 		public function woocommerce_scripts() {
-
-			wp_enqueue_style( 'zenvy-woocommerce', ZENVY_THEME_URI . 'assets/build/css/woocommerce' . ZENVY_RTL_SUFFIX . '.css', null, ZENVY_THEME_VERSION, 'all' );
+			wp_enqueue_style( 'zenvy-woocommerce', ZENVY_THEME_URI . 'assets/build/css/woocommerce.css', null, ZENVY_THEME_VERSION, 'all' );
+			wp_style_add_data( 'zenvy-woocommerce', 'rtl', 'replace' );
 		}
 
 		/**
@@ -236,75 +242,86 @@ if ( ! class_exists( 'Zenvy_WooCommerce' ) ) :
 		}
 
 		/**
-		 * Yith Wishlist ajax to update count
+		 * Yith Wishlist ajax to update count.
+		 *
+		 * @return void
 		 */
 		public function yith_wcwl_ajax_update_count() {
 			wp_send_json(
 				[
 					'count' => yith_wcwl_count_all_products(),
-				] 
+				]
 			);
 		}
 
 		/**
-		 * Shop page search and result before
+		 * Shop page search and result before.
+		 *
+		 * @return void
 		 */
 		public function products_results_ordering_before() {
 			echo '<div class="d-flex justify-content-between align-items-center woocommerce-sorting-wrapper">';
 		}
 
 		/**
-		 * Shop page search and result after
+		 * Shop page search and result after.
+		 *
+		 * @return void
 		 */
 		public function products_results_ordering_after() {
 			echo '</div><!-- .woocommerce-sorting-wrapper -->';
 		}
 
 		/**
-		 * Checkout wrapper
+		 * Checkout wrapper.
+		 *
+		 * @return void
 		 */
 		public function wrap_order_review_before() {
 			echo '<div class="checkout-wrapper">';
 		}
 
 		/**
-		 * Checkout wrapper end
+		 * Checkout wrapper end.
+		 *
+		 * @return void
 		 */
 		public function wrap_order_review_after() {
 			echo '</div><!-- .checkout-wrapper -->';
 		}
 
 		/**
-		 * Single product top area wrapper
+		 * Single product top area wrapper.
+		 *
+		 * @return void
 		 */
 		public function single_product_wrap_before() {
 			echo '<div class="d-flex product-gallery-summary gallery-default">';
 		}
 
 		/**
-		 * Single product top area wrapper
+		 * Single product top area wrapper end.
+		 *
+		 * @return void
 		 */
 		public function single_product_wrap_after() {
 			echo '</div><!-- .product-gallery-summary -->';
 		}
 	}
+
 endif;
 
-/**
- * Create Instance for Zenvy_WooCommerce
- *
- * @since    1.0.0
- * @access   public
- *
- * @param
- * @return object
- */
-if ( ! function_exists( 'Zenvy_WooCommerce' ) ) {
+if ( ! function_exists( 'zenvy_woocommerce_instance' ) ) {
 
-	function Zenvy_WooCommerce() {
-
+	/**
+	 * Returns the main instance of Zenvy_WooCommerce.
+	 *
+	 * @since  1.0.0
+	 * @return object
+	 */
+	function zenvy_woocommerce_instance() {
 		return Zenvy_WooCommerce::instance();
 	}
 
-	Zenvy_WooCommerce()->run();
+	zenvy_woocommerce_instance()->run();
 }

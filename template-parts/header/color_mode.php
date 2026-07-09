@@ -6,8 +6,8 @@
  *
  * @package Zenvy
  */
-?>
 
+?>
 <div class="header-color-mode-wrap">
 	<button id="theme-toggle" class="theme-color-mode" type="button">
 		<span class="color-light"><i class="fas fa-moon"></i></span>
